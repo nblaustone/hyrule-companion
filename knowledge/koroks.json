@@ -1,0 +1,59 @@
+{
+  "what": "Korok Seeds are the reward for solving 900 little hidden puzzles across Hyrule. You trade them to Hestu, a big maraca-shaped Korok, who uses them to permanently expand your three gear pouches: weapon slots, bow slots, and shield slots. More slots means you carry more gear and break fewer weapons mid-fight, so growing your inventory is one of the most useful early grinds.",
+  "hestu": "Hestu moves, then settles. (1) First meeting: on the road between Dueling Peaks Stable and Kakariko Village, just past Kakariko Bridge — do the favor in the side quest The Priceless Maracas (recover his maracas from nearby Bokoblins) and he starts upgrading. (2) Next: near Riverside Stable, west of Kakariko in Hyrule Field, by a tree along the road. (3) Permanent home: Korok Forest, deep in the Great Hyrule Forest up north (Lost Woods), by the Great Deku Tree. Rising cost curve per slot — Weapons (11 upgrades): 1,2,3,5,8,12,17,25,35,45,55 = 208. Bows (8): 1,2,3,5,8,12,17,25 = 73. Shields (16): 1,2,3,4,5,10,10,10,10,10,15,15,15,15,15,20 = 160. Maxing ALL pouches costs exactly 441 seeds — that is the cap; beyond that, extra seeds do nothing for inventory. 900 seeds exist total; turning in all 900 earns Hestu's Gift, a purely cosmetic golden poop (\"smells pretty bad\") — a joke reward, no stats.",
+  "puzzleTypes": [
+    {
+      "type": "Rock in a ring / lift the lone rock",
+      "how": "See a circle of stones with one gap, or a single suspicious rock sitting alone? Pick up a nearby rock and drop it in the ring, or just lift the lone rock to reveal the Korok under it."
+    },
+    {
+      "type": "Complete the pattern",
+      "how": "A near-symmetrical arrangement (rocks, blocks) with one piece obviously missing. Add or move a rock/block to finish the symmetry."
+    },
+    {
+      "type": "Stone circles / place the boulder",
+      "how": "A ring of small stones around an empty center wants a boulder rolled or carried into the middle."
+    },
+    {
+      "type": "Flower trail",
+      "how": "Spot a line of identical flowers (often yellow). Run to and touch each one IN ORDER without missing any; the last one spawns the Korok."
+    },
+    {
+      "type": "Balls / orbs in holes",
+      "how": "A metal or stone ball near matching divots — roll or carry it into the hole. Sometimes you guide it with Magnesis or Stasis."
+    },
+    {
+      "type": "Race / reach the goal in time",
+      "how": "Activate a glowing wisp or ring of light, then sprint (often paraglide or shield-surf) to the goal before the timer runs out."
+    },
+    {
+      "type": "Shoot the target",
+      "how": "Spot a balloon, an acorn, an apple/fruit, or a small mark? Hit it with an arrow. Sometimes several balloons must all be popped."
+    },
+    {
+      "type": "Offering to a pedestal / altar",
+      "how": "A small shrine-like pedestal with a fruit or item carved on it — place that exact item (apple, durian, etc.) on it."
+    },
+    {
+      "type": "Matching spin (pinwheel / cube)",
+      "how": "Two pinwheels or a floating cube — rotate the cube (climb and push, or Magnesis) so its colored faces match the surrounding pattern."
+    },
+    {
+      "type": "Light the torches",
+      "how": "Several unlit torches near one lit flame (or you bring fire). Light every torch, usually using a torch/fire arrow/flint."
+    },
+    {
+      "type": "Dive into a ring",
+      "how": "A ring of light or floating circle below a cliff — paraglide or dive straight through the center to spawn the Korok."
+    }
+  ],
+  "hotspots": [
+    "Out-of-place rocks: a single rock on a stump, peak, or cliff edge is almost always a lift-the-rock Korok — check every lonely boulder.",
+    "Circles with a gap: any ring of stones missing one piece means grab the nearest loose rock and complete it.",
+    "Tops of things: peaks, towers, ruined pillars, and lone trees on hills frequently hide rock-lift or dive-into-ring puzzles — climb up and look around.",
+    "Stables and Towers: the ground around every Stable and Sheikah Tower usually has 1-2 easy Koroks (rocks, balloons, or flower trails) right nearby.",
+    "Bright fruit/acorns on trees: an apple or acorn sitting alone on a branch or pinwheel-marked tree is a shoot-the-target Korok.",
+    "Geometry that looks 'almost right': any too-neat pile, pattern, or symmetry that's off by one piece is a complete-the-pattern puzzle."
+  ],
+  "notes": "CORRECTED two arithmetic errors in the original dataset's cost totals (web-verified against ScreenRant, GamesRadar, GameWith, GoSuNoob, Zeldapedia/Fandom): the weapon-pouch total is 208 (not 203) and the shield-pouch total is 160 (not 165). The per-slot sequences themselves were correct; only the sums were off. Confirmed totals: Weapons 1,2,3,5,8,12,17,25,35,45,55 = 208; Bows 1,2,3,5,8,12,17,25 = 73; Shields 1,2,3,4,5,10,10,10,10,10,15,15,15,15,15,20 = 160. Sum 208+73+160 = 441 to max everything (the cap). Starting slots confirmed 8 weapons / 5 bows / 4 shields, ending at 19 / 13 / 20 (plus the Master Sword and Bow of Light, which sit outside the pouches). 900 seeds exist total; all-900 reward is Hestu's Gift (cosmetic golden poop, a pun on Japan's kin no unko good-luck charm). Hestu's three locations and the side quest The Priceless Maracas (recover his maracas from Bokoblins before the first upgrade) confirmed. The Korok Mask (from The Master Trials DLC) shakes to flag nearby seeds — handy for hunting beyond 441 but not needed for inventory. Puzzle-type list reflects well-documented common categories; these are community labels (the game gives no per-type official name), so phrasing describes the mechanic rather than asserting an official name. All oneLine/hint text kept under 160 chars. Confidence high on all corrected numbers."
+}

@@ -1,0 +1,209 @@
+{
+  "enemies": [
+    {
+      "name": "Bokoblin",
+      "tier": "common",
+      "tactic": "Sneakstrike from behind for a one-shot, or aim a charged arrow at the head; a parried club leaves it open to combos.",
+      "drops": "Bokoblin Horn, Bokoblin Fang, Bokoblin Guts"
+    },
+    {
+      "name": "Moblin",
+      "tier": "common",
+      "tactic": "Bigger Bokoblin: dodge its wide swing, then backstab, or whittle it with arrows; a sneakstrike still helps but won't one-shot stronger ones.",
+      "drops": "Moblin Horn, Moblin Fang, Moblin Guts"
+    },
+    {
+      "name": "Lizalfos",
+      "tier": "common",
+      "tactic": "They strafe and leap, so bait an attack then flurry-rush; headshot arrows stagger them and elemental arrows counter their element.",
+      "drops": "Lizalfos Horn, Lizalfos Talon, Lizalfos Tail"
+    },
+    {
+      "name": "Chuchu (elemental)",
+      "tier": "common",
+      "tactic": "Hit Fire Chuchu with ice (and vice versa) or just smack it; killing an elemental one leaves jelly you can throw to freeze, burn, or shock foes.",
+      "drops": "Chuchu Jelly; elemental ones drop Red/White/Yellow Chuchu Jelly"
+    },
+    {
+      "name": "Keese",
+      "tier": "common",
+      "tactic": "Swat with any melee swing or a single arrow; elemental Keese are quenched by their opposite element and their wings/eyeballs are crafting loot.",
+      "drops": "Keese Wing, Keese Eyeball"
+    },
+    {
+      "name": "Octorok",
+      "tier": "common",
+      "tactic": "They snipe from grass or water, so hit the head with an arrow, or catch their rock spit on a shield to bounce it right back at them.",
+      "drops": "Octo Balloon, Octorok Tentacle, Octorok Eyeball"
+    },
+    {
+      "name": "Wizzrobe (elemental)",
+      "tier": "common",
+      "tactic": "Six types: Fire/Ice/Electric and stronger Meteo/Blizz/Thunder; each is weak to its opposite element, so shoot it with an opposing arrow to drop it.",
+      "drops": "Elemental rods (Fire/Ice/Lightning, and Meteor/Blizzard/Thunderstorm rods)"
+    },
+    {
+      "name": "Pebblit",
+      "tier": "common",
+      "tactic": "Mini-Talus in Stone, Igneo and Frost types: smash it with a heavy weapon or a bomb; Igneo and Frost ones burn or freeze on touch, so use ranged hits.",
+      "drops": "Flint, ore, or a gem (Frost ones can drop Sapphire)"
+    },
+    {
+      "name": "Stone Talus",
+      "tier": "mini-boss",
+      "tactic": "Climb on and pound the black ore lump on its back with a hammer/heavy weapon; bomb arrows or a Knight's claymore wreck the weak spot fast.",
+      "drops": "Flint, Amber, Opal, gems and ore"
+    },
+    {
+      "name": "Stone Talus (Luminous)",
+      "tier": "mini-boss",
+      "tactic": "Same fight as a Stone Talus but tougher (about 600 HP); the back lump is luminous ore, so hit it for Luminous Stone plus gems.",
+      "drops": "Luminous Stone, Topaz, Diamond, Amber, Opal, Flint"
+    },
+    {
+      "name": "Stone Talus (Rare)",
+      "tier": "mini-boss",
+      "tactic": "The toughest stone type (around 900 HP); attack the ore vein on its back and expect rich gem drops like Ruby, Sapphire and Diamond.",
+      "drops": "Ruby, Sapphire, Diamond, Topaz, Amber, Opal, Flint"
+    },
+    {
+      "name": "Igneo Talus",
+      "tier": "mini-boss",
+      "tactic": "Found in Eldin and made of lava; douse its glowing core with ice arrows to cool it, then climb up and smash the back weak point.",
+      "drops": "Flint, Ruby, ore"
+    },
+    {
+      "name": "Frost Talus",
+      "tier": "mini-boss",
+      "tactic": "Hebra/Gerudo highlands cousin of Igneo; hit its icy core with fire arrows to thaw it, then climb on and hammer the back lump.",
+      "drops": "Flint, Sapphire, ore"
+    },
+    {
+      "name": "Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin)",
+      "tier": "common",
+      "tactic": "Nighttime skeletons: knock them apart, then quickly smash the skull before the bones reassemble; one good hit to the head ends them.",
+      "drops": "Bokoblin/Moblin/Lizalfos Horns, Fangs and Talons; each leaves a usable arm (no Guts)"
+    },
+    {
+      "name": "Hinox",
+      "tier": "mini-boss",
+      "tactic": "Shoot its single eye to stun it, then unload on the downed giant; you can also pluck the weapons hanging from its neck while it sleeps.",
+      "drops": "Hinox Toenail, Hinox Tooth, Hinox Guts, Hinox Horn; necklace weapons"
+    },
+    {
+      "name": "Stalnox",
+      "tier": "mini-boss",
+      "tactic": "Skeletal Hinox: arrow its eye to make it pop out, grab or destroy the loose eyeball, then attack; smash the skull when it collapses to bones.",
+      "drops": "Hinox Tooth; rare weapons lodged in its skeleton"
+    },
+    {
+      "name": "Molduga",
+      "tier": "boss",
+      "tactic": "In the Gerudo sand it tracks footsteps, so toss a Remote Bomb to lure it up, detonate to stun, then sprint in and combo before it dives.",
+      "drops": "Molduga Fin, Molduga Guts"
+    },
+    {
+      "name": "Guardian Stalker",
+      "tier": "guardian",
+      "tactic": "Walking six-legged Guardian: perfect-parry its blue charged laser with a shield to reflect it for huge damage, or shoot the glowing eye to stun.",
+      "drops": "Ancient parts (gears, springs, cores, shafts); can drop Giant Ancient Core"
+    },
+    {
+      "name": "Guardian Skywatcher",
+      "tier": "guardian",
+      "tactic": "Flying Guardian that beams from above; time a shield parry on its laser to bounce it back, or snipe the eye with ancient/strong arrows.",
+      "drops": "Ancient parts (gears, cores, shafts); can drop Giant Ancient Core"
+    },
+    {
+      "name": "Guardian Turret",
+      "tier": "guardian",
+      "tactic": "Stationary laser Guardian fixed to floors in shrines/ruins; parry the laser back at it or arrow the eye, then climb up to finish it.",
+      "drops": "Ancient parts; can drop Giant Ancient Core"
+    },
+    {
+      "name": "Decayed Guardian",
+      "tier": "guardian",
+      "tactic": "Broken husks stuck in the ground that swing arms; dodge the sweep and flurry-rush, or just shoot the eye and smash the arms off.",
+      "drops": "Ancient parts (often Ancient Screw/Spring)"
+    },
+    {
+      "name": "Guardian Scout",
+      "tier": "guardian",
+      "tactic": "Shrine Guardians come in I-IV with sword/spear/laser arms; flurry-rush after a dodge and parry the spinning laser sweep to reflect it.",
+      "drops": "Ancient parts; Scout III/IV can drop an Ancient Core"
+    },
+    {
+      "name": "Yiga Footsoldier",
+      "tier": "yiga",
+      "tactic": "They disguise as travelers then turn hostile; dodge the sickle and flurry-rush, stun with arrows, and many can be calmed with a Mighty Banana.",
+      "drops": "Mighty Bananas, occasionally weapons"
+    },
+    {
+      "name": "Yiga Blademaster",
+      "tier": "yiga",
+      "tactic": "Big windcleaver Yiga that teleports and goes invisible; wait out the leaping overhead slam, sidestep into a flurry rush, repeat until down.",
+      "drops": "Mighty Bananas, Demon Carver/Windcleaver, gems"
+    },
+    {
+      "name": "Lynel (Red-maned)",
+      "tier": "mini-boss",
+      "tactic": "Weakest Lynel: headshot to stagger, sprint up and mount it for free hits; perfect-dodge its charge or parry its beam to flurry-rush.",
+      "drops": "Lynel Horn/Hoof/Guts, Lynel weapons, shield"
+    },
+    {
+      "name": "Lynel (Blue-maned)",
+      "tier": "mini-boss",
+      "tactic": "Tougher than red and adds fire/elemental attacks; same plan: headshot to stun, mount and slash, flurry-rush its melee and charges.",
+      "drops": "Lynel Horn/Hoof/Guts, stronger Lynel gear"
+    },
+    {
+      "name": "Lynel (White-maned)",
+      "tier": "mini-boss",
+      "tactic": "High HP and aggressive elemental attacks; stock strong bows for headshot stuns, mount for big hits, and never stop dodging into flurry rushes.",
+      "drops": "Lynel Horn/Hoof/Guts, mighty Lynel gear"
+    },
+    {
+      "name": "Lynel (Silver)",
+      "tier": "mini-boss",
+      "tactic": "The deadliest Lynel with the most HP; multishot bow headshots to stun, mount and combo, and flurry-rush every charge, slam and beam.",
+      "drops": "Lynel Horn/Hoof/Guts, savage Lynel weapons/shield/bow"
+    },
+    {
+      "name": "Windblight Ganon",
+      "tier": "boss",
+      "tactic": "Vah Medoh blight: use Revali's Gale to reposition past its wind blasts, then snipe the glowing eye; bomb arrows or a strong bow burn it down.",
+      "drops": null
+    },
+    {
+      "name": "Waterblight Ganon",
+      "tier": "boss",
+      "tactic": "Vah Ruta blight: in phase two raise Cryonis blocks for cover and to climb, dodge the spear lunges, and flurry-rush or arrow the eye.",
+      "drops": null
+    },
+    {
+      "name": "Fireblight Ganon",
+      "tier": "boss",
+      "tactic": "Vah Rudania blight: shield or dodge its fireballs, and when it charges a fire ring, hit it with an ice arrow or Daruk's Protection to break it.",
+      "drops": null
+    },
+    {
+      "name": "Thunderblight Ganon",
+      "tier": "boss",
+      "tactic": "Vah Naboris blight: flurry-rush its lightning-fast dashes in phase one; in phase two it electrifies pillars, so topple one with a strike to stun it.",
+      "drops": null
+    },
+    {
+      "name": "Calamity Ganon",
+      "tier": "boss",
+      "tactic": "Final boss recaps the Blights' attacks; parry Guardian-style lasers, flurry-rush its melee, and pour bomb/ancient arrows into the orange weak spot.",
+      "drops": null
+    },
+    {
+      "name": "Dark Beast Ganon",
+      "tier": "boss",
+      "tactic": "On horseback, fire the Bow of Light at the glowing spots on each side (three per side), then the belly spot, then the eye on its forehead to win.",
+      "drops": null
+    }
+  ],
+  "notes": "Adversarial verify complete; web-checked against Game8/Zelda Dungeon/Fandom/Zeldapedia. Corrections made (errors/invented content found): (1) Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin) do NOT drop Guts -- organs have decayed -- and 'Ancient Bones' is a Tears of the Kingdom item, NOT BotW; removed both. They drop Horns/Fangs/Talons and each leaves a usable arm. (2) Stalnox does NOT drop 'Ancient Bones'/'Stalnox parts'; it drops Hinox Tooth plus rare weapons lodged in its skeleton. Corrected. (3) Wizzrobe: original listed only 5 types and missed Thunder Wizzrobe -- there are SIX (Fire/Ice/Electric base + Meteo/Blizz/Thunder strong variants). Drops corrected: Wizzrobes drop only elemental rods; 'wing tips/horns' was invented (no such monster-part drop in BotW). (4) Guardian Scout: removed 'Giant Ancient Core' -- Scouts only drop a regular Ancient Core (III/IV); Giant Ancient Cores come only from Stalker/Skywatcher/Turret, so I added that note to those three. (5) Dark Beast Ganon weak points corrected: NOT 'eyes and chest core' -- it is three glowing spots on each side (6 total), then a belly spot, then a single eye on the forehead. (6) Pebblit types corrected to the real names Stone/Igneo/Frost ('lava' is the Igneo type). Verified-accurate items kept: Stone Talus (Luminous) ~600 HP and Rare ~900 HP confirmed; Luminous drops Luminous Stone+Topaz+Diamond, Rare drops Ruby/Sapphire/Diamond/Topaz; Hinox drops (Toenail/Tooth/Guts/Horn); Octorok (Octo Balloon/Tentacle/Eyeball); Lizalfos (Horn/Talon/Tail) all real; Molduga (Fin/Guts); the four Blights and both Ganon forms. Schema note: tier enum has no 'blight', so the four Divine Beast Blights and the two Ganon forms are filed under 'boss'. Confidence high on the corrections; the exact gem mix per Talus drop can vary by RNG so those are representative, not exhaustive. Minor caveat: White-maned Lynel gear is the 'Mighty' tier and Silver is 'Savage' -- adjusted from the original which labeled White as 'savage'. Chuchu base form drops plain Chuchu Jelly; only elemental Chuchus drop colored jelly (clarified)."
+}

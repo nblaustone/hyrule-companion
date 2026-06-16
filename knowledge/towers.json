@@ -1,0 +1,92 @@
+[
+  {
+    "region": "Great Plateau",
+    "name": "Great Plateau Tower",
+    "location": "Center of the Great Plateau, just southeast of the Temple of Time. It's the first tower in the game and the one the Old Man points you to.",
+    "climbTip": "No thorns or Malice here, so it's a pure stamina climb. Rest on the angled struts and ledges to refill your wheel, then paraglide off the top to spot the four shrines."
+  },
+  {
+    "region": "Dueling Peaks",
+    "name": "Dueling Peaks Tower",
+    "location": "On the west bank of the Squabble River in West Necluda, just north of Dueling Peaks Stable, at the foot of the twin peaks.",
+    "climbTip": "Climb the rock ledges at the base, then scale the lattice, resting on the horizontal beams to recover stamina. No Guardians here, so take a calm, staged climb; eat a stamina meal if you're low."
+  },
+  {
+    "region": "Hateno",
+    "name": "Hateno Tower",
+    "location": "On a hill in central East Necluda, just northwest of Hateno Village and the road toward Fort Hateno.",
+    "climbTip": "Base is wrapped in burnable thorny vines and guarded by Bokoblins/Moblins. Burn the thorns (fire arrow or a flame) and climb fast, since they regrow within minutes."
+  },
+  {
+    "region": "Lanayru",
+    "name": "Lanayru Tower",
+    "location": "Rises out of the Lanayru Wetlands, north of Kakariko Village and east of the Dueling Peaks, on the road toward Zora's Domain",
+    "climbTip": "The base sits in a nest of Lizalfos and Wizzrobes. Easiest approach: climb the ladder to the lookout platform northwest of the tower and paraglide across to a high face, skipping most enemies. Lizalfos sleep at night, so attempt it after dark. Rain makes the stone slippery, so bring climbing-boost food or rest on ledges."
+  },
+  {
+    "region": "Lake Hylia",
+    "name": "Lake Tower",
+    "location": "On the small island in the middle of Lake Hylia, just north of the Bridge of Hylia in south-central Hyrule.",
+    "climbTip": "The tower base sits in open water, so glide in or swim across from the Bridge of Hylia. No Malice or thorns here, but stamina matters: top up stamina food before the climb. From the top you can paraglide west toward Hylia Island to reach Ya Naga."
+  },
+  {
+    "region": "Faron",
+    "name": "Faron Tower",
+    "location": "Rises from the Hill of Baltha, in the wooded highlands northeast of Lakeside Stable, overlooking the Faron rainforest and Calora Lake.",
+    "climbTip": "The tower is wrapped in thorny vines that damage you on contact. Burn them off with a fire arrow or torch, or hop between the bare stone gaps, then climb. Bring stamina food; it is a tall climb in humid heat."
+  },
+  {
+    "region": "Central Hyrule",
+    "name": "Central Tower",
+    "location": "On the edge of Hyrule Field just west of Hyrule Castle, in the open expanse near the Castle Town Ruins.",
+    "climbTip": "Ringed by Decayed Guardians and patrolled by Guardian Stalkers that laser you mid-climb. Approach from the south/west using ruins as cover, climb fast, and clear or distract the Guardians (or wear climbing/Ancient gear) first."
+  },
+  {
+    "region": "Hyrule Ridge",
+    "name": "Ridgeland Tower",
+    "location": "West-central Hyrule Ridge, set in a small lake; it faces east toward Thundra Plateau, west of the Central Tower region",
+    "climbTip": "The base lake holds Electric Wizzrobes and Electric Lizalfos that can shock you off the wall, so clear or avoid them first; rubber armor or shock-resist food helps. Climb the inner struts to dodge obstacles and pace your stamina."
+  },
+  {
+    "region": "Tabantha",
+    "name": "Tabantha Tower",
+    "location": "Atop Nero Hill in the Tabantha Frontier, northwest Hyrule, between Rito Village and the Hebra Mountains. Reach it up the snowy slope from the Tabantha Great Bridge.",
+    "climbTip": "Malice covers the base and lower walls. Burn the Malice eyeball spikes near Nero Hill, then climb the clean stone above. Bring warm gear or spicy food for the cold."
+  },
+  {
+    "region": "Hebra",
+    "name": "Hebra Tower",
+    "location": "Atop a rock spire in the Hebra Mountains, just southwest of Snowfield Stable / north of the Tabantha frontier, overlooking the frozen Hebra range",
+    "climbTip": "Bitter cold up here, so wear cold-resist gear or sip a spicy elixir before you start. The tower itself is climbable, but the smart play is to glide in from the higher peaks to the south/west rather than climb up from the freezing valley floor."
+  },
+  {
+    "region": "Great Hyrule Forest",
+    "name": "Woodland Tower",
+    "location": "In the swampy Military Training Camp, southeast of the Great Hyrule Forest and northeast of Hyrule Castle.",
+    "climbTip": "Clear the Bokoblin/Moblin camp first. Approach from higher ground to the east, glide in, and avoid the malice-soaked swamp at the base that drains stamina."
+  },
+  {
+    "region": "Eldin",
+    "name": "Eldin Tower",
+    "location": "Eldin Canyon, atop a rocky peak south of Death Mountain and north of Foothill Stable, overlooking the lava fields of the canyon.",
+    "climbTip": "No puzzle to solve, but the base sits in a lava field, so cross the rock bridges to reach it and rest on the platforms to refill stamina. The area is extreme heat, so wear Flamebreaker gear or drink a Fireproof Elixir before climbing."
+  },
+  {
+    "region": "Akkala",
+    "name": "Akkala Tower",
+    "location": "Central Akkala, on a rock spire rising from a Malice-soaked pool in the Akkala Wilds, not far north of South Akkala Stable, ringed by Guardians",
+    "climbTip": "The base sits in a Malice bog patrolled by Guardians. Approach from a rim with rock cover, dodge the beams, then climb a Malice-free face of the spire. Bring stamina food."
+  },
+  {
+    "region": "Gerudo Highlands",
+    "name": "Gerudo Tower",
+    "location": "On a tall spire in the Gerudo Highlands northeast of Gerudo Town, its base wrapped in thorns.",
+    "climbTip": "Burn the thorns at the base (Fire Arrow, torch, or a Bomb) before climbing, or paraglide in from the higher cliffs to the east."
+  },
+  {
+    "region": "Gerudo Desert",
+    "name": "Wasteland Tower",
+    "location": "On a rock spire in the Gerudo Desert, northwest of Divine Beast Vah Naboris, northeast of Gerudo Town and southwest of the Gerudo Great Skeleton.",
+    "climbTip": "Climb at night to avoid daytime heat damage, or wear Gerudo/heat-resist gear; bring stamina food since the spire is tall. Watch for hazards below."
+  }
+]

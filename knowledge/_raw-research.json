@@ -1,0 +1,2340 @@
+{
+  "regions": [
+    {
+      "regionKey": "great_plateau",
+      "regionName": "Great Plateau",
+      "tower": {
+        "name": "Great Plateau Tower",
+        "location": "Center of the Great Plateau, just southeast of the Temple of Time. It's the first tower in the game and the one the Old Man points you to.",
+        "climbTip": "No thorns or Malice here, so it's a pure stamina climb. Rest on the angled struts and ledges to refill your wheel, then paraglide off the top to spot the four shrines."
+      },
+      "shrines": [
+        {
+          "name": "Oman Au Shrine",
+          "location": "Northeast of the Great Plateau Tower, on the open plateau; the first shrine the Old Man sends you to.",
+          "category": "puzzle",
+          "oneLine": "Grants the Magnesis Trial. Use Magnesis to move the metal blocks and bridge the gaps to reach the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Ja Baij Shrine",
+          "location": "East side of the plateau, near the East Abbey ruins.",
+          "category": "puzzle",
+          "oneLine": "Grants the Bomb Trial (Remote Bombs). Use round and cube bombs to blast cracked walls and clear a path to the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Owa Daim Shrine",
+          "location": "Southeast of Mount Hylia's peak, atop a ledge just outside the mountain's freezing zone (no cold gear needed here).",
+          "category": "puzzle",
+          "oneLine": "Grants the Stasis Trial. Freeze the moving platform with Stasis, hit it to load momentum, then ride it across the gap.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Keh Namut Shrine",
+          "location": "Northwest of Mount Hylia's peak, in the snowy freezing zone. Bring cold protection (warm food or the Warm Doublet) before heading up.",
+          "category": "puzzle",
+          "oneLine": "Grants the Cryonis Trial. Raise ice pillars from the water with Cryonis to make platforms and climb up to the monk.",
+          "shrineQuest": null
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "The Old Man's Diary (Warm Doublet)",
+          "giver": "The Old Man, via his diary in the Woodcutter's House near the Forest of Spirits",
+          "oneLine": "Read his diary, then cook the dish he forgot: Spicy Meat and Seafood Fry (Raw Meat + Spicy Pepper + Hyrule Bass), and he'll reward you.",
+          "reward": "Warm Doublet (cold-resistance armor)"
+        }
+      ],
+      "notes": "Shrine count is exactly four: Oman Au (Magnesis), Ja Baij (Bombs), Owa Daim (Stasis), Keh Namut (Cryonis). All are rune-granting tutorial puzzle shrines: none are combat (no Guardian/Test of Strength), blessing, or quest-gated. Each gives a Spirit Orb; clearing all four is what the Old Man requires before trading you the Paraglider to leave the Plateau. The Owa Daim location was corrected: it sits southeast of Mount Hylia's peak on a ledge OUTSIDE the freezing zone, so it does NOT need cold gear; only Keh Namut and the upper northwest slopes are cold-hazard areas. No Great Fairy Fountain exists on the Great Plateau (greatFairy is correctly null). Note: the draft's fairy-region mapping was wrong and is fixed here. The four BotW Great Fairies are Cotera (near Kakariko Village, Necluda), Kaysa (Tabantha), Mija (Akkala, near Tarrey Town / Dah Hesho), and Tera (Gerudo Desert). The draft swapped Kaysa and Mija. Cotera near Kakariko is the closest fountain to the Plateau. On side quests: the Plateau has no formal 'Side Quests' adventure-log entries; the Warm Doublet task is technically part of the Old Man's main-quest sequence but is the region's one notable optional reward, so it's listed as the de-facto side quest. If you skip it, the Warm Doublet also appears in a chest at the Woodcutter's House after all four shrines are cleared. Confidence high on shrines, tower, and Great Fairy facts; slightly lower on side-quest classification given the main-quest overlap.",
+      "confidence": 0.95,
+      "greatFairy": null,
+      "changes": [
+        "Owa Daim Shrine location fixed: it is southeast of Mount Hylia's peak on a ledge OUTSIDE the freezing zone, not on 'Mount Hylia's southern slope' in a cold area. Removed the implication that cold gear is needed for it.",
+        "Notes hazard section corrected accordingly: only Keh Namut / upper northwest slopes are the cold-hazard area; Owa Daim is not.",
+        "Great Fairy notes corrected: draft swapped Kaysa and Mija. Correct mapping is Cotera (Kakariko/Necluda), Kaysa (Tabantha), Mija (Akkala, near Tarrey Town/Dah Hesho), Tera (Gerudo Desert). Draft had 'Tabantha (Mija)' and 'Tarrey Town (Kaysa)' reversed.",
+        "Standardized hint wording to the in-game trial names (Magnesis Trial, Bomb Trial, Stasis Trial, Cryonis Trial) for accuracy.",
+        "Refined Keh Namut location from 'high up on snowy Mount Hylia' to 'northwest of Mount Hylia's peak in the snowy freezing zone' for geographic precision.",
+        "Added to notes that the Warm Doublet also appears in a chest at the Woodcutter's House after clearing all four shrines (alternate acquisition).",
+        "Minor tower climbTip wording tweak: paraglide off the top to 'spot' the four shrines (you don't reach all four directly from the tower)."
+      ]
+    },
+    {
+      "regionKey": "dueling-peaks",
+      "regionName": "Dueling Peaks",
+      "tower": {
+        "name": "Dueling Peaks Tower",
+        "location": "On the west bank of the Squabble River in West Necluda, just north of Dueling Peaks Stable, at the foot of the twin peaks.",
+        "climbTip": "Climb the rock ledges at the base, then scale the lattice, resting on the horizontal beams to recover stamina. No Guardians here, so take a calm, staged climb; eat a stamina meal if you're low."
+      },
+      "shrines": [
+        {
+          "name": "Ha Dahamar Shrine",
+          "location": "In the small pond just west of Dueling Peaks Stable, on the riverbank.",
+          "category": "puzzle",
+          "oneLine": "The Water Guides: use Cryonis to clear the entrance spikes, then raise ice on the waterfall wall to steer the orb, pinball-style, into its slot.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Bosh Kala Shrine",
+          "location": "West of the Dueling Peaks Tower, just south of the East Post Ruins and west of Proxim Bridge, along the path in from the Great Plateau.",
+          "category": "puzzle",
+          "oneLine": "The Wind Guides You: open your paraglider in the updrafts from the fans to float across the gaps and reach the chest and altar.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Ree Dahee Shrine",
+          "location": "In the valley between the twin peaks, just north of the Squabble River, between Dueling Peaks Tower and Dueling Peaks Stable.",
+          "category": "puzzle",
+          "oneLine": "Timing Is Critical: hit switches to tilt platforms and roll orbs into sockets, activating moving platforms; time your dashes across them.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Toto Sah Shrine",
+          "location": "South of Dueling Peaks Stable across the twin bridges, behind a bombable wall along the river near Hickaly Woods.",
+          "category": "puzzle",
+          "oneLine": "Toto Sah Apparatus: use the Sheikah Slate to rotate the motion-control platforms into pathways and reach the monk's pedestal.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Ta'loh Naeg Shrine",
+          "location": "On the hill directly north of Kakariko Village, up the steps; it's the village's main travel gate.",
+          "category": "combat",
+          "oneLine": "Ta'loh Naeg's Teaching: a combat tutorial — practice perfect dodge (flurry rush), perfect guard, and the charged spin attack against the Guardian Scout.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Lakna Rokee Shrine",
+          "location": "East of Kakariko Village, revealed at the end of the Stolen Heirloom investigation.",
+          "category": "quest",
+          "oneLine": "Lakna Rokee's Blessing: recover Paya's stolen heirloom, then claim the orb. It's a free blessing once the quest reveals the shrine.",
+          "shrineQuest": "The Stolen Heirloom"
+        },
+        {
+          "name": "Shee Vaneer Shrine",
+          "location": "At the summit of the south twin peak, southeast of Dueling Peaks Tower.",
+          "category": "puzzle",
+          "oneLine": "Twin Memories: a mirrored orb puzzle — memorize the orb layout in its twin (Shee Venath) and replicate it here on the 5x5 grid.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Shee Venath Shrine",
+          "location": "At the summit of the north twin peak, southeast of Dueling Peaks Tower.",
+          "category": "puzzle",
+          "oneLine": "Twin Memories: a mirrored orb puzzle — memorize the orb layout in its twin (Shee Vaneer) and replicate it here on the 5x5 grid.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Hila Rao Shrine",
+          "location": "On the Floret Sandbar, an islet where the Hylia River meets Nabi Lake, northeast of Dueling Peaks Tower in West Necluda.",
+          "category": "quest",
+          "oneLine": "Drifting: first cross Magda's flower field without trampling a bloom to reveal the shrine; inside, use Cryonis on the flowing water.",
+          "shrineQuest": "Watch Out for the Flowers"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "The Stolen Heirloom",
+          "giver": "Paya / Dorian (Kakariko Village)",
+          "oneLine": "Investigate the theft of the Sheikah heirloom from Impa's house, tail Dorian at night, and recover the orb — this reveals Lakna Rokee Shrine.",
+          "reward": "Lakna Rokee Shrine (Spirit Orb)"
+        },
+        {
+          "name": "Watch Out for the Flowers",
+          "giver": "Magda (Floret Sandbar)",
+          "oneLine": "Cross Magda's flower field to the shrine without stepping on a single bloom, or she turns hostile — this reveals Hila Rao Shrine.",
+          "reward": "Hila Rao Shrine (Spirit Orb)"
+        },
+        {
+          "name": "Find the Fairy Fountain",
+          "giver": "Pikango (Kakariko Village)",
+          "oneLine": "Help the traveling painter find the nearby Great Fairy Fountain northeast of Kakariko to awaken Cotera; afterward he gives shrine-photo hints.",
+          "reward": "Reveals Cotera's location; Pikango then offers shrine location hints"
+        },
+        {
+          "name": "By Firefly's Light",
+          "giver": "Lasli (Kakariko Village, at night)",
+          "oneLine": "Catch and deliver 5 Sunset Fireflies to Lasli, who misses chasing them at night.",
+          "reward": "Rupees"
+        },
+        {
+          "name": "Cucco Conundrum",
+          "giver": "Cado (Kakariko Village)",
+          "oneLine": "Round up Cado's escaped Cuccos and return all 10 to the pen near the chief's house.",
+          "reward": "Rupees"
+        }
+      ],
+      "greatFairy": {
+        "name": "Great Fairy Cotera",
+        "location": "In the woods northeast of Kakariko Village (behind/up the path past Ta'loh Naeg Shrine), inside a giant flower bud.",
+        "unlockCost": "100 rupees to open the bud the first time. Talk to Pikango first ('Find the Fairy Fountain') to learn her location."
+      },
+      "notes": "Region has 9 shrines per Game8's Dueling Peaks Tower region page (Hila Rao on Floret Sandbar is filed here, though some sources place it in Central Hyrule — borderline, kept). High confidence on all 9 names and trial subtitles. BIGGEST DRAFT ERROR: the twin-peaks shrines are subtitled 'Twin Memories' (a mirrored 5x5 orb-grid memory puzzle), NOT 'The Two Rings' — there is no arrow-through-rings puzzle and no shrine quest gating them; the draft invented that entirely. They are puzzle shrines, not blessings, and Vaneer=south peak / Venath=north peak. Ha Dahamar's trial is 'The Water Guides' (not 'A Test of Wood') and it sits WEST of Dueling Peaks Stable, not east. Bosh Kala is WEST of the tower (south of East Post Ruins, west of Proxim Bridge), not on the tower's south side. Ree Dahee sits in the valley between the peaks north of the river. Ta'loh Naeg is on the hill north of Kakariko and is a combat tutorial vs a Guardian Scout (correct category). Hila Rao's trial is 'Drifting'. Removed the invented side quest 'Flown the Coop'/'Trissa'/'Curiy Shop' — that is not a real BotW quest (Flown the Coop is a Tears of the Kingdom quest). Cotera is one of only 4 Great Fairies and is correctly assigned to this region; 100-rupee cost confirmed.",
+      "confidence": 0.93,
+      "changes": [
+        "Twin peaks (Shee Vaneer/Shee Venath): changed category from 'quest'/blessing to 'puzzle' and replaced the invented 'The Two Rings'/'shoot an arrow through stone rings' hint with the real trial 'Twin Memories' (mirrored 5x5 orb-grid memory puzzle).",
+        "Removed the fabricated shrineQuest 'The Two Rings' from both twin-peaks shrines — they are not quest-revealed and that quest does not exist.",
+        "Ha Dahamar: fixed trial name from 'A Test of Wood' to 'The Water Guides' and corrected location from 'east of the stable' to the pond WEST of Dueling Peaks Stable; tightened the Cryonis hint.",
+        "Bosh Kala: corrected location from 'south side of Dueling Peaks Tower near the river' to west of the tower (south of East Post Ruins, west of Proxim Bridge).",
+        "Ree Dahee: corrected location to the valley between the peaks, north of the Squabble River (draft put it east of the stable on the river's east side); used the real trial name 'Timing Is Critical'.",
+        "Ta'loh Naeg: corrected location from 'eastern terrace near the Goddess Statue' to the hill directly north of Kakariko; noted it fights a Guardian Scout and is the village travel gate.",
+        "Toto Sah & Lakna Rokee & Hila Rao: tightened hints/locations; added Hila Rao's real trial name 'Drifting' and Lakna Rokee's subtitle 'Lakna Rokee's Blessing'.",
+        "Removed invented side quest 'Flown the Coop' (giver 'Trissa', 'The Curiy Shop') — not a real BotW quest (it's a Tears of the Kingdom quest).",
+        "Added 'Watch Out for the Flowers' (Magda) as an explicit shrine-quest entry in sideQuests.",
+        "Fixed 'The Stolen Heirloom' giver attribution to Paya/Dorian (the investigation centers on Paya's theft and tailing Dorian).",
+        "Tower: trimmed location wording for accuracy and kept the staged-climb tip."
+      ]
+    },
+    {
+      "regionKey": "hateno",
+      "regionName": "Hateno (East Necluda / Hateno Tower region)",
+      "tower": {
+        "name": "Hateno Tower",
+        "location": "On a hill in central East Necluda, just northwest of Hateno Village and the road toward Fort Hateno.",
+        "climbTip": "Base is wrapped in burnable thorny vines and guarded by Bokoblins/Moblins. Burn the thorns (fire arrow or a flame) and climb fast, since they regrow within minutes."
+      },
+      "shrines": [
+        {
+          "name": "Myahm Agana Shrine",
+          "location": "On the hill at the east edge of Hateno Village, near the plot where you can buy a house.",
+          "category": "puzzle",
+          "oneLine": "Tilt-maze (Myahm Agana Apparatus): use motion controls to guide the ball, or flip the maze fully upside-down so the ball rolls across the flat back to the goal.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Tahno O'ah Shrine",
+          "location": "On the East Necluda coast, near the shore northeast of the Hateno Ancient Tech Lab.",
+          "category": "blessing",
+          "oneLine": "Tahno O'ah's Blessing: no puzzle. Reach the out-of-the-way ledge by the cliffs, enter, and collect the free Spirit Orb from the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Jitan Sa'mi Shrine",
+          "location": "At the summit of Mount Lanayru, behind the Goddess Statue at the Spring of Wisdom.",
+          "category": "quest",
+          "oneLine": "Cold climb. Free corrupted Naydra by shooting all its glowing points, then offer a Naydra's Scale at the Goddess Statue to open the shrine (free orb inside).",
+          "shrineQuest": "The Spring of Wisdom"
+        },
+        {
+          "name": "Kam Urog Shrine",
+          "location": "Northeast of Fort Hateno, in a clearing of statues near a small graveyard south of the Lanayru Promenade.",
+          "category": "quest",
+          "oneLine": "Talk to Calip and call him 'doctor'. At night a statue's eyes glow purple by the headstones; shoot it with an arrow to raise the buried shrine.",
+          "shrineQuest": "The Cursed Statue"
+        },
+        {
+          "name": "Mezza Lo Shrine",
+          "location": "Northeastern East Necluda on Rabia Plain, near Kass's platform southeast of Lanayru Tower (across the Rutala River).",
+          "category": "quest",
+          "oneLine": "The Crowned Beast: hear Kass's verse, then tame and mount a Mountain Buck (stag) and ride it onto the nearby platform to raise the buried shrine.",
+          "shrineQuest": "The Crowned Beast"
+        },
+        {
+          "name": "Chaas Qeta Shrine",
+          "location": "Out in the Necluda Sea on tiny Tenoko Island, southeast of Hateno Village (visible from the coast).",
+          "category": "combat",
+          "oneLine": "A Major Test of Strength: raft or paraglide out to the island and beat the upgraded Guardian Scout for the orb and ancient gear.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Dow Na'eh Shrine",
+          "location": "Along the Lanayru Promenade at the west edge of East Necluda, hidden behind a waterfall.",
+          "category": "puzzle",
+          "oneLine": "Three Boxes: find the hidden treasure boxes and set them on the matching pressure switches to open the gate to the monk.",
+          "shrineQuest": null
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "The Statue's Bargain",
+          "giver": "Teebo (boy in Hateno Village; Horned Statue on the village outskirts)",
+          "oneLine": "Pray to the Horned Statue to sell back a Heart Container or Stamina Vessel for 100 rupees, then rebuy for 120 to re-spec hearts vs stamina.",
+          "reward": "Ability to swap hearts/stamina (net 20-rupee fee per swap)"
+        },
+        {
+          "name": "The Sheep Rustlers",
+          "giver": "Koyin (sheep keeper at Hateno Pasture)",
+          "oneLine": "Clear the Bokoblins menacing the herd, then drive the three loose sheep back into the pen at Hateno Pasture before time runs out.",
+          "reward": "10 bottles of Fresh Milk"
+        },
+        {
+          "name": "The Weapon Connoisseur",
+          "giver": "Nebb (boy in Hateno Village)",
+          "oneLine": "Long quest: show Nebb 8 specific named weapons (Soldier's Broadsword, Knight's gear, etc.) one at a time over many visits.",
+          "reward": "Rupees per weapon, plus a Diamond on completion"
+        },
+        {
+          "name": "A Gift for My Beloved",
+          "giver": "Manny (boy near the inn in Hateno Village)",
+          "oneLine": "Find out innkeeper Prima's favorite drink for the lovestruck Manny, then bring her the right gift to win her over.",
+          "reward": "Rupees"
+        },
+        {
+          "name": "Slated for Upgrades",
+          "giver": "Purah (Hateno Ancient Tech Lab)",
+          "oneLine": "After the lab is powered (Locked Mementos), bring Purah ancient materials and she powers up your Sheikah Slate runes (sensor, camera, etc.).",
+          "reward": "Sheikah Slate rune upgrades"
+        },
+        {
+          "name": "Robbie's Research",
+          "giver": "Purah (Hateno Ancient Tech Lab; sends you to Robbie at Akkala)",
+          "oneLine": "Purah sends you to find Robbie at the Akkala Ancient Tech Lab; show him your scars to prove who you are and unlock ancient-tech crafting.",
+          "reward": "3 Ancient Arrows and access to Akkala Tech Lab research"
+        }
+      ],
+      "notes": "Region = Hateno Tower region / East Necluda; the 7-shrine roster is verified and complete (Game8, Gamer Guides, GameFAQs agree): Myahm Agana, Tahno O'ah, Jitan Sa'mi, Kam Urog, Mezza Lo, Chaas Qeta, Dow Na'eh. THREE are quest-gated, not two: Jitan Sa'mi (The Spring of Wisdom), Kam Urog (The Cursed Statue), and Mezza Lo (The Crowned Beast). The draft wrongly described Mezza Lo as a Stasis 'Ancient Trifecta' puzzle revealed without a quest — that conflated it with a different shrine (Mijah Rokeh / the Ancient Trifecta quest). Mezza Lo is buried and raised by riding a tamed Mountain Buck onto Kass's platform on Rabia Plain. Kam Urog's internal monk trial is 'Trial of Passing' (sources also spell it 'Trial of Passage'); minor and not used in a data field. Hateno Tower's base is burnable THORNS guarded by Bokoblins/Moblins, not Malice — the draft's 'Malice with a Guardian-like eye' was invented. Great Fairy: none in this region; greatFairy is null. The nearest is Cotera, whose fountain is northeast of Kakariko Village in West Necluda (a different region) — correct to leave null. Only 4 Great Fairies exist total (Cotera, Kaysa, Mija, Tera). Hazards: Mt. Lanayru summit is freezing — bring cold-resist food/elixirs or warm doublet/Snowquill before the Spring of Wisdom climb; Chaas Qeta needs an offshore trip to Tenoko Island. Side-quest reward fixes: The Sheep Rustlers gives Fresh Milk (not a Ruby), The Weapon Connoisseur ends with a Diamond, and the blue-flame furnace task belongs to the main quest 'Locked Mementos', not 'Slated for Upgrades'. Slightly lower confidence on exact Tech-Lab quest internals than on the shrine roster, which is solid.",
+      "confidence": 0.9,
+      "changes": [
+        "Hateno Tower climbTip: removed invented 'thorny Malice with a Guardian-like eye'; the base is ordinary burnable thorny vines guarded by Bokoblins/Moblins, and they regrow within minutes so you must climb fast.",
+        "Mezza Lo Shrine: corrected category from 'puzzle' to 'quest' and set shrineQuest to 'The Crowned Beast'. Replaced the invented 'Ancient Trifecta / Stasis boulder' hint (that belongs to a different shrine, Mijah Rokeh) with the real reveal: hear Kass's verse, tame and ride a Mountain Buck onto the platform to raise the buried shrine.",
+        "Notes: corrected 'two quest-gated shrines' to THREE (added Mezza Lo / The Crowned Beast alongside Jitan Sa'mi and Kam Urog).",
+        "Jitan Sa'mi Shrine: clarified you shoot ALL of Naydra's glowing points (not a single eye) and then offer a Naydra's Scale at the Goddess Statue at the Spring of Wisdom to open the shrine.",
+        "The Sheep Rustlers: corrected reward from 'Rupees (and a Ruby in the camp chest)' to the actual quest reward of 10 bottles of Fresh Milk; reworded objective to driving the loose sheep back to the Hateno Pasture pen.",
+        "The Weapon Connoisseur: corrected reward to note the final prize is a Diamond (plus rupees per weapon) and specified 8 named weapons.",
+        "Slated for Upgrades: removed the inaccurate blue-flame/furnace step (that belongs to the main quest 'Locked Mementos'); the rune upgrades come from bringing Purah ancient materials.",
+        "Robbie's Research: clarified the reward (3 Ancient Arrows and access to Akkala Tech Lab ancient-tech research) and the 'show your scars' step.",
+        "Minor location wording cleanups (Tahno O'ah, Kam Urog, Dow Na'eh, Mezza Lo) and added that Myahm Agana's mechanism is the Myahm Agana Apparatus.",
+        "Verified greatFairy stays null: confirmed Cotera's fountain is in West Necluda near Kakariko, outside this region; only 4 Great Fairies exist total."
+      ]
+    },
+    {
+      "regionKey": "lanayru",
+      "regionName": "Lanayru",
+      "tower": {
+        "name": "Lanayru Tower",
+        "location": "Rises out of the Lanayru Wetlands, north of Kakariko Village and east of the Dueling Peaks, on the road toward Zora's Domain",
+        "climbTip": "The base sits in a nest of Lizalfos and Wizzrobes. Easiest approach: climb the ladder to the lookout platform northwest of the tower and paraglide across to a high face, skipping most enemies. Lizalfos sleep at night, so attempt it after dark. Rain makes the stone slippery, so bring climbing-boost food or rest on ledges."
+      },
+      "shrines": [
+        {
+          "name": "Kaya Wan Shrine",
+          "location": "Lanayru Wetlands, directly beside the west side of the Wetland Stable, northwest of Lanayru Tower",
+          "category": "puzzle",
+          "oneLine": "Shields From Water: use Cryonis to raise ice pillars across the water-filled chambers, navigating past a Guardian Scout to reach the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Daka Tuss Shrine",
+          "location": "On a small island in the Lanayru Wetlands, southwest of Lanayru Tower and north of Kakariko Village",
+          "category": "puzzle",
+          "oneLine": "Sunken Scoop: use Magnesis on the sunken metal bowl to scoop floating balls and drop them into the cages, then sink the bowl onto the switch.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Sheh Rata Shrine",
+          "location": "On a small island in the Hylia River within the Lanayru Wetlands, reachable via an underwater path or raft",
+          "category": "puzzle",
+          "oneLine": "Speed of Light: spin the crank to rotate the laser onto the crystal switch, using Cryonis ice pillars to cross the water and reach platforms.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Soh Kofi Shrine",
+          "location": "On a cliff just north of Lanayru Tower, near the path to Sidon's bridge; glide over from the tower top",
+          "category": "combat",
+          "oneLine": "A Minor Test of Strength: defeat the Guardian Scout II with sword and shield, dodging its spin and beam attacks; chest holds a Knight's Bow.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Ne'ez Yohma Shrine",
+          "location": "In the center of Zora's Domain, below King Dorephan's throne room",
+          "category": "puzzle",
+          "oneLine": "Pushing Power: use Cryonis to shove the Ancient Orb across the sloped waterway into its slot while dodging the boulders rolling down.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Dagah Keek Shrine",
+          "location": "Lanayru Great Spring, atop Veiled Falls near Zora's Domain (revealed by the shrine quest)",
+          "category": "quest",
+          "oneLine": "Blessing shrine revealed by the shrine quest; a free Spirit Orb and a chest with a Silver Rupee wait inside, no puzzle.",
+          "shrineQuest": "The Ceremonial Song"
+        },
+        {
+          "name": "Rucco Maag Shrine",
+          "location": "On the Samasa Plain in the Lanayru Great Spring, south of Zora's Domain, set within a stone-spike maze patrolled by Lizalfos",
+          "category": "puzzle",
+          "oneLine": "Five Flames: light all five torches on the floating cube and pillars with a torch, avoiding the water spout and keeping the flame above water.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Kah Mael Shrine",
+          "location": "On Tingel Island, the northernmost island of the chain in the Lanayru Sea (far northeast), hidden under a stone slab",
+          "category": "puzzle",
+          "oneLine": "Drop and Rise: lift the slab with an Octo Balloon or Stasis to enter, then shoot the ropes so the cube drops on the scale and launches the barrel up.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Shai Yota Shrine",
+          "location": "On a small island in Horon Lagoon in the Lanayru Sea, far east of the region (revealed by the shrine quest)",
+          "category": "quest",
+          "oneLine": "Free Spirit Orb: the monk grants the orb simply for reaching the shrine; the real challenge is the Master of the Wind quest outside.",
+          "shrineQuest": "Master of the Wind"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "Frog Catching",
+          "giver": "Tumbo (Zora child near the inn and general store, Zora's Domain)",
+          "reward": "Armoranth",
+          "oneLine": "Bring Tumbo five Hot-Footed Frogs caught around the Domain's pools and waterfalls."
+        },
+        {
+          "name": "Luminous Stone Gathering",
+          "giver": "Ledo (Zora at the entrance just past the bridge into Zora's Domain)",
+          "reward": "Diamonds (2 for the first 10 stones, then 1 per 10)",
+          "oneLine": "Mine Luminous Stones from nearby cliffs and hand them to Ledo in batches of ten."
+        },
+        {
+          "name": "Lynel Safari",
+          "giver": "Laflat (by the bridge at the eastern end of Zora's Domain)",
+          "reward": "Rupees",
+          "oneLine": "Sneak a photo of the Lynel roaming Ploymus Mountain with the camera rune and bring it back to Laflat."
+        },
+        {
+          "name": "Diving is Beauty!",
+          "giver": "Gruve (Zora on an upper level by a waterfall in Zora's Domain)",
+          "reward": "5 Fleet-Lotus Seeds",
+          "oneLine": "Perform a beautiful dive off the high platform into the water below, then report to Gruve."
+        },
+        {
+          "name": "Zora Stone Monuments",
+          "giver": "Jiahto (Zora historian on the floor below the throne room, Zora's Domain)",
+          "reward": "Diamond (on completion)",
+          "oneLine": "Read all ten Zora Stone Monuments scattered around Zora's Domain and Vah Ruta's region, then report back to Jiahto."
+        }
+      ],
+      "notes": "Verified against Game8, GameFAQs, Zelda Dungeon, and Zeldapedia/Fandom. The Lanayru Tower map sector contains exactly 9 shrines: Kaya Wan, Daka Tuss, Sheh Rata, Soh Kofi, Ne'ez Yohma, Dagah Keek, Rucco Maag, Kah Mael, and Shai Yota. Roster names and count are well sourced. TWO shrines are quest-gated: Dagah Keek (via The Ceremonial Song) and Shai Yota (via Master of the Wind); both are free-orb blessing-style shrines, not internal puzzles, so they are categorized as 'quest'. The Ceremonial Song: talk to Laruta by the fountain, then to Trello on the northwest bridge; recover the Ceremonial Trident from the water with Cryonis + Magnesis, then dive-stab the podium atop Veiled Falls in Zora Armor to reveal Dagah Keek. IMPORTANT GEOGRAPHY FIX: NONE of the 9 Lanayru shrines are on snowy Mount Lanayru. Kah Mael (Tingel Island) and Shai Yota (Horon Lagoon) are both on low, warm islands in the Lanayru Sea, NOT on Mount Lanayru, so no cold-resistance gear is needed for them. Hazards: the Wetlands have constant rain that makes climbing slippery, so bring climbing-boost food or a stamina cushion; the Lanayru Tower area is heavily infested with Lizalfos and Wizzrobes (clear at night). Zora's Domain itself and the waterfalls around it are far easier to traverse with the Zora Armor (lets you swim up waterfalls), which you receive early in the Vah Ruta storyline. The Sea-island shrines (Kah Mael, Shai Yota) and Rucco Maag are reached on foot/glider, not by deep diving. No Great Fairy Fountain exists in Lanayru; the four fountains are Cotera (West Necluda), Kaysa (Tabantha/Ridgeland), Mija (Akkala), and Tera (Gerudo) — greatFairy is null. The 'Find the Fairy Fountain' quest points to Cotera in Necluda, not Lanayru. Lower confidence remains on exact rupee amounts for Lynel Safari (varies by report) and minor flavor wording.",
+      "confidence": 0.9,
+      "changes": [
+        "Daka Tuss hint was wrong: the puzzle is a Magnesis 'scoop' with a sunken metal bowl to lift floating balls into cages, not dropping a metal ball onto a seesaw. Rewrote the oneLine.",
+        "Sheh Rata location refined to 'small island in the Hylia River, Lanayru Wetlands' (draft said vaguely 'northern Wetlands, west of Zora's Domain'); hint corrected to the rotating-laser + crystal-switch + Cryonis-pillar puzzle (draft's 'raise water and float the orb' was inaccurate).",
+        "Ne'ez Yohma hint corrected: the orb is moved with Cryonis up a sloped waterway while dodging boulders, not 'water current and Stasis-timed pushes'. Location refined to 'below King Dorephan's throne room'.",
+        "Rucco Maag location corrected: it is on the Samasa Plain in the Lanayru Great Spring (south of Zora's Domain) inside a stone-spike maze, NOT 'Lanayru Sea coast, partly underwater'. Removed the 'partly underwater' and 'Vah Ruta's perch' errors.",
+        "Kaya Wan hint was completely wrong: the trial uses Cryonis ice pillars to cross water and pass a Guardian Scout, not Magnesis metal crates blocking flame jets and water spouts. Rewrote the oneLine.",
+        "Kah Mael location was WRONG: it is on Tingel Island, the northernmost island in the Lanayru Sea (hidden under a stone slab), NOT on Mount Lanayru's snowy western slopes. Hint corrected to the scale puzzle: lift the slab (Octo Balloon/Stasis), then shoot the ropes so the cube drops and launches the barrel.",
+        "Shai Yota location was WRONG: it is on an island in Horon Lagoon in the Lanayru Sea (far east), NOT on Mount Lanayru near Naydra/Spring of Wisdom. It is also quest-gated, not a wind puzzle: changed category from 'puzzle' to 'quest', set shrineQuest to 'Master of the Wind', and rewrote the hint (the monk gives the orb for free on entry; 'Master of the Wind' is the external shrine quest, not an internal puzzle).",
+        "Zora Stone Monuments reward corrected from 'Sapphire' to 'Diamond' (Jiahto rewards a Diamond for all ten monuments). Added that Jiahto is on the floor below the throne room.",
+        "Fixed side-quest giver locations (Tumbo near inn/general store; Ledo at the bridge entrance; Laflat by the eastern bridge; Gruve on an upper level).",
+        "Rewrote the notes: corrected the false claim that some Lanayru shrines are on snowy Mount Lanayru and require cold resistance (none are; the two Sea-island shrines are warm/low). Noted there are TWO quest-gated shrines (Dagah Keek and Shai Yota), not one. Fixed The Ceremonial Song details: named Laruta and Trello and corrected the dive-stab location to atop Veiled Falls (draft said 'East Reservoir waterfall').",
+        "Tower location/climbTip rewritten: corrected to 'north of Kakariko Village, east of Dueling Peaks', and replaced the vague climb advice with the real route (ladder to the northwest lookout platform, glide across, attempt at night when Lizalfos sleep).",
+        "Confidence raised from 0.86 to 0.90 after multi-source verification of the roster, two quest gates, geography fixes, and the corrected Diamond reward."
+      ]
+    },
+    {
+      "regionKey": "lake",
+      "regionName": "Lake (Lake Hylia / South-Central Hyrule)",
+      "tower": {
+        "name": "Lake Tower",
+        "location": "On the small island in the middle of Lake Hylia, just north of the Bridge of Hylia in south-central Hyrule.",
+        "climbTip": "The tower base sits in open water, so glide in or swim across from the Bridge of Hylia. No Malice or thorns here, but stamina matters: top up stamina food before the climb. From the top you can paraglide west toward Hylia Island to reach Ya Naga."
+      },
+      "shrines": [
+        {
+          "name": "Ka'o Makagh Shrine",
+          "location": "On a high ledge a short climb up the hill just south of Highland Stable, overlooking the stable.",
+          "category": "puzzle",
+          "oneLine": "Trial 'Metal Doors Open the Way' — use Magnesis to move the metal doors and use them as ramps/bridges to reach the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Pumaag Nitae Shrine",
+          "location": "In the woods southeast of Lake Hylia, near the border of Pagos Woods and Finra Woods, a short trip from Lake Tower.",
+          "category": "combat",
+          "oneLine": "'A Minor Test of Strength' — defeat the Guardian Scout II (sword and shield); use Flurry Rush on its melee swings.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Ishto Soh Shrine",
+          "location": "Atop a cliff west of Oseira Plains and east of Daval Peak, in the southwest of the Lake region.",
+          "category": "puzzle",
+          "oneLine": "Trial 'Bravery's Grasp' — set the portable laser on the moving platform to hit the crystal switch, then climb the raised ledges.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Ya Naga Shrine",
+          "location": "In the center of Hylia Island, the large island in Lake Hylia; paraglide in from Lake Tower to the west.",
+          "category": "puzzle",
+          "oneLine": "Trial 'Shatter the Heavens' — use Stasis/Remote Bombs to drive the stone cube up its track and smash the blocks to launch up.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Shae Katha Shrine",
+          "location": "Behind the Goddess Statue at the Spring of Courage, by Damel Forest north of the Zonai Ruins, southeast of Lake Hylia.",
+          "category": "quest",
+          "oneLine": "Blessing shrine — no inner puzzle. The door behind the Goddess Statue opens only after the shrine quest.",
+          "shrineQuest": "The Serpent's Jaws"
+        },
+        {
+          "name": "Shoqa Tatone Shrine",
+          "location": "Rises on Puffer Beach on the southern coast, south of Lake Tower, only after its shrine quest is solved.",
+          "category": "quest",
+          "oneLine": "Hidden until you finish the quest; once it surfaces, place the orb to raise it and walk in for the blessing — no inner puzzle.",
+          "shrineQuest": "Guardian Slideshow"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "The Horseback Hoodlums",
+          "giver": "Perosa (Highland Stable)",
+          "oneLine": "Perosa asks you to drive off the Blue Bokoblins riding horses around the stable; defeat the five mounted Bokoblins on Fural Plain.",
+          "reward": "Endura Carrot"
+        },
+        {
+          "name": "The Serpent's Jaws",
+          "giver": "Kass (in the Pagos Woods near the Spring of Courage)",
+          "oneLine": "Solve Kass's verse: drop a Farosh's Scale into the Spring of Courage to open the door behind the Goddess Statue to Shae Katha.",
+          "reward": "Access to Shae Katha Shrine (Thunderspear chest + Spirit Orb)"
+        },
+        {
+          "name": "Guardian Slideshow",
+          "giver": "Loone (Puffer Beach)",
+          "oneLine": "Photograph three Guardian types (Scout, Skywatcher, Stalker) for Loone; she gives you her orb 'Roscoe' to raise Shoqa Tatone Shrine.",
+          "reward": "Access to Shoqa Tatone Shrine (Spirit Orb)"
+        }
+      ],
+      "notes": "All 6 Lake Tower shrines confirmed: Ka'o Makagh, Pumaag Nitae, Ishto Soh, Ya Naga, Shae Katha, Shoqa Tatone. Two need shrine quests: Shae Katha via 'The Serpent's Jaws' (Kass; drop a Farosh's Scale in the Spring of Courage) and Shoqa Tatone via 'Guardian Slideshow' (Loone, Puffer Beach; photograph Guardian Scout, Skywatcher, and Stalker). Both are blessing-style (no inner puzzle). KEY FIXES: the draft's Ishto Soh trial was wrong — it is 'Bravery's Grasp' (portable laser + Crystal Switch + moving platform), NOT 'The Two Rings' with a ball; its location is southwest (cliff west of Oseira Plains, east of Daval Peak), not 'above Lake Hylia's east side.' Ya Naga's trial name 'Shatter the Heavens' was right but the hint was wrong — it uses a stone cube on a vertical track driven by Stasis/Remote Bombs, not crystal switches/rolling boulders. Ka'o Makagh ('Metal Doors Open the Way', Magnesis) and Pumaag Nitae ('A Minor Test of Strength', Guardian Scout II) trial names are correct; Pumaag's hint was tweaked since the Scout II is a melee sword/shield foe, not a beam attacker. NO Great Fairy Fountain in the Lake region — the four Great Fairies (Cotera near Kakariko, Kaysa in Tabantha, Mija in Akkala, Tera in the Gerudo Desert) are all elsewhere. Lakeside Stable's 'Thunder Magnet' (Cima) belongs to the Faron/Lakeside zone and is correctly left out. Hazards: open water around Lake Tower and Hylia Island (drowning/stamina, no cold here); Lynel-free; expect Guardian Scouts in the combat shrine and Ka'o Makagh — no special armor required. Confidence raised after web-verifying every trial name and location against GameFAQs, Zelda Wiki/Dungeon, Game8, and Zelda Universe.",
+      "confidence": 0.93,
+      "greatFairy": null,
+      "changes": [
+        "Ishto Soh: replaced fabricated trial 'The Two Rings' (ball through rotating rings) with the real trial 'Bravery's Grasp' (portable laser + Crystal Switch + moving platform). The draft itself flagged this as unverified recall — it was indeed wrong.",
+        "Ishto Soh: corrected the location — it is atop a cliff west of Oseira Plains, east of Daval Peak in the southwest of the Lake region, not 'on high ground above Lake Hylia's east side.'",
+        "Ya Naga: rewrote the hint for 'Shatter the Heavens' — the trial uses a stone cube on a vertical track driven up by Stasis/Remote Bombs to smash blocks and launch Link, NOT crystal switches and rolling boulders/levers. Trial name was already correct.",
+        "Pumaag Nitae: fixed the combat hint — the Guardian Scout II is a melee sword-and-shield foe, so Flurry Rush its swings (the draft said 'use Flurry Rush on its beam attacks').",
+        "Pumaag Nitae: refined the location to the Pagos Woods / Finra Woods border southeast of Lake Hylia (draft's 'east of Lake Tower, north of Highland Stable' was off).",
+        "Ka'o Makagh: sharpened the hint — Magnesis is used to move the metal doors and use them as ramps/bridges, not merely 'slide the doors aside.'",
+        "The Horseback Hoodlums: specified the targets as five Blue Bokoblins on horseback at Fural Plain (was vague 'Bokoblin riders').",
+        "The Serpent's Jaws: noted the reward chest contains a Thunderspear in addition to the Spirit Orb; clarified Kass sings in the Pagos Woods near the Spring of Courage; the scale is a Farosh's Scale dropped into the spring to open the door behind the Goddess Statue.",
+        "Guardian Slideshow: named the three required Guardian types (Scout, Skywatcher, Stalker) and Loone's orb 'Roscoe'.",
+        "Tower climbTip: trimmed the inaccurate 'Sheikah-tech updraft' suggestion (no convenient updraft at Lake Tower) and kept the paraglide-to-Ya-Naga note.",
+        "Raised confidence from 0.82 to 0.93 after web-verifying all trial names, locations, and quest details. Great Fairy assignment (none) confirmed correct."
+      ]
+    },
+    {
+      "regionKey": "faron",
+      "regionName": "Faron",
+      "tower": {
+        "name": "Faron Tower",
+        "location": "Rises from the Hill of Baltha, in the wooded highlands northeast of Lakeside Stable, overlooking the Faron rainforest and Calora Lake.",
+        "climbTip": "The tower is wrapped in thorny vines that damage you on contact. Burn them off with a fire arrow or torch, or hop between the bare stone gaps, then climb. Bring stamina food; it is a tall climb in humid heat."
+      },
+      "shrines": [
+        {
+          "name": "Shai Utoh Shrine",
+          "location": "Inside a cave behind a breakable rock wall at the base of Ubota Point, just behind Lakeside Stable.",
+          "category": "puzzle",
+          "oneLine": "Halt the Tilt: use Stasis to freeze the tilting platforms and climb up. You can also pin them with the metal chest via Magnesis.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Shoda Sah Shrine",
+          "location": "Behind the waterfall flowing from Riola Spring, southeast in the Faron rainforest.",
+          "category": "puzzle",
+          "oneLine": "Impeccable Timing: load an orb in the launcher and hit the crystal switch when the moving platforms are farthest apart to land it in the receptacle.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Yah Rin Shrine",
+          "location": "On the cliffs on the northwestern outskirts of Lurelin Village, East Necluda, overlooking the village.",
+          "category": "puzzle",
+          "oneLine": "A Weighty Decision: stand on one scale and use Magnesis to lift the metal cube high over the other scale, then drop it to launch yourself up.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Muwo Jeem Shrine",
+          "location": "Atop Cape Cales, the cape overlooking the Necluda Sea in southeastern East Necluda, reached by gliding or climbing the cliffs.",
+          "category": "combat",
+          "oneLine": "A Modest Test of Strength: beat the Guardian Scout III. Dodge for flurry rushes and use the breakable stone pillars as cover or to stun it.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Qukah Nata Shrine",
+          "location": "Rises from a mound in Calora Lake, atop a waterfall directly east of Faron Tower.",
+          "category": "quest",
+          "oneLine": "A Song of Storms: equip metal gear and stand on the mound in a thunderstorm so lightning strikes it, revealing the shrine; inside is a free orb.",
+          "shrineQuest": "A Song of Storms"
+        },
+        {
+          "name": "Kah Yah Shrine",
+          "location": "At the Palmorae Ruins, the curving spit of land east of Lurelin Village (a fragment sits out at Soka Point); revealed after restoring the broken monument.",
+          "category": "quest",
+          "oneLine": "Quick Thinking: carry a barrel onto the moving platform, crouch under the barriers, then set it on the far floor switch to open the gate.",
+          "shrineQuest": "A Fragmented Monument"
+        },
+        {
+          "name": "Korgu Chideh Shrine",
+          "location": "On Koholit Rock at the summit of Eventide Island, far southeast in the Necluda Sea.",
+          "category": "quest",
+          "oneLine": "Stranded on Eventide: stripped of gear, carry the three Ancient Orbs to their pedestals to raise the shrine; inside is a free orb.",
+          "shrineQuest": "Stranded on Eventide"
+        },
+        {
+          "name": "Tawa Jinn Shrine",
+          "location": "Buried on the eastern slope of Mount Taran, above Taran Pass on the Faron/East Necluda border; rises once the quest is done.",
+          "category": "quest",
+          "oneLine": "The Three Giant Brothers: take the Ancient Orb from each of the three Hinox on Mount Taran and place them in the pedestals to raise the shrine; inside is a free orb.",
+          "shrineQuest": "The Three Giant Brothers"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "Thunder Magnet",
+          "giver": "Cima, at Lakeside Stable",
+          "oneLine": "Lightning keeps hitting the stable. Climb to the roof and use Magnesis to pull out the metal Woodcutter's Axe lodged in the wooden horse head.",
+          "reward": "Rubber Helm"
+        },
+        {
+          "name": "Take Back the Sea",
+          "giver": "Sebasto, in Lurelin Village",
+          "oneLine": "Monsters have overrun Aris Beach east of the village. Clear out every enemy in the stronghold there, then report back to Sebasto.",
+          "reward": "Silver Rupee"
+        },
+        {
+          "name": "The Hero's Cache",
+          "giver": "Kass, on a stone pillar at Kitano Bay (east Faron coast)",
+          "oneLine": "Solve Kass's riddle '17 of 24': at 5 PM the pillar's shadow points to a chest in the water. Pull it up with Magnesis to claim the cache.",
+          "reward": "Gold Rupee"
+        }
+      ],
+      "notes": "Region grouping follows the standard tower-reveal convention (Game8/Thonky): \"Faron\" = the map area uncovered by Faron Tower, which is 8 shrines. Faron is tropical, hot and humid, with frequent thunderstorms around Calora Lake - bring the Rubber armor set and unequip metal gear in storms or lightning will hit you. KEY FIXES vs the draft: (1) Tawa Jinn is NOT a free walk-in blessing - the shrine is buried and only rises after completing the shrine quest \"The Three Giant Brothers\" (collect one Ancient Orb from each of three Hinox on Mount Taran and place them in the three pedestals). Its interior has no trial, just a chest and a free orb, but you cannot reach it without the quest, so it is quest-gated like Qukah Nata and Korgu Chideh. (2) Yah Rin is NOT on an island near Soka Point - it sits on the cliffs on the northwestern outskirts of Lurelin Village in East Necluda. (3) Muwo Jeem's foe is a Guardian Scout III (a strong scout), not a \"Minor Guardian Scout.\" (4) Kah Yah's shrine is at the Palmorae Ruins (a fragment for the quest is found out at Soka Point), not on Soka Point itself. So FOUR of the 8 are quest-gated: Qukah Nata (A Song of Storms, hinted by Kass), Kah Yah (A Fragmented Monument, given by Garini at the Palmorae Ruins), Korgu Chideh (Stranded on Eventide, auto-starts on the island - a tough no-gear survival challenge, recommend a first-timer wait), and Tawa Jinn (The Three Giant Brothers). Geography caveats: Muwo Jeem (Cape Cales), Yah Rin (Lurelin outskirts), Qukah Nata (Calora Lake), and Tawa Jinn (Mount Taran/Taran Pass) sit in or on the East Necluda border but are part of the Faron Tower region. A Fragmented Monument and the three shrine-reveal quests are technically shrine quests in-game rather than pure side quests. No Great Fairy Fountain is in Faron - the four fountains (Cotera, Kaysa, Mija, Tera) are in West Necluda, Tabantha/Rito, Akkala, and Gerudo. Shrine names, monk names, quest names, locations, foes, and rewards cross-checked against Game8, Thonky, GameFAQs, Zelda Dungeon, and Zelda Wiki/Fandom. High confidence on the corrected dataset.",
+      "confidence": 0.95,
+      "changes": [
+        "MAJOR: Tawa Jinn Shrine corrected - it is NOT a free walk-in 'blessing' shrine. It is buried and revealed only by completing the shrine quest 'The Three Giant Brothers' (collect an Ancient Orb from each of three Hinox on Mount Taran and place them in the pedestals). Changed category 'blessing'->'quest', set shrineQuest to 'The Three Giant Brothers', and rewrote the oneLine. The interior has no trial (chest + free orb), but it is quest-gated.",
+        "MAJOR: Yah Rin Shrine location was wrong. The draft placed it 'on a small island in the Necluda Sea off the Faron coast near Soka Point.' It actually sits on the cliffs on the northwestern outskirts of Lurelin Village in East Necluda, overlooking the village. Corrected the location.",
+        "Muwo Jeem hint named the wrong enemy: it is a Guardian Scout III (a strong scout with an Ancient Battle Axe+ and Guardian Shield+), not a 'Minor Guardian Scout.' Also reworded the combat tip to use the breakable stone pillars as cover/stun, which is the real arena mechanic.",
+        "Kah Yah Shrine location refined: the shrine is at the Palmorae Ruins (the curving spit east of Lurelin Village), not 'on Soka Point, a small island.' Soka Point is only where the third monument fragment is found. Tightened the interior hint to a single-barrel route.",
+        "Notes corrected from 'three of the 8 are quest-gated' to FOUR (added Tawa Jinn), fixed the A Fragmented Monument giver location to 'Garini at the Palmorae Ruins,' removed the now-resolved Yah Rin/Soka Point uncertainty, and noted the Great Fairy regions more precisely (Kaysa is Tabantha/Rito).",
+        "Minor wording polish on Shai Utoh (clarified Stasis-then-climb plus the Magnesis-chest pin) and The Hero's Cache (added that you pull the chest up with Magnesis). No factual change. Confirmed correct and unchanged: 8-shrine roster and all shrine/monk names, Qukah Nata location/quest (A Song of Storms), Korgu Chideh/Stranded on Eventide, Shai Utoh, Shoda Sah, all three side-quest rewards (Rubber Helm, Silver Rupee, Gold Rupee), and that Faron has no Great Fairy Fountain."
+      ]
+    },
+    {
+      "regionKey": "central_hyrule",
+      "regionName": "Central Hyrule",
+      "tower": {
+        "name": "Central Tower",
+        "location": "On the edge of Hyrule Field just west of Hyrule Castle, in the open expanse near the Castle Town Ruins.",
+        "climbTip": "Ringed by Decayed Guardians and patrolled by Guardian Stalkers that laser you mid-climb. Approach from the south/west using ruins as cover, climb fast, and clear or distract the Guardians (or wear climbing/Ancient gear) first."
+      },
+      "shrines": [
+        {
+          "name": "Kaam Ya'tak Shrine",
+          "location": "Directly southwest of Central Tower, at the base of Mount Daphnes just west of Windvane Meadow in Hyrule Field.",
+          "category": "puzzle",
+          "oneLine": "Trial of Power. Use Magnesis and Stasis to swing the hanging boulder, then time your sprint past the rolling spiked boulders.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Rota Ooh Shrine",
+          "location": "At Outskirt Stable, in southwestern Central Hyrule along the road southwest of the Castle Town Ruins.",
+          "category": "puzzle",
+          "oneLine": "Passing of the Gates. Use Stasis and timing to slip past the spinning gates, and Magnesis metal blocks to bridge gaps and hit switches.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Wahgo Katta Shrine",
+          "location": "Southeast Central Hyrule, right beside Riverside Stable near the Hylia River.",
+          "category": "puzzle",
+          "oneLine": "Metal Connections. Use Magnesis to move the metal crates and complete the circuit, building a path to the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Katah Chuki Shrine",
+          "location": "Southwest of Hyrule Castle, out in Hyrule Field near the Castle Town Ruins.",
+          "category": "combat",
+          "oneLine": "A Minor Test of Strength. Beat the Guardian Scout; flurry rush its swings and use the chest weapons to finish it quickly.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Saas Ko'sah Shrine",
+          "location": "Inside Hyrule Castle at the Docks, on the northwest side where water leads into the castle. Light the central torch to raise the buried shrine.",
+          "category": "combat",
+          "oneLine": "A Major Test of Strength. Hardest Guardian Scout IV in the game; bring strong weapons, dodge for flurry rushes, lift the metal floor blocks with Magnesis for cover.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Dah Kaso Shrine",
+          "location": "Under the Digdogg Suspension Bridge in southwestern Central Hyrule, near the Regencia River.",
+          "category": "combat",
+          "oneLine": "A Minor Test of Strength. Defeat the Guardian Scout with flurry rushes and the weapons it drops.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Namika Ozz Shrine",
+          "location": "Northeast Central Hyrule in the Crenel Hills, hidden inside a large hollowed tree stump.",
+          "category": "combat",
+          "oneLine": "A Modest Test of Strength. Fight the stronger Guardian Scout III; flurry rush its spear and axe, then grab the Frostspear from the chest.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Noya Neha Shrine",
+          "location": "North of Central Tower (east of Ridgeland Tower) on the island west of Hyrule Castle, in a cave behind thorny vines and a cracked wall.",
+          "category": "combat",
+          "oneLine": "A Minor Test of Strength. Burn the thorns, bomb the cracked wall to open the cave, then beat the Guardian Scout inside.",
+          "shrineQuest": null
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "The Royal White Stallion",
+          "giver": "Toffa at Outskirt Stable",
+          "oneLine": "Tame the pure-white royal horse roaming near Safula Hill and register it at the stable to claim the royal gear.",
+          "reward": "Royal Saddle and Royal Bridle"
+        },
+        {
+          "name": "My Hero",
+          "giver": "Aliza, standing under the trees across the road from Outskirt Stable",
+          "oneLine": "Show Aliza the Master Sword (you must already have pulled it) to prove you are the hero she's waiting for.",
+          "reward": "Star Fragment"
+        },
+        {
+          "name": "A Rare Find",
+          "giver": "Trott at Outskirt Stable",
+          "oneLine": "Trott is sick of vegetarian meals; bring him fresh Raw Gourmet Meat (from Hebra/Gerudo wildlife) for his reward.",
+          "reward": "Silver Rupee (300 rupees)"
+        },
+        {
+          "name": "A Royal Recipe",
+          "giver": "Gotter at Riverside Stable",
+          "oneLine": "Cook the royal kitchen's Fruitcake (or Monster Cake) and bring it to Gotter; the recipes are in Hyrule Castle's library.",
+          "reward": "Silver Rupee (300 rupees); a second cake earns another"
+        },
+        {
+          "name": "The Royal Guard's Gear",
+          "giver": "Parcy at Riverside Stable",
+          "oneLine": "Parcy wants to see Royal Guard equipment; retrieve any Royal Guard armor piece from Hyrule Castle and show it to her.",
+          "reward": "300 Rupees"
+        }
+      ],
+      "notes": "SHRINE COUNT: 8, matching TheGamer and Game8's Central Tower Region breakdown (Kaam Ya'tak, Rota Ooh, Wahgo Katta, Katah Chuki, Saas Ko'sah, Dah Kaso, Namika Ozz, Noya Neha). NOTE: some sites (e.g. Zelda Dungeon) group \"Central Hyrule\" more broadly and list ~29 shrines; this app uses the per-tower Central Tower Region convention = exactly these 8. None are gated by a shrine quest, so no category=quest entries. Split: 3 puzzle, 5 combat Tests of Strength. Monk names match shrine names, so none listed separately. GREAT FAIRY: null is correct — all four fountains (Cotera/West Necluda, Kaysa/Ridgeland-Tabantha, Mija/Akkala, Tera/Gerudo) are outside this region. HAZARDS: the most dangerous overworld region — Hyrule Field and the Castle swarm with Guardian Stalkers and Decayed Guardians whose lasers one-shot early players. Recommended: Ancient armor (laser resistance) or strong shield-parry; Saas Ko'sah sits deep in the castle Docks, so most players leave it until well-equipped. CONFIDENCE: shrine roster, categories, tower, and Great Fairy are very high. Side-quest rewards verified via Game8/Fandom: A Rare Find, A Royal Recipe, and The Royal Guard's Gear all give a Silver Rupee/300 rupees (a Silver Rupee = 300 rupees). Minor uncertainty remains only on exact NPC positioning wording.",
+      "confidence": 0.93,
+      "greatFairy": null,
+      "changes": [
+        "A Rare Find: FIXED invented content. Draft credited 'Domidak and Prissen' and a luminous-stone wager — both wrong. Real quest is given by Trott at Outskirt Stable, who wants Raw Gourmet Meat; reward is a Silver Rupee. Domidak/Prissen are twins at Dueling Peaks Stable (different region, tied to 'Misko, the Great Bandit').",
+        "The Royal Guard's Gear: corrected giver to Parcy at Riverside Stable (draft hedged it as a 'note/diary'). Reward is 300 Rupees for showing her any Royal Guard armor piece from Hyrule Castle.",
+        "A Royal Recipe: specified reward as Silver Rupee (300 rupees) and noted Monster Cake also works; rewritten hint to mention the castle-library recipes.",
+        "Saas Ko'sah Shrine: corrected location from 'directly north of the castle's heart' to the Docks on the castle's northwest side, and added that you must light the central torch to raise the buried shrine. Hint clarified to Guardian Scout IV and Magnesis floor-block cover.",
+        "Namika Ozz Shrine: corrected region placement from 'east of Hyrule Castle' to 'northeast Central Hyrule' (Crenel Hills).",
+        "Noya Neha Shrine: tightened location to the island west of Hyrule Castle and clarified the cave entry (burn thorns, bomb cracked wall).",
+        "Wahgo Katta hint: corrected — the circuit builds a path/platforms to the monk rather than powering a 'moving walkway'.",
+        "My Hero: clarified Aliza stands under the trees across the road from Outskirt Stable.",
+        "Tower climbTip: named the specific threats (Decayed Guardians around the tower, patrolling Guardian Stalkers) for accuracy.",
+        "Notes: added clarification that the 8-shrine count follows the Central Tower Region convention (vs. broader ~29-shrine 'Central Hyrule' groupings), and noted a Silver Rupee = 300 rupees. Raised confidence to 0.93 after web-verifying all side-quest givers/rewards."
+      ]
+    },
+    {
+      "regionKey": "gerudo",
+      "regionName": "Gerudo (Wasteland Tower region)",
+      "tower": {
+        "name": "Wasteland Tower",
+        "location": "On a rock platform in the middle of a sinkhole/quicksand basin at the western edge of the Gerudo Desert, west of Gerudo Town.",
+        "climbTip": "The base sits in sinking sand patrolled by enemies. Land on the central rock pillar or paraglide in from a higher ledge to the east, then make the long vertical climb; bring stamina-restoring food."
+      },
+      "shrines": [
+        {
+          "name": "Daqo Chisay Shrine",
+          "location": "Just outside the front gate of Gerudo Town, on a ledge to the right of the entrance.",
+          "category": "puzzle",
+          "oneLine": "The Whole Picture: use Magnesis to slide metal objects into the gaps in the floor wires so current flows from the source to the gates and chest.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Kay Noh Shrine",
+          "location": "On a small cliff overlooking Gerudo Canyon Stable, at the east mouth of Gerudo Canyon.",
+          "category": "puzzle",
+          "oneLine": "Power of Electricity: use Magnesis to set metal cubes in the water so they bridge the current from the power sources to the switches.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Jee Noh Shrine",
+          "location": "On the cliff edge inside Gerudo Canyon Pass, at its southernmost curve, east of the Wasteland Tower.",
+          "category": "puzzle",
+          "oneLine": "On the Move: use moving conveyor platforms and Stasis, and shoot the ancient orb to knock it into the receptacle to open each gate.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Hawa Koth Shrine",
+          "location": "Beneath the Gerudo Great Skeleton in the far southwest corner of the Gerudo Desert.",
+          "category": "puzzle",
+          "oneLine": "The Current Solution: use Magnesis to move metal blocks and conduct the electric current across the gaps to the switches.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Misae Suma Shrine",
+          "location": "East Barrens, east of the Southern Oasis in the southern Gerudo Desert (a sleeping Gerudo, Pokki, blocks it).",
+          "category": "quest",
+          "oneLine": "Free orb once unlocked; complete the shrine quest by bringing Pokki the drink Noble Pursuit to wake her and open the shrine.",
+          "shrineQuest": "The Perfect Drink"
+        },
+        {
+          "name": "Raqa Zunzo Shrine",
+          "location": "South of Gerudo Town, by the sand-seal race course.",
+          "category": "quest",
+          "oneLine": "Win the sand-seal race (beat the target time) to reveal the shrine; inside is a blessing (free orb).",
+          "shrineQuest": "The Undefeated Champ"
+        },
+        {
+          "name": "Dako Tah Shrine",
+          "location": "On the Great Cliffs north of Kara Kara Bazaar, northeast of Gerudo Town (a sandstorm covers the area by day).",
+          "category": "quest",
+          "oneLine": "Talk to Nobiro at Kara Kara Bazaar to start the quest; reach the shrine, then solve its electric Magnesis-cube puzzles inside.",
+          "shrineQuest": "The Eye of the Sandstorm"
+        },
+        {
+          "name": "Korsh O'hu Shrine",
+          "location": "Buried in the sand at the East Gerudo Ruins, southwest of the Wasteland Tower.",
+          "category": "quest",
+          "oneLine": "Match each symbol-marked metal orb to the Seven Heroine statue bearing the same symbol; placing all of them raises the shrine.",
+          "shrineQuest": "The Seven Heroines"
+        },
+        {
+          "name": "Kema Zoos Shrine",
+          "location": "Northwest of the West Gerudo Ruins, out in the desert northwest of Gerudo Town.",
+          "category": "quest",
+          "oneLine": "Follow the swordswomen statues: at each one, head in the direction its sword points to find the next, leading to the shrine.",
+          "shrineQuest": "The Silent Swordswomen"
+        },
+        {
+          "name": "Dila Maag Shrine",
+          "location": "At the center of the South Lomei Labyrinth, on an island off the south Gerudo Desert coast.",
+          "category": "quest",
+          "oneLine": "Navigate the maze to its center; the shrine is a blessing, and a chest inside holds the Barbarian Armor (chest piece).",
+          "shrineQuest": "The Desert Labyrinth"
+        },
+        {
+          "name": "Suma Sahma Shrine",
+          "location": "Atop Mount Granajh, southeast of the Wasteland Tower toward the Gerudo Highlands/Faron border.",
+          "category": "quest",
+          "oneLine": "Read the Mountain Peak Log, then at 4PM cast a cold shadow (snowball or Cryonis block) on the glowing pedestal to raise the shrine.",
+          "shrineQuest": "Secret of the Snowy Peaks"
+        },
+        {
+          "name": "Tho Kayu Shrine",
+          "location": "Buried in the Toruma Dunes, west of Gerudo Town and west of Daqo Chisay Shrine (a Molduga roams the area).",
+          "category": "blessing",
+          "oneLine": "Light the four torches on the surrounding rocks to raise the buried shrine, then claim the free orb (watch for the Molduga).",
+          "shrineQuest": null
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "The Search for Barta",
+          "giver": "Liana (Gerudo Town barracks)",
+          "reward": "Counts toward the Thunder Helm",
+          "oneLine": "Find the missing guard Barta, hiding near the Gerudo Great Skeleton, and report back to Liana."
+        },
+        {
+          "name": "Tools of the Trade",
+          "giver": "Isha (Gerudo Town jewelry shop)",
+          "reward": "Reopens the jewelry shop; counts toward the Thunder Helm",
+          "oneLine": "Bring Isha 10 Flint so she can get her jewelry stand running again."
+        },
+        {
+          "name": "Medicinal Molduga",
+          "giver": "Malena (Gerudo Town soldier training courtyard)",
+          "reward": "Gold Rupee; counts toward the Thunder Helm",
+          "oneLine": "Bring Malena Molduga Guts to treat her sick husband; fight the Molduga from a rock or ledge with bombs."
+        },
+        {
+          "name": "The Mystery Polluter",
+          "giver": "Dalia (Gerudo Town)",
+          "reward": "Counts toward the Thunder Helm",
+          "oneLine": "Follow the trail of Hydromelon rinds to Calyban on the wall by the water, who is polluting Dalia's garden, and get her to stop."
+        },
+        {
+          "name": "The Secret Club's Secret",
+          "giver": "Begins on trying to enter the Gerudo Secret Club (Greta's shop)",
+          "reward": "Access to the Gerudo Secret Club (sells Desert Voe and Radiant sets)",
+          "oneLine": "Eavesdrop at The Noble Canteen to learn the password 'GSC' (plus a diamond) and gain entry. Optional; not needed for the Thunder Helm."
+        },
+        {
+          "name": "The Thunder Helm",
+          "giver": "Chief Riju (Gerudo Town palace)",
+          "reward": "Thunder Helm (lightning immunity)",
+          "oneLine": "Complete the four Gerudo Town favors (Barta, Tools of the Trade, Medicinal Molduga, Mystery Polluter), then Riju lends you the Thunder Helm."
+        }
+      ],
+      "greatFairy": {
+        "name": "Tera",
+        "location": "Inside the rib cage of the Gerudo Great Skeleton, far southwest corner of the Gerudo Desert (beside Hawa Koth Shrine).",
+        "unlockCost": "100 / 500 / 1,000 / 10,000 Rupees, depending on how many other Great Fairies you have already awakened."
+      },
+      "notes": "The Gerudo region maps to the in-game Wasteland Tower region, which has exactly 12 shrines (cross-confirmed by Gamer Guides, Zelda Dungeon, GameFAQs, Game8). Roster (unchanged from the draft, all 12 names are correct): Daqo Chisay, Kay Noh, Jee Noh, Hawa Koth, Misae Suma, Raqa Zunzo, Dako Tah, Korsh O'hu, Kema Zoos, Dila Maag, Suma Sahma, Tho Kayu. Eight are standalone; five are quest-gated; Tho Kayu is a buried blessing revealed by lighting torches. The neighboring Gerudo Tower region (Gerudo Highlands: Keeha Yoog, Joloo Nah, Kema Kosassa, etc.) is a SEPARATE region and is correctly excluded. Great Fairy Tera is correctly placed (one of only four Great Fairies). The biggest draft errors were geography/mechanics, not the roster: Dako Tah and Tho Kayu locations were essentially swapped/misplaced, Jee Noh was mislocated to the Great Skeleton, and several quest hints were inaccurate. Note the Thunder Helm needs only FOUR favors, not five (the Secret Club's Secret is optional). Hazards: extreme heat by day (Desert Voe/Gerudo armor or chilly/cooling food) and freezing cold at night (Warm Doublet or spicy food); Molduga roam the open sand basins (Toruma Dunes, near the Great Skeleton) and surface to attack -- fight from rock platforms. Entry to Gerudo Town requires the vai (women's) disguise from the Forbidden City Entry main quest, bought at Kara Kara Bazaar. Remaining uncertainty: I could not 100% confirm whether Jee Noh is canonically tagged 'Wasteland Tower' vs 'Gerudo Highlands' by every guide (it sits right on the Gerudo Canyon boundary), but the major 12-shrine guides count it in the Wasteland Tower region; confidence on that one item is slightly lower.",
+      "confidence": 0.9,
+      "changes": [
+        "Tho Kayu Shrine location corrected: it is buried in the Toruma Dunes west of Gerudo Town (west of Daqo Chisay), NOT in the Great Cliffs near Birida Lookout/Gerudo Tower (that area belongs to the Gerudo Highlands). Its draft location appeared swapped with Dako Tah.",
+        "Tho Kayu hint corrected: the shrine is buried and is revealed by lighting four torches on the surrounding rocks (with a Molduga nearby); it then gives a free orb. The draft's 'no puzzle, just reach it' was misleading.",
+        "Dako Tah Shrine location corrected: it is on the Great Cliffs north of Kara Kara Bazaar (northeast of Gerudo Town), NOT atop the East Gerudo Ruins/Toruma Dunes. The quest is started by talking to Nobiro at the Kara Kara Bazaar lookout, and a sandstorm covers the area by day. Hint rewritten accordingly.",
+        "Jee Noh Shrine location corrected: it is on the cliff edge in Gerudo Canyon Pass at its southernmost curve (east of the Wasteland Tower), NOT 'north of the Gerudo Great Skeleton in the northwest desert.'",
+        "Jee Noh hint corrected: 'On the Move' uses moving conveyor platforms plus Stasis and shooting an ancient orb into a receptacle -- it is NOT a tilt-the-tray motion-control maze.",
+        "Korsh O'hu hint corrected: 'The Seven Heroines' is solved by matching symbol-marked metal orbs to the Seven Heroine statue bearing the same symbol -- NOT by lighting torches in a set order. Removed the invented detail 'per Rotana's research.'",
+        "Kema Zoos hint corrected: 'The Silent Swordswomen' is solved by following each swordswoman statue in the direction its sword points. The draft's 'deliver the eighth heroine's missing weapons to her statue' was wrong -- that describes the separate 'The Eighth Heroine' quest, whose statue is in the Gerudo Highlands, not this region. Location refined to 'northwest of the West Gerudo Ruins.'",
+        "Kay Noh hint corrected: 'Power of Electricity' uses Magnesis to place metal cubes in water to conduct current to switches -- not 'guide an electric orb through metal rails.'",
+        "Daqo Chisay hint refined: 'The Whole Picture' uses Magnesis to bridge gaps in the floor wires with metal objects (the wires are fixed, the metal objects are moved).",
+        "The Mystery Polluter corrected: the giver is Dalia (her garden is being polluted), not Lorah/Furosa, and there is no spa night-stakeout. You follow a trail of Hydromelon rinds to Calyban on the wall by the water. Removed the spa/night details.",
+        "Thunder Helm corrected: it requires only FOUR Gerudo Town favors (The Search for Barta, Tools of the Trade, Medicinal Molduga, The Mystery Polluter), not five. The Secret Club's Secret is optional and is NOT a prerequisite; removed 'counts toward the Thunder Helm' from it and from the redundant entries.",
+        "The Search for Barta giver set to Liana (at the Gerudo Town barracks); removed the unverified 'Leena' alias and the specific 'Silver Rupee' reward claim.",
+        "Secret Club's Secret detail corrected: the password is 'GSC' followed by a diamond symbol (learned by eavesdropping in The Noble Canteen); the club sells the Desert Voe and Radiant sets.",
+        "Removed the duplicate/garbled final side-quest entry ('Tools of the Trade / Forbidden City Entry'), which conflated a shrine-region side quest with a main-quest disguise step; the vai-disguise requirement is captured in notes instead.",
+        "Dila Maag reward specified as the Barbarian Armor chest piece (the body armor) found in the shrine's chest.",
+        "Suma Sahma hint made concrete: read the Mountain Peak Log, then at 4PM cast a cold shadow (snowball or Cryonis block) on the glowing pedestal to raise the shrine.",
+        "Misae Suma location refined to the East Barrens east of the Southern Oasis, and the hint clarified (wake the sleeping Gerudo Pokki by providing the drink Noble Pursuit).",
+        "Wasteland Tower location/climb tip rewritten: the tower stands on a rock platform amid a sinking-sand basin at the desert's western edge (the draft's 'bottomless bog on Spectacle Rock at the north edge / Gerudo Highlands border' mixed in incorrect terrain and placement).",
+        "Great Fairy Tera confirmed correct (rib cage of the Gerudo Great Skeleton beside Hawa Koth); cost tiers verified."
+      ]
+    },
+    {
+      "regionKey": "wasteland",
+      "regionName": "Wasteland (Gerudo Desert / Wasteland Tower Region)",
+      "tower": {
+        "name": "Wasteland Tower",
+        "location": "On a rock spire in the Gerudo Desert, northwest of Divine Beast Vah Naboris, northeast of Gerudo Town and southwest of the Gerudo Great Skeleton.",
+        "climbTip": "Climb at night to avoid daytime heat damage, or wear Gerudo/heat-resist gear; bring stamina food since the spire is tall. Watch for hazards below."
+      },
+      "shrines": [
+        {
+          "name": "Daqo Chisay Shrine",
+          "location": "Just outside the main gate of Gerudo Town, a few steps from the entrance plaza.",
+          "category": "puzzle",
+          "oneLine": "The Whole Picture: use Magnesis to place metal barrels/cubes on the green lines so electricity flows to the switches. Quickest shrine to reach here.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Jee Noh Shrine",
+          "location": "At the bottom of a deep gorge just northwest of the Wasteland Tower; reachable along the path from Gerudo Canyon Stable.",
+          "category": "puzzle",
+          "oneLine": "On Move: shoot the rolling orb into the bowl, using Stasis on the orb or platform to line up your arrow, then repeat through each room.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Kay Noh Shrine",
+          "location": "On a small cliff right next to Gerudo Canyon Stable, at the canyon entrance to the desert.",
+          "category": "puzzle",
+          "oneLine": "Power of Electricity: move the charged ball to slots and use Magnesis to arrange metal cubes in the water so current reaches both switches.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Misae Suma Shrine",
+          "location": "In the East Barrens, southeast of Gerudo Town behind a rocky outcrop in the open desert.",
+          "category": "quest",
+          "oneLine": "A Blessing shrine, but first do The Perfect Drink: bring Pokki a Noble Pursuit from Gerudo Town's canteen, then activate the shrine.",
+          "shrineQuest": "The Perfect Drink"
+        },
+        {
+          "name": "Tho Kayu Shrine",
+          "location": "At the Toruma Dunes, west of Gerudo Town.",
+          "category": "blessing",
+          "oneLine": "Buried until you light the torches scattered around it; once they're all lit the Blessing shrine rises from the sand. Free orb inside.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Hawa Koth Shrine",
+          "location": "Beneath the Gerudo Great Skeleton at Dragon's Exile, far southwest corner of the Gerudo Desert; reach it via the Karusa Valley sandstorm.",
+          "category": "puzzle",
+          "oneLine": "The Current Solution: use Magnesis on metal blocks to conduct electricity along the circuits and power the switches that open the path.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Dako Tah Shrine",
+          "location": "At the Great Cliffs north of Kara Kara Bazaar, in ruins southeast of the Gerudo Tower, hidden inside a sandstorm.",
+          "category": "quest",
+          "oneLine": "Eye of the Sandstorm: talk to Nobiro at Kara Kara Bazaar, then cross the Great Cliffs at night (9pm-4am) when the sandstorm clears.",
+          "shrineQuest": "The Eye of the Sandstorm"
+        },
+        {
+          "name": "Suma Sahma Shrine",
+          "location": "Atop Mount Granajh in the Gerudo Highlands, southeast of the Wasteland Tower.",
+          "category": "quest",
+          "oneLine": "Read the Mountain Peak Log near the cabin, then at 4pm cast a cold shadow (snowball or Cryonis block) onto the glowing pedestal.",
+          "shrineQuest": "The Secret of the Snowy Peaks"
+        },
+        {
+          "name": "Raqa Zunzo Shrine",
+          "location": "At the Sand-Seal Rally racecourse, southeast of Gerudo Town.",
+          "category": "quest",
+          "oneLine": "Undefeated Champ: talk to Shabonne, then win the sand-seal race through all 8 arches, beating Tali's record of 1:30, to raise the shrine.",
+          "shrineQuest": "The Undefeated Champ"
+        },
+        {
+          "name": "Dila Maag Shrine",
+          "location": "At the center of the South Lomei Labyrinth, southeast end of the Gerudo Desert near Mount Granajh.",
+          "category": "quest",
+          "oneLine": "Navigate the South Lomei Labyrinth to its heart. The shrine itself is a Blessing with no inner trial.",
+          "shrineQuest": "The Desert Labyrinth"
+        },
+        {
+          "name": "Kema Zoos Shrine",
+          "location": "In the West Barrens (northwest desert), west of the Gerudo Tower and Karusa Valley.",
+          "category": "quest",
+          "oneLine": "Silent Swordswomen: talk to Laine at Gerudo Town's NW gate, then follow each statue's sword-pointing direction to the next until the shrine.",
+          "shrineQuest": "The Silent Swordswomen"
+        },
+        {
+          "name": "Korsh O'hu Shrine",
+          "location": "At the Seven Heroines statues, in ruins east of Gerudo Town and southwest of the Wasteland Tower.",
+          "category": "quest",
+          "oneLine": "Seven Heroines: talk to Rotana in Gerudo Town, then place each symbol-marked orb in the pedestal of the statue bearing the same symbol.",
+          "shrineQuest": "The Seven Heroines"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "The Eighth Heroine",
+          "giver": "Bozai (outside Gerudo Town's gate, near Daqo Chisay Shrine)",
+          "reward": "Sand Boots (faster movement on sand)",
+          "oneLine": "Wearing the Gerudo outfit, photograph the Statue of the Eighth Heroine in the snowy Gerudo Highlands for Bozai. He lends Snow Boots to help."
+        },
+        {
+          "name": "The Forgotten Sword",
+          "giver": "Bozai (Gerudo Town, follow-up after The Eighth Heroine)",
+          "reward": "Snow Boots (faster movement on snow)",
+          "oneLine": "After The Eighth Heroine, find the heroine's missing sword on the snowfield near her statue and report back to Bozai."
+        },
+        {
+          "name": "Tools of the Trade",
+          "giver": "Isha (outside the jewelry shop in Gerudo Town)",
+          "reward": "A gem accessory of your choice (Ruby Circlet, Sapphire Circlet, or Topaz Earrings)",
+          "oneLine": "Bring Isha 10 flint so she can reopen her jewelry shop; pick one gemstone accessory as thanks."
+        },
+        {
+          "name": "Medicinal Molduga",
+          "giver": "Malena (Gerudo Town clinic area)",
+          "reward": "A Gold Rupee (300 Rupees)",
+          "oneLine": "Hunt a Molduga in the desert and deliver its Molduga Guts to Malena to help cure her ailing partner."
+        },
+        {
+          "name": "The Search for Barta",
+          "giver": "Liana (Gerudo Town training area, near the throne room)",
+          "reward": "100 Rupees",
+          "oneLine": "A vai who escaped the Yiga Hideout went missing; find Barta resting at the Gerudo Great Skeleton and report back to Liana."
+        },
+        {
+          "name": "The Secret Club's Secret",
+          "giver": "Greta (The Noble Canteen, Gerudo Town)",
+          "reward": "Access to the hidden Gerudo Secret Club shop (Desert Voe and Radiant gear)",
+          "oneLine": "Eavesdrop in the canteen to learn the club's password, then give it to Greta to enter the secret shop beneath the canteen."
+        }
+      ],
+      "greatFairy": {
+        "name": "Great Fairy Tera",
+        "location": "Inside the rib cage of the Gerudo Great Skeleton at Dragon's Exile, far southwest corner of the Gerudo Desert, right next to Hawa Koth Shrine.",
+        "unlockCost": "Up to 10,000 Rupees (the price scales with how many fairies you've already freed; Tera demands 10,000 if she is your fourth and last)."
+      },
+      "notes": "Roster verified at 12 shrines for the Wasteland Tower region against Game8, Zelda Dungeon, Gamer Guides and Zelda Wiki (Fandom): Daqo Chisay, Jee Noh, Kay Noh, Misae Suma, Tho Kayu, Hawa Koth, Dako Tah, Suma Sahma, Raqa Zunzo, Dila Maag, Kema Zoos, Korsh O'hu. Correct open-access vs quest-gated split: 5 are open-access (Daqo Chisay, Jee Noh, Kay Noh, Tho Kayu, Hawa Koth) and 7 are unlocked by shrine quests (Misae Suma via The Perfect Drink, Dako Tah, Suma Sahma, Raqa Zunzo, Dila Maag, Kema Zoos, Korsh O'hu). The draft wrongly treated Misae Suma as a free open-access Blessing; it is actually gated behind The Perfect Drink quest. The shrines of the GERUDO Tower region to the south (Joloo Nah, Sho Dantu, Keeha Yoog, Mezza Lo, Daag Chokah, Ke'nai Shakah) are a separate region and not counted here. HAZARDS: extreme desert heat by day (need heat-resist - Gerudo set, chilly/hearty food) and freezing cold at night in the highlands (need cold-resist or Snow Boots). Sandstorms disable the Sheikah Slate map and Sheikah Sensor. Molduga roam the open sand (lure/stun with bomb arrows, then strike). Yiga footsoldiers ambush desert roads, and the Yiga Clan Hideout requires stealth (the Gerudo set does not disguise you there). RECOMMENDED GEAR: Gerudo vai outfit (also required to enter Gerudo Town and to start Bozai's quests), plus Sand Boots and Snow Boots from Bozai, and heat/cold meals. Lower-confidence item: the exact in-game wording of the Gerudo Secret Club password - the game renders it with a symbol, so I avoided stating a precise spelling like 'GSC4EVA' which is an unverified fan transcription.",
+      "confidence": 0.9,
+      "changes": [
+        "Daqo Chisay: changed category blessing->puzzle and rewrote the hint; it is NOT a free-orb shrine but the 'The Whole Picture' Magnesis/electric-conductivity puzzle (kept the 'quickest to reach' note).",
+        "Jee Noh: corrected location (deep gorge NW of the Wasteland Tower, off the Gerudo Canyon Stable path - not 'south of Mount Nabooru near the eastern desert entrance') and replaced the invented metal-cube/magnesis hint with the real 'On Move' trial (shoot the rolling orb into the bowl using Stasis).",
+        "Kay Noh: replaced the invented 'tilt/motion-control ball maze' hint with the actual 'Power of Electricity' puzzle (charged ball + Magnesis circuits to two switches). Location was already correct.",
+        "Misae Suma: MAJOR fix - it is gated behind the shrine quest 'The Perfect Drink' (bring Pokki a Noble Pursuit), so set shrineQuest to 'The Perfect Drink' and category blessing->quest; corrected location to East Barrens SE of Gerudo Town and replaced the 'only challenge is crossing sand' hint.",
+        "Tho Kayu: corrected the reveal mechanic - the shrine rises when you LIGHT the surrounding torches, not by digging it out of the sand.",
+        "Hawa Koth: replaced the invented 'fan-driven sand conveyor + stasis on flowing sand' hint with the real 'The Current Solution' puzzle (Magnesis + electricity). Clarified it sits beneath the Gerudo Great Skeleton, reached via Karusa Valley.",
+        "Korsh O'hu: corrected quest giver to Rotana (in NW Gerudo Town) and replaced the invented 'light braziers to match elements' solution with the real one - match each symbol-marked orb to the statue bearing the same symbol; refined location (Seven Heroines ruins SW of the Wasteland Tower, dropped the off 'Daval Peak' reference).",
+        "Raqa Zunzo: added the quest giver Shabonne and clarified the race is through 8 arches; location simplified to the Sand-Seal Rally SE of Gerudo Town.",
+        "Tower: corrected/clarified the location relative to Divine Beast Vah Naboris (northwest of Naboris) and softened the unverified 'sand-blowing geysers' detail.",
+        "The Search for Barta: corrected Barta's hiding spot to the Gerudo Great Skeleton (not Karusa Valley), set the reward to 100 Rupees, and named the giver as Liana (dropped the speculative 'Captain Teake').",
+        "Medicinal Molduga: reward confirmed as a Gold Rupee (300 Rupees) from Malena.",
+        "The Secret Club's Secret: softened the password to avoid stating the unverified fan spelling 'GSC4EVA'; clarified the reward is the Gerudo Secret Club shop (Desert Voe / Radiant gear).",
+        "The Eighth Heroine / The Forgotten Sword: confirmed the draft's order and rewards are correct (Eighth Heroine first -> Sand Boots; Forgotten Sword second -> Snow Boots) and noted Bozai lends Snow Boots during the first quest.",
+        "Great Fairy Tera: confirmed correct (rib cage of the Gerudo Great Skeleton, next to Hawa Koth); clarified the unlock cost scales with fairies freed (up to 10,000 if she is the fourth).",
+        "Notes: rewrote the misleading claim about SAMURAI GAMERS reversing Dako Tah/Suma Sahma (both are genuinely quest shrines) and corrected the open-access vs quest-gated counts to 5 open / 7 quest after fixing Misae Suma."
+      ]
+    },
+    {
+      "regionKey": "ridgeland",
+      "regionName": "Ridgeland (Hyrule Ridge)",
+      "tower": {
+        "name": "Ridgeland Tower",
+        "location": "West-central Hyrule Ridge, set in a small lake; it faces east toward Thundra Plateau, west of the Central Tower region",
+        "climbTip": "The base lake holds Electric Wizzrobes and Electric Lizalfos that can shock you off the wall, so clear or avoid them first; rubber armor or shock-resist food helps. Climb the inner struts to dodge obstacles and pace your stamina."
+      },
+      "shrines": [
+        {
+          "name": "Maag No'rah Shrine",
+          "location": "Inside a cliff cave southwest of the Maritta Exchange Ruins; there's a Bokoblin camp with a tall lookout tower nearby - face south from the tower for the cracked rocks",
+          "category": "blessing",
+          "oneLine": "\"Maag No'rah's Blessing\" - no trial inside; blow open the cracked rocks on the cliff with a bomb arrow or remote bomb, climb in, and claim the orb.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Mogg Latan Shrine",
+          "location": "Atop Satori Mountain, southwest of Ridgeland Tower, south of Hyrule Ridge",
+          "category": "puzzle",
+          "oneLine": "\"Synced Swing\" - use Magnesis (and Stasis) to swing and steady the chained metal platforms, timing your jumps across the gaps to the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Zalta Wa Shrine",
+          "location": "In the Breach of Demise, right along the path just southeast of Ridgeland Tower",
+          "category": "puzzle",
+          "oneLine": "\"Two Orbs to Guide You\" - shoot the first orb into its slot, carry the freed orb onto the floor switch, then use the shock-launch platform to reach the altar.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Mijah Rokee Shrine",
+          "location": "Southern part of Washa's Bluff, north of Satori Mountain past the Tamio River; Kass sits in a tree nearby",
+          "category": "mixed",
+          "oneLine": "Find Kass for \"Under a Red Moon,\" then stand bare on the pedestal during a Blood Moon to raise it; inside is \"A Modest Test of Strength\" (Guardian Scout III).",
+          "shrineQuest": "Under a Red Moon"
+        },
+        {
+          "name": "Sheem Dagoze Shrine",
+          "location": "On a cliffside in the West Hyrule Plains, northwest of Jeddo Bridge overlooking the river; Kass is nearby",
+          "category": "quest",
+          "oneLine": "Solve \"The Two Rings\" - shoot one arrow through both stone rings to raise the shrine; inside, guide two Ancient Orbs down the ramps into their slots.",
+          "shrineQuest": "The Two Rings"
+        },
+        {
+          "name": "Toh Yahsa Shrine",
+          "location": "On Thundra Plateau, west of Ridgeland Tower",
+          "category": "quest",
+          "oneLine": "\"Trial of Thunder\" - use Stasis to knock the four colored orbs into their matching slots on the plateau to raise the shrine; inside is a short Magnesis puzzle.",
+          "shrineQuest": "Trial of Thunder"
+        },
+        {
+          "name": "Shae Loya Shrine",
+          "location": "On a ridge in Hyrule Ridge just south of Tabantha Bridge Stable",
+          "category": "puzzle",
+          "oneLine": "\"Aim for the Moment\" - ride the rotating platforms and shoot the eye switches with arrows at the right instant to open the gates to the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Shira Gomar Shrine",
+          "location": "Rises from the south side of Tanagar Canyon, above the canyon near Upland Lindor (DLC: The Champions' Ballad)",
+          "category": "quest",
+          "oneLine": "\"Aim for Stillness\" DLC shrine - talk to Mazli by the white-smoke campfire, wait for Dinraal at night, then shoot the dragon's horn to make it rise.",
+          "shrineQuest": "EX Champion Revali's Song (The Champions' Ballad DLC)"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "A Gift for the Great Fairy",
+          "giver": "Toren, at Tabantha Bridge Stable",
+          "reward": "Access to Great Fairy Kaysa's fountain (armor upgrades)",
+          "oneLine": "Toren hands you his 500-rupee life savings to wake the Great Fairy; carry it southwest to Kaysa's fountain on Piper Ridge and pay her to open it."
+        },
+        {
+          "name": "Misko, the Great Bandit",
+          "giver": "Domidak and Prissen at Dueling Peaks Stable",
+          "reward": "Misko's hidden treasure (rupees and gear)",
+          "oneLine": "Started at Dueling Peaks Stable, but the clue points to ruined pillars where Rayne, Piper, and Tanagar meet in Hyrule Ridge - dig there for the stash."
+        }
+      ],
+      "greatFairy": null,
+      "notes": "Base game: 7 shrines in the Ridgeland Tower region (Maag No'rah, Mogg Latan, Zalta Wa, Mijah Rokee, Sheem Dagoze, Toh Yahsa, Shae Loya), plus the DLC Shira Gomar (Champions' Ballad) for 8 total - roster membership in the draft was correct. KEY FIXES vs draft: (1) Mijah Rokee is NOT a free-orb blessing - the shrine quest \\\"Under a Red Moon\\\" (Kass) makes it rise when you stand bare during a Blood Moon, and inside it's \\\"A Modest Test of Strength\\\" combat (Guardian Scout III); recategorized to mixed and added the quest. (2) Sheem Dagoze's trial is NOT \\\"Moving in Parallel\\\" with Magnesis panels (invented) - it's unlocked by \\\"The Two Rings\\\" (shoot an arrow through two stone rings) and the interior is the two-orb ramp puzzle; recategorized to quest, location moved to NW of Jeddo Bridge in West Hyrule Plains. (3) Zalta Wa is in the Breach of Demise just SE of Ridgeland Tower, NOT at Lindor's Brow; trial name \\\"Two Orbs to Guide You\\\" was correct. (4) Toh Yahsa is on Thundra Plateau west of the tower (NOT the Mount Daphnes/Tanagar side) and is unlocked by the \\\"Trial of Thunder\\\" shrine quest; recategorized to quest. (5) Shira Gomar's trial name is \\\"Aim for Stillness\\\" and reveal is via Mazli + shooting Dinraal's horn at night - confirmed. (6) Great Fairy Kaysa's fountain sits in the Tabantha Tower region (Piper Ridge), not Ridgeland, so greatFairy stays null - correct. HAZARDS: tower lake has Electric Wizzrobes/Lizalfos (rubber set or shock-resist meals); Hebra/Tabantha edges get cold at night (warm doublet or spicy food). CONFIDENCE: high on names/categories/quests; medium on a couple of fine landmark coordinates.",
+      "confidence": 0.9,
+      "changes": [
+        "Mijah Rokee: changed category from 'blessing' to 'mixed' and corrected the reward - it is NOT a free orb; it's unlocked by shrine quest 'Under a Red Moon' (Kass) and contains 'A Modest Test of Strength' combat (Guardian Scout III). Added shrineQuest 'Under a Red Moon' and rewrote the hint.",
+        "Sheem Dagoze: removed invented trial 'Moving in Parallel' / Magnesis-panel solution. Correct trial is the two-Ancient-Orb ramp puzzle, unlocked by the shrine quest 'The Two Rings' (shoot one arrow through two stone rings). Changed category from 'puzzle' to 'quest', added shrineQuest, fixed location to NW of Jeddo Bridge (West Hyrule Plains), rewrote hint.",
+        "Zalta Wa: fixed location - it is in the Breach of Demise just southeast of Ridgeland Tower, NOT in a cave at Lindor's Brow between Ridgeland and Hebra. Tightened the hint to the actual solution (orb-into-slot + floor switch + shock-launch platform). Trial name was already correct.",
+        "Toh Yahsa: fixed location from 'Mount Daphnes / Tanagar Canyon side' to Thundra Plateau west of Ridgeland Tower. Changed category from 'puzzle' to 'quest' and added shrineQuest 'Trial of Thunder' (the four-colored-orb outdoor puzzle that raises the shrine); clarified the interior is a short Magnesis puzzle ('Buried Secrets').",
+        "Shae Loya: refined location to a ridge just south of Tabantha Bridge Stable. Trial name 'Aim for the Moment' and puzzle category confirmed correct.",
+        "Mogg Latan: confirmed 'Synced Swing' puzzle on Satori Mountain; noted it uses Stasis as well as Magnesis. No change to category.",
+        "Shira Gomar: added the trial name 'Aim for Stillness' and corrected the reveal detail (talk to Mazli, wait for Dinraal at night, shoot the dragon's horn). DLC/quest classification confirmed correct.",
+        "Maag No'rah: confirmed 'blessing' with bomb-arrow cave entry SW of Maritta Exchange Ruins; tidied hint. No category change.",
+        "Great Fairy: confirmed greatFairy stays null - Kaysa's fountain (Piper Ridge) is in the Tabantha Tower region, not Ridgeland. Draft was correct.",
+        "Side quest 'A Gift for the Great Fairy': corrected the reward wording - Link does not keep the 500 rupees; he pays Toren's 500-rupee savings to Kaysa to unlock her fountain.",
+        "Tower climbTip: removed the unverifiable 'ride updrafts from nearby fires' detail and kept the verified electric-enemy hazard guidance."
+      ]
+    },
+    {
+      "regionKey": "tabantha",
+      "regionName": "Tabantha (Rito Village / Vah Medoh)",
+      "tower": {
+        "name": "Tabantha Tower",
+        "location": "Atop Nero Hill in the Tabantha Frontier, northwest Hyrule, between Rito Village and the Hebra Mountains. Reach it up the snowy slope from the Tabantha Great Bridge.",
+        "climbTip": "Malice covers the base and lower walls. Burn the Malice eyeball spikes near Nero Hill, then climb the clean stone above. Bring warm gear or spicy food for the cold."
+      },
+      "shrines": [
+        {
+          "name": "Akh Va'quot Shrine",
+          "location": "In Rito Village itself, on a separate stone spire reached by the wooden bridge near the top of the village's spiraling walkway.",
+          "category": "puzzle",
+          "oneLine": "Trial of the Windmills: raise the metal sail-fans into the wind so the propellers spin and move platforms; ride them up to reach the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Sha Warvo Shrine",
+          "location": "On Dronoc's Pass, the 'home' shrine of the Rito Flight Range, northwest of Rito Village past the Rito Stable path.",
+          "category": "puzzle",
+          "oneLine": "Path of Hidden Winds: paraglide above the floating fans to ride their updrafts up and across gaps; time your glides with the rotating walls.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Tena Ko'sah Shrine",
+          "location": "At the head of the Ancient Columns, southwest of the Tabantha Great Bridge, reached up through the Rayne Highlands.",
+          "category": "combat",
+          "oneLine": "A Major Test of Strength: defeat a Guardian Scout IV. Use the pillars to block its spin charge, then combo it while it's staggered.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Kah Okeo Shrine",
+          "location": "Far southwestern corner of the region, near the foot of the Rayne Highlands; the entrance sits beneath a movable stone platform.",
+          "category": "puzzle",
+          "oneLine": "Wind Guide: grab the Korok Leaf from the chest and fan the floating platforms across the wind currents to reach the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Voo Lota Shrine",
+          "location": "At Warbler's Nest, directly west of Rito Village near Dragon Bone Mire; it rises from the ground once the quest is done.",
+          "category": "quest",
+          "oneLine": "Complete the shrine quest to reveal it: cook Salmon Meuniere, then have the Rito sisters sing on the pedestals in the order the song dictates.",
+          "shrineQuest": "Recital at Warbler's Nest"
+        },
+        {
+          "name": "Bareeda Naag Shrine",
+          "location": "South of Rito Village at the base of Cuho Mountain, along the path from Rito Stable toward the Flight Range.",
+          "category": "quest",
+          "oneLine": "Learn the song (Bedoli then Laissa). At midday (~12:40) sun shines through a heart-shaped hole onto the pedestal; light a flame on it to reveal it.",
+          "shrineQuest": "The Ancient Rito Song"
+        },
+        {
+          "name": "Mozo Shenno Shrine",
+          "location": "In a cave on the Biron Snowshelf in the snowy mountains north of Rito Village (map-filed under Hebra); revealed by a Rito Village quest.",
+          "category": "quest",
+          "oneLine": "Quest-locked combat shrine: A Major Test of Strength vs a Guardian Scout IV wielding sword, spear, and axe. Raise metal blocks with Magnesis to stun it.",
+          "shrineQuest": "The Bird in the Mountains"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "A Gift for the Great Fairy",
+          "giver": "Toren, at Tabantha Bridge Stable",
+          "reward": "The revived Great Fairy Fountain (you keep the 500 Rupees if Kaysa is already free)",
+          "oneLine": "Toren gives you 500 Rupees to offer Great Fairy Kaysa; find her fountain on Piper Ridge south of Tabantha Tower and revive her."
+        },
+        {
+          "name": "The Spark of Romance",
+          "giver": "Jogo, in Rito Village",
+          "reward": "Purple Rupee (50 Rupees)",
+          "oneLine": "Bring Jogo a piece of flint so he can light a fire and bake apples for his wife."
+        },
+        {
+          "name": "The Apple of My Eye",
+          "giver": "Juney, in Rito Village",
+          "reward": "Mighty Bananas",
+          "oneLine": "Cook and deliver a Baked Apple to Juney so she can keep up her offering at the Goddess statue."
+        },
+        {
+          "name": "Find Kheel",
+          "giver": "Amali, in Rito Village",
+          "reward": "Rupees; also unlocks the Recital at Warbler's Nest shrine quest",
+          "oneLine": "Track down Amali's missing daughter Kheel; she has flown off to Warbler's Nest with her sisters."
+        },
+        {
+          "name": "Face the Frost Talus",
+          "giver": "Gesane, in Rito Village",
+          "reward": "Purple Rupee (50 Rupees)",
+          "oneLine": "Defeat the Frost Talus out in the Hebra/Tabantha mountains, then report back to Gesane."
+        }
+      ],
+      "greatFairy": {
+        "name": "Kaysa",
+        "location": "On Piper Ridge, a ridge south of Nero Hill / Tabantha Tower in the Tabantha Frontier. Paraglide south from the top of Tabantha Tower to spot the flower bud below.",
+        "unlockCost": "A Rupee offering that scales with how many Great Fairies you've already freed: 100, then 500, then 1,000, then 10,000 Rupees."
+      },
+      "notes": "Region scope: treated \"Tabantha\" as the Rito Village / Vah Medoh / cold Tabantha Frontier area, matching how Game8 and Gamer Guides group the Tabantha Tower region. That gives 7 shrines: Akh Va'quot, Sha Warvo, Tena Ko'sah, Kah Okeo, Voo Lota, Bareeda Naag, Mozo Shenno. High confidence on the seven names and their trial types after verification.\n\nCATEGORY FIXES (these were the big draft errors): Tena Ko'sah is NOT a multi-room ball/turret puzzle - it is a COMBAT shrine, 'A Major Test of Strength' vs a Guardian Scout IV (3000 HP). Kah Okeo is NOT a blessing shrine - it is a PUZZLE, 'Wind Guide', solved with a Korok Leaf and wind currents; the entrance is under a movable platform (Stasis), not a metal slab lifted by Magnesis. Mozo Shenno's enemy is a Guardian Scout IV, not 'III'.\n\nBareeda Naag: the quest is started by Bedoli (she teaches half the song, then sends you to her sister Laissa for the rest), and the reveal works by midday sun (~12:40) shining through a heart-shaped hole onto the pedestal, then lighting a flame on it - not a 'falling shadow.' The draft also implied a single giver 'Laissa,' which was incomplete.\n\nGreat Fairy: verified - only 4 Great Fairies exist (Cotera, Kaysa, Mija, Tera). Kaysa is the correct one for this region, on Piper Ridge south of Tabantha Tower. The escalating offering (100/500/1,000/10,000) is correct.\n\nCaveats: Mozo Shenno's physical entrance is on the Biron Snowshelf, which several guides (Game8, Gamer Guides) file under Hebra; I kept it here because its unlock quest 'The Bird in the Mountains' comes from Molli in Rito Village. If the app draws the border by map cell, list it under Hebra and count 6 here. 'A Gift for the Great Fairy' is filed by Gamer Guides under the Ridgeland region (Tabantha Bridge Stable is near the border) but pairs with Kaysa, so I kept it here. Side-quest reward specifics (exact Rupee colors) are lower confidence than the quest names/givers.\n\nHazards: the region is cold (colder near the tower/snowfield) - carry the Warm Doublet, spicy peppers/meals, or cold-resistance elixirs. The Tabantha Tower base is wrapped in Malice. Zelda Dungeon's broad 'Tabantha Tower Region' page lumps in Hebra shrines (Dunba Taag, Gee Ha'rah, Lanno Kooh, Rona Kachta, Sheem Dagoze) - those are NOT in this Rito/Tabantha set and are excluded.",
+      "confidence": 0.9,
+      "changes": [
+        "Tena Ko'sah: changed category from 'puzzle' to 'combat' and rewrote the hint - it is 'A Major Test of Strength' vs a Guardian Scout IV, NOT a multi-room rolling-ball/turret/Stasis/bomb puzzle (that description was invented).",
+        "Kah Okeo: changed category from 'blessing' to 'puzzle' and rewrote the hint - it is the 'Wind Guide' shrine solved with a Korok Leaf and wind currents; entrance is under a movable platform (Stasis), NOT a free Spirit Orb under a Magnesis-lifted metal slab (that was invented).",
+        "Mozo Shenno: corrected the enemy from 'Guardian Scout III' to the correct 'Guardian Scout IV'; added the Magnesis-block stun tip.",
+        "Bareeda Naag: fixed the quest mechanic - the song is learned from Bedoli first (she sends you to Laissa for the rest), and the shrine is revealed by midday sun (~12:40) through a heart-shaped hole hitting the pedestal where you light a flame; removed the inaccurate 'falling shadow' / single-giver 'Laissa' framing.",
+        "Akh Va'quot: added the real trial name 'Windmills' to the hint (hint mechanic was already correct).",
+        "Sha Warvo: tightened the location to Dronoc's Pass (the Flight Range home shrine) and added the trial name 'Path of Hidden Winds'.",
+        "A Gift for the Great Fairy: clarified the reward (the revived fountain; you keep the 500 Rupees only if Kaysa is already free) and noted Kaysa's fountain is on Piper Ridge.",
+        "Verified the 7-shrine roster, the Great Fairy assignment (Kaysa, one of only 4 Great Fairies), and the escalating offering cost - all confirmed correct.",
+        "Raised confidence from 0.82 to 0.90 after web-verifying every shrine's trial type and the quest givers."
+      ]
+    },
+    {
+      "regionKey": "hebra",
+      "regionName": "Hebra",
+      "tower": {
+        "name": "Hebra Tower",
+        "location": "Atop a rock spire in the Hebra Mountains, just southwest of Snowfield Stable / north of the Tabantha frontier, overlooking the frozen Hebra range",
+        "climbTip": "Bitter cold up here, so wear cold-resist gear or sip a spicy elixir before you start. The tower itself is climbable, but the smart play is to glide in from the higher peaks to the south/west rather than climb up from the freezing valley floor."
+      },
+      "shrines": [
+        {
+          "name": "Hia Miu Shrine",
+          "location": "Far northwestern corner of the map, at the base of the Icefall Foothills",
+          "category": "combat",
+          "oneLine": "A Major Test of Strength vs a Guardian Scout IV. Dodge its melee for flurry rushes; ancient/strong weapons end it fast. Chest holds a Sapphire.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Goma Asaagh Shrine",
+          "location": "Behind ice chunks at the southwestern base of Hebra Peak",
+          "category": "combat",
+          "oneLine": "Major Test of Strength vs a Guardian Scout IV. Melt or smash the ice with fire/bombs to enter, then flurry-rush the scout.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Mozo Shenno Shrine",
+          "location": "Inside a small cave under the Biron Snowshelf, in the Hebra Mountains",
+          "category": "combat",
+          "oneLine": "Major Test of Strength vs a Guardian Scout IV. Revealed by the shrine quest 'The Bird in the Mountains' (talk to Molli at Rito Village first).",
+          "shrineQuest": "The Bird in the Mountains"
+        },
+        {
+          "name": "Qaza Tokki Shrine",
+          "location": "In the center of the North Lomei Labyrinth, northeast of the Tabantha Tundra in the Hebra range",
+          "category": "quest",
+          "oneLine": "Solve the North Lomei Labyrinth maze to reach it; gliding from above makes navigation far easier. Grants Qaza Tokki's Blessing.",
+          "shrineQuest": "Trial on the Cliff"
+        },
+        {
+          "name": "Lanno Kooh Shrine",
+          "location": "West of Hebra Tower, just north of the Hebra Plunge",
+          "category": "blessing",
+          "oneLine": "A free blessing shrine - just walk in and claim the Spirit Orb (and the bonus chest).",
+          "shrineQuest": null
+        },
+        {
+          "name": "To Quomo Shrine",
+          "location": "Inside a cave at the center of the Hebra North Summit",
+          "category": "blessing",
+          "oneLine": "A blessing shrine; the work is reaching it through the freezing summit, not the puzzle. Grab the orb and bonus chest.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Sha Gehma Shrine",
+          "location": "Northern edge of the North Tabantha Snowfield, west of the North Lomei Labyrinth",
+          "category": "puzzle",
+          "oneLine": "'Shift and Lock' - rotate and lock the moving floor/wall sections to build a path across to the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Shada Naw Shrine",
+          "location": "A few steps north of Selmie's Spot, high on the Hebra mountainside",
+          "category": "puzzle",
+          "oneLine": "Use Cryonis pillars on the water surfaces and Magnesis on metal to bridge the gaps and reach the altar.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Rok Uwog Shrine",
+          "location": "At the north end of Pikida Stonegrove",
+          "category": "puzzle",
+          "oneLine": "Roll the giant boulder onto pressure switches; line up the ball drops to open each gate in turn.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Maka Rah Shrine",
+          "location": "In a clifftop cavern near Lake Kilsie, northwest of Rito Village (enter via the cave under the cliff edge northeast of the lake's pier)",
+          "category": "puzzle",
+          "oneLine": "'Steady Thy Heart' - use Magnesis to steer the big spiked metal ball, smashing crates and clearing the path; grab the Diamond chest.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Rin Oyaa Shrine",
+          "location": "Northeast of Hebra Tower, hidden under a rock near Snowfield Stable",
+          "category": "puzzle",
+          "oneLine": "Use the water wheels and Magnesis to move the metal blocks/balls onto switches; redirect the flow to open the gates.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Dunba Taag Shrine",
+          "location": "In Tanagar Canyon, just southeast of Rito Stable, southwest of Hebra Tower",
+          "category": "puzzle",
+          "oneLine": "Use Stasis on the spinning cogwheel and on the stone ball/barrels (Stasis-golf) to whack them onto the switches and open each gate.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Gee Ha'rah Shrine",
+          "location": "Northwest of Hebra Tower, just south of Kopeeki Drifts",
+          "category": "puzzle",
+          "oneLine": "A pinwheel/maze puzzle - rotate the wind-powered wheels to spin the maze walls and roll the ball to its goal.",
+          "shrineQuest": null
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "Stalhorse: Pictured!",
+          "giver": "Juannelle (Snowfield Stable)",
+          "oneLine": "Photograph a Stalhorse - they appear at night in the North Tabantha Snowfield - then show Juannelle the picture.",
+          "reward": "Silver Rupee (100 Rupees)"
+        },
+        {
+          "name": "Snowball Bowling",
+          "giver": "Pondo (Pondo's Lodge, northeast of Hebra Tower)",
+          "oneLine": "Pay 20 rupees to roll a giant snowball down the slope at the totem 'pins'; a first-ball strike is the goal.",
+          "reward": "Blizzard Rod for a first-throw strike (Gold Rupee on later strikes/full inventory)"
+        }
+      ],
+      "notes": "Verified the 13-shrine Hebra Tower roster against ZeldaSpeedRuns (lists exactly these 13 names: Dunba Taag, Gee Ha'rah, Goma Asaagh, Hia Miu, Lanno Kooh, Maka Rah, Mozo Shenno, Qaza Tokki, Rin Oyaa, Rok Uwog, Sha Gehma, Shada Naw, To Quomo) and cross-checked Game8/Gamer Guides. Breakdown: 3 Major Test of Strength (Hia Miu, Goma Asaagh, Mozo Shenno) vs Guardian Scout IV; 2 blessings (Lanno Kooh, To Quomo); 7 puzzles; plus Qaza Tokki, which is mechanically a blessing shrine (no puzzle) but only appears via the 'Trial on the Cliff' shrine quest in the North Lomei Labyrinth - kept its category as 'quest' to flag the gating. Two quest-gated shrines: Qaza Tokki ('Trial on the Cliff') and Mozo Shenno ('The Bird in the Mountains', given by Molli at Rito Village; shrine sits under the bird-shaped Biron Snowshelf). SCOPE: confirmed Rona Kachta (Forgotten Temple) and Monya Toma (Salari Hill) are catalogued under the WOODLAND Tower region by Game8/Gamer Guides even though they sit on Hebra/Tabantha-frontier terrain, so they are correctly excluded here. GREAT FAIRY: none in Hebra. The four Great Fairies are Cotera (Dueling Peaks), Kaysa (Tabantha, south of Tabantha Tower at Piper Ridge), Mija (Akkala) and Tera (Gerudo); nearest to Hebra is Kaysa in Tabantha. HAZARD: the whole region is freezing - bring cold-resistance armor (Snowquill set from Rito Village) or spicy/warm elixirs; blizzards cut visibility. CORRECTIONS this pass: Stalhorse: Pictured! reward is a Silver Rupee (100 Rupees), not 500 Rupees (multiple wikis agree). Dunba Taag's hint was wrong - the puzzle uses Stasis (cogwheel + Stasis-golf on a stone ball/barrels), not Magnesis or a hammer/seesaw launch; corrected. Maka Rah location refined to the Lake Kilsie cave (cave entrance under the cliff edge NE of the lake's pier). Snowball Bowling reward (Blizzard Rod on a first-throw strike, Gold Rupee otherwise) verified correct.",
+      "confidence": 0.9,
+      "changes": [
+        "Stalhorse: Pictured! reward corrected from '500 Rupees' to 'Silver Rupee (100 Rupees)' - confirmed by Game8, SAMURAI GAMERS, Fandom and Zelda Dungeon; the draft itself flagged this as unverified.",
+        "Dunba Taag Shrine hint rewritten: the draft claimed 'Magnesis on the metal hammer/seesaw mechanisms to launch yourself and the orbs onto the goals,' which is incorrect. The actual puzzle uses Stasis on a spinning cogwheel and Stasis-golf on a stone ball/barrels to hit switches and open gates (verified via Game8/Zelda Dungeon).",
+        "Dunba Taag location clarified to 'Tanagar Canyon, just southeast of Rito Stable' (more precise landmark than 'on a ledge in Tanagar Canyon').",
+        "Maka Rah Shrine location refined to the Lake Kilsie cave whose entrance is under the cliff edge northeast of the lake's pier (replacing the vaguer 'updraft off a small island' detail, which was not corroborated).",
+        "Confidence raised from 0.82 to 0.90 after confirming the exact 13-shrine roster against ZeldaSpeedRuns, the Woodland-region scope of Rona Kachta/Monya Toma, the four Great-Fairy locations, and the Mozo Shenno / Qaza Tokki quest details. Roster, names, categories, Great Fairy (null), and the scope/exclusion call were all already correct in the draft."
+      ]
+    },
+    {
+      "regionKey": "woodland",
+      "regionName": "Woodland (Great Hyrule Forest, Lost Woods, Korok Forest)",
+      "tower": {
+        "name": "Woodland Tower",
+        "location": "In the swampy Military Training Camp, southeast of the Great Hyrule Forest and northeast of Hyrule Castle.",
+        "climbTip": "Clear the Bokoblin/Moblin camp first. Approach from higher ground to the east, glide in, and avoid the malice-soaked swamp at the base that drains stamina."
+      },
+      "shrines": [
+        {
+          "name": "Keo Ruug Shrine",
+          "location": "At the base of the Great Deku Tree in Korok Forest, center of the Lost Woods.",
+          "category": "puzzle",
+          "oneLine": "Look to the stars: place each orb in the row matching how many times that constellation appears on the back wall (5-3-1-2, left to right).",
+          "shrineQuest": null
+        },
+        {
+          "name": "Mirro Shaz Shrine",
+          "location": "Just east of Woodland Stable near Pico Pond, on the eastern fringe of the Great Hyrule Forest by the road.",
+          "category": "puzzle",
+          "oneLine": "Tempered Power: line up behind the orb, freeze it with Stasis, then whack it with a sledgehammer to launch it straight into the slot.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Monya Toma Shrine",
+          "location": "On Salari Hill on the western edge of the region, south of Serenne Stable.",
+          "category": "puzzle",
+          "oneLine": "Drawing Parabolas: shoot the crystal switch to aim the rotating launchers, then fire the orb through the arcing launchers into the caged receptacle.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Daag Chokah Shrine",
+          "location": "Northwest of Korok Forest in the Lost Woods, revealed after the shrine quest.",
+          "category": "quest",
+          "oneLine": "Finish The Lost Pilgrimage by stealth-following the Korok Oaki through the Lost Woods without being spotted; free orb inside, no puzzle.",
+          "shrineQuest": "The Lost Pilgrimage"
+        },
+        {
+          "name": "Maag Halan Shrine",
+          "location": "In the Lost Woods east of Korok Forest, revealed after the shrine quest.",
+          "category": "quest",
+          "oneLine": "Complete The Test of Wood: cross the Lost Woods without breaking or unequipping the Forest Dweller's sword, shield, and bow; free orb inside.",
+          "shrineQuest": "The Test of Wood"
+        },
+        {
+          "name": "Kuhn Sidajj Shrine",
+          "location": "On the shore of Lake Saria in the southwest of the Lost Woods, revealed after the shrine quest.",
+          "category": "quest",
+          "oneLine": "Solve Trial of Second Sight: follow the Ogre Trees (use Magnesis on the metal boulders) and return the chest to the island tree; free orb inside.",
+          "shrineQuest": "Trial of Second Sight"
+        },
+        {
+          "name": "Ketoh Wawai Shrine",
+          "location": "Inside the pitch-dark Thyphlo Ruins, north of Korok Forest, revealed after the shrine quest.",
+          "category": "quest",
+          "oneLine": "Shrouded Shrine: light the bird statues with a torch to navigate, take the orb from the sleeping Hinox, set it on the pedestal; free orb inside.",
+          "shrineQuest": "Shrouded Shrine"
+        },
+        {
+          "name": "Rona Kachta Shrine",
+          "location": "At the back of the Forgotten Temple in Tanagar Canyon, far western edge of the region.",
+          "category": "blessing",
+          "oneLine": "Survive the Guardian gauntlet through the Forgotten Temple to reach the shrine behind the Goddess Statue; free orb, no inner puzzle.",
+          "shrineQuest": null
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "The Korok Trials",
+          "giver": "Chio (Great Deku Tree, Korok Forest)",
+          "reward": "3 Big Hearty Truffles",
+          "oneLine": "Chio asks you to clear three forest shrine quests: Trial of Second Sight, The Lost Pilgrimage, and The Test of Wood."
+        },
+        {
+          "name": "Riddles of Hyrule",
+          "giver": "Walton (asleep atop the Great Deku Tree, Korok Forest)",
+          "reward": "A Diamond (after all five riddles)",
+          "oneLine": "Solve Walton's five riddles by dropping the right item on the leaf before him: apple, fortified pumpkin, sunshroom, voltfin trout, Lynel hoof."
+        }
+      ],
+      "greatFairy": null,
+      "notes": "8 shrines confirmed for the Woodland Tower region (Game8, Gamer Guides, Zelda Dungeon): Keo Ruug, Mirro Shaz, Monya Toma, Daag Chokah, Maag Halan, Kuhn Sidajj, Ketoh Wawai, Rona Kachta. Four are quest-locked: Daag Chokah (The Lost Pilgrimage, giver Tasho), Maag Halan (The Test of Wood, giver Damia), Kuhn Sidajj (Trial of Second Sight, giver Zooki), Ketoh Wawai (Shrouded Shrine). Daag Chokah, Maag Halan and Ketoh Wawai are blessing-type interiors (free orb, no puzzle) but are categorized 'quest' here since the schema's defining trait for them is the unlocking shrine quest; Rona Kachta is a pure blessing reached via the Forgotten Temple Guardian gauntlet. No combat/Test of Strength shrines exist in this region. No Great Fairy Fountain sits here — the four fountains are Cotera (Kakariko/W. Necluda), Kaysa (Tabantha/Rito), Mija (Akkala), Tera (Gerudo Desert). Hazards: the Lost Woods fog you out and send you back unless you follow the torch embers / wind direction; the Military Training Camp around the tower is a malice-soaked enemy swamp; Thyphlo Ruins is pitch black (bring a torch or fire arrows). Lower-confidence specifics: exact orb-placement order in Keo Ruug (5-3-1-2) is community-reported and correct in most playthroughs; in-quest step details for Trial of Second Sight and Test of Wood are paraphrased.",
+      "confidence": 0.9,
+      "changes": [
+        "Korok Trials reward corrected: draft said 'an upgraded item / hidden shrine access plus three Spirit Orbs' — the actual reward from Chio is 3 Big Hearty Truffles (the orbs come from the individual shrine quests, not the trials side quest).",
+        "Keo Ruug hint was invented ('rotate the pinwheel, Stasis the orb along a spinning arm'). Replaced with the real puzzle: a constellation/stars puzzle, placing orbs by how many times each constellation repeats on the back wall (5-3-1-2).",
+        "Monya Toma hint was invented ('carry the orb across angled platforms that push out and retract'). Replaced with the real Drawing Parabolas mechanic: shoot the crystal switch to aim rotating launchers and fire the orb through arcing launchers into the receptacle.",
+        "Maag Halan hint was wrong: it claimed 'light torches in order using fire spirits' and a 'short block/orb puzzle inside'. Replaced with the real Test of Wood quest (cross the Lost Woods without breaking/unequipping the Forest Dweller's gear); it is a blessing shrine with no inner puzzle.",
+        "Kuhn Sidajj hint was wrong ('glowing butterfly/torches Chio describes'). Replaced with the real Trial of Second Sight: follow Ogre Trees using Magnesis on metal boulders and return the chest to the island tree. Also noted the quest giver is Zooki, not Chio.",
+        "Daag Chokah oneLine clarified to note it is a free-orb blessing interior with no puzzle (giver is Tasho; you follow Oaki).",
+        "Riddles of Hyrule oneLine expanded with the actual five answer items (apple, fortified pumpkin, sunshroom, voltfin trout, Lynel hoof); reward Diamond confirmed.",
+        "Corrected spelling/location detail: 'Typhlo Ruins' standardized to 'Thyphlo Ruins' (in-game spelling) for Ketoh Wawai.",
+        "Tightened tower climbTip (removed unverifiable 'saps your run' phrasing).",
+        "Verified Rona Kachta genuinely belongs to the Woodland Tower region (Forgotten Temple, Tanagar Canyon, far west) — kept as a blessing shrine.",
+        "Confirmed no Great Fairy in this region; corrected the notes' fountain list (Kaysa is Tabantha/Rito, Tera is Gerudo Desert — not the Forgotten Temple area)."
+      ]
+    },
+    {
+      "regionKey": "eldin",
+      "regionName": "Eldin",
+      "tower": {
+        "name": "Eldin Tower",
+        "location": "Eldin Canyon, atop a rocky peak south of Death Mountain and north of Foothill Stable, overlooking the lava fields of the canyon.",
+        "climbTip": "No puzzle to solve, but the base sits in a lava field, so cross the rock bridges to reach it and rest on the platforms to refill stamina. The area is extreme heat, so wear Flamebreaker gear or drink a Fireproof Elixir before climbing."
+      },
+      "shrines": [
+        {
+          "name": "Mo'a Keet Shrine",
+          "location": "Atop a cliff just east of Foothill Stable, at the southern edge of Eldin Canyon.",
+          "category": "puzzle",
+          "oneLine": "Trial 'Metal Makes a Path'. Use Magnesis to slide the large metal blocks and build a bridge across the gaps to the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Sah Dahaj Shrine",
+          "location": "Eldin Canyon, hidden in a gorge directly north of Cephla Lake, near the road up Death Mountain.",
+          "category": "puzzle",
+          "oneLine": "Trial 'Power of Fire'. Light the torch from the flame and use it past fire jets; the chest sits behind a bombable cracked wall.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Daqa Koh Shrine",
+          "location": "Off the Mountain Road to Death Mountain, east of Goron Hot Springs and shortly before the Bridge of Eldin.",
+          "category": "puzzle",
+          "oneLine": "Trial 'Stalled Flight'. Stand on the launching block and Stasis it the instant the connector links, holding the gate open to glide in.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Qua Raym Shrine",
+          "location": "On a small islet in Goronbi Lake, west of Eldin Tower (hidden behind a rock in the lake).",
+          "category": "puzzle",
+          "oneLine": "Trial 'A Balanced Approach'. Burn the crate on the scale to lift it, grab the key from the chest, then Magnesis the metal box.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Shae Mo'sah Shrine",
+          "location": "On a cliff in the northern part of Goron City, in Eldin Canyon.",
+          "category": "puzzle",
+          "oneLine": "Trial 'Swinging Flames'. Light a torch and ride the swinging and moving platforms to carry the flame and reach the monk.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Shora Hah Shrine",
+          "location": "Beneath the crab-shaped Isle of Rabac, reached by riding a mine cart from the Abandoned North Mine.",
+          "category": "puzzle",
+          "oneLine": "Trial 'Blue Flame'. Carry the blue flame across gusts and gaps to light the braziers; use moving platforms to cross.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Kayra Mah Shrine",
+          "location": "Revealed in the Abandoned North Mine area northeast of Goron City, dug out during the shrine quest.",
+          "category": "quest",
+          "oneLine": "Start 'A Brother's Roast' with Bladon in Goron City; bring Gonguron a grilled rock roast so he digs out the shrine.",
+          "shrineQuest": "A Brother's Roast"
+        },
+        {
+          "name": "Gorae Torr Shrine",
+          "location": "Atop Gut Check Rock, north of Death Mountain in northeastern Eldin.",
+          "category": "quest",
+          "oneLine": "Win Bayge's Gut Check Challenge: climb Gut Check Rock in under 3 minutes collecting 100+ rupees. A free blessing waits inside.",
+          "shrineQuest": "The Gut Check Challenge"
+        },
+        {
+          "name": "Tah Muhl Shrine",
+          "location": "Southwest of Foothill Stable, just north of Trilby Valley in Eldin Canyon (revealed via the quest).",
+          "category": "quest",
+          "oneLine": "Trial 'Passing the Flame'. Talk to Mayro about the stable painting, then stand where it was painted (south) to spot the shrine.",
+          "shrineQuest": "A Landscape of a Stable"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "Fireproof Lizard Roundup",
+          "giver": "Kima (Southern Mine, southwest of Goron City)",
+          "oneLine": "Catch and deliver 10 Fireproof Lizards to Kima to help the injured miners; he takes them in batches.",
+          "reward": "Flamebreaker Armor (the chest piece of the heat-resistant set)"
+        },
+        {
+          "name": "The Road to Respect",
+          "giver": "Fugo (Goron City)",
+          "oneLine": "Defeat the Igneo Talus at Darunia Lake that the blacksmith's apprentice Fugo couldn't beat, then report back to him.",
+          "reward": "100 Rupees (plus the gems the Igneo Talus drops)"
+        },
+        {
+          "name": "Death Mountain's Secret",
+          "giver": "Dugby (Goron Hot Springs, daytime)",
+          "oneLine": "Find Dugby's hidden weapon along the path to the Bridge of Eldin, behind a bombable cracked wall above the lava falls.",
+          "reward": "A Drillshaft"
+        },
+        {
+          "name": "The Jewel Trade",
+          "giver": "Ramella (Goron City)",
+          "oneLine": "Bring the gem collector Ramella 10 pieces of Amber while she tours Goron City.",
+          "reward": "Amber Earrings (jewelry that boosts defense)"
+        }
+      ],
+      "notes": "Eldin has exactly 9 shrines, cross-verified against Game8, Zelda Dungeon, and Zeldapedia: Mo'a Keet, Sah Dahaj, Daqa Koh, Qua Raym, Shae Mo'sah, Shora Hah, Kayra Mah (quest), Gorae Torr (quest), and Tah Muhl (quest). Three are quest-locked: A Brother's Roast (Kayra Mah), The Gut Check Challenge (Gorae Torr), and A Landscape of a Stable (Tah Muhl). NO Great Fairy Fountain is in Eldin -- the four are Cotera (West Necluda, near Kakariko Village), Kaysa (Tabantha), Mija (Akkala), and Tera (Gerudo Desert) -- so greatFairy is correctly null. Eldin is extreme-heat: Flamebreaker armor or Fireproof Elixirs are essentially mandatory above Goron City, and on Death Mountain itself only Flamebreaker/elixir stops wooden weapons and gear from catching fire. The draft had several swapped or invented trial details that I corrected (see changes); shrine NAMES, counts, categories, and quest associations were otherwise sound. Confidence is high after verification; only mild uncertainty remains on the exact in-shrine step order, but the trial names are now confirmed correct.",
+      "confidence": 0.93,
+      "greatFairy": null,
+      "changes": [
+        "Shae Mo'sah Shrine: trial name was wrong -- it is 'Swinging Flames' (a fire / swinging-platform torch puzzle), NOT 'Trial of Thunder'. Removed the invented 'electric orb / conductive rails' hint, which is not in this shrine.",
+        "Daqa Koh Shrine: 'Stalled Flight' is this shrine's actual trial name, not a separate nearby challenge as the draft implied. Replaced the invented 'Stasis the pendulum and rolling boulders, time your dash' solution with the real one: Stasis the launching block at the moment the electric connector links to hold the gate open, then paraglide in.",
+        "Qua Raym Shrine: corrected location from 'near Gero Pond' to a small islet in Goronbi Lake (west of Eldin Tower). Replaced the invented 'see-saw / roll the iron ball onto a lever to launch a platform' solution with the real one: burn the crate on the scale, take the key from the chest, and use Magnesis on the metal box. Trial name 'A Balanced Approach' was correct.",
+        "Sah Dahaj Shrine: tightened the vague location to 'hidden in a gorge directly north of Cephla Lake' and moved the 'bomb the cracked wall to reach the chest' detail here, where it actually belongs (the draft had attached that chest hint to Daqa Koh). Trial name 'Power of Fire' was correct.",
+        "Mo'a Keet Shrine: corrected location from 'just southeast of Foothill Stable, at the foot of the canyon' to 'atop a cliff just east of Foothill Stable'. Trial name and Magnesis solution were correct.",
+        "Shora Hah Shrine: corrected location from 'Death Mountain summit / Lake Darunia, via the upper mine cart line' to 'beneath the Isle of Rabac, reached by mine cart from the Abandoned North Mine'. Trial name 'Blue Flame' was correct.",
+        "Kayra Mah Shrine: corrected the quest-giver -- 'A Brother's Roast' is started by talking to Bladon in Goron City (Gonguron is the brother who digs out the shrine). The draft omitted Bladon and the grilled-rock-roast objective.",
+        "Tah Muhl Shrine: added the verified trial name 'Passing the Flame' and clarified you stand where the painting was made (to the south of the stable) to reveal it.",
+        "The Road to Respect reward: corrected from 'A Silver Rupee (worth 100 rupees)' -- there is no Silver Rupee item in BotW. The reward is 100 Rupees (plus the gems dropped by the Igneo Talus).",
+        "Fireproof Lizard Roundup: clarified Kima is at the Southern Mine southwest of Goron City.",
+        "Great Fairy note: corrected Cotera's region from 'Kakariko' to 'West Necluda' (Kakariko Village is the nearby landmark). The null assignment for Eldin is correct.",
+        "Raised confidence from 0.82 to 0.93 after web-verifying all 9 trial names, locations, and quest-givers against Game8, Zelda Dungeon, and Zeldapedia."
+      ]
+    },
+    {
+      "regionKey": "akkala",
+      "regionName": "Akkala",
+      "tower": {
+        "name": "Akkala Tower",
+        "location": "Central Akkala, on a rock spire rising from a Malice-soaked pool in the Akkala Wilds, not far north of South Akkala Stable, ringed by Guardians",
+        "climbTip": "The base sits in a Malice bog patrolled by Guardians. Approach from a rim with rock cover, dodge the beams, then climb a Malice-free face of the spire. Bring stamina food."
+      },
+      "shrines": [
+        {
+          "name": "Dah Hesho Shrine",
+          "location": "On a cliff south of Tarrey Town overlooking Lake Akkala, just east of Akkala Tower and near Great Fairy Mija's fountain",
+          "category": "combat",
+          "oneLine": "A Minor Test of Strength. Beat the Guardian Scout II; dodge its axe swings for a flurry rush, or stun it with shock/ice arrows.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Ze Kasho Shrine",
+          "location": "On a ridge above South Akkala Stable, central Akkala on the main road",
+          "category": "puzzle",
+          "oneLine": "Ze Kasho Apparatus. Use motion controls to tilt the platform so the floor spikes slide clear of your path, then cross the laser room.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Katosa Aug Shrine",
+          "location": "Just east of East Akkala Stable, near the eastern edge of the region",
+          "category": "puzzle",
+          "oneLine": "Katosa Aug Apparatus. Use motion controls to swing the putter/hammer so it knocks the Ancient Orb across into the concave receptacle.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Ke'nai Shakah Shrine",
+          "location": "In a cave on the southern cliffside facing Ulria Grotto, southeast Akkala; bomb the cracked rock to get in",
+          "category": "combat",
+          "oneLine": "A Modest Test of Strength. Bomb-arrow the cracked wall to enter, then beat the Guardian Scout III with flurry rushes and shock/ice arrows.",
+          "shrineQuest": null
+        },
+        {
+          "name": "Zuna Kai Shrine",
+          "location": "Atop a tall stone pillar in the left 'eye' of Skull Lake, far north Akkala (revealed after the shrine quest)",
+          "category": "quest",
+          "oneLine": "Quest 'The Skull's Eye': get the tip from Jerrin, then climb or paraglide to the pillar in Skull Lake's left eye. Inside is a free blessing.",
+          "shrineQuest": "The Skull's Eye"
+        },
+        {
+          "name": "Ritaag Zumo Shrine",
+          "location": "At the spiral tip of Rist Peninsula, far northeast Akkala coast (revealed after the shrine quest)",
+          "category": "quest",
+          "oneLine": "Quest 'Into the Vortex': carry the nearby Ancient Orb to the center of the Rist Peninsula spiral and set it in the pedestal. Free blessing inside.",
+          "shrineQuest": "Into the Vortex"
+        },
+        {
+          "name": "Tu Ka'loh Shrine",
+          "location": "On Lomei Labyrinth Island, the maze island off the far northeast Akkala coast (revealed after the shrine quest)",
+          "category": "quest",
+          "oneLine": "Quest 'Trial of the Labyrinth': cross the Guardian-filled maze (fire-arrow the Malice eye) to the shrine; free blessing, plus a Barbarian Helm chest.",
+          "shrineQuest": "Trial of the Labyrinth"
+        },
+        {
+          "name": "Tutsuwa Nima Shrine",
+          "location": "At the Spring of Power, central-east Akkala west of East Akkala Stable (revealed after the shrine quest)",
+          "category": "mixed",
+          "oneLine": "Quest 'The Spring of Power': offer a Shard of Dinraal's Scale at the spring to open it; inside is a Major Test of Strength vs a Guardian Scout IV.",
+          "shrineQuest": "The Spring of Power"
+        }
+      ],
+      "sideQuests": [
+        {
+          "name": "From the Ground Up",
+          "giver": "Hudson (Bolson Construction; met during 'Hylian Homeowner' in Hateno, then sent to Akkala)",
+          "oneLine": "Send Hudson to Akkala, then recruit residents whose names end in 'son' to build Tarrey Town from scratch around the lakeside.",
+          "reward": "Builds Tarrey Town (general store, dye shop, ongoing supplies) and a wedding scene"
+        },
+        {
+          "name": "The Spring of Power",
+          "giver": "Nobo at East Akkala Stable",
+          "oneLine": "Take the legend to the Spring of Power and offer a Shard of Dinraal's Scale to the goddess statue to reveal Tutsuwa Nima Shrine.",
+          "reward": "Reveals Tutsuwa Nima Shrine"
+        },
+        {
+          "name": "The Skull's Eye",
+          "giver": "Jerrin at the Akkala Ancient Tech Lab",
+          "oneLine": "Reach the Ancient Shrine atop the pillar in Skull Lake's left eye to reveal Zuna Kai Shrine.",
+          "reward": "Reveals Zuna Kai Shrine"
+        },
+        {
+          "name": "Into the Vortex",
+          "giver": "Stone tablet at the base of Rist Peninsula (auto-logged when read)",
+          "oneLine": "Carry the nearby Ancient Orb to the center of the Rist Peninsula spiral and place it to make Ritaag Zumo Shrine rise.",
+          "reward": "Reveals Ritaag Zumo Shrine"
+        },
+        {
+          "name": "Trial of the Labyrinth",
+          "giver": "Auto-logged on reaching Lomei Labyrinth Island",
+          "oneLine": "Navigate the Guardian-filled northeast maze and burn the Malice eye to reach Tu Ka'loh Shrine; a Barbarian Helm chest sits inside the shrine.",
+          "reward": "Reveals Tu Ka'loh Shrine; Barbarian Helm in the shrine chest"
+        }
+      ],
+      "greatFairy": {
+        "name": "Great Fairy Mija",
+        "location": "In a colorful tree grove on a cliff just east/south of Akkala Tower, near Dah Hesho Shrine overlooking Lake Akkala",
+        "unlockCost": "Costs rupees by unlock order across all four fairies (100, then 500, then 1,000, then 10,000); unlocking her enables higher armor upgrade tiers"
+      },
+      "notes": "Akkala has exactly 8 shrines, verified against Game8, GameFAQs, and Zelda Wiki/Fandom: Dah Hesho (Minor Test of Strength, Guardian Scout II), Ze Kasho (motion-control apparatus), Katosa Aug (motion-control apparatus), Ke'nai Shakah (Modest Test of Strength, Guardian Scout III) are directly accessible; Zuna Kai, Ritaag Zumo, Tu Ka'loh, and Tutsuwa Nima are quest-gated. IMPORTANT correction: Tutsuwa Nima is NOT a pure blessing — once revealed it contains A Major Test of Strength vs a Guardian Scout IV, so I categorized it 'mixed' (quest-revealed + combat). Zuna Kai, Ritaag Zumo, and Tu Ka'loh are blessing shrines once revealed. Great Fairy Mija is the only Great Fairy in Akkala (of the four total: Cotera, Kaysa, Mija, Tera); her unlock cost is not fixed at 500 — all four fairies cost 100/500/1,000/10,000 in the order you free them, any order allowed. Tutsuwa Nima specifically requires a Shard of Dinraal's Scale (the fire dragon), and its quest is given by Nobo at East Akkala Stable, not auto-logged. The Skull's Eye is started by Jerrin at the Akkala Ancient Tech Lab. Into the Vortex is solved by carrying an Ancient Orb to the Rist Peninsula spiral center (not shooting orbits). Confidence high; remaining minor uncertainty is exact phrasing of apparatus motion steps.",
+      "confidence": 0.93,
+      "changes": [
+        "Tutsuwa Nima: corrected category from 'quest' (pure blessing) to 'mixed' — it actually contains A Major Test of Strength vs a Guardian Scout IV once revealed; rewrote the hint to reflect the combat trial.",
+        "Tutsuwa Nima / The Spring of Power: fixed quest giver to Nobo at East Akkala Stable (draft said auto-logged at the goddess statue); specified the required offering is a Shard of Dinraal's Scale, not 'any Dinraal part'.",
+        "Zuna Kai / The Skull's Eye: fixed quest giver to Jerrin at the Akkala Ancient Tech Lab (draft said auto-logged at Skull Lake); corrected the invented mechanic — there are no eye-socket braziers to light with fire arrows; you simply climb/glide to the pillar in Skull Lake's LEFT eye.",
+        "Ritaag Zumo / Into the Vortex: corrected the invented mechanic — you do not shoot four orbiting orbs; you carry an Ancient Orb to the center of the Rist Peninsula spiral and place it in the pedestal. Quest is started by reading the stone tablet, not auto-logged on entry.",
+        "Ze Kasho: rewrote the wrong hint — it is a motion-control apparatus (tilt the platform to slide floor spikes out of your path, then a laser room), not 'roll the ball into goals / route orbs to switches'.",
+        "Katosa Aug: rewrote the wrong hint — it is a motion-control apparatus (swing a putter/hammer to knock an Ancient Orb into a receptacle), not Magnesis swinging a metal pendulum/crane.",
+        "Great Fairy Mija: corrected the unlock-cost claim — the draft's '500 Rupees (third tier)' was internally inconsistent and not fixed; the four fairies cost 100/500/1,000/10,000 by the order you unlock them, in any order.",
+        "Tu Ka'loh: clarified the Barbarian Helm is in a chest INSIDE the shrine on Lomei Labyrinth Island (draft vaguely said 'found in the labyrinth').",
+        "Dah Hesho: removed the invented 'stone pillars for cover' detail from the hint; kept Guardian Scout II (verified correct).",
+        "Akkala Tower: removed the unverifiable 'Guardian Stalkers' / 'northeast face' specifics; kept the accurate Malice-pool-with-Guardians description.",
+        "From the Ground Up: clarified Hudson is met during the 'Hylian Homeowner' Hateno house quest before being sent to Akkala; noted the wedding scene.",
+        "Removed invented side quests 'A Gift of Nightshade' (Konba) — not a real Tarrey Town quest in this region's roster as drafted; left only verified Akkala side/shrine quests."
+      ]
+    }
+  ],
+  "globals": {
+    "armor": {
+      "sets": [
+        {
+          "name": "Champion's Tunic",
+          "pieces": "1 (body only)",
+          "where": "Given by Impa in Kakariko Village after recovering your first memory (Captured Memories); the blue tunic Zelda made for Link.",
+          "bonus": "No set bonus. Unique effect: displays exact enemy HP numbers when equipped. Strong base defense (highest single piece when fully upgraded).",
+          "upgrade": "Silver/Gold Lynel parts at higher stars (Lynel Hoof, Horn, Guts) plus rupees. No matching pieces, so it never grants a set bonus.",
+          "priority": "mid"
+        },
+        {
+          "name": "Hylian Set",
+          "pieces": "3 (Hood, Tunic, Trousers)",
+          "where": "Bought cheaply early on. Tunic/Trousers from Enchanted (Kakariko) and Ventest Clothing Boutique (Hateno); the Hood from those same armor shops.",
+          "bonus": "No set bonus. Just solid, cheap all-around defense for beginners. The Hood gives no environmental resistance, only defense.",
+          "upgrade": "Bokoblin parts (Bokoblin Horn, Fang, Guts) at low tiers, the most common monster drops, so very easy to upgrade.",
+          "priority": "beginner"
+        },
+        {
+          "name": "Soldier's Set",
+          "pieces": "3 (Helm, Armor, Greaves)",
+          "where": "Bought at Ventest Clothing Boutique in Hateno Village; a step up in defense from Hylian. (Not sold at the Kakariko shop.)",
+          "bonus": "No set bonus. Higher base defense than Hylian for mid-game survivability.",
+          "upgrade": "Chuchu Jelly and Bokoblin Guts at low tiers, then Keese/Moblin and Lizalfos/Lynel parts at higher tiers.",
+          "priority": "mid"
+        },
+        {
+          "name": "Climbing Set (Climber's Bandanna + Climbing Gear)",
+          "pieces": "3 (Climber's Bandanna, Climbing Gear, Climbing Boots)",
+          "where": "Bandanna in a chest in Ree Dahee Shrine (Dueling Peaks); Gear in Chaas Qeta Shrine (SE off the coast); Boots in Tahno O'ah Shrine (eastern Mount Lanayru, Hateno region).",
+          "bonus": "Each piece gives Climbing Speed Up (faster scaling). Set bonus Climbing Jump Stamina Up (at 2 stars) cuts the stamina cost of jumping while climbing.",
+          "upgrade": "Keese parts plus Hightail Lizards / Hot-Footed Frogs (speed-themed materials).",
+          "priority": "beginner"
+        },
+        {
+          "name": "Stealth Set (Sheikah)",
+          "pieces": "3 (Stealth Mask, Stealth Chest Guard, Stealth Tights)",
+          "where": "Bought from Enchanted in Kakariko Village.",
+          "bonus": "Each piece gives Stealth Up (quieter, harder for enemies to notice). Set bonus Night Speed Up (at 2 stars).",
+          "upgrade": "Sneaky River Snails, Sunset Fireflies, and Rushrooms (stealth/night-themed materials).",
+          "priority": "mid"
+        },
+        {
+          "name": "Snowquill Set",
+          "pieces": "3 (Headdress, Tunic, Trousers)",
+          "where": "Bought from the Brazen Beak armor shop in Rito Village.",
+          "bonus": "Each piece gives 1 level Cold Resistance. Set bonus Unfreezable (at 2 stars) — immune to being frozen.",
+          "upgrade": "Cold-themed parts: Cold Darner, Winterwing Butterfly, and Ice Keese Wings.",
+          "priority": "beginner"
+        },
+        {
+          "name": "Flamebreaker Set",
+          "pieces": "3 (Helm, Armor, Boots)",
+          "where": "Helm, Armor, and Boots can be bought at Ripped and Shredded in Goron City; the Armor can alternatively be earned by trading 10 Fireproof Lizards to Kima at the Southern Mine (Fireproof Lizard Roundup).",
+          "bonus": "Each piece grants Flame Guard (resist burning/lava heat). Set bonus Fireproof (at 2 stars) — no damage from open flame.",
+          "upgrade": "Fire-themed parts: Fireproof Lizards, Smotherwing Butterflies, and Flame Keese Wings.",
+          "priority": "mid"
+        },
+        {
+          "name": "Desert Voe Set",
+          "pieces": "3 (Headband, Spaulder, Trousers)",
+          "where": "Bought from the armor shop in Gerudo Town, or from Rhondson once she moves to Tarrey Town.",
+          "bonus": "Each piece gives 1 level Heat Resistance (desert daytime). Set bonus Shock Resistance Up (at 2 stars) — reduces electric damage, but NOT full immunity.",
+          "upgrade": "Voltfin Trout, Voltfruit, and Electric Lizalfos parts (electricity-themed).",
+          "priority": "mid"
+        },
+        {
+          "name": "Gerudo Set (Vai Outfit)",
+          "pieces": "3 (Veil, Top, Sirwal)",
+          "where": "Bought from Vilia atop the cliffs at Kara Kara Bazaar for 600 rupees — required to enter Gerudo Town as a 'vai'.",
+          "bonus": "Each piece gives 1 level Heat Resistance. Set bonus Unfreezable (at 2 stars). Main draw: grants access to Gerudo Town.",
+          "upgrade": "Heat-themed parts: Hightail Lizard, Warm Darner, and Sand Cicada.",
+          "priority": "beginner"
+        },
+        {
+          "name": "Zora Set",
+          "pieces": "3 (Helm, Armor, Greaves)",
+          "where": "Armor from King Dorephan during the Vah Ruta quest at Zora's Domain; Helm in a sunken chest at Toto Lake; Greaves reward for the Lynel Safari side quest.",
+          "bonus": "Each piece gives Swim Speed Up; Zora Armor also lets you swim up waterfalls. Set bonus Swim Dash Stamina Up (at 2 stars) — cheaper swim-dashing.",
+          "upgrade": "Lizalfos parts (Lizalfos Tail, Talon, Horn) and Hyrule Bass — aquatic/lizard-themed.",
+          "priority": "mid"
+        },
+        {
+          "name": "Rubber Set",
+          "pieces": "3 (Helm, Armor, Tights)",
+          "where": "Found in shrine chests scattered across Hyrule (e.g. Toto Sah, Daka Tuss, Sasa Kai). No single shop.",
+          "bonus": "Each piece gives Shock Resistance. Set bonus Unshockable (at 2 stars) — full immunity to electric damage, including thunderstorm lightning.",
+          "upgrade": "Electricity-themed: Yellow Chuchu Jelly, Electric Keese Wings, and Electric Lizalfos Tails.",
+          "priority": "mid"
+        },
+        {
+          "name": "Radiant Set",
+          "pieces": "3 (Mask, Shirt, Tights)",
+          "where": "Bought from the Gerudo Secret Club in Gerudo Town after The Secret Club's Secret quest; each piece also costs Luminous Stones plus rupees.",
+          "bonus": "Set bonus (at 2 stars) Disguise (Stal-types ignore you) plus Bone Atk. Up (boosts bone/Stal-type weapon damage). Glows in the dark.",
+          "upgrade": "Luminous Stones and Stal parts (Stalkoblin/Stalizalfos bones).",
+          "priority": "late"
+        },
+        {
+          "name": "Barbarian Set",
+          "pieces": "3 (Helm, Armor, Leg Wraps)",
+          "where": "Each piece is a reward from a shrine inside a Labyrinth: Tu Ka'loh (Lomei Labyrinth Island), Dako Tah (South Lomei Labyrinth), Qaza Tokki (North Lomei Labyrinth).",
+          "bonus": "Each piece gives Attack Up. Set bonus Charge Attack Stamina Up (at 2 stars) — cheaper spin/charge attacks.",
+          "upgrade": "Lynel parts (Hoof, Horn, Guts) — mid-to-high tiers need Lynel materials.",
+          "priority": "late"
+        },
+        {
+          "name": "Ancient Set",
+          "pieces": "3 (Helm, Cuirass, Greaves)",
+          "where": "Bought from Cherry (the shop terminal) at the Akkala Ancient Tech Lab, after lighting the lab's furnace. Costs rupees + Ancient Materials.",
+          "bonus": "Each piece gives Guardian Resist Up (less damage from Guardians/ancient weapons). Set bonus Ancient Proficiency (at 2 stars) — +80% damage with ancient and Guardian weapons (not the Master Sword).",
+          "upgrade": "Ancient parts: Ancient Screws, Springs, Gears, Shafts, Cores, and a Giant Ancient Core at the top tier.",
+          "priority": "late"
+        },
+        {
+          "name": "Royal Guard Set",
+          "pieces": "3 (Cap, Uniform, Boots)",
+          "where": "The Champions' Ballad DLC. Pieces found in chests via the EX Royal Guard Rumors side quest (in/around Hyrule Castle).",
+          "bonus": "Set bonus Charge Attack Stamina Up. Low base defense (4 per piece). Cannot be upgraded by a Great Fairy and cannot be dyed.",
+          "upgrade": "None — this set cannot be enhanced at a Great Fairy Fountain.",
+          "priority": "late"
+        },
+        {
+          "name": "Wild Set (amiibo)",
+          "pieces": "3 (Cap of the Wild, Tunic of the Wild, Trousers of the Wild)",
+          "where": "Obtained via amiibo (the BotW Link amiibo / 30th Anniversary line); the classic green hero look.",
+          "bonus": "Set bonus Master Sword Beam Up (at 2 stars) — boosts the Master Sword's energy beam at full health. Each piece is high defense.",
+          "upgrade": "Star Fragments and Lynel parts (Silver/Gold Lynel Horn, Hoof, Guts) at the higher tiers.",
+          "priority": "late"
+        }
+      ],
+      "notes": "CORRECTIONS made after web verification (Game8, Zelda Dungeon, Zelda Wiki/Fandom):\\n\\n1. CLIMBING SET (three errors fixed): Climber's Bandanna is in REE DAHEE SHRINE (Dueling Peaks), not \\\"Ploymus Mountain Cave\\\" — Ploymus Mountain Cave is a Tears of the Kingdom location, NOT BotW. Climbing Boots are in TAHNO O'AH SHRINE (eastern Mount Lanayru), not Ta'loh Naeg (that's the Kakariko tutorial shrine, which gives the Shield of the Mind's Eye / Eightfold Blade). Set bonus is CLIMBING JUMP STAMINA UP (cheaper jumps while climbing); the per-piece effect is Climbing Speed Up — the original conflated the two.\\n\\n2. SOLDIER'S SET: sold at Ventest Clothing Boutique in HATENO VILLAGE, not \\\"the Enchanted shop in Kakariko.\\\" Enchanted (Kakariko) sells the Stealth/Sheikah set and Hylian Hood, not Soldier's.\\n\\n3. HYLIAN HOOD source: bought from Enchanted (Kakariko) or Ventest (Hateno), not \\\"Bugut at the General Shoppe.\\\" Bugut runs Hateno's General Shoppe (food/arrows), and does not sell the Hood. Also removed the false claim (in the old notes) that the Hylian Hood grants Heat Resistance — it gives NO environmental resistance, only defense.\\n\\n4. ZORA SET bonus is SWIM DASH STAMINA UP (cheaper swim-dashing), not \\\"Swim Speed Up.\\\" Swim Speed Up is the per-piece effect; the original swapped them.\\n\\n5. RADIANT/ANCIENT/BARBARIAN: confirmed Disguise+Bone Atk. Up, Ancient Proficiency +80% (ancient AND Guardian weapons, not Master Sword), and Charge Attack Stamina Up. Fixed Barbarian labyrinth shrine names: Tu Ka'loh, Dako Tah (South Lomei), Qaza Tokki (North Lomei) — the original listed \\\"Dila Maag,\\\" which is not the South Lomei monk.\\n\\n6. Minor: Snowquill shop is the Brazen Beak (owner detail dropped as unverified); Desert Voe set bonus is officially Shock Resistance Up (partial), correctly distinguished from Rubber's Unshockable (full immunity).\\n\\nVERIFIED ACCURATE: Champion's Tunic (Impa, exact HP numbers, no set bonus, Lynel upgrades); set bonuses activate at 2 stars (★★) for all standard sets; Snowquill, Flamebreaker, Gerudo Vai, Rubber, Royal Guard (low defense 4/piece, cannot upgrade or dye), Wild amiibo set (Master Sword Beam Up at 2 stars).\\n\\nBEGINNER HEADLINERS still hold: Warm Doublet (single body piece, free from the Old Man for 10 Wood on the Great Plateau, or bought at Ventest in Hateno) for first cold protection; Snowquill (Rito) for Hebra/Lanayru; Flamebreaker (Goron City) for Death Mountain; Desert Voe + Gerudo Vai for Gerudo Desert heat (Vai also unlocks Gerudo Town). Rubber Set is the true full-immunity SHOCK answer; Desert Voe only partially resists shock.\\n\\nKEY DISTINCTIONS: Heat Resistance (Desert Voe, Gerudo Vai) covers desert daytime; Flame Guard (Flamebreaker) covers fire/lava — NOT interchangeable, and the Hylian Hood does NOT provide heat resistance. Set-bonus star thresholds: 1st upgrade needs only the first Great Fairy (Cotera) unlocked; 4-star needs all four fountains. Set bonuses kick in at ★★ for standard sets.\\n\\nConfidence: HIGH on all corrected locations and set-bonus names. The exact Rubber Set shrine list varies (it appears in multiple shrine chests, not a shop) — representative shrines named; treat an exhaustive chest list as a per-shrine lookup. Sources: Game8, Zelda Dungeon Wiki, Zelda Wiki/Fandom (verified June 2026)."
+    },
+    "bestiary": {
+      "enemies": [
+        {
+          "name": "Bokoblin",
+          "tier": "common",
+          "tactic": "Sneakstrike from behind for a one-shot, or aim a charged arrow at the head; a parried club leaves it open to combos.",
+          "drops": "Bokoblin Horn, Bokoblin Fang, Bokoblin Guts"
+        },
+        {
+          "name": "Moblin",
+          "tier": "common",
+          "tactic": "Bigger Bokoblin: dodge its wide swing, then backstab, or whittle it with arrows; a sneakstrike still helps but won't one-shot stronger ones.",
+          "drops": "Moblin Horn, Moblin Fang, Moblin Guts"
+        },
+        {
+          "name": "Lizalfos",
+          "tier": "common",
+          "tactic": "They strafe and leap, so bait an attack then flurry-rush; headshot arrows stagger them and elemental arrows counter their element.",
+          "drops": "Lizalfos Horn, Lizalfos Talon, Lizalfos Tail"
+        },
+        {
+          "name": "Chuchu (elemental)",
+          "tier": "common",
+          "tactic": "Hit Fire Chuchu with ice (and vice versa) or just smack it; killing an elemental one leaves jelly you can throw to freeze, burn, or shock foes.",
+          "drops": "Chuchu Jelly; elemental ones drop Red/White/Yellow Chuchu Jelly"
+        },
+        {
+          "name": "Keese",
+          "tier": "common",
+          "tactic": "Swat with any melee swing or a single arrow; elemental Keese are quenched by their opposite element and their wings/eyeballs are crafting loot.",
+          "drops": "Keese Wing, Keese Eyeball"
+        },
+        {
+          "name": "Octorok",
+          "tier": "common",
+          "tactic": "They snipe from grass or water, so hit the head with an arrow, or catch their rock spit on a shield to bounce it right back at them.",
+          "drops": "Octo Balloon, Octorok Tentacle, Octorok Eyeball"
+        },
+        {
+          "name": "Wizzrobe (elemental)",
+          "tier": "common",
+          "tactic": "Six types: Fire/Ice/Electric and stronger Meteo/Blizz/Thunder; each is weak to its opposite element, so shoot it with an opposing arrow to drop it.",
+          "drops": "Elemental rods (Fire/Ice/Lightning, and Meteor/Blizzard/Thunderstorm rods)"
+        },
+        {
+          "name": "Pebblit",
+          "tier": "common",
+          "tactic": "Mini-Talus in Stone, Igneo and Frost types: smash it with a heavy weapon or a bomb; Igneo and Frost ones burn or freeze on touch, so use ranged hits.",
+          "drops": "Flint, ore, or a gem (Frost ones can drop Sapphire)"
+        },
+        {
+          "name": "Stone Talus",
+          "tier": "mini-boss",
+          "tactic": "Climb on and pound the black ore lump on its back with a hammer/heavy weapon; bomb arrows or a Knight's claymore wreck the weak spot fast.",
+          "drops": "Flint, Amber, Opal, gems and ore"
+        },
+        {
+          "name": "Stone Talus (Luminous)",
+          "tier": "mini-boss",
+          "tactic": "Same fight as a Stone Talus but tougher (about 600 HP); the back lump is luminous ore, so hit it for Luminous Stone plus gems.",
+          "drops": "Luminous Stone, Topaz, Diamond, Amber, Opal, Flint"
+        },
+        {
+          "name": "Stone Talus (Rare)",
+          "tier": "mini-boss",
+          "tactic": "The toughest stone type (around 900 HP); attack the ore vein on its back and expect rich gem drops like Ruby, Sapphire and Diamond.",
+          "drops": "Ruby, Sapphire, Diamond, Topaz, Amber, Opal, Flint"
+        },
+        {
+          "name": "Igneo Talus",
+          "tier": "mini-boss",
+          "tactic": "Found in Eldin and made of lava; douse its glowing core with ice arrows to cool it, then climb up and smash the back weak point.",
+          "drops": "Flint, Ruby, ore"
+        },
+        {
+          "name": "Frost Talus",
+          "tier": "mini-boss",
+          "tactic": "Hebra/Gerudo highlands cousin of Igneo; hit its icy core with fire arrows to thaw it, then climb on and hammer the back lump.",
+          "drops": "Flint, Sapphire, ore"
+        },
+        {
+          "name": "Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin)",
+          "tier": "common",
+          "tactic": "Nighttime skeletons: knock them apart, then quickly smash the skull before the bones reassemble; one good hit to the head ends them.",
+          "drops": "Bokoblin/Moblin/Lizalfos Horns, Fangs and Talons; each leaves a usable arm (no Guts)"
+        },
+        {
+          "name": "Hinox",
+          "tier": "mini-boss",
+          "tactic": "Shoot its single eye to stun it, then unload on the downed giant; you can also pluck the weapons hanging from its neck while it sleeps.",
+          "drops": "Hinox Toenail, Hinox Tooth, Hinox Guts, Hinox Horn; necklace weapons"
+        },
+        {
+          "name": "Stalnox",
+          "tier": "mini-boss",
+          "tactic": "Skeletal Hinox: arrow its eye to make it pop out, grab or destroy the loose eyeball, then attack; smash the skull when it collapses to bones.",
+          "drops": "Hinox Tooth; rare weapons lodged in its skeleton"
+        },
+        {
+          "name": "Molduga",
+          "tier": "boss",
+          "tactic": "In the Gerudo sand it tracks footsteps, so toss a Remote Bomb to lure it up, detonate to stun, then sprint in and combo before it dives.",
+          "drops": "Molduga Fin, Molduga Guts"
+        },
+        {
+          "name": "Guardian Stalker",
+          "tier": "guardian",
+          "tactic": "Walking six-legged Guardian: perfect-parry its blue charged laser with a shield to reflect it for huge damage, or shoot the glowing eye to stun.",
+          "drops": "Ancient parts (gears, springs, cores, shafts); can drop Giant Ancient Core"
+        },
+        {
+          "name": "Guardian Skywatcher",
+          "tier": "guardian",
+          "tactic": "Flying Guardian that beams from above; time a shield parry on its laser to bounce it back, or snipe the eye with ancient/strong arrows.",
+          "drops": "Ancient parts (gears, cores, shafts); can drop Giant Ancient Core"
+        },
+        {
+          "name": "Guardian Turret",
+          "tier": "guardian",
+          "tactic": "Stationary laser Guardian fixed to floors in shrines/ruins; parry the laser back at it or arrow the eye, then climb up to finish it.",
+          "drops": "Ancient parts; can drop Giant Ancient Core"
+        },
+        {
+          "name": "Decayed Guardian",
+          "tier": "guardian",
+          "tactic": "Broken husks stuck in the ground that swing arms; dodge the sweep and flurry-rush, or just shoot the eye and smash the arms off.",
+          "drops": "Ancient parts (often Ancient Screw/Spring)"
+        },
+        {
+          "name": "Guardian Scout",
+          "tier": "guardian",
+          "tactic": "Shrine Guardians come in I-IV with sword/spear/laser arms; flurry-rush after a dodge and parry the spinning laser sweep to reflect it.",
+          "drops": "Ancient parts; Scout III/IV can drop an Ancient Core"
+        },
+        {
+          "name": "Yiga Footsoldier",
+          "tier": "yiga",
+          "tactic": "They disguise as travelers then turn hostile; dodge the sickle and flurry-rush, stun with arrows, and many can be calmed with a Mighty Banana.",
+          "drops": "Mighty Bananas, occasionally weapons"
+        },
+        {
+          "name": "Yiga Blademaster",
+          "tier": "yiga",
+          "tactic": "Big windcleaver Yiga that teleports and goes invisible; wait out the leaping overhead slam, sidestep into a flurry rush, repeat until down.",
+          "drops": "Mighty Bananas, Demon Carver/Windcleaver, gems"
+        },
+        {
+          "name": "Lynel (Red-maned)",
+          "tier": "mini-boss",
+          "tactic": "Weakest Lynel: headshot to stagger, sprint up and mount it for free hits; perfect-dodge its charge or parry its beam to flurry-rush.",
+          "drops": "Lynel Horn/Hoof/Guts, Lynel weapons, shield"
+        },
+        {
+          "name": "Lynel (Blue-maned)",
+          "tier": "mini-boss",
+          "tactic": "Tougher than red and adds fire/elemental attacks; same plan: headshot to stun, mount and slash, flurry-rush its melee and charges.",
+          "drops": "Lynel Horn/Hoof/Guts, stronger Lynel gear"
+        },
+        {
+          "name": "Lynel (White-maned)",
+          "tier": "mini-boss",
+          "tactic": "High HP and aggressive elemental attacks; stock strong bows for headshot stuns, mount for big hits, and never stop dodging into flurry rushes.",
+          "drops": "Lynel Horn/Hoof/Guts, mighty Lynel gear"
+        },
+        {
+          "name": "Lynel (Silver)",
+          "tier": "mini-boss",
+          "tactic": "The deadliest Lynel with the most HP; multishot bow headshots to stun, mount and combo, and flurry-rush every charge, slam and beam.",
+          "drops": "Lynel Horn/Hoof/Guts, savage Lynel weapons/shield/bow"
+        },
+        {
+          "name": "Windblight Ganon",
+          "tier": "boss",
+          "tactic": "Vah Medoh blight: use Revali's Gale to reposition past its wind blasts, then snipe the glowing eye; bomb arrows or a strong bow burn it down.",
+          "drops": null
+        },
+        {
+          "name": "Waterblight Ganon",
+          "tier": "boss",
+          "tactic": "Vah Ruta blight: in phase two raise Cryonis blocks for cover and to climb, dodge the spear lunges, and flurry-rush or arrow the eye.",
+          "drops": null
+        },
+        {
+          "name": "Fireblight Ganon",
+          "tier": "boss",
+          "tactic": "Vah Rudania blight: shield or dodge its fireballs, and when it charges a fire ring, hit it with an ice arrow or Daruk's Protection to break it.",
+          "drops": null
+        },
+        {
+          "name": "Thunderblight Ganon",
+          "tier": "boss",
+          "tactic": "Vah Naboris blight: flurry-rush its lightning-fast dashes in phase one; in phase two it electrifies pillars, so topple one with a strike to stun it.",
+          "drops": null
+        },
+        {
+          "name": "Calamity Ganon",
+          "tier": "boss",
+          "tactic": "Final boss recaps the Blights' attacks; parry Guardian-style lasers, flurry-rush its melee, and pour bomb/ancient arrows into the orange weak spot.",
+          "drops": null
+        },
+        {
+          "name": "Dark Beast Ganon",
+          "tier": "boss",
+          "tactic": "On horseback, fire the Bow of Light at the glowing spots on each side (three per side), then the belly spot, then the eye on its forehead to win.",
+          "drops": null
+        }
+      ],
+      "notes": "Adversarial verify complete; web-checked against Game8/Zelda Dungeon/Fandom/Zeldapedia. Corrections made (errors/invented content found): (1) Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin) do NOT drop Guts -- organs have decayed -- and 'Ancient Bones' is a Tears of the Kingdom item, NOT BotW; removed both. They drop Horns/Fangs/Talons and each leaves a usable arm. (2) Stalnox does NOT drop 'Ancient Bones'/'Stalnox parts'; it drops Hinox Tooth plus rare weapons lodged in its skeleton. Corrected. (3) Wizzrobe: original listed only 5 types and missed Thunder Wizzrobe -- there are SIX (Fire/Ice/Electric base + Meteo/Blizz/Thunder strong variants). Drops corrected: Wizzrobes drop only elemental rods; 'wing tips/horns' was invented (no such monster-part drop in BotW). (4) Guardian Scout: removed 'Giant Ancient Core' -- Scouts only drop a regular Ancient Core (III/IV); Giant Ancient Cores come only from Stalker/Skywatcher/Turret, so I added that note to those three. (5) Dark Beast Ganon weak points corrected: NOT 'eyes and chest core' -- it is three glowing spots on each side (6 total), then a belly spot, then a single eye on the forehead. (6) Pebblit types corrected to the real names Stone/Igneo/Frost ('lava' is the Igneo type). Verified-accurate items kept: Stone Talus (Luminous) ~600 HP and Rare ~900 HP confirmed; Luminous drops Luminous Stone+Topaz+Diamond, Rare drops Ruby/Sapphire/Diamond/Topaz; Hinox drops (Toenail/Tooth/Guts/Horn); Octorok (Octo Balloon/Tentacle/Eyeball); Lizalfos (Horn/Talon/Tail) all real; Molduga (Fin/Guts); the four Blights and both Ganon forms. Schema note: tier enum has no 'blight', so the four Divine Beast Blights and the two Ganon forms are filed under 'boss'. Confidence high on the corrections; the exact gem mix per Talus drop can vary by RNG so those are representative, not exhaustive. Minor caveat: White-maned Lynel gear is the 'Mighty' tier and Silver is 'Savage' -- adjusted from the original which labeled White as 'savage'. Chuchu base form drops plain Chuchu Jelly; only elemental Chuchus drop colored jelly (clarified)."
+    },
+    "cooking": {
+      "rules": [
+        "One effect per dish. A cooked meal or elixir can only carry a single special effect at a time. Mixing two different effect-types (e.g. Hearty + Spicy) cancels both and gives a plain dish with no bonus.",
+        "Stack the SAME prefix to extend or strengthen. Adding more ingredients of one effect raises its tier (Mighty I to III) or its timer; e.g. 5 Hasty ingredients give a longer speed buff than 1.",
+        "Cook in a Pot (a lit cooking pot), not a campfire. Tossing ingredients on an open campfire just chars single items (Baked Apple, Toasted Hateno Cheese); it cannot combine ingredients or make effect dishes/elixirs.",
+        "Max 5 ingredients per dish. The pot accepts up to five items at once; plan your stack around that cap.",
+        "Elixirs = critter + monster part. Combine at least one effect-bearing critter (lizard, frog, bug, etc.) with any monster part (horn, fang, guts, wing) to brew an elixir. Critters alone or monster parts alone will NOT cook.",
+        "Hearty effect adds temporary (yellow) hearts and FULLY refills your red hearts. Energizing instantly refills stamina; Enduring (Endura) adds overfilled green/temporary stamina wheel.",
+        "Effect strength/duration comes from the ingredients, so a dish's timer scales with how many same-effect items and high-tier items you use; tiers cap at level 3 for most buffs (Mighty/Tough/Hasty/Sneaky etc.).",
+        "Monster Extract is a wild-card seasoning: it randomizes the dish, forcing the duration to roughly 1, 10, or 30 minutes (and can swing hearts), and it overrides the normal duration/crit bonuses, so don't combine it with dragon parts or star fragments.",
+        "Dubious Food results from cooking only effect-less items, mismatched effects, or critters/monster parts with no valid pairing. It restores a small random number of hearts and has no effect.",
+        "Rock-Hard Food results from cooking inedible items (wood, ore, weapons, Amber, etc.). It restores only a tiny sliver of health and is essentially a fail.",
+        "Critical Cooking gives a bonus (one of: +1 effect tier, +5:00 duration, or extra hearts/stamina/yellow hearts). It is guaranteed during a Blood Moon, and guaranteed when a Dragon part or Star Fragment is in the recipe; otherwise it is a low base random chance per cook.",
+        "Fairy Tonic is a special elixir made from a Fairy plus any monster part (or other materials); it simply restores hearts and carries no buff, useful for clearing inventory or a quick heal recipe.",
+        "Dragon parts are seasonings that extend duration and guarantee a critical cook. By part the bonus is graduated: Scale ~+1:30, Claw ~+3:30, Shard of Fang ~+10:00, Shard of Horn maxes the timer to 30:00. Star Fragments also guarantee a critical cook.",
+        "Identify the prefix on each raw ingredient (Hasty, Mighty, Spicy, etc.) and only combine matching prefixes for a clean, strong dish; mixing prefixes cancels the effect."
+      ],
+      "effects": [
+        {
+          "effect": "Hearty",
+          "does": "Fully restores all red hearts AND adds extra temporary (yellow) hearts on top.",
+          "ingredients": "Hearty Durian, Hearty Truffle, Hearty Bass, Hearty Radish, Hearty Blueshell Snail, Hearty Salmon, Hearty Lizard; Big Hearty Truffle and Big Hearty Radish give a bigger yellow-heart boost.",
+          "elixir": null
+        },
+        {
+          "effect": "Energizing",
+          "does": "Instantly refills your stamina wheel (good for climbing/swimming mid-action).",
+          "ingredients": "Stamella Shroom, Restless Cricket, Bright-Eyed Crab, Courser Bee Honey, Staminoka Bass.",
+          "elixir": "Restless Cricket + monster part = Energizing Elixir"
+        },
+        {
+          "effect": "Enduring",
+          "does": "Refills stamina and overfills it with extra (green) temporary stamina wheel segments.",
+          "ingredients": "Endura Carrot, Endura Shroom, Tireless Frog (elixir).",
+          "elixir": "Tireless Frog + monster part = Enduring Elixir"
+        },
+        {
+          "effect": "Spicy",
+          "does": "Cold resistance - keeps you warm in freezing regions (and lets you survive cold areas).",
+          "ingredients": "Spicy Pepper, Sunshroom, Warm Safflina, Summerwing Butterfly, Sizzlefin Trout, Warm Darner; Dinraal (fire dragon) parts add cold resistance.",
+          "elixir": "Summerwing Butterfly + monster part = Spicy Elixir"
+        },
+        {
+          "effect": "Chilly",
+          "does": "Heat resistance - prevents overheating in Gerudo Desert / Eldin region (does NOT stop flame damage).",
+          "ingredients": "Hydromelon, Chillshroom, Cool Safflina, Winterwing Butterfly, Chillfin Trout, Cold Darner; Naydra (ice dragon) parts add heat resistance.",
+          "elixir": "Winterwing Butterfly + monster part = Chilly Elixir"
+        },
+        {
+          "effect": "Fireproof",
+          "does": "Prevents catching fire from flames/lava environments (essential on Death Mountain). ELIXIR ONLY - cannot be cooked into a food dish.",
+          "ingredients": "Fireproof Lizard, Smotherwing Butterfly (each + a monster part). Note: Naydra's frost parts can be added to extend a fireproof elixir's timer.",
+          "elixir": "Smotherwing Butterfly (or Fireproof Lizard) + monster part = Fireproof Elixir"
+        },
+        {
+          "effect": "Electro",
+          "does": "Shock resistance - reduces or negates lightning/electric damage and stops weapons being knocked from your hand.",
+          "ingredients": "Voltfruit, Zapshroom, Electric Safflina, Thunderwing Butterfly, Voltfin Trout, Electric Darner; Farosh (lightning dragon) parts add shock resistance.",
+          "elixir": "Thunderwing Butterfly + monster part = Electro Elixir"
+        },
+        {
+          "effect": "Mighty (Attack Up)",
+          "does": "Raises melee/ranged attack power for a duration - the key Ganon/lynel buff.",
+          "ingredients": "Mighty Bananas, Razorshroom, Mighty Carp, Mighty Porgy, Razorclaw Crab, Mighty Thistle, Bladed Rhino Beetle (elixir).",
+          "elixir": "Bladed Rhino Beetle + monster part = Mighty Elixir"
+        },
+        {
+          "effect": "Tough (Defense Up)",
+          "does": "Raises defense so you take less damage from attacks.",
+          "ingredients": "Ironshroom, Armored Carp, Armored Porgy, Ironshell Crab, Fortified Pumpkin, Rugged Rhino Beetle (elixir).",
+          "elixir": "Rugged Rhino Beetle + monster part = Tough Elixir"
+        },
+        {
+          "effect": "Hasty (Speed Up)",
+          "does": "Increases movement speed - run, swim, and climb faster.",
+          "ingredients": "Swift Carrot, Rushroom, Swift Violet, Fleet-Lotus Seeds, Hot-Footed Frog (elixir).",
+          "elixir": "Hot-Footed Frog + monster part = Hasty Elixir"
+        },
+        {
+          "effect": "Sneaky (Stealth Up)",
+          "does": "Boosts stealth - quieter footsteps, enemies/animals notice you less. Great for hunting and the Yiga.",
+          "ingredients": "Silent Princess, Silent Shroom, Blue Nightshade, Sneaky River Snail, Stealthfin Trout, Sunset Firefly (elixir).",
+          "elixir": "Sunset Firefly + monster part = Sneaky Elixir"
+        }
+      ],
+      "recipes": [
+        {
+          "name": "5 Big Hearty Radishes (or 5 Big Hearty Truffles)",
+          "makes": "Hearty meal - full red-heart refill plus the maximum +25 extra yellow hearts.",
+          "why": "The best survival/bossing food. Five Big Hearty items overcap your hearts so you can tank lynels and Ganon hits. (5 standard Hearty Durians give a smaller +20.)"
+        },
+        {
+          "name": "5 Hasty ingredients (e.g. 5 Swift Carrots or Rushrooms)",
+          "makes": "Hasty dish at level 3 speed - long fast-run/climb buff.",
+          "why": "Stacking five same-prefix Hasty items pushes both tier and timer; ideal for travel, racing shrine quests, and outrunning Guardians."
+        },
+        {
+          "name": "Mighty Bananas x4-5 (Mighty Simmered Fruit)",
+          "makes": "Attack Up Lv3 (Mighty) meal for several minutes.",
+          "why": "Cheap, farmable attack buff. Eat right before fighting Ganon, Lynels, or Hinox - extra attack tiers massively shorten fights. Bananas grow in tropical Faron."
+        },
+        {
+          "name": "Bladed Rhino Beetle + Bokoblin Horn (Mighty Elixir)",
+          "makes": "Attack Up elixir; add a Shard of Dragon Horn to push duration to the 30:00 max.",
+          "why": "Elixir route to attack-up when you lack Mighty produce; a dragon part guarantees a critical cook and a long timer for boss runs."
+        },
+        {
+          "name": "Endura Carrot x4-5 (Enduring dish)",
+          "makes": "Bonus overfilled stamina wheel(s).",
+          "why": "Lets you scale the tallest cliffs (Vah Rudania, towers) without running out of stamina; the extra green wheel is huge for exploration."
+        },
+        {
+          "name": "Fairy + any monster part (Fairy Tonic)",
+          "makes": "Plain healing elixir.",
+          "why": "Quick heal that also lets you offload spare fairies/monster parts; no buff, but reliable hearts in a pinch."
+        },
+        {
+          "name": "Hearty Salmon + Tabantha Wheat + Goat Butter (Hearty Salmon Meuniere)",
+          "makes": "A named gourmet Hearty dish (a quest favorite) with full heal + yellow hearts.",
+          "why": "The real BotW recipe needs only those three items; add Rock Salt or Goron Spice to extend the timer. Ingredients gather easily around Tabantha/Rito Village."
+        }
+      ],
+      "dragons": [
+        {
+          "name": "Dinraal",
+          "element": "Fire",
+          "where": "Flies over the Eldin region, appearing near Death Mountain and along Tanagar Canyon, spawning around 5am at the north end and drifting through the morning.",
+          "parts": "Scale (+~1:30 duration), Claw (+~3:30), Shard of Dinraal's Fang (+~10:00), Shard of Dinraal's Horn (maxes timer to 30:00). As the fire dragon, Dinraal's parts add COLD RESISTANCE (Spicy/warm) to an elixir and guarantee a critical cook."
+        },
+        {
+          "name": "Naydra",
+          "element": "Ice / Frost",
+          "where": "Circles the Lanayru region, notably around Mount Lanayru and the Lanayru Road/Promenade; appears at night and into the early morning.",
+          "parts": "Scale (+~1:30), Claw (+~3:30), Shard of Naydra's Fang (+~10:00), Shard of Naydra's Horn (maxes timer to 30:00). As the ice/frost dragon, Naydra's parts add HEAT RESISTANCE (Chilly) and can extend Fireproof elixirs; they also guarantee a critical cook."
+        },
+        {
+          "name": "Farosh",
+          "element": "Electricity / Lightning",
+          "where": "Roams the Faron region around Lake Hylia and the Bridge of Hylia, breaching from Lake Hylia/Riola Spring; often appears near waterways around dawn.",
+          "parts": "Scale (+~1:30), Claw (+~3:30), Shard of Farosh's Fang (+~10:00), Shard of Farosh's Horn (maxes timer to 30:00). As the lightning dragon, Farosh's parts add SHOCK RESISTANCE (Electro) to an elixir and guarantee a critical cook."
+        }
+      ],
+      "notes": "CORRECTED dataset. Key fixes after web-verifying against Game8, Zelda Dungeon and Zelda Wiki/Fandom:\\n\\n1) REMOVED the 'Bright (Glow)' effect entirely. Brightcap mushrooms, Deep Fireflies, the glow/Bright cooking effect, the Depths, Lightroots and Brightbloom Seeds are all TEARS OF THE KINGDOM content and do NOT exist in Breath of the Wild. In BotW the Thyphlo Ruins are lit with torches or Daruk's Protection, not glow food. Including Bright would invent content for this BotW-specific app. (HIGH confidence.)\\n\\n2) FIXED the max-Hearty recipe. The previous '5 Hearty Durians = ~25 yellow hearts' was wrong: a Hearty Durian gives 4 yellow hearts each, so 5 give +20. The true maximum from a Hearty dish is +25 yellow hearts, achieved with 5 Big Hearty Radishes or 5 Big Hearty Truffles (5 each). Removed the unverified 'cap 26 with critical cook' figure.\\n\\n3) FIXED Salmon Meuniere. The real BotW recipe is Hearty Salmon + Tabantha Wheat + Goat Butter (optionally + Rock Salt or Goron Spice to extend duration). The previous 'Hearty Salmon + Hearty Radish + Goat Butter + Rock Salt + Hyrule Herb' was an invented combo.\\n\\n4) FIXED Dragon Fang duration. Sources put Shard of Fang at about +10:00 (some cite higher), not the '+5:00-10:00' previously listed. Scale ~+1:30, Claw ~+3:30, Horn maxes to 30:00 are confirmed.\\n\\n5) Softened Monster Extract wording: it forces duration to roughly 1/10/30 min and overrides normal bonuses, so it should not be paired with dragon parts/star fragments.\\n\\nHIGH confidence: one-effect-per-dish, same-prefix stacking, pot vs campfire, elixir = critter + monster part, Dubious/Rock-Hard rules, Fairy Tonic, Fireproof being elixir-only via Fireproof Lizard / Smotherwing Butterfly, dragon element-to-resistance mapping (Dinraal fire->cold res, Naydra ice->heat res, Farosh lightning->shock res), and the effect-prefix ingredient lists (all real BotW names). MEDIUM confidence on exact dragon-part minute values (Scale<Claw<Fang<Horn, Horn=30:00 max is solid; Fang's exact value varies by source) and on exact dragon spawn timing/positions (all three spawn around 5am and circle their regions). Best-source tips: Big Hearty Radishes near Satori Mountain/Hyrule field; Hearty Durians cluster in Faron jungle; Mighty Bananas in tropical Faron and the Yiga Hideout; Endura Carrots near Satori Mountain and Gerudo Highlands; dragon parts farmed by shooting the flying dragons (parts respawn)."
+    },
+    "koroks": {
+      "what": "Korok Seeds are the reward for solving 900 little hidden puzzles across Hyrule. You trade them to Hestu, a big maraca-shaped Korok, who uses them to permanently expand your three gear pouches: weapon slots, bow slots, and shield slots. More slots means you carry more gear and break fewer weapons mid-fight, so growing your inventory is one of the most useful early grinds.",
+      "hestu": "Hestu moves, then settles. (1) First meeting: on the road between Dueling Peaks Stable and Kakariko Village, just past Kakariko Bridge — do the favor in the side quest The Priceless Maracas (recover his maracas from nearby Bokoblins) and he starts upgrading. (2) Next: near Riverside Stable, west of Kakariko in Hyrule Field, by a tree along the road. (3) Permanent home: Korok Forest, deep in the Great Hyrule Forest up north (Lost Woods), by the Great Deku Tree. Rising cost curve per slot — Weapons (11 upgrades): 1,2,3,5,8,12,17,25,35,45,55 = 208. Bows (8): 1,2,3,5,8,12,17,25 = 73. Shields (16): 1,2,3,4,5,10,10,10,10,10,15,15,15,15,15,20 = 160. Maxing ALL pouches costs exactly 441 seeds — that is the cap; beyond that, extra seeds do nothing for inventory. 900 seeds exist total; turning in all 900 earns Hestu's Gift, a purely cosmetic golden poop (\"smells pretty bad\") — a joke reward, no stats.",
+      "puzzleTypes": [
+        {
+          "type": "Rock in a ring / lift the lone rock",
+          "how": "See a circle of stones with one gap, or a single suspicious rock sitting alone? Pick up a nearby rock and drop it in the ring, or just lift the lone rock to reveal the Korok under it."
+        },
+        {
+          "type": "Complete the pattern",
+          "how": "A near-symmetrical arrangement (rocks, blocks) with one piece obviously missing. Add or move a rock/block to finish the symmetry."
+        },
+        {
+          "type": "Stone circles / place the boulder",
+          "how": "A ring of small stones around an empty center wants a boulder rolled or carried into the middle."
+        },
+        {
+          "type": "Flower trail",
+          "how": "Spot a line of identical flowers (often yellow). Run to and touch each one IN ORDER without missing any; the last one spawns the Korok."
+        },
+        {
+          "type": "Balls / orbs in holes",
+          "how": "A metal or stone ball near matching divots — roll or carry it into the hole. Sometimes you guide it with Magnesis or Stasis."
+        },
+        {
+          "type": "Race / reach the goal in time",
+          "how": "Activate a glowing wisp or ring of light, then sprint (often paraglide or shield-surf) to the goal before the timer runs out."
+        },
+        {
+          "type": "Shoot the target",
+          "how": "Spot a balloon, an acorn, an apple/fruit, or a small mark? Hit it with an arrow. Sometimes several balloons must all be popped."
+        },
+        {
+          "type": "Offering to a pedestal / altar",
+          "how": "A small shrine-like pedestal with a fruit or item carved on it — place that exact item (apple, durian, etc.) on it."
+        },
+        {
+          "type": "Matching spin (pinwheel / cube)",
+          "how": "Two pinwheels or a floating cube — rotate the cube (climb and push, or Magnesis) so its colored faces match the surrounding pattern."
+        },
+        {
+          "type": "Light the torches",
+          "how": "Several unlit torches near one lit flame (or you bring fire). Light every torch, usually using a torch/fire arrow/flint."
+        },
+        {
+          "type": "Dive into a ring",
+          "how": "A ring of light or floating circle below a cliff — paraglide or dive straight through the center to spawn the Korok."
+        }
+      ],
+      "hotspots": [
+        "Out-of-place rocks: a single rock on a stump, peak, or cliff edge is almost always a lift-the-rock Korok — check every lonely boulder.",
+        "Circles with a gap: any ring of stones missing one piece means grab the nearest loose rock and complete it.",
+        "Tops of things: peaks, towers, ruined pillars, and lone trees on hills frequently hide rock-lift or dive-into-ring puzzles — climb up and look around.",
+        "Stables and Towers: the ground around every Stable and Sheikah Tower usually has 1-2 easy Koroks (rocks, balloons, or flower trails) right nearby.",
+        "Bright fruit/acorns on trees: an apple or acorn sitting alone on a branch or pinwheel-marked tree is a shoot-the-target Korok.",
+        "Geometry that looks 'almost right': any too-neat pile, pattern, or symmetry that's off by one piece is a complete-the-pattern puzzle."
+      ],
+      "notes": "CORRECTED two arithmetic errors in the original dataset's cost totals (web-verified against ScreenRant, GamesRadar, GameWith, GoSuNoob, Zeldapedia/Fandom): the weapon-pouch total is 208 (not 203) and the shield-pouch total is 160 (not 165). The per-slot sequences themselves were correct; only the sums were off. Confirmed totals: Weapons 1,2,3,5,8,12,17,25,35,45,55 = 208; Bows 1,2,3,5,8,12,17,25 = 73; Shields 1,2,3,4,5,10,10,10,10,10,15,15,15,15,15,20 = 160. Sum 208+73+160 = 441 to max everything (the cap). Starting slots confirmed 8 weapons / 5 bows / 4 shields, ending at 19 / 13 / 20 (plus the Master Sword and Bow of Light, which sit outside the pouches). 900 seeds exist total; all-900 reward is Hestu's Gift (cosmetic golden poop, a pun on Japan's kin no unko good-luck charm). Hestu's three locations and the side quest The Priceless Maracas (recover his maracas from Bokoblins before the first upgrade) confirmed. The Korok Mask (from The Master Trials DLC) shakes to flag nearby seeds — handy for hunting beyond 441 but not needed for inventory. Puzzle-type list reflects well-documented common categories; these are community labels (the game gives no per-type official name), so phrasing describes the mechanic rather than asserting an official name. All oneLine/hint text kept under 160 chars. Confidence high on all corrected numbers."
+    },
+    "world": {
+      "upgrades": [
+        "Spirit Orbs: trade 4 at any Goddess Statue for one Heart Container or one Stamina Vessel. You get 1 orb per shrine (120 shrines = 30 vessels total to earn).",
+        "Mix freely: spend orbs on hearts, stamina, or both. Stamina caps at 3 full wheels, which takes 10 Stamina Vessels (you start with one wheel); the rest can go to hearts (max 30 hearts total).",
+        "Heart<->stamina swap: the Horned Statue (a.k.a. the Goddess Statue's dark twin) in Hateno Village buys back a vessel for 100 rupees and sells you the other type, letting you re-spec anytime.",
+        "Master Sword: pull it from the pedestal in Korok Forest, but it only releases if you have at least 13 full Heart Containers (temporary/food hearts don't count).",
+        "Master Sword never breaks; its energy depletes after heavy use and recharges in about 10 minutes. Its base 30 damage doubles to 60 versus Guardians and Ganon-corrupted foes. The DLC Trial of the Sword extends its energy so it stays powered up far longer."
+      ],
+      "fairies": [
+        {
+          "name": "Cotera",
+          "location": "Great Fairy Fountain northeast of Kakariko Village (Necluda): head north up the village, then east past Ta'loh Naeg Shrine into the woods",
+          "cost": "First fountain you open costs 100 rupees"
+        },
+        {
+          "name": "Kaysa",
+          "location": "Great Fairy Fountain in the Tabantha Frontier near Tabantha Bridge Stable, on Piper Ridge (Rito region, west Hyrule)",
+          "cost": "Second fountain costs 500 rupees"
+        },
+        {
+          "name": "Mija",
+          "location": "Great Fairy Fountain on the east bank of Lake Akkala in the Akkala Highlands (warp Dah Hesho Shrine), near South Akkala Stable (northeast Hyrule)",
+          "cost": "Third fountain costs 1,000 rupees"
+        },
+        {
+          "name": "Tera",
+          "location": "Great Fairy Fountain at Dragon's Exile in the southwest Gerudo Desert, in the Gerudo Great Skeleton near Hawa Koth Shrine",
+          "cost": "Fourth fountain costs 10,000 rupees"
+        }
+      ],
+      "materials": [
+        {
+          "name": "Star Fragment",
+          "use": "Top-tier upgrade material for the best armor tiers (Champion's Tunic, ancient armor, etc.); also sells well",
+          "where": "Drops from a fallen shooting star at night. Watch the sky, mark where it lands, and grab it before dawn (it vanishes at sunrise)."
+        },
+        {
+          "name": "Dragon parts (Naydra, Dinraal, Farosh)",
+          "use": "Scales, claws, horn shards, and fangs upgrade armor and brew long elixirs; any single dragon part sets an elixir's duration to the maximum 30:00",
+          "where": "Shoot a body part off a roaming dragon with an arrow (never the eyes; horn/foot/mouth give shards). Naydra: Mount Lanayru. Dinraal: Eldin/Tanagar Canyon. Farosh: Faron/Lake Hylia."
+        },
+        {
+          "name": "Ancient parts (gears, screws, shafts, cores, Giant Ancient Core)",
+          "use": "Trade at the Akkala Ancient Tech Lab to craft ancient arrows and the powerful Ancient armor set / Guardian-tier gear",
+          "where": "Drop from defeated Guardians (Stalkers, Skywatchers, turrets). Light the lab's furnace with the blue flame first to unlock crafting."
+        },
+        {
+          "name": "Rare gems (diamond, ruby, sapphire, topaz, opal, amber)",
+          "use": "Required for many armor upgrades and for forging gem-set gear; rubies/sapphires also brew fire/cold resist elixirs",
+          "where": "Mine ore deposits (black = common, ore-flecked = rare gems) with a hammer-like weapon, or buy/sell at Goron City gem shops near Gut Check Rock."
+        },
+        {
+          "name": "amiibo materials",
+          "use": "Tapping Zelda-series amiibo can drop rare gear, food, and exclusive armor. The Breath of the Wild-series Link amiibo can grant the Wild armor set; the 30th Anniversary 8-bit Link amiibo can grant the classic Sword (attack 22), not the Master Sword",
+          "where": "Enable amiibo in System settings, then use the amiibo rune in-game once per amiibo per day (most rewards require freeing at least one Divine Beast)."
+        }
+      ],
+      "dlc": [
+        "DLC works via the Expansion Pass (two packs). Pack 1 'The Master Trials' adds the Trial of the Sword (extends the Master Sword's powered-up duration), Master Mode (a harder save with self-healing, ranked-up enemies and floating sky platforms), Hero's Path travel log, Travel Medallion, Korok Mask, and several themed armor pieces hidden in chests.",
+        "Pack 2 'The Champions' Ballad' adds a new main quest unlocked after all four Divine Beasts, granting the One-Hit Obliterator challenge, the Master Cycle Zero (rideable motorcycle) rune, extra shrines, upgraded Champion abilities, and lore on the four Champions.",
+        "If you don't own the Expansion Pass, none of the above is available; the base game's 120 shrines, 4 Divine Beasts and Master Sword are unaffected."
+      ],
+      "notes": "DIVINE BEAST CHAMPION ABILITIES (recap + recharge). Mipha's Grace (from Vah Ruta / Zora): auto-revives you with full hearts plus ~5 temporary bonus hearts when you'd otherwise die; 1 charge, longest cooldown ~24 min (about 8 min inside Hyrule Castle). Revali's Gale (Vah Medoh / Rito): creates an updraft that launches you straight up for paragliding; 3 charges, ~6 min recharge (2 min in the Castle). Daruk's Protection (Vah Rudania / Goron): an automatic shield that fully blocks attacks/hazards; 3 charges, ~18 min recharge (6 min in the Castle). Urbosa's Fury (Vah Naboris / Gerudo): a lightning strike triggered by holding the attack button that staggers and damages nearby enemies; 3 charges, ~12 min recharge (4 min in the Castle). All recharge on a real-time timer and refill faster inside Hyrule Castle; you can also toggle/turn off each power from the Key Items menu, and the DLC Champions' Ballad upgrades them to recharge faster. CORRECTIONS made during verify: stamina caps at 10 Stamina Vessels (3 full wheels), not 15; Daruk's Protection is ~18 min (6 in Castle), not ~6; a single dragon part sets elixirs to 30:00 (the old \"scale 3:30 / claw 5:00\" figures were wrong); the Trial of the Sword extends the Master Sword's energy duration rather than raising base damage to 60 (the 30->60 boost is its Guardian/Ganon bonus); Tera is at Dragon's Exile in the Gerudo Great Skeleton, not \"near Gerudo Town in a shell\"; Cotera is northeast of Kakariko; the Wild armor comes from the BotW-series Link amiibo and the classic Sword (not Master Sword) from the 30th Anniversary amiibo. CONFIDENCE: Great Fairy costs (100/500/1,000/10,000), Master Sword 13-heart rule, stamina cap of 10 vessels, Champion charge counts, and the DLC features are high-confidence and guide-verified. Champion ability cooldown minutes are community-measured (Fandom/Zelda wikis) and approximate, so treat exact minutes as ballpark. Fairy fountain locations are by region/landmark - verify exact map pins in-app if you surface them to users."
+    }
+  },
+  "audit": {
+    "reconciles": false,
+    "shrineTotal": 128,
+    "towerTotal": 15,
+    "fairyTotal": 5,
+    "flags": [
+      "DUPLICATE REGION: 'Gerudo' (12) and 'Wasteland' (12) are the same desert region listed twice -- identical 12-shrine name sets, just reordered (verified set-equal). This double-counts 12 shrines and is the main cause of the +8 overcount. Delete one copy.",
+      "DUPLICATE FAIRY: Tera is assigned twice -- 'Tera' on the duplicated Gerudo region and 'Great Fairy Tera' on the duplicated Wasteland region. Removing the duplicate region self-corrects fairies 5->4. The four canonical fairies (Cotera, Kaysa, Mija, Tera) are all present and none is missing; the only error is the duplicate Tera.",
+      "DUPLICATE SHRINE ACROSS REGIONS: 'Mozo Shenno Shrine' is listed in BOTH Tabantha and Hebra. It genuinely belongs to HEBRA (Biron Snowshelf), so the Hebra entry is correct -- remove it from Tabantha.",
+      "TABANTHA SHORT: Real base-game Tabantha Tower region has 6 shrines (Akh Va'quot, Sha Warvo, Tena Ko'sah, Kah Okeo, Voo Lota, Bareeda Naag). Data lists 7 only because of the misplaced Mozo Shenno. Correct count is 6, not 7.",
+      "GERUDO DESERT INCOMPLETE / WRONG STRUCTURE: The desert area is actually two tower regions (~14 desert + ~6 highlands = ~20 shrines), but the data collapses it to one 12-shrine list (duplicated). Missing the genuine Gerudo Highlands shrines: Sasa Kai, Joloo Nah, Keeha Yoog, Kema Kosassa, Kuh Takkar, Sho Dantu -- none appear anywhere in the data.",
+      "HEBRA OK: Hebra's 13 includes the legitimately-Hebra Mozo Shenno, so its count is correct (do not remove Mozo Shenno from Hebra).",
+      "TOWERS OK: 15 towers is correct; no change needed.",
+      "ARITHMETIC: 128 - 12 (dup desert region) - 1 (Mozo Shenno in Tabantha) = 115, which is 5 short of 120. The shortfall equals the missing Gerudo Highlands shrines, so the fix is BOTH dedupe AND add the missing highlands shrines -- not dedupe alone."
+    ],
+    "verdict": "Does NOT reconcile. Reported 128/15/4... wait: data shows 128 shrines, 15 towers, 5 fairies; targets are 120/15/4. Towers are correct. The shrine overcount (+8) and the extra fairy both stem from ONE structural bug: the Gerudo desert region is duplicated as 'Gerudo' and 'Wasteland' with identical 12-shrine lists and a duplicated Tera fairy. Plus Mozo Shenno is double-listed (belongs to Hebra, wrongly also in Tabantha). FIXES: (1) Delete the duplicate desert region and the duplicate Tera -> shrines 128->116, fairies 5->4. (2) Remove Mozo Shenno from Tabantha (Tabantha 7->6; keep it in Hebra). (3) Add the 5-6 missing Gerudo Highlands shrines -- Sasa Kai, Joloo Nah, Keeha Yoog, Kema Kosassa, Kuh Takkar, Sho Dantu -- so the desert reflects its true ~20-shrine total and the grand total reaches 120. The desert region needs rebuilding into the correct split (Wasteland Tower ~14 + Gerudo Tower ~6), not just a simple dedupe. After these fixes: 120 shrines / 15 towers / 4 fairies."
+  },
+  "tallies": {
+    "shrineTotal": 128,
+    "towerTotal": 15,
+    "fairyTotal": 5
+  }
+}

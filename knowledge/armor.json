@@ -1,0 +1,133 @@
+{
+  "sets": [
+    {
+      "name": "Champion's Tunic",
+      "pieces": "1 (body only)",
+      "where": "Given by Impa in Kakariko Village after recovering your first memory (Captured Memories); the blue tunic Zelda made for Link.",
+      "bonus": "No set bonus. Unique effect: displays exact enemy HP numbers when equipped. Strong base defense (highest single piece when fully upgraded).",
+      "upgrade": "Silver/Gold Lynel parts at higher stars (Lynel Hoof, Horn, Guts) plus rupees. No matching pieces, so it never grants a set bonus.",
+      "priority": "mid"
+    },
+    {
+      "name": "Hylian Set",
+      "pieces": "3 (Hood, Tunic, Trousers)",
+      "where": "Bought cheaply early on. Tunic/Trousers from Enchanted (Kakariko) and Ventest Clothing Boutique (Hateno); the Hood from those same armor shops.",
+      "bonus": "No set bonus. Just solid, cheap all-around defense for beginners. The Hood gives no environmental resistance, only defense.",
+      "upgrade": "Bokoblin parts (Bokoblin Horn, Fang, Guts) at low tiers, the most common monster drops, so very easy to upgrade.",
+      "priority": "beginner"
+    },
+    {
+      "name": "Soldier's Set",
+      "pieces": "3 (Helm, Armor, Greaves)",
+      "where": "Bought at Ventest Clothing Boutique in Hateno Village; a step up in defense from Hylian. (Not sold at the Kakariko shop.)",
+      "bonus": "No set bonus. Higher base defense than Hylian for mid-game survivability.",
+      "upgrade": "Chuchu Jelly and Bokoblin Guts at low tiers, then Keese/Moblin and Lizalfos/Lynel parts at higher tiers.",
+      "priority": "mid"
+    },
+    {
+      "name": "Climbing Set (Climber's Bandanna + Climbing Gear)",
+      "pieces": "3 (Climber's Bandanna, Climbing Gear, Climbing Boots)",
+      "where": "Bandanna in a chest in Ree Dahee Shrine (Dueling Peaks); Gear in Chaas Qeta Shrine (SE off the coast); Boots in Tahno O'ah Shrine (eastern Mount Lanayru, Hateno region).",
+      "bonus": "Each piece gives Climbing Speed Up (faster scaling). Set bonus Climbing Jump Stamina Up (at 2 stars) cuts the stamina cost of jumping while climbing.",
+      "upgrade": "Keese parts plus Hightail Lizards / Hot-Footed Frogs (speed-themed materials).",
+      "priority": "beginner"
+    },
+    {
+      "name": "Stealth Set (Sheikah)",
+      "pieces": "3 (Stealth Mask, Stealth Chest Guard, Stealth Tights)",
+      "where": "Bought from Enchanted in Kakariko Village.",
+      "bonus": "Each piece gives Stealth Up (quieter, harder for enemies to notice). Set bonus Night Speed Up (at 2 stars).",
+      "upgrade": "Sneaky River Snails, Sunset Fireflies, and Rushrooms (stealth/night-themed materials).",
+      "priority": "mid"
+    },
+    {
+      "name": "Snowquill Set",
+      "pieces": "3 (Headdress, Tunic, Trousers)",
+      "where": "Bought from the Brazen Beak armor shop in Rito Village.",
+      "bonus": "Each piece gives 1 level Cold Resistance. Set bonus Unfreezable (at 2 stars) — immune to being frozen.",
+      "upgrade": "Cold-themed parts: Cold Darner, Winterwing Butterfly, and Ice Keese Wings.",
+      "priority": "beginner"
+    },
+    {
+      "name": "Flamebreaker Set",
+      "pieces": "3 (Helm, Armor, Boots)",
+      "where": "Helm, Armor, and Boots can be bought at Ripped and Shredded in Goron City; the Armor can alternatively be earned by trading 10 Fireproof Lizards to Kima at the Southern Mine (Fireproof Lizard Roundup).",
+      "bonus": "Each piece grants Flame Guard (resist burning/lava heat). Set bonus Fireproof (at 2 stars) — no damage from open flame.",
+      "upgrade": "Fire-themed parts: Fireproof Lizards, Smotherwing Butterflies, and Flame Keese Wings.",
+      "priority": "mid"
+    },
+    {
+      "name": "Desert Voe Set",
+      "pieces": "3 (Headband, Spaulder, Trousers)",
+      "where": "Bought from the armor shop in Gerudo Town, or from Rhondson once she moves to Tarrey Town.",
+      "bonus": "Each piece gives 1 level Heat Resistance (desert daytime). Set bonus Shock Resistance Up (at 2 stars) — reduces electric damage, but NOT full immunity.",
+      "upgrade": "Voltfin Trout, Voltfruit, and Electric Lizalfos parts (electricity-themed).",
+      "priority": "mid"
+    },
+    {
+      "name": "Gerudo Set (Vai Outfit)",
+      "pieces": "3 (Veil, Top, Sirwal)",
+      "where": "Bought from Vilia atop the cliffs at Kara Kara Bazaar for 600 rupees — required to enter Gerudo Town as a 'vai'.",
+      "bonus": "Each piece gives 1 level Heat Resistance. Set bonus Unfreezable (at 2 stars). Main draw: grants access to Gerudo Town.",
+      "upgrade": "Heat-themed parts: Hightail Lizard, Warm Darner, and Sand Cicada.",
+      "priority": "beginner"
+    },
+    {
+      "name": "Zora Set",
+      "pieces": "3 (Helm, Armor, Greaves)",
+      "where": "Armor from King Dorephan during the Vah Ruta quest at Zora's Domain; Helm in a sunken chest at Toto Lake; Greaves reward for the Lynel Safari side quest.",
+      "bonus": "Each piece gives Swim Speed Up; Zora Armor also lets you swim up waterfalls. Set bonus Swim Dash Stamina Up (at 2 stars) — cheaper swim-dashing.",
+      "upgrade": "Lizalfos parts (Lizalfos Tail, Talon, Horn) and Hyrule Bass — aquatic/lizard-themed.",
+      "priority": "mid"
+    },
+    {
+      "name": "Rubber Set",
+      "pieces": "3 (Helm, Armor, Tights)",
+      "where": "Found in shrine chests scattered across Hyrule (e.g. Toto Sah, Daka Tuss, Sasa Kai). No single shop.",
+      "bonus": "Each piece gives Shock Resistance. Set bonus Unshockable (at 2 stars) — full immunity to electric damage, including thunderstorm lightning.",
+      "upgrade": "Electricity-themed: Yellow Chuchu Jelly, Electric Keese Wings, and Electric Lizalfos Tails.",
+      "priority": "mid"
+    },
+    {
+      "name": "Radiant Set",
+      "pieces": "3 (Mask, Shirt, Tights)",
+      "where": "Bought from the Gerudo Secret Club in Gerudo Town after The Secret Club's Secret quest; each piece also costs Luminous Stones plus rupees.",
+      "bonus": "Set bonus (at 2 stars) Disguise (Stal-types ignore you) plus Bone Atk. Up (boosts bone/Stal-type weapon damage). Glows in the dark.",
+      "upgrade": "Luminous Stones and Stal parts (Stalkoblin/Stalizalfos bones).",
+      "priority": "late"
+    },
+    {
+      "name": "Barbarian Set",
+      "pieces": "3 (Helm, Armor, Leg Wraps)",
+      "where": "Each piece is a reward from a shrine inside a Labyrinth: Tu Ka'loh (Lomei Labyrinth Island), Dako Tah (South Lomei Labyrinth), Qaza Tokki (North Lomei Labyrinth).",
+      "bonus": "Each piece gives Attack Up. Set bonus Charge Attack Stamina Up (at 2 stars) — cheaper spin/charge attacks.",
+      "upgrade": "Lynel parts (Hoof, Horn, Guts) — mid-to-high tiers need Lynel materials.",
+      "priority": "late"
+    },
+    {
+      "name": "Ancient Set",
+      "pieces": "3 (Helm, Cuirass, Greaves)",
+      "where": "Bought from Cherry (the shop terminal) at the Akkala Ancient Tech Lab, after lighting the lab's furnace. Costs rupees + Ancient Materials.",
+      "bonus": "Each piece gives Guardian Resist Up (less damage from Guardians/ancient weapons). Set bonus Ancient Proficiency (at 2 stars) — +80% damage with ancient and Guardian weapons (not the Master Sword).",
+      "upgrade": "Ancient parts: Ancient Screws, Springs, Gears, Shafts, Cores, and a Giant Ancient Core at the top tier.",
+      "priority": "late"
+    },
+    {
+      "name": "Royal Guard Set",
+      "pieces": "3 (Cap, Uniform, Boots)",
+      "where": "The Champions' Ballad DLC. Pieces found in chests via the EX Royal Guard Rumors side quest (in/around Hyrule Castle).",
+      "bonus": "Set bonus Charge Attack Stamina Up. Low base defense (4 per piece). Cannot be upgraded by a Great Fairy and cannot be dyed.",
+      "upgrade": "None — this set cannot be enhanced at a Great Fairy Fountain.",
+      "priority": "late"
+    },
+    {
+      "name": "Wild Set (amiibo)",
+      "pieces": "3 (Cap of the Wild, Tunic of the Wild, Trousers of the Wild)",
+      "where": "Obtained via amiibo (the BotW Link amiibo / 30th Anniversary line); the classic green hero look.",
+      "bonus": "Set bonus Master Sword Beam Up (at 2 stars) — boosts the Master Sword's energy beam at full health. Each piece is high defense.",
+      "upgrade": "Star Fragments and Lynel parts (Silver/Gold Lynel Horn, Hoof, Guts) at the higher tiers.",
+      "priority": "late"
+    }
+  ],
+  "notes": "CORRECTIONS made after web verification (Game8, Zelda Dungeon, Zelda Wiki/Fandom):\\n\\n1. CLIMBING SET (three errors fixed): Climber's Bandanna is in REE DAHEE SHRINE (Dueling Peaks), not \\\"Ploymus Mountain Cave\\\" — Ploymus Mountain Cave is a Tears of the Kingdom location, NOT BotW. Climbing Boots are in TAHNO O'AH SHRINE (eastern Mount Lanayru), not Ta'loh Naeg (that's the Kakariko tutorial shrine, which gives the Shield of the Mind's Eye / Eightfold Blade). Set bonus is CLIMBING JUMP STAMINA UP (cheaper jumps while climbing); the per-piece effect is Climbing Speed Up — the original conflated the two.\\n\\n2. SOLDIER'S SET: sold at Ventest Clothing Boutique in HATENO VILLAGE, not \\\"the Enchanted shop in Kakariko.\\\" Enchanted (Kakariko) sells the Stealth/Sheikah set and Hylian Hood, not Soldier's.\\n\\n3. HYLIAN HOOD source: bought from Enchanted (Kakariko) or Ventest (Hateno), not \\\"Bugut at the General Shoppe.\\\" Bugut runs Hateno's General Shoppe (food/arrows), and does not sell the Hood. Also removed the false claim (in the old notes) that the Hylian Hood grants Heat Resistance — it gives NO environmental resistance, only defense.\\n\\n4. ZORA SET bonus is SWIM DASH STAMINA UP (cheaper swim-dashing), not \\\"Swim Speed Up.\\\" Swim Speed Up is the per-piece effect; the original swapped them.\\n\\n5. RADIANT/ANCIENT/BARBARIAN: confirmed Disguise+Bone Atk. Up, Ancient Proficiency +80% (ancient AND Guardian weapons, not Master Sword), and Charge Attack Stamina Up. Fixed Barbarian labyrinth shrine names: Tu Ka'loh, Dako Tah (South Lomei), Qaza Tokki (North Lomei) — the original listed \\\"Dila Maag,\\\" which is not the South Lomei monk.\\n\\n6. Minor: Snowquill shop is the Brazen Beak (owner detail dropped as unverified); Desert Voe set bonus is officially Shock Resistance Up (partial), correctly distinguished from Rubber's Unshockable (full immunity).\\n\\nVERIFIED ACCURATE: Champion's Tunic (Impa, exact HP numbers, no set bonus, Lynel upgrades); set bonuses activate at 2 stars (★★) for all standard sets; Snowquill, Flamebreaker, Gerudo Vai, Rubber, Royal Guard (low defense 4/piece, cannot upgrade or dye), Wild amiibo set (Master Sword Beam Up at 2 stars).\\n\\nBEGINNER HEADLINERS still hold: Warm Doublet (single body piece, free from the Old Man for 10 Wood on the Great Plateau, or bought at Ventest in Hateno) for first cold protection; Snowquill (Rito) for Hebra/Lanayru; Flamebreaker (Goron City) for Death Mountain; Desert Voe + Gerudo Vai for Gerudo Desert heat (Vai also unlocks Gerudo Town). Rubber Set is the true full-immunity SHOCK answer; Desert Voe only partially resists shock.\\n\\nKEY DISTINCTIONS: Heat Resistance (Desert Voe, Gerudo Vai) covers desert daytime; Flame Guard (Flamebreaker) covers fire/lava — NOT interchangeable, and the Hylian Hood does NOT provide heat resistance. Set-bonus star thresholds: 1st upgrade needs only the first Great Fairy (Cotera) unlocked; 4-star needs all four fountains. Set bonuses kick in at ★★ for standard sets.\\n\\nConfidence: HIGH on all corrected locations and set-bonus names. The exact Rubber Set shrine list varies (it appears in multiple shrine chests, not a shop) — representative shrines named; treat an exhaustive chest list as a per-shrine lookup. Sources: Game8, Zelda Dungeon Wiki, Zelda Wiki/Fandom (verified June 2026)."
+}

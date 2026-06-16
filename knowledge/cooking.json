@@ -1,0 +1,144 @@
+{
+  "rules": [
+    "One effect per dish. A cooked meal or elixir can only carry a single special effect at a time. Mixing two different effect-types (e.g. Hearty + Spicy) cancels both and gives a plain dish with no bonus.",
+    "Stack the SAME prefix to extend or strengthen. Adding more ingredients of one effect raises its tier (Mighty I to III) or its timer; e.g. 5 Hasty ingredients give a longer speed buff than 1.",
+    "Cook in a Pot (a lit cooking pot), not a campfire. Tossing ingredients on an open campfire just chars single items (Baked Apple, Toasted Hateno Cheese); it cannot combine ingredients or make effect dishes/elixirs.",
+    "Max 5 ingredients per dish. The pot accepts up to five items at once; plan your stack around that cap.",
+    "Elixirs = critter + monster part. Combine at least one effect-bearing critter (lizard, frog, bug, etc.) with any monster part (horn, fang, guts, wing) to brew an elixir. Critters alone or monster parts alone will NOT cook.",
+    "Hearty effect adds temporary (yellow) hearts and FULLY refills your red hearts. Energizing instantly refills stamina; Enduring (Endura) adds overfilled green/temporary stamina wheel.",
+    "Effect strength/duration comes from the ingredients, so a dish's timer scales with how many same-effect items and high-tier items you use; tiers cap at level 3 for most buffs (Mighty/Tough/Hasty/Sneaky etc.).",
+    "Monster Extract is a wild-card seasoning: it randomizes the dish, forcing the duration to roughly 1, 10, or 30 minutes (and can swing hearts), and it overrides the normal duration/crit bonuses, so don't combine it with dragon parts or star fragments.",
+    "Dubious Food results from cooking only effect-less items, mismatched effects, or critters/monster parts with no valid pairing. It restores a small random number of hearts and has no effect.",
+    "Rock-Hard Food results from cooking inedible items (wood, ore, weapons, Amber, etc.). It restores only a tiny sliver of health and is essentially a fail.",
+    "Critical Cooking gives a bonus (one of: +1 effect tier, +5:00 duration, or extra hearts/stamina/yellow hearts). It is guaranteed during a Blood Moon, and guaranteed when a Dragon part or Star Fragment is in the recipe; otherwise it is a low base random chance per cook.",
+    "Fairy Tonic is a special elixir made from a Fairy plus any monster part (or other materials); it simply restores hearts and carries no buff, useful for clearing inventory or a quick heal recipe.",
+    "Dragon parts are seasonings that extend duration and guarantee a critical cook. By part the bonus is graduated: Scale ~+1:30, Claw ~+3:30, Shard of Fang ~+10:00, Shard of Horn maxes the timer to 30:00. Star Fragments also guarantee a critical cook.",
+    "Identify the prefix on each raw ingredient (Hasty, Mighty, Spicy, etc.) and only combine matching prefixes for a clean, strong dish; mixing prefixes cancels the effect."
+  ],
+  "effects": [
+    {
+      "effect": "Hearty",
+      "does": "Fully restores all red hearts AND adds extra temporary (yellow) hearts on top.",
+      "ingredients": "Hearty Durian, Hearty Truffle, Hearty Bass, Hearty Radish, Hearty Blueshell Snail, Hearty Salmon, Hearty Lizard; Big Hearty Truffle and Big Hearty Radish give a bigger yellow-heart boost.",
+      "elixir": null
+    },
+    {
+      "effect": "Energizing",
+      "does": "Instantly refills your stamina wheel (good for climbing/swimming mid-action).",
+      "ingredients": "Stamella Shroom, Restless Cricket, Bright-Eyed Crab, Courser Bee Honey, Staminoka Bass.",
+      "elixir": "Restless Cricket + monster part = Energizing Elixir"
+    },
+    {
+      "effect": "Enduring",
+      "does": "Refills stamina and overfills it with extra (green) temporary stamina wheel segments.",
+      "ingredients": "Endura Carrot, Endura Shroom, Tireless Frog (elixir).",
+      "elixir": "Tireless Frog + monster part = Enduring Elixir"
+    },
+    {
+      "effect": "Spicy",
+      "does": "Cold resistance - keeps you warm in freezing regions (and lets you survive cold areas).",
+      "ingredients": "Spicy Pepper, Sunshroom, Warm Safflina, Summerwing Butterfly, Sizzlefin Trout, Warm Darner; Dinraal (fire dragon) parts add cold resistance.",
+      "elixir": "Summerwing Butterfly + monster part = Spicy Elixir"
+    },
+    {
+      "effect": "Chilly",
+      "does": "Heat resistance - prevents overheating in Gerudo Desert / Eldin region (does NOT stop flame damage).",
+      "ingredients": "Hydromelon, Chillshroom, Cool Safflina, Winterwing Butterfly, Chillfin Trout, Cold Darner; Naydra (ice dragon) parts add heat resistance.",
+      "elixir": "Winterwing Butterfly + monster part = Chilly Elixir"
+    },
+    {
+      "effect": "Fireproof",
+      "does": "Prevents catching fire from flames/lava environments (essential on Death Mountain). ELIXIR ONLY - cannot be cooked into a food dish.",
+      "ingredients": "Fireproof Lizard, Smotherwing Butterfly (each + a monster part). Note: Naydra's frost parts can be added to extend a fireproof elixir's timer.",
+      "elixir": "Smotherwing Butterfly (or Fireproof Lizard) + monster part = Fireproof Elixir"
+    },
+    {
+      "effect": "Electro",
+      "does": "Shock resistance - reduces or negates lightning/electric damage and stops weapons being knocked from your hand.",
+      "ingredients": "Voltfruit, Zapshroom, Electric Safflina, Thunderwing Butterfly, Voltfin Trout, Electric Darner; Farosh (lightning dragon) parts add shock resistance.",
+      "elixir": "Thunderwing Butterfly + monster part = Electro Elixir"
+    },
+    {
+      "effect": "Mighty (Attack Up)",
+      "does": "Raises melee/ranged attack power for a duration - the key Ganon/lynel buff.",
+      "ingredients": "Mighty Bananas, Razorshroom, Mighty Carp, Mighty Porgy, Razorclaw Crab, Mighty Thistle, Bladed Rhino Beetle (elixir).",
+      "elixir": "Bladed Rhino Beetle + monster part = Mighty Elixir"
+    },
+    {
+      "effect": "Tough (Defense Up)",
+      "does": "Raises defense so you take less damage from attacks.",
+      "ingredients": "Ironshroom, Armored Carp, Armored Porgy, Ironshell Crab, Fortified Pumpkin, Rugged Rhino Beetle (elixir).",
+      "elixir": "Rugged Rhino Beetle + monster part = Tough Elixir"
+    },
+    {
+      "effect": "Hasty (Speed Up)",
+      "does": "Increases movement speed - run, swim, and climb faster.",
+      "ingredients": "Swift Carrot, Rushroom, Swift Violet, Fleet-Lotus Seeds, Hot-Footed Frog (elixir).",
+      "elixir": "Hot-Footed Frog + monster part = Hasty Elixir"
+    },
+    {
+      "effect": "Sneaky (Stealth Up)",
+      "does": "Boosts stealth - quieter footsteps, enemies/animals notice you less. Great for hunting and the Yiga.",
+      "ingredients": "Silent Princess, Silent Shroom, Blue Nightshade, Sneaky River Snail, Stealthfin Trout, Sunset Firefly (elixir).",
+      "elixir": "Sunset Firefly + monster part = Sneaky Elixir"
+    }
+  ],
+  "recipes": [
+    {
+      "name": "5 Big Hearty Radishes (or 5 Big Hearty Truffles)",
+      "makes": "Hearty meal - full red-heart refill plus the maximum +25 extra yellow hearts.",
+      "why": "The best survival/bossing food. Five Big Hearty items overcap your hearts so you can tank lynels and Ganon hits. (5 standard Hearty Durians give a smaller +20.)"
+    },
+    {
+      "name": "5 Hasty ingredients (e.g. 5 Swift Carrots or Rushrooms)",
+      "makes": "Hasty dish at level 3 speed - long fast-run/climb buff.",
+      "why": "Stacking five same-prefix Hasty items pushes both tier and timer; ideal for travel, racing shrine quests, and outrunning Guardians."
+    },
+    {
+      "name": "Mighty Bananas x4-5 (Mighty Simmered Fruit)",
+      "makes": "Attack Up Lv3 (Mighty) meal for several minutes.",
+      "why": "Cheap, farmable attack buff. Eat right before fighting Ganon, Lynels, or Hinox - extra attack tiers massively shorten fights. Bananas grow in tropical Faron."
+    },
+    {
+      "name": "Bladed Rhino Beetle + Bokoblin Horn (Mighty Elixir)",
+      "makes": "Attack Up elixir; add a Shard of Dragon Horn to push duration to the 30:00 max.",
+      "why": "Elixir route to attack-up when you lack Mighty produce; a dragon part guarantees a critical cook and a long timer for boss runs."
+    },
+    {
+      "name": "Endura Carrot x4-5 (Enduring dish)",
+      "makes": "Bonus overfilled stamina wheel(s).",
+      "why": "Lets you scale the tallest cliffs (Vah Rudania, towers) without running out of stamina; the extra green wheel is huge for exploration."
+    },
+    {
+      "name": "Fairy + any monster part (Fairy Tonic)",
+      "makes": "Plain healing elixir.",
+      "why": "Quick heal that also lets you offload spare fairies/monster parts; no buff, but reliable hearts in a pinch."
+    },
+    {
+      "name": "Hearty Salmon + Tabantha Wheat + Goat Butter (Hearty Salmon Meuniere)",
+      "makes": "A named gourmet Hearty dish (a quest favorite) with full heal + yellow hearts.",
+      "why": "The real BotW recipe needs only those three items; add Rock Salt or Goron Spice to extend the timer. Ingredients gather easily around Tabantha/Rito Village."
+    }
+  ],
+  "dragons": [
+    {
+      "name": "Dinraal",
+      "element": "Fire",
+      "where": "Flies over the Eldin region, appearing near Death Mountain and along Tanagar Canyon, spawning around 5am at the north end and drifting through the morning.",
+      "parts": "Scale (+~1:30 duration), Claw (+~3:30), Shard of Dinraal's Fang (+~10:00), Shard of Dinraal's Horn (maxes timer to 30:00). As the fire dragon, Dinraal's parts add COLD RESISTANCE (Spicy/warm) to an elixir and guarantee a critical cook."
+    },
+    {
+      "name": "Naydra",
+      "element": "Ice / Frost",
+      "where": "Circles the Lanayru region, notably around Mount Lanayru and the Lanayru Road/Promenade; appears at night and into the early morning.",
+      "parts": "Scale (+~1:30), Claw (+~3:30), Shard of Naydra's Fang (+~10:00), Shard of Naydra's Horn (maxes timer to 30:00). As the ice/frost dragon, Naydra's parts add HEAT RESISTANCE (Chilly) and can extend Fireproof elixirs; they also guarantee a critical cook."
+    },
+    {
+      "name": "Farosh",
+      "element": "Electricity / Lightning",
+      "where": "Roams the Faron region around Lake Hylia and the Bridge of Hylia, breaching from Lake Hylia/Riola Spring; often appears near waterways around dawn.",
+      "parts": "Scale (+~1:30), Claw (+~3:30), Shard of Farosh's Fang (+~10:00), Shard of Farosh's Horn (maxes timer to 30:00). As the lightning dragon, Farosh's parts add SHOCK RESISTANCE (Electro) to an elixir and guarantee a critical cook."
+    }
+  ],
+  "notes": "CORRECTED dataset. Key fixes after web-verifying against Game8, Zelda Dungeon and Zelda Wiki/Fandom:\\n\\n1) REMOVED the 'Bright (Glow)' effect entirely. Brightcap mushrooms, Deep Fireflies, the glow/Bright cooking effect, the Depths, Lightroots and Brightbloom Seeds are all TEARS OF THE KINGDOM content and do NOT exist in Breath of the Wild. In BotW the Thyphlo Ruins are lit with torches or Daruk's Protection, not glow food. Including Bright would invent content for this BotW-specific app. (HIGH confidence.)\\n\\n2) FIXED the max-Hearty recipe. The previous '5 Hearty Durians = ~25 yellow hearts' was wrong: a Hearty Durian gives 4 yellow hearts each, so 5 give +20. The true maximum from a Hearty dish is +25 yellow hearts, achieved with 5 Big Hearty Radishes or 5 Big Hearty Truffles (5 each). Removed the unverified 'cap 26 with critical cook' figure.\\n\\n3) FIXED Salmon Meuniere. The real BotW recipe is Hearty Salmon + Tabantha Wheat + Goat Butter (optionally + Rock Salt or Goron Spice to extend duration). The previous 'Hearty Salmon + Hearty Radish + Goat Butter + Rock Salt + Hyrule Herb' was an invented combo.\\n\\n4) FIXED Dragon Fang duration. Sources put Shard of Fang at about +10:00 (some cite higher), not the '+5:00-10:00' previously listed. Scale ~+1:30, Claw ~+3:30, Horn maxes to 30:00 are confirmed.\\n\\n5) Softened Monster Extract wording: it forces duration to roughly 1/10/30 min and overrides normal bonuses, so it should not be paired with dragon parts/star fragments.\\n\\nHIGH confidence: one-effect-per-dish, same-prefix stacking, pot vs campfire, elixir = critter + monster part, Dubious/Rock-Hard rules, Fairy Tonic, Fireproof being elixir-only via Fireproof Lizard / Smotherwing Butterfly, dragon element-to-resistance mapping (Dinraal fire->cold res, Naydra ice->heat res, Farosh lightning->shock res), and the effect-prefix ingredient lists (all real BotW names). MEDIUM confidence on exact dragon-part minute values (Scale<Claw<Fang<Horn, Horn=30:00 max is solid; Fang's exact value varies by source) and on exact dragon spawn timing/positions (all three spawn around 5am and circle their regions). Best-source tips: Big Hearty Radishes near Satori Mountain/Hyrule field; Hearty Durians cluster in Faron jungle; Mighty Bananas in tropical Faron and the Yiga Hideout; Endura Carrots near Satori Mountain and Gerudo Highlands; dragon parts farmed by shooting the flying dragons (parts respawn)."
+}

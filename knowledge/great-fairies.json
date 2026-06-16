@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Cotera",
+    "region": "Dueling Peaks",
+    "location": "In the woods northeast of Kakariko Village (behind/up the path past Ta'loh Naeg Shrine), inside a giant flower bud.",
+    "cost": "100 rupees to open the bud the first time. Talk to Pikango first ('Find the Fairy Fountain') to learn her location."
+  },
+  {
+    "name": "Kaysa",
+    "region": "Tabantha",
+    "location": "On Piper Ridge, a ridge south of Nero Hill / Tabantha Tower in the Tabantha Frontier. Paraglide south from the top of Tabantha Tower to spot the flower bud below.",
+    "cost": "A Rupee offering that scales with how many Great Fairies you've already freed: 100, then 500, then 1,000, then 10,000 Rupees."
+  },
+  {
+    "name": "Mija",
+    "region": "Akkala",
+    "location": "In a colorful tree grove on a cliff just east/south of Akkala Tower, near Dah Hesho Shrine overlooking Lake Akkala",
+    "cost": "Costs rupees by unlock order across all four fairies (100, then 500, then 1,000, then 10,000); unlocking her enables higher armor upgrade tiers"
+  },
+  {
+    "name": "Tera",
+    "region": "Gerudo Desert",
+    "location": "Inside the rib cage of the Gerudo Great Skeleton at Dragon's Exile, far southwest corner of the Gerudo Desert, right next to Hawa Koth Shrine.",
+    "cost": "Up to 10,000 Rupees (the price scales with how many fairies you've already freed; Tera demands 10,000 if she is your fourth and last)."
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "upgrades": [
+    "Spirit Orbs: trade 4 at any Goddess Statue for one Heart Container or one Stamina Vessel. You get 1 orb per shrine (120 shrines = 30 vessels total to earn).",
+    "Mix freely: spend orbs on hearts, stamina, or both. Stamina caps at 3 full wheels, which takes 10 Stamina Vessels (you start with one wheel); the rest can go to hearts (max 30 hearts total).",
+    "Heart<->stamina swap: the Horned Statue (a.k.a. the Goddess Statue's dark twin) in Hateno Village buys back a vessel for 100 rupees and sells you the other type, letting you re-spec anytime.",
+    "Master Sword: pull it from the pedestal in Korok Forest, but it only releases if you have at least 13 full Heart Containers (temporary/food hearts don't count).",
+    "Master Sword never breaks; its energy depletes after heavy use and recharges in about 10 minutes. Its base 30 damage doubles to 60 versus Guardians and Ganon-corrupted foes. The DLC Trial of the Sword extends its energy so it stays powered up far longer."
+  ],
+  "fairies": [
+    {
+      "name": "Cotera",
+      "location": "Great Fairy Fountain northeast of Kakariko Village (Necluda): head north up the village, then east past Ta'loh Naeg Shrine into the woods",
+      "cost": "First fountain you open costs 100 rupees"
+    },
+    {
+      "name": "Kaysa",
+      "location": "Great Fairy Fountain in the Tabantha Frontier near Tabantha Bridge Stable, on Piper Ridge (Rito region, west Hyrule)",
+      "cost": "Second fountain costs 500 rupees"
+    },
+    {
+      "name": "Mija",
+      "location": "Great Fairy Fountain on the east bank of Lake Akkala in the Akkala Highlands (warp Dah Hesho Shrine), near South Akkala Stable (northeast Hyrule)",
+      "cost": "Third fountain costs 1,000 rupees"
+    },
+    {
+      "name": "Tera",
+      "location": "Great Fairy Fountain at Dragon's Exile in the southwest Gerudo Desert, in the Gerudo Great Skeleton near Hawa Koth Shrine",
+      "cost": "Fourth fountain costs 10,000 rupees"
+    }
+  ],
+  "materials": [
+    {
+      "name": "Star Fragment",
+      "use": "Top-tier upgrade material for the best armor tiers (Champion's Tunic, ancient armor, etc.); also sells well",
+      "where": "Drops from a fallen shooting star at night. Watch the sky, mark where it lands, and grab it before dawn (it vanishes at sunrise)."
+    },
+    {
+      "name": "Dragon parts (Naydra, Dinraal, Farosh)",
+      "use": "Scales, claws, horn shards, and fangs upgrade armor and brew long elixirs; any single dragon part sets an elixir's duration to the maximum 30:00",
+      "where": "Shoot a body part off a roaming dragon with an arrow (never the eyes; horn/foot/mouth give shards). Naydra: Mount Lanayru. Dinraal: Eldin/Tanagar Canyon. Farosh: Faron/Lake Hylia."
+    },
+    {
+      "name": "Ancient parts (gears, screws, shafts, cores, Giant Ancient Core)",
+      "use": "Trade at the Akkala Ancient Tech Lab to craft ancient arrows and the powerful Ancient armor set / Guardian-tier gear",
+      "where": "Drop from defeated Guardians (Stalkers, Skywatchers, turrets). Light the lab's furnace with the blue flame first to unlock crafting."
+    },
+    {
+      "name": "Rare gems (diamond, ruby, sapphire, topaz, opal, amber)",
+      "use": "Required for many armor upgrades and for forging gem-set gear; rubies/sapphires also brew fire/cold resist elixirs",
+      "where": "Mine ore deposits (black = common, ore-flecked = rare gems) with a hammer-like weapon, or buy/sell at Goron City gem shops near Gut Check Rock."
+    },
+    {
+      "name": "amiibo materials",
+      "use": "Tapping Zelda-series amiibo can drop rare gear, food, and exclusive armor. The Breath of the Wild-series Link amiibo can grant the Wild armor set; the 30th Anniversary 8-bit Link amiibo can grant the classic Sword (attack 22), not the Master Sword",
+      "where": "Enable amiibo in System settings, then use the amiibo rune in-game once per amiibo per day (most rewards require freeing at least one Divine Beast)."
+    }
+  ],
+  "dlc": [
+    "DLC works via the Expansion Pass (two packs). Pack 1 'The Master Trials' adds the Trial of the Sword (extends the Master Sword's powered-up duration), Master Mode (a harder save with self-healing, ranked-up enemies and floating sky platforms), Hero's Path travel log, Travel Medallion, Korok Mask, and several themed armor pieces hidden in chests.",
+    "Pack 2 'The Champions' Ballad' adds a new main quest unlocked after all four Divine Beasts, granting the One-Hit Obliterator challenge, the Master Cycle Zero (rideable motorcycle) rune, extra shrines, upgraded Champion abilities, and lore on the four Champions.",
+    "If you don't own the Expansion Pass, none of the above is available; the base game's 120 shrines, 4 Divine Beasts and Master Sword are unaffected."
+  ],
+  "notes": "DIVINE BEAST CHAMPION ABILITIES (recap + recharge). Mipha's Grace (from Vah Ruta / Zora): auto-revives you with full hearts plus ~5 temporary bonus hearts when you'd otherwise die; 1 charge, longest cooldown ~24 min (about 8 min inside Hyrule Castle). Revali's Gale (Vah Medoh / Rito): creates an updraft that launches you straight up for paragliding; 3 charges, ~6 min recharge (2 min in the Castle). Daruk's Protection (Vah Rudania / Goron): an automatic shield that fully blocks attacks/hazards; 3 charges, ~18 min recharge (6 min in the Castle). Urbosa's Fury (Vah Naboris / Gerudo): a lightning strike triggered by holding the attack button that staggers and damages nearby enemies; 3 charges, ~12 min recharge (4 min in the Castle). All recharge on a real-time timer and refill faster inside Hyrule Castle; you can also toggle/turn off each power from the Key Items menu, and the DLC Champions' Ballad upgrades them to recharge faster. CORRECTIONS made during verify: stamina caps at 10 Stamina Vessels (3 full wheels), not 15; Daruk's Protection is ~18 min (6 in Castle), not ~6; a single dragon part sets elixirs to 30:00 (the old \"scale 3:30 / claw 5:00\" figures were wrong); the Trial of the Sword extends the Master Sword's energy duration rather than raising base damage to 60 (the 30->60 boost is its Guardian/Ganon bonus); Tera is at Dragon's Exile in the Gerudo Great Skeleton, not \"near Gerudo Town in a shell\"; Cotera is northeast of Kakariko; the Wild armor comes from the BotW-series Link amiibo and the classic Sword (not Master Sword) from the 30th Anniversary amiibo. CONFIDENCE: Great Fairy costs (100/500/1,000/10,000), Master Sword 13-heart rule, stamina cap of 10 vessels, Champion charge counts, and the DLC features are high-confidence and guide-verified. Champion ability cooldown minutes are community-measured (Fandom/Zelda wikis) and approximate, so treat exact minutes as ballpark. Fairy fountain locations are by region/landmark - verify exact map pins in-app if you surface them to users."
+}

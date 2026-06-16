@@ -1,0 +1,611 @@
+{
+  "armor": {
+    "sets": [
+      {
+        "name": "Champion's Tunic",
+        "pieces": "1 (body only)",
+        "where": "Given by Impa in Kakariko Village after recovering your first memory (Captured Memories); the blue tunic Zelda made for Link.",
+        "bonus": "No set bonus. Unique effect: displays exact enemy HP numbers when equipped. Strong base defense (highest single piece when fully upgraded).",
+        "upgrade": "Silver/Gold Lynel parts at higher stars (Lynel Hoof, Horn, Guts) plus rupees. No matching pieces, so it never grants a set bonus.",
+        "priority": "mid"
+      },
+      {
+        "name": "Hylian Set",
+        "pieces": "3 (Hood, Tunic, Trousers)",
+        "where": "Bought cheaply early on. Tunic/Trousers from Enchanted (Kakariko) and Ventest Clothing Boutique (Hateno); the Hood from those same armor shops.",
+        "bonus": "No set bonus. Just solid, cheap all-around defense for beginners. The Hood gives no environmental resistance, only defense.",
+        "upgrade": "Bokoblin parts (Bokoblin Horn, Fang, Guts) at low tiers, the most common monster drops, so very easy to upgrade.",
+        "priority": "beginner"
+      },
+      {
+        "name": "Soldier's Set",
+        "pieces": "3 (Helm, Armor, Greaves)",
+        "where": "Bought at Ventest Clothing Boutique in Hateno Village; a step up in defense from Hylian. (Not sold at the Kakariko shop.)",
+        "bonus": "No set bonus. Higher base defense than Hylian for mid-game survivability.",
+        "upgrade": "Chuchu Jelly and Bokoblin Guts at low tiers, then Keese/Moblin and Lizalfos/Lynel parts at higher tiers.",
+        "priority": "mid"
+      },
+      {
+        "name": "Climbing Set (Climber's Bandanna + Climbing Gear)",
+        "pieces": "3 (Climber's Bandanna, Climbing Gear, Climbing Boots)",
+        "where": "Bandanna in a chest in Ree Dahee Shrine (Dueling Peaks); Gear in Chaas Qeta Shrine (SE off the coast); Boots in Tahno O'ah Shrine (eastern Mount Lanayru, Hateno region).",
+        "bonus": "Each piece gives Climbing Speed Up (faster scaling). Set bonus Climbing Jump Stamina Up (at 2 stars) cuts the stamina cost of jumping while climbing.",
+        "upgrade": "Keese parts plus Hightail Lizards / Hot-Footed Frogs (speed-themed materials).",
+        "priority": "beginner"
+      },
+      {
+        "name": "Stealth Set (Sheikah)",
+        "pieces": "3 (Stealth Mask, Stealth Chest Guard, Stealth Tights)",
+        "where": "Bought from Enchanted in Kakariko Village.",
+        "bonus": "Each piece gives Stealth Up (quieter, harder for enemies to notice). Set bonus Night Speed Up (at 2 stars).",
+        "upgrade": "Sneaky River Snails, Sunset Fireflies, and Rushrooms (stealth/night-themed materials).",
+        "priority": "mid"
+      },
+      {
+        "name": "Snowquill Set",
+        "pieces": "3 (Headdress, Tunic, Trousers)",
+        "where": "Bought from the Brazen Beak armor shop in Rito Village.",
+        "bonus": "Each piece gives 1 level Cold Resistance. Set bonus Unfreezable (at 2 stars) — immune to being frozen.",
+        "upgrade": "Cold-themed parts: Cold Darner, Winterwing Butterfly, and Ice Keese Wings.",
+        "priority": "beginner"
+      },
+      {
+        "name": "Flamebreaker Set",
+        "pieces": "3 (Helm, Armor, Boots)",
+        "where": "Helm, Armor, and Boots can be bought at Ripped and Shredded in Goron City; the Armor can alternatively be earned by trading 10 Fireproof Lizards to Kima at the Southern Mine (Fireproof Lizard Roundup).",
+        "bonus": "Each piece grants Flame Guard (resist burning/lava heat). Set bonus Fireproof (at 2 stars) — no damage from open flame.",
+        "upgrade": "Fire-themed parts: Fireproof Lizards, Smotherwing Butterflies, and Flame Keese Wings.",
+        "priority": "mid"
+      },
+      {
+        "name": "Desert Voe Set",
+        "pieces": "3 (Headband, Spaulder, Trousers)",
+        "where": "Bought from the armor shop in Gerudo Town, or from Rhondson once she moves to Tarrey Town.",
+        "bonus": "Each piece gives 1 level Heat Resistance (desert daytime). Set bonus Shock Resistance Up (at 2 stars) — reduces electric damage, but NOT full immunity.",
+        "upgrade": "Voltfin Trout, Voltfruit, and Electric Lizalfos parts (electricity-themed).",
+        "priority": "mid"
+      },
+      {
+        "name": "Gerudo Set (Vai Outfit)",
+        "pieces": "3 (Veil, Top, Sirwal)",
+        "where": "Bought from Vilia atop the cliffs at Kara Kara Bazaar for 600 rupees — required to enter Gerudo Town as a 'vai'.",
+        "bonus": "Each piece gives 1 level Heat Resistance. Set bonus Unfreezable (at 2 stars). Main draw: grants access to Gerudo Town.",
+        "upgrade": "Heat-themed parts: Hightail Lizard, Warm Darner, and Sand Cicada.",
+        "priority": "beginner"
+      },
+      {
+        "name": "Zora Set",
+        "pieces": "3 (Helm, Armor, Greaves)",
+        "where": "Armor from King Dorephan during the Vah Ruta quest at Zora's Domain; Helm in a sunken chest at Toto Lake; Greaves reward for the Lynel Safari side quest.",
+        "bonus": "Each piece gives Swim Speed Up; Zora Armor also lets you swim up waterfalls. Set bonus Swim Dash Stamina Up (at 2 stars) — cheaper swim-dashing.",
+        "upgrade": "Lizalfos parts (Lizalfos Tail, Talon, Horn) and Hyrule Bass — aquatic/lizard-themed.",
+        "priority": "mid"
+      },
+      {
+        "name": "Rubber Set",
+        "pieces": "3 (Helm, Armor, Tights)",
+        "where": "Found in shrine chests scattered across Hyrule (e.g. Toto Sah, Daka Tuss, Sasa Kai). No single shop.",
+        "bonus": "Each piece gives Shock Resistance. Set bonus Unshockable (at 2 stars) — full immunity to electric damage, including thunderstorm lightning.",
+        "upgrade": "Electricity-themed: Yellow Chuchu Jelly, Electric Keese Wings, and Electric Lizalfos Tails.",
+        "priority": "mid"
+      },
+      {
+        "name": "Radiant Set",
+        "pieces": "3 (Mask, Shirt, Tights)",
+        "where": "Bought from the Gerudo Secret Club in Gerudo Town after The Secret Club's Secret quest; each piece also costs Luminous Stones plus rupees.",
+        "bonus": "Set bonus (at 2 stars) Disguise (Stal-types ignore you) plus Bone Atk. Up (boosts bone/Stal-type weapon damage). Glows in the dark.",
+        "upgrade": "Luminous Stones and Stal parts (Stalkoblin/Stalizalfos bones).",
+        "priority": "late"
+      },
+      {
+        "name": "Barbarian Set",
+        "pieces": "3 (Helm, Armor, Leg Wraps)",
+        "where": "Each piece is a reward from a shrine inside a Labyrinth: Tu Ka'loh (Lomei Labyrinth Island), Dako Tah (South Lomei Labyrinth), Qaza Tokki (North Lomei Labyrinth).",
+        "bonus": "Each piece gives Attack Up. Set bonus Charge Attack Stamina Up (at 2 stars) — cheaper spin/charge attacks.",
+        "upgrade": "Lynel parts (Hoof, Horn, Guts) — mid-to-high tiers need Lynel materials.",
+        "priority": "late"
+      },
+      {
+        "name": "Ancient Set",
+        "pieces": "3 (Helm, Cuirass, Greaves)",
+        "where": "Bought from Cherry (the shop terminal) at the Akkala Ancient Tech Lab, after lighting the lab's furnace. Costs rupees + Ancient Materials.",
+        "bonus": "Each piece gives Guardian Resist Up (less damage from Guardians/ancient weapons). Set bonus Ancient Proficiency (at 2 stars) — +80% damage with ancient and Guardian weapons (not the Master Sword).",
+        "upgrade": "Ancient parts: Ancient Screws, Springs, Gears, Shafts, Cores, and a Giant Ancient Core at the top tier.",
+        "priority": "late"
+      },
+      {
+        "name": "Royal Guard Set",
+        "pieces": "3 (Cap, Uniform, Boots)",
+        "where": "The Champions' Ballad DLC. Pieces found in chests via the EX Royal Guard Rumors side quest (in/around Hyrule Castle).",
+        "bonus": "Set bonus Charge Attack Stamina Up. Low base defense (4 per piece). Cannot be upgraded by a Great Fairy and cannot be dyed.",
+        "upgrade": "None — this set cannot be enhanced at a Great Fairy Fountain.",
+        "priority": "late"
+      },
+      {
+        "name": "Wild Set (amiibo)",
+        "pieces": "3 (Cap of the Wild, Tunic of the Wild, Trousers of the Wild)",
+        "where": "Obtained via amiibo (the BotW Link amiibo / 30th Anniversary line); the classic green hero look.",
+        "bonus": "Set bonus Master Sword Beam Up (at 2 stars) — boosts the Master Sword's energy beam at full health. Each piece is high defense.",
+        "upgrade": "Star Fragments and Lynel parts (Silver/Gold Lynel Horn, Hoof, Guts) at the higher tiers.",
+        "priority": "late"
+      }
+    ],
+    "notes": "CORRECTIONS made after web verification (Game8, Zelda Dungeon, Zelda Wiki/Fandom):\\n\\n1. CLIMBING SET (three errors fixed): Climber's Bandanna is in REE DAHEE SHRINE (Dueling Peaks), not \\\"Ploymus Mountain Cave\\\" — Ploymus Mountain Cave is a Tears of the Kingdom location, NOT BotW. Climbing Boots are in TAHNO O'AH SHRINE (eastern Mount Lanayru), not Ta'loh Naeg (that's the Kakariko tutorial shrine, which gives the Shield of the Mind's Eye / Eightfold Blade). Set bonus is CLIMBING JUMP STAMINA UP (cheaper jumps while climbing); the per-piece effect is Climbing Speed Up — the original conflated the two.\\n\\n2. SOLDIER'S SET: sold at Ventest Clothing Boutique in HATENO VILLAGE, not \\\"the Enchanted shop in Kakariko.\\\" Enchanted (Kakariko) sells the Stealth/Sheikah set and Hylian Hood, not Soldier's.\\n\\n3. HYLIAN HOOD source: bought from Enchanted (Kakariko) or Ventest (Hateno), not \\\"Bugut at the General Shoppe.\\\" Bugut runs Hateno's General Shoppe (food/arrows), and does not sell the Hood. Also removed the false claim (in the old notes) that the Hylian Hood grants Heat Resistance — it gives NO environmental resistance, only defense.\\n\\n4. ZORA SET bonus is SWIM DASH STAMINA UP (cheaper swim-dashing), not \\\"Swim Speed Up.\\\" Swim Speed Up is the per-piece effect; the original swapped them.\\n\\n5. RADIANT/ANCIENT/BARBARIAN: confirmed Disguise+Bone Atk. Up, Ancient Proficiency +80% (ancient AND Guardian weapons, not Master Sword), and Charge Attack Stamina Up. Fixed Barbarian labyrinth shrine names: Tu Ka'loh, Dako Tah (South Lomei), Qaza Tokki (North Lomei) — the original listed \\\"Dila Maag,\\\" which is not the South Lomei monk.\\n\\n6. Minor: Snowquill shop is the Brazen Beak (owner detail dropped as unverified); Desert Voe set bonus is officially Shock Resistance Up (partial), correctly distinguished from Rubber's Unshockable (full immunity).\\n\\nVERIFIED ACCURATE: Champion's Tunic (Impa, exact HP numbers, no set bonus, Lynel upgrades); set bonuses activate at 2 stars (★★) for all standard sets; Snowquill, Flamebreaker, Gerudo Vai, Rubber, Royal Guard (low defense 4/piece, cannot upgrade or dye), Wild amiibo set (Master Sword Beam Up at 2 stars).\\n\\nBEGINNER HEADLINERS still hold: Warm Doublet (single body piece, free from the Old Man for 10 Wood on the Great Plateau, or bought at Ventest in Hateno) for first cold protection; Snowquill (Rito) for Hebra/Lanayru; Flamebreaker (Goron City) for Death Mountain; Desert Voe + Gerudo Vai for Gerudo Desert heat (Vai also unlocks Gerudo Town). Rubber Set is the true full-immunity SHOCK answer; Desert Voe only partially resists shock.\\n\\nKEY DISTINCTIONS: Heat Resistance (Desert Voe, Gerudo Vai) covers desert daytime; Flame Guard (Flamebreaker) covers fire/lava — NOT interchangeable, and the Hylian Hood does NOT provide heat resistance. Set-bonus star thresholds: 1st upgrade needs only the first Great Fairy (Cotera) unlocked; 4-star needs all four fountains. Set bonuses kick in at ★★ for standard sets.\\n\\nConfidence: HIGH on all corrected locations and set-bonus names. The exact Rubber Set shrine list varies (it appears in multiple shrine chests, not a shop) — representative shrines named; treat an exhaustive chest list as a per-shrine lookup. Sources: Game8, Zelda Dungeon Wiki, Zelda Wiki/Fandom (verified June 2026)."
+  },
+  "bestiary": {
+    "enemies": [
+      {
+        "name": "Bokoblin",
+        "tier": "common",
+        "tactic": "Sneakstrike from behind for a one-shot, or aim a charged arrow at the head; a parried club leaves it open to combos.",
+        "drops": "Bokoblin Horn, Bokoblin Fang, Bokoblin Guts"
+      },
+      {
+        "name": "Moblin",
+        "tier": "common",
+        "tactic": "Bigger Bokoblin: dodge its wide swing, then backstab, or whittle it with arrows; a sneakstrike still helps but won't one-shot stronger ones.",
+        "drops": "Moblin Horn, Moblin Fang, Moblin Guts"
+      },
+      {
+        "name": "Lizalfos",
+        "tier": "common",
+        "tactic": "They strafe and leap, so bait an attack then flurry-rush; headshot arrows stagger them and elemental arrows counter their element.",
+        "drops": "Lizalfos Horn, Lizalfos Talon, Lizalfos Tail"
+      },
+      {
+        "name": "Chuchu (elemental)",
+        "tier": "common",
+        "tactic": "Hit Fire Chuchu with ice (and vice versa) or just smack it; killing an elemental one leaves jelly you can throw to freeze, burn, or shock foes.",
+        "drops": "Chuchu Jelly; elemental ones drop Red/White/Yellow Chuchu Jelly"
+      },
+      {
+        "name": "Keese",
+        "tier": "common",
+        "tactic": "Swat with any melee swing or a single arrow; elemental Keese are quenched by their opposite element and their wings/eyeballs are crafting loot.",
+        "drops": "Keese Wing, Keese Eyeball"
+      },
+      {
+        "name": "Octorok",
+        "tier": "common",
+        "tactic": "They snipe from grass or water, so hit the head with an arrow, or catch their rock spit on a shield to bounce it right back at them.",
+        "drops": "Octo Balloon, Octorok Tentacle, Octorok Eyeball"
+      },
+      {
+        "name": "Wizzrobe (elemental)",
+        "tier": "common",
+        "tactic": "Six types: Fire/Ice/Electric and stronger Meteo/Blizz/Thunder; each is weak to its opposite element, so shoot it with an opposing arrow to drop it.",
+        "drops": "Elemental rods (Fire/Ice/Lightning, and Meteor/Blizzard/Thunderstorm rods)"
+      },
+      {
+        "name": "Pebblit",
+        "tier": "common",
+        "tactic": "Mini-Talus in Stone, Igneo and Frost types: smash it with a heavy weapon or a bomb; Igneo and Frost ones burn or freeze on touch, so use ranged hits.",
+        "drops": "Flint, ore, or a gem (Frost ones can drop Sapphire)"
+      },
+      {
+        "name": "Stone Talus",
+        "tier": "mini-boss",
+        "tactic": "Climb on and pound the black ore lump on its back with a hammer/heavy weapon; bomb arrows or a Knight's claymore wreck the weak spot fast.",
+        "drops": "Flint, Amber, Opal, gems and ore"
+      },
+      {
+        "name": "Stone Talus (Luminous)",
+        "tier": "mini-boss",
+        "tactic": "Same fight as a Stone Talus but tougher (about 600 HP); the back lump is luminous ore, so hit it for Luminous Stone plus gems.",
+        "drops": "Luminous Stone, Topaz, Diamond, Amber, Opal, Flint"
+      },
+      {
+        "name": "Stone Talus (Rare)",
+        "tier": "mini-boss",
+        "tactic": "The toughest stone type (around 900 HP); attack the ore vein on its back and expect rich gem drops like Ruby, Sapphire and Diamond.",
+        "drops": "Ruby, Sapphire, Diamond, Topaz, Amber, Opal, Flint"
+      },
+      {
+        "name": "Igneo Talus",
+        "tier": "mini-boss",
+        "tactic": "Found in Eldin and made of lava; douse its glowing core with ice arrows to cool it, then climb up and smash the back weak point.",
+        "drops": "Flint, Ruby, ore"
+      },
+      {
+        "name": "Frost Talus",
+        "tier": "mini-boss",
+        "tactic": "Hebra/Gerudo highlands cousin of Igneo; hit its icy core with fire arrows to thaw it, then climb on and hammer the back lump.",
+        "drops": "Flint, Sapphire, ore"
+      },
+      {
+        "name": "Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin)",
+        "tier": "common",
+        "tactic": "Nighttime skeletons: knock them apart, then quickly smash the skull before the bones reassemble; one good hit to the head ends them.",
+        "drops": "Bokoblin/Moblin/Lizalfos Horns, Fangs and Talons; each leaves a usable arm (no Guts)"
+      },
+      {
+        "name": "Hinox",
+        "tier": "mini-boss",
+        "tactic": "Shoot its single eye to stun it, then unload on the downed giant; you can also pluck the weapons hanging from its neck while it sleeps.",
+        "drops": "Hinox Toenail, Hinox Tooth, Hinox Guts, Hinox Horn; necklace weapons"
+      },
+      {
+        "name": "Stalnox",
+        "tier": "mini-boss",
+        "tactic": "Skeletal Hinox: arrow its eye to make it pop out, grab or destroy the loose eyeball, then attack; smash the skull when it collapses to bones.",
+        "drops": "Hinox Tooth; rare weapons lodged in its skeleton"
+      },
+      {
+        "name": "Molduga",
+        "tier": "boss",
+        "tactic": "In the Gerudo sand it tracks footsteps, so toss a Remote Bomb to lure it up, detonate to stun, then sprint in and combo before it dives.",
+        "drops": "Molduga Fin, Molduga Guts"
+      },
+      {
+        "name": "Guardian Stalker",
+        "tier": "guardian",
+        "tactic": "Walking six-legged Guardian: perfect-parry its blue charged laser with a shield to reflect it for huge damage, or shoot the glowing eye to stun.",
+        "drops": "Ancient parts (gears, springs, cores, shafts); can drop Giant Ancient Core"
+      },
+      {
+        "name": "Guardian Skywatcher",
+        "tier": "guardian",
+        "tactic": "Flying Guardian that beams from above; time a shield parry on its laser to bounce it back, or snipe the eye with ancient/strong arrows.",
+        "drops": "Ancient parts (gears, cores, shafts); can drop Giant Ancient Core"
+      },
+      {
+        "name": "Guardian Turret",
+        "tier": "guardian",
+        "tactic": "Stationary laser Guardian fixed to floors in shrines/ruins; parry the laser back at it or arrow the eye, then climb up to finish it.",
+        "drops": "Ancient parts; can drop Giant Ancient Core"
+      },
+      {
+        "name": "Decayed Guardian",
+        "tier": "guardian",
+        "tactic": "Broken husks stuck in the ground that swing arms; dodge the sweep and flurry-rush, or just shoot the eye and smash the arms off.",
+        "drops": "Ancient parts (often Ancient Screw/Spring)"
+      },
+      {
+        "name": "Guardian Scout",
+        "tier": "guardian",
+        "tactic": "Shrine Guardians come in I-IV with sword/spear/laser arms; flurry-rush after a dodge and parry the spinning laser sweep to reflect it.",
+        "drops": "Ancient parts; Scout III/IV can drop an Ancient Core"
+      },
+      {
+        "name": "Yiga Footsoldier",
+        "tier": "yiga",
+        "tactic": "They disguise as travelers then turn hostile; dodge the sickle and flurry-rush, stun with arrows, and many can be calmed with a Mighty Banana.",
+        "drops": "Mighty Bananas, occasionally weapons"
+      },
+      {
+        "name": "Yiga Blademaster",
+        "tier": "yiga",
+        "tactic": "Big windcleaver Yiga that teleports and goes invisible; wait out the leaping overhead slam, sidestep into a flurry rush, repeat until down.",
+        "drops": "Mighty Bananas, Demon Carver/Windcleaver, gems"
+      },
+      {
+        "name": "Lynel (Red-maned)",
+        "tier": "mini-boss",
+        "tactic": "Weakest Lynel: headshot to stagger, sprint up and mount it for free hits; perfect-dodge its charge or parry its beam to flurry-rush.",
+        "drops": "Lynel Horn/Hoof/Guts, Lynel weapons, shield"
+      },
+      {
+        "name": "Lynel (Blue-maned)",
+        "tier": "mini-boss",
+        "tactic": "Tougher than red and adds fire/elemental attacks; same plan: headshot to stun, mount and slash, flurry-rush its melee and charges.",
+        "drops": "Lynel Horn/Hoof/Guts, stronger Lynel gear"
+      },
+      {
+        "name": "Lynel (White-maned)",
+        "tier": "mini-boss",
+        "tactic": "High HP and aggressive elemental attacks; stock strong bows for headshot stuns, mount for big hits, and never stop dodging into flurry rushes.",
+        "drops": "Lynel Horn/Hoof/Guts, mighty Lynel gear"
+      },
+      {
+        "name": "Lynel (Silver)",
+        "tier": "mini-boss",
+        "tactic": "The deadliest Lynel with the most HP; multishot bow headshots to stun, mount and combo, and flurry-rush every charge, slam and beam.",
+        "drops": "Lynel Horn/Hoof/Guts, savage Lynel weapons/shield/bow"
+      },
+      {
+        "name": "Windblight Ganon",
+        "tier": "boss",
+        "tactic": "Vah Medoh blight: use Revali's Gale to reposition past its wind blasts, then snipe the glowing eye; bomb arrows or a strong bow burn it down.",
+        "drops": null
+      },
+      {
+        "name": "Waterblight Ganon",
+        "tier": "boss",
+        "tactic": "Vah Ruta blight: in phase two raise Cryonis blocks for cover and to climb, dodge the spear lunges, and flurry-rush or arrow the eye.",
+        "drops": null
+      },
+      {
+        "name": "Fireblight Ganon",
+        "tier": "boss",
+        "tactic": "Vah Rudania blight: shield or dodge its fireballs, and when it charges a fire ring, hit it with an ice arrow or Daruk's Protection to break it.",
+        "drops": null
+      },
+      {
+        "name": "Thunderblight Ganon",
+        "tier": "boss",
+        "tactic": "Vah Naboris blight: flurry-rush its lightning-fast dashes in phase one; in phase two it electrifies pillars, so topple one with a strike to stun it.",
+        "drops": null
+      },
+      {
+        "name": "Calamity Ganon",
+        "tier": "boss",
+        "tactic": "Final boss recaps the Blights' attacks; parry Guardian-style lasers, flurry-rush its melee, and pour bomb/ancient arrows into the orange weak spot.",
+        "drops": null
+      },
+      {
+        "name": "Dark Beast Ganon",
+        "tier": "boss",
+        "tactic": "On horseback, fire the Bow of Light at the glowing spots on each side (three per side), then the belly spot, then the eye on its forehead to win.",
+        "drops": null
+      }
+    ],
+    "notes": "Adversarial verify complete; web-checked against Game8/Zelda Dungeon/Fandom/Zeldapedia. Corrections made (errors/invented content found): (1) Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin) do NOT drop Guts -- organs have decayed -- and 'Ancient Bones' is a Tears of the Kingdom item, NOT BotW; removed both. They drop Horns/Fangs/Talons and each leaves a usable arm. (2) Stalnox does NOT drop 'Ancient Bones'/'Stalnox parts'; it drops Hinox Tooth plus rare weapons lodged in its skeleton. Corrected. (3) Wizzrobe: original listed only 5 types and missed Thunder Wizzrobe -- there are SIX (Fire/Ice/Electric base + Meteo/Blizz/Thunder strong variants). Drops corrected: Wizzrobes drop only elemental rods; 'wing tips/horns' was invented (no such monster-part drop in BotW). (4) Guardian Scout: removed 'Giant Ancient Core' -- Scouts only drop a regular Ancient Core (III/IV); Giant Ancient Cores come only from Stalker/Skywatcher/Turret, so I added that note to those three. (5) Dark Beast Ganon weak points corrected: NOT 'eyes and chest core' -- it is three glowing spots on each side (6 total), then a belly spot, then a single eye on the forehead. (6) Pebblit types corrected to the real names Stone/Igneo/Frost ('lava' is the Igneo type). Verified-accurate items kept: Stone Talus (Luminous) ~600 HP and Rare ~900 HP confirmed; Luminous drops Luminous Stone+Topaz+Diamond, Rare drops Ruby/Sapphire/Diamond/Topaz; Hinox drops (Toenail/Tooth/Guts/Horn); Octorok (Octo Balloon/Tentacle/Eyeball); Lizalfos (Horn/Talon/Tail) all real; Molduga (Fin/Guts); the four Blights and both Ganon forms. Schema note: tier enum has no 'blight', so the four Divine Beast Blights and the two Ganon forms are filed under 'boss'. Confidence high on the corrections; the exact gem mix per Talus drop can vary by RNG so those are representative, not exhaustive. Minor caveat: White-maned Lynel gear is the 'Mighty' tier and Silver is 'Savage' -- adjusted from the original which labeled White as 'savage'. Chuchu base form drops plain Chuchu Jelly; only elemental Chuchus drop colored jelly (clarified)."
+  },
+  "cooking": {
+    "rules": [
+      "One effect per dish. A cooked meal or elixir can only carry a single special effect at a time. Mixing two different effect-types (e.g. Hearty + Spicy) cancels both and gives a plain dish with no bonus.",
+      "Stack the SAME prefix to extend or strengthen. Adding more ingredients of one effect raises its tier (Mighty I to III) or its timer; e.g. 5 Hasty ingredients give a longer speed buff than 1.",
+      "Cook in a Pot (a lit cooking pot), not a campfire. Tossing ingredients on an open campfire just chars single items (Baked Apple, Toasted Hateno Cheese); it cannot combine ingredients or make effect dishes/elixirs.",
+      "Max 5 ingredients per dish. The pot accepts up to five items at once; plan your stack around that cap.",
+      "Elixirs = critter + monster part. Combine at least one effect-bearing critter (lizard, frog, bug, etc.) with any monster part (horn, fang, guts, wing) to brew an elixir. Critters alone or monster parts alone will NOT cook.",
+      "Hearty effect adds temporary (yellow) hearts and FULLY refills your red hearts. Energizing instantly refills stamina; Enduring (Endura) adds overfilled green/temporary stamina wheel.",
+      "Effect strength/duration comes from the ingredients, so a dish's timer scales with how many same-effect items and high-tier items you use; tiers cap at level 3 for most buffs (Mighty/Tough/Hasty/Sneaky etc.).",
+      "Monster Extract is a wild-card seasoning: it randomizes the dish, forcing the duration to roughly 1, 10, or 30 minutes (and can swing hearts), and it overrides the normal duration/crit bonuses, so don't combine it with dragon parts or star fragments.",
+      "Dubious Food results from cooking only effect-less items, mismatched effects, or critters/monster parts with no valid pairing. It restores a small random number of hearts and has no effect.",
+      "Rock-Hard Food results from cooking inedible items (wood, ore, weapons, Amber, etc.). It restores only a tiny sliver of health and is essentially a fail.",
+      "Critical Cooking gives a bonus (one of: +1 effect tier, +5:00 duration, or extra hearts/stamina/yellow hearts). It is guaranteed during a Blood Moon, and guaranteed when a Dragon part or Star Fragment is in the recipe; otherwise it is a low base random chance per cook.",
+      "Fairy Tonic is a special elixir made from a Fairy plus any monster part (or other materials); it simply restores hearts and carries no buff, useful for clearing inventory or a quick heal recipe.",
+      "Dragon parts are seasonings that extend duration and guarantee a critical cook. By part the bonus is graduated: Scale ~+1:30, Claw ~+3:30, Shard of Fang ~+10:00, Shard of Horn maxes the timer to 30:00. Star Fragments also guarantee a critical cook.",
+      "Identify the prefix on each raw ingredient (Hasty, Mighty, Spicy, etc.) and only combine matching prefixes for a clean, strong dish; mixing prefixes cancels the effect."
+    ],
+    "effects": [
+      {
+        "effect": "Hearty",
+        "does": "Fully restores all red hearts AND adds extra temporary (yellow) hearts on top.",
+        "ingredients": "Hearty Durian, Hearty Truffle, Hearty Bass, Hearty Radish, Hearty Blueshell Snail, Hearty Salmon, Hearty Lizard; Big Hearty Truffle and Big Hearty Radish give a bigger yellow-heart boost.",
+        "elixir": null
+      },
+      {
+        "effect": "Energizing",
+        "does": "Instantly refills your stamina wheel (good for climbing/swimming mid-action).",
+        "ingredients": "Stamella Shroom, Restless Cricket, Bright-Eyed Crab, Courser Bee Honey, Staminoka Bass.",
+        "elixir": "Restless Cricket + monster part = Energizing Elixir"
+      },
+      {
+        "effect": "Enduring",
+        "does": "Refills stamina and overfills it with extra (green) temporary stamina wheel segments.",
+        "ingredients": "Endura Carrot, Endura Shroom, Tireless Frog (elixir).",
+        "elixir": "Tireless Frog + monster part = Enduring Elixir"
+      },
+      {
+        "effect": "Spicy",
+        "does": "Cold resistance - keeps you warm in freezing regions (and lets you survive cold areas).",
+        "ingredients": "Spicy Pepper, Sunshroom, Warm Safflina, Summerwing Butterfly, Sizzlefin Trout, Warm Darner; Dinraal (fire dragon) parts add cold resistance.",
+        "elixir": "Summerwing Butterfly + monster part = Spicy Elixir"
+      },
+      {
+        "effect": "Chilly",
+        "does": "Heat resistance - prevents overheating in Gerudo Desert / Eldin region (does NOT stop flame damage).",
+        "ingredients": "Hydromelon, Chillshroom, Cool Safflina, Winterwing Butterfly, Chillfin Trout, Cold Darner; Naydra (ice dragon) parts add heat resistance.",
+        "elixir": "Winterwing Butterfly + monster part = Chilly Elixir"
+      },
+      {
+        "effect": "Fireproof",
+        "does": "Prevents catching fire from flames/lava environments (essential on Death Mountain). ELIXIR ONLY - cannot be cooked into a food dish.",
+        "ingredients": "Fireproof Lizard, Smotherwing Butterfly (each + a monster part). Note: Naydra's frost parts can be added to extend a fireproof elixir's timer.",
+        "elixir": "Smotherwing Butterfly (or Fireproof Lizard) + monster part = Fireproof Elixir"
+      },
+      {
+        "effect": "Electro",
+        "does": "Shock resistance - reduces or negates lightning/electric damage and stops weapons being knocked from your hand.",
+        "ingredients": "Voltfruit, Zapshroom, Electric Safflina, Thunderwing Butterfly, Voltfin Trout, Electric Darner; Farosh (lightning dragon) parts add shock resistance.",
+        "elixir": "Thunderwing Butterfly + monster part = Electro Elixir"
+      },
+      {
+        "effect": "Mighty (Attack Up)",
+        "does": "Raises melee/ranged attack power for a duration - the key Ganon/lynel buff.",
+        "ingredients": "Mighty Bananas, Razorshroom, Mighty Carp, Mighty Porgy, Razorclaw Crab, Mighty Thistle, Bladed Rhino Beetle (elixir).",
+        "elixir": "Bladed Rhino Beetle + monster part = Mighty Elixir"
+      },
+      {
+        "effect": "Tough (Defense Up)",
+        "does": "Raises defense so you take less damage from attacks.",
+        "ingredients": "Ironshroom, Armored Carp, Armored Porgy, Ironshell Crab, Fortified Pumpkin, Rugged Rhino Beetle (elixir).",
+        "elixir": "Rugged Rhino Beetle + monster part = Tough Elixir"
+      },
+      {
+        "effect": "Hasty (Speed Up)",
+        "does": "Increases movement speed - run, swim, and climb faster.",
+        "ingredients": "Swift Carrot, Rushroom, Swift Violet, Fleet-Lotus Seeds, Hot-Footed Frog (elixir).",
+        "elixir": "Hot-Footed Frog + monster part = Hasty Elixir"
+      },
+      {
+        "effect": "Sneaky (Stealth Up)",
+        "does": "Boosts stealth - quieter footsteps, enemies/animals notice you less. Great for hunting and the Yiga.",
+        "ingredients": "Silent Princess, Silent Shroom, Blue Nightshade, Sneaky River Snail, Stealthfin Trout, Sunset Firefly (elixir).",
+        "elixir": "Sunset Firefly + monster part = Sneaky Elixir"
+      }
+    ],
+    "recipes": [
+      {
+        "name": "5 Big Hearty Radishes (or 5 Big Hearty Truffles)",
+        "makes": "Hearty meal - full red-heart refill plus the maximum +25 extra yellow hearts.",
+        "why": "The best survival/bossing food. Five Big Hearty items overcap your hearts so you can tank lynels and Ganon hits. (5 standard Hearty Durians give a smaller +20.)"
+      },
+      {
+        "name": "5 Hasty ingredients (e.g. 5 Swift Carrots or Rushrooms)",
+        "makes": "Hasty dish at level 3 speed - long fast-run/climb buff.",
+        "why": "Stacking five same-prefix Hasty items pushes both tier and timer; ideal for travel, racing shrine quests, and outrunning Guardians."
+      },
+      {
+        "name": "Mighty Bananas x4-5 (Mighty Simmered Fruit)",
+        "makes": "Attack Up Lv3 (Mighty) meal for several minutes.",
+        "why": "Cheap, farmable attack buff. Eat right before fighting Ganon, Lynels, or Hinox - extra attack tiers massively shorten fights. Bananas grow in tropical Faron."
+      },
+      {
+        "name": "Bladed Rhino Beetle + Bokoblin Horn (Mighty Elixir)",
+        "makes": "Attack Up elixir; add a Shard of Dragon Horn to push duration to the 30:00 max.",
+        "why": "Elixir route to attack-up when you lack Mighty produce; a dragon part guarantees a critical cook and a long timer for boss runs."
+      },
+      {
+        "name": "Endura Carrot x4-5 (Enduring dish)",
+        "makes": "Bonus overfilled stamina wheel(s).",
+        "why": "Lets you scale the tallest cliffs (Vah Rudania, towers) without running out of stamina; the extra green wheel is huge for exploration."
+      },
+      {
+        "name": "Fairy + any monster part (Fairy Tonic)",
+        "makes": "Plain healing elixir.",
+        "why": "Quick heal that also lets you offload spare fairies/monster parts; no buff, but reliable hearts in a pinch."
+      },
+      {
+        "name": "Hearty Salmon + Tabantha Wheat + Goat Butter (Hearty Salmon Meuniere)",
+        "makes": "A named gourmet Hearty dish (a quest favorite) with full heal + yellow hearts.",
+        "why": "The real BotW recipe needs only those three items; add Rock Salt or Goron Spice to extend the timer. Ingredients gather easily around Tabantha/Rito Village."
+      }
+    ],
+    "dragons": [
+      {
+        "name": "Dinraal",
+        "element": "Fire",
+        "where": "Flies over the Eldin region, appearing near Death Mountain and along Tanagar Canyon, spawning around 5am at the north end and drifting through the morning.",
+        "parts": "Scale (+~1:30 duration), Claw (+~3:30), Shard of Dinraal's Fang (+~10:00), Shard of Dinraal's Horn (maxes timer to 30:00). As the fire dragon, Dinraal's parts add COLD RESISTANCE (Spicy/warm) to an elixir and guarantee a critical cook."
+      },
+      {
+        "name": "Naydra",
+        "element": "Ice / Frost",
+        "where": "Circles the Lanayru region, notably around Mount Lanayru and the Lanayru Road/Promenade; appears at night and into the early morning.",
+        "parts": "Scale (+~1:30), Claw (+~3:30), Shard of Naydra's Fang (+~10:00), Shard of Naydra's Horn (maxes timer to 30:00). As the ice/frost dragon, Naydra's parts add HEAT RESISTANCE (Chilly) and can extend Fireproof elixirs; they also guarantee a critical cook."
+      },
+      {
+        "name": "Farosh",
+        "element": "Electricity / Lightning",
+        "where": "Roams the Faron region around Lake Hylia and the Bridge of Hylia, breaching from Lake Hylia/Riola Spring; often appears near waterways around dawn.",
+        "parts": "Scale (+~1:30), Claw (+~3:30), Shard of Farosh's Fang (+~10:00), Shard of Farosh's Horn (maxes timer to 30:00). As the lightning dragon, Farosh's parts add SHOCK RESISTANCE (Electro) to an elixir and guarantee a critical cook."
+      }
+    ],
+    "notes": "CORRECTED dataset. Key fixes after web-verifying against Game8, Zelda Dungeon and Zelda Wiki/Fandom:\\n\\n1) REMOVED the 'Bright (Glow)' effect entirely. Brightcap mushrooms, Deep Fireflies, the glow/Bright cooking effect, the Depths, Lightroots and Brightbloom Seeds are all TEARS OF THE KINGDOM content and do NOT exist in Breath of the Wild. In BotW the Thyphlo Ruins are lit with torches or Daruk's Protection, not glow food. Including Bright would invent content for this BotW-specific app. (HIGH confidence.)\\n\\n2) FIXED the max-Hearty recipe. The previous '5 Hearty Durians = ~25 yellow hearts' was wrong: a Hearty Durian gives 4 yellow hearts each, so 5 give +20. The true maximum from a Hearty dish is +25 yellow hearts, achieved with 5 Big Hearty Radishes or 5 Big Hearty Truffles (5 each). Removed the unverified 'cap 26 with critical cook' figure.\\n\\n3) FIXED Salmon Meuniere. The real BotW recipe is Hearty Salmon + Tabantha Wheat + Goat Butter (optionally + Rock Salt or Goron Spice to extend duration). The previous 'Hearty Salmon + Hearty Radish + Goat Butter + Rock Salt + Hyrule Herb' was an invented combo.\\n\\n4) FIXED Dragon Fang duration. Sources put Shard of Fang at about +10:00 (some cite higher), not the '+5:00-10:00' previously listed. Scale ~+1:30, Claw ~+3:30, Horn maxes to 30:00 are confirmed.\\n\\n5) Softened Monster Extract wording: it forces duration to roughly 1/10/30 min and overrides normal bonuses, so it should not be paired with dragon parts/star fragments.\\n\\nHIGH confidence: one-effect-per-dish, same-prefix stacking, pot vs campfire, elixir = critter + monster part, Dubious/Rock-Hard rules, Fairy Tonic, Fireproof being elixir-only via Fireproof Lizard / Smotherwing Butterfly, dragon element-to-resistance mapping (Dinraal fire->cold res, Naydra ice->heat res, Farosh lightning->shock res), and the effect-prefix ingredient lists (all real BotW names). MEDIUM confidence on exact dragon-part minute values (Scale<Claw<Fang<Horn, Horn=30:00 max is solid; Fang's exact value varies by source) and on exact dragon spawn timing/positions (all three spawn around 5am and circle their regions). Best-source tips: Big Hearty Radishes near Satori Mountain/Hyrule field; Hearty Durians cluster in Faron jungle; Mighty Bananas in tropical Faron and the Yiga Hideout; Endura Carrots near Satori Mountain and Gerudo Highlands; dragon parts farmed by shooting the flying dragons (parts respawn)."
+  },
+  "koroks": {
+    "what": "Korok Seeds are the reward for solving 900 little hidden puzzles across Hyrule. You trade them to Hestu, a big maraca-shaped Korok, who uses them to permanently expand your three gear pouches: weapon slots, bow slots, and shield slots. More slots means you carry more gear and break fewer weapons mid-fight, so growing your inventory is one of the most useful early grinds.",
+    "hestu": "Hestu moves, then settles. (1) First meeting: on the road between Dueling Peaks Stable and Kakariko Village, just past Kakariko Bridge — do the favor in the side quest The Priceless Maracas (recover his maracas from nearby Bokoblins) and he starts upgrading. (2) Next: near Riverside Stable, west of Kakariko in Hyrule Field, by a tree along the road. (3) Permanent home: Korok Forest, deep in the Great Hyrule Forest up north (Lost Woods), by the Great Deku Tree. Rising cost curve per slot — Weapons (11 upgrades): 1,2,3,5,8,12,17,25,35,45,55 = 208. Bows (8): 1,2,3,5,8,12,17,25 = 73. Shields (16): 1,2,3,4,5,10,10,10,10,10,15,15,15,15,15,20 = 160. Maxing ALL pouches costs exactly 441 seeds — that is the cap; beyond that, extra seeds do nothing for inventory. 900 seeds exist total; turning in all 900 earns Hestu's Gift, a purely cosmetic golden poop (\"smells pretty bad\") — a joke reward, no stats.",
+    "puzzleTypes": [
+      {
+        "type": "Rock in a ring / lift the lone rock",
+        "how": "See a circle of stones with one gap, or a single suspicious rock sitting alone? Pick up a nearby rock and drop it in the ring, or just lift the lone rock to reveal the Korok under it."
+      },
+      {
+        "type": "Complete the pattern",
+        "how": "A near-symmetrical arrangement (rocks, blocks) with one piece obviously missing. Add or move a rock/block to finish the symmetry."
+      },
+      {
+        "type": "Stone circles / place the boulder",
+        "how": "A ring of small stones around an empty center wants a boulder rolled or carried into the middle."
+      },
+      {
+        "type": "Flower trail",
+        "how": "Spot a line of identical flowers (often yellow). Run to and touch each one IN ORDER without missing any; the last one spawns the Korok."
+      },
+      {
+        "type": "Balls / orbs in holes",
+        "how": "A metal or stone ball near matching divots — roll or carry it into the hole. Sometimes you guide it with Magnesis or Stasis."
+      },
+      {
+        "type": "Race / reach the goal in time",
+        "how": "Activate a glowing wisp or ring of light, then sprint (often paraglide or shield-surf) to the goal before the timer runs out."
+      },
+      {
+        "type": "Shoot the target",
+        "how": "Spot a balloon, an acorn, an apple/fruit, or a small mark? Hit it with an arrow. Sometimes several balloons must all be popped."
+      },
+      {
+        "type": "Offering to a pedestal / altar",
+        "how": "A small shrine-like pedestal with a fruit or item carved on it — place that exact item (apple, durian, etc.) on it."
+      },
+      {
+        "type": "Matching spin (pinwheel / cube)",
+        "how": "Two pinwheels or a floating cube — rotate the cube (climb and push, or Magnesis) so its colored faces match the surrounding pattern."
+      },
+      {
+        "type": "Light the torches",
+        "how": "Several unlit torches near one lit flame (or you bring fire). Light every torch, usually using a torch/fire arrow/flint."
+      },
+      {
+        "type": "Dive into a ring",
+        "how": "A ring of light or floating circle below a cliff — paraglide or dive straight through the center to spawn the Korok."
+      }
+    ],
+    "hotspots": [
+      "Out-of-place rocks: a single rock on a stump, peak, or cliff edge is almost always a lift-the-rock Korok — check every lonely boulder.",
+      "Circles with a gap: any ring of stones missing one piece means grab the nearest loose rock and complete it.",
+      "Tops of things: peaks, towers, ruined pillars, and lone trees on hills frequently hide rock-lift or dive-into-ring puzzles — climb up and look around.",
+      "Stables and Towers: the ground around every Stable and Sheikah Tower usually has 1-2 easy Koroks (rocks, balloons, or flower trails) right nearby.",
+      "Bright fruit/acorns on trees: an apple or acorn sitting alone on a branch or pinwheel-marked tree is a shoot-the-target Korok.",
+      "Geometry that looks 'almost right': any too-neat pile, pattern, or symmetry that's off by one piece is a complete-the-pattern puzzle."
+    ],
+    "notes": "CORRECTED two arithmetic errors in the original dataset's cost totals (web-verified against ScreenRant, GamesRadar, GameWith, GoSuNoob, Zeldapedia/Fandom): the weapon-pouch total is 208 (not 203) and the shield-pouch total is 160 (not 165). The per-slot sequences themselves were correct; only the sums were off. Confirmed totals: Weapons 1,2,3,5,8,12,17,25,35,45,55 = 208; Bows 1,2,3,5,8,12,17,25 = 73; Shields 1,2,3,4,5,10,10,10,10,10,15,15,15,15,15,20 = 160. Sum 208+73+160 = 441 to max everything (the cap). Starting slots confirmed 8 weapons / 5 bows / 4 shields, ending at 19 / 13 / 20 (plus the Master Sword and Bow of Light, which sit outside the pouches). 900 seeds exist total; all-900 reward is Hestu's Gift (cosmetic golden poop, a pun on Japan's kin no unko good-luck charm). Hestu's three locations and the side quest The Priceless Maracas (recover his maracas from Bokoblins before the first upgrade) confirmed. The Korok Mask (from The Master Trials DLC) shakes to flag nearby seeds — handy for hunting beyond 441 but not needed for inventory. Puzzle-type list reflects well-documented common categories; these are community labels (the game gives no per-type official name), so phrasing describes the mechanic rather than asserting an official name. All oneLine/hint text kept under 160 chars. Confidence high on all corrected numbers."
+  },
+  "world": {
+    "upgrades": [
+      "Spirit Orbs: trade 4 at any Goddess Statue for one Heart Container or one Stamina Vessel. You get 1 orb per shrine (120 shrines = 30 vessels total to earn).",
+      "Mix freely: spend orbs on hearts, stamina, or both. Stamina caps at 3 full wheels, which takes 10 Stamina Vessels (you start with one wheel); the rest can go to hearts (max 30 hearts total).",
+      "Heart<->stamina swap: the Horned Statue (a.k.a. the Goddess Statue's dark twin) in Hateno Village buys back a vessel for 100 rupees and sells you the other type, letting you re-spec anytime.",
+      "Master Sword: pull it from the pedestal in Korok Forest, but it only releases if you have at least 13 full Heart Containers (temporary/food hearts don't count).",
+      "Master Sword never breaks; its energy depletes after heavy use and recharges in about 10 minutes. Its base 30 damage doubles to 60 versus Guardians and Ganon-corrupted foes. The DLC Trial of the Sword extends its energy so it stays powered up far longer."
+    ],
+    "fairies": [
+      {
+        "name": "Cotera",
+        "location": "Great Fairy Fountain northeast of Kakariko Village (Necluda): head north up the village, then east past Ta'loh Naeg Shrine into the woods",
+        "cost": "First fountain you open costs 100 rupees"
+      },
+      {
+        "name": "Kaysa",
+        "location": "Great Fairy Fountain in the Tabantha Frontier near Tabantha Bridge Stable, on Piper Ridge (Rito region, west Hyrule)",
+        "cost": "Second fountain costs 500 rupees"
+      },
+      {
+        "name": "Mija",
+        "location": "Great Fairy Fountain on the east bank of Lake Akkala in the Akkala Highlands (warp Dah Hesho Shrine), near South Akkala Stable (northeast Hyrule)",
+        "cost": "Third fountain costs 1,000 rupees"
+      },
+      {
+        "name": "Tera",
+        "location": "Great Fairy Fountain at Dragon's Exile in the southwest Gerudo Desert, in the Gerudo Great Skeleton near Hawa Koth Shrine",
+        "cost": "Fourth fountain costs 10,000 rupees"
+      }
+    ],
+    "materials": [
+      {
+        "name": "Star Fragment",
+        "use": "Top-tier upgrade material for the best armor tiers (Champion's Tunic, ancient armor, etc.); also sells well",
+        "where": "Drops from a fallen shooting star at night. Watch the sky, mark where it lands, and grab it before dawn (it vanishes at sunrise)."
+      },
+      {
+        "name": "Dragon parts (Naydra, Dinraal, Farosh)",
+        "use": "Scales, claws, horn shards, and fangs upgrade armor and brew long elixirs; any single dragon part sets an elixir's duration to the maximum 30:00",
+        "where": "Shoot a body part off a roaming dragon with an arrow (never the eyes; horn/foot/mouth give shards). Naydra: Mount Lanayru. Dinraal: Eldin/Tanagar Canyon. Farosh: Faron/Lake Hylia."
+      },
+      {
+        "name": "Ancient parts (gears, screws, shafts, cores, Giant Ancient Core)",
+        "use": "Trade at the Akkala Ancient Tech Lab to craft ancient arrows and the powerful Ancient armor set / Guardian-tier gear",
+        "where": "Drop from defeated Guardians (Stalkers, Skywatchers, turrets). Light the lab's furnace with the blue flame first to unlock crafting."
+      },
+      {
+        "name": "Rare gems (diamond, ruby, sapphire, topaz, opal, amber)",
+        "use": "Required for many armor upgrades and for forging gem-set gear; rubies/sapphires also brew fire/cold resist elixirs",
+        "where": "Mine ore deposits (black = common, ore-flecked = rare gems) with a hammer-like weapon, or buy/sell at Goron City gem shops near Gut Check Rock."
+      },
+      {
+        "name": "amiibo materials",
+        "use": "Tapping Zelda-series amiibo can drop rare gear, food, and exclusive armor. The Breath of the Wild-series Link amiibo can grant the Wild armor set; the 30th Anniversary 8-bit Link amiibo can grant the classic Sword (attack 22), not the Master Sword",
+        "where": "Enable amiibo in System settings, then use the amiibo rune in-game once per amiibo per day (most rewards require freeing at least one Divine Beast)."
+      }
+    ],
+    "dlc": [
+      "DLC works via the Expansion Pass (two packs). Pack 1 'The Master Trials' adds the Trial of the Sword (extends the Master Sword's powered-up duration), Master Mode (a harder save with self-healing, ranked-up enemies and floating sky platforms), Hero's Path travel log, Travel Medallion, Korok Mask, and several themed armor pieces hidden in chests.",
+      "Pack 2 'The Champions' Ballad' adds a new main quest unlocked after all four Divine Beasts, granting the One-Hit Obliterator challenge, the Master Cycle Zero (rideable motorcycle) rune, extra shrines, upgraded Champion abilities, and lore on the four Champions.",
+      "If you don't own the Expansion Pass, none of the above is available; the base game's 120 shrines, 4 Divine Beasts and Master Sword are unaffected."
+    ],
+    "notes": "DIVINE BEAST CHAMPION ABILITIES (recap + recharge). Mipha's Grace (from Vah Ruta / Zora): auto-revives you with full hearts plus ~5 temporary bonus hearts when you'd otherwise die; 1 charge, longest cooldown ~24 min (about 8 min inside Hyrule Castle). Revali's Gale (Vah Medoh / Rito): creates an updraft that launches you straight up for paragliding; 3 charges, ~6 min recharge (2 min in the Castle). Daruk's Protection (Vah Rudania / Goron): an automatic shield that fully blocks attacks/hazards; 3 charges, ~18 min recharge (6 min in the Castle). Urbosa's Fury (Vah Naboris / Gerudo): a lightning strike triggered by holding the attack button that staggers and damages nearby enemies; 3 charges, ~12 min recharge (4 min in the Castle). All recharge on a real-time timer and refill faster inside Hyrule Castle; you can also toggle/turn off each power from the Key Items menu, and the DLC Champions' Ballad upgrades them to recharge faster. CORRECTIONS made during verify: stamina caps at 10 Stamina Vessels (3 full wheels), not 15; Daruk's Protection is ~18 min (6 in Castle), not ~6; a single dragon part sets elixirs to 30:00 (the old \"scale 3:30 / claw 5:00\" figures were wrong); the Trial of the Sword extends the Master Sword's energy duration rather than raising base damage to 60 (the 30->60 boost is its Guardian/Ganon bonus); Tera is at Dragon's Exile in the Gerudo Great Skeleton, not \"near Gerudo Town in a shell\"; Cotera is northeast of Kakariko; the Wild armor comes from the BotW-series Link amiibo and the classic Sword (not Master Sword) from the 30th Anniversary amiibo. CONFIDENCE: Great Fairy costs (100/500/1,000/10,000), Master Sword 13-heart rule, stamina cap of 10 vessels, Champion charge counts, and the DLC features are high-confidence and guide-verified. Champion ability cooldown minutes are community-measured (Fandom/Zelda wikis) and approximate, so treat exact minutes as ballpark. Fairy fountain locations are by region/landmark - verify exact map pins in-app if you surface them to users."
+  }
+}

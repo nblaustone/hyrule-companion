@@ -1,0 +1,17 @@
+{
+  "reconciles": false,
+  "shrineTotal": 128,
+  "towerTotal": 15,
+  "fairyTotal": 5,
+  "flags": [
+    "DUPLICATE REGION: 'Gerudo' (12) and 'Wasteland' (12) are the same desert region listed twice -- identical 12-shrine name sets, just reordered (verified set-equal). This double-counts 12 shrines and is the main cause of the +8 overcount. Delete one copy.",
+    "DUPLICATE FAIRY: Tera is assigned twice -- 'Tera' on the duplicated Gerudo region and 'Great Fairy Tera' on the duplicated Wasteland region. Removing the duplicate region self-corrects fairies 5->4. The four canonical fairies (Cotera, Kaysa, Mija, Tera) are all present and none is missing; the only error is the duplicate Tera.",
+    "DUPLICATE SHRINE ACROSS REGIONS: 'Mozo Shenno Shrine' is listed in BOTH Tabantha and Hebra. It genuinely belongs to HEBRA (Biron Snowshelf), so the Hebra entry is correct -- remove it from Tabantha.",
+    "TABANTHA SHORT: Real base-game Tabantha Tower region has 6 shrines (Akh Va'quot, Sha Warvo, Tena Ko'sah, Kah Okeo, Voo Lota, Bareeda Naag). Data lists 7 only because of the misplaced Mozo Shenno. Correct count is 6, not 7.",
+    "GERUDO DESERT INCOMPLETE / WRONG STRUCTURE: The desert area is actually two tower regions (~14 desert + ~6 highlands = ~20 shrines), but the data collapses it to one 12-shrine list (duplicated). Missing the genuine Gerudo Highlands shrines: Sasa Kai, Joloo Nah, Keeha Yoog, Kema Kosassa, Kuh Takkar, Sho Dantu -- none appear anywhere in the data.",
+    "HEBRA OK: Hebra's 13 includes the legitimately-Hebra Mozo Shenno, so its count is correct (do not remove Mozo Shenno from Hebra).",
+    "TOWERS OK: 15 towers is correct; no change needed.",
+    "ARITHMETIC: 128 - 12 (dup desert region) - 1 (Mozo Shenno in Tabantha) = 115, which is 5 short of 120. The shortfall equals the missing Gerudo Highlands shrines, so the fix is BOTH dedupe AND add the missing highlands shrines -- not dedupe alone."
+  ],
+  "verdict": "Does NOT reconcile. Reported 128/15/4... wait: data shows 128 shrines, 15 towers, 5 fairies; targets are 120/15/4. Towers are correct. The shrine overcount (+8) and the extra fairy both stem from ONE structural bug: the Gerudo desert region is duplicated as 'Gerudo' and 'Wasteland' with identical 12-shrine lists and a duplicated Tera fairy. Plus Mozo Shenno is double-listed (belongs to Hebra, wrongly also in Tabantha). FIXES: (1) Delete the duplicate desert region and the duplicate Tera -> shrines 128->116, fairies 5->4. (2) Remove Mozo Shenno from Tabantha (Tabantha 7->6; keep it in Hebra). (3) Add the 5-6 missing Gerudo Highlands shrines -- Sasa Kai, Joloo Nah, Keeha Yoog, Kema Kosassa, Kuh Takkar, Sho Dantu -- so the desert reflects its true ~20-shrine total and the grand total reaches 120. The desert region needs rebuilding into the correct split (Wasteland Tower ~14 + Gerudo Tower ~6), not just a simple dedupe. After these fixes: 120 shrines / 15 towers / 4 fairies."
+}
