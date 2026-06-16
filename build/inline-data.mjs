@@ -23,6 +23,7 @@ const data = {
   COOKING: noNotes(K("cooking.json")),
   KOROKS: noNotes(K("koroks.json")),
   WORLD: noNotes(K("world.json")),
+  REGION_MAPS: K("region-maps.json"),
 };
 
 const block =

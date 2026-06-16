@@ -94,15 +94,17 @@ it runs fully offline once it's on the device. First load needs no network. The 
 - **Spoiler-aware, beginner-first.** Hints, not lore-dumps. Assume a player who has never touched the game.
 - **Mobile-first.** 560px max width, thumb-reachable tab bar, big tap targets, reduced-motion honored.
 
-## Tabs & features (v6)
+## Tabs & features (v6–v7)
 Tabs: **Status · Journey · Shrines · Items · Cook · Guide** (6) + a **global-search** overlay (topbar magnifier,
 `SearchOverlay`) across everything. Status carries the **full Hyrule map** (`HyruleMap` — original SVG, 15
 regions with shrine-progress rings, tap → that region's shrines) plus Shrines + Collectibles meters. Shrines =
-all 120, region-grouped, trackable. Guide is a 9-segment hub: **Runes · Tips · Armor · Fairies · Towers ·
-Quests · Enemies · Koroks · World** — Fairies/Armor/Quests are now **checkable trackers** (Armor has a tier
-stepper), Koroks has a live **seed counter**. **Notes** (`NoteAffordance`) hang off every walkthrough step and
-shrine; **backup/restore** (`BackupBox`) lives in Guide→Tips. The view components live just after `TabBtn`;
-`MAP_NODES` defines the map layout.
+all 120, region-grouped, trackable; each expanded region shows a **per-region schematic map** (`RegionMap`,
+coords from `knowledge/region-maps.json`) — numbered dots (tap to toggle) that match the numbered list, plus
+tower/fairy/landmarks. Guide is a 9-segment hub: **Runes · Tips · Armor · Fairies · Towers · Quests · Enemies ·
+Koroks · World** — Fairies/Armor/Quests are **checkable trackers** (Armor has a tier stepper), Koroks has a live
+**seed counter**. **Notes** (`NoteAffordance`) hang off every walkthrough step and shrine; **backup/restore**
+(`BackupBox`) lives in Guide→Tips. View components live just after `TabBtn`; `MAP_NODES` = the overview-map
+layout, `REGION_MAPS` = the per-region coords.
 
 ## Roadmap
 - **v1–v4 (done):** full main quest — Plateau → 4 Divine Beasts → Master Sword → Ganon, pouch, status, cooking.
@@ -112,5 +114,7 @@ shrine; **backup/restore** (`BackupBox`) lives in Guide→Tips. The view compone
 - **v6 (done):** safe-area topbar fix + Traveler's Sword; the **full Hyrule map** (Status); **four trackers**
   (Great Fairy + armor-tier, side quests, Koroks counter, memories meter); **export/import backup**, **per-step/
   shrine notes**, **global search**. Verified in-browser, hosted on GitHub Pages.
-- **Next:** **per-region maps** (map phase 2 — a Plateau-style schematic per region); multi-game `GAMES` wrapper
-  (TotK/OoT, ADR 0005); spoiler-toggle for hints; service-worker true-offline (if wanted).
+- **v7 (done):** **per-region maps** (map phase 2) — a `RegionMap` schematic inside each expanded Shrines group,
+  from a 15-agent coordinate sweep (`knowledge/region-maps.json`); numbered tappable dots matching the list.
+- **Next:** multi-game `GAMES` wrapper (TotK/OoT, ADR 0005); spoiler-toggle for hints; service-worker
+  true-offline + "new version" prompt (the proper fix for the iOS Home-Screen refresh friction, if wanted).

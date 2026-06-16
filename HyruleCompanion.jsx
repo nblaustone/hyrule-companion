@@ -858,6 +858,8 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
               <div className="card-head-side"><span className={"pips" + (done === total ? " pips-done" : "")}>{done}/{total}</span>{!q && <span className={"chev" + (open ? " chev-open" : "")}>›</span>}</div>
             </button>
             {open && (
+              <>
+              {!q && <RegionMap map={REGION_MAPS[g.regionKey]} shrines={groups.find((x) => x.regionKey === g.regionKey).shrines} regionKey={g.regionKey} progress={progress} toggleStep={toggleStep} />}
               <ul className="steps">
                 {g.shrines.map(({ sh, i }) => {
                   const id = "shr_" + g.regionKey + "_" + i; const checked = !!progress[id];
@@ -867,7 +869,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                       <button className={"box" + (checked ? " box-on" : "")} onClick={() => toggleStep(id)} aria-label={checked ? "Mark not done" : "Mark done"}>{checked && <Glyph name="check" size={15} />}</button>
                       <div className="step-body">
                         <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
-                        <span className="step-text"><b className="shrine-name">{sh.name}</b> — {sh.oneLine}</span>
+                        <span className="step-text"><span className="shrine-num">{i + 1}</span><b className="shrine-name">{sh.name}</b> — {sh.oneLine}</span>
                         <span className="shrine-loc"><Glyph name="tower" size={11} /> {sh.location}{sh.shrineQuest ? <span className="shrine-q"> · Quest: {sh.shrineQuest}</span> : null}</span>
                         <NoteAffordance id={id} notes={notes} setNote={setNote} open={noteOpen} setOpen={setNoteOpen} />
                       </div>
@@ -875,6 +877,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                   );
                 })}
               </ul>
+              </>
             )}
           </section>
         );
@@ -1087,6 +1090,36 @@ function HyruleMap({ progress, onJump }) {
         <g><circle cx="182" cy="178" r="3" fill="var(--malice)" /><text x="182" y="166" textAnchor="middle" className="hmap-castle">Castle</text></g>
       </svg>
       <p className="map-cap">Tap a region → its shrines · ring = cleared · <span style={{ color: "var(--cyan)" }}>cyan</span> = 100% · <span style={{ color: "var(--malice)" }}>◆</span> Ganon</p>
+    </div>
+  );
+}
+
+/* per-region schematic map (coordinates from build/inline-data → knowledge/region-maps.json) */
+const LM_COLOR = { town: "var(--gold)", stable: "var(--moss)", lake: "var(--cyan)", peak: "var(--parch-dim)", beast: "var(--cyan)", "tech-lab": "var(--orange)", landmark: "var(--parch-dim)" };
+function RegionMap({ map, shrines, regionKey, progress, toggleStep }) {
+  if (!map) return null;
+  const short = (s) => (s.length > 15 ? s.slice(0, 14) + "…" : s);
+  return (
+    <div className="rmap-wrap">
+      <svg viewBox="0 0 100 100" className="rmap" role="img" aria-label={"Map of " + regionKey + " shrines"}>
+        <rect x="1.5" y="1.5" width="97" height="97" rx="4" fill="rgba(95,214,226,0.03)" stroke="rgba(95,214,226,0.12)" strokeWidth="0.5" />
+        {map.landmarks.map((l, i) => (
+          <g key={"l" + i} opacity="0.6"><circle cx={l.x} cy={l.y} r="1.1" fill={LM_COLOR[l.kind] || "var(--parch-dim)"} /><text x={l.x} y={l.y - 2.2} textAnchor="middle" className="rmap-lm">{short(l.name)}</text></g>
+        ))}
+        {map.tower && (<g><path d={"M" + map.tower.x + " " + (map.tower.y - 3.6) + " L" + (map.tower.x + 2.6) + " " + (map.tower.y + 2.2) + " L" + (map.tower.x - 2.6) + " " + (map.tower.y + 2.2) + " Z"} fill="var(--cyan-dim)" opacity="0.85" /><text x={map.tower.x} y={map.tower.y + 5.4} textAnchor="middle" className="rmap-tw">Tower</text></g>)}
+        {map.fairy && (<g><circle cx={map.fairy.x} cy={map.fairy.y} r="1.9" fill="var(--heart)" /><text x={map.fairy.x} y={map.fairy.y - 2.6} textAnchor="middle" className="rmap-fr">{map.fairy.name.replace(/^Great Fairy\s+/, "")}</text></g>)}
+        {shrines.map((sh, i) => {
+          const p = map.shrines[sh.name]; if (!p) return null;
+          const id = "shr_" + regionKey + "_" + i; const done = !!progress[id];
+          return (
+            <g key={id} onClick={() => toggleStep(id)} style={{ cursor: "pointer" }}>
+              <circle cx={p.x} cy={p.y} r="3.4" fill={done ? "var(--cyan)" : "rgba(240,144,42,0.14)"} stroke={done ? "var(--cyan)" : "var(--orange)"} strokeWidth="0.9" />
+              <text x={p.x} y={p.y + 1.3} textAnchor="middle" className={"rmap-sn" + (done ? " rmap-sn-done" : "")}>{i + 1}</text>
+            </g>
+          );
+        })}
+      </svg>
+      <p className="map-cap">Tap a dot to mark a shrine · numbers match the list · <span style={{ color: "var(--cyan)" }}>cyan</span> = cleared</p>
     </div>
   );
 }
@@ -1462,6 +1495,16 @@ function StyleBlock() {
 .note-chip{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--parch-dim);background:none;border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:3px 9px;cursor:pointer;}
 .note-chip-on{color:var(--gold);border-color:rgba(242,193,78,0.4);background:rgba(242,193,78,0.06);}
 .note-show{font-size:12.5px;line-height:1.5;color:var(--gold);background:rgba(242,193,78,0.06);border-left:2px solid rgba(242,193,78,0.5);border-radius:0 7px 7px 0;padding:6px 10px;margin:0 0 6px;cursor:pointer;white-space:pre-wrap;}
+/* --- v7: per-region maps --- */
+.rmap-wrap{margin:4px 14px 10px;}
+.rmap{width:100%;height:auto;display:block;border-radius:12px;}
+.rmap-lm{fill:var(--parch-dim);font-family:'Rajdhani',sans-serif;font-size:2.5px;font-weight:600;}
+.rmap-tw{fill:var(--cyan-dim);font-family:'Rajdhani',sans-serif;font-size:2.5px;font-weight:700;letter-spacing:.2px;}
+.rmap-fr{fill:var(--heart);font-family:'Rajdhani',sans-serif;font-size:2.5px;font-weight:700;}
+.rmap-sn{fill:var(--orange);font-family:'Rajdhani',sans-serif;font-size:3.4px;font-weight:700;}
+.rmap-sn-done{fill:var(--abyss);}
+.shrine-num{display:inline-block;min-width:15px;height:15px;line-height:15px;text-align:center;border-radius:5px;background:rgba(95,214,226,0.12);color:var(--cyan-dim);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;margin-right:7px;vertical-align:1px;}
+.checked .shrine-num{background:rgba(255,255,255,0.05);color:var(--ink-line);}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 `}</style>);
 }
@@ -3675,5 +3718,1139 @@ const WORLD = {
   "Pack 2 'The Champions' Ballad' adds a new main quest unlocked after all four Divine Beasts, granting the One-Hit Obliterator challenge, the Master Cycle Zero (rideable motorcycle) rune, extra shrines, upgraded Champion abilities, and lore on the four Champions.",
   "If you don't own the Expansion Pass, none of the above is available; the base game's 120 shrines, 4 Divine Beasts and Master Sword are unaffected."
  ]
+};
+const REGION_MAPS = {
+ "great_plateau": {
+  "shrines": {
+   "Keh Namut Shrine": {
+    "x": 20,
+    "y": 18
+   },
+   "Oman Au Shrine": {
+    "x": 58,
+    "y": 22
+   },
+   "Ja Baij Shrine": {
+    "x": 84,
+    "y": 40
+   },
+   "Owa Daim Shrine": {
+    "x": 24,
+    "y": 78
+   }
+  },
+  "tower": {
+   "name": "Great Plateau Tower",
+   "x": 50,
+   "y": 50
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Shrine of Resurrection",
+    "kind": "landmark",
+    "x": 70,
+    "y": 14
+   },
+   {
+    "name": "Temple of Time",
+    "kind": "landmark",
+    "x": 40,
+    "y": 62
+   },
+   {
+    "name": "Forest of Spirits",
+    "kind": "landmark",
+    "x": 48,
+    "y": 30
+   },
+   {
+    "name": "Mount Hylia",
+    "kind": "peak",
+    "x": 16,
+    "y": 60
+   },
+   {
+    "name": "Eastern Abbey",
+    "kind": "landmark",
+    "x": 82,
+    "y": 52
+   }
+  ]
+ },
+ "dueling-peaks": {
+  "shrines": {
+   "Hila Rao Shrine": {
+    "x": 40,
+    "y": 12
+   },
+   "Bosh Kala Shrine": {
+    "x": 14,
+    "y": 46
+   },
+   "Shee Venath Shrine": {
+    "x": 46,
+    "y": 40
+   },
+   "Ree Dahee Shrine": {
+    "x": 47,
+    "y": 52
+   },
+   "Shee Vaneer Shrine": {
+    "x": 46,
+    "y": 64
+   },
+   "Ha Dahamar Shrine": {
+    "x": 62,
+    "y": 50
+   },
+   "Toto Sah Shrine": {
+    "x": 50,
+    "y": 84
+   },
+   "Ta'loh Naeg Shrine": {
+    "x": 80,
+    "y": 66
+   },
+   "Lakna Rokee Shrine": {
+    "x": 84,
+    "y": 82
+   }
+  },
+  "tower": {
+   "name": "Dueling Peaks Tower",
+   "x": 33,
+   "y": 47
+  },
+  "fairy": {
+   "name": "Great Fairy Cotera",
+   "x": 88,
+   "y": 54
+  },
+  "landmarks": [
+   {
+    "name": "Dueling Peaks Stable",
+    "kind": "stable",
+    "x": 68,
+    "y": 42
+   },
+   {
+    "name": "Kakariko Village",
+    "kind": "town",
+    "x": 86,
+    "y": 72
+   },
+   {
+    "name": "North Dueling Peak",
+    "kind": "peak",
+    "x": 44,
+    "y": 36
+   },
+   {
+    "name": "South Dueling Peak",
+    "kind": "peak",
+    "x": 44,
+    "y": 68
+   },
+   {
+    "name": "Proxim Bridge",
+    "kind": "landmark",
+    "x": 12,
+    "y": 56
+   }
+  ]
+ },
+ "hateno": {
+  "shrines": {
+   "Jitan Sa'mi Shrine": {
+    "x": 70,
+    "y": 10
+   },
+   "Tahno O'ah Shrine": {
+    "x": 78,
+    "y": 30
+   },
+   "Kam Urog Shrine": {
+    "x": 44,
+    "y": 28
+   },
+   "Dow Na'eh Shrine": {
+    "x": 14,
+    "y": 42
+   },
+   "Myahm Agana Shrine": {
+    "x": 64,
+    "y": 52
+   },
+   "Mezza Lo Shrine": {
+    "x": 52,
+    "y": 74
+   },
+   "Chaas Qeta Shrine": {
+    "x": 86,
+    "y": 88
+   }
+  },
+  "tower": {
+   "name": "Hateno Tower",
+   "x": 34,
+   "y": 50
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Mount Lanayru",
+    "kind": "peak",
+    "x": 80,
+    "y": 16
+   },
+   {
+    "name": "Hateno Village",
+    "kind": "town",
+    "x": 58,
+    "y": 44
+   },
+   {
+    "name": "Hateno Ancient Tech Lab",
+    "kind": "tech-lab",
+    "x": 70,
+    "y": 40
+   },
+   {
+    "name": "Hateno Beach",
+    "kind": "lake",
+    "x": 46,
+    "y": 86
+   },
+   {
+    "name": "Fort Hateno",
+    "kind": "landmark",
+    "x": 22,
+    "y": 54
+   }
+  ]
+ },
+ "lanayru": {
+  "shrines": {
+   "Sheh Rata Shrine": {
+    "x": 18,
+    "y": 40
+   },
+   "Kaya Wan Shrine": {
+    "x": 16,
+    "y": 62
+   },
+   "Daka Tuss Shrine": {
+    "x": 30,
+    "y": 78
+   },
+   "Soh Kofi Shrine": {
+    "x": 38,
+    "y": 50
+   },
+   "Ne'ez Yohma Shrine": {
+    "x": 52,
+    "y": 30
+   },
+   "Dagah Keek Shrine": {
+    "x": 60,
+    "y": 20
+   },
+   "Shai Yota Shrine": {
+    "x": 88,
+    "y": 42
+   },
+   "Kah Mael Shrine": {
+    "x": 76,
+    "y": 64
+   },
+   "Rucco Maag Shrine": {
+    "x": 66,
+    "y": 76
+   }
+  },
+  "tower": {
+   "name": "Lanayru Tower",
+   "x": 30,
+   "y": 64
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Zora's Domain",
+    "kind": "town",
+    "x": 50,
+    "y": 24
+   },
+   {
+    "name": "Divine Beast Vah Ruta",
+    "kind": "beast",
+    "x": 44,
+    "y": 12
+   },
+   {
+    "name": "Wetland Stable",
+    "kind": "stable",
+    "x": 14,
+    "y": 70
+   },
+   {
+    "name": "Lanayru Sea",
+    "kind": "lake",
+    "x": 78,
+    "y": 54
+   },
+   {
+    "name": "Mount Lanayru",
+    "kind": "peak",
+    "x": 62,
+    "y": 90
+   }
+  ]
+ },
+ "lake": {
+  "shrines": {
+   "Pumaag Nitae Shrine": {
+    "x": 22,
+    "y": 14
+   },
+   "Ishto Soh Shrine": {
+    "x": 42,
+    "y": 20
+   },
+   "Ka'o Makagh Shrine": {
+    "x": 70,
+    "y": 46
+   },
+   "Ya Naga Shrine": {
+    "x": 50,
+    "y": 62
+   },
+   "Shoqa Tatone Shrine": {
+    "x": 20,
+    "y": 74
+   },
+   "Shae Katha Shrine": {
+    "x": 80,
+    "y": 78
+   }
+  },
+  "tower": {
+   "name": "Lake Tower",
+   "x": 30,
+   "y": 50
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Lake Hylia",
+    "kind": "lake",
+    "x": 48,
+    "y": 64
+   },
+   {
+    "name": "Hylia Island",
+    "kind": "landmark",
+    "x": 50,
+    "y": 58
+   },
+   {
+    "name": "Bridge of Hylia",
+    "kind": "landmark",
+    "x": 62,
+    "y": 60
+   },
+   {
+    "name": "Highland Stable",
+    "kind": "stable",
+    "x": 74,
+    "y": 38
+   },
+   {
+    "name": "Spring of Courage",
+    "kind": "landmark",
+    "x": 84,
+    "y": 70
+   }
+  ]
+ },
+ "faron": {
+  "shrines": {
+   "Tawa Jinn Shrine": {
+    "x": 27,
+    "y": 9
+   },
+   "Shai Utoh Shrine": {
+    "x": 35,
+    "y": 49
+   },
+   "Shoda Sah Shrine": {
+    "x": 66,
+    "y": 33
+   },
+   "Qukah Nata Shrine": {
+    "x": 13,
+    "y": 61
+   },
+   "Yah Rin Shrine": {
+    "x": 74,
+    "y": 69
+   },
+   "Kah Yah Shrine": {
+    "x": 91,
+    "y": 60
+   },
+   "Muwo Jeem Shrine": {
+    "x": 82,
+    "y": 90
+   },
+   "Korgu Chideh Shrine": {
+    "x": 64,
+    "y": 92
+   }
+  },
+  "tower": {
+   "name": "Faron Tower",
+   "x": 40,
+   "y": 30
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Lakeside Stable",
+    "kind": "stable",
+    "x": 44,
+    "y": 41
+   },
+   {
+    "name": "Lake Floria",
+    "kind": "lake",
+    "x": 53,
+    "y": 47
+   },
+   {
+    "name": "Mount Floria",
+    "kind": "peak",
+    "x": 60,
+    "y": 58
+   },
+   {
+    "name": "Lurelin Village",
+    "kind": "town",
+    "x": 89,
+    "y": 80
+   },
+   {
+    "name": "Eventide Island",
+    "kind": "landmark",
+    "x": 76,
+    "y": 92
+   }
+  ]
+ },
+ "central_hyrule": {
+  "shrines": {
+   "Saas Ko'sah Shrine": {
+    "x": 52,
+    "y": 18
+   },
+   "Noya Neha Shrine": {
+    "x": 60,
+    "y": 24
+   },
+   "Namika Ozz Shrine": {
+    "x": 71,
+    "y": 30
+   },
+   "Kaam Ya'tak Shrine": {
+    "x": 41,
+    "y": 50
+   },
+   "Katah Chuki Shrine": {
+    "x": 38,
+    "y": 36
+   },
+   "Wahgo Katta Shrine": {
+    "x": 80,
+    "y": 72
+   },
+   "Rota Ooh Shrine": {
+    "x": 20,
+    "y": 70
+   },
+   "Dah Kaso Shrine": {
+    "x": 14,
+    "y": 56
+   }
+  },
+  "tower": {
+   "name": "Central Tower",
+   "x": 50,
+   "y": 40
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Hyrule Castle",
+    "kind": "landmark",
+    "x": 50,
+    "y": 22
+   },
+   {
+    "name": "Outskirt Stable",
+    "kind": "stable",
+    "x": 16,
+    "y": 78
+   },
+   {
+    "name": "Riverside Stable",
+    "kind": "stable",
+    "x": 84,
+    "y": 64
+   },
+   {
+    "name": "Great Plateau",
+    "kind": "peak",
+    "x": 30,
+    "y": 90
+   },
+   {
+    "name": "Digdogg Suspension Bridge",
+    "kind": "landmark",
+    "x": 12,
+    "y": 48
+   }
+  ]
+ },
+ "ridgeland": {
+  "shrines": {
+   "Maag No'rah Shrine": {
+    "x": 46,
+    "y": 24
+   },
+   "Mogg Latan Shrine": {
+    "x": 64,
+    "y": 90
+   },
+   "Zalta Wa Shrine": {
+    "x": 60,
+    "y": 16
+   },
+   "Mijah Rokee Shrine": {
+    "x": 73,
+    "y": 63
+   },
+   "Sheem Dagoze Shrine": {
+    "x": 75,
+    "y": 80
+   },
+   "Toh Yahsa Shrine": {
+    "x": 39,
+    "y": 46
+   },
+   "Shae Loya Shrine": {
+    "x": 15,
+    "y": 34
+   }
+  },
+  "tower": {
+   "name": "Ridgeland Tower",
+   "x": 66,
+   "y": 50
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Satori Mountain",
+    "kind": "peak",
+    "x": 58,
+    "y": 89
+   },
+   {
+    "name": "Tabantha Bridge Stable",
+    "kind": "stable",
+    "x": 11,
+    "y": 22
+   },
+   {
+    "name": "Serenne Stable",
+    "kind": "stable",
+    "x": 52,
+    "y": 8
+   },
+   {
+    "name": "Thundra Plateau",
+    "kind": "landmark",
+    "x": 30,
+    "y": 54
+   },
+   {
+    "name": "Rauru Settlement Ruins",
+    "kind": "town",
+    "x": 84,
+    "y": 44
+   }
+  ]
+ },
+ "tabantha": {
+  "shrines": {
+   "Sha Warvo Shrine": {
+    "x": 44,
+    "y": 14
+   },
+   "Akh Va'quot Shrine": {
+    "x": 50,
+    "y": 33
+   },
+   "Voo Lota Shrine": {
+    "x": 24,
+    "y": 38
+   },
+   "Tena Ko'sah Shrine": {
+    "x": 80,
+    "y": 36
+   },
+   "Bareeda Naag Shrine": {
+    "x": 54,
+    "y": 56
+   },
+   "Kah Okeo Shrine": {
+    "x": 16,
+    "y": 80
+   }
+  },
+  "tower": {
+   "name": "Tabantha Tower",
+   "x": 60,
+   "y": 70
+  },
+  "fairy": {
+   "name": "Great Fairy Kaysa",
+   "x": 72,
+   "y": 88
+  },
+  "landmarks": [
+   {
+    "name": "Rito Village",
+    "kind": "town",
+    "x": 48,
+    "y": 28
+   },
+   {
+    "name": "Divine Beast Vah Medoh",
+    "kind": "beast",
+    "x": 38,
+    "y": 22
+   },
+   {
+    "name": "Flight Range",
+    "kind": "landmark",
+    "x": 56,
+    "y": 9
+   },
+   {
+    "name": "Lake Totori",
+    "kind": "lake",
+    "x": 64,
+    "y": 50
+   },
+   {
+    "name": "Tanagar Canyon",
+    "kind": "landmark",
+    "x": 46,
+    "y": 78
+   }
+  ]
+ },
+ "hebra": {
+  "shrines": {
+   "Hia Miu Shrine": {
+    "x": 12,
+    "y": 12
+   },
+   "To Quomo Shrine": {
+    "x": 40,
+    "y": 9
+   },
+   "Qaza Tokki Shrine": {
+    "x": 80,
+    "y": 14
+   },
+   "Sha Gehma Shrine": {
+    "x": 61,
+    "y": 21
+   },
+   "Goma Asaagh Shrine": {
+    "x": 25,
+    "y": 35
+   },
+   "Shada Naw Shrine": {
+    "x": 51,
+    "y": 38
+   },
+   "Lanno Kooh Shrine": {
+    "x": 33,
+    "y": 49
+   },
+   "Mozo Shenno Shrine": {
+    "x": 18,
+    "y": 51
+   },
+   "Rok Uwog Shrine": {
+    "x": 63,
+    "y": 46
+   },
+   "Rin Oyaa Shrine": {
+    "x": 83,
+    "y": 53
+   },
+   "Maka Rah Shrine": {
+    "x": 47,
+    "y": 57
+   },
+   "Gee Ha'rah Shrine": {
+    "x": 31,
+    "y": 68
+   },
+   "Dunba Taag Shrine": {
+    "x": 17,
+    "y": 81
+   }
+  },
+  "tower": {
+   "name": "Hebra Tower",
+   "x": 42,
+   "y": 42
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Hebra Peak",
+    "kind": "peak",
+    "x": 31,
+    "y": 24
+   },
+   {
+    "name": "Snowfield Stable",
+    "kind": "stable",
+    "x": 73,
+    "y": 64
+   },
+   {
+    "name": "Rito Village",
+    "kind": "town",
+    "x": 24,
+    "y": 90
+   },
+   {
+    "name": "Tanagar Canyon",
+    "kind": "landmark",
+    "x": 9,
+    "y": 92
+   },
+   {
+    "name": "Lake Kilsie",
+    "kind": "lake",
+    "x": 13,
+    "y": 63
+   }
+  ]
+ },
+ "woodland": {
+  "shrines": {
+   "Ketoh Wawai Shrine": {
+    "x": 16,
+    "y": 16
+   },
+   "Keo Ruug Shrine": {
+    "x": 44,
+    "y": 28
+   },
+   "Daag Chokah Shrine": {
+    "x": 70,
+    "y": 22
+   },
+   "Rona Kachta Shrine": {
+    "x": 88,
+    "y": 34
+   },
+   "Maag Halan Shrine": {
+    "x": 60,
+    "y": 42
+   },
+   "Monya Toma Shrine": {
+    "x": 26,
+    "y": 50
+   },
+   "Kuhn Sidajj Shrine": {
+    "x": 30,
+    "y": 72
+   },
+   "Mirro Shaz Shrine": {
+    "x": 72,
+    "y": 70
+   }
+  },
+  "tower": {
+   "name": "Woodland Tower",
+   "x": 48,
+   "y": 60
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Korok Forest",
+    "kind": "landmark",
+    "x": 44,
+    "y": 20
+   },
+   {
+    "name": "Typhlo Ruins",
+    "kind": "landmark",
+    "x": 16,
+    "y": 28
+   },
+   {
+    "name": "Lost Woods",
+    "kind": "landmark",
+    "x": 52,
+    "y": 38
+   },
+   {
+    "name": "Lake Saria",
+    "kind": "lake",
+    "x": 36,
+    "y": 78
+   },
+   {
+    "name": "Woodland Stable",
+    "kind": "stable",
+    "x": 84,
+    "y": 64
+   }
+  ]
+ },
+ "eldin": {
+  "shrines": {
+   "Tah Muhl Shrine": {
+    "x": 14,
+    "y": 74
+   },
+   "Sah Dahaj Shrine": {
+    "x": 40,
+    "y": 86
+   },
+   "Mo'a Keet Shrine": {
+    "x": 84,
+    "y": 78
+   },
+   "Gorae Torr Shrine": {
+    "x": 82,
+    "y": 58
+   },
+   "Daqa Koh Shrine": {
+    "x": 58,
+    "y": 60
+   },
+   "Qua Raym Shrine": {
+    "x": 47,
+    "y": 44
+   },
+   "Shae Mo'sah Shrine": {
+    "x": 50,
+    "y": 33
+   },
+   "Kayra Mah Shrine": {
+    "x": 64,
+    "y": 24
+   },
+   "Shora Hah Shrine": {
+    "x": 46,
+    "y": 13
+   }
+  },
+  "tower": {
+   "name": "Eldin Tower",
+   "x": 22,
+   "y": 60
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Goron City",
+    "kind": "town",
+    "x": 52,
+    "y": 38
+   },
+   {
+    "name": "Death Mountain Summit",
+    "kind": "peak",
+    "x": 50,
+    "y": 20
+   },
+   {
+    "name": "Divine Beast Vah Rudania",
+    "kind": "beast",
+    "x": 38,
+    "y": 18
+   },
+   {
+    "name": "Foothill Stable",
+    "kind": "stable",
+    "x": 88,
+    "y": 86
+   },
+   {
+    "name": "Goronbi Lake",
+    "kind": "lake",
+    "x": 44,
+    "y": 48
+   }
+  ]
+ },
+ "akkala": {
+  "shrines": {
+   "Zuna Kai Shrine": {
+    "x": 40,
+    "y": 12
+   },
+   "Ritaag Zumo Shrine": {
+    "x": 74,
+    "y": 22
+   },
+   "Tu Ka'loh Shrine": {
+    "x": 88,
+    "y": 16
+   },
+   "Dah Hesho Shrine": {
+    "x": 52,
+    "y": 44
+   },
+   "Katosa Aug Shrine": {
+    "x": 78,
+    "y": 48
+   },
+   "Ze Kasho Shrine": {
+    "x": 30,
+    "y": 66
+   },
+   "Ke'nai Shakah Shrine": {
+    "x": 70,
+    "y": 70
+   },
+   "Tutsuwa Nima Shrine": {
+    "x": 80,
+    "y": 86
+   }
+  },
+  "tower": {
+   "name": "Akkala Tower",
+   "x": 34,
+   "y": 54
+  },
+  "fairy": {
+   "name": "Great Fairy Mija",
+   "x": 26,
+   "y": 56
+  },
+  "landmarks": [
+   {
+    "name": "Skull Lake",
+    "kind": "lake",
+    "x": 46,
+    "y": 18
+   },
+   {
+    "name": "Lake Akkala",
+    "kind": "lake",
+    "x": 60,
+    "y": 40
+   },
+   {
+    "name": "Tarrey Town",
+    "kind": "town",
+    "x": 62,
+    "y": 52
+   },
+   {
+    "name": "East Akkala Stable",
+    "kind": "stable",
+    "x": 82,
+    "y": 40
+   },
+   {
+    "name": "South Akkala Stable",
+    "kind": "stable",
+    "x": 22,
+    "y": 74
+   },
+   {
+    "name": "Akkala Ancient Tech Lab",
+    "kind": "tech-lab",
+    "x": 88,
+    "y": 92
+   }
+  ]
+ },
+ "gerudo": {
+  "shrines": {
+   "Kema Kosassa Shrine": {
+    "x": 58,
+    "y": 12
+   },
+   "Sho Dantu Shrine": {
+    "x": 72,
+    "y": 30
+   },
+   "Keeha Yoog Shrine": {
+    "x": 78,
+    "y": 44
+   },
+   "Sasa Kai Shrine": {
+    "x": 70,
+    "y": 56
+   },
+   "Joloo Nah Shrine": {
+    "x": 34,
+    "y": 50
+   },
+   "Kuh Takkar Shrine": {
+    "x": 22,
+    "y": 78
+   }
+  },
+  "tower": {
+   "name": "Gerudo Tower",
+   "x": 64,
+   "y": 48
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Gerudo Summit",
+    "kind": "peak",
+    "x": 80,
+    "y": 34
+   },
+   {
+    "name": "Mount Nabooru",
+    "kind": "peak",
+    "x": 26,
+    "y": 40
+   },
+   {
+    "name": "Mount Agaat",
+    "kind": "peak",
+    "x": 50,
+    "y": 20
+   },
+   {
+    "name": "Risoka Snowfield",
+    "kind": "landmark",
+    "x": 48,
+    "y": 40
+   },
+   {
+    "name": "Laparoh Mesa",
+    "kind": "peak",
+    "x": 18,
+    "y": 66
+   }
+  ]
+ },
+ "wasteland": {
+  "shrines": {
+   "Dako Tah Shrine": {
+    "x": 18,
+    "y": 18
+   },
+   "Kema Zoos Shrine": {
+    "x": 30,
+    "y": 34
+   },
+   "Daqo Chisay Shrine": {
+    "x": 34,
+    "y": 50
+   },
+   "Kay Noh Shrine": {
+    "x": 72,
+    "y": 15
+   },
+   "Jee Noh Shrine": {
+    "x": 84,
+    "y": 38
+   },
+   "Hawa Koth Shrine": {
+    "x": 88,
+    "y": 60
+   },
+   "Korsh O'hu Shrine": {
+    "x": 68,
+    "y": 56
+   },
+   "Suma Sahma Shrine": {
+    "x": 60,
+    "y": 60
+   },
+   "Misae Suma Shrine": {
+    "x": 48,
+    "y": 62
+   },
+   "Tho Kayu Shrine": {
+    "x": 44,
+    "y": 76
+   },
+   "Raqa Zunzo Shrine": {
+    "x": 16,
+    "y": 70
+   },
+   "Dila Maag Shrine": {
+    "x": 30,
+    "y": 88
+   }
+  },
+  "tower": {
+   "name": "Wasteland Tower",
+   "x": 62,
+   "y": 40
+  },
+  "fairy": {
+   "name": "Great Fairy Tera Fountain",
+   "x": 58,
+   "y": 90
+  },
+  "landmarks": [
+   {
+    "name": "Gerudo Town",
+    "kind": "town",
+    "x": 24,
+    "y": 48
+   },
+   {
+    "name": "Gerudo Canyon Stable",
+    "kind": "stable",
+    "x": 82,
+    "y": 10
+   },
+   {
+    "name": "Divine Beast Vah Naboris",
+    "kind": "beast",
+    "x": 50,
+    "y": 40
+   },
+   {
+    "name": "Gerudo Great Skeleton",
+    "kind": "landmark",
+    "x": 90,
+    "y": 72
+   },
+   {
+    "name": "Mount Granajh",
+    "kind": "peak",
+    "x": 46,
+    "y": 88
+   }
+  ]
+ }
 };
 /* GEN:DATA:END */

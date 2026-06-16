@@ -115,3 +115,7 @@ ZeldaCentral, Gamer Guides, Thonky, Shacknews. Verified specifically:
   **four trackers** (Great Fairy + armor-tier, side quests, Korok counter, memories meter)
   + a Collectibles panel; **export/import backup**, **per-step/shrine notes**, and a
   **global search** overlay. New keys: botw:koroks, botw:notes, botw:armortier.
+- v7: **per-region maps** — each expanded Shrines region shows a schematic mini-map
+  (numbered tappable dots matching the list + tower/fairy/landmarks), from a 15-agent
+  coordinate sweep → `knowledge/region-maps.json`. Also answered the iOS Home-Screen
+  refresh question (force-quit & reopen; data is safe; back up via the v6 code).

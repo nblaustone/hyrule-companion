@@ -5,6 +5,27 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-15 — v7: per-region maps (map phase 2) + the iOS-refresh support answer
+
+- **Support, not code, first:** Nathan couldn't refresh the Home Screen web app. Explained the standalone-mode
+  reality (no reload button; GitHub Pages `max-age=600`): **force-quit + reopen** is the lever; data is NOT lost
+  by reopening (localStorage is origin-keyed, IDs are stable per ADR 0002); deleting the icon is the only real
+  risk, so **back up first** (the v6 backup code). Offered a service worker (declined-for-now "true offline")
+  as the proper long-term update mechanism if the friction persists.
+- **Per-region maps** (the agreed map phase 2): a `botw-region-coords` workflow (15 agents, one per region)
+  placed each region's shrines + tower + Great Fairy + 2–5 landmarks on a relative 0–100 grid (north-up),
+  web-checked. Output → `knowledge/region-maps.json` (assembly clamps to 5–95 and nudges exact overlaps;
+  **0 coverage gaps, 0 overlaps**). `RegionMap` renders a per-region schematic inside each expanded Shrines
+  group: **numbered dots** (cyan=cleared, tap to toggle) that match numbered list rows, a Tower marker, the
+  fairy, and faint labeled landmarks. Verified all 15 regions render the right dot count (Plateau 4 … Hebra 13
+  … Gerudo Desert 12); even Hebra's 13 lay out readably. Map dots and the list share the same `shr_*` ids, so a
+  tap on either updates both. Coordinates are honest schematic placements (no Nintendo map tiles, ADR 0003).
+- **`args` gotcha:** the coord workflow first crashed with `pipeline() expects an array` — the Workflow `args`
+  global didn't arrive as the array I passed. Fix: inline the region/shrine list as a `const` in the script
+  instead of relying on `args`. (Lesson: for Workflow data, embedding in the script is more reliable than `args`.)
+
+---
+
 ## 2026-06-15 — v6: map, four trackers, and QoL (driven by Nathan playing it on his phone)
 
 - **What prompted it:** Nathan installed v5 on his phone and gave field feedback. Confirmed answers first
