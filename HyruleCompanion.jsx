@@ -348,6 +348,8 @@ const ENEMY_TIER = [
   { id: "boss", label: "Bosses", glyph: "beast", color: "var(--malice)" },
   { id: "guardian", label: "Guardians", glyph: "eye", color: "var(--cyan)" },
   { id: "yiga", label: "Yiga Clan", glyph: "skull", color: "var(--gold)" },
+  { id: "construct", label: "Constructs", glyph: "champion", color: "var(--cyan)" },
+  { id: "gloom", label: "Gloom & Phantoms", glyph: "eye", color: "var(--malice)" },
 ];
 
 function PlateauMap({ statusOf, onJump }) {
@@ -381,13 +383,41 @@ function PlateauMap({ statusOf, onJump }) {
 }
 
 /* ============================================================ APP ============================================================ */
+/* Wrapper: owns the active game, remounts the per-game app on a switch (ADR 0005). */
 export default function HyruleCompanion() {
+  const [game, setGame] = useState("botw");
+  const [gloaded, setGloaded] = useState(false);
+  useEffect(() => {
+    let c = false;
+    (async () => { const g = await store.get("hyrule:game"); if (c) return; if (g && GAMES[g]) setGame(g); setGloaded(true); })();
+    return () => { c = true; };
+  }, []);
+  useEffect(() => { if (gloaded) store.set("hyrule:game", game); }, [game, gloaded]);
+  if (!gloaded) return null;
+  return <HyruleGame key={game} game={game} setGame={setGame} games={GAMES} />;
+}
+function GamePicker({ games, game, setGame }) {
+  const ids = Object.keys(games);
+  if (ids.length < 2) return null;
+  return (
+    <div className="game-picker">
+      {ids.map((id) => (<button key={id} className={"game-pill" + (id === game ? " game-pill-on" : "")} onClick={() => setGame(id)}>{games[id].short}</button>))}
+    </div>
+  );
+}
+
+/* The per-game app. Remounted (key={game}) by the wrapper on a game switch, so each game's
+   storage loads cleanly. G shadows the data globals with the active game's data (ADR 0005). */
+function HyruleGame({ game, setGame, games }) {
+  const G = games[game];
+  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, RUNES, TIPS, COOK_RULES, RECIPES, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms, guideSegs, postRegionId } = G;
+  const K = (s) => game + ":" + s; // storage key namespace per game (botw:* preserves existing data)
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState({});
   const [tab, setTab] = useState("status");
-  const [region, setRegion] = useState("plateau");
+  const [region, setRegion] = useState(() => REGIONS[0].id);
   const [guideSub, setGuideSub] = useState("runes");
-  const [openSections, setOpenSections] = useState({ awk: true });
+  const [openSections, setOpenSections] = useState(() => ({ [REGIONS[0].sections[0].id]: true }));
   const [query, setQuery] = useState("");
   const [confirmReset, setConfirmReset] = useState(false);
   const [koroks, setKoroks] = useState(0);          // Korok-seed counter (botw:koroks)
@@ -402,7 +432,7 @@ export default function HyruleCompanion() {
     let cancelled = false;
     (async () => {
       const [p, ui, kk, nt, at, pr] = await Promise.all([
-        store.get("botw:progress"), store.get("botw:ui"), store.get("botw:koroks"), store.get("botw:notes"), store.get("botw:armortier"), store.get("hyrule:prefs"),
+        store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -415,11 +445,11 @@ export default function HyruleCompanion() {
     })();
     return () => { cancelled = true; };
   }, []);
-  useEffect(() => { if (loaded) store.set("botw:progress", JSON.stringify(progress)); }, [progress, loaded]);
-  useEffect(() => { if (loaded) store.set("botw:ui", JSON.stringify({ tab, region, openSections, guideSub })); }, [tab, region, openSections, guideSub, loaded]);
-  useEffect(() => { if (loaded) store.set("botw:koroks", String(koroks)); }, [koroks, loaded]);
-  useEffect(() => { if (loaded) store.set("botw:notes", JSON.stringify(notes)); }, [notes, loaded]);
-  useEffect(() => { if (loaded) store.set("botw:armortier", JSON.stringify(armorTier)); }, [armorTier, loaded]);
+  useEffect(() => { if (loaded) store.set(K("progress"), JSON.stringify(progress)); }, [progress, loaded]);
+  useEffect(() => { if (loaded) store.set(K("ui"), JSON.stringify({ tab, region, openSections, guideSub })); }, [tab, region, openSections, guideSub, loaded]);
+  useEffect(() => { if (loaded) store.set(K("koroks"), String(koroks)); }, [koroks, loaded]);
+  useEffect(() => { if (loaded) store.set(K("notes"), JSON.stringify(notes)); }, [notes, loaded]);
+  useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler })); }, [spoiler, loaded]);
 
   const toggleStep = useCallback((id) => setProgress((p) => { const n = { ...p }; if (n[id]) delete n[id]; else n[id] = true; return n; }), []);
@@ -476,10 +506,10 @@ export default function HyruleCompanion() {
   const upgrades = Math.floor(inventory.orbsDone / 4);
 
   const shrineStats = useMemo(() => {
-    let done = 0;
-    for (const g of SHRINES) g.shrines.forEach((_, i) => { if (progress["shr_" + g.regionKey + "_" + i]) done++; });
-    return { done, total: 120 };
-  }, [progress]);
+    let done = 0, total = 0;
+    for (const g of SHRINES) g.shrines.forEach((_, i) => { total++; if (progress["shr_" + g.regionKey + "_" + i]) done++; });
+    return { done, total };
+  }, [progress, SHRINES]);
 
   const extraStats = useMemo(() => {
     let mem = 0, memTotal = 0, sq = 0, sqTotal = 0, gf = 0, arm = 0;
@@ -539,6 +569,7 @@ export default function HyruleCompanion() {
 
       {searchOpen && (
         <SearchOverlay query={gquery} setQuery={setGquery} onClose={() => setSearchOpen(false)}
+          data={{ REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS }}
           nav={{
             step: (rid, sid) => jumpTo(rid, sid),
             shrine: (rk) => jumpShrineRegion(rk),
@@ -550,6 +581,7 @@ export default function HyruleCompanion() {
       <main className="body">
         {!loaded ? (<div className="loading">Syncing the Slate…</div>) : tab === "status" ? (
           <div className="status">
+            <GamePicker games={games} game={game} setGame={setGame} />
             <div className="hero">
               <div className="hero-ring" style={{ background: `conic-gradient(var(--cyan) ${pct * 3.6}deg, rgba(255,255,255,0.07) 0deg)` }}>
                 <div className="hero-ring-in"><span className="hero-pct">{pct}%</span><span className="hero-pct-l">Overall</span></div>
@@ -561,10 +593,10 @@ export default function HyruleCompanion() {
               </div>
             </div>
 
-            <div className="panel">
+            {Object.keys(MAP_NODES || {}).length > 0 && <div className="panel">
               <div className="panel-h">Map of Hyrule</div>
-              <HyruleMap progress={progress} onJump={jumpShrineRegion} />
-            </div>
+              <HyruleMap shrines={SHRINES} nodes={MAP_NODES} beasts={MAP_BEASTS} progress={progress} onJump={jumpShrineRegion} />
+            </div>}
 
             <div className="panel">
               <div className="panel-h">Regions</div>
@@ -582,12 +614,12 @@ export default function HyruleCompanion() {
             </div>
 
             <div className="panel">
-              <div className="panel-h">Spirit Orbs</div>
+              <div className="panel-h">{terms.orbs}</div>
               <div className="orb-row">
                 <div className="orb-big"><Glyph name="orb" size={28} /></div>
                 <div className="orb-meta">
-                  <div className="orb-count">{inventory.orbsDone}<span className="dim"> orbs</span></div>
-                  <div className="orb-sub">{upgrades >= 1 ? `${upgrades} upgrade${upgrades > 1 ? "s" : ""} earned (4 orbs each) — pray at a Goddess Statue` : `${4 - (inventory.orbsDone % 4)} more for your next upgrade`}</div>
+                  <div className="orb-count">{inventory.orbsDone}<span className="dim"> {terms.orbWord}</span></div>
+                  <div className="orb-sub">{upgrades >= 1 ? `${upgrades} upgrade${upgrades > 1 ? "s" : ""} earned (4 ${terms.orbWord} each) — pray at a Goddess Statue` : `${4 - (inventory.orbsDone % 4)} more for your next upgrade`}</div>
                 </div>
               </div>
             </div>
@@ -596,45 +628,45 @@ export default function HyruleCompanion() {
               <div className="panel-h">Shrines</div>
               <button className="reg-row" onClick={() => setTab("shrines")}>
                 <span className="reg-ic"><Glyph name="shrine" size={18} /></span>
-                <span className="reg-name">All 120 shrines</span>
-                <span className="reg-bar"><span className="reg-fill" style={{ width: (shrineStats.done / 120 * 100) + "%", background: shrineStats.done === 120 ? "var(--cyan)" : "var(--orange)" }} /></span>
-                <span className={"reg-count" + (shrineStats.done === 120 ? " reg-done" : "")}>{shrineStats.done}/120</span>
+                <span className="reg-name">All {shrineStats.total} shrines</span>
+                <span className="reg-bar"><span className="reg-fill" style={{ width: (shrineStats.total ? shrineStats.done / shrineStats.total * 100 : 0) + "%", background: shrineStats.total && shrineStats.done === shrineStats.total ? "var(--cyan)" : "var(--orange)" }} /></span>
+                <span className={"reg-count" + (shrineStats.total && shrineStats.done === shrineStats.total ? " reg-done" : "")}>{shrineStats.done}/{shrineStats.total}</span>
               </button>
             </div>
 
-            <div className="panel">
+            {(extraStats.memTotal > 0 || extraStats.gfTotal > 0 || extraStats.sqTotal > 0 || KOROKS) && <div className="panel">
               <div className="panel-h">Collectibles</div>
-              <button className="reg-row" onClick={() => openRegion("memories")}>
+              {extraStats.memTotal > 0 && <button className="reg-row" onClick={() => openRegion("memories")}>
                 <span className="reg-ic"><Glyph name="camera" size={16} /></span><span className="reg-name">Memories</span>
-                <span className="reg-bar"><span className="reg-fill" style={{ width: (extraStats.memTotal ? extraStats.mem / extraStats.memTotal * 100 : 0) + "%", background: extraStats.memTotal && extraStats.mem === extraStats.memTotal ? "var(--cyan)" : "var(--orange)" }} /></span>
-                <span className={"reg-count" + (extraStats.memTotal && extraStats.mem === extraStats.memTotal ? " reg-done" : "")}>{extraStats.mem}/{extraStats.memTotal}</span>
-              </button>
-              <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("fairies"); }}>
+                <span className="reg-bar"><span className="reg-fill" style={{ width: (extraStats.mem / extraStats.memTotal * 100) + "%", background: extraStats.mem === extraStats.memTotal ? "var(--cyan)" : "var(--orange)" }} /></span>
+                <span className={"reg-count" + (extraStats.mem === extraStats.memTotal ? " reg-done" : "")}>{extraStats.mem}/{extraStats.memTotal}</span>
+              </button>}
+              {extraStats.gfTotal > 0 && <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("fairies"); }}>
                 <span className="reg-ic"><Glyph name="fairy" size={16} /></span><span className="reg-name">Great Fairies</span>
                 <span className="reg-bar"><span className="reg-fill" style={{ width: (extraStats.gf / extraStats.gfTotal * 100) + "%", background: extraStats.gf === extraStats.gfTotal ? "var(--cyan)" : "var(--orange)" }} /></span>
                 <span className={"reg-count" + (extraStats.gf === extraStats.gfTotal ? " reg-done" : "")}>{extraStats.gf}/{extraStats.gfTotal}</span>
-              </button>
-              <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("quests"); }}>
+              </button>}
+              {extraStats.sqTotal > 0 && <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("quests"); }}>
                 <span className="reg-ic"><Glyph name="scroll" size={16} /></span><span className="reg-name">Side quests</span>
-                <span className="reg-bar"><span className="reg-fill" style={{ width: (extraStats.sqTotal ? extraStats.sq / extraStats.sqTotal * 100 : 0) + "%", background: extraStats.sqTotal && extraStats.sq === extraStats.sqTotal ? "var(--cyan)" : "var(--orange)" }} /></span>
-                <span className={"reg-count" + (extraStats.sqTotal && extraStats.sq === extraStats.sqTotal ? " reg-done" : "")}>{extraStats.sq}/{extraStats.sqTotal}</span>
-              </button>
-              <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("koroks"); }}>
+                <span className="reg-bar"><span className="reg-fill" style={{ width: (extraStats.sq / extraStats.sqTotal * 100) + "%", background: extraStats.sq === extraStats.sqTotal ? "var(--cyan)" : "var(--orange)" }} /></span>
+                <span className={"reg-count" + (extraStats.sq === extraStats.sqTotal ? " reg-done" : "")}>{extraStats.sq}/{extraStats.sqTotal}</span>
+              </button>}
+              {KOROKS && <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("koroks"); }}>
                 <span className="reg-ic"><Glyph name="leaf" size={16} /></span><span className="reg-name">Korok seeds</span>
                 <span className="reg-bar"><span className="reg-fill" style={{ width: Math.min(100, koroks / 441 * 100) + "%", background: koroks >= 441 ? "var(--cyan)" : "var(--moss)" }} /></span>
                 <span className="reg-count">{koroks}</span>
-              </button>
-            </div>
+              </button>}
+            </div>}
 
-            <div className="panel">
-              <div className="panel-h">Runes Unlocked</div>
+            {STATUS_RUNES.length > 0 && <div className="panel">
+              <div className="panel-h">{terms.runesLabel}</div>
               <div className="rune-row">
                 {STATUS_RUNES.map((r) => (<div key={r.name} className={"rune-pip" + (progress[r.step] ? " rune-on" : "")}><Glyph name={r.glyph} size={24} /><span>{r.name}</span></div>))}
               </div>
-            </div>
+            </div>}
 
-            <div className="panel">
-              <div className="panel-h">Champion Abilities</div>
+            {CHAMPIONS.length > 0 && <div className="panel">
+              <div className="panel-h">{terms.championsLabel}</div>
               <div className="champ-row">
                 {CHAMPIONS.map((ch) => { const on = ch.step && progress[ch.step]; return (
                   <div key={ch.name} className={"champ-pip" + (on ? " champ-on" : "")}>
@@ -642,7 +674,7 @@ export default function HyruleCompanion() {
                     <div className="champ-txt"><span className="champ-name">{ch.name}</span><span className="champ-note">{on ? ch.note : ch.from}</span></div>
                   </div>); })}
               </div>
-            </div>
+            </div>}
 
             <button className="big-link" onClick={() => setTab("items")}><Glyph name="bag" size={18} /> Open your pouch ({inventory.invDone}/{inventory.invTotal})</button>
             <div className="footer-space" />
@@ -661,7 +693,7 @@ export default function HyruleCompanion() {
                 </button>); })}
             </div>
 
-            {currentRegion.kind === "beast" && (<div className="beast-banner"><Glyph name="beast" size={18} /> Divine Beast · frees <b>{currentRegion.champion}</b></div>)}
+            {currentRegion.kind === "beast" && (<div className="beast-banner"><Glyph name="beast" size={18} /> {terms.regionBanner} · {currentRegion.champion ? <>grants <b>{currentRegion.champion}</b></> : "free a sage"}</div>)}
             {region === "plateau" && !q && <PlateauMap statusOf={statusOf} onJump={(secId) => jumpTo("plateau", secId)} />}
             {!q && <p className="lede">{currentRegion.tagline}</p>}
             {filterSections.length === 0 && <div className="empty">No steps match “{query}” in this region.</div>}
@@ -697,7 +729,7 @@ export default function HyruleCompanion() {
               );
             })}
 
-            {!q && region === "destroy_ganon" && (
+            {!q && region === postRegionId && ROADMAP.length > 0 && (
               <div className="roadmap">
                 <div className="road-head"><span className="kicker">After the main quest</span><h2 className="road-title">100% Hyrule</h2><p className="road-note">You've finished the story. Here's everything else Hyrule holds, if you want to keep going.</p></div>
                 {ROADMAP.map((r, i) => (
@@ -711,7 +743,7 @@ export default function HyruleCompanion() {
             <div className="footer-space" />
           </>
         ) : tab === "shrines" ? (
-          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} />
+          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} />
         ) : tab === "items" ? (
           <div className="ref">
             <h2 className="ref-title">Pouch</h2>
@@ -769,13 +801,13 @@ export default function HyruleCompanion() {
         ) : (
           <div className="ref">
             <div className="seg seg-scroll">
-              {[["runes", "Runes"], ["tips", "Tips"], ["armor", "Armor"], ["fairies", "Fairies"], ["towers", "Towers"], ["quests", "Quests"], ["enemies", "Enemies"], ["koroks", "Koroks"], ["world", "World"], ["settings", "Settings"]].map(([id, label]) => (
+              {guideSegs.map(([id, label]) => (
                 <button key={id} className={"seg-btn" + (guideSub === id ? " seg-on" : "")} onClick={() => setGuideSub(id)}>{label}</button>
               ))}
             </div>
             {guideSub === "runes" ? (
               <>
-                <p className="ref-lede">The five Sheikah Slate powers. Every shrine and overworld puzzle is solved with these.</p>
+                <p className="ref-lede">Your core {terms.runesLabel.replace(/ Unlocked$/, "").toLowerCase()} — every shrine and overworld puzzle is solved with these.</p>
                 {RUNES.map((rn) => (
                   <div className="rune-card" key={rn.id}>
                     <div className="rune-icon"><Glyph name={rn.glyph} size={30} /></div>
@@ -819,7 +851,7 @@ function TabBtn({ active, onClick, glyph, label }) {
 }
 
 /* ============================================================ SHRINES TAB ============================================================ */
-function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler }) {
+function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps }) {
   const [revealed, setRevealed] = useState(() => new Set());
   const reveal = (id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; });
   const q = query.trim().toLowerCase();
@@ -860,7 +892,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
             </button>
             {open && (
               <>
-              {!q && <RegionMap map={REGION_MAPS[g.regionKey]} shrines={groups.find((x) => x.regionKey === g.regionKey).shrines} regionKey={g.regionKey} progress={progress} toggleStep={toggleStep} />}
+              {!q && regionMaps && regionMaps[g.regionKey] && <RegionMap map={regionMaps[g.regionKey]} shrines={groups.find((x) => x.regionKey === g.regionKey).shrines} regionKey={g.regionKey} progress={progress} toggleStep={toggleStep} />}
               <ul className="steps">
                 {g.shrines.map(({ sh, i }) => {
                   const id = "shr_" + g.regionKey + "_" + i; const checked = !!progress[id];
@@ -1043,12 +1075,14 @@ function KoroksView({ data, koroks, setKoroks }) {
 function WorldView({ data }) {
   return (
     <>
-      <p className="ref-lede">The systems that tie Hyrule together — how you grow stronger, the rare materials worth chasing, and what the expansion adds.</p>
-      <div className="tip-card"><div className="tip-name"><Glyph name="orb" size={16} /> Getting stronger</div><ul className="tip-list">{data.upgrades.map((u, i) => <li key={i}>{u}</li>)}</ul></div>
-      <div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l"><span className="inv-glyph"><Glyph name="gem" size={18} /></span>Special materials</span><span className="inv-count">{data.materials.length}</span></div>
-      {data.materials.map((m, i) => (
-        <div className="enemy-row" key={i}><div className="enemy-name">{m.name}</div><p className="enemy-tactic">{m.use}</p>{m.where && <p className="enemy-drops">{m.where}</p>}</div>
-      ))}
+      <p className="ref-lede">The systems that tie Hyrule together — how you grow stronger and the rare things worth chasing.</p>
+      {data.upgrades && data.upgrades.length > 0 && <div className="tip-card"><div className="tip-name"><Glyph name="orb" size={16} /> Getting stronger</div><ul className="tip-list">{data.upgrades.map((u, i) => <li key={i}>{u}</li>)}</ul></div>}
+      {data.systems && data.systems.length > 0 && (<><div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l"><span className="inv-glyph"><Glyph name="tower" size={18} /></span>Systems</span><span className="inv-count">{data.systems.length}</span></div>
+        {data.systems.map((m, i) => (<div className="enemy-row" key={i}><div className="enemy-name">{m.name}</div><p className="enemy-tactic">{m.what || m.use}</p></div>))}</>)}
+      {data.materials && data.materials.length > 0 && (<><div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l"><span className="inv-glyph"><Glyph name="gem" size={18} /></span>Special materials</span><span className="inv-count">{data.materials.length}</span></div>
+        {data.materials.map((m, i) => (<div className="enemy-row" key={i}><div className="enemy-name">{m.name}</div><p className="enemy-tactic">{m.use}</p>{m.where && <p className="enemy-drops">{m.where}</p>}</div>))}</>)}
+      {data.fairies && data.fairies.length > 0 && (<><div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l"><span className="inv-glyph" style={{ color: "var(--heart)" }}><Glyph name="fairy" size={18} /></span>Great Fairies</span><span className="inv-count">{data.fairies.length}</span></div>
+        {data.fairies.map((f, i) => (<div className="enemy-row" key={i}><div className="enemy-name">{f.name}</div><p className="enemy-tactic">{f.location}{f.cost ? " · " + f.cost : ""}</p></div>))}</>)}
       {data.dlc && data.dlc.length > 0 && (
         <div className="tip-card" style={{ marginTop: 12 }}><div className="tip-name"><Glyph name="champion" size={16} /> DLC · Expansion Pass</div><ul className="tip-list">{data.dlc.map((d, i) => <li key={i}>{d}</li>)}</ul></div>
       )}
@@ -1067,16 +1101,16 @@ const MAP_NODES = {
   "dueling-peaks": { x: 228, y: 266, l: "Dueling Pk" }, hateno: { x: 290, y: 286, l: "Hateno" },
 };
 const MAP_BEASTS = [{ x: 300, y: 150, n: "Ruta" }, { x: 78, y: 96, n: "Medoh" }, { x: 264, y: 70, n: "Rudania" }, { x: 78, y: 296, n: "Naboris" }];
-function HyruleMap({ progress, onJump }) {
-  const stat = (rk) => { const g = SHRINES.find((s) => s.regionKey === rk); if (!g) return { d: 0, t: 0 }; let d = 0; g.shrines.forEach((_, i) => { if (progress["shr_" + rk + "_" + i]) d++; }); return { d, t: g.shrines.length }; };
+function HyruleMap({ shrines, nodes, beasts, progress, onJump }) {
+  const stat = (rk) => { const g = shrines.find((s) => s.regionKey === rk); if (!g) return { d: 0, t: 0 }; let d = 0; g.shrines.forEach((_, i) => { if (progress["shr_" + rk + "_" + i]) d++; }); return { d, t: g.shrines.length }; };
   const r = 11, C = 2 * Math.PI * 11;
   return (
     <div className="hmap-wrap">
       <svg viewBox="0 0 340 384" className="hmap" role="img" aria-label="Map of Hyrule — shrine progress by region">
         <path d="M44 70 Q58 34 120 42 Q210 28 296 52 Q332 120 320 196 Q332 300 276 332 Q200 372 128 354 Q56 360 44 296 Q30 188 44 70 Z" fill="rgba(95,214,226,0.045)" stroke="rgba(95,214,226,0.16)" strokeWidth="1.2" />
         <circle cx="182" cy="178" r="20" fill="none" stroke="rgba(224,80,107,0.35)" strokeWidth="1" strokeDasharray="2 4" />
-        {MAP_BEASTS.map((b, i) => (<g key={i} opacity="0.5"><circle cx={b.x} cy={b.y} r="2.4" fill="var(--cyan-dim)" /><text x={b.x} y={b.y - 5} textAnchor="middle" className="hmap-beast">{b.n}</text></g>))}
-        {Object.entries(MAP_NODES).map(([rk, n]) => {
+        {(beasts || []).map((b, i) => (<g key={i} opacity="0.5"><circle cx={b.x} cy={b.y} r="2.4" fill="var(--cyan-dim)" /><text x={b.x} y={b.y - 5} textAnchor="middle" className="hmap-beast">{b.n}</text></g>))}
+        {Object.entries(nodes).map(([rk, n]) => {
           const { d, t } = stat(rk); const frac = t ? d / t : 0; const done = t > 0 && d === t;
           const col = done ? "var(--cyan)" : d > 0 ? "var(--orange)" : "var(--ink-line)";
           return (
@@ -1185,7 +1219,8 @@ function NoteAffordance({ id, notes, setNote, open, setOpen }) {
 }
 
 /* ============================================================ GLOBAL SEARCH ============================================================ */
-function SearchOverlay({ query, setQuery, onClose, nav }) {
+function SearchOverlay({ query, setQuery, onClose, nav, data }) {
+  const { REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS } = data;
   const q = query.trim().toLowerCase();
   const groups = [];
   if (q) {
@@ -1539,6 +1574,9 @@ function StyleBlock() {
 .toggle-on{background:rgba(95,214,226,0.22);border-color:rgba(95,214,226,0.55);}
 .toggle-on .toggle-knob{transform:translateX(19px);background:var(--cyan);}
 .spoiler-hint{font-family:'Inter',sans-serif;font-size:13px;color:var(--cyan-dim);background:rgba(95,214,226,0.07);border:1px dashed rgba(95,214,226,0.35);border-radius:7px;padding:1px 9px;margin-left:6px;cursor:pointer;letter-spacing:.2px;}
+.game-picker{display:flex;gap:7px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:13px;padding:5px;margin:0 0 16px;}
+.game-pill{flex:1;font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:14px;color:var(--parch-dim);background:none;border:none;border-radius:9px;padding:9px 8px;cursor:pointer;letter-spacing:.3px;}
+.game-pill-on{color:var(--abyss);background:linear-gradient(180deg,var(--cyan),var(--cyan-dim));box-shadow:0 2px 10px rgba(95,214,226,0.25);}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 `}</style>);
 }
@@ -4887,4 +4925,4544 @@ const REGION_MAPS = {
   ]
  }
 };
+const TOTK = {
+ "id": "totk",
+ "label": "Tears of the Kingdom",
+ "short": "TotK",
+ "REGIONS": [
+  {
+   "id": "t_sky",
+   "name": "Great Sky Island",
+   "sub": "Main Quest - The opening tutorial",
+   "kind": "region",
+   "tagline": "Wake on a floating island, learn Link's four new arm powers, then dive to the surface of Hyrule below.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "t_sky_s_awaken",
+     "name": "Awakening and First Steps",
+     "sub": "Room of Awakening, meeting the Steward Construct",
+     "reward": "Purah Pad",
+     "steps": [
+      {
+       "id": "t_sky_awaken_01",
+       "k": "step",
+       "t": "Wake in the Room of Awakening. Pick up the Decayed Master Sword off the ground and slash the vines blocking the way to exit.",
+       "items": [
+        {
+         "name": "Decayed Master Sword",
+         "cat": "weapon",
+         "note": "Power 1; only used to cut the exit vines, then sent back to Zelda in the ending cutscene."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_awaken_02",
+       "k": "step",
+       "t": "In the main hall, touch the Dragon Head Island terminal. It starts the cogs turning and lights the gate, then head out toward the water.",
+       "items": []
+      },
+      {
+       "id": "t_sky_awaken_03",
+       "k": "loot",
+       "t": "Dive down through the pools to reach the island surface. On the third, biggest dive, surface by the rubble and open the chest for Archaic Legwear.",
+       "items": [
+        {
+         "name": "Archaic Legwear",
+         "cat": "armor",
+         "note": "Your starting trousers; equip them right away for a little defense."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_awaken_04",
+       "k": "step",
+       "t": "Approach the sleeping Steward Construct. It wakes, hands you the Purah Pad, and points you toward the Temple of Time.",
+       "items": [
+        {
+         "name": "Purah Pad",
+         "cat": "key",
+         "note": "Your map and ability menu, like the Sheikah Slate in the last game."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_awaken_05",
+       "k": "tip",
+       "t": "Your right arm has no power yet. Each Sky Island shrine restores one ability. Take them in the order below for the smoothest run.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_sky_s_ukouh",
+     "name": "Ukouh Shrine - Ultrahand",
+     "sub": "Your first ability: grab, move, and glue objects",
+     "reward": "Ultrahand",
+     "steps": [
+      {
+       "id": "t_sky_ukouh_01",
+       "k": "step",
+       "t": "Head to the glowing Ukouh Shrine near the Steward and enter to receive Ultrahand.",
+       "items": [
+        {
+         "name": "Ultrahand",
+         "cat": "ability",
+         "note": "Pick up, rotate, move, and stick objects together to build things."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_ukouh_02",
+       "k": "step",
+       "t": "Use Ultrahand to grab the boards and lay them across the gap to make a bridge, then cross.",
+       "items": []
+      },
+      {
+       "id": "t_sky_ukouh_03",
+       "k": "step",
+       "t": "Attach a hook to the moving rail platform, then ride it across the next gap. Glue boards together if you need a wider deck.",
+       "items": []
+      },
+      {
+       "id": "t_sky_ukouh_04",
+       "k": "reward",
+       "t": "Touch the green altar to finish the shrine and earn a Light of Blessing. Collect four of these for a heart container.",
+       "items": [
+        {
+         "name": "Light of Blessing",
+         "cat": "key",
+         "note": "Four equal one heart container at a Goddess Statue."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_ukouh_05",
+       "k": "tip",
+       "t": "Hold the Ultrahand button to enter build mode. The control stick rotates the held piece; let go to drop it.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_sky_s_inisa",
+     "name": "In-isa Shrine - Fuse",
+     "sub": "Stick materials onto weapons, shields, and arrows",
+     "reward": "Fuse",
+     "steps": [
+      {
+       "id": "t_sky_inisa_01",
+       "k": "step",
+       "t": "From Ukouh, head toward the lake. Use Ultrahand to build a raft from logs and a fan or sail, or attach logs and paddle across.",
+       "items": []
+      },
+      {
+       "id": "t_sky_inisa_02",
+       "k": "step",
+       "t": "Enter the In-isa Shrine to receive Fuse.",
+       "items": [
+        {
+         "name": "Fuse",
+         "cat": "ability",
+         "note": "Combine a material with a weapon, shield, or arrow for more power, reach, or new effects."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_inisa_03",
+       "k": "step",
+       "t": "Fuse a rock to your stick to smash the cracked wall, and fuse an item to your shield where the puzzle asks.",
+       "items": []
+      },
+      {
+       "id": "t_sky_inisa_04",
+       "k": "loot",
+       "t": "Fuse a Fire Fruit to an arrow to hit a target or light the way, then claim the chest reward inside the shrine.",
+       "items": [
+        {
+         "name": "Fire Fruit",
+         "cat": "material",
+         "note": "Fuse to arrows for a fire shot that bursts into flame on impact."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_inisa_05",
+       "k": "reward",
+       "t": "Reach the altar to complete the shrine and bank another Light of Blessing.",
+       "items": []
+      },
+      {
+       "id": "t_sky_inisa_06",
+       "k": "loot",
+       "t": "Just east of In-isa, slip into Pondside Cave through the narrow tunnel and open the chest for the Archaic Tunic so you are not freezing.",
+       "items": [
+        {
+         "name": "Archaic Tunic",
+         "cat": "armor",
+         "note": "Your starting shirt, found in Pondside Cave near In-isa Shrine."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_sky_s_gutanbac",
+     "name": "Gutanbac Shrine - Ascend",
+     "sub": "The snowy peak: swim up through ceilings",
+     "reward": "Ascend",
+     "steps": [
+      {
+       "id": "t_sky_gutanbac_01",
+       "k": "warn",
+       "t": "The route climbs a cold, snowy mountain. Without cold protection you will lose hearts steadily.",
+       "items": []
+      },
+      {
+       "id": "t_sky_gutanbac_02",
+       "k": "step",
+       "t": "At the base of the slope, pick the Spicy Peppers scattered nearby and cook them at a cooking pot to make a warm dish.",
+       "items": [
+        {
+         "name": "Spicy Pepper",
+         "cat": "material",
+         "note": "Cook into a dish for temporary cold resistance."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_gutanbac_03",
+       "k": "tip",
+       "t": "Pass through the caves on the way up. Throw or fuse Brightbloom Seeds to light the dark passages.",
+       "items": [
+        {
+         "name": "Brightbloom Seed",
+         "cat": "material",
+         "note": "Throw to light up caves and the Depths later."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_gutanbac_04",
+       "k": "step",
+       "t": "Eat the warm dish, climb to the Gutanbac Shrine, and enter to receive Ascend.",
+       "items": [
+        {
+         "name": "Ascend",
+         "cat": "ability",
+         "note": "Swim straight up through most ceilings and pop out on the surface above."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_gutanbac_05",
+       "k": "step",
+       "t": "Use Ascend to rise through the platforms instead of climbing, then finish at the altar for another Light of Blessing.",
+       "items": []
+      },
+      {
+       "id": "t_sky_gutanbac_06",
+       "k": "tip",
+       "t": "Look up before using Ascend; you surface at the first solid ceiling above you. It is the fastest way out of caves and tall rooms.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_sky_s_tot",
+     "name": "Temple of Time - Recall and the Closed Door",
+     "sub": "Meet Rauru's spirit and start The Closed Door",
+     "reward": "Recall",
+     "steps": [
+      {
+       "id": "t_sky_tot_01",
+       "k": "step",
+       "t": "Glide or build your way to the Temple of Time with your three Lights of Blessing. Wing devices or a fan-and-board flyer make the trip easy.",
+       "items": []
+      },
+      {
+       "id": "t_sky_tot_02",
+       "k": "step",
+       "t": "Touch the large tear-shaped stone inside. You see a vision of Zelda and are granted Recall.",
+       "items": [
+        {
+         "name": "Recall",
+         "cat": "ability",
+         "note": "Send an object backward along its own recent path through time."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_tot_03",
+       "k": "step",
+       "t": "Two giant cogs turn on either side of the hall. Use Recall on one to reverse it, hop on, and ride it up to the central ledge.",
+       "items": []
+      },
+      {
+       "id": "t_sky_tot_04",
+       "k": "step",
+       "t": "Try to open the big sealed door. Rauru's spirit appears but lacks the vitality to open it, starting the main quest The Closed Door.",
+       "items": []
+      },
+      {
+       "id": "t_sky_tot_05",
+       "k": "tip",
+       "t": "Rauru is the founding king of Hyrule, not the fifth sage. You meet Mineru and the Spirit Temple much later in the game.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_sky_s_nachoyah",
+     "name": "Nachoyah Shrine - The Fourth Blessing",
+     "sub": "Earn the heart container to open the door",
+     "reward": "Heart Container",
+     "steps": [
+      {
+       "id": "t_sky_nachoyah_01",
+       "k": "step",
+       "t": "Rauru sends you to the hidden Nachoyah Shrine. Use Ascend and the cogs to climb up to reach it.",
+       "items": []
+      },
+      {
+       "id": "t_sky_nachoyah_02",
+       "k": "step",
+       "t": "Enter Nachoyah, which tests Recall. Reverse the moving parts so the path lines up and you can reach the altar.",
+       "items": []
+      },
+      {
+       "id": "t_sky_nachoyah_03",
+       "k": "reward",
+       "t": "Finish the altar for your fourth Light of Blessing.",
+       "items": []
+      },
+      {
+       "id": "t_sky_nachoyah_04",
+       "k": "step",
+       "t": "Return to the Goddess Statue and trade four Lights of Blessing for a heart container.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Your fourth heart; enough vitality to open the sealed door."
+        }
+       ]
+      },
+      {
+       "id": "t_sky_nachoyah_05",
+       "k": "step",
+       "t": "Open the big door at the Temple of Time to complete The Closed Door and trigger the cutscene that sets up your descent.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_sky_s_dive",
+     "name": "Diving to the Surface",
+     "sub": "Leaving Great Sky Island for Hyrule below",
+     "reward": "null",
+     "steps": [
+      {
+       "id": "t_sky_dive_01",
+       "k": "step",
+       "t": "After the cutscene, head to the edge of Great Sky Island. You have no paraglider yet, so you will free-fall toward Hyrule's surface.",
+       "items": []
+      },
+      {
+       "id": "t_sky_dive_02",
+       "k": "step",
+       "t": "Skydive off Great Sky Island down toward the surface of Hyrule far below.",
+       "items": []
+      },
+      {
+       "id": "t_sky_dive_03",
+       "k": "tip",
+       "t": "While skydiving, tilt forward to fall faster and spread out to slow down. You splash into water below, so aim for the lake to land safely.",
+       "items": []
+      },
+      {
+       "id": "t_sky_dive_04",
+       "k": "step",
+       "t": "You touch down on the surface and are told to head for Lookout Landing, the new base camp near Hyrule Castle. This begins your surface adventure.",
+       "items": []
+      },
+      {
+       "id": "t_sky_dive_05",
+       "k": "tip",
+       "t": "You do not get the Paraglider here; Purah hands it over at Lookout Landing after you raise the first Skyview Tower. Until then, use water to break falls.",
+       "items": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t_lookout",
+   "name": "Lookout Landing",
+   "sub": "Main Quest - Hyrule Surface Hub",
+   "kind": "region",
+   "tagline": "Land in Hyrule's wartime hub, reunite with Purah, raise your first Skyview Tower, earn the Paraglider, and set out to fix the four Regional Phenomena.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "t_lookout_arrival",
+     "name": "Landing at Lookout Landing",
+     "sub": "From the Great Sky Island to the Surface hub",
+     "steps": [
+      {
+       "id": "t_lookout_arrival_s1",
+       "k": "step",
+       "t": "After diving from the Great Sky Island, you land near central Hyrule. Head to Lookout Landing, the walled camp just south of Hyrule Castle."
+      },
+      {
+       "id": "t_lookout_arrival_s2",
+       "k": "tip",
+       "t": "Open the map and place a pin on Lookout Landing if you wander. It is the game's main hub, with shops, beds, and an Emergency Shelter."
+      },
+      {
+       "id": "t_lookout_arrival_s3",
+       "k": "step",
+       "t": "Enter the camp and find Purah, the small white-haired researcher in a lab coat. She is near the central Skyview Tower with Josha and Robbie."
+      },
+      {
+       "id": "t_lookout_arrival_warn",
+       "k": "warn",
+       "t": "Gloom-covered enemies roam Hyrule now. Gloom caps your hearts until you reach light or a Lightroot, so avoid the red-black ooze early on."
+      }
+     ]
+    },
+    {
+     "id": "t_lookout_purah",
+     "name": "Meeting Purah",
+     "sub": "Reunion and the Purah Pad",
+     "reward": "Crisis at Hyrule Castle quest",
+     "steps": [
+      {
+       "id": "t_lookout_purah_s1",
+       "k": "step",
+       "t": "Speak with Purah at Lookout Landing. She explains the Upheaval, Zelda's disappearance, and the Gloom spreading across Hyrule."
+      },
+      {
+       "id": "t_lookout_purah_s2",
+       "k": "loot",
+       "t": "Your slate-like device is the Purah Pad, your new map tool. It will sync with Skyview Towers to chart the world once activated.",
+       "items": [
+        {
+         "name": "Purah Pad",
+         "cat": "key",
+         "note": "Your map device. Stores your abilities and unlocks fast travel and tower sync. The successor to the BotW Sheikah Slate."
+        }
+       ]
+      },
+      {
+       "id": "t_lookout_purah_s3",
+       "k": "tip",
+       "t": "Your five abilities are already learned on the Great Sky Island: Ultrahand, Fuse, Ascend, Recall, and Autobuild. They are not runes; the Pad just stores them."
+      }
+     ]
+    },
+    {
+     "id": "t_lookout_castle",
+     "name": "Crisis at Hyrule Castle",
+     "sub": "Investigating the disturbance to the north",
+     "steps": [
+      {
+       "id": "t_lookout_castle_s1",
+       "k": "step",
+       "t": "Purah sends you north to the Hyrule Castle area. The castle has torn free of the ground and floats above a column of Gloom."
+      },
+      {
+       "id": "t_lookout_castle_s2",
+       "k": "step",
+       "t": "Head to the First Gatehouse in the Hyrule Castle Town Ruins and speak with Captain Hoz, who is watching the castle and the figure resembling Zelda."
+      },
+      {
+       "id": "t_lookout_castle_s3",
+       "k": "step",
+       "t": "Report back to Purah at Lookout Landing. She realizes the old map data is gone and that you need a Skyview Tower to chart Hyrule."
+      },
+      {
+       "id": "t_lookout_castle_tip",
+       "k": "tip",
+       "t": "You can't storm the castle yet. The story routes you through the four regions first, so Crisis at Hyrule Castle stays open until much later."
+      }
+     ]
+    },
+    {
+     "id": "t_lookout_tower",
+     "name": "Raising the Skyview Tower",
+     "sub": "Your first tower and the Paraglider",
+     "reward": "Surface map data + Paraglider",
+     "steps": [
+      {
+       "id": "t_lookout_tower_s1",
+       "k": "step",
+       "t": "Meet Purah at the Lookout Landing Skyview Tower beside the camp. Step inside and interact with the terminal to register your Purah Pad."
+      },
+      {
+       "id": "t_lookout_tower_s2",
+       "k": "step",
+       "t": "The tower scans you, then launches you high into the sky, revealing the surrounding central Hyrule Surface map for the first time."
+      },
+      {
+       "id": "t_lookout_tower_loot",
+       "k": "loot",
+       "t": "As you fall, Purah hands you the Paraglider so you can glide down safely. Press the jump button while airborne to deploy it and float to the ground.",
+       "items": [
+        {
+         "name": "Paraglider",
+         "cat": "key",
+         "note": "Glide after tower launches or any fall. Press the jump button mid-air to deploy; gliding drains stamina."
+        }
+       ]
+      },
+      {
+       "id": "t_lookout_tower_s3",
+       "k": "tip",
+       "t": "Skyview Towers double as fast-travel points and launch pads. Use them to reach the Sky islands floating above each region."
+      },
+      {
+       "id": "t_lookout_tower_s4",
+       "k": "step",
+       "t": "Return to Purah after activating the tower. She gives you your next main objective."
+      }
+     ]
+    },
+    {
+     "id": "t_lookout_phenomena",
+     "name": "The Four Regional Phenomena",
+     "sub": "Main objective: help the four peoples",
+     "reward": "Regional Phenomena quest",
+     "steps": [
+      {
+       "id": "t_lookout_phenomena_s1",
+       "k": "step",
+       "t": "Purah starts the Regional Phenomena quest: strange disasters are striking the Rito, Goron, Zora, and Gerudo. Investigate all four."
+      },
+      {
+       "id": "t_lookout_phenomena_tip",
+       "k": "tip",
+       "t": "Wind Temple (Rito, Tulin) near Rito Village; Fire (Goron, Yunobo) at Goron City; Water (Zora, Sidon) at Zora's Domain; Lightning (Gerudo, Riju) at Gerudo Town."
+      },
+      {
+       "id": "t_lookout_phenomena_s2",
+       "k": "optional",
+       "t": "Tackle the regions in any order, but Rito Village (Wind) to the northwest is the gentlest first temple and a great starting point."
+      },
+      {
+       "id": "t_lookout_phenomena_tip2",
+       "k": "tip",
+       "t": "A fifth sage, Mineru, and her Spirit Temple come later in the story after the four phenomena. Don't worry about her yet."
+      }
+     ]
+    },
+    {
+     "id": "t_lookout_camera",
+     "name": "The Camera and Hyrule Compendium",
+     "sub": "The Camera Work in the Depths quest",
+     "reward": "Camera ability + Hyrule Compendium",
+     "steps": [
+      {
+       "id": "t_lookout_camera_s1",
+       "k": "step",
+       "t": "After getting the Paraglider, talk to Josha and Robbie in the Lookout Landing lab. They start the quest Camera Work in the Depths."
+      },
+      {
+       "id": "t_lookout_camera_s2",
+       "k": "step",
+       "t": "Robbie adds the camera to your Purah Pad and asks you to meet him at the chasm south of Lookout Landing. Dive in and glide down into the Depths.",
+       "items": [
+        {
+         "name": "Camera",
+         "cat": "ability",
+         "note": "Purah Pad feature. Open the ability menu and pick the camera to take photos and register Compendium entries."
+        }
+       ]
+      },
+      {
+       "id": "t_lookout_camera_loot",
+       "k": "loot",
+       "t": "Photograph the statue Robbie points out to unlock the Hyrule Compendium, then report back to the lab. Josha rewards you with some Zonaite.",
+       "items": [
+        {
+         "name": "Hyrule Compendium",
+         "cat": "key",
+         "note": "In-game catalog. Snap photos to fill entries for monsters, materials, weapons, and creatures; handy for tracking locations."
+        }
+       ]
+      },
+      {
+       "id": "t_lookout_camera_tip",
+       "k": "tip",
+       "t": "Lightroots, not shrines, are the Depths' map and light points. Activate them like Skyview Towers to brighten and chart the dark underground."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t_wind",
+   "name": "Wind Temple",
+   "sub": "Rito Village & Hebra - Regional Phenomena",
+   "kind": "beast",
+   "tagline": "Brave the Hebra blizzard, climb the sky islands with Tulin, and storm the floating Stormwind Ark to wake the Sage of Wind.",
+   "champion": "Tulin's Gust",
+   "sections": [
+    {
+     "id": "t_wind_s_arrive",
+     "name": "Reaching Rito Village",
+     "sub": "Find your way into the snowstorm",
+     "steps": [
+      {
+       "id": "t_wind_arrive_1",
+       "k": "step",
+       "t": "Head northwest from Lookout Landing across Hyrule Ridge toward Rito Village; the unending blizzard over Hebra marks your destination."
+      },
+      {
+       "id": "t_wind_arrive_2",
+       "k": "tip",
+       "t": "The cold up here saps hearts. Bring warm food, a cold-resistance set like the Snowquill armor, or spicy peppers before you push into Hebra."
+      },
+      {
+       "id": "t_wind_arrive_3",
+       "k": "step",
+       "t": "Climb to the top of Rito Village to Revali's Landing, where Tulin is arguing with his father Teba, the new Village Elder, and his mother Saki."
+      },
+      {
+       "id": "t_wind_arrive_4",
+       "k": "reward",
+       "t": "The Tulin of Rito Village quest begins. Tulin flies off to investigate the storm, and you set out after him."
+      }
+     ]
+    },
+    {
+     "id": "t_wind_s_tulin",
+     "name": "Tracking Down Tulin",
+     "sub": "Across the Hebra mountains",
+     "steps": [
+      {
+       "id": "t_wind_tulin_1",
+       "k": "step",
+       "t": "Follow the snowy trail north into Hebra. The blizzard blocks the open slopes, so take the cave route that climbs up through the mountain."
+      },
+      {
+       "id": "t_wind_tulin_2",
+       "k": "tip",
+       "t": "In the cave, light the campfire and drop a Hylian Pine Cone on it to make an updraft, then glide up through the shaft to keep climbing."
+      },
+      {
+       "id": "t_wind_tulin_3",
+       "k": "step",
+       "t": "Reach the lone cedar tree at the summit of Talonto Peak. Tulin is perched there, upset that an enemy stole his bow nearby."
+      },
+      {
+       "id": "t_wind_tulin_4",
+       "k": "reward",
+       "t": "Tulin joins you and lends his Power of Wind, firing a gust that hurls you forward while you glide.",
+       "items": [
+        {
+         "name": "Tulin's Gust",
+         "cat": "ability",
+         "note": "A wind burst from Tulin that boosts your paraglide forward through the air; he travels with you for the quest."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_wind_s_climb",
+     "name": "Climbing to the Sky",
+     "sub": "The Rising Island Chain",
+     "steps": [
+      {
+       "id": "t_wind_climb_1",
+       "k": "step",
+       "t": "From the Hebra peaks, paraglide off the heights and use Tulin's Gust to launch between the floating stone ruins of the Rising Island Chain."
+      },
+      {
+       "id": "t_wind_climb_2",
+       "k": "step",
+       "t": "Alternate Tulin's Gust to cross gaps horizontally and Ascend to rise up through the undersides of the higher platforms."
+      },
+      {
+       "id": "t_wind_climb_3",
+       "k": "tip",
+       "t": "Make a campfire and drop a Hylian Pine Cone on it to create an updraft, then glide up to islands that look out of reach."
+      },
+      {
+       "id": "t_wind_climb_4",
+       "k": "optional",
+       "t": "Activate any shrine you find among the sky islands to set a fast-travel point and a warm respite from the cold."
+      },
+      {
+       "id": "t_wind_climb_5",
+       "k": "step",
+       "t": "Climb to the top of the chain, then skydive into the eye of the giant tornado to drop onto the Stormwind Ark - the Wind Temple."
+      }
+     ]
+    },
+    {
+     "id": "t_wind_s_locks",
+     "name": "Inside the Stormwind Ark",
+     "sub": "The five locks puzzle",
+     "reward": "Central hatch unlocked",
+     "steps": [
+      {
+       "id": "t_wind_locks_1",
+       "k": "step",
+       "t": "The Ark is a flying ship with a sealed hatch in the center. Activate all five locks to open it and quell the storm."
+      },
+      {
+       "id": "t_wind_locks_2",
+       "k": "tip",
+       "t": "Every lock works the same way: get a fan or windmill spinning, then hit it with Tulin's Gust. You can tackle the five in any order."
+      },
+      {
+       "id": "t_wind_locks_3",
+       "k": "step",
+       "t": "One lock sits behind a broken lever: grab a fallen icicle with Ultrahand, attach it to the lever to free it, then aim a Gust at the fan."
+      },
+      {
+       "id": "t_wind_locks_4",
+       "k": "step",
+       "t": "Another lock uses rotating gears - line up a slab or icicle piece with Ultrahand, use Recall on a turning wheel if needed, then Gust the fan."
+      },
+      {
+       "id": "t_wind_locks_5",
+       "k": "step",
+       "t": "Drop to a lower deck and cross the scaffolding gaps with Tulin's Gust, then blast the fan set up there to light that lock."
+      },
+      {
+       "id": "t_wind_locks_6",
+       "k": "step",
+       "t": "Out on the exterior, glide a laser-lined tunnel and dive past the obstacles to reach a fan platform, then power it with a Gust."
+      },
+      {
+       "id": "t_wind_locks_7",
+       "k": "step",
+       "t": "For the last lock, clear the Constructs guarding the rigging, get the final windmill turning, and finish it with Tulin's Gust."
+      },
+      {
+       "id": "t_wind_locks_8",
+       "k": "reward",
+       "t": "With all five locks lit, return to the center. The hatch opens and Colgera bursts out, dragging you into a midair duel."
+      }
+     ]
+    },
+    {
+     "id": "t_wind_s_colgera",
+     "name": "Boss: Colgera",
+     "sub": "Aerial Phenomenon",
+     "reward": "Heart Container",
+     "steps": [
+      {
+       "id": "t_wind_colgera_1",
+       "k": "step",
+       "t": "You skydive after Colgera. Target its three ice-covered cores - the rounded weak points on its head, body, and tail."
+      },
+      {
+       "id": "t_wind_colgera_2",
+       "k": "tip",
+       "t": "Aim the bow while falling to enter slow-motion. Fuse arrows with a Keese Eyeball to home in, or with fire to crack the ice faster.",
+       "items": [
+        {
+         "name": "Bow",
+         "cat": "bow",
+         "note": "Any bow works; pair with arrows for the diving aerial fight."
+        },
+        {
+         "name": "Keese Eyeball",
+         "cat": "material",
+         "note": "Fuse to an arrow so the shot homes in on Colgera's weak cores."
+        }
+       ]
+      },
+      {
+       "id": "t_wind_colgera_3",
+       "k": "step",
+       "t": "Shatter all three cores. Colgera dives away through a portal, then reappears with its weak points restored for phase two."
+      },
+      {
+       "id": "t_wind_colgera_4",
+       "k": "warn",
+       "t": "In phase two Colgera summons rows of tornadoes that sweep the arena - glide through the safe gaps while you keep diving on the cores."
+      },
+      {
+       "id": "t_wind_colgera_5",
+       "k": "step",
+       "t": "Break the three cores a second time to finish Colgera and disperse the blizzard choking Hebra."
+      },
+      {
+       "id": "t_wind_colgera_6",
+       "k": "reward",
+       "t": "Clearing the temple grants a Heart Container that permanently raises your maximum hearts.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "material",
+         "note": "Permanent +1 to your maximum hearts, awarded for clearing the temple."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_wind_s_reward",
+     "name": "The Sage of Wind",
+     "sub": "Tulin's vow",
+     "reward": "Vow of Tulin, Sage of Wind",
+     "steps": [
+      {
+       "id": "t_wind_reward_1",
+       "k": "step",
+       "t": "Tulin awakens as the Sage of Wind and gives his vow, joining you permanently as a summonable sage companion."
+      },
+      {
+       "id": "t_wind_reward_2",
+       "k": "reward",
+       "t": "You gain the Vow of Tulin, letting you call his avatar and use Tulin's Gust anywhere in the open world.",
+       "items": [
+        {
+         "name": "Tulin's Gust",
+         "cat": "ability",
+         "note": "Summon Tulin's avatar and interact to fire a forward wind burst that supercharges your paraglide and aerial attacks."
+        }
+       ]
+      },
+      {
+       "id": "t_wind_reward_3",
+       "k": "reward",
+       "t": "The Hebra blizzard ends and Rito Village's regional phenomenon is resolved - one of four temples down."
+      },
+      {
+       "id": "t_wind_reward_4",
+       "k": "tip",
+       "t": "Tulin's Gust is amazing for travel: jump, glide, and pulse the Gust to cross huge distances and reach far-off sky islands."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t_fire",
+   "name": "Fire Temple",
+   "sub": "Goron Regional Phenomenon",
+   "kind": "beast",
+   "tagline": "Snap Yunobo out of his Marbled Rock Roast craze, blast Moragia off Death Mountain, dive into the Depths, and ring the gongs to clear the Fire Temple.",
+   "champion": "Yunobo's Charge",
+   "sections": [
+    {
+     "id": "t_fire_s_arrive",
+     "name": "Crisis at Goron City",
+     "sub": "Eldin region, near Death Mountain",
+     "steps": [
+      {
+       "id": "t_fire_s_arrive_step1",
+       "k": "step",
+       "t": "Head to Goron City in the Eldin region. The area is volcanic, so gear up for heat before you go.",
+       "items": [
+        {
+         "name": "Flamebreaker Armor",
+         "cat": "armor",
+         "note": "Sold by the Goron in Goron City, or cook fireproof meals. Stops Eldin's heat damage."
+        }
+       ]
+      },
+      {
+       "id": "t_fire_s_arrive_warn1",
+       "k": "warn",
+       "t": "Eldin's heat sets wooden weapons and shields on fire and drains hearts. Carry fireproof food or wear heat-proof gear."
+      },
+      {
+       "id": "t_fire_s_arrive_step2",
+       "k": "step",
+       "t": "In Goron City the Gorons are obsessed with Marbled Rock Roast, a gloom-tainted rock food that has them too dazed to listen or work."
+      },
+      {
+       "id": "t_fire_s_arrive_tip1",
+       "k": "tip",
+       "t": "The Marbled Rock Roast is the corruption itself. Don't try to feed or bargain with the dazed Gorons; you'll fix it by clearing the temple."
+      },
+      {
+       "id": "t_fire_s_arrive_step3",
+       "k": "step",
+       "t": "Boss Yunobo is up at YunoboCo HQ, north of the city. Goron kids guard a hot cave nearby where he waits in a strange mask; make your way in."
+      }
+     ]
+    },
+    {
+     "id": "t_fire_s_yunobo",
+     "name": "Snap Yunobo Out of It",
+     "reward": "Yunobo joins you and teaches his rolling charge",
+     "steps": [
+      {
+       "id": "t_fire_s_yunobo_step1",
+       "k": "step",
+       "t": "The masked Yunobo turns hostile, curls into a ball, and revs in place before launching himself at you across the room."
+      },
+      {
+       "id": "t_fire_s_yunobo_step2",
+       "k": "step",
+       "t": "Dodge sideways so he rolls past and slams into a wall; he's stunned briefly. Run in and attack the mask before he recovers."
+      },
+      {
+       "id": "t_fire_s_yunobo_warn1",
+       "k": "warn",
+       "t": "He's immune to damage until he hits a wall. Don't stand in his charge line; a wall hit is the only opening to damage him."
+      },
+      {
+       "id": "t_fire_s_yunobo_step3",
+       "k": "step",
+       "t": "Stun and hit him three times until the corrupted mask shatters. Yunobo comes back to his senses and offers to help reach the temple.",
+       "items": [
+        {
+         "name": "Yunobo's Charge",
+         "cat": "ability",
+         "note": "Field version: aim and fire Yunobo like a rolling cannonball to smash marbled rock, gongs and foes."
+        }
+       ]
+      },
+      {
+       "id": "t_fire_s_yunobo_tip1",
+       "k": "tip",
+       "t": "Each time he's hit, his wind-up gets shorter, down to about two seconds. Once stunned you can also tag him with a bow."
+      }
+     ]
+    },
+    {
+     "id": "t_fire_s_descent",
+     "name": "Up Death Mountain, Then Into the Depths",
+     "sub": "Beat Moragia, then dive the crater chasm",
+     "steps": [
+      {
+       "id": "t_fire_s_descent_step1",
+       "k": "step",
+       "t": "Follow Yunobo to the mine-cart rails up Death Mountain. Use Ultrahand to attach a fan to a cart so it self-propels along the track.",
+       "items": [
+        {
+         "name": "Fan (Zonai device)",
+         "cat": "material",
+         "note": "Stick it to a mine cart with Ultrahand for forward thrust along the rails."
+        }
+       ]
+      },
+      {
+       "id": "t_fire_s_descent_step2",
+       "k": "step",
+       "t": "As you ride up, fire Yunobo's charge to smash marbled-rock blockages on the track so the cart keeps climbing toward the summit."
+      },
+      {
+       "id": "t_fire_s_descent_step3",
+       "k": "step",
+       "t": "At the peak, the dragon-like boss Moragia rises from the crater. Board the nearby Zonai fan-glider with a cart and steering stick to fight it."
+      },
+      {
+       "id": "t_fire_s_descent_step4",
+       "k": "step",
+       "t": "Fly the glider and fire Yunobo at each of Moragia's three marbled-rock heads. Destroy all three and its body crumbles.",
+       "items": [
+        {
+         "name": "Yunobo's Charge",
+         "cat": "ability",
+         "note": "Aim from the glider and launch Yunobo at a head; each one downed cuts Moragia's health by a third."
+        }
+       ]
+      },
+      {
+       "id": "t_fire_s_descent_warn1",
+       "k": "warn",
+       "t": "Moragia spits fireballs and lava rocks at the glider. Keep moving and watch your Zonai battery so you don't drop into the lava."
+      },
+      {
+       "id": "t_fire_s_descent_step5",
+       "k": "step",
+       "t": "With Moragia gone, dive into the Death Mountain crater chasm to descend into the Depths beneath Eldin."
+      },
+      {
+       "id": "t_fire_s_descent_step6",
+       "k": "loot",
+       "t": "Activate the Mustis Lightroot to light up the area and add it to your map for fast travel.",
+       "items": [
+        {
+         "name": "Mustis Lightroot",
+         "cat": "key",
+         "note": "Lightroots are the Depths' answer to shrines; touch it to banish the gloom-dark nearby."
+        }
+       ]
+      },
+      {
+       "id": "t_fire_s_descent_step7",
+       "k": "step",
+       "t": "Head west through the Depths toward Lost Gorondia, using carts, fans and Brightbloom Seeds for light until you reach the Fire Temple."
+      }
+     ]
+    },
+    {
+     "id": "t_fire_s_temple",
+     "name": "Inside the Fire Temple",
+     "sub": "Ring five gongs to open the boss door",
+     "steps": [
+      {
+       "id": "t_fire_s_temple_step1",
+       "k": "step",
+       "t": "The temple's central gate has five padlocks. Each lock opens when you ring its matching gong somewhere in the building. Any order works."
+      },
+      {
+       "id": "t_fire_s_temple_step2",
+       "k": "step",
+       "t": "Explore the multi-level rooms and fire Yunobo's charge into each large gong. A solid hit rings it and pops one lock off the gate."
+      },
+      {
+       "id": "t_fire_s_temple_tip1",
+       "k": "tip",
+       "t": "Aim Yunobo from the top of a ramp, not the bottom; he loses steam uphill. Use rail carts and fans to line up tricky gong angles."
+      },
+      {
+       "id": "t_fire_s_temple_step3",
+       "k": "step",
+       "t": "Use Yunobo to smash the marbled rocks blocking paths, and Ascend through ceilings to reach gongs on the upper floors quickly.",
+       "items": [
+        {
+         "name": "Ascend",
+         "cat": "ability",
+         "note": "Swim up through any solid ceiling; great for skipping back up after a lower-floor gong."
+        }
+       ]
+      },
+      {
+       "id": "t_fire_s_temple_tip2",
+       "k": "tip",
+       "t": "Watch for Hydrant Zonai devices: spray water onto lava to harden it into safe stepping platforms toward out-of-reach gongs."
+      },
+      {
+       "id": "t_fire_s_temple_loot1",
+       "k": "loot",
+       "t": "Open chests along the way for arrows, weapons and a small key while hunting gongs.",
+       "items": [
+        {
+         "name": "Fire Temple chests",
+         "cat": "material",
+         "note": "Side rooms hold useful gear; grab them before the boss door."
+        }
+       ]
+      },
+      {
+       "id": "t_fire_s_temple_step4",
+       "k": "step",
+       "t": "With all five locks broken, fire Yunobo up the wall to smash the red boulders on the ceiling above the gate, dropping the temple boss."
+      }
+     ]
+    },
+    {
+     "id": "t_fire_s_boss",
+     "name": "Boss: Marbled Gohma",
+     "sub": "The spider that spawned the rock roast",
+     "reward": "Heart Container",
+     "steps": [
+      {
+       "id": "t_fire_s_boss_step1",
+       "k": "step",
+       "t": "Phase 1: Gohma stands on marbled-rock legs. Fire Yunobo's charge at a leg to shatter it; break enough and it collapses, exposing its eye."
+      },
+      {
+       "id": "t_fire_s_boss_step2",
+       "k": "step",
+       "t": "While it's down, climb onto the boss and wail on the glowing eye with your best melee weapon before it recovers."
+      },
+      {
+       "id": "t_fire_s_boss_warn1",
+       "k": "warn",
+       "t": "It hurls explosive rocks and swipes with its legs when you're close. After enough eye hits it shakes you off and counters; back away when it stirs."
+      },
+      {
+       "id": "t_fire_s_boss_step3",
+       "k": "step",
+       "t": "Phase 2: below half health it climbs onto the ceiling. Center the camera on the leg farthest from you and fire Yunobo to knock it down."
+      },
+      {
+       "id": "t_fire_s_boss_tip1",
+       "k": "tip",
+       "t": "Pick the far leg each time; closer legs are hard for Yunobo to reach on the ceiling. Drop it, attack the eye, repeat until it falls."
+      },
+      {
+       "id": "t_fire_s_boss_reward1",
+       "k": "reward",
+       "t": "Defeat Marbled Gohma to clear the Fire Temple and claim a Heart Container.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Permanently adds one full heart to your max health."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_fire_s_after",
+     "name": "Yunobo, Sage of Fire",
+     "reward": "Sage's Vow; Yunobo's Charge sage power",
+     "steps": [
+      {
+       "id": "t_fire_s_after_step1",
+       "k": "step",
+       "t": "With Gohma gone, the gloom-tainted Marbled Rock Roast loses its hold across Goron City and the Gorons snap back to normal."
+      },
+      {
+       "id": "t_fire_s_after_reward1",
+       "k": "reward",
+       "t": "Yunobo grants you his Sage's Vow, summoning his spirit to fight alongside you.",
+       "items": [
+        {
+         "name": "Sage's Vow (Yunobo)",
+         "cat": "ability",
+         "note": "Yunobo's avatar joins your party; activate his Charge to roll through rock and enemies."
+        },
+        {
+         "name": "Yunobo's Charge",
+         "cat": "ability",
+         "note": "Sage power: press the Sage button near Yunobo to launch a fiery rolling charge that smashes ore, rock and foes."
+        }
+       ]
+      },
+      {
+       "id": "t_fire_s_after_tip1",
+       "k": "tip",
+       "t": "Yunobo's Charge is great for ore deposits and breakable walls out in the field, not just combat. Keep him handy in Eldin."
+      },
+      {
+       "id": "t_fire_s_after_optional1",
+       "k": "optional",
+       "t": "Talk to the recovered Gorons and shopkeepers around Goron City; many reopen their stores and offer new dialogue and side quests."
+      },
+      {
+       "id": "t_fire_s_after_step2",
+       "k": "step",
+       "t": "Report back to advance the main quest. With Fire done, pursue the remaining temples and the wider Regional Phenomena story."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t_water",
+   "name": "Water Temple",
+   "sub": "Sidon of the Zora - Lanayru Regional Phenomenon",
+   "kind": "beast",
+   "tagline": "Clear the sludge drowning Zora's Domain, shoot open a fish-shaped sky island, and wash the muck monster Mucktorok out of the Water Temple.",
+   "champion": "Vow of Sidon, Sage of Water",
+   "sections": [
+    {
+     "id": "t_water_s1",
+     "name": "Sludge Over Zora's Domain",
+     "sub": "Reach the Domain and find Prince Sidon",
+     "steps": [
+      {
+       "id": "t_water_s1_q1",
+       "k": "step",
+       "t": "Travel to Zora's Domain (northeast Lanayru). Sludge coats everything, the locals are suffering, and King Dorephan is gravely ill."
+      },
+      {
+       "id": "t_water_s1_q2",
+       "k": "tip",
+       "t": "Sludge is sticky and damages over time. Wash it off by jumping in clean water or rolling, and clear it before it builds up on you."
+      },
+      {
+       "id": "t_water_s1_q3",
+       "k": "step",
+       "t": "Meet Prince Sidon at Mipha Court, the statue plaza near Ploymus Mountain. He asks for help, kicking off the main quest Sidon of the Zora."
+      },
+      {
+       "id": "t_water_s1_q4",
+       "k": "step",
+       "t": "Find King Dorephan hidden in the Pristine Sanctum behind a waterfall (between Mipha Court and Mikau Lake). Talk to him for the key item."
+      },
+      {
+       "id": "t_water_s1_q5",
+       "k": "loot",
+       "t": "Receive 5 King's Scales from King Dorephan.",
+       "items": [
+        {
+         "name": "King's Scale",
+         "cat": "key",
+         "note": "Fuse one to an arrow and shoot the floating teardrop near the sky island to open the way. You get five, so misses are forgiven."
+        }
+       ]
+      },
+      {
+       "id": "t_water_s1_q6",
+       "k": "tip",
+       "t": "Grab the Zora Armor if you don't have it. It lets you swim up waterfalls, very handy around Zora's Domain and for the temple approach.",
+       "items": [
+        {
+         "name": "Zora Armor",
+         "cat": "armor",
+         "note": "Swim up waterfalls. Helpful for getting around the Domain and reaching the sky."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_water_s2",
+     "name": "The Fish-Shaped Sky Island",
+     "sub": "Shoot the teardrop to open the sludge source",
+     "steps": [
+      {
+       "id": "t_water_s2_q1",
+       "k": "step",
+       "t": "Look up to the fish-shaped Floating Scales Island in the sky, source of the sludge. That island is your target."
+      },
+      {
+       "id": "t_water_s2_q2",
+       "k": "step",
+       "t": "Get airborne to reach it: glide from a high point, or ride a falling sky-island chunk up using Recall."
+      },
+      {
+       "id": "t_water_s2_q3",
+       "k": "step",
+       "t": "Climb to the island's peak and look southwest to spot a cluster of floating rocks forming a giant teardrop shape hanging in the air."
+      },
+      {
+       "id": "t_water_s2_q4",
+       "k": "step",
+       "t": "Fuse a King's Scale to an arrow and fire it through the center of the teardrop. Jump first to slow time and steady your aim in midair."
+      },
+      {
+       "id": "t_water_s2_q5",
+       "k": "reward",
+       "t": "The teardrop lights up and a pillar of light erupts from East Reservoir Lake, marking your next destination on the map."
+      }
+     ]
+    },
+    {
+     "id": "t_water_s3",
+     "name": "Sidon's Power of Water",
+     "sub": "Reach East Reservoir Lake and dive to the temple",
+     "steps": [
+      {
+       "id": "t_water_s3_q1",
+       "k": "step",
+       "t": "Head to East Reservoir Lake and meet Sidon at the green light in the water. He shares his Power of Water for the journey ahead."
+      },
+      {
+       "id": "t_water_s3_q2",
+       "k": "step",
+       "t": "Stand near Sidon and use the prompt to wrap yourself in his water bubble. Your attacks now fling water that washes off sludge.",
+       "items": [
+        {
+         "name": "Sidon's Power of Water",
+         "cat": "ability",
+         "note": "Sidon's water bubble: melee swings throw a tidal wave of water that strips sludge and breaks shields."
+        }
+       ]
+      },
+      {
+       "id": "t_water_s3_q3",
+       "k": "step",
+       "t": "Practice the loop on any sludge enemy: blast the muck off with the water bubble, then strike the exposed foe until it falls."
+      },
+      {
+       "id": "t_water_s3_q4",
+       "k": "step",
+       "t": "With Sidon along, dive into the whirlpool he forms at the green light. It pulls you up into the sky toward the floating Water Temple."
+      },
+      {
+       "id": "t_water_s3_q5",
+       "k": "tip",
+       "t": "Re-grab Sidon's bubble any time it lapses. It refreshes for free and is your main tool for clearing sludge inside the temple."
+      }
+     ]
+    },
+    {
+     "id": "t_water_s4",
+     "name": "The Four Faucets",
+     "sub": "Restore water flow inside the Water Temple",
+     "reward": "Access to the boss; faucets can be done in any order",
+     "steps": [
+      {
+       "id": "t_water_s4_q1",
+       "k": "step",
+       "t": "Touch the central terminal to mark the four faucets on your map. Open all four to restore the flow and reach the boss. Any order works."
+      },
+      {
+       "id": "t_water_s4_q2",
+       "k": "step",
+       "t": "Most faucet wheels just need water hitting the paddles. Use Sidon's water blast, a nearby water bubble, or a water spout to spin them."
+      },
+      {
+       "id": "t_water_s4_q3",
+       "k": "step",
+       "t": "One faucet uses Ascend to reach a high platform; have Tulin's gust push a paddle, or carry water to the wheel to turn it open."
+      },
+      {
+       "id": "t_water_s4_q4",
+       "k": "step",
+       "t": "Sludge-blocked switches: clear the muck with Splash Fruit or Chuchu Jelly arrows, an Opal-fused weapon, or Sidon's water, then hit the switch."
+      },
+      {
+       "id": "t_water_s4_q5",
+       "k": "step",
+       "t": "For the fast-spinning box atop the tall tower, leap off, aim your bow in midair to slow time, and shoot the switch inside to drain the room."
+      },
+      {
+       "id": "t_water_s4_q6",
+       "k": "tip",
+       "t": "Stuck on a wheel? Look for a water source nearby. Ultrahand and Recall can reposition or replay water bubbles and platforms to get flow going."
+      },
+      {
+       "id": "t_water_s4_q7",
+       "k": "loot",
+       "t": "Open the chests around the faucets for arrows and useful materials while you explore.",
+       "items": [
+        {
+         "name": "Bundle of Arrows",
+         "cat": "material",
+         "note": "Common temple chest reward; stock up before the boss."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_water_s5",
+     "name": "Boss: Mucktorok",
+     "sub": "Scourge of the Water Temple",
+     "reward": "Heart Container",
+     "steps": [
+      {
+       "id": "t_water_s5_q1",
+       "k": "warn",
+       "t": "With all four faucets open, use the central pedestal to drop into the arena. Bring Sidon's Power of Water; it's the fastest way to expose the boss."
+      },
+      {
+       "id": "t_water_s5_q2",
+       "k": "step",
+       "t": "Phase 1: Mucktorok rides as a sludge shark, slamming shockwaves and firing a sludge beam. Hit it with water (Sidon's bubble) to wash off the sludge."
+      },
+      {
+       "id": "t_water_s5_q3",
+       "k": "step",
+       "t": "Washing it reveals a small Octorok. While it's exposed and flopping, rush in with melee. Repeat the wash-then-hit cycle to drop its health."
+      },
+      {
+       "id": "t_water_s5_q4",
+       "k": "step",
+       "t": "Phase 2 (half health): it coats the floor in sludge pools and hops between them while spewing muck. Wash a pool with water to deny it cover."
+      },
+      {
+       "id": "t_water_s5_q5",
+       "k": "step",
+       "t": "Catch the Octorok on cleared ground, stun it with a water hit, then close in and finish it with heavy attacks."
+      },
+      {
+       "id": "t_water_s5_q6",
+       "k": "tip",
+       "t": "Stay on clean tiles. Standing in sludge slows you and chips your health. Low gravity here lets you jump and glide over the wave and beam attacks."
+      },
+      {
+       "id": "t_water_s5_q7",
+       "k": "reward",
+       "t": "Defeat Mucktorok for a Heart Container plus some Octorok materials, and the temple's sludge is cleared for good.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "material",
+         "note": "Permanent extra heart awarded for clearing the temple boss."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_water_s6",
+     "name": "Sidon's Vow",
+     "sub": "Awaken the Sage of Water",
+     "reward": "Vow of Sidon, Sage of Water",
+     "steps": [
+      {
+       "id": "t_water_s6_q1",
+       "k": "step",
+       "t": "After the fight, Sidon awakens as the Sage of Water. Speak with him to complete the main quest Sidon of the Zora."
+      },
+      {
+       "id": "t_water_s6_q2",
+       "k": "reward",
+       "t": "Receive the Vow of Sidon. His avatar now follows you; trigger his water ability in the field to shield yourself and clear sludge.",
+       "items": [
+        {
+         "name": "Vow of Sidon, Sage of Water",
+         "cat": "ability",
+         "note": "Summon Sidon's water bubble in the overworld for an offensive and defensive water shield."
+        }
+       ]
+      },
+      {
+       "id": "t_water_s6_q3",
+       "k": "tip",
+       "t": "Sidon's vow pairs well with archery: stand in his bubble so arrows pick up water, useful against fire foes and Gibdos later."
+      },
+      {
+       "id": "t_water_s6_q4",
+       "k": "optional",
+       "t": "Return to King Dorephan and the now-clear Zora's Domain for grateful villagers, restocked shops, and follow-up side quests."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t_lightning",
+   "name": "Lightning Temple",
+   "sub": "Gerudo Desert - Riju, Sage of Lightning",
+   "kind": "beast",
+   "tagline": "Pierce the sand shroud, stand with Riju against the Gibdo swarm, and charge the temple's four batteries to face Queen Gibdo.",
+   "champion": "Vow of Riju",
+   "sections": [
+    {
+     "id": "t_lightning_s_arrival",
+     "name": "The Sand Shroud and Gerudo Refuge",
+     "sub": "Reaching Gerudo Town and finding Riju",
+     "steps": [
+      {
+       "id": "t_lightning_s_arrival_st1",
+       "k": "step",
+       "t": "Head to the Gerudo Desert in Hyrule's southwest. A thick sand shroud now blankets it, so visibility on the ground is near zero."
+      },
+      {
+       "id": "t_lightning_s_arrival_st2",
+       "k": "tip",
+       "t": "To navigate the shroud, climb high and paraglide, or pop a Zonai Rocket to rise above the haze where the map reads clearly again."
+      },
+      {
+       "id": "t_lightning_s_arrival_st3",
+       "k": "warn",
+       "t": "Gibdos roam the sand. These mummy-like foes resist normal hits but crumble fast to electric attacks, so pack shock arrows or electric weapons."
+      },
+      {
+       "id": "t_lightning_s_arrival_st4",
+       "k": "step",
+       "t": "Reach Gerudo Town. With the town evacuated, the residents shelter in the Gerudo Shelter cave. Head inside to find Riju and Buliara."
+      },
+      {
+       "id": "t_lightning_s_arrival_st5",
+       "k": "step",
+       "t": "Speak with Riju and Buliara. Riju agrees to help you find the source of the sand shroud and confront whatever is sending the Gibdos."
+      }
+     ]
+    },
+    {
+     "id": "t_lightning_s_riju",
+     "name": "Riju's Lightning and the Town Defense",
+     "sub": "Learning her power and holding the line",
+     "steps": [
+      {
+       "id": "t_lightning_s_riju_st1",
+       "k": "step",
+       "t": "Riju shares her lightning power. She creates a charged field around your aim point; draw your bow inside it and fire to call a lightning strike.",
+       "items": [
+        {
+         "name": "Riju's Power of Lightning",
+         "cat": "ability",
+         "note": "Stand in Riju's electric field, aim an arrow, and release to call down a lightning bolt on the target."
+        }
+       ]
+      },
+      {
+       "id": "t_lightning_s_riju_st2",
+       "k": "tip",
+       "t": "Riju's lightning is your best tool against the Gibdo nests that keep spawning enemies, and it lights up dark spaces so you can see nearby walls."
+      },
+      {
+       "id": "t_lightning_s_riju_st3",
+       "k": "step",
+       "t": "Fend off the Gibdo assault on Gerudo Town. Clear the waves and protect Riju while you fight your way toward the desert beyond the walls."
+      },
+      {
+       "id": "t_lightning_s_riju_st4",
+       "k": "warn",
+       "t": "Lightning conducts through water and metal. Don't fire Riju's lightning while standing in water or holding a metal weapon, or you'll shock yourself."
+      },
+      {
+       "id": "t_lightning_s_riju_st5",
+       "k": "tip",
+       "t": "Stock up first: grab electric weapons, shock arrows, and plain arrows. You'll burn through arrows powering Riju's lightning all dungeon long."
+      }
+     ]
+    },
+    {
+     "id": "t_lightning_s_temple",
+     "name": "Reaching the Lightning Temple",
+     "sub": "Crossing the desert to the temple entrance",
+     "steps": [
+      {
+       "id": "t_lightning_s_temple_st1",
+       "k": "step",
+       "t": "With Riju along, ride out into the desert toward the source of the shroud, following the trail of Gibdos to the half-buried temple."
+      },
+      {
+       "id": "t_lightning_s_temple_st2",
+       "k": "warn",
+       "t": "At the entrance you fight a preview battle against Queen Gibdo. You can't kill her yet; survive her charge, sand beam, and tornadoes to learn her patterns."
+      },
+      {
+       "id": "t_lightning_s_temple_st3",
+       "k": "step",
+       "t": "At the doors, a gloom cocoon blocks the way. Hit it with Riju's lightning, then loose an arrow into it to burst it open and step inside.",
+       "items": [
+        {
+         "name": "Riju's Power of Lightning",
+         "cat": "ability",
+         "note": "Zap the gloom cocoon over the door, then fire an arrow to break it and open the temple."
+        }
+       ]
+      },
+      {
+       "id": "t_lightning_s_temple_st4",
+       "k": "loot",
+       "t": "Just inside, grab the Korok Frond. Swing it to blow away mounds of sand covering devices and paths as you explore the temple.",
+       "items": [
+        {
+         "name": "Korok Frond",
+         "cat": "weapon",
+         "note": "A leaf-fan weapon found inside; swing it to blow sand off hidden devices and platforms."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_lightning_s_interior",
+     "name": "Inside the Temple: Four Batteries",
+     "sub": "Light, mirrors, and powering the elevator",
+     "reward": "Access to the boss elevator",
+     "steps": [
+      {
+       "id": "t_lightning_s_interior_st1",
+       "k": "step",
+       "t": "Enter the main room and activate the central Zonai device. This unlocks the temple's travel point and sets the goal: charge four batteries."
+      },
+      {
+       "id": "t_lightning_s_interior_st2",
+       "k": "tip",
+       "t": "The four batteries sit on different floors and can be charged in any order. Power all four to bring the central elevator online."
+      },
+      {
+       "id": "t_lightning_s_interior_st3",
+       "k": "step",
+       "t": "Each battery is reached by routing a beam of light through mirrors to a receptor. Use Ultrahand to grab and rotate mirror panels and aim the beam.",
+       "items": [
+        {
+         "name": "Ultrahand",
+         "cat": "ability",
+         "note": "Grab and rotate mirror panels to aim light beams at the receptors that open the way to each battery."
+        }
+       ]
+      },
+      {
+       "id": "t_lightning_s_interior_st4",
+       "k": "step",
+       "t": "Watch for Soldier Constructs guarding the rooms, some perched on Hover Stones. Clear them, then steady the reflected beam so the receptor activates."
+      },
+      {
+       "id": "t_lightning_s_interior_st5",
+       "k": "step",
+       "t": "Use Ascend to reach higher floors and Recall to reverse rotating wheels and platforms when lining up a beam.",
+       "items": [
+        {
+         "name": "Ascend",
+         "cat": "ability",
+         "note": "Rise up through ceilings to reach battery platforms and upper floors."
+        },
+        {
+         "name": "Recall",
+         "cat": "ability",
+         "note": "Reverse moving platforms or wheels to line up a light beam."
+        }
+       ]
+      },
+      {
+       "id": "t_lightning_s_interior_st6",
+       "k": "step",
+       "t": "At each battery, fire Riju's lightning at the prong on top to charge it. With all four charged, return to the center and ride the elevator to the boss."
+      },
+      {
+       "id": "t_lightning_s_interior_st7",
+       "k": "reward",
+       "t": "All four batteries charged opens the way down. Reactivate the central Zonai device to power the elevator that carries you to Queen Gibdo."
+      }
+     ]
+    },
+    {
+     "id": "t_lightning_s_boss",
+     "name": "Boss: Queen Gibdo",
+     "sub": "The source of the sand shroud",
+     "reward": "Vow of Riju and a Heart Container",
+     "steps": [
+      {
+       "id": "t_lightning_s_boss_st1",
+       "k": "warn",
+       "t": "Queen Gibdo's hardened shell shrugs off ordinary attacks. You must break it with Riju's lightning before any of your hits will land."
+      },
+      {
+       "id": "t_lightning_s_boss_st2",
+       "k": "step",
+       "t": "Stand in Riju's field, aim, and fire to zap the Queen. Her armor flakes off and she turns white and vulnerable for a short window."
+      },
+      {
+       "id": "t_lightning_s_boss_st3",
+       "k": "step",
+       "t": "While she's exposed, rush in and unload with your strongest melee weapon before the armor reforms. Repeat the shock-then-strike loop."
+      },
+      {
+       "id": "t_lightning_s_boss_st4",
+       "k": "warn",
+       "t": "Dodge her three attacks: a forward charge, a ground-tracking sand beam, and summoned tornadoes. Keep moving and hold some distance to read them."
+      },
+      {
+       "id": "t_lightning_s_boss_st5",
+       "k": "step",
+       "t": "At about half health she enters phase two and summons Gibdos from the nests around the arena. Blast the nests with Riju's lightning, then resume the loop."
+      },
+      {
+       "id": "t_lightning_s_boss_st6",
+       "k": "reward",
+       "t": "Down Queen Gibdo to lift the sand shroud and free the Gerudo. Riju joins you as the Sage of Lightning, and you claim a Heart Container.",
+       "items": [
+        {
+         "name": "Vow of Riju",
+         "cat": "ability",
+         "note": "Sage of Lightning. Summon Riju's avatar in the field to fight alongside you."
+        },
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Boss reward; permanently adds one heart to your max health."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_lightning_s_vow",
+     "name": "Using the Vow of Riju",
+     "sub": "The Sage of Lightning's power in the field",
+     "steps": [
+      {
+       "id": "t_lightning_s_vow_st1",
+       "k": "step",
+       "t": "Leave any settlement, then approach Riju's avatar in the field and press the prompt to activate her power, conjuring a lightning field around your aim.",
+       "items": [
+        {
+         "name": "Vow of Riju",
+         "cat": "ability",
+         "note": "Activate near Riju's avatar, then fire an arrow into her field to call a lightning strike on enemies."
+        }
+       ]
+      },
+      {
+       "id": "t_lightning_s_vow_st2",
+       "k": "tip",
+       "t": "Fire an arrow inside the field to drop a lightning bolt that hits everything caught in it. Great for crowds, electric puzzles, and Gibdos anywhere."
+      },
+      {
+       "id": "t_lightning_s_vow_st3",
+       "k": "tip",
+       "t": "The field also outlines nearby walls and mounds, so it doubles as a way to see and navigate dark areas like the Depths."
+      },
+      {
+       "id": "t_lightning_s_vow_st4",
+       "k": "warn",
+       "t": "Lightning conducts through water and metal. Don't trigger it while standing in a puddle or holding a metal weapon, or you'll shock yourself."
+      },
+      {
+       "id": "t_lightning_s_vow_st5",
+       "k": "optional",
+       "t": "Bring a Sage's Will to the Spirit Temple later to upgrade the Vow of Riju, raising its strength."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t_spirit",
+   "name": "The Fifth Sage",
+   "sub": "Main Quest: Guidance from Ages Past",
+   "kind": "beast",
+   "tagline": "Chase the masked light to the Construct Factory, build Mineru a body, then duel the Seized Construct to wake the Sage of Spirit.",
+   "champion": "Vow of Mineru",
+   "sections": [
+    {
+     "id": "t_spirit_s1",
+     "name": "Dragonhead Island & the Mask",
+     "sub": "Sky layer above Faron",
+     "steps": [
+      {
+       "id": "t_spirit_s1_1",
+       "k": "tip",
+       "t": "This quest opens after the four temples. Bring plenty of hearts and stock Zonai devices like wings, fans, and a steering stick.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s1_2",
+       "k": "step",
+       "t": "Travel to Dragonhead Island in the sky, the large stone dragon-head ruin floating above the Faron region. Use a tower launch or skydive in.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s1_3",
+       "k": "step",
+       "t": "Reach Joku-u Shrine on the island. Just past it, pick up the Zonai mask that emits a green homing light beam.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s1_4",
+       "k": "step",
+       "t": "Build a flying machine (wings or fans plus a steering stick) and Ultrahand the mask onto the front so the green beam points your flight path.",
+       "items": [
+        {
+         "name": "Ultrahand",
+         "cat": "ability",
+         "note": "Attach the mask to your build so its light guides you."
+        }
+       ]
+      },
+      {
+       "id": "t_spirit_s1_5",
+       "k": "step",
+       "t": "Follow the green beam down to the surface. It leads to a large stone owl statue with a pedestal out front, near Tobio's Hollow Chasm.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s1_6",
+       "k": "step",
+       "t": "Land and set the mask on the owl's pedestal. A cutscene plays and the platform lowers you into the Depths toward the Construct Factory.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_spirit_s2",
+     "name": "The Construct Factory",
+     "sub": "Faron Depths",
+     "steps": [
+      {
+       "id": "t_spirit_s2_1",
+       "k": "step",
+       "t": "The platform drops you at the Construct Factory in the Depths, where Mineru's spirit greets you and asks you to build her a body.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s2_2",
+       "k": "step",
+       "t": "First, rotate the Zonai mask and set it into the head slot on the construct frame at the central platform before gathering the limbs.",
+       "items": [
+        {
+         "name": "Ultrahand",
+         "cat": "ability",
+         "note": "Rotate and seat the mask into the head socket."
+        }
+       ]
+      },
+      {
+       "id": "t_spirit_s2_3",
+       "k": "tip",
+       "t": "Light a nearby Lightroot if you pass one to brighten the Depths. The four limb depots branch off around the central factory.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s2_4",
+       "k": "step",
+       "t": "Visit the four storehouses in any order: Left-Arm Depot, Right-Arm Depot, Left-Leg Depot, and Right-Leg Depot. Solve each room's Zonai puzzle to claim its part.",
+       "items": [
+        {
+         "name": "Ultrahand",
+         "cat": "ability",
+         "note": "Most depot puzzles use Ultrahand to move parts, rails, and platforms."
+        }
+       ]
+      },
+      {
+       "id": "t_spirit_s2_5",
+       "k": "tip",
+       "t": "Carry each retrieved limb out yourself or build a hauler. If you drop one, your map still marks the depot so you can backtrack.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s2_6",
+       "k": "step",
+       "t": "Return to the frame and use Ultrahand to attach each arm and leg to its correct socket. Once all parts fit, Mineru's Construct comes to life.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_spirit_s3",
+     "name": "Piloting Mineru's Construct",
+     "sub": "To the Spirit Temple",
+     "steps": [
+      {
+       "id": "t_spirit_s3_1",
+       "k": "step",
+       "t": "Climb aboard and pilot Mineru's Construct. Moving steadily drains its energy, so let it rest to recharge as you travel and watch the gauge.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s3_2",
+       "k": "tip",
+       "t": "Fuse weapons to the construct's hands. Mineru suggests a Spiked Iron Ball and a Shock Emitter; a Zonai Cannon also helps a lot for the boss.",
+       "items": [
+        {
+         "name": "Fuse",
+         "cat": "ability",
+         "note": "Attach a Spiked Iron Ball and a Shock Emitter (and a Cannon if you have one)."
+        },
+        {
+         "name": "Spiked Iron Ball",
+         "cat": "material",
+         "note": "Heavy melee hits to combo the boss while it is down."
+        },
+        {
+         "name": "Shock Emitter",
+         "cat": "material",
+         "note": "Zonai device; stuns the boss so you can close in."
+        }
+       ]
+      },
+      {
+       "id": "t_spirit_s3_3",
+       "k": "step",
+       "t": "Follow the path through the Depths, clearing Constructs as practice, until you reach the entrance to the Spirit Temple.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s3_4",
+       "k": "warn",
+       "t": "If the energy gauge empties the construct slows and stalls. Pause to let it recharge, or stock extra Zonai Charges before the boss arena.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_spirit_s4",
+     "name": "Boss: Seized Construct",
+     "sub": "Spirit Temple",
+     "reward": "Heart Container",
+     "steps": [
+      {
+       "id": "t_spirit_s4_1",
+       "k": "warn",
+       "t": "Stay aboard Mineru's Construct. The arena floor is covered in Gloom that drains Link fast on foot, and the ring is fenced by barbed wire.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s4_2",
+       "k": "step",
+       "t": "Phase 1: guard its telegraphed punches, then counter. Stun it with the Shock Emitter, walk in, and land spiked-ball hits to shove it into the wire fence.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s4_3",
+       "k": "tip",
+       "t": "Knocking it into the barbed-wire fence is the big damage. Circle the boss to dodge its melee swings and ranged shots between knockdowns.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s4_4",
+       "k": "step",
+       "t": "Phase 2: it grows extra arms and fuses a Rocket to fly, firing Cannons. Hit it with a Cannon shot to slam it back down, then resume your combos.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s4_5",
+       "k": "reward",
+       "t": "Beat the Seized Construct to earn a Heart Container.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your maximum."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_spirit_s5",
+     "name": "The Sage of Spirit",
+     "sub": "Quest reward",
+     "reward": "Vow of Mineru (Sage of Spirit)",
+     "steps": [
+      {
+       "id": "t_spirit_s5_1",
+       "k": "reward",
+       "t": "Mineru is freed as the fifth sage. She grants the Vow of Mineru, joining your party as the Sage of Spirit.",
+       "items": [
+        {
+         "name": "Vow of Mineru",
+         "cat": "ability",
+         "note": "Sage of Spirit; summons her construct avatar to fight at your side."
+        }
+       ]
+      },
+      {
+       "id": "t_spirit_s5_2",
+       "k": "tip",
+       "t": "Mineru's construct avatar charges in and pounds enemies, and rounds out all five sage vows.",
+       "items": []
+      },
+      {
+       "id": "t_spirit_s5_3",
+       "k": "tip",
+       "t": "With all five sages secured, you're ready for the endgame. Pursue the Trail of the Master Sword and the final approach to Ganondorf.",
+       "items": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t_castle",
+   "name": "Find the Princess",
+   "sub": "Chase Zelda's trail across Hyrule",
+   "kind": "region",
+   "tagline": "Follow the Dragon's Tears, face the false Zelda at Hyrule Castle, claim the Master Sword, and ready yourself for the Depths.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "t_castle_s1_tears",
+     "name": "The Dragon's Tears",
+     "sub": "Read the geoglyphs and uncover Zelda's fate",
+     "reward": "Story memories that reveal Zelda's journey to the past",
+     "steps": [
+      {
+       "id": "t_castle_s1_st1",
+       "k": "step",
+       "t": "Find the first geoglyph by New Serenne Stable in Hyrule Ridge, then head to the Forgotten Temple northwest of there to begin The Dragon's Tears.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s1_st2",
+       "k": "step",
+       "t": "Meet Impa and Cado at the Forgotten Temple. They reveal a floor map marking every geoglyph and point you toward the rest.",
+       "items": [
+        {
+         "name": "Impa",
+         "cat": "key",
+         "note": "Quest-giver who studies the geoglyphs from her hot-air balloon."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s1_st3",
+       "k": "step",
+       "t": "Touch the Dragon's Tear in the first geoglyph, the King Rauru drawing by New Serenne Stable, to watch its memory cutscene.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s1_st4",
+       "k": "loot",
+       "t": "Visit all 11 geoglyphs across the surface and touch each Dragon's Tear, the solid teardrop among the hollow ones, to collect its memory.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s1_st5",
+       "k": "tip",
+       "t": "Activate Skyview Towers first. From the air you can spot the huge ground drawings and pin each geoglyph on your Purah Pad map.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s1_st6",
+       "k": "tip",
+       "t": "Memories play out of order, so the story may feel scrambled. Viewing them by number in your Adventure Log keeps things clear.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s1_st7",
+       "k": "warn",
+       "t": "These memories are heavy spoilers for the whole plot. They are optional, but they explain who you have really been chasing.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_castle_s2_lightdragon",
+     "name": "The Twelfth Tear",
+     "sub": "Chase the dragon for the final memory",
+     "reward": "The truth: Zelda became the Light Dragon",
+     "steps": [
+      {
+       "id": "t_castle_s2_st1",
+       "k": "step",
+       "t": "After the 11 geoglyph memories, you're told a final, 12th tear waits in the Akkala region. A new marker appears far to the northeast.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s2_st2",
+       "k": "step",
+       "t": "Travel to the tip of Rist Peninsula in Akkala and touch the final Dragon's Tear resting there.",
+       "items": [
+        {
+         "name": "Light Dragon",
+         "cat": "key",
+         "note": "The eternal dragon that circles Hyrule; the final tear reveals its true identity."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s2_st3",
+       "k": "reward",
+       "t": "The last memory confirms Zelda swallowed her Secret Stone and became the Light Dragon to one day restore the broken Master Sword.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s2_st4",
+       "k": "tip",
+       "t": "Remember this. The Light Dragon's flight path now matters: she carries the Master Sword you'll claim later in this chapter.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_castle_s3_castle",
+     "name": "Crisis at Hyrule Castle",
+     "sub": "Chase the Zelda sightings into the throne room",
+     "reward": "Heart Container",
+     "steps": [
+      {
+       "id": "t_castle_s3_st1",
+       "k": "step",
+       "t": "At Lookout Landing, Purah's telescope spots Princess Zelda at risen Hyrule Castle. Speak with Purah to start Crisis at Hyrule Castle.",
+       "items": [
+        {
+         "name": "Purah",
+         "cat": "key",
+         "note": "Lookout Landing's lead researcher; sends you to the castle after the Zelda sighting."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s3_st2",
+       "k": "step",
+       "t": "Cross to Hyrule Castle, now floating above its moat. Climb or use Ascend to follow the figure of Zelda deeper inside.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s3_st3",
+       "k": "step",
+       "t": "Chase the phantom Zelda through the halls. She lures you on, and enemies like Shock Likes block the way as you press toward the throne room.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s3_st4",
+       "k": "step",
+       "t": "In the throne room the false Zelda vanishes and the real threat appears: Phantom Ganon, a puppet of Ganondorf, attacks in multiple forms.",
+       "items": [
+        {
+         "name": "Phantom Ganon",
+         "cat": "key",
+         "note": "Ganondorf's puppet boss; several spawn at once, then a second wave adds gloom to the floor."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s3_st5",
+       "k": "step",
+       "t": "Defeat every Phantom Ganon to win. Summon your sages to keep the copies busy so you can fight them one at a time.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s3_st6",
+       "k": "reward",
+       "t": "You earn a Heart Container. The castle Zelda was a fake; return to Purah to close the quest and begin Find the Fifth Sage.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s3_st7",
+       "k": "tip",
+       "t": "Gloom lowers your max hearts. Bring sunny dishes made with sundelions to recover, and strong fused weapons for the Phantom Ganon fight.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_castle_s4_dekutree",
+     "name": "Recovering the Hero's Sword",
+     "sub": "Cleanse Korok Forest and seek the Deku Tree",
+     "reward": "A quest marker tracking the Master Sword",
+     "steps": [
+      {
+       "id": "t_castle_s4_st1",
+       "k": "step",
+       "t": "Head for the Lost Woods and Korok Forest. The surface path is sealed by gloom fog, so you'll need to reach the Great Deku Tree from below.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s4_st2",
+       "k": "step",
+       "t": "Drop into the Depths via a nearby chasm, then use Ascend to rise up inside the Deku Tree and defeat the Gloom Hands and Phantom Ganon at the source.",
+       "items": [
+        {
+         "name": "Gloom Hands",
+         "cat": "key",
+         "note": "Crawling gloom arms; fire and bomb flowers work well, and a Phantom Ganon appears once they fall."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s4_st3",
+       "k": "step",
+       "t": "With the forest cleansed, speak with the Great Deku Tree to start Recovering the Hero's Sword. He confirms the Master Sword rests with the Light Dragon.",
+       "items": [
+        {
+         "name": "Great Deku Tree",
+         "cat": "key",
+         "note": "Guardian of Korok Forest; points you to the Master Sword on the dragon."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s4_st4",
+       "k": "reward",
+       "t": "The quest adds a marker that always points to the Master Sword, tracking the Light Dragon wherever she flies.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "t_castle_s5_mastersword",
+     "name": "The Master Sword",
+     "sub": "Pull the blade from the Light Dragon",
+     "reward": "Master Sword",
+     "steps": [
+      {
+       "id": "t_castle_s5_st1",
+       "k": "warn",
+       "t": "Pulling the sword drains stamina fast. You need two full stamina wheels, so upgrade with Stamina Vessels and Lights of Blessing first.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s5_st2",
+       "k": "step",
+       "t": "Track the Light Dragon along her slow circuit. Launch from a Skyview Tower or sky island and glide down onto her back.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s5_st3",
+       "k": "step",
+       "t": "Walk along the dragon's spine toward her head. Tulin's gust helps cover distance if you fall short on the glide.",
+       "items": [
+        {
+         "name": "Tulin's Gust",
+         "cat": "ability",
+         "note": "Rito sage ability; a burst of wind that extends your glide to reach the dragon."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s5_st4",
+       "k": "reward",
+       "t": "At the dragon's head, hold the interact button as she shakes to draw out the restored Master Sword, the Blade of Evil's Bane.",
+       "items": [
+        {
+         "name": "Master Sword",
+         "cat": "weapon",
+         "note": "Legendary sword; never breaks, recharges after use, and doubles its power against Ganondorf and Phantom Ganon."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s5_st5",
+       "k": "tip",
+       "t": "No safe landing spot? Stand on the dragon's broad back to refill stamina between attempts, then move up when your wheel is full.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s5_st6",
+       "k": "optional",
+       "t": "While riding, harvest dragon parts. Touching the Light Dragon's scales, claws, fangs, or horn yields rare crafting materials.",
+       "items": [
+        {
+         "name": "Light Dragon's Scale",
+         "cat": "material",
+         "note": "Rare fuse and upgrade material gathered by touching the dragon's body."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "t_castle_s6_depths",
+     "name": "Preparing for the Depths",
+     "sub": "Gear up before going underground",
+     "reward": "A safer descent into the dark",
+     "steps": [
+      {
+       "id": "t_castle_s6_st1",
+       "k": "step",
+       "t": "Find a chasm on the surface and drop in to enter the Depths, the pitch-black world layer beneath Hyrule.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s6_st2",
+       "k": "step",
+       "t": "Activate Lightroots to light up areas and reveal the map. Each Lightroot sits directly below a surface shrine.",
+       "items": [
+        {
+         "name": "Lightroot",
+         "cat": "key",
+         "note": "Glowing root that illuminates a chunk of the Depths and acts as a fast-travel point."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s6_st3",
+       "k": "tip",
+       "t": "Stock Brightbloom Seeds. Throw them for light, or fuse them to arrows to scout ahead and reveal nearby Lightroots in the dark.",
+       "items": [
+        {
+         "name": "Brightbloom Seed",
+         "cat": "material",
+         "note": "Glowing seed; throw or fuse to arrows to light the Depths."
+        }
+       ]
+      },
+      {
+       "id": "t_castle_s6_st4",
+       "k": "warn",
+       "t": "Gloom covers much of the Depths floor and lowers your max hearts. Bring sundelion dishes to recover safely.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s6_st5",
+       "k": "tip",
+       "t": "The Master Sword and gloom-resistant gear like the Depths armor sets make exploring far less punishing down there.",
+       "items": []
+      },
+      {
+       "id": "t_castle_s6_st6",
+       "k": "tip",
+       "t": "Use Autobuild to quickly rebuild light-rigged vehicles or bridges once you've collected Zonaite and schematics in the Depths.",
+       "items": [
+        {
+         "name": "Autobuild",
+         "cat": "ability",
+         "note": "Recreates saved or recent builds, great for traversing the vast dark Depths."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "t_depths",
+   "name": "Imprisoning the Demon King",
+   "sub": "Final descent beneath Hyrule Castle",
+   "kind": "region",
+   "champion": null,
+   "tagline": "Plunge into the chasm below Hyrule Castle, fight through the Demon King's Army, and end the war with Ganondorf for good.",
+   "sections": [
+    {
+     "id": "t_depths_s1_prep",
+     "name": "Before You Drop In",
+     "sub": "Get ready for the point of no return",
+     "steps": [
+      {
+       "id": "t_depths_s1_warn_pnr",
+       "k": "warn",
+       "t": "Once you reach the final arena you cannot leave or warp out without reloading a save. Finish your prep beforehand."
+      },
+      {
+       "id": "t_depths_s1_tip_save",
+       "k": "tip",
+       "t": "This quest is the endgame, not the end of the game. Beating it returns you to before the descent, so feel free to dive when ready."
+      },
+      {
+       "id": "t_depths_s1_step_meals",
+       "k": "step",
+       "t": "Cook a stack of Sunny meals with Sundelions to recover hearts lost to Gloom, plus your best hearty or full-heal dishes.",
+       "items": [
+        {
+         "name": "Sundelion",
+         "cat": "material",
+         "note": "Cook into Sunny dishes to restore Gloom-locked hearts during the fight."
+        }
+       ]
+      },
+      {
+       "id": "t_depths_s1_step_armor",
+       "k": "step",
+       "t": "Equip Gloom-resist gear if you have it. The Depths armor set or Gloom-resist food eases the long descent through the chasm.",
+       "items": [
+        {
+         "name": "Depths Armor Set",
+         "cat": "armor",
+         "note": "Optional. Reduces Gloom buildup while traversing the chasm; not required if you carry Sunny food."
+        }
+       ]
+      },
+      {
+       "id": "t_depths_s1_step_master",
+       "k": "step",
+       "t": "Bring the Master Sword if you have it. You can still start the fight without it, but you will want it for the Demon Dragon finale.",
+       "items": [
+        {
+         "name": "Master Sword",
+         "cat": "weapon",
+         "note": "Strongly recommended for the dragon. If missing, Zelda the Light Dragon delivers it before that phase."
+        }
+       ]
+      },
+      {
+       "id": "t_depths_s1_step_arrows",
+       "k": "step",
+       "t": "Pack plenty of arrows plus Bomb Flowers, Puffshrooms, and tough Fuse materials. Stock shields and a few spare weapons too."
+      }
+     ]
+    },
+    {
+     "id": "t_depths_s2_descent",
+     "name": "Into the Chasm",
+     "sub": "Descend beneath Hyrule Castle",
+     "steps": [
+      {
+       "id": "t_depths_s2_step_chasm",
+       "k": "step",
+       "t": "Travel to Hyrule Castle and dive into the Hyrule Castle Chasm. Paraglide down into the dark and land safely in the Depths below."
+      },
+      {
+       "id": "t_depths_s2_loot_lightroot",
+       "k": "loot",
+       "t": "Activate the Lightroot at the bottom to light the area and set a fast-travel point right at the start of the descent."
+      },
+      {
+       "id": "t_depths_s2_step_path",
+       "k": "step",
+       "t": "Follow the path downward. Slip past Horriblins and Like Likes; you do not have to clear every enemy to keep moving."
+      },
+      {
+       "id": "t_depths_s2_warn_lynel",
+       "k": "warn",
+       "t": "Lynels roam parts of the route. Fight one for great loot or sprint past to the next passage if you would rather save resources."
+      },
+      {
+       "id": "t_depths_s2_step_chamber",
+       "k": "step",
+       "t": "Pass the Forgotten Foundation and the familiar opening-scene mural, then reach the Imprisoning Chamber where Ganondorf was sealed."
+      },
+      {
+       "id": "t_depths_s2_step_dive",
+       "k": "step",
+       "t": "Blast open the path and dive off the platform into the hole below to fall into Gloom's Lair. A cutscene plays, then the gauntlet begins."
+      }
+     ]
+    },
+    {
+     "id": "t_depths_s3_army",
+     "name": "The Demon King's Army",
+     "sub": "Survive the gauntlet of monsters",
+     "reward": "The sages rejoin you for the battle",
+     "steps": [
+      {
+       "id": "t_depths_s3_step_waves",
+       "k": "step",
+       "t": "Battle four waves of the army: a swarm of Bokoblins with a Boss Bokoblin, then Lizalfos, then Gibdos, and finally Moblins."
+      },
+      {
+       "id": "t_depths_s3_tip_sages",
+       "k": "tip",
+       "t": "Any sages you have unlocked fight alongside you here. Stand near a sage and press the prompt to trigger their ability and thin the crowd fast."
+      },
+      {
+       "id": "t_depths_s3_step_gibdo",
+       "k": "step",
+       "t": "Stun Gibdos with a Dazzlefruit blast, a Splash Fruit, or any elemental hit to break their armor, then strike while they are exposed."
+      },
+      {
+       "id": "t_depths_s3_warn_gloom",
+       "k": "warn",
+       "t": "The floor pools with Gloom in spots. Avoid standing in it; eat a Sunny dish if your max hearts shrink too far."
+      },
+      {
+       "id": "t_depths_s3_reward_clear",
+       "k": "reward",
+       "t": "Clear all the waves to trigger a cutscene. The sages pledge to fight with you, then Ganondorf rises for the final battle."
+      }
+     ]
+    },
+    {
+     "id": "t_depths_s4_ganon1",
+     "name": "Demon King Ganondorf: Phases 1 & 2",
+     "sub": "Sword duel, then the Phantom Ganons",
+     "steps": [
+      {
+       "id": "t_depths_s4_tip_master",
+       "k": "tip",
+       "t": "If you arrive without the Master Sword, a cutscene has Zelda the Light Dragon deliver it before the dragon phase. Having it early is easier."
+      },
+      {
+       "id": "t_depths_s4_step_p1",
+       "k": "step",
+       "t": "Phase 1: Ganondorf cycles one-handed, two-handed, spear, and bow attacks. Watch his telegraphed swings, dodge late, and Flurry Rush for free hits."
+      },
+      {
+       "id": "t_depths_s4_warn_gloomhit",
+       "k": "warn",
+       "t": "His attacks deal Gloom damage that locks off hearts. Keep distance, heal with Sunny food, and do not over-commit."
+      },
+      {
+       "id": "t_depths_s4_step_p2",
+       "k": "step",
+       "t": "Phase 2: He summons five Phantom Ganon copies. Send your sages to occupy the phantoms while you focus the real Ganondorf."
+      },
+      {
+       "id": "t_depths_s4_tip_recall",
+       "k": "tip",
+       "t": "When he hurls Gloom projectiles, use Recall to fling one straight back at him, opening a window to rush in and attack."
+      },
+      {
+       "id": "t_depths_s4_step_absorb",
+       "k": "step",
+       "t": "At the halfway mark Ganondorf absorbs the phantoms and banishes your sages, ending the phase and starting the one-on-one fight."
+      }
+     ]
+    },
+    {
+     "id": "t_depths_s5_ganon2",
+     "name": "Demon King Ganondorf: Phase 3",
+     "sub": "One-on-one with the secret stone",
+     "steps": [
+      {
+       "id": "t_depths_s5_step_swallow",
+       "k": "step",
+       "t": "Ganondorf draws on his secret stone and powers up alone. His attacks shift to fast melee combos and Gloom magic AoE blasts."
+      },
+      {
+       "id": "t_depths_s5_step_flurry",
+       "k": "step",
+       "t": "Keep dodging into Flurry Rushes; it is your safest damage. The Master Sword hits especially hard against the Demon King's power."
+      },
+      {
+       "id": "t_depths_s5_warn_arms",
+       "k": "warn",
+       "t": "Beware his unblockable Gloom-hand grab and ground eruptions. Stay mobile and bait attacks rather than trading blows."
+      },
+      {
+       "id": "t_depths_s5_step_defeat",
+       "k": "step",
+       "t": "Empty his health to trigger a long cutscene: Ganondorf swallows his secret stone whole and transforms into the Demon Dragon."
+      }
+     ]
+    },
+    {
+     "id": "t_depths_s6_dragon",
+     "name": "The Demon Dragon",
+     "sub": "Aerial finale with the Light Dragon",
+     "steps": [
+      {
+       "id": "t_depths_s6_step_skydive",
+       "k": "step",
+       "t": "You skydive onto the Demon Dragon's back. The Light Dragon, Zelda, soars beside you to carry you back up whenever you fall."
+      },
+      {
+       "id": "t_depths_s6_warn_swordreq",
+       "k": "warn",
+       "t": "Use the Master Sword here; it deals huge bonus damage to the dragon's weak points and trivializes the phase. It is delivered now if you lacked it."
+      },
+      {
+       "id": "t_depths_s6_step_blisters",
+       "k": "step",
+       "t": "Glide and run along the dragon, slashing the clusters of glowing demonic eyes set in the Gloom on its back and limbs until they are destroyed."
+      },
+      {
+       "id": "t_depths_s6_step_head",
+       "k": "step",
+       "t": "With the back weak points cleared, climb to the head and strike the secret stone glowing on the dragon's forehead."
+      },
+      {
+       "id": "t_depths_s6_tip_dive",
+       "k": "tip",
+       "t": "Dive-attack the eyes and the head stone for big damage, or fire arrows mid-dive, then glide back up as the dragon recovers. Repeat the cycle."
+      },
+      {
+       "id": "t_depths_s6_reward_win",
+       "k": "reward",
+       "t": "Shatter the forehead secret stone to defeat the Demon King for good and trigger the ending. The war for Hyrule is over."
+      }
+     ]
+    },
+    {
+     "id": "t_depths_s7_ending",
+     "name": "The Ending",
+     "sub": "Zelda returned, Hyrule at peace",
+     "steps": [
+      {
+       "id": "t_depths_s7_step_fall",
+       "k": "step",
+       "t": "As they fall through the sky, Link reaches out and catches Zelda mid-air. The two reunite as the dragons fade."
+      },
+      {
+       "id": "t_depths_s7_step_restore",
+       "k": "step",
+       "t": "Channeling Rauru and Sonia's power through his arm, Link recalls Zelda's true form, restoring her from dragon to human despite the supposedly irreversible change."
+      },
+      {
+       "id": "t_depths_s7_tip_credits",
+       "k": "tip",
+       "t": "Enjoy the credits and the reunion with Purah, the sages, and your friends. Hyrule begins to rebuild in peace."
+      },
+      {
+       "id": "t_depths_s7_tip_postgame",
+       "k": "tip",
+       "t": "After the credits roll, your save loads back to just before the final dive, with a star marking your completed playthrough."
+      },
+      {
+       "id": "t_depths_s7_optional_cleanup",
+       "k": "optional",
+       "t": "Return to the world to finish shrines, Lightroots, side quests, the Master Kohga arc, and the rest of the map at your pace."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [
+  {
+   "regionKey": "great_sky_island",
+   "regionName": "Great Sky Island",
+   "shrines": [
+    {
+     "name": "Ukouh Shrine",
+     "location": "Southwest of the Temple of Time, just past the first pond at the start of the game.",
+     "category": "puzzle",
+     "oneLine": "Grants Ultrahand. Build a bridge across the gap, then attach a hook to a plank and ride it along the rail to reach the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "In-isa Shrine",
+     "location": "West side of the island, south across the frozen lake near a stone ruin and the In-isa cold cave.",
+     "category": "puzzle",
+     "oneLine": "Grants Fuse. Fuse a rock to your sword, fire fruit to arrows, and a rock to your shield to clear the rooms, then beat the Construct.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Gutanbac Shrine",
+     "location": "Snowy peak in the island's upper northwest area, reached by climbing up through the cold caves.",
+     "category": "puzzle",
+     "oneLine": "Grants Ascend. Ascend through ceilings to bypass obstacles, including rising through a moving spike door, then defeat the Construct.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Nachoyah Shrine",
+     "location": "Near the Temple of Time; unlocks after the first three shrines and getting Recall at the Temple of Time.",
+     "category": "puzzle",
+     "oneLine": "Practice Recall. Rewind water-borne planks and waterwheels to cross, rewind a cogwheel to climb to a chest, then stack and rewind the clock hands to open the exit.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "central",
+   "regionName": "Central Hyrule",
+   "shrines": [
+    {
+     "name": "Kyononis Shrine",
+     "location": "Hyrule Castle Town Ruins central square, north of Lookout Landing",
+     "category": "combat",
+     "oneLine": "Combat Training: a training Construct teaches side hop, backflip, perfect guard (parry) and charged attacks; clear the drills to finish.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Yamiyo Shrine",
+     "location": "Romani Plains, east of Hyrule Castle Town Ruins, northeast of Lookout Landing",
+     "category": "combat",
+     "oneLine": "Combat Training: Throwing - learn to throw materials and fused weapons as projectiles, then defeat the Constructs to pass.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Teniten Shrine",
+     "location": "South of Lookout Landing near Lake Kolomo, Hyrule Field",
+     "category": "combat",
+     "oneLine": "Combat Training: Throwing - ZL-target and throw weapons to hit out-of-reach Constructs; aim carefully to clear the room.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kamizun Shrine",
+     "location": "West of East Post Ruins, southern Hyrule Field",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Beginner - stripped of gear, grab only the weapons in the arena; fuse a spiked ball and defeat every enemy to pass.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jojon Shrine",
+     "location": "Crenel Peak Cave, east of Lookout Landing across the river, Hyrule Field",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Rotation - enter with no gear; dodge the rotating flame emitters and use arena weapons to defeat all enemies.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ishodag Shrine",
+     "location": "Rocky hill west of Hyrule Castle Town Ruins, Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "An Uplifting Device: attach Zonai fans/lift devices with Ultrahand to raise platforms and carry yourself up to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sinakawak Shrine",
+     "location": "Near New Serenne Stable, northwest Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "An Uplifting Device: build with fans and platforms so a lifting rig rises high enough to reach the upper ledge.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jiosin Shrine",
+     "location": "South of Lookout Landing, beside the Hyrule Field Chasm",
+     "category": "puzzle",
+     "oneLine": "Shape Rotation: rotate the irregular stone blocks with Ultrahand so they pass through the matching symbol-shaped holes.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Susuyai Shrine",
+     "location": "Passeri Greenbelt, southwest of Lookout Landing, Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "A Spinning Device: use Zonai small wheels to power and time the spinning carts so they carry you across to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayachin Shrine",
+     "location": "North of Hyrule Field Skyview Tower, next to Exchange Ruins, Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "A Fixed Device: anchor and arrange Zonai devices so a fixed mechanism moves you or objects to open the path.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Tajikats Shrine",
+     "location": "Near Riverside Stable, south of Lookout Landing, Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "Building With Logs: use Ultrahand to assemble logs into a bridge or raft to cross the water and reach the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kyokugon Shrine",
+     "location": "Great Plateau foothill, southwest Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "Alignment of the Circles: rotate and line up the circular gears/discs with Ultrahand so the mechanism unlocks the way forward.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Tsutsu-um Shrine",
+     "location": "South of Outskirts Stable, southwest Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "The Stakes Guide You: drive and use the protruding stakes as steps and anchors to climb and reach the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Riogok Shrine",
+     "location": "East of Hyrule Field Mini Stable, west of Hopper Pond, Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "Force Transfer: route Zonai energy/motion through connected devices so the transferred force opens the gates.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Tadarok Shrine",
+     "location": "Waterfall cave near the River of the Dead, southwest Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "Fire and Water: use flame and water elements together (melt ice / douse fire) to clear the path and finish.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Serutabomac Shrine",
+     "location": "Floating island behind/northeast of Hyrule Castle (reached from the castle)",
+     "category": "puzzle",
+     "oneLine": "The Way Up: build and stack Zonai devices to ascend the vertical chamber and reach the altar at the top.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sepapa Shrine",
+     "location": "Small land between Hyrule Castle and Crenel Hills, north-northeast Central Hyrule",
+     "category": "puzzle",
+     "oneLine": "Backtrack: use Recall to send moving objects (gears, platforms, debris) back through time and ride them to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ren-iz Shrine",
+     "location": "Carved tree at Crenel Hills, northern Hyrule Field",
+     "category": "puzzle",
+     "oneLine": "Jump the Gaps: time jumps and glides across moving/disappearing platforms to cross the chasms to the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Tenmaten Shrine",
+     "location": "drop in, light the cavern with Brightbloom seeds, grab the chest and blessing.",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing inside Elma Knolls Well in Hyrule Field — drop in, light the cavern with Brightbloom seeds, grab the chest and blessing.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "necluda",
+   "regionName": "Necluda",
+   "shrines": [
+    {
+     "name": "Makasura Shrine",
+     "location": "West Necluda, on a cliff just west/southwest above Kakariko Village; NE of Sahasra Slope Skyview Tower.",
+     "category": "puzzle",
+     "oneLine": "Use Ascend through the rock ceilings and ride the stone platforms up; cross the gaps to reach the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Joju-u-u Shrine",
+     "location": "West Necluda, Ubota Point south of Lakeside Stable, above the cliffs by Lake Floria.",
+     "category": "puzzle",
+     "oneLine": "Building Bridges: use Ultrahand to drape the hinged bridge over the post and add the stone box as a counterweight.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jochisiu Shrine",
+     "location": "West Necluda, west side of South Dueling Peaks by Squabble River.",
+     "category": "puzzle",
+     "oneLine": "Keys Born of Water quest: use the fire and ice emitters to melt/freeze ice and clear the path, then enter.",
+     "shrineQuest": "Keys Born of Water"
+    },
+    {
+     "name": "Eshos Shrine",
+     "location": "West Necluda, on the eastern cliff of Dueling Peaks.",
+     "category": "combat",
+     "oneLine": "Combat Training: Shields. Parry the Training Constructs' attacks; use a non-metallic shield against the electric one.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Susub Shrine",
+     "location": "West Necluda, inside Deya Village Ruins East Well, south of Deya Village Ruins.",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: no puzzle. Drop into the well and reach the shrine; grab the chest and the Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Utojis Shrine",
+     "location": "West Necluda, inside Tobio's Hollow Cave.",
+     "category": "puzzle",
+     "oneLine": "Legend of the Soaring Spear: fuse a Keese Wing to a spear, stand on the glowing pedestal and throw it through the ring.",
+     "shrineQuest": "Legend of the Soaring Spear"
+    },
+    {
+     "name": "Tokiy Shrine",
+     "location": "East Necluda, inside Oakle's Navel Cave (north of Rabella Wetlands Skyview Tower).",
+     "category": "blessing",
+     "oneLine": "The Oakle's Navel Cave Crystal: carry the crystal past falling boulders (Recall the big one) to its stand to reveal it.",
+     "shrineQuest": "The Oakle's Navel Cave Crystal"
+    },
+    {
+     "name": "Zanmik Shrine",
+     "location": "East Necluda, on a hill southwest of Hateno Village.",
+     "category": "puzzle",
+     "oneLine": "Scoop it Out: Ultrahand four plates into a box, attach it to the wheel as a scoop, then plate the nodes to power it.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayahisik Shrine",
+     "location": "East Necluda, inside Retsam Forest Cave near the Hateno Ancient Tech Lab.",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: no puzzle. Enter the cave, break the rocks and follow the path to the shrine for the Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Anedamimik Shrine",
+     "location": "East Necluda, inside Deepback Bay Cave, east of Hateno Village.",
+     "category": "puzzle",
+     "oneLine": "A Retraced Path: ride the moving platform across, then use Recall on the rolling ball to send it into the receptacle.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Bamitok Shrine",
+     "location": "East Necluda, inside Mount Dunsel Cave near Lurelin Village.",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: no puzzle. Swim across, lift the plank and Ascend up to reach the shrine and Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sifumim Shrine",
+     "location": "East Necluda, on a hill just northwest of Lurelin Village.",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Flow. Weapons removed. Knock the Soldier Constructs off the rotating platforms into the water.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Marari-In Shrine",
+     "location": "Necluda Sea, on Eventide Island via the sea cave entrance (far southeast).",
+     "category": "puzzle",
+     "oneLine": "Solve the puzzle inside the Eventide cave to reveal it; reach it by raft/boat or paraglide from the Hateno coast.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "lanayru",
+   "regionName": "Lanayru",
+   "shrines": [
+    {
+     "name": "Tukarok Shrine",
+     "location": "Lanayru Wetlands, just south of Wetland Stable",
+     "category": "puzzle",
+     "oneLine": "Forward Force. Stick the ball to a wheeled cart and ride it across lava, then build a paddle raft to ferry the ball to the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Morok Shrine",
+     "location": "Lanayru Wetlands, atop a floating island near Sahasra Slope, northwest of Sahasra Slope Skyview Tower",
+     "category": "puzzle",
+     "oneLine": "A Bouncy Device. Stack and fuse the Zonai springs, then activate them to launch yourself up to the chest and the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jonsau Shrine",
+     "location": "Lanayru Wetlands, on the southern hills of Mercay Island near the center of the Wetlands",
+     "category": "puzzle",
+     "oneLine": "Deep Force. Ultrahand the ball under the target and push it deep underwater so it rockets up and strikes the switch.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Maoikes Shrine",
+     "location": "Lanayru Wetlands, inside Bone Pond Cave (drop in through the skull on the hilltop)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. No puzzle inside; just reach it through the cave, grab the chest, and touch the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mogawak Shrine",
+     "location": "Lanayru Great Spring, below the walkways of Zora's Domain beneath the Great Zora Bridge",
+     "category": "puzzle",
+     "oneLine": "The Power of Water. Charge the battery with the waterfall's hydro power to run the elevator up to the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ihen-a Shrine",
+     "location": "Lanayru Great Spring, Mipha Court atop Ploymus Mountain, east of Zora's Domain",
+     "category": "puzzle",
+     "oneLine": "Midair Perch. Splash-arrow the gooped entrance, then Ascend up a Hover Stone and lay the bridge as a ramp to cross the gaps.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Apogek Shrine",
+     "location": "Lanayru Great Spring, southeast of East Reservoir Lake near Zora's Domain",
+     "category": "puzzle",
+     "oneLine": "Wings on the Wind. Fuse a fan to a Zonai wing, set it on the rail, then ride it across the room to the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Yomizuk Shrine",
+     "location": "Lanayru Great Spring, inside Tarm Point Cave, north of Tarm Point",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. No puzzle; find it through the cave, open the chest, and touch the altar for the Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Joniu Shrine",
+     "location": "Lanayru Great Spring, inside Ralis Channel, northwest of Veiled Falls",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing, unlocked via a shrine quest. Toss a Brightbloom Seed to light the dark channel and follow the right path in.",
+     "shrineQuest": "The Ralis Channel Crystal"
+    },
+    {
+     "name": "Kurakat Shrine",
+     "location": "Lanayru Great Spring, northwest of Quatta's Shelf",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing behind a dyeing riddle: read the clue, dye your armor the right color at Hateno, then claim the chest and altar.",
+     "shrineQuest": "Dyeing to Find It"
+    },
+    {
+     "name": "O-ogim Shrine",
+     "location": "Lanayru Great Spring, south of Lanayru Heights below the broken Lanayru Bridge",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing reward for a shrine quest; deliver the crystal to make the shrine appear, then take the chest and altar.",
+     "shrineQuest": "The Lanayru Road Crystal"
+    },
+    {
+     "name": "Jikais Shrine",
+     "location": "Mount Lanayru, east of the Lanayru Range beyond Madorna Mountain",
+     "category": "puzzle",
+     "oneLine": "Jailbreak. Use Ultrahand to stack and move blocks, then Ascend up through them to reach the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Zakusu Shrine",
+     "location": "Mount Lanayru, Naydra Snowfield, southwest of Mount Lanayru Skyview Tower",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Ascension. Stripped of gear, use only the shrine's weapons and Ascend to beat the foes; gated behind a shrine quest.",
+     "shrineQuest": "The High Spring and the Light Rings"
+    },
+    {
+     "name": "Jogou Shrine",
+     "location": "Mount Lanayru, inside Lanayru Road East Cave on the northwest slopes (below the Lanayru Road East Gate)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. No puzzle inside; just find it within the cave and touch the altar for the Light of Blessing.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "faron",
+   "regionName": "Faron",
+   "shrines": [
+    {
+     "name": "En-oma Shrine",
+     "location": "Lake Hylia Whirlpool Cave, beneath Lake Hylia (approx 0105, -2514, 0088); enter by letting the visible whirlpool suck Link down",
+     "category": "blessing",
+     "oneLine": "No trial inside; reward for The Lake Hylia Crystal quest. Grab the crystal on the sky island above the whirlpool and drop it into the hole below.",
+     "shrineQuest": "The Lake Hylia Crystal"
+    },
+    {
+     "name": "Ishokin Shrine",
+     "location": "Faron Grasslands near Zokassa Ridge, east of Oseira Plains (approx -0565, -3524, 0129)",
+     "category": "blessing",
+     "oneLine": "No trial inside; appears after Ride the Giant Horse. Tame the Giant White Stallion in the nearby grove and show it to Baddek for the crystal.",
+     "shrineQuest": "Ride the Giant Horse"
+    },
+    {
+     "name": "Jiukoum Shrine",
+     "location": "Faron Grasslands, south side of Popla Foothills overlooking Dracozu Lake, SE of Popla Foothills Skyview Tower (approx 0867, -2279, 0141)",
+     "category": "puzzle",
+     "oneLine": "Built for Rails: use Ultrahand to join the boards into a stable platform, set it on the rails, and ride it across each gap to the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Utsushok Shrine",
+     "location": "Faron Grasslands, northeast of Highland Stable, east of Fural Plain atop a hill (approx 0668, -3358, 0072)",
+     "category": "puzzle",
+     "oneLine": "Long or Wide: with Ultrahand add length or weight to the paddle to knock balls into switches, then ride the spawned cart along the rails.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ekochiu Shrine",
+     "location": "Rise and Fall: ride rising/falling platforms and time Ultrahand to cross. North ",
+     "category": "puzzle",
+     "oneLine": "Rise and Fall: ride rising/falling platforms and time Ultrahand to cross. North of Woodland Stable, Great Hyrule Forest.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kikakin Shrine",
+     "location": "Shining in Darkness: cross a pitch-black shrine using light orbs / Brightbloom s",
+     "category": "puzzle",
+     "oneLine": "Shining in Darkness: cross a pitch-black shrine using light orbs / Brightbloom seeds. NE of Mount Drena, west Great Hyrule Forest.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kiuyoyou Shrine",
+     "location": "Fire and Ice: melt and freeze ice blocks with flame and Zonai devices to align p",
+     "category": "puzzle",
+     "oneLine": "Fire and Ice: melt and freeze ice blocks with flame and Zonai devices to align platforms. Rowan Plain, east of the Forgotten Temple.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Musanokir Shrine",
+     "location": "Swing to Hit: build a weighted pendulum with Ultrahand to smash targets and ball",
+     "category": "puzzle",
+     "oneLine": "Swing to Hit: build a weighted pendulum with Ultrahand to smash targets and balls into goals. Within Korok Forest.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ninjis Shrine",
+     "location": "appears after the 'Maca's Special Place' quest (post-Phantom Ganon). South edge ",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing — appears after the 'Maca's Special Place' quest (post-Phantom Ganon). South edge of Korok Forest; collect the blessing.",
+     "shrineQuest": "Maca's Special Place"
+    },
+    {
+     "name": "Pupunke Shrine",
+     "location": "Quest-gated blessing: finish 'A Pretty Stone and Five Golden Apples' (give a lum",
+     "category": "quest",
+     "oneLine": "Quest-gated blessing: finish 'A Pretty Stone and Five Golden Apples' (give a luminous stone + 5 golden apples), then walk in.",
+     "shrineQuest": "A Pretty Stone and Five Golden Apples"
+    },
+    {
+     "name": "Sakunbomar Shrine",
+     "location": "Quest-gated blessing: complete 'None Shall Pass' in Great Hyrule Forest, then fo",
+     "category": "quest",
+     "oneLine": "Quest-gated blessing: complete 'None Shall Pass' in Great Hyrule Forest, then follow the light beam to the shrine.",
+     "shrineQuest": "None Shall Pass"
+    }
+   ]
+  },
+  {
+   "regionKey": "gerudo",
+   "regionName": "Gerudo",
+   "shrines": [
+    {
+     "name": "Kudanisar Shrine",
+     "location": "Gerudo Desert, west of Gerudo Town near the Statue of the Eighth Heroine",
+     "category": "puzzle",
+     "oneLine": "Bridging the Sands: use Ultrahand to build wooden bridges and a fan-cart to cross the stamina-draining quicksand to the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayatat Shrine",
+     "location": "Gerudo Desert, southwest of Gerudo Desert Gateway near Kara Kara Bazaar",
+     "category": "puzzle",
+     "oneLine": "A Sliding Device: hop onto one of the descending sleds, then use Recall to ride it back up across the quicksand to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Soryotanog Shrine",
+     "location": "Gerudo Desert, high on the cliffs directly above Gerudo Town",
+     "category": "puzzle",
+     "oneLine": "Buried Light: turn on a fan with Ultrahand to blow away the sand, then guide the light beam to the crystal to open the way.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Siwakama Shrine",
+     "location": "Gerudo Desert, north of the East Barrens",
+     "category": "puzzle",
+     "oneLine": "Moving the Spheres: Ultrahand the big balls to bridge the gaps, then use Recall to ride a returning sphere across to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Chichim Shrine",
+     "location": "Gerudo Desert, inside the Ancient Prison Ruins reached by sinking through the quicksand at Palu Wasteland east of Gerudo Town",
+     "category": "puzzle",
+     "oneLine": "Drop into the Ancient Prison Ruins via the sinkhole, flip the Ultrahand switches and dodge Gibdos, then clear the shrine inside.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Karahatag Shrine",
+     "location": "Gerudo Desert, south of the Southern Oasis",
+     "category": "puzzle",
+     "oneLine": "Drifting Flame: lift a lit brazier high with Ultrahand, hit Recall so it hangs, then run to light the inverted ceiling pillars.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Irasak Shrine",
+     "location": "Gerudo Desert, south of Arbiter's Grounds",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: no trial inside. Just reach it across the desert, open the chest, and claim the Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Miryotanog Shrine",
+     "location": "Gerudo Desert, south of Toruma Dunes, east of Gerudo Town and north of the Lightning Temple",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Lure. Stripped of gear, grab the local weapons and lure the five constructs into the rolling-boulder traps.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Motsusis Shrine",
+     "location": "Gerudo Desert, hidden inside the South Lomei Labyrinth maze southeast of the desert",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: the only challenge is reaching it. Solve the South Lomei Labyrinth maze, then claim the free Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Rakakudaj Shrine",
+     "location": "Gerudo Highlands, along the Gerudo Canyon Path near Gerudo Canyon Stable",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing unlocked by The Gerudo Canyon Crystal quest: deliver the crystal along the path to make the shrine appear.",
+     "shrineQuest": "The Gerudo Canyon Crystal"
+    },
+    {
+     "name": "Turakamik Shrine",
+     "location": "Gerudo Highlands, north of Gerudo Canyon Mine, east of Gerudo Canyon Stable",
+     "category": "puzzle",
+     "oneLine": "Hidden Metal: use Ultrahand to clink the electrified metal balls onto the others, sending current through gears to open the gates.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kitawak Shrine",
+     "location": "Gerudo Highlands area, on the East Gerudo Mesa ridge that separates the desert from Faron",
+     "category": "puzzle",
+     "oneLine": "Upward and Forward: Ultrahand planks onto the raised bridges to lower them, then use the gears and catapults to launch upward.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Otutsum Shrine",
+     "location": "Gerudo Highlands, in the north of Risoka Snowfield, far northeast of Gerudo Highlands Skyview Tower",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: no trial. Brave the cold snowfield to reach it, then grab the Light of Blessing and the chest inside.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayamats Shrine",
+     "location": "Gerudo Highlands, southeast of Gerudo Highlands Skyview Tower",
+     "category": "puzzle",
+     "oneLine": "A Route for a Ball: build a track with Ultrahand and use Ascend, then roll the correct ball into the floor socket by the gate.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Suariwak Shrine",
+     "location": "Gerudo Highlands, inside Taafei Hill Cave (the Yiga Blademaster Station) northeast of Gerudo Canyon Stable",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing with no puzzle, but the door stays locked until you pass The Yiga Clan Exam side quest in Yiga disguise.",
+     "shrineQuest": "The Yiga Clan Exam"
+    },
+    {
+     "name": "Rotsumamu Shrine",
+     "location": "Gerudo Highlands, in a gully between Vatorsa Snowfield and Sapphia's Table beside a Depths chasm",
+     "category": "puzzle",
+     "oneLine": "A Balanced Plan: attach heavy weights to the seesaws with Ultrahand to balance and ride them up, or shortcut with Recall.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "ridgeland",
+   "regionName": "Hyrule Ridge",
+   "shrines": [
+    {
+     "name": "Makurukis Shrine",
+     "location": "Hyrule Ridge Surface, north of Tabantha Bridge Stable on a ledge of Mount Rhoam (approx -2847, 0630, 0233).",
+     "category": "combat",
+     "oneLine": "Combat Training: Archery. Grab the bow by the door and headshot each construct. For the trio, Ascend a side pillar and shoot in bullet time as you fall.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Runakit Shrine",
+     "location": "Hyrule Ridge Surface, west of Lindor's Brow Skyview Tower between Upland Lindor and Mount Rhoam (approx -2531, 1170, 0178).",
+     "category": "puzzle",
+     "oneLine": "Built to Carry. Use Ultrahand to attach stone cylinders or slabs to the orb so it rolls down the rails, then drop it into the floor switch to open the bars.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sonapan Shrine",
+     "location": "Hyrule Ridge Surface, on the eastern cliff of Satori Mountain, southwest of Lookout Landing (approx -1921, 0357, 0228).",
+     "category": "puzzle",
+     "oneLine": "Missing Pathways. Use Ascend on overhangs and slide the stone bricks to build paths across the gaps, repositioning blocks to reach each higher ledge.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Taki-ihaban Shrine",
+     "location": "Hyrule Ridge Surface, inside Lindor's Brow Cave just east of Lindor's Brow Skyview Tower (approx -1829, 1149, 0147).",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. No puzzle inside; the cave is the trial. Gloom Hands lurk at the platform base, so sprint past and climb up to claim the Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Usazum Shrine",
+     "location": "Hyrule Ridge Surface, just south of Satori Mountain Foothill Cave at the foot of Satori Mountain (approx -2139, -0874, 0093).",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Activate the shrine; its green beam points to the cave. Take the crystal from the Hinox inside, then carry it back to the shrine to claim the blessing.",
+     "shrineQuest": "The Satori Mountain Crystal"
+    }
+   ]
+  },
+  {
+   "regionKey": "tabantha",
+   "regionName": "Tabantha",
+   "shrines": [
+    {
+     "name": "Gasas Shrine",
+     "location": "Southwest of Tanagar Canyon, in the far southwest corner of Tabantha Frontier (approx -4153, 0098, 0055).",
+     "category": "puzzle",
+     "oneLine": "Well-Timed Cuts: cut the rope to drop the big cube onto the ramp with an overhang, then Ascend up through it to cross the gap.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Gatakis Shrine",
+     "location": "North of Rospro Pass Skyview Tower; launch from the tower and glide north to reach it (approx -3652, 1806, 0168).",
+     "category": "puzzle",
+     "oneLine": "Ride the Winds: glide on the updrafts, weave through the laser gaps, and open your paraglider in the gusts to rise to each exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ikatak Shrine",
+     "location": "Southwestern Tabantha Frontier, just above Gisa Crater south of Rito Village (approx -3950, 1138, 0112).",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: no puzzle inside. Appears after the shrine quest. Open the chest and touch the altar for the Light of Blessing.",
+     "shrineQuest": "The Gisa Crater Crystal"
+    },
+    {
+     "name": "Iun-orok Shrine",
+     "location": "Underground inside Tanagar Canyon West Cave, in the valley below the canyon (approx -3539, 0851, -0119).",
+     "category": "puzzle",
+     "oneLine": "The Right Roll: glue only TWO balls together (not three) so the orb rolls straight down the ramp and lands on the target.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayausiy Shrine",
+     "location": "Deep inside the Forgotten Temple, north of Tanagar Canyon near Lindor's Brow (approx -1165, 2602, -0083).",
+     "category": "puzzle",
+     "oneLine": "Building Blocks: use Ultrahand to grab and rotate the loose L-pieces so the incomplete square matches the finished model beside it.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Nouda Shrine",
+     "location": "Inside Kopeeki Drifts Cave; ride a horse from Snowfield Stable to reach the snowy cave entrance (approx -2319, 2200, 0173).",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Intermediate. Stripped of your gear, grab the supplied weapons, fuse enemy parts onto them, and Ascend up to clear each tier.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Oromuwak Shrine",
+     "location": "On a mountaintop southeast of the Lucky Clover Gazette, near Brightcap Cave (approx -3079, 1617, 0243).",
+     "category": "puzzle",
+     "oneLine": "A Launching Device: fuse a Rocket to a minecart, point it up the rails, hop in and ignite it to ride up to the next area.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Turakawak Shrine",
+     "location": "Northern Tabantha Frontier near Tabantha Hills, at the region's north edge (approx -3497, -0197, 0066).",
+     "category": "puzzle",
+     "oneLine": "Stacking a Path: use Ultrahand to stack the climbable blocks into a tower against each ledge, then climb to reach the ladder and exit.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "hebra",
+   "regionName": "Hebra",
+   "shrines": [
+    {
+     "name": "Eutoum Shrine",
+     "location": "Hebra Mountains (Surface), inside Goflam's Secret Hot Spring, northern Hebra Mountains",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Infiltration. You start stripped of gear, so grab the weapons by the entrance, then sneak or fight past the Soldier Constructs.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayaotaki Shrine",
+     "location": "Hebra Mountains (Surface), at the center of North Lomei Labyrinth in North Tabantha Snowfield",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Solving the North Lomei Labyrinth maze to reach it is the trial; the shrine itself has no inner puzzle.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Orochium Shrine",
+     "location": "Hebra Mountains (Surface), near Snowfield Stable in South Tabantha Snowfield, northwest of the Forgotten Temple",
+     "category": "puzzle",
+     "oneLine": "Courage to Fall. Step off the edge and ride the rising gusts of wind to drift safely down onto the lower platforms toward the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Oshozan-u Shrine",
+     "location": "Hebra Mountains (Surface), atop an icy hill west of North Lomei Labyrinth",
+     "category": "puzzle",
+     "oneLine": "Mallet Smash. Wield the big hammer with Ultrahand to smash blocks and pound the switches that open the way forward.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Otak Shrine",
+     "location": "Hebra Mountains (Surface), inside Icefall Foothills Cave (melt the ice blocking the entrance with fire)",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Traps. You start weaponless, so use the provided gear to fight Constructs while dodging the spike and floor traps.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Rutafu-um Shrine",
+     "location": "Hebra Mountains (Surface), inside Hebra Mountains Northwest Cave, northwest of Hebra East Summit",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Do The Northwest Hebra Cave Crystal quest: carry the crystal through the cave to its pedestal to spawn the shrine.",
+     "shrineQuest": "The Northwest Hebra Cave Crystal"
+    },
+    {
+     "name": "Sahirow Shrine",
+     "location": "Hebra Mountains (Surface), atop Corvash Peak, east of Rospro Pass Skyview Tower, north of Rito Village",
+     "category": "puzzle",
+     "oneLine": "Aid from Above. Use Ascend to phase up through the ceilings, rising past the laser nets to reach each higher level and the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sisuran Shrine",
+     "location": "Hebra Mountains (Surface), northwest of Pikida Stonegrove Skyview Tower, northeast of Hebra East Summit",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Do The North Hebra Mountains Crystal quest: beat the Frost Talus (Fire Arrows or Yunobo) and haul its crystal to the pedestal.",
+     "shrineQuest": "The North Hebra Mountains Crystal"
+    },
+    {
+     "name": "Tauyosipun Shrine",
+     "location": "Hebra Mountains (Surface), on the western slopes southwest of Hebra West Summit",
+     "category": "puzzle",
+     "oneLine": "Forward or Backward? Use Recall to reverse moving platforms and rails so they carry you the direction you actually need to go.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Wao-os Shrine",
+     "location": "Hebra Mountains (Surface), inside West Lake Totori Cave, west of Rito Village",
+     "category": "puzzle",
+     "oneLine": "Lever Power. Use Ultrahand with the lever-arm contraptions to apply force, swinging platforms or launching yourself across the gaps.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "eldin",
+   "regionName": "Eldin",
+   "shrines": [
+    {
+     "name": "Sikukuu Shrine",
+     "location": "Eldin Mountains, southeast of Thyphlo Ruins (0696, 2792, 0225)",
+     "category": "puzzle",
+     "oneLine": "Spinning Gears: use Recall to reverse the big gears so platforms carry you upward, riding them to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Marakuguc Shrine",
+     "location": "Eldin Canyon, on a cliff above Goron City (1761, 2508, 0437)",
+     "category": "puzzle",
+     "oneLine": "Wheeled Wonders: Ultrahand the two wheeled carts together, ride your build, and strike the wheels to roll across the lava.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Timawak Shrine",
+     "location": "Eldin Canyon, overlooking Bedrock Bistro (1798, 1635, 0311)",
+     "category": "puzzle",
+     "oneLine": "Against the Flow: cross cooled-lava platforms, then Ultrahand spare platforms into a bridge to reach the orb and chest.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Isisim Shrine",
+     "location": "Eldin Canyon, inside YunoboCo HQ East Cave (1841, 2841, 0363)",
+     "category": "combat",
+     "oneLine": "Proving Grounds: In Reverse. Use only provided gear; Recall the gears to flip enemy approaches and clear the Constructs.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sitsum Shrine",
+     "location": "Death Mountain, west side near the summit (2367, 2597, 0790)",
+     "category": "puzzle",
+     "oneLine": "A Controlling Device: take a steering stick, drive a cart across the lava, then attach it to a fan-wing and fly to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sibajitak Shrine",
+     "location": "Eldin Canyon, north of Death Caldera (2399, 3269, 0402)",
+     "category": "puzzle",
+     "oneLine": "Alignment: use Recall to line up the rotating pillar's segments, then Ascend straight up through them to reach the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kimayat Shrine",
+     "location": "Eldin Canyon, west of Skull Lake (2871, 3625, 0239)",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Smash. Defeat all the Constructs (melee on the floor, archers above) with only the weapons provided.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayachideg Shrine",
+     "location": "Eldin Canyon, west of Kanalet Ridge (3062, 1817, 0216)",
+     "category": "combat",
+     "oneLine": "Proving Grounds: The Hunt. Use only the items inside (start with a Wooden Stick) to hunt down and defeat the Constructs.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayak Shrine",
+     "location": "Eldin Mountains, west of East Deplian Badlands (1270, 3733, 0106)",
+     "category": "puzzle",
+     "oneLine": "A timing puzzle: launch up, Ultrahand a boulder onto the ramp, then swing the glowing post so it lands on the target.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Minetak Shrine",
+     "location": "Eldin Mountains, inside Deplian Badlands Cave (0394, 3485, 0068)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: reach the shrine deep in the cave, open the chest, and touch the altar for the Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jiotak Shrine",
+     "location": "Eldin Canyon, inside Isle of Rabac Gallery cave (1833, 3179, 0257)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: wear Flamebreaker gear, navigate the hot cave to the shrine, grab the chest, and claim the blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Momosik Shrine",
+     "location": "Eldin Canyon, near Death Caldera (2957, 2759, 0524)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: appears after the crystal quest; enter, open the chest for a Big Battery, and take the blessing.",
+     "shrineQuest": "The Death Caldera Crystal"
+    },
+    {
+     "name": "Moshapin Shrine",
+     "location": "Eldin Canyon, inside Lake Intenoch Cave (2678, 1905, 0131)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: carry the green crystal to the shrine to unlock it, open the chest, then claim the blessing.",
+     "shrineQuest": "The Lake Intenoch Cave Crystal"
+    },
+    {
+     "name": "Kisinona Shrine",
+     "location": "Eldin Canyon, between Maw of Death Mountain and Cephla Lake (2568, 1245, 0173)",
+     "category": "puzzle",
+     "oneLine": "Wind Power: attach and activate the Zonai fans onto the turbine to generate wind and push platforms to the exit.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "akkala",
+   "regionName": "Akkala",
+   "shrines": [
+    {
+     "name": "Domizuin Shrine",
+     "location": "Akkala Highlands, southeast of South Akkala Stable up the mountain (3305, 1443, 0426)",
+     "category": "puzzle",
+     "oneLine": "A Prone Pathway: Hit the inside and outside rotation pillars to roll the giant cube until its steps line up, then platform to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Gatanisis Shrine",
+     "location": "Akkala Highlands, far east near Ulria Grotto by the Akkala Sea coast (4501, 0826, 0095)",
+     "category": "puzzle",
+     "oneLine": "A Well-Timed Bounce: Recall the spring platform as the ball rolls across it to fling the ball up into the switch.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jochi-iu Shrine",
+     "location": "Deep Akkala, just northeast of East Akkala Stable (4350, 2972, 0164)",
+     "category": "puzzle",
+     "oneLine": "Courage to Pluck: Ultrahand metal blocks out of the Jenga-like tower without toppling it, then climb to the altar.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Gemimik Shrine",
+     "location": "Akkala Sea, southeast of East Akkala Stable on the spiral Rist Peninsula island (4521, 2126, 0001)",
+     "category": "puzzle",
+     "oneLine": "Turbine Power: Attach the propeller to the motor and bridge the wiring with a metal plate to power the fan and braziers.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Rasiwak Shrine",
+     "location": "Deep Akkala, northeast of Akkala Ancient Tech Lab (4663, 3263, 0002)",
+     "category": "puzzle",
+     "oneLine": "Flotational Brilliance: Fuse spheres and fans to metal planks so they float, then ferry a boat onto the exit switch.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kamatukis Shrine",
+     "location": "Deep Akkala, north of Tempest Gulch (3427, 3345, 0070)",
+     "category": "puzzle",
+     "oneLine": "A Precise Strike: Aim launched balls and rotating cogs so a ball strikes the target switch to open the way forward.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sinatanika Shrine",
+     "location": "Akkala Highlands, northeast of Ulri Mountain Skyview Tower (3842, 2299, 0048)",
+     "category": "combat",
+     "oneLine": "Combat Training Sneakstrike: Stay crouched in the patrolling construct's blind spot and slip behind for a one-hit sneakstrike.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Rasitakiwak Shrine",
+     "location": "Akkala Highlands, southeast of Tarrey Town near Kaepora Pass (4161, 1324, 0229)",
+     "category": "combat",
+     "oneLine": "Proving Grounds Vehicles: Stripped of gear, fuse the emitters and cannon to a Zonai vehicle and ride it to crush the constructs.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jochi-ihiga Shrine",
+     "location": "Akkala Highlands, northeast of Akkala Falls near Lake Akkala (3813, 1218, 0090)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: Buy Hagie's green crystal in Tarrey Town and boat it to the light beam to reveal the shrine, then claim the reward.",
+     "shrineQuest": "Rock for Sale"
+    },
+    {
+     "name": "Igashuk Shrine",
+     "location": "Akkala Sea, inside Lomei Labyrinth Island in the far northeast (4655, 3712, 0131)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing: Navigate the Lomei Labyrinth Island maze to reach the shrine, then walk to the altar for the free reward.",
+     "shrineQuest": null
+    }
+   ]
+  },
+  {
+   "regionKey": "sky",
+   "regionName": "Sky Islands",
+   "shrines": [
+    {
+     "name": "Mogisari Shrine",
+     "location": "Lomei Sky Labyrinth, Akkala Sea Sky (4655, 3501, 1010)",
+     "category": "puzzle",
+     "oneLine": "Solve the Lomei Sky Labyrinth maze; ascend and navigate the floating labyrinth to reach the shrine at its heart.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Gikaku Shrine",
+     "location": "Sky Mine, Akkala Sea Sky (4506, 2165, 1155)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing 'The Sky Mine Crystal'. Fetch the crystal from Luminous Stone Island and return it to the Sky Mine shrine.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Natak Shrine",
+     "location": "Sokkala Sky Archipelago, Akkala Sky (3671, 1484, 1158)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing 'The Sokkala Sky Crystal'. Catapult into the sphere, set the spring, and launch the crystal to the shrine.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kadaunar Shrine",
+     "location": "South Eldin Sky Archipelago, Eldin Sky (1881, 1203, 1251)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing 'Water Makes a Way'. Use a water source to float and route the crystal to the shrine's foundation.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayam Shrine",
+     "location": "Great Hyrule Forest Sky (0340, 2814, 1821)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Transport the green crystal across the floating islands to the shrine's pedestal to reveal it.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Simosiwak Shrine",
+     "location": "Bravery Island, Great Hyrule Forest Sky (0163, 1972, 0759)",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Lights Out. Gear is stripped; grab the provided weapons and flame emitters to defeat three Constructs.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jinodok Shrine",
+     "location": "South Hyrule Sky Archipelago (-1256, -1482, 1008)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing 'South Hyrule Sky Crystal'. Guide the crystal across the islands to the shrine to claim the reward.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Joku-usin Shrine",
+     "location": "Thunderhead Isles, over Sarjon Woods (1077, -3349, 0786)",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Short Circuit. Use only in-shrine gear; grab the Shock Emitter and use electric attacks to beat the Constructs.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Joku-u Shrine",
+     "location": "Dragonhead Island, Thunderhead Isles (1378, -3342, 0429)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing inside the eye of Dragonhead Island. Reach it via the Thunderhead Isles for a free Light of Blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Siyamotsus Shrine",
+     "location": "South Lomei Castle, Gerudo Sky (-1795, -3296, 1011)",
+     "category": "puzzle",
+     "oneLine": "Cross the dark castle interior; light torches and time the platforms in the gloom to navigate through to the shrine.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Rakashog Shrine",
+     "location": "East Gerudo Sky Archipelago, Gerudo Highlands Sky (-1713, -2120, 1149)",
+     "category": "puzzle",
+     "oneLine": "A Reflective Device. Use Ultrahand to aim mirrors and bounce light beams onto hexagonal switches to open the doors.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayasiar Shrine",
+     "location": "Starview Island, Gerudo Highlands Sky (-3547, -0320, 1976)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Rotate Starview Island's mirror wheels to light the top switch; the shrine then appears (no interior trial).",
+     "shrineQuest": null
+    },
+    {
+     "name": "Taunhiy Shrine",
+     "location": "Courage Island, Hyrule Ridge Sky (-2402, 0825, 0615)",
+     "category": "combat",
+     "oneLine": "Combat Training: Archery. Use air vents and your glider to stay airborne, then hit the lone Construct three times with a bow.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ganos Shrine",
+     "location": "Tabantha Sky Archipelago (-3370, 0467, 1695)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing 'Tabantha Sky Crystal'. Carry the crystal across the Tabantha islands to the shrine pedestal.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ga-ahisas Shrine",
+     "location": "Lightcast Island, Tabantha Frontier Sky (-3596, 0961, 1699)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Drain the water, then redirect mirror light through the cave to open the way to the shrine.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ijo-o Shrine",
+     "location": "West Hebra Sky Archipelago (-3860, 2682, 0702)",
+     "category": "puzzle",
+     "oneLine": "More Than Defense. Use a shield and Recall to reflect or ride incoming objects and cross the gaps to the exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayaumekis Shrine",
+     "location": "Rising Island Chain, Hebra Sky (-2948, 3050, 0896)",
+     "category": "puzzle",
+     "oneLine": "Downward Force. Bounce off the roofs of the flying ships and use dropped weight to launch yourself up to the terminals.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kahatanaum Shrine",
+     "location": "Rising Island Chain, Hebra Sky (-3295, 3430, 1347)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Navigate the Rising Island Chain's ascending platforms to reach the shrine for a free blessing.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Taninoud Shrine",
+     "location": "East Hebra Sky Archipelago (-1801, 3406, 0949)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing 'The East Hebra Sky Crystal'. Build a fan flyer to bring the crystal back to the shrine, then claim it.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Tenbez Shrine",
+     "location": "North Lomei Castle, Hebra Sky (-0966, 3540, 1011)",
+     "category": "puzzle",
+     "oneLine": "Gravity and Velocity. Use ramps and falling momentum to roll balls and carts onto distant switches and targets.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Jirutagumac Shrine",
+     "location": "Near Wellspring Island, Lanayru Sky (2916, 0534, 0965)",
+     "category": "puzzle",
+     "oneLine": "A Flying Device. Build a fan-powered flyer with Ultrahand and pilot it across the gaps to the shrine's exit.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Igoshon Shrine",
+     "location": "Water Temple path, Lanayru Sky (3481, 0664, 1325)",
+     "category": "puzzle",
+     "oneLine": "Orbs of Water. Ride water orbs and use Recall and Ultrahand to ferry yourself across the gaps to the goal.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Sihajog Shrine",
+     "location": "Valor Island, Lanayru Sky (4546, -0846, 1135)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Complete Valor Island's Dive Ceremony (fall through the green rings) to make the shrine appear.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Mayanas Shrine",
+     "location": "South Lanayru Sky Archipelago, near Valor Island (4613, -0947, 1790)",
+     "category": "puzzle",
+     "oneLine": "The Ice Guides You. Make ice plates on water with Ice Fruit or Frost Emitters to build sliding ramps onto the targets.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Josiu Shrine",
+     "location": "North Necluda Sky Archipelago (1760, -1208, 0924)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing. Ferry the green crystal across the Necluda sky islands to the shrine base to reveal it.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Yansamin Shrine",
+     "location": "Zonaite Forge Island, Necluda Sky (2353, -1783, 1475)",
+     "category": "combat",
+     "oneLine": "Proving Grounds: Low Gravity. In reduced gravity with only provided gear, defeat the Constructs to clear the trial.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Ukoojisi Shrine",
+     "location": "West Necluda Sky Archipelago (1468, -2168, 0585)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing 'West Necluda Sky Crystal'. Move the crystal across the islands to the shrine's foundation.",
+     "shrineQuest": null
+    },
+    {
+     "name": "Kumamayn Shrine",
+     "location": "South Necluda Sky Archipelago (2856, -2857, 1212)",
+     "category": "blessing",
+     "oneLine": "Rauru's Blessing 'Necluda Sky Crystal'. Escort the green crystal across the floating islands to the shrine pedestal.",
+     "shrineQuest": null
+    }
+   ]
+  }
+ ],
+ "ARMOR": {
+  "sets": [
+   {
+    "name": "Archaic / Well-Worn",
+    "pieces": "Archaic Tunic, Archaic Legwear, Well-Worn Trousers (no headpiece)",
+    "where": "Starting gear on the Great Sky Island; from chests and the Steward Construct as you begin the game.",
+    "bonus": "No set bonus; just basic starter defense to get you off the tutorial island.",
+    "upgrade": "Not upgradable at Great Fairies; starter clothing you replace fast.",
+    "priority": "Have it by default"
+   },
+   {
+    "name": "Hylian Set",
+    "pieces": "Hylian Hood, Hylian Tunic, Hylian Trousers",
+    "where": "Buy from Hateno Village's Ventest Clothing Boutique and other early shops.",
+    "bonus": "No set bonus, but cheap, balanced all-purpose defense for the early game.",
+    "upgrade": "Upgrade theme: common monster parts like Bokoblin Horns plus Hylian plants.",
+    "priority": "Solid early default"
+   },
+   {
+    "name": "Climbing Gear (Climber's Set)",
+    "pieces": "Climber's Bandanna, Climbing Gear (chest), Climbing Boots",
+    "where": "Three separate chests in caves: North Hyrule Plain Cave, Ploymus Mountain Cave, and Upland Zorana Byroad.",
+    "bonus": "Full set bonus Climbing Jump Stamina Up: halves the stamina used when jumping mid-climb. No per-piece speed boost.",
+    "upgrade": "Upgrade theme: lizards and climbing critters like Lizalfos Tails.",
+    "priority": "Great early quality-of-life"
+   },
+   {
+    "name": "Glide Set",
+    "pieces": "Glide Mask, Glide Shirt, Glide Tights",
+    "where": "Complete the three Sky dive ring challenges on Courage, Bravery, and Valor Islands (one piece each).",
+    "bonus": "Each piece boosts dive speed; full set upgraded to 2 stars gives Impact Proof - immunity to all fall damage.",
+    "upgrade": "Upgrade theme: sky/flight critters and Zonai materials.",
+    "priority": "Fun and very useful for fliers"
+   },
+   {
+    "name": "Zonaite Set",
+    "pieces": "Zonaite Helm, Zonaite Waistguard, Zonaite Greaves",
+    "where": "Three chests on the Sky Islands, in different areas of the sky.",
+    "bonus": "Full set bonus Energy Recharge Up: doubles how fast your Zonai battery (energy cells) recharge.",
+    "upgrade": "Upgrade theme: Zonaite ore and Zonai device/construct materials.",
+    "priority": "Best-in-slot for Zonai vehicle builders"
+   },
+   {
+    "name": "Charged Set",
+    "pieces": "Charged Headdress, Charged Shirt, Charged Trousers",
+    "where": "Three caves along the Dracozu River (marked by Tall Dragon Pillars) during the Secret of the Ring Ruins quest.",
+    "bonus": "Full set bonus Stormy Weather Charge: charges weapon attacks faster while in stormy weather.",
+    "upgrade": "Upgrade theme: electric monster parts (Electric Lizalfos, Electric Keese).",
+    "priority": "Niche, late-game"
+   },
+   {
+    "name": "Froggy Set",
+    "pieces": "Froggy Hood, Froggy Sleeve, Froggy Leggings",
+    "where": "Rewards from completing all of Penn's Lucky Clover Gazette side quests (12 stable jobs) for Traysi.",
+    "bonus": "Slip Resistance per piece; full set greatly reduces slipping while climbing wet or icy surfaces.",
+    "upgrade": "Upgrade theme: frogs like Hot-Footed Frog and Tireless Frog.",
+    "priority": "Huge for rainy climbing"
+   },
+   {
+    "name": "Rubber Set",
+    "pieces": "Rubber Helm, Rubber Armor, Rubber Tights",
+    "where": "Three chests in caves around Hyrule; the helm is an easy early grab before facing Gerudo storms.",
+    "bonus": "Shock Resistance per piece; fully upgraded set bonus Unshockable negates electric/lightning shock damage.",
+    "upgrade": "Upgrade theme: electric parts like Electric Lizalfos Tails.",
+    "priority": "Worth it before lightning zones"
+   },
+   {
+    "name": "Desert Voe Set",
+    "pieces": "Desert Voe Headband, Desert Voe Spaulder, Desert Voe Trousers",
+    "where": "Buy from the clothing shop in Gerudo Town once you reach the desert.",
+    "bonus": "Heat Resistance per piece; fully upgraded set bonus adds Shock Damage Resist, ideal for the Gerudo region.",
+    "upgrade": "Upgrade theme: desert critters and Electric Safflina.",
+    "priority": "Needed for hot Gerudo daytime"
+   },
+   {
+    "name": "Snowquill Set",
+    "pieces": "Snowquill Headdress, Snowquill Tunic, Snowquill Trousers",
+    "where": "Buy from the Rito Village shop (Brazen Beak) in the snowy Hebra/Tabantha region.",
+    "bonus": "Cold Resistance per piece; fully upgraded set bonus Unfreezable keeps you from freezing in blizzards.",
+    "upgrade": "Upgrade theme: cold-region critters (Cold Darner, Winterwing Butterfly).",
+    "priority": "Essential for Rito/Hebra cold"
+   },
+   {
+    "name": "Flamebreaker Set",
+    "pieces": "Flamebreaker Helm, Flamebreaker Armor, Flamebreaker Boots",
+    "where": "Buy at the Goron armor shop in Goron City near Death Mountain.",
+    "bonus": "Fire Resistance per piece; fully upgraded set bonus Fireproof stops flames from burning you.",
+    "upgrade": "Upgrade theme: fire materials like Fireproof Lizards and Flint.",
+    "priority": "Required for Death Mountain/Depths lava"
+   },
+   {
+    "name": "Zora Set (Zora Armor)",
+    "pieces": "Zora Helm, Zora Armor, Zora Greaves",
+    "where": "Zora Armor from Lady Yona during Sidon of the Zora (needs an ancient arowana; Dento points you to it). Helm and greaves found around the region.",
+    "bonus": "Swim Speed Up per piece; full set lets you swim up waterfalls, very handy in Zora areas.",
+    "upgrade": "Upgrade theme: fish and Zora-region materials.",
+    "priority": "Great for water traversal"
+   },
+   {
+    "name": "Champion's Leathers",
+    "pieces": "One-piece outfit (no separate head/legs)",
+    "where": "Hidden chest in the Sanctum (throne room) of Hyrule Castle; light the two torches behind the throne to open the tomb.",
+    "bonus": "No set bonus (single piece), but strong scaling defense as you upgrade and a classic blue look.",
+    "upgrade": "Upgrade theme: Star Fragments plus rarer monster parts at higher stars.",
+    "priority": "Reliable main-story staple"
+   },
+   {
+    "name": "Miner's Set (glow set)",
+    "pieces": "Miner's Mask, Miner's Top, Miner's Trousers",
+    "where": "Three chests in Depths mines: Abandoned Kara Kara, Daphnes Canyon, and Hylia Canyon mines.",
+    "bonus": "Pieces glow to light the dark Depths; full upgraded set bonus Shining Steps leaves a glowing petal trail.",
+    "upgrade": "Upgrade theme: Brightcaps and luminous Depths materials.",
+    "priority": "Best early light source for the Depths"
+   },
+   {
+    "name": "Tunic of the Wild (Of the Wild Set)",
+    "pieces": "Cap of the Wild, Tunic of the Wild, Trousers of the Wild",
+    "where": "Misko's Treasure side quests - three Dark Skeletons in the Depths (Hebra, Gerudo, Eldin). The Eldin piece needs fire protection. NOT an all-shrines reward like BotW.",
+    "bonus": "Full set upgraded to 2 stars grants Attack Up. The classic green Champion look.",
+    "upgrade": "Upgrade theme: Dragon Parts (scales, claws, horns, fangs).",
+    "priority": "Iconic late-game reward"
+   },
+   {
+    "name": "Tunic of Memories",
+    "pieces": "Single body piece (not part of a set)",
+    "where": "Buy for 400 Poes from any Bargainer Statue after speaking to all of them and clearing A Call from the Depths.",
+    "bonus": "No set bonus; a nostalgic outfit referencing Link's classic green tunic, mainly for the look.",
+    "upgrade": "Upgrade theme: Depths/Gloom-adjacent materials at the Great Fairies.",
+    "priority": "Cosmetic, optional"
+   },
+   {
+    "name": "Fierce Deity Set",
+    "pieces": "Fierce Deity Mask, Fierce Deity Armor, Fierce Deity Boots",
+    "where": "Three caves (Skull Lake Cave, Citadel Ruins Summit Cave, Ancient Tree Stump) without amiibo, or via the Majora's Mask Link amiibo.",
+    "bonus": "Attack Up per piece; full set upgraded to 3 stars adds the Charge Atk. Stamina Up bonus. Strong offensive set.",
+    "upgrade": "Upgrade theme: rare monster horns/guts at higher stars.",
+    "priority": "Powerful end-game offense"
+   }
+  ]
+ },
+ "BESTIARY": {
+  "enemies": [
+   {
+    "name": "Bokoblin",
+    "tier": "common",
+    "tactic": "Sneak up for a stealth strike, or flurry-rush their swing. Fuse a horn or rock to your weapon for far higher damage on early ones.",
+    "drops": "Bokoblin Horn, Bokoblin Fang, Bokoblin Guts"
+   },
+   {
+    "name": "Moblin",
+    "tier": "common",
+    "tactic": "Big and slow. Dodge the wide club swing for a flurry rush, or knock it off ledges. Fused horns/rocks make short work of it.",
+    "drops": "Moblin Horn, Moblin Fang, Moblin Guts"
+   },
+   {
+    "name": "Lizalfos",
+    "tier": "common",
+    "tactic": "Fast and dodgy; they spit elemental bursts. Hit with the opposite element or just flurry-rush their lunge, then finish quickly.",
+    "drops": "Lizalfos Horn, Lizalfos Tail, Lizalfos Talon"
+   },
+   {
+    "name": "Horriblin",
+    "tier": "common",
+    "tactic": "Clings to cave ceilings and grabs you with its tongue. Shoot the head to drop it, then beat it on the ground. Higher tiers spit gloom.",
+    "drops": "Horriblin Horn, Horriblin Claw, Horriblin Guts"
+   },
+   {
+    "name": "Aerocuda",
+    "tier": "common",
+    "tactic": "Flying bat-eye that swoops and can carry off Bokoblins. Shoot it down with any arrow; a Keese Eyeball-fused arrow homes right in.",
+    "drops": "Aerocuda Eyeball, Aerocuda Wing"
+   },
+   {
+    "name": "Construct (Soldier / Captain)",
+    "tier": "construct",
+    "tactic": "Zonai automata in the Sky. Soldiers are basic; Captains hit harder. Flurry-rush, or knock their weapon off to steal a Construct weapon to Fuse.",
+    "drops": "Soldier/Captain Construct Horn, Zonai Charge, Construct weapons"
+   },
+   {
+    "name": "Like Like",
+    "tier": "common",
+    "tactic": "Tube that swallows you and spits you out, dropping a weapon. Shoot the open mouth or its eye to stun, then attack. Watch for Ice/Rock variants.",
+    "drops": "Opal, chest gear; Ice Like Stone or Rock Like Stone from variants"
+   },
+   {
+    "name": "Gibdo",
+    "tier": "common",
+    "tactic": "Gerudo desert mummies that harden and revive unless finished with an element. Hit with fire/electric/ice to weaken, then strike to end them.",
+    "drops": "Gibdo Bone, Gibdo Wing, Gibdo Guts"
+   },
+   {
+    "name": "Gloom Hands (Gloom Spawn)",
+    "tier": "gloom",
+    "tactic": "Crawling gloom arms that drain max hearts. Get high ground and rain Bomb Flower arrows into the cluster; bright light (Brightbloom seeds) also weakens them.",
+    "drops": "Dark Clump"
+   },
+   {
+    "name": "Phantom Ganon",
+    "tier": "boss",
+    "tactic": "Spawns after clearing Gloom Hands. Wear gloom-resist gear; flurry-rush his lunges with a strong fast weapon, then punish. Repeat through his phases.",
+    "drops": "Demon King's Bow, a Gloom weapon (Sword/Club/Spear), Dark Clump"
+   },
+   {
+    "name": "Boss Bokoblin",
+    "tier": "mini-boss",
+    "tactic": "Huge Bokoblin that leads camps and charges. Sidestep the rush for a flurry rush, hit the head, and use a heavy Fuse (Silver Bokoblin Horn, rocks).",
+    "drops": "Boss Bokoblin Horn, Boss Bokoblin Guts"
+   },
+   {
+    "name": "Hinox",
+    "tier": "mini-boss",
+    "tactic": "One-eyed giant; sleeps with weapons stuck in it. Shoot the eye to stagger, then melee. Loot the weapons off its necklace before finishing.",
+    "drops": "Hinox Horn, Hinox Guts, Hinox Toenail, Hinox Tooth"
+   },
+   {
+    "name": "Stalnox",
+    "tier": "mini-boss",
+    "tactic": "Skeletal Hinox in caves/Depths. Shoot the eye to make the head pop off, grab the loose head with Ultrahand or smash it before the body reassembles.",
+    "drops": "Stalnox Horn, Hinox Tooth"
+   },
+   {
+    "name": "Stone Talus (incl. Luminous / Rare)",
+    "tier": "mini-boss",
+    "tactic": "Rock golem with an ore weak spot on its back. Climb up and hammer the black ore, or Ascend through it to reach the top. Luminous/Rare variants drop gems.",
+    "drops": "Flint, Amber, Luminous Stone; gems like Topaz/Diamond/Ruby/Sapphire on rare types"
+   },
+   {
+    "name": "Frox",
+    "tier": "boss",
+    "tactic": "Giant Depths frog-toad. Shoot its eye (Dazzle Fruit or Keese-eye arrow) to topple it, climb on and smash the glowing Zonaite ore on its back. Repeat.",
+    "drops": "Frox Fang, Frox Fingernail, Frox Guts, Zonaite, Large Zonaite, Crystallized Charge"
+   },
+   {
+    "name": "Flux Construct",
+    "tier": "boss",
+    "tactic": "Floating cube golem; hit or Ultrahand-pull the glowing block to break it apart. In ball form dodge its body-slam, then strike the weak block. I/II/III scale up.",
+    "drops": "Flux Construct Core, Zonaite, Large Zonaite"
+   },
+   {
+    "name": "Molduga",
+    "tier": "boss",
+    "tactic": "Sand shark in Gerudo dunes. Drop a Bomb Flower (or use a fused bomb) to lure it up, hit the bomb to flip it onto land, then wail on it while it's beached.",
+    "drops": "Molduga Fin, Molduga Jaw, Molduga Guts"
+   },
+   {
+    "name": "Gleeok (Fire / Frost / Thunder)",
+    "tier": "boss",
+    "tactic": "Multi-headed dragon. Shoot each head to stun, then in its air phase use an elemental-counter arrow (e.g. Frost for Fire) and finish heads fast.",
+    "drops": "Fire/Frost/Thunder Gleeok Horn, Wing, Guts"
+   },
+   {
+    "name": "King Gleeok",
+    "tier": "boss",
+    "tactic": "Toughest Gleeok, all three elements. Bring lots of arrows and a fast bow; stun all three heads, then in the aerial storm phase hit heads with bomb/elemental arrows.",
+    "drops": "King Gleeok Horn, Wing, Guts"
+   },
+   {
+    "name": "Lynel",
+    "tier": "mini-boss",
+    "tactic": "Brutal centaur. Shoot the face to stun, mount it for free hits, and flurry-rush its charge. Fuse a Lynel horn for a devastating weapon. Save before trying.",
+    "drops": "Lynel Saber Horn or Mace Horn, Lynel Hoof, Lynel Guts, Lynel weapons"
+   },
+   {
+    "name": "Temple bosses (Colgera, Marbled Gohma, Mucktorok, Queen Gibdo)",
+    "tier": "boss",
+    "tactic": "Each temple boss is solved by its dungeon gimmick plus your sage's power: Colgera (Wind), Marbled Gohma (Fire), Mucktorok (Water), Queen Gibdo (Lightning).",
+    "drops": "Heart Container, sage's vow"
+   },
+   {
+    "name": "Demon King Ganondorf",
+    "tier": "boss",
+    "tactic": "Final humanoid fight; he mirrors your moves and inflicts gloom. Use gloom-resist food, flurry-rush his combos, and call all five sages to swarm him.",
+    "drops": null
+   },
+   {
+    "name": "Demon Dragon",
+    "tier": "boss",
+    "tactic": "Final form, fought in free-fall. Dive onto its back and hit the four glowing weak spots with the Master Sword (10x dmg); the Light Dragon lifts you between each.",
+    "drops": null
+   }
+  ]
+ },
+ "COOKING": {
+  "rules": [
+   "One effect per dish: mixing two different effect ingredients (e.g. Spicy + Hasty) cancels both, leaving a plain meal that only heals.",
+   "Stack the same prefix to go further: more same-effect ingredients raise the tier (Spicy to Spicy to Hot-Footed style) and lengthen the timer.",
+   "Cook in a lit Cooking Pot. Holding ingredients and dropping them in a campfire or open flame does NOT make effect meals.",
+   "Elixirs need a critter plus a monster part: e.g. Hightail Lizard + monster part = Hasty Elixir. No critter or no monster part means no elixir.",
+   "Monster parts set elixir duration, not the effect. Tougher monster part = longer timer; the critter decides which effect you get.",
+   "Add a Dragon Horn shard (Dinraal/Naydra/Farosh/Light) to any elixir to max the timer to 30 minutes instantly.",
+   "Sundelions add the Sunny effect, the only way to cook back gloom-damaged (locked) hearts; Sun Pumpkin also gives Sunny.",
+   "Brightcaps and Glowing Cave Fish make Bright meals that give Link a glowing aura: hugely useful in the dark Depths and caves.",
+   "Muddle Buds and Dazzlefruit are throw/Fuse materials, not cooking ingredients: they confuse or blind enemies, they do not make meals.",
+   "Star fragments and most gems/ores can't be cooked; adding a non-food item usually produces Dubious Food with no effect.",
+   "Up to 5 ingredients per dish. Adding more of the same effect food gives more hearts/duration up to the cap.",
+   "Hearty-effect dishes fully heal and add temporary yellow (bonus) hearts; they ignore the normal heart count."
+  ],
+  "effects": [
+   {
+    "effect": "Hearty",
+    "does": "Fully restores hearts and adds temporary bonus (yellow) hearts on top of your max.",
+    "ingredients": "Big Hearty Radish, Hearty Radish, Hearty Truffle, Big Hearty Truffle, Hearty Salmon, Hearty Bass.",
+    "elixir": null
+   },
+   {
+    "effect": "Energizing",
+    "does": "Instantly refills part of your stamina wheel for climbing, gliding, and sprinting.",
+    "ingredients": "Stamella Shroom, Stambulb, plus Energetic Rhino Beetle for elixirs.",
+    "elixir": "Energetic Rhino Beetle + any monster part = Energizing Elixir."
+   },
+   {
+    "effect": "Enduring",
+    "does": "Overfills stamina past full with extra green wheels (best for long climbs/glides).",
+    "ingredients": "Endura Carrot, Endura Shroom, plus Tireless Frog for elixirs.",
+    "elixir": "Tireless Frog + any monster part = Enduring Elixir."
+   },
+   {
+    "effect": "Spicy (cold resistance)",
+    "does": "Keeps Link warm in cold regions so you don't take freezing chip damage.",
+    "ingredients": "Spicy Pepper, Sizzlefin Trout, plus Warm Darner for elixirs.",
+    "elixir": "Warm Darner + any monster part = Spicy Elixir."
+   },
+   {
+    "effect": "Chilly (heat resistance)",
+    "does": "Stops heat damage in hot areas like the Gerudo Desert and Eldin's hot lowlands. Note: Death Mountain's extreme heat needs Fireproof, not this.",
+    "ingredients": "Hydromelon, Cool Safflina, Chillfin Trout, plus Cold Darner for elixirs.",
+    "elixir": "Cold Darner + any monster part = Chilly Elixir."
+   },
+   {
+    "effect": "Fireproof",
+    "does": "Prevents Link bursting into flame in extreme heat (e.g. Death Mountain). Elixir only.",
+    "ingredients": "Fireproof Lizard or Smotherwing Butterfly, each plus any monster part.",
+    "elixir": "Fireproof Lizard (or Smotherwing Butterfly) + any monster part = Fireproof Elixir."
+   },
+   {
+    "effect": "Electro (shock resistance)",
+    "does": "Reduces or blocks electric/shock damage and stops weapons being knocked from your hand.",
+    "ingredients": "Voltfruit, Zapshroom, Electric Safflina, Voltfin Trout, plus Electric Darner for elixirs.",
+    "elixir": "Electric Darner + any monster part = Electro Elixir."
+   },
+   {
+    "effect": "Mighty",
+    "does": "Temporarily raises your attack power so weapons hit harder.",
+    "ingredients": "Mighty Bananas, Razorshroom, Razorclaw Crab, Mighty Carp, plus Bladed Rhino Beetle for elixirs.",
+    "elixir": "Bladed Rhino Beetle + any monster part = Mighty Elixir."
+   },
+   {
+    "effect": "Tough",
+    "does": "Temporarily raises defense so you take less damage from hits.",
+    "ingredients": "Ironshroom, Fortified Pumpkin, Armored Carp, Ironshell Crab, plus Rugged Rhino Beetle for elixirs.",
+    "elixir": "Rugged Rhino Beetle + any monster part = Tough Elixir."
+   },
+   {
+    "effect": "Hasty",
+    "does": "Increases Link's movement and running speed on foot.",
+    "ingredients": "Swift Carrot, Fleet-Lotus Seeds, Swift Violet, Hyrule Bass, plus Hightail Lizard for elixirs.",
+    "elixir": "Hightail Lizard + any monster part = Hasty Elixir."
+   },
+   {
+    "effect": "Sneaky",
+    "does": "Lowers the noise Link makes so enemies and animals are harder to alert.",
+    "ingredients": "Silent Princess, Blue Nightshade, Silent Shroom, Sneaky River Snail, plus Sunset Firefly for elixirs.",
+    "elixir": "Sunset Firefly + any monster part = Sneaky Elixir."
+   },
+   {
+    "effect": "Sticky",
+    "does": "Prevents slipping while climbing on wet surfaces or in the rain.",
+    "ingredients": "Sticky Lizard or Sticky Frog, each plus any monster part (elixir only).",
+    "elixir": "Sticky Lizard (or Sticky Frog) + any monster part = Sticky Elixir."
+   },
+   {
+    "effect": "Bright",
+    "does": "Surrounds Link with a glowing aura that lights the area: vital in the dark Depths and caves.",
+    "ingredients": "Brightcap, Glowing Cave Fish; a simple Bright meal is Brightcap + Apple.",
+    "elixir": "Deep Firefly + any monster part = Bright Elixir."
+   },
+   {
+    "effect": "Gloom-recovery (Sunny)",
+    "does": "Heals normal hearts AND restores gloom-damaged (locked) hearts, which nothing else cooks back.",
+    "ingredients": "Sundelion (best), Sun Pumpkin; both give the Sunny effect.",
+    "elixir": null
+   }
+  ],
+  "recipes": [
+   {
+    "name": "Sunny Fried Wild Greens",
+    "makes": "Restores gloom-damaged hearts (up to ~15 from Gloom)",
+    "why": "Sun Pumpkin + Sundelion. The go-to before Depths runs and gloom-heavy fights, since Sunny is the only gloom cure."
+   },
+   {
+    "name": "Hearty Steamed Fish",
+    "makes": "Full heal plus many temporary bonus hearts",
+    "why": "Hearty Salmon or Hearty Bass alone in the pot. Tons of yellow hearts for tough bosses; stack more Hearty fish for more."
+   },
+   {
+    "name": "Enduring Carrot Stew",
+    "makes": "Overfilled stamina with extra wheels",
+    "why": "Endura Carrots only. Extra green stamina wheels make long climbs and sky-glides trivial; better than plain Energizing."
+   },
+   {
+    "name": "Mighty Crab Stir-Fry",
+    "makes": "Strong, lasting attack-up",
+    "why": "Razorclaw Crab + Mighty ingredient + Goron Spice/Hylian herbs. Easy, high-tier attack boost for fights and the Depths."
+   },
+   {
+    "name": "Bright Meal (Brightcap + Apple)",
+    "makes": "Glowing aura to light dark areas",
+    "why": "Cheap, farmable Brightcaps. Lights your path in the Depths so you can navigate between Lightroots without flares."
+   },
+   {
+    "name": "Fireproof Elixir",
+    "makes": "Flame Guard (no burning in extreme heat)",
+    "why": "Fireproof Lizard or Smotherwing Butterfly + any monster part. Needed around Death Mountain before Goron/Fire content."
+   }
+  ],
+  "dragons": [
+   {
+    "name": "Dinraal",
+    "element": "Fire",
+    "where": "Circles Eldin and Akkala; enters Depths at Drenan Highlands Chasm, exits at East Akkala Plains Chasm. Catch from Ulri Mountain or Thyphlo Ruins Skyview Tower.",
+    "parts": "Scale, Claw, Fang, Horn (shard), Spike. Don't use a wooden bow near it (fire). Fuse for fire weapons; Horn maxes elixir timer to 30 min."
+   },
+   {
+    "name": "Naydra",
+    "element": "Ice",
+    "where": "Emerges near Mount Lanayru, circles Necluda/Hateno, dives near East Hill above Kakariko. Easy farm from Mount Lanayru Skyview Tower.",
+    "parts": "Scale, Claw, Fang, Horn (shard), Spike. She is freezing-cold, so bring cold resistance. Fuse for ice weapons; Horn maxes elixir timer."
+   },
+   {
+    "name": "Farosh",
+    "element": "Electric",
+    "where": "Circles Gerudo and Faron; enters Depths at Hills of Baumer Chasm, exits at East Gerudo Chasm. Wait at Popla Foothills Skyview Tower or Mount Hylia.",
+    "parts": "Scale, Claw, Fang, Horn (shard), Spike. Don't use a metal bow near it (shock). Fuse for electric weapons; Horn maxes elixir timer."
+   },
+   {
+    "name": "Light Dragon",
+    "element": "Light",
+    "where": "Circles the entire map at the far edges and a very high altitude; needs Sky islands/towers to reach. (Tied to the main story; spoiler-light here.)",
+    "parts": "Scale, Claw, Fang, Horn (shard), Spike. Parts make powerful light/holy fuses and its Horn maxes elixir timers like the others."
+   }
+  ],
+  "notes": "CORRECTIONS MADE (web-verified vs Game8, Zelda Dungeon, Gamer Rant, June 2026): (1) Removed 'Hearty Durian' from Hearty ingredients — it does NOT exist in TotK (it was a BotW item, cut from this game). Replaced with Big Hearty Truffle, a real TotK Hearty item. (2) Fixed Chilly 'does' line: removed 'Death Mountain foothills' as a Chilly use, since Death Mountain's extreme heat requires the Fireproof effect, not heat resistance — leaving this could send a first-timer to Death Mountain with the wrong dish and get them burned. (3) Corrected Dinraal's Depths entry to the proper in-game name 'Drenan Highlands Chasm' (was 'Drenan Highland Chasm') and clarified exit as 'East Akkala Plains Chasm'. Everything else verified ACCURATE: all effect/critter/elixir mappings (Energetic Rhino Beetle=Energizing, Tireless Frog=Enduring, Warm/Cold/Electric Darner, Hightail Lizard, Bladed/Rugged Rhino Beetle, Sunset Firefly, Deep Firefly=Bright Elixir, Fireproof Lizard/Smotherwing Butterfly, Sticky Lizard/Frog); Spicy=cold resist and Chilly=heat resist (correctly assigned, not swapped); the cooking rules (two effects cancel to a plain heal, same-prefix stacking, lit pot required, critter+monster part for elixirs, monster part sets duration, Dragon Horn shard = 30-min max for all four dragons including Light); Sundelion/Sun Pumpkin=Sunny gloom cure (Sundelion ~3 hearts each, Sun Pumpkin ~1); Brightcap/Glowing Cave Fish=Bright; Muddle Bud/Dazzlefruit being throw/Fuse not cooking; all four dragon routes and farming towers (Mount Lanayru, Ulri Mountain, Thyphlo Ruins, Popla Foothills towers all real). Lower confidence remains on the exact 'best' single critter per effect since many share an effect — listed ones are confirmed correct, just not guaranteed the absolute optimum. All steps kept under 170 chars, plain text, real in-game proper names. Light Dragon kept deliberately spoiler-aware."
+ },
+ "RECIPES": [
+  {
+   "eff": "Hearty",
+   "tone": "heart",
+   "does": "Fully restores hearts and adds temporary bonus (yellow) hearts on top of your max.",
+   "key": "Big Hearty Radish, Hearty Radish, Hearty Truffle, Big Hearty Truffle, Hearty Salmon, Hearty Bass.",
+   "recipe": "Cook the ingredients in a pot.",
+   "now": false
+  },
+  {
+   "eff": "Energizing",
+   "tone": "stam",
+   "does": "Instantly refills part of your stamina wheel for climbing, gliding, and sprinting.",
+   "key": "Stamella Shroom, Stambulb, plus Energetic Rhino Beetle for elixirs.",
+   "recipe": "Energetic Rhino Beetle + any monster part = Energizing Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Enduring",
+   "tone": "stam",
+   "does": "Overfills stamina past full with extra green wheels (best for long climbs/glides).",
+   "key": "Endura Carrot, Endura Shroom, plus Tireless Frog for elixirs.",
+   "recipe": "Tireless Frog + any monster part = Enduring Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Spicy (cold resistance)",
+   "tone": "warm",
+   "does": "Keeps Link warm in cold regions so you don't take freezing chip damage.",
+   "key": "Spicy Pepper, Sizzlefin Trout, plus Warm Darner for elixirs.",
+   "recipe": "Warm Darner + any monster part = Spicy Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Chilly (heat resistance)",
+   "tone": "cool",
+   "does": "Stops heat damage in hot areas like the Gerudo Desert and Eldin's hot lowlands. Note: Death Mountain's extreme heat needs Fireproof, not this.",
+   "key": "Hydromelon, Cool Safflina, Chillfin Trout, plus Cold Darner for elixirs.",
+   "recipe": "Cold Darner + any monster part = Chilly Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Fireproof",
+   "tone": "fire",
+   "does": "Prevents Link bursting into flame in extreme heat (e.g. Death Mountain). Elixir only.",
+   "key": "Fireproof Lizard or Smotherwing Butterfly, each plus any monster part.",
+   "recipe": "Fireproof Lizard (or Smotherwing Butterfly) + any monster part = Fireproof Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Electro (shock resistance)",
+   "tone": "volt",
+   "does": "Reduces or blocks electric/shock damage and stops weapons being knocked from your hand.",
+   "key": "Voltfruit, Zapshroom, Electric Safflina, Voltfin Trout, plus Electric Darner for elixirs.",
+   "recipe": "Electric Darner + any monster part = Electro Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Mighty",
+   "tone": "atk",
+   "does": "Temporarily raises your attack power so weapons hit harder.",
+   "key": "Mighty Bananas, Razorshroom, Razorclaw Crab, Mighty Carp, plus Bladed Rhino Beetle for elixirs.",
+   "recipe": "Bladed Rhino Beetle + any monster part = Mighty Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Tough",
+   "tone": "def",
+   "does": "Temporarily raises defense so you take less damage from hits.",
+   "key": "Ironshroom, Fortified Pumpkin, Armored Carp, Ironshell Crab, plus Rugged Rhino Beetle for elixirs.",
+   "recipe": "Rugged Rhino Beetle + any monster part = Tough Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Hasty",
+   "tone": "speed",
+   "does": "Increases Link's movement and running speed on foot.",
+   "key": "Swift Carrot, Fleet-Lotus Seeds, Swift Violet, Hyrule Bass, plus Hightail Lizard for elixirs.",
+   "recipe": "Hightail Lizard + any monster part = Hasty Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Sneaky",
+   "tone": "sneak",
+   "does": "Lowers the noise Link makes so enemies and animals are harder to alert.",
+   "key": "Silent Princess, Blue Nightshade, Silent Shroom, Sneaky River Snail, plus Sunset Firefly for elixirs.",
+   "recipe": "Sunset Firefly + any monster part = Sneaky Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Sticky",
+   "tone": "def",
+   "does": "Prevents slipping while climbing on wet surfaces or in the rain.",
+   "key": "Sticky Lizard or Sticky Frog, each plus any monster part (elixir only).",
+   "recipe": "Sticky Lizard (or Sticky Frog) + any monster part = Sticky Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Bright",
+   "tone": "volt",
+   "does": "Surrounds Link with a glowing aura that lights the area: vital in the dark Depths and caves.",
+   "key": "Brightcap, Glowing Cave Fish; a simple Bright meal is Brightcap + Apple.",
+   "recipe": "Deep Firefly + any monster part = Bright Elixir.",
+   "now": false
+  },
+  {
+   "eff": "Gloom-recovery (Sunny)",
+   "tone": "heart",
+   "does": "Heals normal hearts AND restores gloom-damaged (locked) hearts, which nothing else cooks back.",
+   "key": "Sundelion (best), Sun Pumpkin; both give the Sunny effect.",
+   "recipe": "Cook the ingredients in a pot.",
+   "now": false
+  }
+ ],
+ "COOK_RULES": [
+  "One effect per dish: mixing two different effect ingredients (e.g. Spicy + Hasty) cancels both, leaving a plain meal that only heals.",
+  "Stack the same prefix to go further: more same-effect ingredients raise the tier (Spicy to Spicy to Hot-Footed style) and lengthen the timer.",
+  "Cook in a lit Cooking Pot. Holding ingredients and dropping them in a campfire or open flame does NOT make effect meals.",
+  "Elixirs need a critter plus a monster part: e.g. Hightail Lizard + monster part = Hasty Elixir. No critter or no monster part means no elixir.",
+  "Monster parts set elixir duration, not the effect. Tougher monster part = longer timer; the critter decides which effect you get.",
+  "Add a Dragon Horn shard (Dinraal/Naydra/Farosh/Light) to any elixir to max the timer to 30 minutes instantly.",
+  "Sundelions add the Sunny effect, the only way to cook back gloom-damaged (locked) hearts; Sun Pumpkin also gives Sunny.",
+  "Brightcaps and Glowing Cave Fish make Bright meals that give Link a glowing aura: hugely useful in the dark Depths and caves.",
+  "Muddle Buds and Dazzlefruit are throw/Fuse materials, not cooking ingredients: they confuse or blind enemies, they do not make meals.",
+  "Star fragments and most gems/ores can't be cooked; adding a non-food item usually produces Dubious Food with no effect.",
+  "Up to 5 ingredients per dish. Adding more of the same effect food gives more hearts/duration up to the cap.",
+  "Hearty-effect dishes fully heal and add temporary yellow (bonus) hearts; they ignore the normal heart count."
+ ],
+ "WORLD": {
+  "systems": [
+   {
+    "name": "The three layers: Surface, Sky, Depths",
+    "what": "Hyrule has three stacked worlds. Sky has floating islands and Skyview Towers. The Depths sit beneath the Surface, dark and full of Gloom."
+   },
+   {
+    "name": "The Depths and Gloom",
+    "what": "The Depths are pitch-black. Toss Brightbloom Seeds or hit Lightroots to light them. Gloom damages and locks hearts until you reach light or eat a sundelion dish."
+   },
+   {
+    "name": "Lightroots mirror shrines",
+    "what": "Activating a Lightroot lights a chunk of the Depths and marks the map. All 120 Lightroots sit under the 120 Surface shrines, names spelled backwards."
+   },
+   {
+    "name": "Poes and Bargainer Statues",
+    "what": "Poes are blue flames found in the Depths; they are currency. Spend them at the seven Bargainer Statues to buy Gloom-resistant gear and items."
+   },
+   {
+    "name": "Shrines and Light of Blessing",
+    "what": "There are 152 shrines across Surface and Sky. Each gives a Light of Blessing. Trade 4 at any Goddess Statue for one heart or one stamina vessel."
+   },
+   {
+    "name": "Heart and stamina swap",
+    "what": "At the Horned Statue in the bunker beneath Lookout Landing you can rebalance hearts and stamina. It costs rupees: sell an essence for 100, buy the other back for 120."
+   },
+   {
+    "name": "Battery and Energy Cells",
+    "what": "Energy Cells power Zonai devices. Mine Zonaite in the Depths, trade 3 to a Forge Construct for a Crystallized Charge, then add cells at a Crystal Refinery."
+   },
+   {
+    "name": "Skyview Towers",
+    "what": "15 Skyview Towers reveal the regional map and launch you skyward. Open the shutters by solving each tower's small puzzle, then get fired into the Sky."
+   },
+   {
+    "name": "Zonai devices and Autobuild",
+    "what": "Zonai devices (fans, wheels, rockets) attach with Ultrahand. Autobuild rebuilds saved or recent creations from materials, spending Zonaite for missing parts."
+   },
+   {
+    "name": "Great Fairies",
+    "what": "Four Great Fairies (Tera, Cotera, Kaysa, Mija) upgrade armor. Unlock each by reuniting the Stable Trotters troupe, led by conductor Mastro, near a stable."
+   },
+   {
+    "name": "Korok seeds and Hestu",
+    "what": "Find Korok seeds (900 total) and give them to Hestu to expand your weapon, bow, and shield pouches. Many hide behind carry-a-Korok-to-its-friend puzzles."
+   },
+   {
+    "name": "Dragon's Tears and geoglyphs",
+    "what": "Visit the geoglyphs drawn across the Surface to unlock the Dragon's Tears memories, telling the Imprisoning War story out of order."
+   },
+   {
+    "name": "Sage abilities and Sage's Will",
+    "what": "The five sages grant abilities you trigger by their avatar (Tulin gusts, Yunobo charges, etc.). Offer 4 Sage's Wills at a Goddess Statue to boost one sage (about 1.3x)."
+   },
+   {
+    "name": "The four temples and the fifth sage",
+    "what": "Wind (Rito/Tulin), Fire (Goron/Yunobo), Water (Zora/Sidon), Lightning (Gerudo/Riju). Mineru, the fifth sage, comes from the Spirit Temple."
+   }
+  ],
+  "upgrades": [
+   "Hearts and stamina: collect Lights of Blessing from shrines (152 total) and trade 4 at a Goddess Statue for one heart container or one stamina vessel.",
+   "Heart/stamina swap: at the Horned Statue in the Lookout Landing bunker you can rebalance later. It is not free; each swap nets about 20 rupees (sell 100, rebuy 120).",
+   "Battery (Energy Cells): mine Zonaite in the Depths, trade 3 Zonaite per Crystallized Charge at a Forge Construct, then spend 100 charges per cell at a Crystal Refinery.",
+   "Pouch slots: hand Korok seeds to Hestu to add weapon, bow, and shield inventory slots; costs climb as you expand.",
+   "Armor: upgrade gear at any of the four Great Fairy fountains once unlocked, spending materials and rupees per level.",
+   "Sage power: collect Sage's Wills (20 exist; some guarded by Gleeoks) and offer 4 at a Goddess Statue to strengthen a chosen sage's ability about 1.3x."
+  ],
+  "fairies": [
+   {
+    "name": "Tera",
+    "location": "Near Woodland Stable in Eldin, by Pico Pond. You meet conductor Mastro and the Stable Trotters here; awaken Tera first to unlock the others.",
+    "cost": "Free to unlock (reunite the Stable Trotters); armor upgrades then cost materials plus rupees"
+   },
+   {
+    "name": "Cotera",
+    "location": "Near Dueling Peaks Stable, south of Kakariko Village on the east side of Dueling Peaks.",
+    "cost": "Free to unlock (reunite the next Stable Trotters musician); upgrades cost materials plus rupees"
+   },
+   {
+    "name": "Kaysa",
+    "location": "Near Outskirt Stable, southwest edge of Hyrule Field, west of the Coliseum Ruins.",
+    "cost": "Free to unlock (reunite the Stable Trotters); upgrades cost materials plus rupees"
+   },
+   {
+    "name": "Mija",
+    "location": "Near Snowfield Stable in the South Tabantha Snowfield (cold region; pack warm gear).",
+    "cost": "Free to unlock (final Stable Trotters performance); upgrades cost materials plus rupees"
+   }
+  ],
+  "notes": "Web-verified against Nintendo Life, Game8, GameWith, ZeldaDungeon, Fextralife. CORRECTIONS to the source dataset: (1) The heart/stamina swap is done at the HORNED STATUE (also nicknamed the Cursed Statue), hidden in the Emergency Shelter bunker beneath Lookout Landing, unlocked via the \"Who Goes There?!\" quest. It is NOT a Goddess Statue and NOT a Bargainer/\"Statue of the Dead\" (those are the separate Poe-trading statues). (2) The swap is NOT free: you sell an essence for 100 rupees and rebuy the other type for 120, a net 20 rupees per swap. The source's own note that recommended dropping the Horned Statue reference was backwards and has been reversed. (3) Korok seed total corrected from 1000 to 900 (giving all to Hestu fully maxes pouches; the famous \"1000th\" is a meme/extra, but the real count is 900). (4) Softened \"press A\" sage-activation wording since activation differs per sage (Tulin gust on glide, Yunobo charge on aim+attack, etc.); walking up + prompt is the secondary cue. Confirmed accurate as given: 152 shrines, 120 Lightroots (names spelled backwards under Surface shrines), 15 Skyview Towers, 7 Bargainer Statues (1 Surface + 6 Depths), 20 Sage's Wills (some guarded by King Gleeoks), 4 Sage's Wills per upgrade at ~1.3x, 4 Lights of Blessing per vessel, 3 Zonaite per Crystallized Charge at a Forge Construct, 100 charges per Energy Cell at the Crystal Refinery, 4 Great Fairies (Tera, Cotera, Kaysa, Mija) unlocked via the Stable Trotters troupe led by conductor Mastro, Tera awakened first. Medium-high confidence on stable pairings; Tera-first ordering is firm. Note: Korok total of 900 is well documented but some count the bonus, so if your app already standardized on 900 keep it."
+ },
+ "RUNES": [
+  {
+   "id": "ultrahand",
+   "name": "Ultrahand",
+   "glyph": "magnesis",
+   "from": "Ukouh Shrine, your first shrine on the Great Sky Island.",
+   "what": "Grab, move, rotate and glue almost any object together to build bridges, vehicles, and machines from Zonai parts.",
+   "tip": "Hold the button to fine-tune angle and distance; objects snap and turn yellow when they'll stick. Press up on the D-pad to detach mistakes."
+  },
+  {
+   "id": "fuse",
+   "name": "Fuse",
+   "glyph": "sword",
+   "from": "In-isa Shrine, the second Great Sky Island shrine.",
+   "what": "Attach an object or material to a weapon, shield, or arrow to boost damage, change its effect, or add reach.",
+   "tip": "Fuse a rock onto a flimsy stick for a hammer, or a Keese eyeball onto arrows for homing shots. It saves your weak weapons from breaking fast."
+  },
+  {
+   "id": "ascend",
+   "name": "Ascend",
+   "glyph": "cryonis",
+   "from": "Gutanbac Shrine, the third Great Sky Island shrine.",
+   "what": "Swim straight up through any ceiling above you and pop out standing on top of it.",
+   "tip": "Use it to skip climbing in caves and towers. Aim for a flat ceiling overhead, not slopes, and watch the cursor turn yellow when it's valid."
+  },
+  {
+   "id": "recall",
+   "name": "Recall",
+   "glyph": "stasis",
+   "from": "From Zelda's spirit at the Temple of Time on the Great Sky Island, after clearing the first three shrines.",
+   "what": "Reverse an object's recent movement, sending it back along the exact path it just traveled.",
+   "tip": "Ride a fallen sky rock back up to the islands, or send enemy projectiles flying back. Great for reaching high places without building."
+  },
+  {
+   "id": "autobuild",
+   "name": "Autobuild",
+   "glyph": "gem",
+   "from": "From a Construct at the Great Abandoned Central Mine in the Depths, during the quest A Mystery in the Depths (not on the Great Sky Island).",
+   "what": "Instantly recreate saved or recently built Zonai constructions, spending Zonaite for parts you don't have on hand.",
+   "tip": "Save favorite vehicles like a hover bike so you can rebuild them anywhere. Capturing schematics from machines you find expands your options."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Ultrahand",
+   "glyph": "magnesis",
+   "step": "t_sky_ukouh_01"
+  },
+  {
+   "name": "Fuse",
+   "glyph": "sword",
+   "step": "t_sky_inisa_02"
+  },
+  {
+   "name": "Ascend",
+   "glyph": "cryonis",
+   "step": "t_sky_gutanbac_04"
+  },
+  {
+   "name": "Recall",
+   "glyph": "stasis",
+   "step": "t_sky_tot_02"
+  },
+  {
+   "name": "Autobuild",
+   "glyph": "gem",
+   "step": "t_castle_s6_st6"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Tulin's Gust",
+   "from": "Wind Temple",
+   "step": "t_wind_reward_3",
+   "note": "Tulin's Gust"
+  },
+  {
+   "name": "Yunobo's Charge",
+   "from": "Fire Temple",
+   "step": "t_fire_s_after_reward1",
+   "note": "Yunobo's Charge"
+  },
+  {
+   "name": "Vow of Sidon, Sage of Water",
+   "from": "Water Temple",
+   "step": "t_water_s6_q2",
+   "note": "Vow of Sidon, Sage of Water"
+  },
+  {
+   "name": "Vow of Riju",
+   "from": "Lightning Temple",
+   "step": "t_lightning_s_boss_st6",
+   "note": "Vow of Riju"
+  },
+  {
+   "name": "Vow of Mineru",
+   "from": "The Fifth Sage",
+   "step": "t_spirit_s5_1",
+   "note": "Vow of Mineru"
+  }
+ ],
+ "CATS": [
+  {
+   "id": "ability",
+   "name": "Abilities",
+   "glyph": "stasis"
+  },
+  {
+   "id": "weapon",
+   "name": "Weapons",
+   "glyph": "sword"
+  },
+  {
+   "id": "bow",
+   "name": "Bows",
+   "glyph": "bow"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "armor",
+   "name": "Armor",
+   "glyph": "armor"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Materials",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "shrines",
+   "name": "152 Shrines",
+   "sub": "Lights of Blessing",
+   "note": "Every shrine grants a Light of Blessing; four trade for a heart or stamina vessel. The long-haul goal across Surface and Sky.",
+   "reward": "Hearts & stamina"
+  },
+  {
+   "id": "lightroots",
+   "name": "120 Lightroots",
+   "sub": "Light up the Depths",
+   "note": "Each Lightroot mirrors a Surface shrine and lights a patch of the pitch-black Depths.",
+   "reward": "A lit map below"
+  },
+  {
+   "id": "koroks",
+   "name": "1000 Korok Seeds",
+   "sub": "Hestu again",
+   "note": "Tiny puzzles all over Surface, Sky, and Depths. Trade to Hestu to expand your pouches.",
+   "reward": "Bigger inventory"
+  },
+  {
+   "id": "sages",
+   "name": "Sage's Wills & armor",
+   "sub": "Power up",
+   "note": "Upgrade your sage abilities with Sage's Wills, and armor at the Great Fairies once you reunite Mastro's troupe.",
+   "reward": "Stronger party & gear"
+  },
+  {
+   "id": "sky_depths",
+   "name": "Sky & Depths",
+   "sub": "Two more Hyrules",
+   "note": "Sky islands, the vast Depths, Yiga schematics, Zonai device dispensers, and the addisons — a whole game beyond the Surface.",
+   "reward": "Exploration"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "build",
+   "name": "Build & Fuse freely",
+   "items": [
+    "Ultrahand + Fuse is the heart of the game — fuse rocks/monster parts to weapons for power, and stick Zonai devices together to travel.",
+    "Out of battery in the sky? Recall a fallen platform and ride it back up, or glide.",
+    "Autobuild (from the Fifth Sage) recreates your favorite vehicles for a little Zonaite."
+   ]
+  },
+  {
+   "id": "depths",
+   "name": "Surviving the Depths",
+   "items": [
+    "The Depths are pitch black and full of Gloom that caps your hearts. Carry Brightbloom Seeds (throw or fuse to arrows) and light Lightroots.",
+    "Cure gloom-damaged (cracked) hearts with Sundelion dishes or by warping to the Surface.",
+    "Every Lightroot sits directly under a Surface shrine — a handy way to find shrines."
+   ]
+  }
+ ],
+ "terms": {
+  "orbs": "Lights of Blessing",
+  "orbWord": "lights",
+  "runesLabel": "Abilities",
+  "championsLabel": "Sage Vows",
+  "regionBanner": "Temple"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Abilities"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "armor",
+   "Armor"
+  ],
+  [
+   "enemies",
+   "Enemies"
+  ],
+  [
+   "world",
+   "World"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "t_depths",
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "SIDE_QUESTS": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "KOROKS": null,
+ "MAP_BEASTS": []
+};
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK };
 /* GEN:DATA:END */

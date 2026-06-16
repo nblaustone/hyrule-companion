@@ -1,0 +1,1138 @@
+[
+ {
+  "regionKey": "great_sky_island",
+  "regionName": "Great Sky Island",
+  "shrines": [
+   {
+    "name": "Ukouh Shrine",
+    "location": "Southwest of the Temple of Time, just past the first pond at the start of the game.",
+    "category": "puzzle",
+    "oneLine": "Grants Ultrahand. Build a bridge across the gap, then attach a hook to a plank and ride it along the rail to reach the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "In-isa Shrine",
+    "location": "West side of the island, south across the frozen lake near a stone ruin and the In-isa cold cave.",
+    "category": "puzzle",
+    "oneLine": "Grants Fuse. Fuse a rock to your sword, fire fruit to arrows, and a rock to your shield to clear the rooms, then beat the Construct.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Gutanbac Shrine",
+    "location": "Snowy peak in the island's upper northwest area, reached by climbing up through the cold caves.",
+    "category": "puzzle",
+    "oneLine": "Grants Ascend. Ascend through ceilings to bypass obstacles, including rising through a moving spike door, then defeat the Construct.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Nachoyah Shrine",
+    "location": "Near the Temple of Time; unlocks after the first three shrines and getting Recall at the Temple of Time.",
+    "category": "puzzle",
+    "oneLine": "Practice Recall. Rewind water-borne planks and waterwheels to cross, rewind a cogwheel to climb to a chest, then stack and rewind the clock hands to open the exit.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "central",
+  "regionName": "Central Hyrule",
+  "shrines": [
+   {
+    "name": "Kyononis Shrine",
+    "location": "Hyrule Castle Town Ruins central square, north of Lookout Landing",
+    "category": "combat",
+    "oneLine": "Combat Training: a training Construct teaches side hop, backflip, perfect guard (parry) and charged attacks; clear the drills to finish.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Yamiyo Shrine",
+    "location": "Romani Plains, east of Hyrule Castle Town Ruins, northeast of Lookout Landing",
+    "category": "combat",
+    "oneLine": "Combat Training: Throwing - learn to throw materials and fused weapons as projectiles, then defeat the Constructs to pass.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Teniten Shrine",
+    "location": "South of Lookout Landing near Lake Kolomo, Hyrule Field",
+    "category": "combat",
+    "oneLine": "Combat Training: Throwing - ZL-target and throw weapons to hit out-of-reach Constructs; aim carefully to clear the room.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kamizun Shrine",
+    "location": "West of East Post Ruins, southern Hyrule Field",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Beginner - stripped of gear, grab only the weapons in the arena; fuse a spiked ball and defeat every enemy to pass.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jojon Shrine",
+    "location": "Crenel Peak Cave, east of Lookout Landing across the river, Hyrule Field",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Rotation - enter with no gear; dodge the rotating flame emitters and use arena weapons to defeat all enemies.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ishodag Shrine",
+    "location": "Rocky hill west of Hyrule Castle Town Ruins, Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "An Uplifting Device: attach Zonai fans/lift devices with Ultrahand to raise platforms and carry yourself up to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sinakawak Shrine",
+    "location": "Near New Serenne Stable, northwest Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "An Uplifting Device: build with fans and platforms so a lifting rig rises high enough to reach the upper ledge.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jiosin Shrine",
+    "location": "South of Lookout Landing, beside the Hyrule Field Chasm",
+    "category": "puzzle",
+    "oneLine": "Shape Rotation: rotate the irregular stone blocks with Ultrahand so they pass through the matching symbol-shaped holes.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Susuyai Shrine",
+    "location": "Passeri Greenbelt, southwest of Lookout Landing, Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "A Spinning Device: use Zonai small wheels to power and time the spinning carts so they carry you across to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayachin Shrine",
+    "location": "North of Hyrule Field Skyview Tower, next to Exchange Ruins, Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "A Fixed Device: anchor and arrange Zonai devices so a fixed mechanism moves you or objects to open the path.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Tajikats Shrine",
+    "location": "Near Riverside Stable, south of Lookout Landing, Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "Building With Logs: use Ultrahand to assemble logs into a bridge or raft to cross the water and reach the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kyokugon Shrine",
+    "location": "Great Plateau foothill, southwest Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "Alignment of the Circles: rotate and line up the circular gears/discs with Ultrahand so the mechanism unlocks the way forward.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Tsutsu-um Shrine",
+    "location": "South of Outskirts Stable, southwest Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "The Stakes Guide You: drive and use the protruding stakes as steps and anchors to climb and reach the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Riogok Shrine",
+    "location": "East of Hyrule Field Mini Stable, west of Hopper Pond, Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "Force Transfer: route Zonai energy/motion through connected devices so the transferred force opens the gates.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Tadarok Shrine",
+    "location": "Waterfall cave near the River of the Dead, southwest Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "Fire and Water: use flame and water elements together (melt ice / douse fire) to clear the path and finish.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Serutabomac Shrine",
+    "location": "Floating island behind/northeast of Hyrule Castle (reached from the castle)",
+    "category": "puzzle",
+    "oneLine": "The Way Up: build and stack Zonai devices to ascend the vertical chamber and reach the altar at the top.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sepapa Shrine",
+    "location": "Small land between Hyrule Castle and Crenel Hills, north-northeast Central Hyrule",
+    "category": "puzzle",
+    "oneLine": "Backtrack: use Recall to send moving objects (gears, platforms, debris) back through time and ride them to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ren-iz Shrine",
+    "location": "Carved tree at Crenel Hills, northern Hyrule Field",
+    "category": "puzzle",
+    "oneLine": "Jump the Gaps: time jumps and glides across moving/disappearing platforms to cross the chasms to the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Tenmaten Shrine",
+    "location": "drop in, light the cavern with Brightbloom seeds, grab the chest and blessing.",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing inside Elma Knolls Well in Hyrule Field — drop in, light the cavern with Brightbloom seeds, grab the chest and blessing.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "necluda",
+  "regionName": "Necluda",
+  "shrines": [
+   {
+    "name": "Makasura Shrine",
+    "location": "West Necluda, on a cliff just west/southwest above Kakariko Village; NE of Sahasra Slope Skyview Tower.",
+    "category": "puzzle",
+    "oneLine": "Use Ascend through the rock ceilings and ride the stone platforms up; cross the gaps to reach the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Joju-u-u Shrine",
+    "location": "West Necluda, Ubota Point south of Lakeside Stable, above the cliffs by Lake Floria.",
+    "category": "puzzle",
+    "oneLine": "Building Bridges: use Ultrahand to drape the hinged bridge over the post and add the stone box as a counterweight.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jochisiu Shrine",
+    "location": "West Necluda, west side of South Dueling Peaks by Squabble River.",
+    "category": "puzzle",
+    "oneLine": "Keys Born of Water quest: use the fire and ice emitters to melt/freeze ice and clear the path, then enter.",
+    "shrineQuest": "Keys Born of Water"
+   },
+   {
+    "name": "Eshos Shrine",
+    "location": "West Necluda, on the eastern cliff of Dueling Peaks.",
+    "category": "combat",
+    "oneLine": "Combat Training: Shields. Parry the Training Constructs' attacks; use a non-metallic shield against the electric one.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Susub Shrine",
+    "location": "West Necluda, inside Deya Village Ruins East Well, south of Deya Village Ruins.",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: no puzzle. Drop into the well and reach the shrine; grab the chest and the Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Utojis Shrine",
+    "location": "West Necluda, inside Tobio's Hollow Cave.",
+    "category": "puzzle",
+    "oneLine": "Legend of the Soaring Spear: fuse a Keese Wing to a spear, stand on the glowing pedestal and throw it through the ring.",
+    "shrineQuest": "Legend of the Soaring Spear"
+   },
+   {
+    "name": "Tokiy Shrine",
+    "location": "East Necluda, inside Oakle's Navel Cave (north of Rabella Wetlands Skyview Tower).",
+    "category": "blessing",
+    "oneLine": "The Oakle's Navel Cave Crystal: carry the crystal past falling boulders (Recall the big one) to its stand to reveal it.",
+    "shrineQuest": "The Oakle's Navel Cave Crystal"
+   },
+   {
+    "name": "Zanmik Shrine",
+    "location": "East Necluda, on a hill southwest of Hateno Village.",
+    "category": "puzzle",
+    "oneLine": "Scoop it Out: Ultrahand four plates into a box, attach it to the wheel as a scoop, then plate the nodes to power it.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayahisik Shrine",
+    "location": "East Necluda, inside Retsam Forest Cave near the Hateno Ancient Tech Lab.",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: no puzzle. Enter the cave, break the rocks and follow the path to the shrine for the Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Anedamimik Shrine",
+    "location": "East Necluda, inside Deepback Bay Cave, east of Hateno Village.",
+    "category": "puzzle",
+    "oneLine": "A Retraced Path: ride the moving platform across, then use Recall on the rolling ball to send it into the receptacle.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Bamitok Shrine",
+    "location": "East Necluda, inside Mount Dunsel Cave near Lurelin Village.",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: no puzzle. Swim across, lift the plank and Ascend up to reach the shrine and Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sifumim Shrine",
+    "location": "East Necluda, on a hill just northwest of Lurelin Village.",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Flow. Weapons removed. Knock the Soldier Constructs off the rotating platforms into the water.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Marari-In Shrine",
+    "location": "Necluda Sea, on Eventide Island via the sea cave entrance (far southeast).",
+    "category": "puzzle",
+    "oneLine": "Solve the puzzle inside the Eventide cave to reveal it; reach it by raft/boat or paraglide from the Hateno coast.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "lanayru",
+  "regionName": "Lanayru",
+  "shrines": [
+   {
+    "name": "Tukarok Shrine",
+    "location": "Lanayru Wetlands, just south of Wetland Stable",
+    "category": "puzzle",
+    "oneLine": "Forward Force. Stick the ball to a wheeled cart and ride it across lava, then build a paddle raft to ferry the ball to the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Morok Shrine",
+    "location": "Lanayru Wetlands, atop a floating island near Sahasra Slope, northwest of Sahasra Slope Skyview Tower",
+    "category": "puzzle",
+    "oneLine": "A Bouncy Device. Stack and fuse the Zonai springs, then activate them to launch yourself up to the chest and the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jonsau Shrine",
+    "location": "Lanayru Wetlands, on the southern hills of Mercay Island near the center of the Wetlands",
+    "category": "puzzle",
+    "oneLine": "Deep Force. Ultrahand the ball under the target and push it deep underwater so it rockets up and strikes the switch.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Maoikes Shrine",
+    "location": "Lanayru Wetlands, inside Bone Pond Cave (drop in through the skull on the hilltop)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. No puzzle inside; just reach it through the cave, grab the chest, and touch the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mogawak Shrine",
+    "location": "Lanayru Great Spring, below the walkways of Zora's Domain beneath the Great Zora Bridge",
+    "category": "puzzle",
+    "oneLine": "The Power of Water. Charge the battery with the waterfall's hydro power to run the elevator up to the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ihen-a Shrine",
+    "location": "Lanayru Great Spring, Mipha Court atop Ploymus Mountain, east of Zora's Domain",
+    "category": "puzzle",
+    "oneLine": "Midair Perch. Splash-arrow the gooped entrance, then Ascend up a Hover Stone and lay the bridge as a ramp to cross the gaps.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Apogek Shrine",
+    "location": "Lanayru Great Spring, southeast of East Reservoir Lake near Zora's Domain",
+    "category": "puzzle",
+    "oneLine": "Wings on the Wind. Fuse a fan to a Zonai wing, set it on the rail, then ride it across the room to the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Yomizuk Shrine",
+    "location": "Lanayru Great Spring, inside Tarm Point Cave, north of Tarm Point",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. No puzzle; find it through the cave, open the chest, and touch the altar for the Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Joniu Shrine",
+    "location": "Lanayru Great Spring, inside Ralis Channel, northwest of Veiled Falls",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing, unlocked via a shrine quest. Toss a Brightbloom Seed to light the dark channel and follow the right path in.",
+    "shrineQuest": "The Ralis Channel Crystal"
+   },
+   {
+    "name": "Kurakat Shrine",
+    "location": "Lanayru Great Spring, northwest of Quatta's Shelf",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing behind a dyeing riddle: read the clue, dye your armor the right color at Hateno, then claim the chest and altar.",
+    "shrineQuest": "Dyeing to Find It"
+   },
+   {
+    "name": "O-ogim Shrine",
+    "location": "Lanayru Great Spring, south of Lanayru Heights below the broken Lanayru Bridge",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing reward for a shrine quest; deliver the crystal to make the shrine appear, then take the chest and altar.",
+    "shrineQuest": "The Lanayru Road Crystal"
+   },
+   {
+    "name": "Jikais Shrine",
+    "location": "Mount Lanayru, east of the Lanayru Range beyond Madorna Mountain",
+    "category": "puzzle",
+    "oneLine": "Jailbreak. Use Ultrahand to stack and move blocks, then Ascend up through them to reach the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Zakusu Shrine",
+    "location": "Mount Lanayru, Naydra Snowfield, southwest of Mount Lanayru Skyview Tower",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Ascension. Stripped of gear, use only the shrine's weapons and Ascend to beat the foes; gated behind a shrine quest.",
+    "shrineQuest": "The High Spring and the Light Rings"
+   },
+   {
+    "name": "Jogou Shrine",
+    "location": "Mount Lanayru, inside Lanayru Road East Cave on the northwest slopes (below the Lanayru Road East Gate)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. No puzzle inside; just find it within the cave and touch the altar for the Light of Blessing.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "faron",
+  "regionName": "Faron",
+  "shrines": [
+   {
+    "name": "En-oma Shrine",
+    "location": "Lake Hylia Whirlpool Cave, beneath Lake Hylia (approx 0105, -2514, 0088); enter by letting the visible whirlpool suck Link down",
+    "category": "blessing",
+    "oneLine": "No trial inside; reward for The Lake Hylia Crystal quest. Grab the crystal on the sky island above the whirlpool and drop it into the hole below.",
+    "shrineQuest": "The Lake Hylia Crystal"
+   },
+   {
+    "name": "Ishokin Shrine",
+    "location": "Faron Grasslands near Zokassa Ridge, east of Oseira Plains (approx -0565, -3524, 0129)",
+    "category": "blessing",
+    "oneLine": "No trial inside; appears after Ride the Giant Horse. Tame the Giant White Stallion in the nearby grove and show it to Baddek for the crystal.",
+    "shrineQuest": "Ride the Giant Horse"
+   },
+   {
+    "name": "Jiukoum Shrine",
+    "location": "Faron Grasslands, south side of Popla Foothills overlooking Dracozu Lake, SE of Popla Foothills Skyview Tower (approx 0867, -2279, 0141)",
+    "category": "puzzle",
+    "oneLine": "Built for Rails: use Ultrahand to join the boards into a stable platform, set it on the rails, and ride it across each gap to the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Utsushok Shrine",
+    "location": "Faron Grasslands, northeast of Highland Stable, east of Fural Plain atop a hill (approx 0668, -3358, 0072)",
+    "category": "puzzle",
+    "oneLine": "Long or Wide: with Ultrahand add length or weight to the paddle to knock balls into switches, then ride the spawned cart along the rails.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ekochiu Shrine",
+    "location": "Rise and Fall: ride rising/falling platforms and time Ultrahand to cross. North ",
+    "category": "puzzle",
+    "oneLine": "Rise and Fall: ride rising/falling platforms and time Ultrahand to cross. North of Woodland Stable, Great Hyrule Forest.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kikakin Shrine",
+    "location": "Shining in Darkness: cross a pitch-black shrine using light orbs / Brightbloom s",
+    "category": "puzzle",
+    "oneLine": "Shining in Darkness: cross a pitch-black shrine using light orbs / Brightbloom seeds. NE of Mount Drena, west Great Hyrule Forest.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kiuyoyou Shrine",
+    "location": "Fire and Ice: melt and freeze ice blocks with flame and Zonai devices to align p",
+    "category": "puzzle",
+    "oneLine": "Fire and Ice: melt and freeze ice blocks with flame and Zonai devices to align platforms. Rowan Plain, east of the Forgotten Temple.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Musanokir Shrine",
+    "location": "Swing to Hit: build a weighted pendulum with Ultrahand to smash targets and ball",
+    "category": "puzzle",
+    "oneLine": "Swing to Hit: build a weighted pendulum with Ultrahand to smash targets and balls into goals. Within Korok Forest.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ninjis Shrine",
+    "location": "appears after the 'Maca's Special Place' quest (post-Phantom Ganon). South edge ",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing — appears after the 'Maca's Special Place' quest (post-Phantom Ganon). South edge of Korok Forest; collect the blessing.",
+    "shrineQuest": "Maca's Special Place"
+   },
+   {
+    "name": "Pupunke Shrine",
+    "location": "Quest-gated blessing: finish 'A Pretty Stone and Five Golden Apples' (give a lum",
+    "category": "quest",
+    "oneLine": "Quest-gated blessing: finish 'A Pretty Stone and Five Golden Apples' (give a luminous stone + 5 golden apples), then walk in.",
+    "shrineQuest": "A Pretty Stone and Five Golden Apples"
+   },
+   {
+    "name": "Sakunbomar Shrine",
+    "location": "Quest-gated blessing: complete 'None Shall Pass' in Great Hyrule Forest, then fo",
+    "category": "quest",
+    "oneLine": "Quest-gated blessing: complete 'None Shall Pass' in Great Hyrule Forest, then follow the light beam to the shrine.",
+    "shrineQuest": "None Shall Pass"
+   }
+  ]
+ },
+ {
+  "regionKey": "gerudo",
+  "regionName": "Gerudo",
+  "shrines": [
+   {
+    "name": "Kudanisar Shrine",
+    "location": "Gerudo Desert, west of Gerudo Town near the Statue of the Eighth Heroine",
+    "category": "puzzle",
+    "oneLine": "Bridging the Sands: use Ultrahand to build wooden bridges and a fan-cart to cross the stamina-draining quicksand to the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayatat Shrine",
+    "location": "Gerudo Desert, southwest of Gerudo Desert Gateway near Kara Kara Bazaar",
+    "category": "puzzle",
+    "oneLine": "A Sliding Device: hop onto one of the descending sleds, then use Recall to ride it back up across the quicksand to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Soryotanog Shrine",
+    "location": "Gerudo Desert, high on the cliffs directly above Gerudo Town",
+    "category": "puzzle",
+    "oneLine": "Buried Light: turn on a fan with Ultrahand to blow away the sand, then guide the light beam to the crystal to open the way.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Siwakama Shrine",
+    "location": "Gerudo Desert, north of the East Barrens",
+    "category": "puzzle",
+    "oneLine": "Moving the Spheres: Ultrahand the big balls to bridge the gaps, then use Recall to ride a returning sphere across to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Chichim Shrine",
+    "location": "Gerudo Desert, inside the Ancient Prison Ruins reached by sinking through the quicksand at Palu Wasteland east of Gerudo Town",
+    "category": "puzzle",
+    "oneLine": "Drop into the Ancient Prison Ruins via the sinkhole, flip the Ultrahand switches and dodge Gibdos, then clear the shrine inside.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Karahatag Shrine",
+    "location": "Gerudo Desert, south of the Southern Oasis",
+    "category": "puzzle",
+    "oneLine": "Drifting Flame: lift a lit brazier high with Ultrahand, hit Recall so it hangs, then run to light the inverted ceiling pillars.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Irasak Shrine",
+    "location": "Gerudo Desert, south of Arbiter's Grounds",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: no trial inside. Just reach it across the desert, open the chest, and claim the Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Miryotanog Shrine",
+    "location": "Gerudo Desert, south of Toruma Dunes, east of Gerudo Town and north of the Lightning Temple",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Lure. Stripped of gear, grab the local weapons and lure the five constructs into the rolling-boulder traps.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Motsusis Shrine",
+    "location": "Gerudo Desert, hidden inside the South Lomei Labyrinth maze southeast of the desert",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: the only challenge is reaching it. Solve the South Lomei Labyrinth maze, then claim the free Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Rakakudaj Shrine",
+    "location": "Gerudo Highlands, along the Gerudo Canyon Path near Gerudo Canyon Stable",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing unlocked by The Gerudo Canyon Crystal quest: deliver the crystal along the path to make the shrine appear.",
+    "shrineQuest": "The Gerudo Canyon Crystal"
+   },
+   {
+    "name": "Turakamik Shrine",
+    "location": "Gerudo Highlands, north of Gerudo Canyon Mine, east of Gerudo Canyon Stable",
+    "category": "puzzle",
+    "oneLine": "Hidden Metal: use Ultrahand to clink the electrified metal balls onto the others, sending current through gears to open the gates.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kitawak Shrine",
+    "location": "Gerudo Highlands area, on the East Gerudo Mesa ridge that separates the desert from Faron",
+    "category": "puzzle",
+    "oneLine": "Upward and Forward: Ultrahand planks onto the raised bridges to lower them, then use the gears and catapults to launch upward.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Otutsum Shrine",
+    "location": "Gerudo Highlands, in the north of Risoka Snowfield, far northeast of Gerudo Highlands Skyview Tower",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: no trial. Brave the cold snowfield to reach it, then grab the Light of Blessing and the chest inside.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayamats Shrine",
+    "location": "Gerudo Highlands, southeast of Gerudo Highlands Skyview Tower",
+    "category": "puzzle",
+    "oneLine": "A Route for a Ball: build a track with Ultrahand and use Ascend, then roll the correct ball into the floor socket by the gate.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Suariwak Shrine",
+    "location": "Gerudo Highlands, inside Taafei Hill Cave (the Yiga Blademaster Station) northeast of Gerudo Canyon Stable",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing with no puzzle, but the door stays locked until you pass The Yiga Clan Exam side quest in Yiga disguise.",
+    "shrineQuest": "The Yiga Clan Exam"
+   },
+   {
+    "name": "Rotsumamu Shrine",
+    "location": "Gerudo Highlands, in a gully between Vatorsa Snowfield and Sapphia's Table beside a Depths chasm",
+    "category": "puzzle",
+    "oneLine": "A Balanced Plan: attach heavy weights to the seesaws with Ultrahand to balance and ride them up, or shortcut with Recall.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "ridgeland",
+  "regionName": "Hyrule Ridge",
+  "shrines": [
+   {
+    "name": "Makurukis Shrine",
+    "location": "Hyrule Ridge Surface, north of Tabantha Bridge Stable on a ledge of Mount Rhoam (approx -2847, 0630, 0233).",
+    "category": "combat",
+    "oneLine": "Combat Training: Archery. Grab the bow by the door and headshot each construct. For the trio, Ascend a side pillar and shoot in bullet time as you fall.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Runakit Shrine",
+    "location": "Hyrule Ridge Surface, west of Lindor's Brow Skyview Tower between Upland Lindor and Mount Rhoam (approx -2531, 1170, 0178).",
+    "category": "puzzle",
+    "oneLine": "Built to Carry. Use Ultrahand to attach stone cylinders or slabs to the orb so it rolls down the rails, then drop it into the floor switch to open the bars.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sonapan Shrine",
+    "location": "Hyrule Ridge Surface, on the eastern cliff of Satori Mountain, southwest of Lookout Landing (approx -1921, 0357, 0228).",
+    "category": "puzzle",
+    "oneLine": "Missing Pathways. Use Ascend on overhangs and slide the stone bricks to build paths across the gaps, repositioning blocks to reach each higher ledge.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Taki-ihaban Shrine",
+    "location": "Hyrule Ridge Surface, inside Lindor's Brow Cave just east of Lindor's Brow Skyview Tower (approx -1829, 1149, 0147).",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. No puzzle inside; the cave is the trial. Gloom Hands lurk at the platform base, so sprint past and climb up to claim the Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Usazum Shrine",
+    "location": "Hyrule Ridge Surface, just south of Satori Mountain Foothill Cave at the foot of Satori Mountain (approx -2139, -0874, 0093).",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Activate the shrine; its green beam points to the cave. Take the crystal from the Hinox inside, then carry it back to the shrine to claim the blessing.",
+    "shrineQuest": "The Satori Mountain Crystal"
+   }
+  ]
+ },
+ {
+  "regionKey": "tabantha",
+  "regionName": "Tabantha",
+  "shrines": [
+   {
+    "name": "Gasas Shrine",
+    "location": "Southwest of Tanagar Canyon, in the far southwest corner of Tabantha Frontier (approx -4153, 0098, 0055).",
+    "category": "puzzle",
+    "oneLine": "Well-Timed Cuts: cut the rope to drop the big cube onto the ramp with an overhang, then Ascend up through it to cross the gap.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Gatakis Shrine",
+    "location": "North of Rospro Pass Skyview Tower; launch from the tower and glide north to reach it (approx -3652, 1806, 0168).",
+    "category": "puzzle",
+    "oneLine": "Ride the Winds: glide on the updrafts, weave through the laser gaps, and open your paraglider in the gusts to rise to each exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ikatak Shrine",
+    "location": "Southwestern Tabantha Frontier, just above Gisa Crater south of Rito Village (approx -3950, 1138, 0112).",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: no puzzle inside. Appears after the shrine quest. Open the chest and touch the altar for the Light of Blessing.",
+    "shrineQuest": "The Gisa Crater Crystal"
+   },
+   {
+    "name": "Iun-orok Shrine",
+    "location": "Underground inside Tanagar Canyon West Cave, in the valley below the canyon (approx -3539, 0851, -0119).",
+    "category": "puzzle",
+    "oneLine": "The Right Roll: glue only TWO balls together (not three) so the orb rolls straight down the ramp and lands on the target.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayausiy Shrine",
+    "location": "Deep inside the Forgotten Temple, north of Tanagar Canyon near Lindor's Brow (approx -1165, 2602, -0083).",
+    "category": "puzzle",
+    "oneLine": "Building Blocks: use Ultrahand to grab and rotate the loose L-pieces so the incomplete square matches the finished model beside it.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Nouda Shrine",
+    "location": "Inside Kopeeki Drifts Cave; ride a horse from Snowfield Stable to reach the snowy cave entrance (approx -2319, 2200, 0173).",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Intermediate. Stripped of your gear, grab the supplied weapons, fuse enemy parts onto them, and Ascend up to clear each tier.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Oromuwak Shrine",
+    "location": "On a mountaintop southeast of the Lucky Clover Gazette, near Brightcap Cave (approx -3079, 1617, 0243).",
+    "category": "puzzle",
+    "oneLine": "A Launching Device: fuse a Rocket to a minecart, point it up the rails, hop in and ignite it to ride up to the next area.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Turakawak Shrine",
+    "location": "Northern Tabantha Frontier near Tabantha Hills, at the region's north edge (approx -3497, -0197, 0066).",
+    "category": "puzzle",
+    "oneLine": "Stacking a Path: use Ultrahand to stack the climbable blocks into a tower against each ledge, then climb to reach the ladder and exit.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "hebra",
+  "regionName": "Hebra",
+  "shrines": [
+   {
+    "name": "Eutoum Shrine",
+    "location": "Hebra Mountains (Surface), inside Goflam's Secret Hot Spring, northern Hebra Mountains",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Infiltration. You start stripped of gear, so grab the weapons by the entrance, then sneak or fight past the Soldier Constructs.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayaotaki Shrine",
+    "location": "Hebra Mountains (Surface), at the center of North Lomei Labyrinth in North Tabantha Snowfield",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Solving the North Lomei Labyrinth maze to reach it is the trial; the shrine itself has no inner puzzle.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Orochium Shrine",
+    "location": "Hebra Mountains (Surface), near Snowfield Stable in South Tabantha Snowfield, northwest of the Forgotten Temple",
+    "category": "puzzle",
+    "oneLine": "Courage to Fall. Step off the edge and ride the rising gusts of wind to drift safely down onto the lower platforms toward the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Oshozan-u Shrine",
+    "location": "Hebra Mountains (Surface), atop an icy hill west of North Lomei Labyrinth",
+    "category": "puzzle",
+    "oneLine": "Mallet Smash. Wield the big hammer with Ultrahand to smash blocks and pound the switches that open the way forward.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Otak Shrine",
+    "location": "Hebra Mountains (Surface), inside Icefall Foothills Cave (melt the ice blocking the entrance with fire)",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Traps. You start weaponless, so use the provided gear to fight Constructs while dodging the spike and floor traps.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Rutafu-um Shrine",
+    "location": "Hebra Mountains (Surface), inside Hebra Mountains Northwest Cave, northwest of Hebra East Summit",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Do The Northwest Hebra Cave Crystal quest: carry the crystal through the cave to its pedestal to spawn the shrine.",
+    "shrineQuest": "The Northwest Hebra Cave Crystal"
+   },
+   {
+    "name": "Sahirow Shrine",
+    "location": "Hebra Mountains (Surface), atop Corvash Peak, east of Rospro Pass Skyview Tower, north of Rito Village",
+    "category": "puzzle",
+    "oneLine": "Aid from Above. Use Ascend to phase up through the ceilings, rising past the laser nets to reach each higher level and the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sisuran Shrine",
+    "location": "Hebra Mountains (Surface), northwest of Pikida Stonegrove Skyview Tower, northeast of Hebra East Summit",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Do The North Hebra Mountains Crystal quest: beat the Frost Talus (Fire Arrows or Yunobo) and haul its crystal to the pedestal.",
+    "shrineQuest": "The North Hebra Mountains Crystal"
+   },
+   {
+    "name": "Tauyosipun Shrine",
+    "location": "Hebra Mountains (Surface), on the western slopes southwest of Hebra West Summit",
+    "category": "puzzle",
+    "oneLine": "Forward or Backward? Use Recall to reverse moving platforms and rails so they carry you the direction you actually need to go.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Wao-os Shrine",
+    "location": "Hebra Mountains (Surface), inside West Lake Totori Cave, west of Rito Village",
+    "category": "puzzle",
+    "oneLine": "Lever Power. Use Ultrahand with the lever-arm contraptions to apply force, swinging platforms or launching yourself across the gaps.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "eldin",
+  "regionName": "Eldin",
+  "shrines": [
+   {
+    "name": "Sikukuu Shrine",
+    "location": "Eldin Mountains, southeast of Thyphlo Ruins (0696, 2792, 0225)",
+    "category": "puzzle",
+    "oneLine": "Spinning Gears: use Recall to reverse the big gears so platforms carry you upward, riding them to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Marakuguc Shrine",
+    "location": "Eldin Canyon, on a cliff above Goron City (1761, 2508, 0437)",
+    "category": "puzzle",
+    "oneLine": "Wheeled Wonders: Ultrahand the two wheeled carts together, ride your build, and strike the wheels to roll across the lava.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Timawak Shrine",
+    "location": "Eldin Canyon, overlooking Bedrock Bistro (1798, 1635, 0311)",
+    "category": "puzzle",
+    "oneLine": "Against the Flow: cross cooled-lava platforms, then Ultrahand spare platforms into a bridge to reach the orb and chest.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Isisim Shrine",
+    "location": "Eldin Canyon, inside YunoboCo HQ East Cave (1841, 2841, 0363)",
+    "category": "combat",
+    "oneLine": "Proving Grounds: In Reverse. Use only provided gear; Recall the gears to flip enemy approaches and clear the Constructs.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sitsum Shrine",
+    "location": "Death Mountain, west side near the summit (2367, 2597, 0790)",
+    "category": "puzzle",
+    "oneLine": "A Controlling Device: take a steering stick, drive a cart across the lava, then attach it to a fan-wing and fly to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sibajitak Shrine",
+    "location": "Eldin Canyon, north of Death Caldera (2399, 3269, 0402)",
+    "category": "puzzle",
+    "oneLine": "Alignment: use Recall to line up the rotating pillar's segments, then Ascend straight up through them to reach the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kimayat Shrine",
+    "location": "Eldin Canyon, west of Skull Lake (2871, 3625, 0239)",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Smash. Defeat all the Constructs (melee on the floor, archers above) with only the weapons provided.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayachideg Shrine",
+    "location": "Eldin Canyon, west of Kanalet Ridge (3062, 1817, 0216)",
+    "category": "combat",
+    "oneLine": "Proving Grounds: The Hunt. Use only the items inside (start with a Wooden Stick) to hunt down and defeat the Constructs.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayak Shrine",
+    "location": "Eldin Mountains, west of East Deplian Badlands (1270, 3733, 0106)",
+    "category": "puzzle",
+    "oneLine": "A timing puzzle: launch up, Ultrahand a boulder onto the ramp, then swing the glowing post so it lands on the target.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Minetak Shrine",
+    "location": "Eldin Mountains, inside Deplian Badlands Cave (0394, 3485, 0068)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: reach the shrine deep in the cave, open the chest, and touch the altar for the Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jiotak Shrine",
+    "location": "Eldin Canyon, inside Isle of Rabac Gallery cave (1833, 3179, 0257)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: wear Flamebreaker gear, navigate the hot cave to the shrine, grab the chest, and claim the blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Momosik Shrine",
+    "location": "Eldin Canyon, near Death Caldera (2957, 2759, 0524)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: appears after the crystal quest; enter, open the chest for a Big Battery, and take the blessing.",
+    "shrineQuest": "The Death Caldera Crystal"
+   },
+   {
+    "name": "Moshapin Shrine",
+    "location": "Eldin Canyon, inside Lake Intenoch Cave (2678, 1905, 0131)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: carry the green crystal to the shrine to unlock it, open the chest, then claim the blessing.",
+    "shrineQuest": "The Lake Intenoch Cave Crystal"
+   },
+   {
+    "name": "Kisinona Shrine",
+    "location": "Eldin Canyon, between Maw of Death Mountain and Cephla Lake (2568, 1245, 0173)",
+    "category": "puzzle",
+    "oneLine": "Wind Power: attach and activate the Zonai fans onto the turbine to generate wind and push platforms to the exit.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "akkala",
+  "regionName": "Akkala",
+  "shrines": [
+   {
+    "name": "Domizuin Shrine",
+    "location": "Akkala Highlands, southeast of South Akkala Stable up the mountain (3305, 1443, 0426)",
+    "category": "puzzle",
+    "oneLine": "A Prone Pathway: Hit the inside and outside rotation pillars to roll the giant cube until its steps line up, then platform to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Gatanisis Shrine",
+    "location": "Akkala Highlands, far east near Ulria Grotto by the Akkala Sea coast (4501, 0826, 0095)",
+    "category": "puzzle",
+    "oneLine": "A Well-Timed Bounce: Recall the spring platform as the ball rolls across it to fling the ball up into the switch.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jochi-iu Shrine",
+    "location": "Deep Akkala, just northeast of East Akkala Stable (4350, 2972, 0164)",
+    "category": "puzzle",
+    "oneLine": "Courage to Pluck: Ultrahand metal blocks out of the Jenga-like tower without toppling it, then climb to the altar.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Gemimik Shrine",
+    "location": "Akkala Sea, southeast of East Akkala Stable on the spiral Rist Peninsula island (4521, 2126, 0001)",
+    "category": "puzzle",
+    "oneLine": "Turbine Power: Attach the propeller to the motor and bridge the wiring with a metal plate to power the fan and braziers.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Rasiwak Shrine",
+    "location": "Deep Akkala, northeast of Akkala Ancient Tech Lab (4663, 3263, 0002)",
+    "category": "puzzle",
+    "oneLine": "Flotational Brilliance: Fuse spheres and fans to metal planks so they float, then ferry a boat onto the exit switch.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kamatukis Shrine",
+    "location": "Deep Akkala, north of Tempest Gulch (3427, 3345, 0070)",
+    "category": "puzzle",
+    "oneLine": "A Precise Strike: Aim launched balls and rotating cogs so a ball strikes the target switch to open the way forward.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sinatanika Shrine",
+    "location": "Akkala Highlands, northeast of Ulri Mountain Skyview Tower (3842, 2299, 0048)",
+    "category": "combat",
+    "oneLine": "Combat Training Sneakstrike: Stay crouched in the patrolling construct's blind spot and slip behind for a one-hit sneakstrike.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Rasitakiwak Shrine",
+    "location": "Akkala Highlands, southeast of Tarrey Town near Kaepora Pass (4161, 1324, 0229)",
+    "category": "combat",
+    "oneLine": "Proving Grounds Vehicles: Stripped of gear, fuse the emitters and cannon to a Zonai vehicle and ride it to crush the constructs.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jochi-ihiga Shrine",
+    "location": "Akkala Highlands, northeast of Akkala Falls near Lake Akkala (3813, 1218, 0090)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: Buy Hagie's green crystal in Tarrey Town and boat it to the light beam to reveal the shrine, then claim the reward.",
+    "shrineQuest": "Rock for Sale"
+   },
+   {
+    "name": "Igashuk Shrine",
+    "location": "Akkala Sea, inside Lomei Labyrinth Island in the far northeast (4655, 3712, 0131)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing: Navigate the Lomei Labyrinth Island maze to reach the shrine, then walk to the altar for the free reward.",
+    "shrineQuest": null
+   }
+  ]
+ },
+ {
+  "regionKey": "sky",
+  "regionName": "Sky Islands",
+  "shrines": [
+   {
+    "name": "Mogisari Shrine",
+    "location": "Lomei Sky Labyrinth, Akkala Sea Sky (4655, 3501, 1010)",
+    "category": "puzzle",
+    "oneLine": "Solve the Lomei Sky Labyrinth maze; ascend and navigate the floating labyrinth to reach the shrine at its heart.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Gikaku Shrine",
+    "location": "Sky Mine, Akkala Sea Sky (4506, 2165, 1155)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing 'The Sky Mine Crystal'. Fetch the crystal from Luminous Stone Island and return it to the Sky Mine shrine.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Natak Shrine",
+    "location": "Sokkala Sky Archipelago, Akkala Sky (3671, 1484, 1158)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing 'The Sokkala Sky Crystal'. Catapult into the sphere, set the spring, and launch the crystal to the shrine.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kadaunar Shrine",
+    "location": "South Eldin Sky Archipelago, Eldin Sky (1881, 1203, 1251)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing 'Water Makes a Way'. Use a water source to float and route the crystal to the shrine's foundation.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayam Shrine",
+    "location": "Great Hyrule Forest Sky (0340, 2814, 1821)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Transport the green crystal across the floating islands to the shrine's pedestal to reveal it.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Simosiwak Shrine",
+    "location": "Bravery Island, Great Hyrule Forest Sky (0163, 1972, 0759)",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Lights Out. Gear is stripped; grab the provided weapons and flame emitters to defeat three Constructs.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jinodok Shrine",
+    "location": "South Hyrule Sky Archipelago (-1256, -1482, 1008)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing 'South Hyrule Sky Crystal'. Guide the crystal across the islands to the shrine to claim the reward.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Joku-usin Shrine",
+    "location": "Thunderhead Isles, over Sarjon Woods (1077, -3349, 0786)",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Short Circuit. Use only in-shrine gear; grab the Shock Emitter and use electric attacks to beat the Constructs.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Joku-u Shrine",
+    "location": "Dragonhead Island, Thunderhead Isles (1378, -3342, 0429)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing inside the eye of Dragonhead Island. Reach it via the Thunderhead Isles for a free Light of Blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Siyamotsus Shrine",
+    "location": "South Lomei Castle, Gerudo Sky (-1795, -3296, 1011)",
+    "category": "puzzle",
+    "oneLine": "Cross the dark castle interior; light torches and time the platforms in the gloom to navigate through to the shrine.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Rakashog Shrine",
+    "location": "East Gerudo Sky Archipelago, Gerudo Highlands Sky (-1713, -2120, 1149)",
+    "category": "puzzle",
+    "oneLine": "A Reflective Device. Use Ultrahand to aim mirrors and bounce light beams onto hexagonal switches to open the doors.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayasiar Shrine",
+    "location": "Starview Island, Gerudo Highlands Sky (-3547, -0320, 1976)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Rotate Starview Island's mirror wheels to light the top switch; the shrine then appears (no interior trial).",
+    "shrineQuest": null
+   },
+   {
+    "name": "Taunhiy Shrine",
+    "location": "Courage Island, Hyrule Ridge Sky (-2402, 0825, 0615)",
+    "category": "combat",
+    "oneLine": "Combat Training: Archery. Use air vents and your glider to stay airborne, then hit the lone Construct three times with a bow.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ganos Shrine",
+    "location": "Tabantha Sky Archipelago (-3370, 0467, 1695)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing 'Tabantha Sky Crystal'. Carry the crystal across the Tabantha islands to the shrine pedestal.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ga-ahisas Shrine",
+    "location": "Lightcast Island, Tabantha Frontier Sky (-3596, 0961, 1699)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Drain the water, then redirect mirror light through the cave to open the way to the shrine.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ijo-o Shrine",
+    "location": "West Hebra Sky Archipelago (-3860, 2682, 0702)",
+    "category": "puzzle",
+    "oneLine": "More Than Defense. Use a shield and Recall to reflect or ride incoming objects and cross the gaps to the exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayaumekis Shrine",
+    "location": "Rising Island Chain, Hebra Sky (-2948, 3050, 0896)",
+    "category": "puzzle",
+    "oneLine": "Downward Force. Bounce off the roofs of the flying ships and use dropped weight to launch yourself up to the terminals.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kahatanaum Shrine",
+    "location": "Rising Island Chain, Hebra Sky (-3295, 3430, 1347)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Navigate the Rising Island Chain's ascending platforms to reach the shrine for a free blessing.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Taninoud Shrine",
+    "location": "East Hebra Sky Archipelago (-1801, 3406, 0949)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing 'The East Hebra Sky Crystal'. Build a fan flyer to bring the crystal back to the shrine, then claim it.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Tenbez Shrine",
+    "location": "North Lomei Castle, Hebra Sky (-0966, 3540, 1011)",
+    "category": "puzzle",
+    "oneLine": "Gravity and Velocity. Use ramps and falling momentum to roll balls and carts onto distant switches and targets.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Jirutagumac Shrine",
+    "location": "Near Wellspring Island, Lanayru Sky (2916, 0534, 0965)",
+    "category": "puzzle",
+    "oneLine": "A Flying Device. Build a fan-powered flyer with Ultrahand and pilot it across the gaps to the shrine's exit.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Igoshon Shrine",
+    "location": "Water Temple path, Lanayru Sky (3481, 0664, 1325)",
+    "category": "puzzle",
+    "oneLine": "Orbs of Water. Ride water orbs and use Recall and Ultrahand to ferry yourself across the gaps to the goal.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Sihajog Shrine",
+    "location": "Valor Island, Lanayru Sky (4546, -0846, 1135)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Complete Valor Island's Dive Ceremony (fall through the green rings) to make the shrine appear.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Mayanas Shrine",
+    "location": "South Lanayru Sky Archipelago, near Valor Island (4613, -0947, 1790)",
+    "category": "puzzle",
+    "oneLine": "The Ice Guides You. Make ice plates on water with Ice Fruit or Frost Emitters to build sliding ramps onto the targets.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Josiu Shrine",
+    "location": "North Necluda Sky Archipelago (1760, -1208, 0924)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing. Ferry the green crystal across the Necluda sky islands to the shrine base to reveal it.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Yansamin Shrine",
+    "location": "Zonaite Forge Island, Necluda Sky (2353, -1783, 1475)",
+    "category": "combat",
+    "oneLine": "Proving Grounds: Low Gravity. In reduced gravity with only provided gear, defeat the Constructs to clear the trial.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Ukoojisi Shrine",
+    "location": "West Necluda Sky Archipelago (1468, -2168, 0585)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing 'West Necluda Sky Crystal'. Move the crystal across the islands to the shrine's foundation.",
+    "shrineQuest": null
+   },
+   {
+    "name": "Kumamayn Shrine",
+    "location": "South Necluda Sky Archipelago (2856, -2857, 1212)",
+    "category": "blessing",
+    "oneLine": "Rauru's Blessing 'Necluda Sky Crystal'. Escort the green crystal across the floating islands to the shrine pedestal.",
+    "shrineQuest": null
+   }
+  ]
+ }
+]
