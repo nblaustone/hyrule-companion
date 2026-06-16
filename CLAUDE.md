@@ -25,9 +25,13 @@
 3. **The repo is the memory.** Decisions live in `journal/decisions/`, not in chat. Supersede with a new ADR;
    never rewrite history.
 
-## The game we're on
-**Game 1 of N: Breath of the Wild.** The data model is already game-agnostic enough to wrap in a `GAMES` array
-later (TotK, OoT…). For now everything is BotW. See ADR 0005.
+## The games (multi-game as of v8)
+Two games now live behind a **game picker** (Status tab): **Breath of the Wild** and **Tears of the Kingdom**.
+`GAMES = { botw, totk }` (built by `inline-data.mjs`); the `HyruleCompanion` wrapper owns the active game and
+remounts `<HyruleGame key={game}>`, which shadows the data globals with `GAMES[game]` and namespaces storage
+(`botw:*` / `totk:*`). Per-game `terms`/`guideSegs`/`postRegionId` adapt labels + surfaces; missing datasets
+degrade gracefully (TotK v1 has no maps/fairies/towers/quests/koroks). OoT etc. would slot in the same way.
+See ADR 0005. TotK data: `knowledge/totk/` (assembled by `build/assemble-totk.mjs`).
 
 ## Layout
 ```
@@ -116,5 +120,10 @@ layout, `REGION_MAPS` = the per-region coords.
   shrine notes**, **global search**. Verified in-browser, hosted on GitHub Pages.
 - **v7 (done):** **per-region maps** (map phase 2) — a `RegionMap` schematic inside each expanded Shrines group,
   from a 15-agent coordinate sweep (`knowledge/region-maps.json`); numbered tappable dots matching the list.
-- **Next:** multi-game `GAMES` wrapper (TotK/OoT, ADR 0005); spoiler-toggle for hints; service-worker
-  true-offline + "new version" prompt (the proper fix for the iOS Home-Screen refresh friction, if wanted).
+- **v8 (done):** **service worker** (network-first auto-updates + offline + "new version" banner); **Settings**
+  segment + **spoiler toggle**; **multi-game** `GAMES` wrapper + game picker; and **Tears of the Kingdom** as
+  game 2 (9-chapter walkthrough, 152 shrines, abilities, armor, bestiary, cooking, world). Verified both games,
+  isolated storage, zero console errors.
+- **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
+  towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`.
+  **Beyond:** Ocarina of Time as game 3 (same `GAMES` slot-in).

@@ -5,6 +5,43 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-16 — v8: service worker, settings/spoiler, and **multi-game + Tears of the Kingdom**
+
+- **Service worker** (`build.mjs` emits `sw.js`, versioned by an app-content hash): **network-first for
+  navigations** so reopening online pulls the fresh build — the durable fix for the iOS Home-Screen
+  "can't refresh" problem — plus a cached shell for offline and a "new version is ready — Update" banner.
+  Allow `localhost` as a secure context so it's testable in the preview.
+- **Settings** (new Guide segment): spoiler-free-shrines toggle, version/update info, backup/reset moved here.
+  Prefs persist game-agnostically under `hyrule:prefs`.
+- **Multi-game (ADR 0005 realized).** A thin `HyruleCompanion` wrapper owns `game` and renders
+  `<HyruleGame key={game}>` — the **key remount** loads each game's storage cleanly with no race. HyruleGame
+  **shadows the data globals** with `GAMES[game]` and namespaces storage via `K=(s)=>game+":"+s` (so BotW's
+  `botw:*` data is untouched). Per-game `terms`/`guideSegs`/`postRegionId` drive labels, the Guide segment set,
+  and the roadmap; empty datasets degrade gracefully (TotK has no maps/fairies/towers/quests/koroks yet, so
+  those surfaces hide). Sub-components that read globals (`HyruleMap`, `SearchOverlay`, `ShrinesView`) now take
+  game data as **props**; `WorldView`/`EnemiesView`/`ENEMY_TIER` were generalized for both games.
+- **Tears of the Kingdom** (57-agent sweep, 2.2M tokens): 9-chapter walkthrough, **152 shrines** (the audit
+  caught a 196 over-count — duplicate Gerudo bucket, sky shrines double-listed, a fake "Lake" region, tutorial
+  shrines in two places; deduped to 144 + 8 web-verified missing = 152), 5 abilities, 17 armor, 23 bestiary,
+  full cooking, world systems. `build/assemble-totk.mjs` maps it to app shapes (abilities→RUNES, sage vows→
+  CHAMPIONS wired to walkthrough step ids, effects→RECIPES, etc.) and refuses to write unless shrines == 152.
+- **Bugs caught + fixed this session:** (1) two JSX panel-close imbalances from conditional-wrapping edits —
+  re-read and fixed each. (2) Shipped a stale `app-data.json` once because I edited `assemble-totk.mjs` but
+  forgot to **re-run it** before inlining → TotK Cook crashed on `RECIPES.map` (undefined). Lesson: after
+  editing an assemble script, re-run assemble → inline → build, in that order. (3) The preview's
+  `console_logs` buffer is **cumulative across reloads** — stale errors looked current; confirm "live" errors
+  with an in-page `addEventListener('error')` counter, not the raw buffer.
+- Verified: both games render every tab + Guide segment, storage isolated (BotW 120 / TotK 152), **0 live
+  console errors**. Hosted; auto-updates via the SW.
+
+### Open threads
+- TotK **per-region maps** + a TotK overview map (needs `TOTK_MAP_NODES` + a coords pass like BotW's).
+- TotK fairies/towers/side-quests/Korok datasets (not yet researched) → then enable those Guide segments.
+- The Status orb panel still reads walkthrough `orb:true` items; consider sourcing it from `shrineStats.done`
+  for both games (TotK has no orb items, so its "Lights of Blessing" panel reads 0).
+
+---
+
 ## 2026-06-15 — v7: per-region maps (map phase 2) + the iOS-refresh support answer
 
 - **Support, not code, first:** Nathan couldn't refresh the Home Screen web app. Explained the standalone-mode

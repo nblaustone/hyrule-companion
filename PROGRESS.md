@@ -119,3 +119,9 @@ ZeldaCentral, Gamer Guides, Thonky, Shacknews. Verified specifically:
   (numbered tappable dots matching the list + tower/fairy/landmarks), from a 15-agent
   coordinate sweep → `knowledge/region-maps.json`. Also answered the iOS Home-Screen
   refresh question (force-quit & reopen; data is safe; back up via the v6 code).
+- v8: a **service worker** (network-first auto-updates so reopening online is fresh, +
+  offline + a "new version" banner — the durable refresh fix); a **Settings** segment +
+  **spoiler toggle**; and the big one — a **multi-game** `GAMES` wrapper + game picker
+  with **Tears of the Kingdom** as game 2 (9-chapter walkthrough, 152 shrines, 5 abilities,
+  armor, bestiary, cooking, world; from a 57-agent verified sweep). Storage namespaces per
+  game (botw:* / totk:*); TotK data in `knowledge/totk/` via `build/assemble-totk.mjs`.
