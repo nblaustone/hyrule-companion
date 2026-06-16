@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { deflateSync } from "node:zlib";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { crc32 } from "node:zlib";
@@ -139,9 +140,35 @@ function transformApp() {
 }
 
 /* ---------- 4. assemble ---------- */
-function assemble({ appJS, fontCSS, icon512b64, icon180b64, manifestDataURI }) {
+function assemble({ appJS, fontCSS, icon512b64, icon180b64, manifestDataURI, version }) {
   const react = readFileSync(join(VENDOR, "react.production.min.js"), "utf8");
   const reactDOM = readFileSync(join(VENDOR, "react-dom.production.min.js"), "utf8");
+  // SW registration + "new version" banner. Guarded so file:// / unsupported browsers no-op.
+  const swReg = `
+window.__APP_VERSION__=${JSON.stringify(version)};
+(function(){
+  var secure=/^https/.test(location.protocol)||location.hostname==='localhost'||location.hostname==='127.0.0.1';
+  if(!('serviceWorker' in navigator) || !secure) return;
+  function banner(reg){
+    if(document.getElementById('sw-upd')) return;
+    var b=document.createElement('div'); b.id='sw-upd';
+    b.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:calc(74px + env(safe-area-inset-bottom,0px));z-index:9999;background:#0f1c22;border:1px solid rgba(95,214,226,.5);color:#e9e2d2;border-radius:14px;padding:10px 14px;font:600 13px Rajdhani,system-ui,sans-serif;letter-spacing:.4px;box-shadow:0 8px 28px rgba(0,0,0,.5);display:flex;gap:12px;align-items:center;max-width:90%;';
+    b.innerHTML='<span style="color:#5fd6e2">A new version is ready</span>';
+    var u=document.createElement('button'); u.textContent='Update';
+    u.style.cssText='background:#5fd6e2;color:#091317;border:none;border-radius:9px;padding:6px 14px;font:700 12px Rajdhani,sans-serif;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;';
+    u.onclick=function(){ if(reg.waiting) reg.waiting.postMessage('skipWaiting'); };
+    b.appendChild(u); document.body.appendChild(b);
+  }
+  navigator.serviceWorker.register('./sw.js').then(function(reg){
+    if(reg.waiting && navigator.serviceWorker.controller) banner(reg);
+    reg.addEventListener('updatefound',function(){
+      var nw=reg.installing; if(!nw) return;
+      nw.addEventListener('statechange',function(){ if(nw.state==='installed' && navigator.serviceWorker.controller) banner(reg); });
+    });
+  }).catch(function(){});
+  var reloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',function(){ if(reloaded) return; reloaded=true; location.reload(); });
+})();`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -169,6 +196,7 @@ body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}
 <script>${react}</script>
 <script>${reactDOM}</script>
 <script>${appJS}</script>
+<script>${swReg}</script>
 </body>
 </html>`;
 }
@@ -176,10 +204,29 @@ body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}
 /* ---------- run ---------- */
 const fontCSS = await fontFaceCSS();
 const appJS = transformApp();
+const version = createHash("sha256").update(appJS).digest("hex").slice(0, 10); // changes whenever the app changes
 const icon512 = makeIcon(512), icon180 = makeIcon(180);
 writeFileSync(join(ROOT, "icon-512.png"), icon512);
 writeFileSync(join(ROOT, "icon-180.png"), icon180);
 const icon512b64 = icon512.toString("base64"), icon180b64 = icon180.toString("base64");
+
+// service worker: network-first for navigations (online reopen = fresh; the real fix for the
+// iOS Home-Screen "can't refresh" problem), cache-first for assets, offline-capable, versioned.
+const SW_JS = `/* Hyrule Companion service worker */
+const VERSION='${version}';
+const CACHE='hyrule-'+VERSION;
+const SHELL=['./','./index.html','./manifest.webmanifest','./icon-512.png','./icon-180.png'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).catch(()=>{}))});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
+self.addEventListener('message',e=>{if(e.data==='skipWaiting')self.skipWaiting()});
+self.addEventListener('fetch',e=>{
+  const req=e.request; if(req.method!=='GET')return;
+  if(req.mode==='navigate'||(req.headers.get('accept')||'').includes('text/html')){
+    e.respondWith(fetch(req).then(r=>{const cp=r.clone();caches.open(CACHE).then(c=>c.put('./index.html',cp));return r;}).catch(()=>caches.match('./index.html').then(r=>r||caches.match('./'))));
+    return;
+  }
+  e.respondWith(caches.match(req).then(c=>c||fetch(req).then(r=>{const cp=r.clone();caches.open(CACHE).then(ch=>ch.put(req,cp));return r;}).catch(()=>c)));
+});`;
 
 const manifest = {
   name: "Hyrule Companion", short_name: "Hyrule",
@@ -196,8 +243,9 @@ writeFileSync(join(ROOT, "manifest.webmanifest"), JSON.stringify(manifest, null,
 const inlineManifest = { ...manifest, icons: [{ src: `data:image/png;base64,${icon512b64}`, sizes: "512x512", type: "image/png", purpose: "any maskable" }] };
 const manifestDataURI = "data:application/manifest+json;base64," + Buffer.from(JSON.stringify(inlineManifest)).toString("base64");
 
-const html = assemble({ appJS, fontCSS, icon512b64, icon180b64, manifestDataURI });
+const html = assemble({ appJS, fontCSS, icon512b64, icon180b64, manifestDataURI, version });
 writeFileSync(join(ROOT, "index.html"), html);
+writeFileSync(join(ROOT, "sw.js"), SW_JS);
 
 /* ---------- 5. verify the offline guarantee ---------- */
 // inert string literals that are never fetched (SVG xmlns; React's console error-decoder link)
@@ -217,8 +265,9 @@ log(`✓ offline check passed — zero external network requests` + (offenders.l
 const DOCS = join(ROOT, "docs");
 if (!existsSync(DOCS)) mkdirSync(DOCS);
 writeFileSync(join(DOCS, "index.html"), html);
+writeFileSync(join(DOCS, "sw.js"), SW_JS);
 writeFileSync(join(DOCS, "manifest.webmanifest"), JSON.stringify(manifest, null, 2));
 writeFileSync(join(DOCS, "icon-512.png"), icon512);
 writeFileSync(join(DOCS, "icon-180.png"), icon180);
 writeFileSync(join(DOCS, ".nojekyll"), ""); // tell Pages to serve the files as-is
-log("✓ mirrored site into docs/ (GitHub Pages source)");
+log(`✓ mirrored site into docs/ (GitHub Pages source) · version ${version}`);

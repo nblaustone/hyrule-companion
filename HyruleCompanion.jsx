@@ -396,12 +396,13 @@ export default function HyruleCompanion() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
+  const [spoiler, setSpoiler] = useState(false);     // hide shrine hints until tapped (hyrule:prefs)
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at] = await Promise.all([
-        store.get("botw:progress"), store.get("botw:ui"), store.get("botw:koroks"), store.get("botw:notes"), store.get("botw:armortier"),
+      const [p, ui, kk, nt, at, pr] = await Promise.all([
+        store.get("botw:progress"), store.get("botw:ui"), store.get("botw:koroks"), store.get("botw:notes"), store.get("botw:armortier"), store.get("hyrule:prefs"),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -409,6 +410,7 @@ export default function HyruleCompanion() {
       try { if (kk != null) setKoroks(parseInt(kk, 10) || 0); } catch (e) {}
       try { if (nt) setNotes(JSON.parse(nt)); } catch (e) {}
       try { if (at) setArmorTier(JSON.parse(at)); } catch (e) {}
+      try { if (pr) { const o = JSON.parse(pr); if (o && typeof o.spoiler === "boolean") setSpoiler(o.spoiler); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -418,11 +420,13 @@ export default function HyruleCompanion() {
   useEffect(() => { if (loaded) store.set("botw:koroks", String(koroks)); }, [koroks, loaded]);
   useEffect(() => { if (loaded) store.set("botw:notes", JSON.stringify(notes)); }, [notes, loaded]);
   useEffect(() => { if (loaded) store.set("botw:armortier", JSON.stringify(armorTier)); }, [armorTier, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler })); }, [spoiler, loaded]);
 
   const toggleStep = useCallback((id) => setProgress((p) => { const n = { ...p }; if (n[id]) delete n[id]; else n[id] = true; return n; }), []);
   const toggleSection = useCallback((id) => setOpenSections((o) => ({ ...o, [id]: !o[id] })), []);
   const setNote = useCallback((id, text) => setNotes((m) => { const n = { ...m }; if (text && text.trim()) n[id] = text; else delete n[id]; return n; }), []);
   const setTier = useCallback((i, t) => setArmorTier((m) => ({ ...m, [i]: Math.max(0, Math.min(4, t)) })), []);
+  const resetAll = useCallback(() => { setProgress({}); setKoroks(0); setNotes({}); setArmorTier({}); setConfirmReset(false); }, []);
   // export/import the whole save as a portable code (offline backup, ADR 0002)
   const exportSave = useCallback(() => {
     const blob = { v: 6, progress, koroks, notes, armorTier };
@@ -707,7 +711,7 @@ export default function HyruleCompanion() {
             <div className="footer-space" />
           </>
         ) : tab === "shrines" ? (
-          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} />
+          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} />
         ) : tab === "items" ? (
           <div className="ref">
             <h2 className="ref-title">Pouch</h2>
@@ -765,7 +769,7 @@ export default function HyruleCompanion() {
         ) : (
           <div className="ref">
             <div className="seg seg-scroll">
-              {[["runes", "Runes"], ["tips", "Tips"], ["armor", "Armor"], ["fairies", "Fairies"], ["towers", "Towers"], ["quests", "Quests"], ["enemies", "Enemies"], ["koroks", "Koroks"], ["world", "World"]].map(([id, label]) => (
+              {[["runes", "Runes"], ["tips", "Tips"], ["armor", "Armor"], ["fairies", "Fairies"], ["towers", "Towers"], ["quests", "Quests"], ["enemies", "Enemies"], ["koroks", "Koroks"], ["world", "World"], ["settings", "Settings"]].map(([id, label]) => (
                 <button key={id} className={"seg-btn" + (guideSub === id ? " seg-on" : "")} onClick={() => setGuideSub(id)}>{label}</button>
               ))}
             </div>
@@ -786,16 +790,11 @@ export default function HyruleCompanion() {
             : guideSub === "enemies" ? <EnemiesView data={BESTIARY} />
             : guideSub === "koroks" ? <KoroksView data={KOROKS} koroks={koroks} setKoroks={setKoroks} />
             : guideSub === "world" ? <WorldView data={WORLD} />
+            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
             : (
               <>
                 <p className="ref-lede">The handful of things that stop the early game from feeling brutal.</p>
                 {TIPS.map((g) => (<div className="tip-card" key={g.id}><div className="tip-name">{g.name}</div><ul className="tip-list">{g.items.map((it, idx) => <li key={idx}>{it}</li>)}</ul></div>))}
-                <BackupBox doExport={exportSave} doImport={importSave} />
-                <div className="reset-zone">
-                  {!confirmReset ? (<button className="reset-btn" onClick={() => setConfirmReset(true)}>Reset all progress</button>) : (
-                    <div className="reset-confirm"><span>Clear every checkmark, shrine, tracker, and note? This can't be undone (back it up first).</span><div className="reset-actions"><button className="reset-yes" onClick={() => { setProgress({}); setKoroks(0); setNotes({}); setArmorTier({}); setConfirmReset(false); }}>Yes, reset</button><button className="reset-no" onClick={() => setConfirmReset(false)}>Keep it</button></div></div>
-                  )}
-                </div>
               </>
             )}
             <div className="footer-space" />
@@ -820,7 +819,9 @@ function TabBtn({ active, onClick, glyph, label }) {
 }
 
 /* ============================================================ SHRINES TAB ============================================================ */
-function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen }) {
+function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler }) {
+  const [revealed, setRevealed] = useState(() => new Set());
+  const reveal = (id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; });
   const q = query.trim().toLowerCase();
   const pct = Math.round((stats.done / 120) * 100);
   const upgrades = Math.floor(stats.done / 4);
@@ -869,7 +870,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                       <button className={"box" + (checked ? " box-on" : "")} onClick={() => toggleStep(id)} aria-label={checked ? "Mark not done" : "Mark done"}>{checked && <Glyph name="check" size={15} />}</button>
                       <div className="step-body">
                         <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
-                        <span className="step-text"><span className="shrine-num">{i + 1}</span><b className="shrine-name">{sh.name}</b> — {sh.oneLine}</span>
+                        <span className="step-text"><span className="shrine-num">{i + 1}</span><b className="shrine-name">{sh.name}</b>{spoiler && !revealed.has(id) ? <button className="spoiler-hint" onClick={() => reveal(id)}>— tap to reveal hint</button> : <> — {sh.oneLine}</>}</span>
                         <span className="shrine-loc"><Glyph name="tower" size={11} /> {sh.location}{sh.shrineQuest ? <span className="shrine-q"> · Quest: {sh.shrineQuest}</span> : null}</span>
                         <NoteAffordance id={id} notes={notes} setNote={setNote} open={noteOpen} setOpen={setNoteOpen} />
                       </div>
@@ -1145,6 +1146,29 @@ function BackupBox({ doExport, doImport }) {
       </details>
       {msg && <p className="backup-msg">{msg}</p>}
     </div>
+  );
+}
+
+/* ============================================================ SETTINGS ============================================================ */
+function SettingsView({ spoiler, setSpoiler, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
+  const ver = (typeof window !== "undefined" && window.__APP_VERSION__) || "dev";
+  return (
+    <>
+      <p className="ref-lede">Make the app yours. Everything here is saved on your device — no account, no server.</p>
+      <div className="set-row">
+        <div className="set-txt"><div className="set-name">Spoiler-free shrines</div><div className="set-sub">Hide each shrine's solution until you tap to reveal it — explore first, peek only when stuck.</div></div>
+        <button className={"toggle" + (spoiler ? " toggle-on" : "")} onClick={() => setSpoiler(!spoiler)} role="switch" aria-checked={spoiler} aria-label="Spoiler-free shrines"><span className="toggle-knob" /></button>
+      </div>
+      <div className="set-row">
+        <div className="set-txt"><div className="set-name">Version & updates</div><div className="set-sub">You're on build <b style={{ color: "var(--cyan-dim)" }}>{ver}</b>. Updates arrive automatically when you reopen the app online; if a “new version” banner appears, tap Update.</div></div>
+      </div>
+      <BackupBox doExport={doExport} doImport={doImport} />
+      <div className="reset-zone">
+        {!confirmReset ? (<button className="reset-btn" onClick={() => setConfirmReset(true)}>Reset all progress</button>) : (
+          <div className="reset-confirm"><span>Clear every checkmark, shrine, tracker, and note? This can't be undone — back it up first.</span><div className="reset-actions"><button className="reset-yes" onClick={doReset}>Yes, reset</button><button className="reset-no" onClick={() => setConfirmReset(false)}>Keep it</button></div></div>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -1505,6 +1529,16 @@ function StyleBlock() {
 .rmap-sn-done{fill:var(--abyss);}
 .shrine-num{display:inline-block;min-width:15px;height:15px;line-height:15px;text-align:center;border-radius:5px;background:rgba(95,214,226,0.12);color:var(--cyan-dim);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;margin-right:7px;vertical-align:1px;}
 .checked .shrine-num{background:rgba(255,255,255,0.05);color:var(--ink-line);}
+/* --- v8: settings, spoiler toggle --- */
+.set-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 14px;border:1px solid rgba(255,255,255,0.07);border-radius:13px;margin-bottom:11px;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,0.5));}
+.set-txt{min-width:0;}
+.set-name{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:15px;color:var(--parch);}
+.set-sub{font-size:12.5px;color:var(--parch-dim);line-height:1.5;margin-top:3px;}
+.toggle{flex-shrink:0;width:46px;height:27px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.05);position:relative;cursor:pointer;transition:background .2s,border-color .2s;}
+.toggle-knob{position:absolute;top:2px;left:2px;width:21px;height:21px;border-radius:50%;background:var(--parch-dim);transition:transform .2s,background .2s;}
+.toggle-on{background:rgba(95,214,226,0.22);border-color:rgba(95,214,226,0.55);}
+.toggle-on .toggle-knob{transform:translateX(19px);background:var(--cyan);}
+.spoiler-hint{font-family:'Inter',sans-serif;font-size:13px;color:var(--cyan-dim);background:rgba(95,214,226,0.07);border:1px dashed rgba(95,214,226,0.35);border-radius:7px;padding:1px 9px;margin-left:6px;cursor:pointer;letter-spacing:.2px;}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 `}</style>);
 }
