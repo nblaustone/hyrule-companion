@@ -172,17 +172,17 @@ const MEMORIES = {
       { id: "m4", k: "warn", t: "Heads up: many memories sit deep in dangerous, far-off regions (Hyrule Castle, Gerudo, Akkala, Tabantha) well beyond where you are now. Treat this as a long-haul quest you chip away at — start with the easy, nearby ones." },
     ]},
     { id: "m_list", name: "All 12 Memory Locations", sub: "Album order · tap to track", steps: [
-      { id: "m_l1", k: "optional", stuck: "Warp to Central Tower and cross the field south toward the castle; the glow sits in the ruins where Hyrule Castle fills the photo's background. A roaming Guardian Stalker patrols here, so sneak or destroy it first.", t: "#1 Sacred Ground Ruins — Central Hyrule, in the forest just south of Hyrule Castle (a Guardian Stalker guards it)." },
+      { id: "m_l1", k: "optional", stuck: "Warp to Central Tower and paraglide NORTH into Hyrule Field toward the castle; the glow sits in the semi-circular ruins where Hyrule Castle fills the photo's background. Guardians roam this field, so watch for their beams.", t: "#1 Sacred Ground Ruins — Central Hyrule, the semi-circular stone ruins in open Hyrule Field south of Hyrule Castle (paraglide north from Central Tower; Guardians roam the field)." },
       { id: "m_l2", k: "optional", t: "#2 Lake Kolomo — Central Hyrule, the forest on the west shore (near Riverside Stable)." },
-      { id: "m_l3", k: "optional", t: "#3 Ancient Columns — Tabantha, atop the cliff just south after crossing the Tabantha Great Bridge." },
+      { id: "m_l3", k: "optional", t: "#3 Ancient Columns — Tabantha (Piper Ridge), the row of broken pillars near Tena Ko'sah Shrine (paraglide from Tabantha Tower toward Piper Ridge)." },
       { id: "m_l4", k: "optional", t: "#4 Kara Kara Bazaar — Gerudo Desert, the oasis on the way to Gerudo Town (you pass it in the story)." },
-      { id: "m_l5", k: "optional", stuck: "Hard to pin down: warp to Woodland Tower and glide south-east toward a small grass patch at the mountain's base, then climb the cliff up to the glow. It sits roughly between Woodland and Eldin towers.", t: "#5 Eldin Canyon — Eldin, on a cliff between Hyrule Castle and the Great Hyrule Forest (climb from Woodland Stable)." },
+      { id: "m_l5", k: "optional", stuck: "Hard to pin down: warp to Woodland Tower and glide toward the high mountain overlooking Goronbi Lake, then climb the cliff up to the glow. It sits roughly between Woodland and Eldin towers.", t: "#5 Eldin Canyon — Eldin, high on the cliffs overlooking Goronbi Lake, between Woodland and Eldin Towers (climb up from Woodland Stable)." },
       { id: "m_l6", k: "optional", t: "#6 Irch Plain — Hyrule Ridge, by the large tree southeast of Serenne Stable." },
       { id: "m_l7", k: "optional", t: "#7 West Necluda — a tree on a hill across the Hylia River, opposite Scout's Hill (from Scout's Hill, paraglide over the river to the lone tree — it has a rock at its base)." },
       { id: "m_l8", k: "optional", t: "#8 Hyrule Castle — by Zelda's Study spire on the castle's west side. DANGEROUS — save for later." },
-      { id: "m_l9", k: "optional", t: "#9 Spring of Power — Akkala, the goddess spring in North Akkala Valley west of East Akkala Stable." },
+      { id: "m_l9", k: "optional", t: "#9 Spring of Power — Akkala, the goddess spring west of East Akkala Stable, just north of Ordorac Quarry (closest tower: Akkala)." },
       { id: "m_l10", k: "optional", t: "#10 Sanidin Park Ruins — Hyrule Ridge, the giant horse statue on Safula Hill (near Outskirt Stable)." },
-      { id: "m_l11", k: "optional", stuck: "The gate is west of Mount Lanayru on the road; the cold zone needs warm doublet or spicy meals. Walk a short way through the gate for the glow. If a Lynel blocks you, you approached from the wrong side, so circle around.", t: "#11 Lanayru Road – East Gate — Necluda, the gate at the base of cold Mount Lanayru (bring cold resistance)." },
+      { id: "m_l11", k: "optional", stuck: "Find Lanayru Promenade on the map and follow Lanayru Road east to its end; the glow is right at the East Gate. Black Moblins and Bokoblins guard the road — fight through or slip along the hills above. No cold gear needed at the gate itself.", t: "#11 Lanayru Road – East Gate — East Necluda, at the east end of Lanayru Road where it meets the Lanayru Promenade (the road is guarded by Moblins and Bokoblins; the cold is higher up the promenade, not at the gate)." },
       { id: "m_l12", k: "optional", t: "#12 Hyrule Field — Central Hyrule, the forest northeast of the Bottomless Swamp (near Wetland Stable)." },
       { id: "m_l13", k: "reward", stuck: "The 13th only unlocks after the other 12. Return to Impa in Kakariko and she gestures to the final photo hanging in her house, then recall it at Blatchery Plain (the Guardian field by Fort Hateno) for the bonus scene.", t: "After all 12, report to Impa — she reveals the 13th photo (hanging in her house): #13 Blatchery Plain, the Guardian field near Fort Hateno. Recall it to finish the quest and unlock the bonus ending scene." },
     ]},
@@ -540,10 +540,14 @@ function HyruleGame({ game, setGame, games }) {
     for (const reg of REGIONS) for (const sec of reg.sections) { const s = sectionStats[sec.id]; if (s && s.total > 0 && !s.complete) return { regionId: reg.id, sec }; }
     return null;
   }, [sectionStats]);
-  // v9: the single furthest-progressed uncompleted step — "you're here" on the linear spine
+  // v9: the single furthest-progressed uncompleted step — "you're here" on the linear spine.
+  // Follows the main-quest spine (k:"step") ONLY: loot/optional pickups are skippable (you can grab a
+  // Traveler's Bow from a different chest, or just miss a Claymore), so an unchecked side-collectible must
+  // never trap Resume in the past. reward-only sections (Master Sword, the final blow) aren't anchors either —
+  // they have no checkable step and you pass them by being there.
   const resumeTarget = useMemo(() => {
     for (const reg of REGIONS) for (const sec of reg.sections) for (const step of sec.steps)
-      if (CHECKABLE.has(step.k) && !progress[step.id]) return { regionId: reg.id, secId: sec.id, stepId: step.id, regionName: reg.name, secName: sec.name };
+      if (step.k === "step" && !progress[step.id]) return { regionId: reg.id, secId: sec.id, stepId: step.id, regionName: reg.name, secName: sec.name };
     return null;
   }, [progress]);
   const resumeIdx = useMemo(() => resumeTarget ? REGIONS.findIndex((r) => r.id === resumeTarget.regionId) : REGIONS.length, [resumeTarget]);

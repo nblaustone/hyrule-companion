@@ -46,6 +46,28 @@ re-make a rejected one. Newest at top.
   `caches.delete()` then hard-reload to see a fresh build. And `botw:ui` persists the open region/section, so a
   test that assumes "Plateau" must explicitly click the region chip, not trust the default.
 
+### v9 follow-ups (same day, post-ship)
+
+- **Resume bug — it trapped on skipped collectibles.** User report: BotW has multiple sources for the same item
+  (Traveler's Bow from the Temple of Time *and* from Oman Au; the Ja Baij Claymore is easy to miss), so they
+  leave those `loot` boxes unchecked — and Resume, which scanned the first incomplete step of *any* checkable
+  kind, anchored on that early unchecked loot forever. Fix: **`resumeTarget` now follows the main-quest spine
+  (`k:"step"`) only**, ignoring `loot`/`optional`/`reward` checkmarks. Verified: with all Plateau steps done but
+  the bow/Claymore/orbs unchecked, Resume correctly advances to Kakariko ("Cross to the Dueling Peaks") instead
+  of trapping at `awk2`. Side effect, accepted: reward-only sections (Master Sword, the final blow on Ganon)
+  aren't Resume *anchors* — they have no checkable step and you pass them by being there. The duplicate-item
+  pouch behavior is left as-is — it's documented as intentional (bows break; spares help). `resumeIdx` (spoiler
+  veil) keys off this too, so the veil now tracks main-path position, which is more correct.
+- **Memory-route audit (the m_l7 sibling errors).** Audited all 12 memory location steps against Nintendo Life +
+  per-memory cross-checks (RPG Site, Zelda Dungeon, Game8). Found **4 more wrong** beyond m_l7, all fixed:
+  m_l1 (said "in the forest" + hint said paraglide *south* — it's open Hyrule Field, *north* from Central
+  Tower), m_l3 (vague "south of Tabantha Great Bridge" → Piper Ridge near Tena Ko'sah), m_l5 ("between Hyrule
+  Castle and Great Hyrule Forest" → overlooking Goronbi Lake between Woodland/Eldin Towers), m_l11 (falsely
+  required cold resistance — the gate is at the base; cold is up the promenade; guarded by Moblins/Bokoblins).
+  Confirmed *correct* and left alone: m_l6 ("southeast of Serenne Stable" checks out), m_l2/4/8/10/12/13.
+  **Lesson:** the original v1–v4 hand-authored walkthrough predates the honesty gate and carries unsourced
+  geography — worth a broader audit of the non-memory regions' route claims with the same rigor before OoT.
+
 ---
 
 ## 2026-06-16 — v8: service worker, settings/spoiler, and **multi-game + Tears of the Kingdom**
