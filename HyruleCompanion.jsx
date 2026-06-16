@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 
 /* ============================================================
    HYRULE COMPANION · v3
@@ -35,14 +35,14 @@ const GREAT_PLATEAU = {
   sections: [
     { id: "awk", name: "Awakening", sub: "Shrine of Resurrection", steps: [
       { id: "awk1", k: "step", t: "Take the Sheikah Slate from the pedestal in front of you. This is your map, scope, runes — everything.", items: [{ name: "Sheikah Slate", cat: "key", note: "Map, scope & rune device" }] },
-      { id: "awk2", k: "loot", t: "Open the two chests in the next room for the Old Shirt and Well-Worn Trousers. Equip both (＋ button).", items: [{ name: "Old Shirt", cat: "armor", note: "Starter top" }, { name: "Well-Worn Trousers", cat: "armor", note: "Starter legs" }] },
+      { id: "awk2", k: "loot", stuck: "The two chests sit on the floor to your left and right after you grab the Slate. Open the menu, go to the armor screen, and equip the Old Shirt and Well-Worn Trousers so they actually go on Link.", t: "Open the two chests in the next room for the Old Shirt and Well-Worn Trousers. Equip both (＋ button).", items: [{ name: "Old Shirt", cat: "armor", note: "Starter top" }, { name: "Well-Worn Trousers", cat: "armor", note: "Starter legs" }] },
       { id: "awk3", k: "step", t: "Hold the Slate to the second pedestal to open the great door, then climb the ledges out into the light." },
       { id: "awk4", k: "step", t: "Outside, grab the Tree Branch leaning on a rock — your first weapon — and pick a couple of Hylian Mushrooms." },
       { id: "awk5", k: "tip", t: "Almost everything can be climbed, but climbing drains the green stamina wheel. If it empties mid-climb, Link falls. Keep early climbs short." },
     ]},
     { id: "oldman", name: "The Old Man & Temple of Time", sub: "Get your bearings", steps: [
       { id: "om1", k: "step", t: "Head down to the Old Man at the campfire and talk to him. He mentions the Temple of Time and offers you a Torch." },
-      { id: "om2", k: "loot", t: "Inside the Temple of Time ruins: climb the rubble to a chest with a Traveler's Bow, and grab Arrows near the altar. This is a common starter bow — there are several on the Plateau (another waits inside Oman Au). Grab both; bows break, so spares help.", items: [{ name: "Traveler's Bow", cat: "bow", note: "From Temple of Time · power 5" }] },
+      { id: "om2", k: "loot", stuck: "The bow chest is up the broken pillars on the LEFT as you enter the temple ruins; climb the rubble to reach it. The Arrows are in a small pile on the floor near the altar at the back.", t: "Inside the Temple of Time ruins: climb the rubble to a chest with a Traveler's Bow, and grab Arrows near the altar. This is a common starter bow — there are several on the Plateau (another waits inside Oman Au). Grab both; bows break, so spares help.", items: [{ name: "Traveler's Bow", cat: "bow", note: "From Temple of Time · power 5" }] },
       { id: "om3", k: "tip", t: "Note the Goddess Statue inside the temple — you'll return here to trade Spirit Orbs for a heart or stamina upgrade." },
       { id: "om4", k: "optional", t: "The Temple roof hides a Korok seed under a small rock. Korok seeds expand your inventory slots later." },
     ]},
@@ -50,24 +50,24 @@ const GREAT_PLATEAU = {
       { id: "tw1", k: "step", t: "Follow the marker to the round stone pedestal near the center of the Plateau and place the Slate in the slot." },
       { id: "tw2", k: "step", t: "The Sheikah Tower erupts upward. At the top, examine the glowing terminal to download the Plateau map." },
       { id: "tw3", k: "step", t: "Climb down. The Old Man glides over and asks for a shrine's treasure in trade for the Paraglider — you actually need all four shrines." },
-      { id: "tw4", k: "tip", t: "From up high, click the right stick for the Scope. Look for orange pillars of light — those are the four shrines — and drop a pin on each." },
+      { id: "tw4", k: "tip", stuck: "Click in the right stick to open the Scope, hover the center dot over a far-off orange beam of light, and press A to drop a stamp pin on it. Pin each shrine pillar you can see from up here.", t: "From up high, click the right stick for the Scope. Look for orange pillars of light — those are the four shrines — and drop a pin on each." },
     ]},
     { id: "oman", name: "Oman Au Shrine", sub: "Magnesis Trial · pond near the tower", reward: "Magnesis Rune — move metal", steps: [
       { id: "oa0", k: "optional", t: "At night, Stalkoblins (reassembling skeletons) rise around the shrine and the tower field — smash the skull to drop them, and grab any weapons they leave, like a Traveler's Sword. Free early melee, but they fall apart again at dawn.", items: [{ name: "Traveler's Sword", cat: "weapon", note: "Dropped by Stalkoblins at night near Oman Au" }] },
-      { id: "oa1", k: "step", t: "Enter and download the MAGNESIS rune (lift and move anything metal).", items: [{ name: "Magnesis", cat: "rune", note: "Move metal objects", rune: "magnesis" }] },
-      { id: "oa2", k: "step", t: "Use Magnesis (L) on the two metal floor slabs and pull them aside to open the passage." },
-      { id: "oa3", k: "step", t: "Raise the submerged metal plank with Magnesis and lay it across the water as a bridge, then cross." },
-      { id: "oa4", k: "tip", t: "A Guardian Scout activates ahead. Easy kill: drop a metal slab on it with Magnesis." },
+      { id: "oa1", k: "step", stuck: "Don't enter through the front. Hold the Slate up to the small pedestal beside the shrine door first to make it open, then drop down inside to get the Magnesis rune.", t: "Enter and download the MAGNESIS rune (lift and move anything metal).", items: [{ name: "Magnesis", cat: "rune", note: "Move metal objects", rune: "magnesis" }] },
+      { id: "oa2", k: "step", stuck: "Aim Magnesis (it glows when a metal object is in range), grab a floor slab so it turns red, then drag it fully aside with the stick before letting go. Move both slabs to clear the gap.", t: "Use Magnesis (L) on the two metal floor slabs and pull them aside to open the passage." },
+      { id: "oa3", k: "step", stuck: "Cross the metal plank first, then turn around, grab it with Magnesis again, and lift the sunken second plank out of the water to extend your bridge across.", t: "Raise the submerged metal plank with Magnesis and lay it across the water as a bridge, then cross." },
+      { id: "oa4", k: "tip", stuck: "The Scout retreats and shoots beams. Grab any loose metal slab with Magnesis, hover it over the Scout, and drop it straight down on its head for a one-hit kill.", t: "A Guardian Scout activates ahead. Easy kill: drop a metal slab on it with Magnesis." },
       { id: "oa5", k: "loot", t: "Pull the submerged chest out of the water with Magnesis for a Traveler's Bow. Same common bow as the Temple of Time one — not a glitch, there are simply several on the Plateau. Keep the spare.", items: [{ name: "Traveler's Bow", cat: "bow", note: "From Oman Au Shrine · power 5" }] },
-      { id: "oa6", k: "step", t: "At the sealed door, grab the metal locking bar through the door with Magnesis and slide it out, then go through." },
+      { id: "oa6", k: "step", stuck: "The locking bar is the metal beam barring the door. Grab it with Magnesis through the bars and slide it sideways out of its bracket to unlock the door.", t: "At the sealed door, grab the metal locking bar through the door with Magnesis and slide it out, then go through." },
       { id: "oa7", k: "reward", t: "Examine Monk Oman Au's altar to claim your 1st Spirit Orb.", items: [{ name: "Spirit Orb", cat: "key", note: "Oman Au Shrine", orb: true }] },
     ]},
     { id: "jabaij", name: "Ja Baij Shrine", sub: "Bomb Trial · Eastern Abbey (east)", reward: "Remote Bomb Rune", steps: [
       { id: "jb0", k: "warn", t: "HAZARD: the Eastern Abbey is full of dormant Guardians. If a red beam locks onto you, sprint behind cover immediately — a hit here can one-shot you. Approach from high ground or the north wall." },
       { id: "jb1", k: "step", t: "Download the REMOTE BOMB rune. Switch round/cube bombs with the D-pad; detonate by pressing L again.", items: [{ name: "Remote Bombs", cat: "rune", note: "Infinite round & cube bombs", rune: "bomb" }] },
-      { id: "jb2", k: "step", t: "Bomb the breakable rock piles blocking the two paths. Do the right path first." },
+      { id: "jb2", k: "step", stuck: "Set a round bomb against the loose rock pile, back away a few steps, then press L to detonate. Bombs recharge after each blast, so wait for the icon to refill before the next one.", t: "Bomb the breakable rock piles blocking the two paths. Do the right path first." },
       { id: "jb3", k: "loot", t: "Behind the right rocks: a chest with the Traveler's Claymore — a powerful two-handed sword (hold Y for a spin attack).", items: [{ name: "Traveler's Claymore", cat: "weapon", note: "Two-handed · high damage" }] },
-      { id: "jb4", k: "step", t: "Up the ladder, drop a CUBE bomb onto the moving platform; detonate when it carries the bomb next to the blocked doorway." },
+      { id: "jb4", k: "step", stuck: "Place a square CUBE bomb on the platform (it won't roll off), ride or watch it travel, and detonate the instant it lines up beside the rock pile blocking the door.", t: "Up the ladder, drop a CUBE bomb onto the moving platform; detonate when it carries the bomb next to the blocked doorway." },
       { id: "jb5", k: "loot", t: "Use the bomb launcher to fling a ROUND bomb into the breakable wall, revealing a chest with Amber.", items: [{ name: "Amber", cat: "material", note: "Gem · sell or upgrade armor" }] },
       { id: "jb6", k: "step", t: "Stand on the far launcher to be flung across to the altar." },
       { id: "jb7", k: "reward", t: "Claim your 2nd Spirit Orb from Monk Ja Baij.", items: [{ name: "Spirit Orb", cat: "key", note: "Ja Baij Shrine", orb: true }] },
@@ -75,21 +75,21 @@ const GREAT_PLATEAU = {
     { id: "warm", name: "Stay Warm First", sub: "Before the mountain shrines", steps: [
       { id: "wd0", k: "warn", t: "The last two shrines are up cold Mount Hylia. Go up unprepared and you'll lose hearts to the cold. Sort warmth first." },
       { id: "wd1", k: "step", t: "Quick fix: cook 2–3 Spicy Peppers into Spicy Sautéed Peppers for a few minutes of cold resistance. (See the Cook tab.)" },
-      { id: "wd2", k: "step", t: "Better fix — the Warm Doublet: go to the Old Man's cabin (south, near Mount Hylia's base) and read his diary." },
-      { id: "wd3", k: "step", t: "Cook his recipe — Spicy Meat and Seafood Fry = Raw Meat + Spicy Pepper + Hyrule Bass — then show him the dish." },
+      { id: "wd2", k: "step", stuck: "The cabin (Woodcutter's House) is in the southwest, down near Mount Hylia's base by a pond. Walk inside and read the book on the table; the diary lists a recipe but leaves out one ingredient.", t: "Better fix — the Warm Doublet: go to the Old Man's cabin (south, near Mount Hylia's base) and read his diary." },
+      { id: "wd3", k: "step", stuck: "Hyrule Bass is the fish in the nearby pond (toss a bomb in to stun them, then grab them). Throw Raw Meat + Spicy Pepper + Hyrule Bass into any cooking pot together, then talk to the Old Man holding the dish.", t: "Cook his recipe — Spicy Meat and Seafood Fry = Raw Meat + Spicy Pepper + Hyrule Bass — then show him the dish." },
       { id: "wd4", k: "reward", t: "He rewards you with the Warm Doublet: permanent cold resistance. (Or grab it from his cabin chest after all 4 shrines.)", items: [{ name: "Warm Doublet", cat: "armor", note: "Passive cold resistance" }] },
     ]},
     { id: "owa", name: "Owa Daim Shrine", sub: "Stasis Trial · Mount Hylia (cold)", reward: "Stasis Rune", steps: [
-      { id: "od1", k: "step", t: "Download the STASIS rune. Freeze the spinning cog/platform with Stasis (L), then run across while it's stopped.", items: [{ name: "Stasis", cat: "rune", note: "Freeze time on one object", rune: "stasis" }] },
+      { id: "od1", k: "step", stuck: "Stand at the edge, aim Stasis at the moving cog/platform so it freezes yellow, then sprint across before the timer runs out and it starts spinning again.", t: "Download the STASIS rune. Freeze the spinning cog/platform with Stasis (L), then run across while it's stopped.", items: [{ name: "Stasis", cat: "rune", note: "Freeze time on one object", rune: "stasis" }] },
       { id: "od2", k: "step", t: "On the boulder ramp, Stasis an incoming boulder to freeze it and run past safely." },
       { id: "od3", k: "loot", t: "On a ledge to the right partway up: a chest with a Traveler's Shield.", items: [{ name: "Traveler's Shield", cat: "shield", note: "Basic shield" }] },
-      { id: "od4", k: "step", t: "The huge boulder blocking the exit: cast Stasis on it, whack it 5–6 times with a strong weapon (an Iron Sledgehammer is nearby). When Stasis ends, stored energy launches it away." },
+      { id: "od4", k: "step", stuck: "A normal branch won't build enough force. Grab the Iron Sledgehammer lying nearby, cast Stasis on the boulder, then hit it 5-6 times until the orange arrow maxes out; it launches when Stasis ends.", t: "The huge boulder blocking the exit: cast Stasis on it, whack it 5–6 times with a strong weapon (an Iron Sledgehammer is nearby). When Stasis ends, stored energy launches it away." },
       { id: "od5", k: "reward", t: "Claim your 3rd Spirit Orb from Monk Owa Daim.", items: [{ name: "Spirit Orb", cat: "key", note: "Owa Daim Shrine", orb: true }] },
-      { id: "od6", k: "optional", t: "Outside, Stasis-and-smash the boulder on the ledge to reveal a hidden chest (another Traveler's Bow).", items: [{ name: "Traveler's Bow", cat: "bow", note: "Behind Owa Daim · power 5" }] },
+      { id: "od6", k: "optional", stuck: "Outside the exit, a boulder sits on a ledge. Stasis it and smash it with a weapon to knock it loose; a hidden chest with a Traveler's Bow is underneath.", t: "Outside, Stasis-and-smash the boulder on the ledge to reveal a hidden chest (another Traveler's Bow).", items: [{ name: "Traveler's Bow", cat: "bow", note: "Behind Owa Daim · power 5" }] },
     ]},
     { id: "keh", name: "Keh Namut Shrine", sub: "Cryonis Trial · Mount Hylia peak (cold)", reward: "Cryonis Rune", steps: [
-      { id: "kn1", k: "step", t: "Download the CRYONIS rune. Aim at water under the raised gate, make an ice pillar to prop it open, then climb over.", items: [{ name: "Cryonis", cat: "rune", note: "Raise ice pillars from water", rune: "cryonis" }] },
-      { id: "kn2", k: "step", t: "A Guardian Scout fires from a ledge — raise an ice block as cover, then rush and finish it." },
+      { id: "kn1", k: "step", stuck: "Cryonis only works on a water surface. Aim it at the pool directly beneath the raised gate so the ice column rises and props the gate open, then climb over.", t: "Download the CRYONIS rune. Aim at water under the raised gate, make an ice pillar to prop it open, then climb over.", items: [{ name: "Cryonis", cat: "rune", note: "Raise ice pillars from water", rune: "cryonis" }] },
+      { id: "kn2", k: "step", stuck: "Aim Cryonis at the water in front of you to raise an ice block as a shield against its beam, then run around the side and slash it before it recovers.", t: "A Guardian Scout fires from a ledge — raise an ice block as cover, then rush and finish it." },
       { id: "kn3", k: "step", t: "At the tall wall with a gap, make a vertical ice pillar under the gap to lift yourself up and over." },
       { id: "kn4", k: "loot", t: "Make an ice pillar under the high alcove ledge to reach a chest with a Traveler's Spear.", items: [{ name: "Traveler's Spear", cat: "weapon", note: "Long reach" }] },
       { id: "kn5", k: "reward", t: "Claim your 4th Spirit Orb from Monk Keh Namut. All four shrines done!", items: [{ name: "Spirit Orb", cat: "key", note: "Keh Namut Shrine", orb: true }] },
@@ -101,7 +101,7 @@ const GREAT_PLATEAU = {
     { id: "glider", name: "The Paraglider", sub: "Meet the king · Temple roof", steps: [
       { id: "pg1", k: "step", t: "Climb to the Temple of Time roof. The Old Man reveals himself as King Rhoam and tells the story of the Calamity and Princess Zelda." },
       { id: "pg2", k: "reward", t: "He hands you the PARAGLIDER — your ticket off the Plateau and into all of Hyrule.", items: [{ name: "Paraglider", cat: "key", note: "Glide off cliffs & towers" }] },
-      { id: "pg3", k: "optional", t: "Loose ends: grab the Warm Doublet from his cabin if skipped, plus a few easy Korok seeds (Temple roof, lily-pad ring near the cabin, the pit where you woke up)." },
+      { id: "pg3", k: "optional", stuck: "Easy Plateau Koroks: climb to the Temple of Time top spire and touch the sparkles, dive through the ring of lily pads in the pond by the cabin, and check the pit where Link first woke up.", t: "Loose ends: grab the Warm Doublet from his cabin if skipped, plus a few easy Korok seeds (Temple roof, lily-pad ring near the cabin, the pit where you woke up)." },
     ]},
     { id: "leave", name: "Leave the Plateau", sub: "“Seek Out Impa”", steps: [
       { id: "lv1", k: "step", t: "Run off a cliff edge and press X to deploy the Paraglider. Steer with the stick; watch stamina so you don't drop mid-glide." },
@@ -116,23 +116,23 @@ const KAKARIKO = {
   tagline: "Off the Plateau at last — east to the Dueling Peaks, then north to meet Impa.",
   sections: [
     { id: "k_cross", name: "Cross to the Dueling Peaks", sub: "Glide east · activate the tower", steps: [
-      { id: "k1", k: "step", t: "Warp to Ja Baij Shrine (eastern edge of the Plateau) and paraglide east toward the Dueling Peaks — the huge mountain split down the middle." },
+      { id: "k1", k: "step", stuck: "Glide off the Plateau's eastern edge near Ja Baij toward the gap between the twin peaks. You'll land in the lowlands; cross Proxim Bridge over the Squabble River and head east up the valley. Don't drop straight down.", t: "Warp to Ja Baij Shrine (eastern edge of the Plateau) and paraglide east toward the Dueling Peaks — the huge mountain split down the middle." },
       { id: "k2", k: "optional", t: "Bosh Kala Shrine sits just off the path near the Outpost Ruins — an easy Spirit Orb on the way.", items: [{ name: "Spirit Orb", cat: "key", note: "Bosh Kala Shrine", orb: true }] },
       { id: "k3", k: "tip", t: "At Proxim Bridge, an NPC named Brigo gives directions to Kakariko if you talk to him." },
       { id: "k4", k: "step", t: "Climb and activate the Dueling Peaks Tower to fill in this region's map. Climb every tower you pass." },
       { id: "k5", k: "optional", t: "Ha Dahamar Shrine is by the river after the valley (a water/Cryonis puzzle) — another easy orb.", items: [{ name: "Spirit Orb", cat: "key", note: "Ha Dahamar Shrine", orb: true }] },
-      { id: "k6", k: "loot", t: "Ree Dahee Shrine along the route rewards the Climber's Bandanna — climb faster, plus a little defense. Worth the detour.", items: [{ name: "Climber's Bandanna", cat: "armor", note: "Climb faster" }, { name: "Spirit Orb", cat: "key", note: "Ree Dahee Shrine", orb: true }] },
+      { id: "k6", k: "loot", stuck: "The shrine is at the base of the nearest peak, just north of the Squabble River. The Climber's Bandanna chest sits off the main puzzle path up a ramp, so grab it as a detour before you touch the altar.", t: "Ree Dahee Shrine along the route rewards the Climber's Bandanna — climb faster, plus a little defense. Worth the detour.", items: [{ name: "Climber's Bandanna", cat: "armor", note: "Climb faster" }, { name: "Spirit Orb", cat: "key", note: "Ree Dahee Shrine", orb: true }] },
     ]},
     { id: "k_road", name: "The Road to Kakariko", sub: "Stable · Hestu · the river path", steps: [
       { id: "k7", k: "step", t: "Stop at the Dueling Peaks Stable to rest, buy supplies, and register a horse if you've tamed one." },
-      { id: "k8", k: "tip", t: "BIG: find Hestu on the path (a giant Korok with maracas). His quest 'The Priceless Maracas' lets you trade Korok Seeds to expand your weapon, bow, and shield slots — do this as soon as you can." },
+      { id: "k8", k: "tip", stuck: "Head northeast up the road toward Kakariko to a Bokoblin camp tucked in the rocks. Clear the three Blue Bokoblins, then open the chest at the back of the camp to recover the maracas for Hestu.", t: "BIG: find Hestu on the path (a giant Korok with maracas). His quest 'The Priceless Maracas' lets you trade Korok Seeds to expand your weapon, bow, and shield slots — do this as soon as you can." },
       { id: "k9", k: "step", t: "Follow the Squabble River north. An NPC by a fire near the gate (Nanna) will point you to Impa's house." },
     ]},
     { id: "k_village", name: "Kakariko Village", sub: "Ta'loh Naeg · Impa", steps: [
-      { id: "k10", k: "loot", t: "Climb the hill above the village to the Ta'loh Naeg Shrine. Its trial is a COMBAT TUTORIAL — it teaches perfect dodge, flurry rush, and parry. Do it; it also becomes the village's fast-travel point.", items: [{ name: "Spirit Orb", cat: "key", note: "Ta'loh Naeg Shrine", orb: true }] },
+      { id: "k10", k: "loot", stuck: "Flurry Rush comes from dodging, not blocking: side-hop a vertical or thrust swing, or backflip a horizontal one, at the last instant, then press attack during the slow-motion. The monk calls out each move.", t: "Climb the hill above the village to the Ta'loh Naeg Shrine. Its trial is a COMBAT TUTORIAL — it teaches perfect dodge, flurry rush, and parry. Do it; it also becomes the village's fast-travel point.", items: [{ name: "Spirit Orb", cat: "key", note: "Ta'loh Naeg Shrine", orb: true }] },
       { id: "k11", k: "tip", t: "Shops worth a look: Enchanted (armor — the Hylian set is solid, the Stealth set helps at night), the arrow shop, and the general store." },
       { id: "k12", k: "reward", t: "Go to Impa's house (the big one; guards let you pass once they spot your Slate). She tells the story of the Calamity and gives two quests — Free the Divine Beasts and Locked Mementos. Next stop: Purah at the Hateno Ancient Tech Lab." },
-      { id: "k13", k: "optional", t: "Nearby: Great Fairy Cotera's fountain (Pikango's 'Find the Fairy Fountain' quest) upgrades armor. And 'The Stolen Heirloom' side quest with Paya/Dorian uncovers the Yiga Clan." },
+      { id: "k13", k: "optional", stuck: "Cotera's fountain near Kakariko starts closed: she demands 100 rupees to wake up before she'll upgrade armor. Sell gems or cook to afford it, or come back later if you're short.", t: "Nearby: Great Fairy Cotera's fountain (Pikango's 'Find the Fairy Fountain' quest) upgrades armor. And 'The Stolen Heirloom' side quest with Paya/Dorian uncovers the Yiga Clan." },
     ]},
   ],
 };
@@ -143,14 +143,14 @@ const HATENO = {
   tagline: "Cross the Guardian-strewn plain to Hateno and get your Sheikah Slate's camera back.",
   sections: [
     { id: "h_town", name: "To Hateno Village", sub: "Tower · Myahm Agana", steps: [
-      { id: "h0", k: "warn", t: "HAZARD: the route from Kakariko crosses Blatchery Plain / Fort Hateno — a field of broken AND active Guardians. Keep your distance and use cover; a hit can one-shot you. (You'll return here later for a memory.)" },
+      { id: "h0", k: "warn", stuck: "Don't fight the Guardians here, you can't win yet. Hug the tree line and ruins at the field's edges; sprint between cover when a Guardian's eye locks on (rising beeping + a targeting line) so it can't get a clean shot.", t: "HAZARD: the route from Kakariko crosses Blatchery Plain / Fort Hateno — a field of broken AND active Guardians. Keep your distance and use cover; a hit can one-shot you. (You'll return here later for a memory.)" },
       { id: "h1", k: "step", t: "Head south then east into the Necluda region. Activate the Hateno Tower, then follow the road east to Hateno Village." },
-      { id: "h2", k: "optional", t: "Myahm Agana Shrine is in the village — activate it for a warp point. Its optional trial is a tilt-the-maze ball puzzle (motion controls or Magnesis).", items: [{ name: "Spirit Orb", cat: "key", note: "Myahm Agana Shrine", orb: true }] },
+      { id: "h2", k: "optional", stuck: "Easiest trick: flip the maze fully upside-down so the ball rests on the flat back, then gently tilt to roll it. Near the exit, tilt toward the gap, then flick back to launch it over. Magnesis can also nudge the ball.", t: "Myahm Agana Shrine is in the village — activate it for a warp point. Its optional trial is a tilt-the-maze ball puzzle (motion controls or Magnesis).", items: [{ name: "Spirit Orb", cat: "key", note: "Myahm Agana Shrine", orb: true }] },
     ]},
     { id: "h_lab", name: "Hateno Tech Lab — Purah", sub: "Blue flame · Camera Rune", reward: "Camera Rune + Hyrule Compendium", steps: [
-      { id: "h3", k: "step", t: "Follow the lantern-lined path east of the village up the cape to the Ancient Tech Lab. Talk to the girl (Purah) → she sends you to Symin → Symin reveals Purah IS the director. Talk to Purah again." },
-      { id: "h4", k: "step", t: "Purah needs the blue flame. Grab a torch (one's by the lab door), then go down to the town's Ancient Furnace (the blue light past the ranch) and light your torch on it." },
-      { id: "h5", k: "step", t: "Carry the flame back up to the lab. DON'T run (it blows out) and avoid rain. Light the stone lanterns along the way — they stay lit as checkpoints to re-light from." },
+      { id: "h3", k: "step", stuck: "Leave the village's east edge and follow the winding path lined with odd orange lanterns up the cape over the sea. The lab is the lone building at the top. Inside, Purah is the small white-haired 'girl' at the desk.", t: "Follow the lantern-lined path east of the village up the cape to the Ancient Tech Lab. Talk to the girl (Purah) → she sends you to Symin → Symin reveals Purah IS the director. Talk to Purah again." },
+      { id: "h4", k: "step", stuck: "From outside the lab, head left to the cliff edge and look for a bright blue glow below, behind the Village Chief's house past the ranch. Glide down. Grab the torch by the lab door first, then swing it at the flame.", t: "Purah needs the blue flame. Grab a torch (one's by the lab door), then go down to the town's Ancient Furnace (the blue light past the ranch) and light your torch on it." },
+      { id: "h5", k: "step", stuck: "Walk (don't press B) and stay clear of water and rain, or the flame dies. Swing your lit torch at each stone lantern as you climb. They stay lit, so if it blows out, re-light from the nearest instead of going back.", t: "Carry the flame back up to the lab. DON'T run (it blows out) and avoid rain. Light the stone lanterns along the way — they stay lit as checkpoints to re-light from." },
       { id: "h6", k: "reward", t: "Light the lab's furnace (the balloon-shaped one by the entrance) to open a warp pad. Purah uses the Guidance Stone to repair your Slate: you get the CAMERA RUNE, the album, and the Hyrule Compendium. Snap a photo of Purah and show her.", items: [{ name: "Camera", cat: "rune", note: "Photograph things for the Compendium", rune: "camera" }] },
       { id: "h7", k: "optional", t: "Bonus: Symin's side quest (photograph a Sunshroom) upgrades your Sheikah Sensor. Reading Purah's diary triggers a prank. Hateno is a great home base — you can buy a house here from Bolson (3,000 rupees + bundles of wood)." },
     ]},
@@ -167,24 +167,24 @@ const MEMORIES = {
   sections: [
     { id: "m_how", name: "How It Works", sub: "Album · Pikango · the reward", steps: [
       { id: "m1", k: "step", t: "Impa gives you an album of 12 photos taken 100 years ago. Each marks a real spot in Hyrule. Stand on the glowing patch of ground there to trigger the memory cutscene." },
-      { id: "m2", k: "reward", t: "Show Impa your FIRST recovered memory to get the Champion's Tunic — strong, upgradeable armor. Grab an easy memory early just for this.", items: [{ name: "Champion's Tunic", cat: "armor", note: "Reward for your 1st memory" }] },
-      { id: "m3", k: "tip", t: "Finish 'Find the Fairy Fountain' (photograph Cotera for Pikango) so Pikango will hint at locations. Show him the nearest photo at a stable and he names the place." },
+      { id: "m2", k: "reward", stuck: "Easiest first memory: #2 Lake Kolomo, just paraglide off the Great Plateau north-east to the lake's west shore. Trigger it, then go show Impa in Kakariko for the Champion's Tunic.", t: "Show Impa your FIRST recovered memory to get the Champion's Tunic — strong, upgradeable armor. Grab an easy memory early just for this.", items: [{ name: "Champion's Tunic", cat: "armor", note: "Reward for your 1st memory" }] },
+      { id: "m3", k: "tip", stuck: "Pikango is the painter loitering at Kakariko Village (and other stables). After you photograph the Great Fairy Cotera for him, talk to him holding a memory photo and pick it on the map; he points you to that spot.", t: "Finish 'Find the Fairy Fountain' (photograph Cotera for Pikango) so Pikango will hint at locations. Show him the nearest photo at a stable and he names the place." },
       { id: "m4", k: "warn", t: "Heads up: many memories sit deep in dangerous, far-off regions (Hyrule Castle, Gerudo, Akkala, Tabantha) well beyond where you are now. Treat this as a long-haul quest you chip away at — start with the easy, nearby ones." },
     ]},
     { id: "m_list", name: "All 12 Memory Locations", sub: "Album order · tap to track", steps: [
-      { id: "m_l1", k: "optional", t: "#1 Sacred Ground Ruins — Central Hyrule, in the forest just south of Hyrule Castle (a Guardian Stalker guards it)." },
+      { id: "m_l1", k: "optional", stuck: "Warp to Central Tower and cross the field south toward the castle; the glow sits in the ruins where Hyrule Castle fills the photo's background. A roaming Guardian Stalker patrols here, so sneak or destroy it first.", t: "#1 Sacred Ground Ruins — Central Hyrule, in the forest just south of Hyrule Castle (a Guardian Stalker guards it)." },
       { id: "m_l2", k: "optional", t: "#2 Lake Kolomo — Central Hyrule, the forest on the west shore (near Riverside Stable)." },
       { id: "m_l3", k: "optional", t: "#3 Ancient Columns — Tabantha, atop the cliff just south after crossing the Tabantha Great Bridge." },
       { id: "m_l4", k: "optional", t: "#4 Kara Kara Bazaar — Gerudo Desert, the oasis on the way to Gerudo Town (you pass it in the story)." },
-      { id: "m_l5", k: "optional", t: "#5 Eldin Canyon — Eldin, on a cliff between Hyrule Castle and the Great Hyrule Forest (climb from Woodland Stable)." },
+      { id: "m_l5", k: "optional", stuck: "Hard to pin down: warp to Woodland Tower and glide south-east toward a small grass patch at the mountain's base, then climb the cliff up to the glow. It sits roughly between Woodland and Eldin towers.", t: "#5 Eldin Canyon — Eldin, on a cliff between Hyrule Castle and the Great Hyrule Forest (climb from Woodland Stable)." },
       { id: "m_l6", k: "optional", t: "#6 Irch Plain — Hyrule Ridge, by the large tree southeast of Serenne Stable." },
-      { id: "m_l7", k: "optional", t: "#7 West Necluda — near Scout's Hill by Lake Hylia (glide from Ja Baij Shrine to the big tree across the river)." },
+      { id: "m_l7", k: "optional", t: "#7 West Necluda — a tree on a hill across the Hylia River, opposite Scout's Hill (from Scout's Hill, paraglide over the river to the lone tree — it has a rock at its base)." },
       { id: "m_l8", k: "optional", t: "#8 Hyrule Castle — by Zelda's Study spire on the castle's west side. DANGEROUS — save for later." },
       { id: "m_l9", k: "optional", t: "#9 Spring of Power — Akkala, the goddess spring in North Akkala Valley west of East Akkala Stable." },
       { id: "m_l10", k: "optional", t: "#10 Sanidin Park Ruins — Hyrule Ridge, the giant horse statue on Safula Hill (near Outskirt Stable)." },
-      { id: "m_l11", k: "optional", t: "#11 Lanayru Road – East Gate — Necluda, the gate at the base of cold Mount Lanayru (bring cold resistance)." },
+      { id: "m_l11", k: "optional", stuck: "The gate is west of Mount Lanayru on the road; the cold zone needs warm doublet or spicy meals. Walk a short way through the gate for the glow. If a Lynel blocks you, you approached from the wrong side, so circle around.", t: "#11 Lanayru Road – East Gate — Necluda, the gate at the base of cold Mount Lanayru (bring cold resistance)." },
       { id: "m_l12", k: "optional", t: "#12 Hyrule Field — Central Hyrule, the forest northeast of the Bottomless Swamp (near Wetland Stable)." },
-      { id: "m_l13", k: "reward", t: "After all 12, report to Impa — she reveals the 13th photo (hanging in her house): #13 Blatchery Plain, the Guardian field near Fort Hateno. Recall it to finish the quest and unlock the bonus ending scene." },
+      { id: "m_l13", k: "reward", stuck: "The 13th only unlocks after the other 12. Return to Impa in Kakariko and she gestures to the final photo hanging in her house, then recall it at Blatchery Plain (the Guardian field by Fort Hateno) for the bonus scene.", t: "After all 12, report to Impa — she reveals the 13th photo (hanging in her house): #13 Blatchery Plain, the Guardian field near Fort Hateno. Recall it to finish the quest and unlock the bonus ending scene." },
     ]},
   ],
 };
@@ -196,7 +196,7 @@ const VAH_RUTA = {
   sections: [
     { id: "r_reach", name: "Reach Zora's Domain", sub: "Sidon · the endless rain", steps: [
       { id: "r1", k: "step", t: "Head to the Lanayru region and the Zora River. Crossing toward the Great Zora Bridge starts 'Reach Zora's Domain'. Prince Sidon meets you at Inogo Bridge and offers to help." },
-      { id: "r2", k: "warn", t: "It rains nonstop here (that's Vah Ruta), so climbing is too slick to rely on. Follow the luminous-stone path up the river instead, and watch for electric Lizalfos and Octoroks." },
+      { id: "r2", k: "warn", stuck: "From Inogo Bridge, stay on the trail along the river's east side and follow the glowing blue luminous stones and lit lanterns; they lead you straight to the Domain even though you can't see far in the rain.", t: "It rains nonstop here (that's Vah Ruta), so climbing is too slick to rely on. Follow the luminous-stone path up the river instead, and watch for electric Lizalfos and Octoroks." },
       { id: "r3", k: "step", t: "Follow the river path all the way up to Zora's Domain. Sidon keeps cheering you along the way." },
     ]},
     { id: "r_king", name: "King Dorephan & the Zora Armor", sub: "Throne room", steps: [
@@ -205,25 +205,25 @@ const VAH_RUTA = {
       { id: "r6", k: "optional", t: "Do the Ne'ez Yohma Shrine in the Domain first for a fast-travel point right here.", items: [{ name: "Spirit Orb", cat: "key", note: "Ne'ez Yohma Shrine", orb: true }] },
     ]},
     { id: "r_arrows", name: "20 Shock Arrows", sub: "Ploymus Mountain", steps: [
-      { id: "r7", k: "step", t: "Use the Zora Armor to swim up the east waterfalls to Ploymus Mountain / Shatterback Point above the reservoir." },
-      { id: "r8", k: "warn", t: "A Red-Maned Lynel roams here and it's brutal for a new player. You can SNEAK around it and pick up the 20+ Shock Arrows lying around the mountain without fighting — that's the safe play." },
+      { id: "r7", k: "step", stuck: "From the Domain, head to the tall waterfall on the east side (toward Mipha Court). With Zora Armor on, swim into its base and press A to shoot straight up; the top is Ploymus Mountain / Shatterback Point.", t: "Use the Zora Armor to swim up the east waterfalls to Ploymus Mountain / Shatterback Point above the reservoir." },
+      { id: "r8", k: "warn", stuck: "Shock Arrows are stuck in cedar tree trunks, the ground, and rocks all over the mountain (31 total). Stay crouched, keep trees between you and the Lynel, and you can grab 20+ without it ever noticing you.", t: "A Red-Maned Lynel roams here and it's brutal for a new player. You can SNEAK around it and pick up the 20+ Shock Arrows lying around the mountain without fighting — that's the safe play." },
       { id: "r9", k: "loot", t: "If you do fight the Lynel: Perfect Dodge → flurry, stun it with arrows to the face, and mount it. Either way, leave with 20 Shock Arrows.", items: [{ name: "Shock Arrows ×20", cat: "material", note: "Needed to calm Vah Ruta" }] },
     ]},
     { id: "r_calm", name: "Calm Vah Ruta", sub: "Ride Sidon · 4 pink orbs", steps: [
-      { id: "r10", k: "step", t: "At East Reservoir Lake, ride on Sidon's back. Vah Ruta hurls ice blocks — shatter them with Cryonis (aim, A) or arrows before they hit." },
-      { id: "r11", k: "step", t: "When Sidon swims beside a waterfall pouring off Ruta, swim UP it with the Zora Armor, deploy the paraglider at the top for slow-mo, and shoot a glowing pink orb on Ruta's back with a Shock Arrow." },
+      { id: "r10", k: "step", stuck: "You don't steer; just stand on Sidon. When an ice block flies in, pull out Cryonis (the water-pillar rune), aim at the block, and press A to shatter it, or shoot it with any arrow before it hits you.", t: "At East Reservoir Lake, ride on Sidon's back. Vah Ruta hurls ice blocks — shatter them with Cryonis (aim, A) or arrows before they hit." },
+      { id: "r11", k: "step", stuck: "When Sidon lines up by a waterfall, swim into it and press A to rush up; at the top Link auto-deploys the paraglider. Aim your bow mid-air for slow-mo and tag the pink orb on Ruta with a Shock Arrow before landing.", t: "When Sidon swims beside a waterfall pouring off Ruta, swim UP it with the Zora Armor, deploy the paraglider at the top for slow-mo, and shoot a glowing pink orb on Ruta's back with a Shock Arrow." },
       { id: "r12", k: "step", t: "After two orbs it adds spiky ice — keep breaking it with Cryonis. Destroy all 4 pink orbs and Sidon drops you onto Vah Ruta." },
     ]},
     { id: "r_inside", name: "Inside Vah Ruta", sub: "Activate 5 terminals", reward: "Control of Vah Ruta", steps: [
-      { id: "r13", k: "step", t: "Mipha's spirit tells you to light 5 terminals, then the main control unit. First room: shoot the Malice eyeball at the top of the ramp, deal with the Guardian Scout, and use Cryonis to lift the gate on your left." },
-      { id: "r14", k: "step", t: "The map terminal also lets you ROTATE Ruta's trunk — this aims its waterfall and controls the water level. Pour water onto the cogwheels to spin platforms; use Cryonis on water/ice and Magnesis on cranks and chests to reach each terminal." },
-      { id: "r15", k: "optional", t: "Optional: swim up to Toto Lake (north) and use Magnesis on the submerged ruins for an Ice Arrows ×10 chest.", items: [{ name: "Ice Arrows ×10", cat: "material", note: "Optional chest, Toto Lake" }] },
+      { id: "r13", k: "step", stuck: "The Malice eyeball is the orange eye above the ramp; one arrow kills it. The gate on your left is underwater pillar territory: stand facing it, aim Cryonis at the water in front, and the ice column raises the gate.", t: "Mipha's spirit tells you to light 5 terminals, then the main control unit. First room: shoot the Malice eyeball at the top of the ramp, deal with the Guardian Scout, and use Cryonis to lift the gate on your left." },
+      { id: "r14", k: "step", stuck: "Open the map, select Vah Ruta's trunk, and set its angle so its waterfall pours onto a wall cogwheel; that spins platforms into reach. Use Magnesis (red rune) on the metal cranks/handles to raise the sunken terminals.", t: "The map terminal also lets you ROTATE Ruta's trunk — this aims its waterfall and controls the water level. Pour water onto the cogwheels to spin platforms; use Cryonis on water/ice and Magnesis on cranks and chests to reach each terminal." },
+      { id: "r15", k: "optional", stuck: "Exit and swim up the big waterfall directly north of the Domain to reach Toto Lake. Stand over the sunken stone ruins, switch to Magnesis, and drag the rubble aside; the metal chest under it holds Ice Arrows x10.", t: "Optional: swim up to Toto Lake (north) and use Magnesis on the submerged ruins for an Ice Arrows ×10 chest.", items: [{ name: "Ice Arrows ×10", cat: "material", note: "Optional chest, Toto Lake" }] },
       { id: "r16", k: "step", t: "For the last terminal, rotate the trunk to pour water and douse the fire blocking the path. Grab any chests now — you can't return after the boss. Then activate all 5 terminals and the main control unit." },
     ]},
     { id: "r_boss", name: "Boss: Waterblight Ganon", sub: "Free Mipha", reward: "Mipha's Grace + Heart Container", steps: [
-      { id: "r17", k: "step", t: "Phase 1: it floats and stabs with a spear. Guard or dodge the thrusts, shoot its EYE (Shock Arrows are ideal) to stagger it, then rush in with melee." },
-      { id: "r18", k: "step", t: "Phase 2 (around half health): it floods the room and flies corner to corner, throwing ice blocks (break with Cryonis) and spears. Make Cryonis pillars for height, shoot the eye, and keep dodging until it falls." },
-      { id: "r19", k: "loot", t: "GRAB the Heart Container that drops BEFORE touching the terminal again.", items: [{ name: "Heart Container", cat: "key", note: "From Waterblight Ganon" }] },
+      { id: "r17", k: "step", stuck: "Hang back and watch for the spear thrust; sidestep or raise your shield, then put a Shock Arrow (or any arrow) into its single glowing eye. The hit staggers it, opening a window to run in and swing your strongest weapon.", t: "Phase 1: it floats and stabs with a spear. Guard or dodge the thrusts, shoot its EYE (Shock Arrows are ideal) to stagger it, then rush in with melee." },
+      { id: "r18", k: "step", stuck: "Once it floods the room and flies to a corner, aim Cryonis at the water and make a tall ice pillar, climb it for a clear shot, then arrow the eye to knock it down. Break thrown ice the same way you did on Sidon's back.", t: "Phase 2 (around half health): it floods the room and flies corner to corner, throwing ice blocks (break with Cryonis) and spears. Make Cryonis pillars for height, shoot the eye, and keep dodging until it falls." },
+      { id: "r19", k: "loot", stuck: "After the boss dies, a glowing Heart Container hovers where it fell. Walk into it to collect it BEFORE you touch the main control unit, or you may glide past and miss the permanent heart.", t: "GRAB the Heart Container that drops BEFORE touching the terminal again.", items: [{ name: "Heart Container", cat: "key", note: "From Waterblight Ganon" }] },
       { id: "r20", k: "reward", t: "Activate the main control unit to free Mipha. She grants Mipha's Grace — once per charge, if you fall in battle it auto-revives you with full + bonus hearts. Return to the Zora throne room for the cutscene; you can claim the Lightscale Trident from King Dorephan.", items: [{ name: "Lightscale Trident", cat: "weapon", note: "Mipha's spear (from the King)" }] },
     ]},
   ],
@@ -327,6 +327,7 @@ function Glyph({ name, size = 26 }) {
     case "scroll": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M15 11h15a3 3 0 0 1 3 3v21a3 3 0 0 0 3 3H17a3 3 0 0 1-3-3V11Z" /><path d="M19 19h9M19 25h9M19 31h6" /></svg>);
     case "search": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><circle cx="20" cy="20" r="11" /><path d="M28 28l11 11" /></svg>);
     case "pencil": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M32 8l8 8-22 22-10 2 2-10L32 8Z" /><path d="M28 12l8 8" /></svg>);
+    case "pin": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M24 6c8 0 13 5 13 13 0 9-13 23-13 23S11 28 11 19C11 11 16 6 24 6Z" /><circle cx="24" cy="19" r="4.5" fill="currentColor" stroke="none" /></svg>);
     default: return null;
   }
 }
@@ -426,7 +427,12 @@ function HyruleGame({ game, setGame, games }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
-  const [spoiler, setSpoiler] = useState(false);     // hide shrine hints until tapped (hyrule:prefs)
+  const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
+  const [flash, setFlash] = useState(null);          // v9: step id whose check is pulsing (joy pass)
+  const [stepFlash, setStepFlash] = useState(null);  // v9: step id highlighted after a Resume jump
+  const [revealed, setRevealed] = useState(() => new Set()); // v9: journey reward/boss spoilers tapped open
+  const progressRef = useRef({});                    // v9: read current progress inside toggle without re-memoizing
+  const flashTimer = useRef(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -452,7 +458,13 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler })); }, [spoiler, loaded]);
 
-  const toggleStep = useCallback((id) => setProgress((p) => { const n = { ...p }; if (n[id]) delete n[id]; else n[id] = true; return n; }), []);
+  progressRef.current = progress;
+  const toggleStep = useCallback((id) => {
+    const turningOn = !progressRef.current[id];
+    setProgress((p) => { const n = { ...p }; if (n[id]) delete n[id]; else n[id] = true; return n; });
+    if (turningOn) { setFlash(id); clearTimeout(flashTimer.current); flashTimer.current = setTimeout(() => setFlash(null), 650); } // v9: pulse only on check-on, never on load
+  }, []);
+  const reveal = useCallback((id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; }), []); // v9: progressive spoiler reveal
   const toggleSection = useCallback((id) => setOpenSections((o) => ({ ...o, [id]: !o[id] })), []);
   const setNote = useCallback((id, text) => setNotes((m) => { const n = { ...m }; if (text && text.trim()) n[id] = text; else delete n[id]; return n; }), []);
   const setTier = useCallback((i, t) => setArmorTier((m) => ({ ...m, [i]: Math.max(0, Math.min(4, t)) })), []);
@@ -528,10 +540,24 @@ function HyruleGame({ game, setGame, games }) {
     for (const reg of REGIONS) for (const sec of reg.sections) { const s = sectionStats[sec.id]; if (s && s.total > 0 && !s.complete) return { regionId: reg.id, sec }; }
     return null;
   }, [sectionStats]);
+  // v9: the single furthest-progressed uncompleted step — "you're here" on the linear spine
+  const resumeTarget = useMemo(() => {
+    for (const reg of REGIONS) for (const sec of reg.sections) for (const step of sec.steps)
+      if (CHECKABLE.has(step.k) && !progress[step.id]) return { regionId: reg.id, secId: sec.id, stepId: step.id, regionName: reg.name, secName: sec.name };
+    return null;
+  }, [progress]);
+  const resumeIdx = useMemo(() => resumeTarget ? REGIONS.findIndex((r) => r.id === resumeTarget.regionId) : REGIONS.length, [resumeTarget]);
 
   const jumpTo = useCallback((regionId, secId) => {
     setTab("journey"); setRegion(regionId); setOpenSections((o) => ({ ...o, [secId]: true }));
     setTimeout(() => { const el = document.getElementById("sec-" + secId); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
+  }, []);
+  // v9: jump straight to a step, open its section, scroll it to center, and flash it
+  const jumpToStep = useCallback((regionId, secId, stepId) => {
+    setTab("journey"); setRegion(regionId); setQuery(""); setOpenSections((o) => ({ ...o, [secId]: true }));
+    setStepFlash(stepId);
+    setTimeout(() => { const el = document.getElementById("step-" + stepId) || document.getElementById("sec-" + secId); if (el) el.scrollIntoView({ behavior: "smooth", block: "center" }); }, 90);
+    setTimeout(() => setStepFlash(null), 2200);
   }, []);
   const openRegion = useCallback((regionId) => {
     const reg = REGIONS.find((r) => r.id === regionId);
@@ -552,6 +578,8 @@ function HyruleGame({ game, setGame, games }) {
       return steps.length ? { ...sec, steps } : null;
     }).filter(Boolean);
   }, [q, currentRegion]);
+  // v9: this region sits ahead of where you are on the path → veil its rewards/bosses (spoiler mode, not while searching)
+  const regionVeiled = useMemo(() => spoiler && !q && REGIONS.findIndex((r) => r.id === currentRegion.id) > resumeIdx, [spoiler, q, currentRegion, resumeIdx]);
 
   return (
     <div className="app">
@@ -562,6 +590,7 @@ function HyruleGame({ game, setGame, games }) {
           <div><div className="kicker">Sheikah Slate · Adventure Log</div><h1 className="title">Hyrule Companion</h1></div>
         </div>
         <div className="topbar-r">
+          {resumeTarget && <button className="resume-trigger" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)} aria-label={"Resume — you're here: " + resumeTarget.secName}><Glyph name="pin" size={15} /><span>Resume</span></button>}
           <button className="search-trigger" onClick={() => { setSearchOpen(true); }} aria-label="Search everything"><Glyph name="search" size={18} /></button>
           <div className="region-chip">{pct}%</div>
         </div>
@@ -578,7 +607,7 @@ function HyruleGame({ game, setGame, games }) {
           }} />
       )}
 
-      <main className="body">
+      <main className="body" key={tab}>
         {!loaded ? (<div className="loading">Syncing the Slate…</div>) : tab === "status" ? (
           <div className="status">
             <GamePicker games={games} game={game} setGame={setGame} />
@@ -589,7 +618,7 @@ function HyruleGame({ game, setGame, games }) {
               <div className="hero-side">
                 <div className="hero-line"><span className="hero-num">{done}</span><span className="hero-num-l">/ {total} steps done</span></div>
                 <div className="hero-line"><span className="hero-num">{inventory.invDone}</span><span className="hero-num-l">/ {inventory.invTotal} items found</span></div>
-                {continueTarget ? (<button className="hero-cont" onClick={() => jumpTo(continueTarget.regionId, continueTarget.sec.id)}>▸ {continueTarget.sec.name}</button>) : (<div className="hero-done">All chapters complete — onward!</div>)}
+                {resumeTarget ? (<button className="hero-cont" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)}><span className="hero-cont-k"><Glyph name="pin" size={13} /> Resume — you're here</span><span className="hero-cont-s">{resumeTarget.secName}</span></button>) : (<div className="hero-done">All chapters complete — onward!</div>)}
               </div>
             </div>
 
@@ -693,7 +722,7 @@ function HyruleGame({ game, setGame, games }) {
                 </button>); })}
             </div>
 
-            {currentRegion.kind === "beast" && (<div className="beast-banner"><Glyph name="beast" size={18} /> {terms.regionBanner} · {currentRegion.champion ? <>grants <b>{currentRegion.champion}</b></> : "free a sage"}</div>)}
+            {currentRegion.kind === "beast" && (<div className="beast-banner"><Glyph name="beast" size={18} /> {terms.regionBanner} · {currentRegion.champion ? (regionVeiled && !revealed.has("champ_" + currentRegion.id) ? <button className="veil-inline" onClick={() => reveal("champ_" + currentRegion.id)}>grants ••• tap to reveal</button> : <>grants <b>{currentRegion.champion}</b></>) : "free a sage"}</div>)}
             {region === "plateau" && !q && <PlateauMap statusOf={statusOf} onJump={(secId) => jumpTo("plateau", secId)} />}
             {!q && <p className="lede">{currentRegion.tagline}</p>}
             {filterSections.length === 0 && <div className="empty">No steps match “{query}” in this region.</div>}
@@ -706,18 +735,24 @@ function HyruleGame({ game, setGame, games }) {
                     <div className="card-head-main"><div className="card-name">{sec.name}</div>{sec.sub && <div className="card-sub">{sec.sub}</div>}</div>
                     <div className="card-head-side">{stat && stat.total > 0 && <span className={"pips" + (stat.complete ? " pips-done" : "")}>{stat.done}/{stat.total}</span>}{!q && <span className={"chev" + (open ? " chev-open" : "")}>›</span>}</div>
                   </button>
-                  {sec.reward && <div className="reward-banner"><Glyph name="eye" size={14} /> Grants: {sec.reward}</div>}
+                  {sec.reward && (regionVeiled && !revealed.has("rwd_" + sec.id)
+                    ? <button className="reward-banner reward-veil" onClick={() => reveal("rwd_" + sec.id)}><Glyph name="eye" size={14} /> Grants: <span className="veil-tap">tap to reveal</span></button>
+                    : <div className="reward-banner"><Glyph name="eye" size={14} /> Grants: {sec.reward}</div>)}
                   {open && (
                     <ul className="steps">
                       {sec.steps.map((step) => {
                         const checkable = CHECKABLE.has(step.k); const meta = KIND_META[step.k] || KIND_META.step; const checked = !!progress[step.id];
+                        const hidden = regionVeiled && step.k === "reward" && !revealed.has(step.id); // veil the "you get X" payoff until tapped
                         return (
-                          <li key={step.id} className={"step k-" + step.k + (checked ? " checked" : "")}>
-                            {checkable ? (<button className={"box" + (checked ? " box-on" : "")} onClick={() => toggleStep(step.id)} aria-label={checked ? "Mark not done" : "Mark done"}>{checked && <Glyph name="check" size={15} />}</button>) : (<span className="dot" style={{ background: meta.color }} aria-hidden />)}
+                          <li id={"step-" + step.id} key={step.id} className={"step k-" + step.k + (checked ? " checked" : "") + (stepFlash === step.id ? " step-hl" : "")}>
+                            {checkable ? (<button className={"box" + (checked ? " box-on" : "") + (flash === step.id ? " box-flash" : "")} onClick={() => toggleStep(step.id)} aria-label={checked ? "Mark not done" : "Mark done"}>{checked && <Glyph name="check" size={15} />}</button>) : (<span className="dot" style={{ background: meta.color }} aria-hidden />)}
                             <div className="step-body">
                               <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
-                              <span className="step-text">{step.t}</span>
-                              {step.items && (<span className="step-items">{step.items.map((it, i) => <span key={i} className="chip">＋ {it.name}</span>)}</span>)}
+                              {hidden
+                                ? <span className="step-text"><button className="spoiler-hint" onClick={() => reveal(step.id)}>reward hidden — tap to reveal</button></span>
+                                : <span className="step-text">{step.t}</span>}
+                              {step.items && !hidden && (<span className="step-items">{step.items.map((it, i) => <span key={i} className="chip">＋ {it.name}</span>)}</span>)}
+                              {step.stuck && !hidden && <StuckReveal id={step.id} text={step.stuck} />}
                               <NoteAffordance id={step.id} notes={notes} setNote={setNote} open={noteOpen} setOpen={setNoteOpen} />
                             </div>
                           </li>
@@ -743,7 +778,7 @@ function HyruleGame({ game, setGame, games }) {
             <div className="footer-space" />
           </>
         ) : tab === "shrines" ? (
-          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} />
+          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} flash={flash} />
         ) : tab === "items" ? (
           <div className="ref">
             <h2 className="ref-title">Pouch</h2>
@@ -851,7 +886,7 @@ function TabBtn({ active, onClick, glyph, label }) {
 }
 
 /* ============================================================ SHRINES TAB ============================================================ */
-function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps }) {
+function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps, flash }) {
   const [revealed, setRevealed] = useState(() => new Set());
   const reveal = (id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; });
   const q = query.trim().toLowerCase();
@@ -899,7 +934,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                   const meta = SHRINE_CAT[sh.category] || SHRINE_CAT.puzzle;
                   return (
                     <li key={id} className={"step shrine-row" + (checked ? " checked" : "")}>
-                      <button className={"box" + (checked ? " box-on" : "")} onClick={() => toggleStep(id)} aria-label={checked ? "Mark not done" : "Mark done"}>{checked && <Glyph name="check" size={15} />}</button>
+                      <button className={"box" + (checked ? " box-on" : "") + (flash === id ? " box-flash" : "")} onClick={() => toggleStep(id)} aria-label={checked ? "Mark not done" : "Mark done"}>{checked && <Glyph name="check" size={15} />}</button>
                       <div className="step-body">
                         <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
                         <span className="step-text"><span className="shrine-num">{i + 1}</span><b className="shrine-name">{sh.name}</b>{spoiler && !revealed.has(id) ? <button className="spoiler-hint" onClick={() => reveal(id)}>— tap to reveal hint</button> : <> — {sh.oneLine}</>}</span>
@@ -1190,8 +1225,8 @@ function SettingsView({ spoiler, setSpoiler, doExport, doImport, confirmReset, s
     <>
       <p className="ref-lede">Make the app yours. Everything here is saved on your device — no account, no server.</p>
       <div className="set-row">
-        <div className="set-txt"><div className="set-name">Spoiler-free shrines</div><div className="set-sub">Hide each shrine's solution until you tap to reveal it — explore first, peek only when stuck.</div></div>
-        <button className={"toggle" + (spoiler ? " toggle-on" : "")} onClick={() => setSpoiler(!spoiler)} role="switch" aria-checked={spoiler} aria-label="Spoiler-free shrines"><span className="toggle-knob" /></button>
+        <div className="set-txt"><div className="set-name">Spoiler-free mode</div><div className="set-sub">Hide shrine solutions, plus the rewards and champions of regions you haven't reached yet — explore first, tap to reveal whenever you want.</div></div>
+        <button className={"toggle" + (spoiler ? " toggle-on" : "")} onClick={() => setSpoiler(!spoiler)} role="switch" aria-checked={spoiler} aria-label="Spoiler-free mode"><span className="toggle-knob" /></button>
       </div>
       <div className="set-row">
         <div className="set-txt"><div className="set-name">Version & updates</div><div className="set-sub">You're on build <b style={{ color: "var(--cyan-dim)" }}>{ver}</b>. Updates arrive automatically when you reopen the app online; if a “new version” banner appears, tap Update.</div></div>
@@ -1203,6 +1238,19 @@ function SettingsView({ spoiler, setSpoiler, doExport, doImport, confirmReset, s
         )}
       </div>
     </>
+  );
+}
+
+/* ============================================================ STUCK? REVEAL (v9) ============================================================ */
+/* The GameFAQs "scroll down for the answer," but hidden by default: the step stays scannable,
+   the exact how is one tap away. Spoiler-aware content, sourced like the rest of the guide. */
+function StuckReveal({ text }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="stuck-wrap">
+      <button className={"stuck-btn" + (open ? " stuck-open" : "")} onClick={() => setOpen(!open)}><Glyph name="eye" size={11} /> {open ? "Hide hint" : "Stuck? Tap for the exact how"}</button>
+      {open && <p className="stuck-text">{text}</p>}
+    </div>
   );
 }
 
@@ -1577,6 +1625,36 @@ function StyleBlock() {
 .game-picker{display:flex;gap:7px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:13px;padding:5px;margin:0 0 16px;}
 .game-pill{flex:1;font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:14px;color:var(--parch-dim);background:none;border:none;border-radius:9px;padding:9px 8px;cursor:pointer;letter-spacing:.3px;}
 .game-pill-on{color:var(--abyss);background:linear-gradient(180deg,var(--cyan),var(--cyan-dim));box-shadow:0 2px 10px rgba(95,214,226,0.25);}
+/* --- v9: joy pass (check animation, tactile press, transitions), resume, stuck, progressive spoiler --- */
+.box{position:relative;}
+.box-flash{animation:box-bounce .36s ease;}
+.box-flash::after{content:"";position:absolute;inset:-5px;border-radius:11px;border:2px solid var(--cyan);animation:sheikah-pop .6s ease-out forwards;pointer-events:none;}
+@keyframes box-bounce{0%{transform:scale(1);}42%{transform:scale(1.22);}100%{transform:scale(1);}}
+@keyframes sheikah-pop{0%{transform:scale(.55);opacity:.95;border-color:var(--orange);}100%{transform:scale(1.75);opacity:0;border-color:var(--cyan);}}
+.steps{animation:stepsIn .28s ease;}
+@keyframes stepsIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+.body{animation:fadeIn .24s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(3px);}to{opacity:1;transform:none;}}
+.reg-row:active,.regchip:active,.seg-btn:active,.tab:active,.item:active,.big-link:active,.hero-cont:active,.resume-trigger:active,.search-trigger:active,.game-pill:active,.card-head:active,.srch-item:active,.set-row:active{transform:scale(.975);}
+.step-hl{animation:stephl 2.2s ease;border-radius:10px;}
+@keyframes stephl{0%,100%{background:transparent;}14%{background:rgba(240,144,42,0.17);}55%{background:rgba(240,144,42,0.10);}}
+/* Resume — "you're here" (topbar + hero) */
+.resume-trigger{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--abyss);background:linear-gradient(180deg,var(--orange),#df7d1f);border:none;border-radius:18px;padding:6px 11px 6px 8px;cursor:pointer;box-shadow:0 2px 9px rgba(240,144,42,0.32);white-space:nowrap;}
+.resume-trigger svg{filter:drop-shadow(0 0 2px rgba(255,255,255,0.45));}
+.hero-cont{display:flex;flex-direction:column;align-items:flex-start;gap:2px;}
+.hero-cont-k{display:inline-flex;align-items:center;gap:5px;color:var(--orange);font-weight:700;letter-spacing:.4px;}
+.hero-cont-k svg{filter:drop-shadow(0 0 4px rgba(240,144,42,0.5));}
+.hero-cont-s{color:var(--parch);font-weight:600;font-size:12.5px;opacity:.92;}
+/* Stuck? reveal */
+.stuck-wrap{margin-top:7px;}
+.stuck-btn{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--orange);background:rgba(240,144,42,0.07);border:1px dashed rgba(240,144,42,0.42);border-radius:7px;padding:3px 9px;cursor:pointer;}
+.stuck-open{color:var(--cyan-dim);border-color:rgba(95,214,226,0.42);background:rgba(95,214,226,0.06);border-style:solid;}
+.stuck-text{margin:7px 0 2px;font-size:13px;line-height:1.55;color:var(--parch);background:rgba(95,214,226,0.05);border-left:2px solid var(--cyan-dim);border-radius:0 8px 8px 0;padding:8px 11px;animation:stepsIn .25s ease;}
+/* Progressive spoiler veil (journey) */
+.reward-veil{cursor:pointer;text-align:left;font:inherit;}
+.veil-tap{color:var(--cyan-dim);text-decoration:underline;text-underline-offset:2px;font-weight:700;}
+.veil-inline{font:inherit;color:var(--cyan-dim);background:none;border:none;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;}
+@media (max-width:380px){.resume-trigger span{display:none;}.resume-trigger{padding:6px 8px;}}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 `}</style>);
 }
@@ -1595,21 +1673,21 @@ const VAH_MEDOH = {
     ]},
     { id: "md_teba", name: "Teba & the Flight Range", sub: "Archery test", steps: [
       { id: "md6", k: "warn", t: "The Flight Range is an even colder (level 2) area — make sure your cold resistance is solid before gliding over from Revali's Landing." },
-      { id: "md7", k: "step", t: "Reach the Flight Range and talk to Teba. Agree to help. His test: hit 5 targets in 3 minutes using the updrafts to glide and shoot." },
+      { id: "md7", k: "step", stuck: "Glide off the platform's edge to catch the updraft, then draw your bow mid-air for slow-mo and pop the blue targets. Riding the updraft refills stamina, so grab the Swallow Bow there and just keep gliding and shooting.", t: "Reach the Flight Range and talk to Teba. Agree to help. His test: hit 5 targets in 3 minutes using the updrafts to glide and shoot." },
       { id: "md8", k: "loot", t: "Pass the test for 20 Bomb Arrows and the Falcon Bow (long range — perfect for the boss).", items: [{ name: "Falcon Bow", cat: "bow", note: "Long-range bow from Teba" }, { name: "Bomb Arrows ×20", cat: "material", note: "For Medoh's cannons" }] },
     ]},
     { id: "md_attack", name: "Ground Vah Medoh", sub: "Ride Teba · 4 cannons", steps: [
       { id: "md9", k: "step", t: "Talk to Teba to launch the assault. He flies you up alongside Medoh as it circles." },
-      { id: "md10", k: "step", t: "Destroy the 4 cannons — one on each wing, one on the tail, one on the beak — with Bomb Arrows. They fire Guardian-style lasers; release the paraglider to drop and dodge, then re-open it." },
+      { id: "md10", k: "step", stuck: "Glide toward each cannon and fire a Bomb Arrow at it. When a cannon's laser locks on (Guardian-style targeting beep), let go of the paraglider to drop straight down, let the laser pass, then re-open and climb back up.", t: "Destroy the 4 cannons — one on each wing, one on the tail, one on the beak — with Bomb Arrows. They fire Guardian-style lasers; release the paraglider to drop and dodge, then re-open it." },
       { id: "md11", k: "step", t: "With all 4 cannons down, the barrier drops and Teba lands you on Medoh." },
     ]},
     { id: "md_inside", name: "Inside Vah Medoh", sub: "Activate 5 terminals", reward: "Control of Vah Medoh", steps: [
-      { id: "md12", k: "step", t: "Revali's intro: light 5 terminals, then the main control unit. Shoot the glowing Malice eyeballs to clear paths and deal with Guardian Scouts." },
-      { id: "md13", k: "step", t: "The map terminal lets you TILT the whole beast. Rotate Medoh to redirect its built-in updrafts and walkways, then ride updrafts + paraglider to reach each terminal." },
-      { id: "md14", k: "loot", t: "Grab the chests as you go (a Sapphire sits behind you at the tail when you board). You can't return after the boss.", items: [{ name: "Sapphire", cat: "material", note: "Chest on Medoh's tail" }] },
+      { id: "md12", k: "step", stuck: "Equip Magnesis to spot and pull the metal footholds and blocks into reach. Shoot the orange Malice eyes to dissolve the goo blocking a path; the floating Guardian Scouts can be killed with a few arrows or melee hits.", t: "Revali's intro: light 5 terminals, then the main control unit. Shoot the glowing Malice eyeballs to clear paths and deal with Guardian Scouts." },
+      { id: "md13", k: "step", stuck: "Open the dungeon map to reach the tilt control: three settings tilt Medoh up, neutral, or down. Tilting redirects the updrafts and ramps, so set the tilt that aims an updraft at the terminal you want, then glide.", t: "The map terminal lets you TILT the whole beast. Rotate Medoh to redirect its built-in updrafts and walkways, then ride updrafts + paraglider to reach each terminal." },
+      { id: "md14", k: "loot", stuck: "The Sapphire chest is right where you boarded, at the tail behind the starting point, so grab it before heading inward. Other chests sit near the terminals; once you start the boss you cannot come back, so sweep first.", t: "Grab the chests as you go (a Sapphire sits behind you at the tail when you board). You can't return after the boss.", items: [{ name: "Sapphire", cat: "material", note: "Chest on Medoh's tail" }] },
     ]},
     { id: "md_boss", name: "Boss: Windblight Ganon", sub: "Free Revali", reward: "Revali's Gale + Heart Container", steps: [
-      { id: "md_b1", k: "step", t: "Phase 1: it floats and fires wind blasts and a laser. Use the updrafts on the arena to fly up and get slow-mo bow shots at its EYE (the Falcon Bow shines here); bomb arrows stun it. Hide behind pillars from the laser." },
+      { id: "md_b1", k: "step", stuck: "Ride a floor vent's updraft, then draw your bow in the air for slow-mo and aim at the single glowing EYE on its head. Two hits (Bomb Arrows best) drop it stunned for melee; duck behind a pillar from its laser.", t: "Phase 1: it floats and fires wind blasts and a laser. Use the updrafts on the arena to fly up and get slow-mo bow shots at its EYE (the Falcon Bow shines here); bomb arrows stun it. Hide behind pillars from the laser." },
       { id: "md_b2", k: "step", t: "Phase 2 (~50% HP): it summons floating turrets that bounce its laser. Ignore them (or Stasis the boss / shoot the reflectors) and keep hammering the eye, then flurry when it's stunned." },
       { id: "md_b3", k: "reward", t: "Beat it, GRAB the Heart Container, then activate the main control unit to free Revali. He grants Revali's Gale — hold jump for an updraft (3 charges), the best traversal power in the game. Speak to Kaneli for the Great Eagle Bow.", items: [{ name: "Heart Container", cat: "key", note: "From Windblight Ganon" }, { name: "Great Eagle Bow", cat: "bow", note: "Revali's bow — 3 arrows at once (from Kaneli)" }] },
     ]},
@@ -1628,21 +1706,21 @@ const VAH_RUDANIA = {
     ]},
     { id: "rd_yunobo", name: "Yunobo the Cannonball", sub: "Bridge of Eldin", steps: [
       { id: "rd4", k: "step", t: "At the Bridge of Eldin, defeat the 2 Moblins bullying Yunobo (grab their drops fast before the heat burns them)." },
-      { id: "rd5", k: "step", t: "Yunobo can curl up and use Daruk's Protection — so he survives being fired from a cannon. Hit the cannon's switch to aim it at the bridge, then launch Yunobo to lower it." },
+      { id: "rd5", k: "step", stuck: "Hit the lever on the cannon to swing its barrel left until it lines up with the bridge, THEN whistle Yunobo into it and shoot the same lever again to fire him. Wait for the aim before launching or he misses.", t: "Yunobo can curl up and use Daruk's Protection — so he survives being fired from a cannon. Hit the cannon's switch to aim it at the bridge, then launch Yunobo to lower it." },
     ]},
     { id: "rd_climb", name: "Up Death Mountain", sub: "Cannon Yunobo at Rudania", steps: [
-      { id: "rd6", k: "warn", t: "Vah Rudania patrols sentries (Guardian drones). If a sentry spots you OR Yunobo, Rudania triggers a magma rockslide that knocks you back. Hide under rocks and let them pass." },
-      { id: "rd7", k: "step", t: "Climb the mountain counter-clockwise. Whistle (D-pad down) to tell Yunobo to follow or stay. At each cannon, aim and fire Yunobo at Rudania's 4 glowing weak points." },
+      { id: "rd6", k: "warn", stuck: "When the alarm sounds and Rudania's spotlight sweeps, run under one of the big rock overhangs and stand still until it passes. Don't climb in the open. You can also whistle Yunobo to stay put so HE isn't spotted either.", t: "Vah Rudania patrols sentries (Guardian drones). If a sentry spots you OR Yunobo, Rudania triggers a magma rockslide that knocks you back. Hide under rocks and let them pass." },
+      { id: "rd7", k: "step", stuck: "Whistle is D-pad down: one tone tells Yunobo to follow, again to wait. Walk the spiral path always turning the same way; the four weak points are the orange glowing spots on Rudania's shoulders.", t: "Climb the mountain counter-clockwise. Whistle (D-pad down) to tell Yunobo to follow or stay. At each cannon, aim and fire Yunobo at Rudania's 4 glowing weak points." },
       { id: "rd8", k: "step", t: "Four hits force Rudania to retreat into the crater — drop in and board it." },
     ]},
     { id: "rd_inside", name: "Inside Vah Rudania", sub: "Activate 5 terminals", reward: "Control of Vah Rudania", steps: [
-      { id: "rd9", k: "step", t: "Light 5 terminals, then the main control unit. Shoot Malice eyeballs, bomb obstacles, and use Magnesis on the metal blocks." },
-      { id: "rd10", k: "step", t: "The map terminal ROTATES the whole beast (it walks on walls and the ceiling). Tilt Rudania 90° to reposition platforms, then paraglide across to the terminals. Grab Ice Arrow chests — they're gold for the boss.", items: [{ name: "Ice Arrows", cat: "material", note: "Chests inside / North Mine — for the fire boss" }] },
+      { id: "rd9", k: "step", stuck: "Each Malice eyeball blocking a path is destroyed with one arrow or a hit. Use Magnesis (the red rune) to slide the metal cube blocks out of the way, and Remote Bombs to clear cracked rock walls.", t: "Light 5 terminals, then the main control unit. Shoot Malice eyeballs, bomb obstacles, and use Magnesis on the metal blocks." },
+      { id: "rd10", k: "step", stuck: "At the map terminal pick the tilt to rotate Rudania 90 degrees, then paraglide to a terminal and rotate back for the next. Smash the eyeballs in the first room first: it frees three chests, one holds 5 Ice Arrows.", t: "The map terminal ROTATES the whole beast (it walks on walls and the ceiling). Tilt Rudania 90° to reposition platforms, then paraglide across to the terminals. Grab Ice Arrow chests — they're gold for the boss.", items: [{ name: "Ice Arrows", cat: "material", note: "Chests inside / North Mine — for the fire boss" }] },
     ]},
     { id: "rd_boss", name: "Boss: Fireblight Ganon", sub: "Free Daruk", reward: "Daruk's Protection + Heart Container", steps: [
       { id: "rd_b1", k: "step", t: "Phase 1: it swings a massive flaming sword — jump sideways for vertical slashes, jump over horizontal ones (or just keep distance), and Flurry Rush after a dodge. Ice Arrows to the eye stun it and deal big damage." },
-      { id: "rd_b2", k: "step", t: "Phase 2 (~50% HP): it floats up and charges a giant fireball — throw a Remote Bomb so the fireball SUCKS it in, then detonate to stun it. Follow with Ice Arrows to the eye, then melee." },
-      { id: "rd_b3", k: "reward", t: "GRAB the Heart Container, then activate the main control unit to free Daruk. He grants Daruk's Protection — hold ZL for a shield that blocks 3 hits and reflects Guardian lasers. Back in Goron City, see Yunobo then Bludo for the Boulder Breaker.", items: [{ name: "Heart Container", cat: "key", note: "From Fireblight Ganon" }, { name: "Boulder Breaker", cat: "weapon", note: "Daruk's two-hander (from Bludo)" }] },
+      { id: "rd_b2", k: "step", stuck: "When it floats up and the fire orb starts forming, drop a Remote Bomb right under it: the orb's pull sucks the bomb in. Detonate the instant it's inside to pop the shield and stun it, then fire Ice Arrows at the eye.", t: "Phase 2 (~50% HP): it floats up and charges a giant fireball — throw a Remote Bomb so the fireball SUCKS it in, then detonate to stun it. Follow with Ice Arrows to the eye, then melee." },
+      { id: "rd_b3", k: "reward", stuck: "Easy to miss: after the beast, return to Goron City and talk to Yunobo near the entrance, then to Bludo. Bludo hands over the Boulder Breaker, a powerful two-handed Champion weapon worth grabbing.", t: "GRAB the Heart Container, then activate the main control unit to free Daruk. He grants Daruk's Protection — hold ZL for a shield that blocks 3 hits and reflects Guardian lasers. Back in Goron City, see Yunobo then Bludo for the Boulder Breaker.", items: [{ name: "Heart Container", cat: "key", note: "From Fireblight Ganon" }, { name: "Boulder Breaker", cat: "weapon", note: "Daruk's two-hander (from Bludo)" }] },
     ]},
   ],
 };
@@ -1654,17 +1732,17 @@ const VAH_NABORIS = {
   sections: [
     { id: "nb_gerudo", name: "Forbidden City Entry", sub: "Gerudo Town · the vai outfit", steps: [
       { id: "nb1", k: "warn", t: "The desert is scorching by day and freezing by night — pack heat AND cold resistance (Chilly / Spicy food; Snowquill helps at night)." },
-      { id: "nb2", k: "step", t: "Gerudo Town bars men. Buy the Gerudo (vai) outfit — Veil, Top, and Sirwal — for ~600 rupees from Vilia at Kara Kara Bazaar on the way in. Wear all three to get past the guards.", items: [{ name: "Gerudo Vai Set", cat: "armor", note: "Disguise to enter Gerudo Town" }] },
+      { id: "nb2", k: "step", stuck: "Vilia stands on the rock atop the Kara Kara Bazaar inn — climb up to reach her. When asked how she looks, pick \"You're very beautiful!\" and don't accuse her, or she won't sell. The set also grants heat resistance.", t: "Gerudo Town bars men. Buy the Gerudo (vai) outfit — Veil, Top, and Sirwal — for ~600 rupees from Vilia at Kara Kara Bazaar on the way in. Wear all three to get past the guards.", items: [{ name: "Gerudo Vai Set", cat: "armor", note: "Disguise to enter Gerudo Town" }] },
       { id: "nb3", k: "step", t: "Inside, speak to Chief Riju. She'll help against Naboris — but you need the Thunder Helm, stolen by the Yiga Clan. Talk to Captain Teake for the hideout's location." },
     ]},
     { id: "nb_yiga", name: "The Thunder Helm", sub: "Yiga Hideout · Master Kohga", steps: [
-      { id: "nb4", k: "step", t: "Sneak through the Yiga Hideout (the Yiga love Mighty Bananas — drop one to lure a guard away). Getting spotted summons tough Yiga Blademasters." },
-      { id: "nb5", k: "step", t: "At the end, fight Master Kohga. He hurls spiked iron balls — use Magnesis to grab the ball and smash him with it (or make him drop it on his own head)." },
+      { id: "nb4", k: "step", stuck: "Shoot the Mighty Bananas sitting on high wall platforms to drop them as bait. While a Blademaster is distracted eating, creep up behind him and Sneakstrike (crouch-walk in) to one-shot him with any weapon.", t: "Sneak through the Yiga Hideout (the Yiga love Mighty Bananas — drop one to lure a guard away). Getting spotted summons tough Yiga Blademasters." },
+      { id: "nb5", k: "step", stuck: "In the final phase Kohga summons the big spiked ball overhead. Magnesis-grab it and yank it onto his head, but his shield regrows instantly, so swing the ball back and forth to land two hits fast.", t: "At the end, fight Master Kohga. He hurls spiked iron balls — use Magnesis to grab the ball and smash him with it (or make him drop it on his own head)." },
       { id: "nb6", k: "loot", t: "Take the Thunder Helm from the chest and return it to Riju (she's on the 2nd floor now). She wears it and meets you at the lookout post south of town.", items: [{ name: "Thunder Helm", cat: "key", note: "Blocks Naboris's lightning" }] },
     ]},
     { id: "nb_attack", name: "Ground Vah Naboris", sub: "Sand seal · 4 feet", steps: [
       { id: "nb7", k: "step", t: "You NEED a sand seal — rent one in town or catch a wild one. Ride to the lookout post; Riju gives you 20 Bomb Arrows." },
-      { id: "nb8", k: "step", t: "Ride your sand seal alongside Riju, staying inside her Thunder Helm field to block the lightning. Shoot each of Naboris's 4 feet with Bomb Arrows — 2 per foot, 8 hits total — to stun it." },
+      { id: "nb8", k: "step", stuck: "Aim at the glowing pink feet, not the legs — each takes 2 Bomb Arrows. Stay inside the green ring around Riju so the lightning misses you; once all four are hit, Naboris buckles and kneels.", t: "Ride your sand seal alongside Riju, staying inside her Thunder Helm field to block the lightning. Shoot each of Naboris's 4 feet with Bomb Arrows — 2 per foot, 8 hits total — to stun it." },
       { id: "nb9", k: "step", t: "Board Naboris while it's down." },
     ]},
     { id: "nb_inside", name: "Inside Vah Naboris", sub: "Activate 5 terminals", reward: "Control of Vah Naboris", steps: [
@@ -1674,7 +1752,7 @@ const VAH_NABORIS = {
     ]},
     { id: "nb_boss", name: "Boss: Thunderblight Ganon", sub: "Free Urbosa", reward: "Urbosa's Fury + Heart Container", steps: [
       { id: "nb_b1", k: "step", t: "Phase 1: it's FAST and teleports. Bait its quick lunge and Flurry Rush; shoot to stun, then strike. Use NON-metal gear so its lightning doesn't fry you." },
-      { id: "nb_b2", k: "step", t: "Phase 2 (~50% HP): it drops metal pillars and charges lightning. Grab a pillar with Magnesis so the lightning hits IT instead of you — that staggers Thunderblight; then flurry. Shock arrows help too." },
+      { id: "nb_b2", k: "step", stuck: "Equip Magnesis the instant phase 2 starts and stay close to Thunderblight so a pillar is always near. When the lightning zaps your held pillar and staggers him, rush in and flurry; dodge his lunges for Flurry Rush.", t: "Phase 2 (~50% HP): it drops metal pillars and charges lightning. Grab a pillar with Magnesis so the lightning hits IT instead of you — that staggers Thunderblight; then flurry. Shock arrows help too." },
       { id: "nb_b3", k: "reward", t: "GRAB the Heart Container, then activate the main control unit to free Urbosa. She grants Urbosa's Fury — a charged lightning nova (3 charges). Re-don the vai outfit, see Riju, and claim the Scimitar of the Seven and Daybreaker shield. That's all four beasts — report to Impa to complete Free the Divine Beasts.", items: [{ name: "Heart Container", cat: "key", note: "From Thunderblight Ganon" }, { name: "Scimitar of the Seven", cat: "weapon", note: "Urbosa's blade (from Riju)" }, { name: "Daybreaker", cat: "shield", note: "Gerudo shield (from Riju)" }] },
     ]},
   ],
@@ -1687,15 +1765,15 @@ const MASTER_SWORD = {
   sections: [
     { id: "ms_prep", name: "Get to 13 Hearts", sub: "The price of the blade", steps: [
       { id: "ms1", k: "warn", t: "Pulling the sword drains your health. You need at least 13 FULL red hearts (not temporary yellow ones) or Link dies mid-pull." },
-      { id: "ms2", k: "step", t: "That's 10 heart upgrades beyond your starting 3 — i.e. 40 Spirit Orbs spent on hearts. If you sank orbs into stamina, swap them at the Horned Statue in Hateno Village (it trades hearts ↔ stamina)." },
+      { id: "ms2", k: "step", stuck: "The Horned Statue (the talking goddess statue) is by Firly Pond at the southwest edge of Hateno Village, right beside Link's house. Sell a heart for 100 rupees, then buy a stamina vessel back for 120, or vice versa.", t: "That's 10 heart upgrades beyond your starting 3 — i.e. 40 Spirit Orbs spent on hearts. If you sank orbs into stamina, swap them at the Horned Statue in Hateno Village (it trades hearts ↔ stamina)." },
     ]},
     { id: "ms_woods", name: "The Lost Woods", sub: "Follow the embers", steps: [
       { id: "ms3", k: "step", t: "Head to the Great Hyrule Forest (Woodland region, north of Hyrule Castle). Nearest tower: Woodland Tower. Enter the foggy Lost Woods." },
-      { id: "ms4", k: "step", t: "First stretch: follow the lit torches. After the checkpoint (two torches and a carved face), light your own torch (or a wooden weapon)." },
-      { id: "ms5", k: "step", t: "Stand still and watch which way the EMBERS blow off your flame — walk that direction, re-checking every few steps. If the fog turns bright white, you went wrong; backtrack. Follow the embers out into the Korok Forest." },
+      { id: "ms4", k: "step", stuck: "The first torches are posted along the path — walk torch-to-torch until you reach two torches with a carved tree-face between them (the checkpoint). Light a torch or wooden weapon off a lit one to carry your own flame.", t: "First stretch: follow the lit torches. After the checkpoint (two torches and a carved face), light your own torch (or a wooden weapon)." },
+      { id: "ms5", k: "step", stuck: "Stand still and watch the glowing embers drifting off your flame; walk the way they drift. Move at a walk (sprinting makes the cue easy to miss) and stop to re-check, backtracking whenever the fog starts to brighten.", t: "Stand still and watch which way the EMBERS blow off your flame — walk that direction, re-checking every few steps. If the fog turns bright white, you went wrong; backtrack. Follow the embers out into the Korok Forest." },
     ]},
     { id: "ms_pull", name: "The Great Deku Tree", sub: "Claim the sword", steps: [
-      { id: "ms6", k: "optional", t: "Activate Keo Ruug Shrine right by the Deku Tree so you can fast-travel here later instead of re-running the Lost Woods.", items: [{ name: "Spirit Orb", cat: "key", note: "Keo Ruug Shrine", orb: true }] },
+      { id: "ms6", k: "optional", stuck: "Keo Ruug Shrine sits by the Great Deku Tree, northeast of (to the right of, facing the tree) the sword pedestal in Korok Forest. Activate its orange pedestal to register the travel point before pulling the sword.", t: "Activate Keo Ruug Shrine right by the Deku Tree so you can fast-travel here later instead of re-running the Lost Woods.", items: [{ name: "Spirit Orb", cat: "key", note: "Keo Ruug Shrine", orb: true }] },
       { id: "ms7", k: "reward", t: "Approach the pedestal and hold to pull. With 13 hearts, Link draws the Master Sword free. It never permanently breaks (it 'runs out' and recharges in ~10 min), hits 30 — and 60 against Ganon, Malice, and Guardians. At full health it fires a sword beam (hold R).", items: [{ name: "Master Sword", cat: "weapon", note: "Seals the darkness · recharges, never breaks" }] },
     ]},
   ],
@@ -1712,16 +1790,16 @@ const DESTROY_GANON = {
     ]},
     { id: "dg_castle", name: "Hyrule Castle", sub: "Optional loot run", steps: [
       { id: "dg3", k: "warn", t: "The castle and Castle Town Ruins crawl with Guardians (Stalkers, Skywatchers) and Malice. Weave through laser spotlights; shoot eyeballs to unblock stairs; Ancient Arrows make Guardians trivial." },
-      { id: "dg4", k: "loot", t: "Worth grabbing on the way up: the Royal Guard set and Royal weapons scattered inside — and the Hylian Shield (the best shield in the game) from a chest in the castle Lockup/dungeon.", items: [{ name: "Hylian Shield", cat: "shield", note: "Best shield in the game (castle Lockup)" }] },
+      { id: "dg4", k: "loot", stuck: "The Hylian Shield is in the Lockup, the dungeon under the castle's northeast side. Raise the barred gate with Cryonis (or climb in), then beat the Stalnox that traps you inside; its chest holds the shield.", t: "Worth grabbing on the way up: the Royal Guard set and Royal weapons scattered inside — and the Hylian Shield (the best shield in the game) from a chest in the castle Lockup/dungeon.", items: [{ name: "Hylian Shield", cat: "shield", note: "Best shield in the game (castle Lockup)" }] },
       { id: "dg5", k: "step", t: "Climb to the Sanctum at the top of the castle. Entering it triggers the Divine Beasts' lasers (if freed) and starts the fight." },
     ]},
     { id: "dg_calamity", name: "Calamity Ganon", sub: "Phase 1 boss", steps: [
       { id: "dg6", k: "step", t: "Calamity Ganon uses all four Blights' moves — fire, water, wind, thunder, a flaming sword, and a laser. Flurry Rush its sword swings; deflect the laser back; shoot its glowing EYE to stun, then unload with the Master Sword and Ancient Arrows." },
-      { id: "dg7", k: "step", t: "At critical HP it raises a shield that nullifies most attacks. Break it with Urbosa's Fury (lightning pierces it) or by deflecting its charged beam back — then finish it off." },
+      { id: "dg7", k: "step", stuck: "Urbosa's Fury pierces the shield instantly and stuns him. No Fury? Wait for him to charge his beam, then perfect-parry (raise shield as it hits) to bounce the laser back and drop the shield.", t: "At critical HP it raises a shield that nullifies most attacks. Break it with Urbosa's Fury (lightning pierces it) or by deflecting its charged beam back — then finish it off." },
     ]},
     { id: "dg_darkbeast", name: "Dark Beast Ganon", sub: "The final shot", steps: [
-      { id: "dg8", k: "step", t: "Ganon flees onto Hyrule Field as a colossal Dark Beast. Zelda gives you the Bow of Light (unlimited Light Arrows). Shoot the glowing orange weak points on its body to expose the eyes.", items: [{ name: "Bow of Light", cat: "bow", note: "Zelda's bow — unlimited Light Arrows" }] },
-      { id: "dg9", k: "reward", t: "When it attacks, an updraft forms in front of it — glide up (or use Revali's Gale) and, in mid-air slow-mo, fire a Light Arrow into its huge eye. Land the final shot to end the Calamity. Roll credits — and if you found every memory, stay for the bonus scene." },
+      { id: "dg8", k: "step", stuck: "Shoot in waves: hit the three glowing spots on one side, wait for Zelda's cue and hit three on the other side, then the spot under its belly. Only after those six does the eye appear on its forehead.", t: "Ganon flees onto Hyrule Field as a colossal Dark Beast. Zelda gives you the Bow of Light (unlimited Light Arrows). Shoot the glowing orange weak points on its body to expose the eyes.", items: [{ name: "Bow of Light", cat: "bow", note: "Zelda's bow — unlimited Light Arrows" }] },
+      { id: "dg9", k: "reward", stuck: "The forehead eye snaps shut if you shoot from the ground. Glide into the updraft, then while still falling press the aim button to enter slow-motion bullet-time and fire the Light Arrow mid-air.", t: "When it attacks, an updraft forms in front of it — glide up (or use Revali's Gale) and, in mid-air slow-mo, fire a Light Arrow into its huge eye. Land the final shot to end the Calamity. Roll credits — and if you found every memory, stay for the bonus scene." },
     ]},
   ],
 };

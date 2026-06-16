@@ -71,8 +71,10 @@ it runs fully offline once it's on the device. First load needs no network. The 
   UI just reads them. Adding content = add to a data const + (sometimes) a small UI block.
 - **Region object**: `{ id, name, sub, kind:'region'|'beast', tagline, champion?, sections:[] }`.
 - **Section**: `{ id, name, sub, reward?, steps:[] }`.
-- **Step**: `{ id, k, t, items?:[] }`.
+- **Step**: `{ id, k, t, stuck?, items?:[] }`.
   - `k` (kind): `step | loot | optional | reward` are **checkable**; `tip | warn` are info-only.
+  - `stuck?` (v9): a hidden "Stuck? tap for the exact how" hint (`StuckReveal`) — sourced + spoiler-aware,
+    authored by the `extract-walkthrough → gen-stuck-workflow → Workflow → apply-stuck` chain (ADR 0006).
   - `items[]`: `{ name, cat, note, orb?, rune? }`. Collecting the step adds these to the pouch.
   - `cat` ∈ `rune | weapon | bow | shield | armor | key | material` (see `CATS`).
   - `orb:true` → counts toward the Spirit-Orb tracker (4 orbs = 1 upgrade). `rune:'magnesis'|...` → pouch glyph.
@@ -92,15 +94,22 @@ it runs fully offline once it's on the device. First load needs no network. The 
   check after: balanced `{}`/`()`, even backtick count, single `<style>`/`</style>`, `store` present, IDs unique.
 - No `<form>` tags; onClick handlers only. No Tailwind (custom CSS). No external fonts/scripts at runtime in the
   built `index.html` (the artifact `.jsx` may use a Google-Fonts @import; the build strips/inlines for offline).
+- **React hooks come off the global `React`** via a hardcoded destructure in `build.mjs` (`const {useState,
+  useEffect,useMemo,useCallback,useRef}=React;`). If you use a hook not in that list, the built app white-screens
+  with `ReferenceError: <hook> is not defined` — add it to that `head` line. (Bit us in v9 with `useRef`.)
 
 ## House rules
 - **Honest over flattering.** Mark anything uncertain; a dash-with-a-reason beats a fake fact.
 - **Spoiler-aware, beginner-first.** Hints, not lore-dumps. Assume a player who has never touched the game.
 - **Mobile-first.** 560px max width, thumb-reachable tab bar, big tap targets, reduced-motion honored.
 
-## Tabs & features (v6–v7)
+## Tabs & features (v6–v9)
 Tabs: **Status · Journey · Shrines · Items · Cook · Guide** (6) + a **global-search** overlay (topbar magnifier,
-`SearchOverlay`) across everything. Status carries the **full Hyrule map** (`HyruleMap` — original SVG, 15
+`SearchOverlay`) across everything. **v9 additions:** a persistent **Resume "you're here"** affordance (topbar
+pin + Status hero, `resumeTarget`/`jumpToStep` → opens + flashes your first uncompleted step); a **joy pass**
+(`box-flash` Sheikah check-pulse, section/tab fades, `:active` press — all under the global reduced-motion
+kill-switch); **progressive spoiler reveal** (the Settings toggle now veils champions/rewards of regions *ahead*
+of you, per-item tap-to-reveal); and **"Stuck?" hints** (`StuckReveal`) hanging off walkthrough steps. Status carries the **full Hyrule map** (`HyruleMap` — original SVG, 15
 regions with shrine-progress rings, tap → that region's shrines) plus Shrines + Collectibles meters. Shrines =
 all 120, region-grouped, trackable; each expanded region shows a **per-region schematic map** (`RegionMap`,
 coords from `knowledge/region-maps.json`) — numbered dots (tap to toggle) that match the numbered list, plus
@@ -124,6 +133,12 @@ layout, `REGION_MAPS` = the per-region coords.
   segment + **spoiler toggle**; **multi-game** `GAMES` wrapper + game picker; and **Tears of the Kingdom** as
   game 2 (9-chapter walkthrough, 152 shrines, abilities, armor, bestiary, cooking, world). Verified both games,
   isolated storage, zero console errors.
+- **v9 (done):** **polish one companion** (ADR 0006) — the **joy pass** (Sheikah check-pulse, section/tab fades,
+  tactile press), **Resume "you're here"** (topbar pin + hero → your first uncompleted step), **progressive
+  spoiler reveal** (path-aware veil of future champions/rewards), and sourced **"Stuck?" hints** on the
+  walkthrough (author→adversarial-verify workflow, one agent per region). `build.mjs` now also exposes `useRef`.
+  Verified in-browser, 0 live console errors.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
-  towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`.
-  **Beyond:** Ocarina of Time as game 3 (same `GAMES` slot-in).
+  towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
+  **"Stuck?" sweep** (same workflow). **Beyond:** Ocarina of Time as game 3 (same `GAMES` slot-in) — the user's
+  favorite, beaten many times, so each step is self-verifiable.

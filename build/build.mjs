@@ -127,7 +127,7 @@ function transformApp() {
   src = src.replace(/^\s*import\s+\{[^}]*\}\s+from\s+["']react["'];?\s*$/m, "");
   src = src.replace(/export\s+default\s+function\s+HyruleCompanion/, "function HyruleCompanion");
   src = src.replace(/@import url\([^)]*fonts\.googleapis[^)]*\);?/g, "");
-  const head = `const {useState,useEffect,useMemo,useCallback}=React;\n`;
+  const head = `const {useState,useEffect,useMemo,useCallback,useRef}=React;\n`;
   const mount = `\nReactDOM.createRoot(document.getElementById("root")).render(React.createElement(HyruleCompanion));\n`;
   const processed = head + src + mount;
   const tmp = join(__dirname, ".app.processed.jsx");

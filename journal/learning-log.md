@@ -5,6 +5,49 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-16 — v9: polish one companion (joy · resume · progressive spoiler · "Stuck?" hints)
+
+- **The brainstorm landed on restraint.** A long Claude.ai session kept proposing bigger architecture (a 3-lens
+  map, then 3 "companion personalities"); the user cut both, twice, down to *one companion, made amazing*. The
+  north star is the GameFAQs walkthrough they grew up with — linear, trustworthy, there-when-stuck — but one
+  that **knows where you are, never spoils you by accident, one tap from the thing you're stuck on.** v9 builds
+  exactly that, no new tabs. (ADR 0006.) Lesson worth keeping: when the user talks scope *down*, that's the
+  design decision — don't reopen the thing they removed.
+- **Four features, all in `HyruleCompanion.jsx`, all offline, all verified in-browser (0 live console errors):**
+  1. *Joy pass* — `box-flash` Sheikah check-pulse (ember→cyan `::after` ring + `box-bounce`, driven by a
+     transient `flash` state set only on check-*on* via a `progressRef`, so it never mass-animates on load),
+     `stepsIn` section fade, `key={tab}` + `fadeIn` cross-tab fade, `:active` press on tap targets. All ride
+     above the pre-existing global `prefers-reduced-motion` kill-switch — confirmed reduced-motion users get none.
+  2. *Resume "you're here"* — `resumeTarget` (first incomplete checkable step, linear order) → persistent topbar
+     pin (one-thumb reach from every tab) + Status hero; `jumpToStep` opens the section, centers + flashes the
+     step (`step-hl`). Nearly free given the flat `{stepId:true}` map.
+  3. *Progressive spoiler reveal* — the v8 shrine-only toggle became path-aware: regions with `index > resumeIdx`
+     (and not while searching) veil champion banner + section reward banners + `k:"reward"` payoffs behind
+     per-item "tap to reveal." Verified `grants ••• → grants Revali's Gale`; revealing one keeps the rest hidden.
+  4. *"Stuck?" hints* — a new optional `stuck` field renders `StuckReveal` ("Stuck? tap for the exact how"),
+     hidden by default so the step stays scannable. **71 hints** authored by a sourced fan-out workflow.
+- **The "Stuck?" content was a real research job, not polish — and treated as one.** The walkthrough is
+  hand-authored in the `.jsx` (not in `GEN:DATA` / not in `regions.json`), so: `extract-walkthrough.mjs` pulls
+  the 172 steps → `gen-stuck-workflow.mjs` embeds them in a Workflow script → 10 author + 10 verify agents
+  (one per region, web-checked vs Game8/Zelda Dungeon, **713K tokens**) → `apply-stuck.mjs` splices `stuck:`
+  after each step's `k:` token (idempotent; reported 71/71 placed, 0 missing). Agents were told quality over
+  coverage — they added hints only to stallable steps (Plateau 18, but Master Sword/Ganon 4 each), and an empty
+  set is an honest answer. This is the same author→adversarial-verify pattern as the v5/v7/v8 sweeps.
+- **Bug caught + fixed:** the build only destructured 4 hooks from the global React; `useRef` (new in the resume
+  logic) white-screened the app with `ReferenceError: useRef is not defined`. Added it to `build.mjs`'s `head`
+  line. **Any new hook must go there** — recorded in CLAUDE.md gotchas + ADR 0006.
+- **Honesty-law catch (user-flagged, mid-session):** memory step `m_l7` said "glide from **Ja Baij Shrine** to
+  the big tree across the river" — geographically impossible (Ja Baij is on the Great Plateau; Memory #7 is in
+  West Necluda by the Hylia River). Web-verified (Nintendo Life, GamesRadar) the real route and rewrote it to
+  "from Scout's Hill, paraglide over the Hylia River to the lone tree opposite — it has a rock at its base."
+  This was *original* hand-authored content, not a workflow hint; the v9 "Stuck?" agents did NOT write an m_l7
+  hint, so nothing propagated. Worth a future audit pass over the other memory routes with the same rigor.
+- **Verify-in-browser gotchas (reconfirmed):** the SW caches aggressively — `getRegistrations().unregister()` +
+  `caches.delete()` then hard-reload to see a fresh build. And `botw:ui` persists the open region/section, so a
+  test that assumes "Plateau" must explicitly click the region chip, not trust the default.
+
+---
+
 ## 2026-06-16 — v8: service worker, settings/spoiler, and **multi-game + Tears of the Kingdom**
 
 - **Service worker** (`build.mjs` emits `sw.js`, versioned by an app-content hash): **network-first for
