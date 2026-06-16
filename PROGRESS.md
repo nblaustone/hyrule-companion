@@ -109,3 +109,9 @@ ZeldaCentral, Gamer Guides, Thonky, Shacknews. Verified specifically:
   trackable) and an expanded **Guide** (Armor · Fairies · Towers · Quests · Enemies ·
   Koroks · World) + deeper **Cook**. Build pipeline: `assemble-knowledge` → `inline-data`
   → `build`. Data lives in `knowledge/*.json`, inlined into the .jsx GEN:DATA block.
+- v6: field feedback from playing it on the phone. Fixed the topbar under the iPhone
+  status bar (`env(safe-area-inset-top)`) + added the missing Plateau Traveler's Sword.
+  Added the **full Hyrule map** (Status, original SVG, tap a region → its shrines);
+  **four trackers** (Great Fairy + armor-tier, side quests, Korok counter, memories meter)
+  + a Collectibles panel; **export/import backup**, **per-step/shrine notes**, and a
+  **global search** overlay. New keys: botw:koroks, botw:notes, botw:armortier.

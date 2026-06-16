@@ -325,6 +325,8 @@ function Glyph({ name, size = 26 }) {
     case "skull": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M24 7c8 0 13 6 13 14 0 4-2 8-5 10v5H19v-5c-3-2-5-6-5-10C14 13 16 7 24 7Z" /><circle cx="19.5" cy="22" r="2.6" fill="currentColor" stroke="none" /><circle cx="28.5" cy="22" r="2.6" fill="currentColor" stroke="none" /><path d="M24 28v4M20 38v3M28 38v3" /></svg>);
     case "leaf": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M11 37C11 20 24 11 38 11c0 17-13 26-27 26Z" /><path d="M16 32c6-6 13-11 18-14" /></svg>);
     case "scroll": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M15 11h15a3 3 0 0 1 3 3v21a3 3 0 0 0 3 3H17a3 3 0 0 1-3-3V11Z" /><path d="M19 19h9M19 25h9M19 31h6" /></svg>);
+    case "search": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><circle cx="20" cy="20" r="11" /><path d="M28 28l11 11" /></svg>);
+    case "pencil": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M32 8l8 8-22 22-10 2 2-10L32 8Z" /><path d="M28 12l8 8" /></svg>);
     default: return null;
   }
 }
@@ -388,23 +390,58 @@ export default function HyruleCompanion() {
   const [openSections, setOpenSections] = useState({ awk: true });
   const [query, setQuery] = useState("");
   const [confirmReset, setConfirmReset] = useState(false);
+  const [koroks, setKoroks] = useState(0);          // Korok-seed counter (botw:koroks)
+  const [notes, setNotes] = useState({});           // per-step/shrine notes (botw:notes)
+  const [armorTier, setArmorTier] = useState({});   // armor upgrade tier 0..4 by set index (botw:armortier)
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [gquery, setGquery] = useState("");          // global-search query
+  const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const p = await store.get("botw:progress"); const ui = await store.get("botw:ui");
+      const [p, ui, kk, nt, at] = await Promise.all([
+        store.get("botw:progress"), store.get("botw:ui"), store.get("botw:koroks"), store.get("botw:notes"), store.get("botw:armortier"),
+      ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
       try { if (ui) { const u = JSON.parse(ui); if (u.tab) setTab(u.tab); if (u.region) setRegion(u.region); if (u.openSections) setOpenSections(u.openSections); if (u.guideSub) setGuideSub(u.guideSub); } } catch (e) {}
+      try { if (kk != null) setKoroks(parseInt(kk, 10) || 0); } catch (e) {}
+      try { if (nt) setNotes(JSON.parse(nt)); } catch (e) {}
+      try { if (at) setArmorTier(JSON.parse(at)); } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
   }, []);
   useEffect(() => { if (loaded) store.set("botw:progress", JSON.stringify(progress)); }, [progress, loaded]);
   useEffect(() => { if (loaded) store.set("botw:ui", JSON.stringify({ tab, region, openSections, guideSub })); }, [tab, region, openSections, guideSub, loaded]);
+  useEffect(() => { if (loaded) store.set("botw:koroks", String(koroks)); }, [koroks, loaded]);
+  useEffect(() => { if (loaded) store.set("botw:notes", JSON.stringify(notes)); }, [notes, loaded]);
+  useEffect(() => { if (loaded) store.set("botw:armortier", JSON.stringify(armorTier)); }, [armorTier, loaded]);
 
   const toggleStep = useCallback((id) => setProgress((p) => { const n = { ...p }; if (n[id]) delete n[id]; else n[id] = true; return n; }), []);
   const toggleSection = useCallback((id) => setOpenSections((o) => ({ ...o, [id]: !o[id] })), []);
+  const setNote = useCallback((id, text) => setNotes((m) => { const n = { ...m }; if (text && text.trim()) n[id] = text; else delete n[id]; return n; }), []);
+  const setTier = useCallback((i, t) => setArmorTier((m) => ({ ...m, [i]: Math.max(0, Math.min(4, t)) })), []);
+  // export/import the whole save as a portable code (offline backup, ADR 0002)
+  const exportSave = useCallback(() => {
+    const blob = { v: 6, progress, koroks, notes, armorTier };
+    try { return btoa(unescape(encodeURIComponent(JSON.stringify(blob)))); } catch (e) { return JSON.stringify(blob); }
+  }, [progress, koroks, notes, armorTier]);
+  const importSave = useCallback((code) => {
+    try {
+      const raw = code.trim().startsWith("{") ? code : decodeURIComponent(escape(atob(code.trim())));
+      const b = JSON.parse(raw);
+      if (b && typeof b === "object") {
+        if (b.progress && typeof b.progress === "object") setProgress(b.progress);
+        if (Number.isFinite(b.koroks)) setKoroks(b.koroks);
+        if (b.notes && typeof b.notes === "object") setNotes(b.notes);
+        if (b.armorTier && typeof b.armorTier === "object") setArmorTier(b.armorTier);
+        return true;
+      }
+    } catch (e) {}
+    return false;
+  }, []);
 
   const { sectionStats, regionStats, total, done } = useMemo(() => {
     const sectionStats = {}; const regionStats = {}; let total = 0, done = 0;
@@ -440,6 +477,15 @@ export default function HyruleCompanion() {
     return { done, total: 120 };
   }, [progress]);
 
+  const extraStats = useMemo(() => {
+    let mem = 0, memTotal = 0, sq = 0, sqTotal = 0, gf = 0, arm = 0;
+    for (const reg of REGIONS) for (const sec of reg.sections) for (const st of sec.steps) if (st.id.indexOf("m_l") === 0) { memTotal++; if (progress[st.id]) mem++; }
+    SIDE_QUESTS.forEach((g, ri) => g.quests.forEach((_, qi) => { sqTotal++; if (progress["sq_" + ri + "_" + qi]) sq++; }));
+    GREAT_FAIRIES.forEach((_, i) => { if (progress["gf_" + i]) gf++; });
+    ARMOR.sets.forEach((_, i) => { if (progress["arm_" + i]) arm++; });
+    return { mem, memTotal, sq, sqTotal, gf, gfTotal: GREAT_FAIRIES.length, arm, armTotal: ARMOR.sets.length };
+  }, [progress]);
+
   const currentRegion = REGIONS.find((r) => r.id === region) || REGIONS[0];
 
   const statusOf = useCallback((secId) => { const s = sectionStats[secId]; if (!s || s.total === 0) return "idle"; if (s.complete) return "done"; if (s.done > 0) return "active"; return "idle"; }, [sectionStats]);
@@ -458,6 +504,10 @@ export default function HyruleCompanion() {
     const firstIncomplete = reg.sections.find((s) => { const st = sectionStats[s.id]; return st && st.total > 0 && !st.complete; }) || reg.sections[0];
     jumpTo(regionId, firstIncomplete.id);
   }, [sectionStats, jumpTo]);
+  const jumpShrineRegion = useCallback((rk) => {
+    setTab("shrines"); setQuery(""); setOpenSections((o) => ({ ...o, ["shrg_" + rk]: true }));
+    setTimeout(() => { const el = document.getElementById("shrg-" + rk); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
+  }, []);
 
   const q = query.trim().toLowerCase();
   const filterSections = useMemo(() => {
@@ -477,8 +527,21 @@ export default function HyruleCompanion() {
           <span className="eye" aria-hidden><Glyph name="eye" size={30} /></span>
           <div><div className="kicker">Sheikah Slate · Adventure Log</div><h1 className="title">Hyrule Companion</h1></div>
         </div>
-        <div className="region-chip">{pct}%</div>
+        <div className="topbar-r">
+          <button className="search-trigger" onClick={() => { setSearchOpen(true); }} aria-label="Search everything"><Glyph name="search" size={18} /></button>
+          <div className="region-chip">{pct}%</div>
+        </div>
       </header>
+
+      {searchOpen && (
+        <SearchOverlay query={gquery} setQuery={setGquery} onClose={() => setSearchOpen(false)}
+          nav={{
+            step: (rid, sid) => jumpTo(rid, sid),
+            shrine: (rk) => jumpShrineRegion(rk),
+            guide: (seg) => { setTab("guide"); setGuideSub(seg); },
+            cook: () => setTab("cook"),
+          }} />
+      )}
 
       <main className="body">
         {!loaded ? (<div className="loading">Syncing the Slate…</div>) : tab === "status" ? (
@@ -492,6 +555,11 @@ export default function HyruleCompanion() {
                 <div className="hero-line"><span className="hero-num">{inventory.invDone}</span><span className="hero-num-l">/ {inventory.invTotal} items found</span></div>
                 {continueTarget ? (<button className="hero-cont" onClick={() => jumpTo(continueTarget.regionId, continueTarget.sec.id)}>▸ {continueTarget.sec.name}</button>) : (<div className="hero-done">All chapters complete — onward!</div>)}
               </div>
+            </div>
+
+            <div className="panel">
+              <div className="panel-h">Map of Hyrule</div>
+              <HyruleMap progress={progress} onJump={jumpShrineRegion} />
             </div>
 
             <div className="panel">
@@ -527,6 +595,30 @@ export default function HyruleCompanion() {
                 <span className="reg-name">All 120 shrines</span>
                 <span className="reg-bar"><span className="reg-fill" style={{ width: (shrineStats.done / 120 * 100) + "%", background: shrineStats.done === 120 ? "var(--cyan)" : "var(--orange)" }} /></span>
                 <span className={"reg-count" + (shrineStats.done === 120 ? " reg-done" : "")}>{shrineStats.done}/120</span>
+              </button>
+            </div>
+
+            <div className="panel">
+              <div className="panel-h">Collectibles</div>
+              <button className="reg-row" onClick={() => openRegion("memories")}>
+                <span className="reg-ic"><Glyph name="camera" size={16} /></span><span className="reg-name">Memories</span>
+                <span className="reg-bar"><span className="reg-fill" style={{ width: (extraStats.memTotal ? extraStats.mem / extraStats.memTotal * 100 : 0) + "%", background: extraStats.memTotal && extraStats.mem === extraStats.memTotal ? "var(--cyan)" : "var(--orange)" }} /></span>
+                <span className={"reg-count" + (extraStats.memTotal && extraStats.mem === extraStats.memTotal ? " reg-done" : "")}>{extraStats.mem}/{extraStats.memTotal}</span>
+              </button>
+              <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("fairies"); }}>
+                <span className="reg-ic"><Glyph name="fairy" size={16} /></span><span className="reg-name">Great Fairies</span>
+                <span className="reg-bar"><span className="reg-fill" style={{ width: (extraStats.gf / extraStats.gfTotal * 100) + "%", background: extraStats.gf === extraStats.gfTotal ? "var(--cyan)" : "var(--orange)" }} /></span>
+                <span className={"reg-count" + (extraStats.gf === extraStats.gfTotal ? " reg-done" : "")}>{extraStats.gf}/{extraStats.gfTotal}</span>
+              </button>
+              <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("quests"); }}>
+                <span className="reg-ic"><Glyph name="scroll" size={16} /></span><span className="reg-name">Side quests</span>
+                <span className="reg-bar"><span className="reg-fill" style={{ width: (extraStats.sqTotal ? extraStats.sq / extraStats.sqTotal * 100 : 0) + "%", background: extraStats.sqTotal && extraStats.sq === extraStats.sqTotal ? "var(--cyan)" : "var(--orange)" }} /></span>
+                <span className={"reg-count" + (extraStats.sqTotal && extraStats.sq === extraStats.sqTotal ? " reg-done" : "")}>{extraStats.sq}/{extraStats.sqTotal}</span>
+              </button>
+              <button className="reg-row" onClick={() => { setTab("guide"); setGuideSub("koroks"); }}>
+                <span className="reg-ic"><Glyph name="leaf" size={16} /></span><span className="reg-name">Korok seeds</span>
+                <span className="reg-bar"><span className="reg-fill" style={{ width: Math.min(100, koroks / 441 * 100) + "%", background: koroks >= 441 ? "var(--cyan)" : "var(--moss)" }} /></span>
+                <span className="reg-count">{koroks}</span>
               </button>
             </div>
 
@@ -590,6 +682,7 @@ export default function HyruleCompanion() {
                               <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
                               <span className="step-text">{step.t}</span>
                               {step.items && (<span className="step-items">{step.items.map((it, i) => <span key={i} className="chip">＋ {it.name}</span>)}</span>)}
+                              <NoteAffordance id={step.id} notes={notes} setNote={setNote} open={noteOpen} setOpen={setNoteOpen} />
                             </div>
                           </li>
                         );
@@ -614,7 +707,7 @@ export default function HyruleCompanion() {
             <div className="footer-space" />
           </>
         ) : tab === "shrines" ? (
-          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} />
+          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} />
         ) : tab === "items" ? (
           <div className="ref">
             <h2 className="ref-title">Pouch</h2>
@@ -686,20 +779,21 @@ export default function HyruleCompanion() {
                   </div>
                 ))}
               </>
-            ) : guideSub === "armor" ? <ArmorView data={ARMOR} />
-            : guideSub === "fairies" ? <FairiesView data={GREAT_FAIRIES} />
+            ) : guideSub === "armor" ? <ArmorView data={ARMOR} progress={progress} toggleStep={toggleStep} armorTier={armorTier} setTier={setTier} />
+            : guideSub === "fairies" ? <FairiesView data={GREAT_FAIRIES} progress={progress} toggleStep={toggleStep} />
             : guideSub === "towers" ? <TowersView data={TOWERS} />
-            : guideSub === "quests" ? <QuestsView data={SIDE_QUESTS} />
+            : guideSub === "quests" ? <QuestsView data={SIDE_QUESTS} progress={progress} toggleStep={toggleStep} />
             : guideSub === "enemies" ? <EnemiesView data={BESTIARY} />
-            : guideSub === "koroks" ? <KoroksView data={KOROKS} />
+            : guideSub === "koroks" ? <KoroksView data={KOROKS} koroks={koroks} setKoroks={setKoroks} />
             : guideSub === "world" ? <WorldView data={WORLD} />
             : (
               <>
                 <p className="ref-lede">The handful of things that stop the early game from feeling brutal.</p>
                 {TIPS.map((g) => (<div className="tip-card" key={g.id}><div className="tip-name">{g.name}</div><ul className="tip-list">{g.items.map((it, idx) => <li key={idx}>{it}</li>)}</ul></div>))}
+                <BackupBox doExport={exportSave} doImport={importSave} />
                 <div className="reset-zone">
                   {!confirmReset ? (<button className="reset-btn" onClick={() => setConfirmReset(true)}>Reset all progress</button>) : (
-                    <div className="reset-confirm"><span>Clear every checkmark and empty the pouch? This can't be undone.</span><div className="reset-actions"><button className="reset-yes" onClick={() => { setProgress({}); setConfirmReset(false); }}>Yes, reset</button><button className="reset-no" onClick={() => setConfirmReset(false)}>Keep it</button></div></div>
+                    <div className="reset-confirm"><span>Clear every checkmark, shrine, tracker, and note? This can't be undone (back it up first).</span><div className="reset-actions"><button className="reset-yes" onClick={() => { setProgress({}); setKoroks(0); setNotes({}); setArmorTier({}); setConfirmReset(false); }}>Yes, reset</button><button className="reset-no" onClick={() => setConfirmReset(false)}>Keep it</button></div></div>
                   )}
                 </div>
               </>
@@ -726,7 +820,7 @@ function TabBtn({ active, onClick, glyph, label }) {
 }
 
 /* ============================================================ SHRINES TAB ============================================================ */
-function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats }) {
+function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen }) {
   const q = query.trim().toLowerCase();
   const pct = Math.round((stats.done / 120) * 100);
   const upgrades = Math.floor(stats.done / 4);
@@ -758,7 +852,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
         const total = groups.find((x) => x.regionKey === g.regionKey).shrines.length;
         const done = groups.find((x) => x.regionKey === g.regionKey).shrines.filter((_, i) => progress["shr_" + g.regionKey + "_" + i]).length;
         return (
-          <section key={g.regionKey} className={"card" + (done === total ? " card-done" : "")}>
+          <section id={"shrg-" + g.regionKey} key={g.regionKey} className={"card" + (done === total ? " card-done" : "")}>
             <button className="card-head" onClick={() => !q && toggleSection(okey)}>
               <div className="card-head-main"><div className="card-name">{g.regionName}</div><div className="card-sub">{total} shrines</div></div>
               <div className="card-head-side"><span className={"pips" + (done === total ? " pips-done" : "")}>{done}/{total}</span>{!q && <span className={"chev" + (open ? " chev-open" : "")}>›</span>}</div>
@@ -775,6 +869,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                         <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
                         <span className="step-text"><b className="shrine-name">{sh.name}</b> — {sh.oneLine}</span>
                         <span className="shrine-loc"><Glyph name="tower" size={11} /> {sh.location}{sh.shrineQuest ? <span className="shrine-q"> · Quest: {sh.shrineQuest}</span> : null}</span>
+                        <NoteAffordance id={id} notes={notes} setNote={setNote} open={noteOpen} setOpen={setNoteOpen} />
                       </div>
                     </li>
                   );
@@ -790,39 +885,58 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
 }
 
 /* ============================================================ GUIDE REFERENCE VIEWS ============================================================ */
-function ArmorView({ data }) {
+function ArmorView({ data, progress, toggleStep, armorTier, setTier }) {
   const tone = (p) => (/begin/i.test(p || "") ? "var(--cyan)" : /mid/i.test(p || "") ? "var(--gold)" : /late/i.test(p || "") ? "var(--malice)" : "var(--cyan-dim)");
+  const owned = data.sets.filter((_, i) => progress["arm_" + i]).length;
   return (
     <>
-      <p className="ref-lede">{data.notes || "Armor sets give passive effects, and a full set of 3 (upgraded twice) grants a powerful set bonus. Upgrade pieces at Great Fairy Fountains with monster parts."}</p>
-      {data.sets.map((a, i) => (
-        <div className="rune-card" key={i}>
-          <div className="rune-icon"><Glyph name="armor" size={28} /></div>
+      <p className="ref-lede">Armor sets give passive effects; a full set of 3 (each upgraded) grants a powerful set bonus. Tick what you own and track its upgrade tier (★ = a Great Fairy level).</p>
+      <div className="track-meter"><span>Sets owned</span><span className="track-count">{owned}/{data.sets.length}</span></div>
+      {data.sets.map((a, i) => {
+        const have = !!progress["arm_" + i]; const tier = armorTier[i] || 0;
+        return (
+        <div className={"rune-card" + (have ? " card-done" : "")} key={i}>
+          <div className="rune-icon" style={{ color: have ? "var(--orange)" : "var(--ink-line)" }}><Glyph name="armor" size={28} /></div>
           <div className="rune-cbody">
             <div className="rune-top"><span className="rune-name">{a.name}</span>{a.priority && <span className="prio-pill" style={{ color: tone(a.priority), borderColor: tone(a.priority) }}>{a.priority}</span>}</div>
             <p className="rune-what"><b>Effect:</b> {a.bonus}</p>
             <p className="ref-line"><b>Where:</b> {a.where}</p>
             <p className="ref-line"><b>Pieces:</b> {a.pieces} · <b>Upgrade:</b> {a.upgrade}</p>
+            <div className="armor-track">
+              <button className={"track-box" + (have ? " track-box-on" : "")} onClick={() => toggleStep("arm_" + i)}>{have ? "✓ Owned" : "Own it"}</button>
+              {have && (
+                <div className="tier-step">
+                  <span className="tier-stars">{[1, 2, 3, 4].map((k) => <span key={k} className={"star" + (k <= tier ? " star-on" : "")} onClick={() => setTier(i, tier === k ? k - 1 : k)}>★</span>)}</span>
+                  <span className="tier-label">{tier === 0 ? "base" : "★" + tier}</span>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        </div>);
+      })}
     </>
   );
 }
-function FairiesView({ data }) {
+function FairiesView({ data, progress, toggleStep }) {
+  const done = data.filter((_, i) => progress["gf_" + i]).length;
   return (
     <>
-      <p className="ref-lede">Unlock each Great Fairy Fountain by paying its fee once; afterward she upgrades your armor for monster parts and rupees. Each one you unlock raises the upgrade tier for ALL armor.</p>
-      {data.map((f, i) => (
-        <div className="rune-card" key={i}>
-          <div className="rune-icon" style={{ color: "var(--heart)" }}><Glyph name="fairy" size={28} /></div>
+      <p className="ref-lede">Unlock each Great Fairy Fountain by paying its fee once; afterward she upgrades your armor for monster parts. Each one you unlock raises the upgrade tier for ALL armor. Tick the ones you've found.</p>
+      <div className="track-meter"><span>Fountains unlocked</span><span className="track-count">{done}/{data.length}</span></div>
+      {data.map((f, i) => {
+        const on = !!progress["gf_" + i];
+        return (
+        <div className={"rune-card" + (on ? " card-done" : "")} key={i}>
+          <div className="rune-icon" style={{ color: on ? "var(--heart)" : "var(--ink-line)" }}><Glyph name="fairy" size={28} /></div>
           <div className="rune-cbody">
-            <div className="rune-top"><span className="rune-name">{f.name}</span><span className="rune-from">{f.region}</span></div>
+            <div className="rune-top"><span className="rune-name">{f.name}</span>
+              <button className={"track-box" + (on ? " track-box-on" : "")} onClick={() => toggleStep("gf_" + i)}>{on ? "✓ Unlocked" : "Unlock"}</button>
+            </div>
             <p className="rune-what">{f.location}</p>
-            <p className="rune-tip">◈ Unlock fee: {f.cost}</p>
+            <p className="rune-tip">◈ {f.region} · Fee: {f.cost}</p>
           </div>
-        </div>
-      ))}
+        </div>);
+      })}
     </>
   );
 }
@@ -840,22 +954,32 @@ function TowersView({ data }) {
     </>
   );
 }
-function QuestsView({ data }) {
+function QuestsView({ data, progress, toggleStep }) {
+  const total = data.reduce((n, g) => n + g.quests.length, 0);
+  const done = data.reduce((n, g, ri) => n + g.quests.filter((_, qi) => progress["sq_" + ri + "_" + qi]).length, 0);
   return (
     <>
-      <p className="ref-lede">A taste of Hyrule's side quests, by region — many reward gear, rupees, or unlock shrines. Hundreds more are out there; these are the standouts.</p>
-      {data.map((g, i) => (
+      <p className="ref-lede">A taste of Hyrule's side quests, by region — many reward gear, rupees, or unlock shrines. Hundreds more are out there; these are the standouts. Tick the ones you finish.</p>
+      <div className="track-meter"><span>Side quests done</span><span className="track-count">{done}/{total}</span></div>
+      {data.map((g, i) => {
+        const gd = g.quests.filter((_, qi) => progress["sq_" + i + "_" + qi]).length;
+        return (
         <div className="quest-group" key={i}>
-          <div className="quest-region">{g.region}</div>
-          {g.quests.map((qq, j) => (
-            <div className="quest-card" key={j}>
-              <div className="quest-top"><span className="quest-name">{qq.name}</span>{qq.reward && <span className="quest-reward">◈ {qq.reward}</span>}</div>
-              <p className="quest-line">{qq.oneLine}</p>
-              {qq.giver && <p className="quest-giver">— {qq.giver}</p>}
-            </div>
-          ))}
-        </div>
-      ))}
+          <div className="quest-region">{g.region}<span className="quest-region-c">{gd}/{g.quests.length}</span></div>
+          {g.quests.map((qq, j) => {
+            const id = "sq_" + i + "_" + j; const on = !!progress[id];
+            return (
+            <div className={"quest-card" + (on ? " quest-done" : "")} key={j}>
+              <button className={"box box-sm" + (on ? " box-on" : "")} onClick={() => toggleStep(id)} aria-label={on ? "Mark not done" : "Mark done"}>{on && <Glyph name="check" size={12} />}</button>
+              <div className="quest-body">
+                <div className="quest-top"><span className="quest-name">{qq.name}</span>{qq.reward && <span className="quest-reward">◈ {qq.reward}</span>}</div>
+                <p className="quest-line">{qq.oneLine}</p>
+                {qq.giver && <p className="quest-giver">— {qq.giver}</p>}
+              </div>
+            </div>);
+          })}
+        </div>);
+      })}
     </>
   );
 }
@@ -882,10 +1006,23 @@ function EnemiesView({ data }) {
     </>
   );
 }
-function KoroksView({ data }) {
+function KoroksView({ data, koroks, setKoroks }) {
+  const pct = Math.min(100, Math.round((koroks / 441) * 100));
   return (
     <>
       <p className="ref-lede">{data.what}</p>
+      <div className="panel korok-counter">
+        <div className="korok-c-top">
+          <div className="korok-c-num"><span className="hero-num">{koroks}</span><span className="hero-num-l">seeds</span></div>
+          <div className="korok-c-btns">
+            <button onClick={() => setKoroks((k) => Math.max(0, k - 1))}>−1</button>
+            <button onClick={() => setKoroks((k) => k + 1)}>+1</button>
+            <button onClick={() => setKoroks((k) => k + 5)}>+5</button>
+          </div>
+        </div>
+        <div className="reg-bar shrine-bar"><span className="reg-fill" style={{ width: pct + "%", background: koroks >= 441 ? "var(--cyan)" : "var(--moss)" }} /></div>
+        <p className="korok-c-note">{koroks >= 441 ? "Enough to max every weapon/bow/shield slot!" : `${441 - koroks} more to max all inventory slots (441). 900 seeds exist in total.`}</p>
+      </div>
       <div className="tip-card"><div className="tip-name"><Glyph name="leaf" size={16} /> Hestu & inventory</div><p className="ref-line">{data.hestu}</p></div>
       <div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l">Common puzzle types</span><span className="inv-count">{data.puzzleTypes.length}</span></div>
       {data.puzzleTypes.map((p, i) => (
@@ -912,6 +1049,130 @@ function WorldView({ data }) {
         <div className="tip-card" style={{ marginTop: 12 }}><div className="tip-name"><Glyph name="champion" size={16} /> DLC · Expansion Pass</div><ul className="tip-list">{data.dlc.map((d, i) => <li key={i}>{d}</li>)}</ul></div>
       )}
     </>
+  );
+}
+
+/* ============================================================ MAP OF HYRULE ============================================================ */
+// schematic geographic layout of the 15 shrine regions (original art — no Nintendo map, ADR 0003)
+const MAP_NODES = {
+  hebra: { x: 58, y: 52, l: "Hebra" }, tabantha: { x: 66, y: 116, l: "Tabantha" }, ridgeland: { x: 106, y: 184, l: "Ridge" },
+  gerudo: { x: 64, y: 250, l: "G. Highlands" }, wasteland: { x: 56, y: 320, l: "G. Desert" },
+  woodland: { x: 178, y: 92, l: "Woodland" }, central_hyrule: { x: 182, y: 178, l: "Central" },
+  great_plateau: { x: 166, y: 250, l: "Plateau" }, lake: { x: 150, y: 330, l: "Lake" }, faron: { x: 218, y: 346, l: "Faron" },
+  eldin: { x: 250, y: 92, l: "Eldin" }, akkala: { x: 300, y: 66, l: "Akkala" }, lanayru: { x: 294, y: 174, l: "Lanayru" },
+  "dueling-peaks": { x: 228, y: 266, l: "Dueling Pk" }, hateno: { x: 290, y: 286, l: "Hateno" },
+};
+const MAP_BEASTS = [{ x: 300, y: 150, n: "Ruta" }, { x: 78, y: 96, n: "Medoh" }, { x: 264, y: 70, n: "Rudania" }, { x: 78, y: 296, n: "Naboris" }];
+function HyruleMap({ progress, onJump }) {
+  const stat = (rk) => { const g = SHRINES.find((s) => s.regionKey === rk); if (!g) return { d: 0, t: 0 }; let d = 0; g.shrines.forEach((_, i) => { if (progress["shr_" + rk + "_" + i]) d++; }); return { d, t: g.shrines.length }; };
+  const r = 11, C = 2 * Math.PI * 11;
+  return (
+    <div className="hmap-wrap">
+      <svg viewBox="0 0 340 384" className="hmap" role="img" aria-label="Map of Hyrule — shrine progress by region">
+        <path d="M44 70 Q58 34 120 42 Q210 28 296 52 Q332 120 320 196 Q332 300 276 332 Q200 372 128 354 Q56 360 44 296 Q30 188 44 70 Z" fill="rgba(95,214,226,0.045)" stroke="rgba(95,214,226,0.16)" strokeWidth="1.2" />
+        <circle cx="182" cy="178" r="20" fill="none" stroke="rgba(224,80,107,0.35)" strokeWidth="1" strokeDasharray="2 4" />
+        {MAP_BEASTS.map((b, i) => (<g key={i} opacity="0.5"><circle cx={b.x} cy={b.y} r="2.4" fill="var(--cyan-dim)" /><text x={b.x} y={b.y - 5} textAnchor="middle" className="hmap-beast">{b.n}</text></g>))}
+        {Object.entries(MAP_NODES).map(([rk, n]) => {
+          const { d, t } = stat(rk); const frac = t ? d / t : 0; const done = t > 0 && d === t;
+          const col = done ? "var(--cyan)" : d > 0 ? "var(--orange)" : "var(--ink-line)";
+          return (
+            <g key={rk} onClick={() => onJump(rk)} style={{ cursor: "pointer" }}>
+              <circle cx={n.x} cy={n.y} r={r} fill={done ? "rgba(95,214,226,0.16)" : "rgba(240,144,42,0.07)"} stroke="rgba(255,255,255,0.12)" strokeWidth="1.4" />
+              <circle cx={n.x} cy={n.y} r={r} fill="none" stroke={col} strokeWidth="2.6" strokeDasharray={`${(frac * C).toFixed(2)} ${C.toFixed(2)}`} transform={`rotate(-90 ${n.x} ${n.y})`} strokeLinecap="round" />
+              <text x={n.x} y={n.y + 3.5} textAnchor="middle" className="hmap-n">{d}</text>
+              <text x={n.x} y={n.y + r + 11} textAnchor="middle" className="hmap-l">{n.l}</text>
+            </g>
+          );
+        })}
+        <g><circle cx="182" cy="178" r="3" fill="var(--malice)" /><text x="182" y="166" textAnchor="middle" className="hmap-castle">Castle</text></g>
+      </svg>
+      <p className="map-cap">Tap a region → its shrines · ring = cleared · <span style={{ color: "var(--cyan)" }}>cyan</span> = 100% · <span style={{ color: "var(--malice)" }}>◆</span> Ganon</p>
+    </div>
+  );
+}
+
+/* ============================================================ BACKUP / RESTORE ============================================================ */
+function BackupBox({ doExport, doImport }) {
+  const [open, setOpen] = useState(false);
+  const [code, setCode] = useState("");
+  const [imp, setImp] = useState("");
+  const [msg, setMsg] = useState("");
+  const reveal = () => { setCode(doExport()); setOpen(true); setMsg(""); };
+  const copy = () => { try { navigator.clipboard.writeText(code); setMsg("Copied to clipboard ✓"); } catch (e) { setMsg("Select the text above and copy it manually."); } };
+  const restore = () => { const ok = doImport(imp); setMsg(ok ? "Restored ✓ — your progress is back." : "That code didn't look right — check you copied all of it."); if (ok) setImp(""); };
+  return (
+    <div className="tip-card backup-box">
+      <div className="tip-name"><Glyph name="key" size={16} /> Back up / restore progress</div>
+      <p className="ref-line" style={{ marginBottom: 10 }}>Your progress lives only on this device. Copy a backup code to keep it safe, or to move it to another phone or tablet.</p>
+      <div className="backup-btns"><button className="track-box" onClick={reveal}>{open ? "Refresh code" : "Show backup code"}</button>{open && <button className="track-box" onClick={copy}>Copy</button>}</div>
+      {open && <textarea className="backup-ta" readOnly value={code} onFocus={(e) => e.target.select()} />}
+      <details className="backup-imp"><summary>Restore from a code</summary>
+        <textarea className="backup-ta" placeholder="Paste a backup code here…" value={imp} onChange={(e) => setImp(e.target.value)} />
+        <button className="track-box" onClick={restore} disabled={!imp.trim()}>Restore</button>
+      </details>
+      {msg && <p className="backup-msg">{msg}</p>}
+    </div>
+  );
+}
+
+/* ============================================================ PERSONAL NOTES ============================================================ */
+function NoteAffordance({ id, notes, setNote, open, setOpen }) {
+  const has = !!notes[id]; const isOpen = open === id;
+  return (
+    <div className="note-wrap">
+      {!isOpen && has && <p className="note-show" onClick={() => setOpen(id)}>{notes[id]}</p>}
+      <button className={"note-chip" + (has ? " note-chip-on" : "")} onClick={() => setOpen(isOpen ? null : id)}><Glyph name="pencil" size={11} /> {has ? "Edit note" : "Add note"}</button>
+      {isOpen && <textarea className="note-ta" autoFocus placeholder="Your note (saved on this device)…" value={notes[id] || ""} onChange={(e) => setNote(id, e.target.value)} onBlur={() => setOpen(null)} />}
+    </div>
+  );
+}
+
+/* ============================================================ GLOBAL SEARCH ============================================================ */
+function SearchOverlay({ query, setQuery, onClose, nav }) {
+  const q = query.trim().toLowerCase();
+  const groups = [];
+  if (q) {
+    const cap = 6;
+    const stepHits = [];
+    for (const reg of REGIONS) for (const sec of reg.sections) for (const st of sec.steps) {
+      if ((sec.name + " " + (sec.sub || "") + " " + st.t).toLowerCase().includes(q)) { stepHits.push({ label: sec.name, sub: st.t, act: () => nav.step(reg.id, sec.id) }); if (stepHits.length >= cap) break; }
+    }
+    if (stepHits.length) groups.push({ cat: "Walkthrough", glyph: "tower", items: stepHits });
+    const shrineHits = [];
+    for (const g of SHRINES) g.shrines.forEach((sh, i) => { if (shrineHits.length < cap && (sh.name + " " + sh.location + " " + sh.oneLine + " " + g.regionName).toLowerCase().includes(q)) shrineHits.push({ label: sh.name, sub: g.regionName + " · " + sh.oneLine, act: () => nav.shrine(g.regionKey) }); });
+    if (shrineHits.length) groups.push({ cat: "Shrines", glyph: "shrine", items: shrineHits });
+    const armorHits = ARMOR.sets.filter((a) => (a.name + " " + a.bonus + " " + a.where).toLowerCase().includes(q)).slice(0, cap).map((a) => ({ label: a.name, sub: a.bonus, act: () => nav.guide("armor") }));
+    if (armorHits.length) groups.push({ cat: "Armor", glyph: "armor", items: armorHits });
+    const enemyHits = BESTIARY.enemies.filter((e) => (e.name + " " + e.tactic).toLowerCase().includes(q)).slice(0, cap).map((e) => ({ label: e.name, sub: e.tactic, act: () => nav.guide("enemies") }));
+    if (enemyHits.length) groups.push({ cat: "Enemies", glyph: "skull", items: enemyHits });
+    const questHits = []; SIDE_QUESTS.forEach((g) => g.quests.forEach((qq) => { if (questHits.length < cap && (qq.name + " " + qq.oneLine).toLowerCase().includes(q)) questHits.push({ label: qq.name, sub: g.region + " · " + qq.oneLine, act: () => nav.guide("quests") }); }));
+    if (questHits.length) groups.push({ cat: "Side quests", glyph: "scroll", items: questHits });
+    const cookHits = RECIPES.filter((r) => (r.eff + " " + r.does + " " + r.key).toLowerCase().includes(q)).slice(0, cap).map((r) => ({ label: r.eff, sub: r.does, act: () => nav.cook() }));
+    if (cookHits.length) groups.push({ cat: "Cooking", glyph: "pot", items: cookHits });
+    const towerHits = TOWERS.filter((t) => (t.name + " " + t.region + " " + t.location).toLowerCase().includes(q)).slice(0, cap).map((t) => ({ label: t.name, sub: t.region, act: () => nav.guide("towers") }));
+    if (towerHits.length) groups.push({ cat: "Towers", glyph: "tower", items: towerHits });
+  }
+  return (
+    <div className="search-overlay">
+      <div className="search-bar">
+        <input className="search-input" autoFocus placeholder="Search everything — shrines, items, enemies…" value={query} onChange={(e) => setQuery(e.target.value)} />
+        <button className="search-x" onClick={onClose}>Close</button>
+      </div>
+      <div className="search-results">
+        {!q && <div className="empty">Type to search shrines, the walkthrough, armor, enemies, side quests, recipes & towers.</div>}
+        {q && groups.length === 0 && <div className="empty">Nothing matches “{query}”.</div>}
+        {groups.map((g) => (
+          <div className="srch-group" key={g.cat}>
+            <div className="srch-cat"><span className="srch-cat-ic"><Glyph name={g.glyph} size={15} /></span>{g.cat}</div>
+            {g.items.map((it, i) => (
+              <button className="srch-item" key={i} onClick={() => { it.act(); onClose(); }}>
+                <div className="srch-label">{it.label}</div><div className="srch-sub">{it.sub}</div>
+              </button>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -1147,6 +1408,60 @@ function StyleBlock() {
 .dragon-row{padding:9px 12px;border:1px solid rgba(255,255,255,0.06);border-radius:11px;margin-bottom:7px;background:rgba(255,255,255,0.015);}
 .dragon-name{font-weight:600;font-size:13.5px;color:var(--heart);display:flex;align-items:baseline;gap:8px;}
 .dragon-el{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--cyan-dim);}
+/* --- v6: trackers (fairies, armor, quests, koroks) --- */
+.track-meter{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;margin-bottom:12px;border:1px solid rgba(95,214,226,0.2);border-radius:12px;background:rgba(95,214,226,0.05);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--cyan-dim);}
+.track-count{font-size:15px;font-weight:700;color:var(--cyan);}
+.track-box{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--orange);background:rgba(240,144,42,0.08);border:1px solid rgba(240,144,42,0.4);border-radius:20px;padding:4px 12px;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.track-box-on{color:var(--cyan);background:rgba(95,214,226,0.1);border-color:rgba(95,214,226,0.5);}
+.armor-track{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap;}
+.tier-step{display:flex;align-items:center;gap:8px;}
+.tier-stars{display:flex;gap:3px;}
+.star{font-size:18px;color:var(--ink-line);cursor:pointer;line-height:1;}
+.star-on{color:var(--gold);}
+.tier-label{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;color:var(--parch-dim);}
+.quest-card{display:flex;gap:10px;align-items:flex-start;}
+.box-sm{width:20px;height:20px;border-radius:6px;margin-top:2px;}
+.quest-body{min-width:0;flex:1;}
+.quest-done .quest-name{color:var(--parch-dim);text-decoration:line-through;text-decoration-color:rgba(95,214,226,0.5);}
+.quest-region-c{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;color:var(--cyan-dim);margin-left:8px;}
+.korok-counter{padding:14px 15px;}
+.korok-c-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.korok-c-num{display:flex;align-items:baseline;gap:7px;}
+.korok-c-btns{display:flex;gap:6px;}
+.korok-c-btns button{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;color:var(--moss);background:rgba(155,192,138,0.1);border:1px solid rgba(155,192,138,0.4);border-radius:9px;padding:7px 12px;cursor:pointer;}
+.korok-c-note{font-size:12px;color:var(--parch-dim);margin:9px 0 0;line-height:1.4;}
+.hmap-wrap{margin:2px -4px 0;}
+.hmap{width:100%;height:auto;display:block;}
+.hmap-n{fill:var(--parch);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;}
+.hmap-l{fill:var(--parch-dim);font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:600;letter-spacing:.2px;}
+.hmap-beast{fill:var(--cyan-dim);font-family:'Rajdhani',sans-serif;font-size:7px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;}
+.hmap-castle{fill:var(--malice);font-family:'Rajdhani',sans-serif;font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;}
+/* --- v6: topbar search, overlay, backup, notes --- */
+.topbar-r{display:flex;align-items:center;gap:9px;}
+.search-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;}
+.search-overlay{position:fixed;inset:0;z-index:50;background:rgba(7,14,18,0.97);backdrop-filter:blur(6px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
+.search-bar{display:flex;gap:8px;padding:14px 16px 10px;border-bottom:1px solid rgba(95,214,226,0.14);}
+.search-bar .search-input{flex:1;}
+.search-x{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--parch-dim);background:none;border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:0 14px;cursor:pointer;}
+.search-results{flex:1;overflow-y:auto;padding:12px 16px calc(20px + env(safe-area-inset-bottom,0px));}
+.srch-group{margin-bottom:16px;}
+.srch-cat{display:flex;align-items:center;gap:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:8px;}
+.srch-cat-ic{display:flex;color:var(--orange);}
+.srch-item{display:block;width:100%;text-align:left;padding:9px 12px;margin-bottom:6px;border:1px solid rgba(255,255,255,0.06);border-radius:10px;background:rgba(255,255,255,0.02);cursor:pointer;}
+.srch-label{font-size:13.5px;font-weight:600;color:var(--parch);}
+.srch-sub{font-size:11.5px;color:var(--parch-dim);line-height:1.4;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.backup-box .backup-btns{display:flex;gap:8px;margin-bottom:8px;}
+.backup-ta{width:100%;min-height:54px;margin:8px 0;padding:9px 11px;border-radius:10px;background:var(--abyss);border:1px solid rgba(95,214,226,0.2);color:var(--parch-dim);font-family:ui-monospace,Menlo,monospace;font-size:11px;line-height:1.4;resize:vertical;word-break:break-all;}
+.backup-imp{margin-top:8px;}
+.backup-imp summary{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.5px;color:var(--cyan-dim);cursor:pointer;}
+.backup-msg{font-size:12px;color:var(--cyan);margin:8px 0 0;}
+.note-btn{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;margin-top:1px;background:none;border:1px solid rgba(255,255,255,0.1);color:var(--parch-dim);cursor:pointer;}
+.note-btn-on{color:var(--gold);border-color:rgba(242,193,78,0.4);background:rgba(242,193,78,0.06);}
+.note-ta{width:100%;margin-top:8px;padding:8px 10px;border-radius:9px;background:var(--abyss);border:1px solid rgba(242,193,78,0.3);color:var(--parch);font-family:'Inter',sans-serif;font-size:13px;line-height:1.45;resize:vertical;min-height:40px;}
+.note-wrap{margin-top:7px;}
+.note-chip{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--parch-dim);background:none;border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:3px 9px;cursor:pointer;}
+.note-chip-on{color:var(--gold);border-color:rgba(242,193,78,0.4);background:rgba(242,193,78,0.06);}
+.note-show{font-size:12.5px;line-height:1.5;color:var(--gold);background:rgba(242,193,78,0.06);border-left:2px solid rgba(242,193,78,0.5);border-radius:0 7px 7px 0;padding:6px 10px;margin:0 0 6px;cursor:pointer;white-space:pre-wrap;}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 `}</style>);
 }

@@ -75,8 +75,11 @@ it runs fully offline once it's on the device. First load needs no network. The 
 - **IDs must be globally unique** (progress is a flat `{stepId: true}` map). Prefix per region; never reuse an id.
 - **Status panels** key off specific step IDs: `STATUS_RUNES` (rune→step), `CHAMPIONS` (ability→step). Wire new
   beasts/runes here.
-- **Persistence**: `botw:progress` (JSON stepId→true), `botw:ui` (tab/region/openSections/guideSub). The `store`
-  helper uses `window.storage` if present (Claude artifact) **and falls back to `localStorage`** (standalone/phone).
+- **Persistence keys**: `botw:progress` (JSON stepId→true — also holds tracker toggles `shr_* gf_* arm_* sq_*`
+  and the memory steps `m_l*`), `botw:ui` (tab/region/openSections/guideSub), `botw:koroks` (int), `botw:notes`
+  (id→text), `botw:armortier` (set-index→0..4). The `store` helper uses `window.storage` if present (Claude
+  artifact) **and falls back to `localStorage`** (standalone/phone). Backup = base64 of `{progress,koroks,notes,armorTier}`.
+  Counters use the functional updater `setKoroks(k=>…)` (stale-closure guard).
 - **Glyphs** are inline SVG in `Glyph()` — add a `case` for a new icon. **Styling** is one injected `<style>` in
   `StyleBlock()`. Dark teal base; ember-orange = "to do", activated-cyan = "done" (mirrors Sheikah tech state).
 
@@ -91,18 +94,23 @@ it runs fully offline once it's on the device. First load needs no network. The 
 - **Spoiler-aware, beginner-first.** Hints, not lore-dumps. Assume a player who has never touched the game.
 - **Mobile-first.** 560px max width, thumb-reachable tab bar, big tap targets, reduced-motion honored.
 
-## Tabs (v5)
-**Status · Journey · Shrines · Items · Cook · Guide** (6). Shrines = all 120, region-grouped, trackable
-(`shr_<regionKey>_<i>` ids, own meter + Spirit-Orb math). Guide is a 9-segment reference hub:
-**Runes · Tips · Armor · Fairies · Towers · Quests · Enemies · Koroks · World**. Cook adds go-to recipes +
-dragon parts. Status adds a Shrines panel. The new view components live just after `TabBtn`.
+## Tabs & features (v6)
+Tabs: **Status · Journey · Shrines · Items · Cook · Guide** (6) + a **global-search** overlay (topbar magnifier,
+`SearchOverlay`) across everything. Status carries the **full Hyrule map** (`HyruleMap` — original SVG, 15
+regions with shrine-progress rings, tap → that region's shrines) plus Shrines + Collectibles meters. Shrines =
+all 120, region-grouped, trackable. Guide is a 9-segment hub: **Runes · Tips · Armor · Fairies · Towers ·
+Quests · Enemies · Koroks · World** — Fairies/Armor/Quests are now **checkable trackers** (Armor has a tier
+stepper), Koroks has a live **seed counter**. **Notes** (`NoteAffordance`) hang off every walkthrough step and
+shrine; **backup/restore** (`BackupBox`) lives in Guide→Tips. The view components live just after `TabBtn`;
+`MAP_NODES` defines the map layout.
 
 ## Roadmap
 - **v1–v4 (done):** full main quest — Plateau → 4 Divine Beasts → Master Sword → Ganon, pouch, status, cooking.
   (See `PROGRESS.md` for the v1–v4 build history.)
-- **v5 (done):** ① the brain (this folder), ② **offline phone build** (`index.html` PWA, localStorage, fonts +
-  icon inlined), ③ **deep content** from a verified research sweep — all **120 Shrines** (reconciled 120/15/4),
-  16 armor sets, 4 Great Fairies, 15 towers, ~56 side quests, a 34-entry bestiary, Korok mechanics, world
-  systems, and a deeper cooking system. Verified in-browser (localStorage path, no console errors).
-- **Next:** multi-game `GAMES` wrapper (TotK/OoT, ADR 0005); export/import progress string (offline backup,
-  ADR 0002); per-step personal notes; optional Korok-seed counter.
+- **v5 (done):** the brain, the offline phone PWA, and the verified deep-content sweep (120 shrines reconciled
+  120/15/4, armor, fairies, towers, side quests, bestiary, koroks, world, deeper cooking).
+- **v6 (done):** safe-area topbar fix + Traveler's Sword; the **full Hyrule map** (Status); **four trackers**
+  (Great Fairy + armor-tier, side quests, Koroks counter, memories meter); **export/import backup**, **per-step/
+  shrine notes**, **global search**. Verified in-browser, hosted on GitHub Pages.
+- **Next:** **per-region maps** (map phase 2 — a Plateau-style schematic per region); multi-game `GAMES` wrapper
+  (TotK/OoT, ADR 0005); spoiler-toggle for hints; service-worker true-offline (if wanted).

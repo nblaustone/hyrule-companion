@@ -5,6 +5,37 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-15 — v6: map, four trackers, and QoL (driven by Nathan playing it on his phone)
+
+- **What prompted it:** Nathan installed v5 on his phone and gave field feedback. Confirmed answers first
+  (no edits until he okayed): updates are auto (same GitHub Pages URL/icon, refetches on open) and **progress
+  is NOT lost on update** — `localStorage` is keyed to the origin, not the file, and the additive-ID rule
+  (ADR 0002) means we never orphan checkmarks. Then we brainstormed and he picked: full Hyrule map → per-region
+  maps; all four trackers; export/notes/global-search; stay on BotW.
+- **Two confirmed fixes shipped first** (so his phone stopped looking cramped): the topbar now pads with
+  `env(safe-area-inset-top)` so the title clears the iPhone status bar; added the **Traveler's Sword**
+  (Stalkoblins drop it at night near Oman Au — a real gap he caught).
+- **Full Hyrule map** (`HyruleMap`, Status tab): original schematic of the 15 shrine regions positioned
+  geographically, each a node with a **progress ring** (shrines cleared), a faint landmass, beast labels, and a
+  Ganon/castle marker. Tap a region → jumps to its shrine group. All original art (ADR 0003). Per-region maps
+  are the deferred phase 2.
+- **Four trackers**, all folded into the existing `progress` map (boolean ids) so Reset clears them and backup
+  captures them: shrines (`shr_*`, already), Great Fairies (`gf_*`) + armor owned (`arm_*`) with a tier stepper
+  (`botw:armortier`), side quests (`sq_<region>_<i>`), memories (existing `m_l*` steps), and a Korok counter
+  (`botw:koroks`, **functional `setKoroks(k=>…)`** — a synchronous double-tap test exposed a stale-closure bug
+  with `setKoroks(koroks+5)`; the updater form is mandatory here). A Status "Collectibles" panel meters them.
+- **QoL:** export/import a base64 save code (`BackupBox`, offline backup — the ADR-0002-honest alternative to a
+  server); per-step/shrine **notes** (`botw:notes`, a `NoteAffordance` in the step/shrine body); and a **global
+  search** overlay (topbar magnifier) across walkthrough/shrines/armor/enemies/quests/cooking/towers that jumps
+  to the result.
+- **Lesson — never surface an agent's `notes` field** (already learned in v5, reaffirmed): all user-facing copy
+  is typed/structured data; free-text agent notes are backstage.
+- New persistence keys: `botw:koroks` · `botw:notes` · `botw:armortier` (joined `botw:progress` + `botw:ui`).
+  Verified in-browser: 7 tabs (well, 6 + search overlay), 9 guide segments, map jumps, trackers persist, notes
+  save, search navigates — zero console errors. Hosted at github.com/nblaustone/hyrule-companion (Pages /docs).
+
+---
+
 ## 2026-06-15 — v5 landed: 120 shrines wired, app shipped, verified in-browser
 
 - **The honest-sourcing chain paid off — twice.** The research workflow (41 agents) returned 128 shrines / 15
