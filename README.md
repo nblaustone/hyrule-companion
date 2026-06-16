@@ -4,6 +4,15 @@ A mobile, **offline** walkthrough + living pouch for *The Legend of Zelda: Breat
 Sheikah-Slate styled. One thumb, one screen, your whole first playthrough — checkmarks and inventory persist
 on-device with no account and no server.
 
+## 📱 Use it on your phone
+**Live:** https://nblaustone.github.io/hyrule-companion/
+1. Open that link in **Safari** on your iPhone.
+2. Tap **Share** (the box-with-arrow) → **Add to Home Screen** → **Add**.
+3. Launch it from the home-screen icon — it runs full-screen, works **offline**, and remembers your progress.
+
+(On Android/Chrome: open the link → menu → **Install app**.) The whole thing is one self-contained file —
+once it's loaded once, you never need a signal again.
+
 ```bash
 node build/build.mjs      # compile the React source → a single self-contained index.html
 open index.html           # works offline by double-click; on iPhone: Share → Add to Home Screen
