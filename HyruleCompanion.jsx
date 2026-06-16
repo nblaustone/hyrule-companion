@@ -53,6 +53,7 @@ const GREAT_PLATEAU = {
       { id: "tw4", k: "tip", t: "From up high, click the right stick for the Scope. Look for orange pillars of light — those are the four shrines — and drop a pin on each." },
     ]},
     { id: "oman", name: "Oman Au Shrine", sub: "Magnesis Trial · pond near the tower", reward: "Magnesis Rune — move metal", steps: [
+      { id: "oa0", k: "optional", t: "At night, Stalkoblins (reassembling skeletons) rise around the shrine and the tower field — smash the skull to drop them, and grab any weapons they leave, like a Traveler's Sword. Free early melee, but they fall apart again at dawn.", items: [{ name: "Traveler's Sword", cat: "weapon", note: "Dropped by Stalkoblins at night near Oman Au" }] },
       { id: "oa1", k: "step", t: "Enter and download the MAGNESIS rune (lift and move anything metal).", items: [{ name: "Magnesis", cat: "rune", note: "Move metal objects", rune: "magnesis" }] },
       { id: "oa2", k: "step", t: "Use Magnesis (L) on the two metal floor slabs and pull them aside to open the passage." },
       { id: "oa3", k: "step", t: "Raise the submerged metal plank with Magnesis and lay it across the water as a bridge, then cross." },
@@ -922,7 +923,7 @@ function StyleBlock() {
 *{box-sizing:border-box;}
 .app{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--parch);background:radial-gradient(120% 80% at 50% -10%,rgba(95,214,226,0.06),transparent 60%),radial-gradient(90% 70% at 80% 110%,rgba(240,144,42,0.05),transparent 60%),var(--abyss);min-height:100vh;max-width:560px;margin:0 auto;position:relative;padding-bottom:80px;overflow-x:hidden;}
 .app:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0.5;background-image:radial-gradient(rgba(95,214,226,0.05) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(120% 100% at 50% 0%,#000,transparent 75%);}
-.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px 11px;background:linear-gradient(180deg,rgba(9,19,23,0.96),rgba(9,19,23,0.82));backdrop-filter:blur(8px);border-bottom:1px solid rgba(95,214,226,0.14);}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 11px;background:linear-gradient(180deg,rgba(9,19,23,0.96),rgba(9,19,23,0.82));backdrop-filter:blur(8px);border-bottom:1px solid rgba(95,214,226,0.14);}
 .brand{display:flex;align-items:center;gap:11px;}
 .eye{color:var(--orange);filter:drop-shadow(0 0 6px rgba(240,144,42,0.45));animation:breathe 5s ease-in-out infinite;}
 @keyframes breathe{0%,100%{opacity:.78;}50%{opacity:1;filter:drop-shadow(0 0 10px rgba(240,144,42,0.7));}}
