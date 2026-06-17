@@ -57,7 +57,8 @@ The pipeline has three reproducible steps (run in order only when the data chang
 | run | does |
 |-----|------|
 | `node build/assemble-knowledge.mjs` | research output (`knowledge/_raw-research.json`) → clean, **reconciled** datasets (`knowledge/shrines.json` …). Refuses to write unless it sums to **120 shrines / 15 towers / 4 Great Fairies, 0 dup names**. |
-| `node build/inline-data.mjs` | inlines `knowledge/*.json` into the `.jsx` GEN:DATA block (strips agent `notes` so verification meta never reaches the UI) |
+| `node build/assemble-cooking.mjs` | v10 cooking-tool ingredient sweep (`/tmp/cook-raw.json`) → reconciled `knowledge/cooking-ingredients.json` (120 ingredients; normalizes effects, encodes Hearty `hearty:+N`, dedups). Refuses to write unless all 11 effects are covered. |
+| `node build/inline-data.mjs` | inlines `knowledge/*.json` (incl. `cooking-ingredients.json` → `COOK_INGREDIENTS`) into the `.jsx` GEN:DATA block (strips agent `notes` so verification meta never reaches the UI) |
 | `node build/build.mjs` | compile `HyruleCompanion.jsx` → self-contained offline `index.html` (+ `manifest.webmanifest`, `icon-*.png`) |
 | open `index.html`      | works by double-click in any browser; on iPhone Safari → Share → **Add to Home Screen** |
 | (host) push `index.html` + `manifest.webmanifest` + `icon-512.png` to GitHub Pages | gives a tap-to-install URL |
@@ -83,8 +84,9 @@ it runs fully offline once it's on the device. First load needs no network. The 
   beasts/runes here.
 - **Persistence keys**: `botw:progress` (JSON stepId→true — also holds tracker toggles `shr_* gf_* arm_* sq_*`
   and the memory steps `m_l*`), `botw:ui` (tab/region/openSections/guideSub), `botw:koroks` (int), `botw:notes`
-  (id→text), `botw:armortier` (set-index→0..4). The `store` helper uses `window.storage` if present (Claude
-  artifact) **and falls back to `localStorage`** (standalone/phone). Backup = base64 of `{progress,koroks,notes,armorTier}`.
+  (id→text), `botw:armortier` (set-index→0..4), `botw:recipes` (v10 saved-cooking array). The `store` helper uses
+  `window.storage` if present (Claude artifact) **and falls back to `localStorage`** (standalone/phone). Backup =
+  base64 of `{progress,koroks,notes,armorTier,recipes}` (blob v7).
   Counters use the functional updater `setKoroks(k=>…)` (stale-closure guard).
 - **Glyphs** are inline SVG in `Glyph()` — add a `case` for a new icon. **Styling** is one injected `<style>` in
   `StyleBlock()`. Dark teal base; ember-orange = "to do", activated-cyan = "done" (mirrors Sheikah tech state).
@@ -109,7 +111,13 @@ Tabs: **Status · Journey · Shrines · Items · Cook · Guide** (6) + a **globa
 pin + Status hero, `resumeTarget`/`jumpToStep` → opens + flashes your first uncompleted step); a **joy pass**
 (`box-flash` Sheikah check-pulse, section/tab fades, `:active` press — all under the global reduced-motion
 kill-switch); **progressive spoiler reveal** (the Settings toggle now veils champions/rewards of regions *ahead*
-of you, per-item tap-to-reveal); and **"Stuck?" hints** (`StuckReveal`) hanging off walkthrough steps. Status carries the **full Hyrule map** (`HyruleMap` — original SVG, 15
+of you, per-item tap-to-reveal); and **"Stuck?" hints** (`StuckReveal`) hanging off walkthrough steps. **v10:**
+the **Cook** tab is now an interactive tool (`CookView` + the pure `cookResult` engine + `COOK_INGREDIENTS`, a
+120-ingredient sourced table) — a **pot simulator** that predicts the dish (effect/tier/hearts/≈duration/crit) and
+**warns before you waste** (effect-cancel, invalid-elixir, Dubious/Rock-Hard, Monster-Extract-kills-crit,
+max-tier, Hearty +25 cap), a **goal-first finder** ("I'm cold → Spicy"), an **ingredient browser** (effect shown
+up front + location + sell), and a **Cookbook** (saved builds, `botw:recipes`). Degrades to `CookReference` when a
+game has no ingredient table (TotK). Status carries the **full Hyrule map** (`HyruleMap` — original SVG, 15
 regions with shrine-progress rings, tap → that region's shrines) plus Shrines + Collectibles meters. Shrines =
 all 120, region-grouped, trackable; each expanded region shows a **per-region schematic map** (`RegionMap`,
 coords from `knowledge/region-maps.json`) — numbered dots (tap to toggle) that match the numbered list, plus
@@ -137,8 +145,14 @@ layout, `REGION_MAPS` = the per-region coords.
   tactile press), **Resume "you're here"** (topbar pin + hero → your first uncompleted step), **progressive
   spoiler reveal** (path-aware veil of future champions/rewards), and sourced **"Stuck?" hints** on the
   walkthrough (author→adversarial-verify workflow, one agent per region). `build.mjs` now also exposes `useRef`.
-  Verified in-browser, 0 live console errors.
+  Verified in-browser, 0 live console errors. **v9.1–9.2 (done):** Resume now follows the main-quest spine
+  (`k:"step"` only, so skipped loot/optional never traps "you're here"); two **honesty audits** fixed 5 memory
+  routes (incl. the user-caught `m_l7`) + 3 walkthrough errors (Zora Helm, Hestu's tower chest, Rito direction).
+- **v10 (done):** **interactive cooking tool** (ADR 0007) — research-led (player-pain + 120-ingredient sourced
+  table, two workflows) → a **pot simulator** with **waste-warnings**, a **goal-first finder**, an **ingredient
+  browser**, and a **Cookbook**. Pure `cookResult` engine; hearts/duration shown as honest ≈. Verified both
+  games (TotK falls back to the reference Cook), 0 live console errors.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
-  **"Stuck?" sweep** (same workflow). **Beyond:** Ocarina of Time as game 3 (same `GAMES` slot-in) — the user's
-  favorite, beaten many times, so each step is self-verifiable.
+  **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3
+  (same `GAMES` slot-in) — the user's favorite, beaten many times, so each step is self-verifiable.

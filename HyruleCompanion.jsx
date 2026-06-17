@@ -295,6 +295,117 @@ const RECIPES = [
   { eff: "Sneaky", tone: "sneak", does: "Stealth up — sneak past or up to enemies.", key: "Silent Shroom, Blue Nightshade, Silent Princess, Sunset Firefly", recipe: "Sneaky Steamed Mushrooms = Silent Shrooms" },
 ];
 
+/* ============================================================ COOKING ENGINE (v10) ============================================================ */
+/* What players hurt over most (researched): raw ingredient effects are invisible, mixing two effects
+   silently cancels and wastes rare items, elixirs are an unexplained second system, and the survival
+   buzzwords are backwards. The pot simulator below surfaces the effect, predicts the result, and — the
+   real differentiator — WARNS before you waste anything. Logic is deterministic (don't-invent law);
+   exact hearts/durations are honest estimates (shown with ≈). */
+
+// goal -> effect, in the order a first-timer needs them
+const COOK_GOALS = [
+  { goal: "Heal & over-heal", effect: "Hearty", sub: "Full heal + bonus yellow hearts — the don't-die button" },
+  { goal: "Refill stamina now", effect: "Energizing", sub: "Tops up the wheel mid-climb/swim" },
+  { goal: "Extra stamina wheel", effect: "Enduring", sub: "Overfills the wheel for the tallest climbs" },
+  { goal: "Survive the cold", effect: "Spicy", sub: "Spicy = warms you (cold resistance)" },
+  { goal: "Survive the heat", effect: "Chilly", sub: "Chilly = cools you (heat resistance)" },
+  { goal: "Walk on lava / Death Mtn", effect: "Fireproof", sub: "Heat-resist does NOT stop fire — you need Fireproof (elixir only)" },
+  { goal: "Shock resistance", effect: "Electro", sub: "Lightning storms & electric enemies" },
+  { goal: "Hit harder", effect: "Mighty", sub: "Attack up" },
+  { goal: "Take less damage", effect: "Tough", sub: "Defense up" },
+  { goal: "Move faster", effect: "Hasty", sub: "Run, swim, climb faster" },
+  { goal: "Sneak", effect: "Sneaky", sub: "Quieter — slip past or up to enemies" },
+];
+
+// potency points needed for tier 2 / tier 3 (null = effect has no higher tier). Hearty/Energizing/Enduring don't tier.
+const COOK_TIERS = {
+  Mighty: [5, 7], Tough: [5, 7], Hasty: [5, 7], Sneaky: [6, 9], Electro: [4, 6],
+  Spicy: [6, null], Chilly: [6, null], Fireproof: [7, null],
+};
+const COOK_NOTIER = ["Hearty", "Energizing", "Enduring"];
+
+/* COOK_INGREDIENTS — verified table, inlined from knowledge/cooking-ingredients.json into the GEN:DATA block (build/assemble-cooking.mjs). */
+
+// Pure, deterministic outcome predictor for a pot of up to 5 ingredient objects.
+function cookResult(items) {
+  if (!items || items.length === 0) return null;
+  const warn = [];
+  if (items.length > 5) warn.push({ kind: "warn", t: "Only 5 ingredients fit — a 6th is ignored." });
+
+  const has = (r) => items.some((i) => i.role === r);
+  const hasCritter = has("critter"), hasMonster = has("monster"), hasDragon = has("dragon");
+  const hasFood = items.some((i) => i.role === "effect" || i.role === "neutral");
+  const specials = items.filter((i) => i.role === "special");
+  const hasExtract = specials.some((i) => /extract/i.test(i.name));
+  const hasStar = specials.some((i) => /star/i.test(i.name));
+  const hasFairy = specials.some((i) => /fairy/i.test(i.name));
+
+  const effItems = items.filter((i) => i.effect);
+  const effects = Array.from(new Set(effItems.map((i) => i.effect)));
+
+  let dish = "Meal", effect = null, dubious = false;
+
+  if (hasFairy && !hasFood && !hasCritter) {
+    return { dish: "Fairy Tonic", effect: null, hearts: null, warn: [{ kind: "tip", t: "Fairy Tonic — a plain healing elixir. Handy for clearing spare fairies and monster parts." }], count: items.length };
+  }
+
+  if (hasCritter) {
+    dish = "Elixir";
+    if (hasFood) { dubious = true; warn.push({ kind: "bad", t: "Critter + food = Dubious Food. Elixirs are critters + monster parts only — no fruit, meat, mushrooms." }); }
+    else if (!hasMonster) { dubious = true; warn.push({ kind: "bad", t: "A critter alone won't cook. Add a monster part (horn, fang, guts…) to brew the elixir." }); }
+    if (effects.length > 1) { dubious = true; effect = null; warn.push({ kind: "bad", t: "Two different critter effects cancel out. Use critters of one effect." }); }
+    else effect = effects[0] || null;
+  } else {
+    dish = "Meal";
+    if (hasMonster) { dubious = true; warn.push({ kind: "bad", t: "A monster part with no critter makes Dubious Food. Pair it with a critter for an elixir, or leave it out." }); }
+    if (effects.length > 1) { effect = null; warn.push({ kind: "bad", t: "Two effects cancel — you'll get a plain meal with NO buff and waste the prefix items. Cook one effect family at a time." }); }
+    else effect = effects[0] || null;
+  }
+
+  // hearts (≈ sum of cooked recovery + small cook bonus)
+  let hearts = items.reduce((s, i) => s + (i.hearts || 0), 0);
+  if (hearts > 0) hearts += 1; // pot cook bonus (approx)
+  let heartyYellow = null;
+  if (effect === "Hearty" && !dubious) {
+    heartyYellow = Math.min(25, effItems.filter((i) => i.effect === "Hearty").reduce((s, i) => { const m = (i.bonus || "").match(/hearty:\+(\d+)/); return s + (m ? +m[1] : 4); }, 0));
+    hearts = null; // full heal
+  }
+
+  // tier
+  let tier = null, tierMax = false;
+  if (effect && !dubious && COOK_TIERS[effect]) {
+    const pts = effItems.filter((i) => i.effect === effect).reduce((s, i) => s + (i.potency || 1), 0);
+    const th = COOK_TIERS[effect]; tier = 1;
+    if (th[0] != null && pts >= th[0]) tier = 2;
+    if (th[1] != null && pts >= th[1]) tier = 3;
+    tierMax = th[1] != null ? tier >= 3 : tier >= 2;
+    if (tierMax && effItems.filter((i) => i.effect === effect).length > (th[1] != null ? 3 : 2))
+      warn.push({ kind: "warn", t: "Already at max " + effect + " tier — extra " + effect + " copies are wasted on level. Use them for duration or fill with neutral food." });
+  }
+
+  // duration (≈)
+  let durSec = null;
+  if (effect && !COOK_NOTIER.includes(effect) && !dubious) {
+    let base = effItems.filter((i) => i.effect === effect).reduce((s, i) => s + (i.timeSec || 30), 0);
+    if (dish === "Elixir") base += items.filter((i) => i.role === "monster").reduce((s, i) => s + (i.timeSec || 90), 0);
+    if (hasDragon) { base += items.filter((i) => i.role === "dragon").reduce((s, i) => s + (i.timeSec || 0), 0); if (items.some((i) => i.role === "dragon" && /Horn/i.test(i.name))) base = 1800; }
+    durSec = Math.min(1800, Math.max(30, base));
+  }
+
+  // crit
+  let crit = null;
+  if (hasExtract) { crit = "off"; warn.push({ kind: "warn", t: "Monster Extract randomizes the result and CANCELS any guaranteed crit. Never pair it with a dragon part or Star Fragment." }); }
+  else if (hasDragon || hasStar) crit = "on";
+
+  if (effect === "Fireproof" && dish === "Meal" && !dubious)
+    warn.push({ kind: "warn", t: "Fireproof can only be an ELIXIR (a Fireproof Lizard or Smotherwing Butterfly + a monster part) — it never works as a food dish." });
+  if (!effect && !dubious && items.every((i) => i.role === "neutral"))
+    warn.push({ kind: "tip", t: "No buff items — this is a plain dish that just restores hearts. That's fine for healing." });
+
+  return { dish: dubious ? "Dubious Food" : dish, effect, dubious, hearts, heartyYellow, tier, tierMax, durSec, crit, warn, count: items.length };
+}
+const fmtDur = (s) => { if (s == null) return null; const m = Math.floor(s / 60), ss = s % 60; return m + ":" + String(ss).padStart(2, "0"); };
+
 /* ============================================================ GLYPHS ============================================================ */
 function Glyph({ name, size = 26 }) {
   const s = { width: size, height: size, display: "block" };
@@ -411,7 +522,7 @@ function GamePicker({ games, game, setGame }) {
    storage loads cleanly. G shadows the data globals with the active game's data (ADR 0005). */
 function HyruleGame({ game, setGame, games }) {
   const G = games[game];
-  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, RUNES, TIPS, COOK_RULES, RECIPES, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms, guideSegs, postRegionId } = G;
+  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms, guideSegs, postRegionId } = G;
   const K = (s) => game + ":" + s; // storage key namespace per game (botw:* preserves existing data)
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState({});
@@ -424,6 +535,7 @@ function HyruleGame({ game, setGame, games }) {
   const [koroks, setKoroks] = useState(0);          // Korok-seed counter (botw:koroks)
   const [notes, setNotes] = useState({});           // per-step/shrine notes (botw:notes)
   const [armorTier, setArmorTier] = useState({});   // armor upgrade tier 0..4 by set index (botw:armortier)
+  const [recipes, setRecipes] = useState([]);       // v10: saved cooking builds (botw:recipes)
   const [searchOpen, setSearchOpen] = useState(false);
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
@@ -437,8 +549,8 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr] = await Promise.all([
-        store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"),
+      const [p, ui, kk, nt, at, pr, rc] = await Promise.all([
+        store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -447,6 +559,7 @@ function HyruleGame({ game, setGame, games }) {
       try { if (nt) setNotes(JSON.parse(nt)); } catch (e) {}
       try { if (at) setArmorTier(JSON.parse(at)); } catch (e) {}
       try { if (pr) { const o = JSON.parse(pr); if (o && typeof o.spoiler === "boolean") setSpoiler(o.spoiler); } } catch (e) {}
+      try { if (rc) { const a = JSON.parse(rc); if (Array.isArray(a)) setRecipes(a); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -456,6 +569,7 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("koroks"), String(koroks)); }, [koroks, loaded]);
   useEffect(() => { if (loaded) store.set(K("notes"), JSON.stringify(notes)); }, [notes, loaded]);
   useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
+  useEffect(() => { if (loaded) store.set(K("recipes"), JSON.stringify(recipes)); }, [recipes, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler })); }, [spoiler, loaded]);
 
   progressRef.current = progress;
@@ -468,12 +582,12 @@ function HyruleGame({ game, setGame, games }) {
   const toggleSection = useCallback((id) => setOpenSections((o) => ({ ...o, [id]: !o[id] })), []);
   const setNote = useCallback((id, text) => setNotes((m) => { const n = { ...m }; if (text && text.trim()) n[id] = text; else delete n[id]; return n; }), []);
   const setTier = useCallback((i, t) => setArmorTier((m) => ({ ...m, [i]: Math.max(0, Math.min(4, t)) })), []);
-  const resetAll = useCallback(() => { setProgress({}); setKoroks(0); setNotes({}); setArmorTier({}); setConfirmReset(false); }, []);
+  const resetAll = useCallback(() => { setProgress({}); setKoroks(0); setNotes({}); setArmorTier({}); setRecipes([]); setConfirmReset(false); }, []);
   // export/import the whole save as a portable code (offline backup, ADR 0002)
   const exportSave = useCallback(() => {
-    const blob = { v: 6, progress, koroks, notes, armorTier };
+    const blob = { v: 7, progress, koroks, notes, armorTier, recipes };
     try { return btoa(unescape(encodeURIComponent(JSON.stringify(blob)))); } catch (e) { return JSON.stringify(blob); }
-  }, [progress, koroks, notes, armorTier]);
+  }, [progress, koroks, notes, armorTier, recipes]);
   const importSave = useCallback((code) => {
     try {
       const raw = code.trim().startsWith("{") ? code : decodeURIComponent(escape(atob(code.trim())));
@@ -483,6 +597,7 @@ function HyruleGame({ game, setGame, games }) {
         if (Number.isFinite(b.koroks)) setKoroks(b.koroks);
         if (b.notes && typeof b.notes === "object") setNotes(b.notes);
         if (b.armorTier && typeof b.armorTier === "object") setArmorTier(b.armorTier);
+        if (Array.isArray(b.recipes)) setRecipes(b.recipes);
         return true;
       }
     } catch (e) {}
@@ -807,36 +922,7 @@ function HyruleGame({ game, setGame, games }) {
             <div className="footer-space" />
           </div>
         ) : tab === "cook" ? (
-          <div className="ref">
-            <h2 className="ref-title">Cooking</h2>
-            <p className="ref-lede">The thing the game never explains. Drop ingredients in a pot; the buff comes from the ingredient's prefix. Match one effect to what you need.</p>
-            <div className="rules">{COOK_RULES.map((r, i) => <div className="rule" key={i}><span className="rule-dot" />{r}</div>)}</div>
-            {RECIPES.map((r) => (
-              <div className={"recipe" + (r.now ? " recipe-now" : "")} key={r.eff}>
-                <div className={"eff eff-" + r.tone}>{r.eff}</div>
-                <div className="recipe-body">{r.now && <div className="recipe-flag">You need this on the Plateau</div>}<div className="recipe-does">{r.does}</div><div className="recipe-key"><b>Use:</b> {r.key}</div><div className="recipe-make"><b>Try:</b> {r.recipe}</div></div>
-              </div>
-            ))}
-            {COOKING.recipes && COOKING.recipes.length > 0 && (
-              <div className="cook-extra">
-                <div className="inv-head"><span className="inv-head-l"><span className="inv-glyph"><Glyph name="pot" size={18} /></span>Go-to recipes</span></div>
-                {COOKING.recipes.map((r, i) => (
-                  <div className="gorecipe" key={i}><div className="gorecipe-name">{r.name}</div><div className="gorecipe-make"><b>Make:</b> {r.makes}</div><div className="gorecipe-why">{r.why}</div></div>
-                ))}
-              </div>
-            )}
-            {COOKING.dragons && COOKING.dragons.length > 0 && (
-              <div className="cook-extra">
-                <div className="inv-head"><span className="inv-head-l"><span className="inv-glyph" style={{ color: "var(--heart)" }}><Glyph name="champion" size={18} /></span>Dragon parts</span></div>
-                <p className="panel-note" style={{ margin: "0 0 10px" }}>Shoot a passing dragon (never kill it) to knock loose a part — each makes a potent elixir and a critical-cook bonus. Horns are strongest, then claws, fangs, scales.</p>
-                {COOKING.dragons.map((d, i) => (
-                  <div className="dragon-row" key={i}><div className="dragon-name">{d.name}<span className="dragon-el">{d.element}</span></div><p className="ref-line">{d.where}{d.parts ? " · " + d.parts : ""}</p></div>
-                ))}
-              </div>
-            )}
-            {COOKING.notes && <p className="panel-note" style={{ marginTop: 12 }}>{COOKING.notes}</p>}
-            <div className="footer-space" />
-          </div>
+          <CookView ingredients={COOK_INGREDIENTS} recipes={RECIPES} rules={COOK_RULES} cooking={COOKING} saved={recipes} setSaved={setRecipes} />
         ) : (
           <div className="ref">
             <div className="seg seg-scroll">
@@ -1245,6 +1331,172 @@ function SettingsView({ spoiler, setSpoiler, doExport, doImport, confirmReset, s
   );
 }
 
+/* ============================================================ COOKING TOOL (v10) ============================================================ */
+const ROLE_LABEL = { effect: "buff food", neutral: "filler", critter: "critter", monster: "monster part", dragon: "dragon part", special: "special" };
+
+function CookResultCard({ r, toneOf }) {
+  if (!r) return <div className="pot-empty"><Glyph name="pot" size={26} /><span>Tap ingredients below — I'll tell you what you'll cook <b>before</b> you waste anything.</span></div>;
+  const tone = r.effect ? toneOf(r.effect) : null;
+  return (
+    <div className={"pot-result" + (r.dubious ? " pot-bad" : r.effect ? " pot-good" : "")}>
+      <div className="pot-dish-row">
+        <span className="pot-dish">{r.dish}</span>
+        {r.effect && <span className={"pot-eff eff-" + tone}>{r.effect}{r.tier ? " · Lv " + r.tier + (r.tierMax ? " (max)" : "") : ""}</span>}
+        {r.crit === "on" && <span className="pot-crit">★ critical</span>}
+      </div>
+      <div className="pot-stats">
+        {r.heartyYellow != null ? <span className="pst pst-h">♥ full heal + {r.heartyYellow} bonus</span>
+          : r.hearts != null && r.hearts > 0 ? <span className="pst pst-h">♥ ≈ {r.hearts % 1 ? r.hearts.toFixed(2) : r.hearts}</span> : null}
+        {r.durSec != null && <span className="pst pst-t">⏱ ≈ {fmtDur(r.durSec)}</span>}
+        <span className="pst pst-c">{r.count}/5 in pot</span>
+      </div>
+      {r.warn.map((w, i) => <div key={i} className={"pot-warn pw-" + w.kind}>{w.t}</div>)}
+    </div>
+  );
+}
+
+function CookView({ ingredients, recipes, rules, cooking, saved, setSaved }) {
+  const interactive = ingredients && ingredients.length > 0;
+  const [mode, setMode] = useState("make");
+  const [pot, setPot] = useState([]);
+  const [q, setQ] = useState("");
+  const [filter, setFilter] = useState("all");
+  const [goal, setGoal] = useState((COOK_GOALS[0] || {}).effect);
+
+  const result = useMemo(() => cookResult(pot), [pot]);
+  const toneOf = useCallback((eff) => ((recipes || []).find((r) => r.eff === eff) || {}).tone || "heart", [recipes]);
+  if (!interactive) return <CookReference recipes={recipes} rules={rules} cooking={cooking} />;
+
+  const add = (ing) => setPot((p) => (p.length >= 5 ? p : [...p, ing]));
+  const removeAt = (idx) => setPot((p) => p.filter((_, i) => i !== idx));
+  const FILTERS = [["all", "All"], ["Hearty", "♥ Hearty"], ["effect", "Buffs"], ["neutral", "Fillers"], ["critter", "Critters"], ["monster", "Monster"], ["dragon", "Dragon"], ["special", "Special"]];
+  const ql = q.trim().toLowerCase();
+  const picker = ingredients.filter((i) => {
+    if (ql && !(i.name.toLowerCase().includes(ql) || (i.effect || "").toLowerCase().includes(ql))) return false;
+    if (filter === "all") return true;
+    if (["effect", "neutral", "critter", "monster", "dragon", "special"].includes(filter)) return i.role === filter;
+    return i.effect === filter;
+  });
+  const loadStaple = (eff) => {
+    const base = ingredients.find((i) => i.effect === eff && i.role === "effect") || ingredients.find((i) => i.effect === eff);
+    if (base) { setPot(Array(eff === "Hearty" ? 5 : 4).fill(base)); setMode("make"); }
+  };
+  const saveCurrent = () => {
+    if (!pot.length || !result) return;
+    const entry = { names: pot.map((i) => i.name), dish: result.dish, effect: result.effect };
+    setSaved([entry, ...(saved || []).filter((s) => s.names.join("|") !== entry.names.join("|"))].slice(0, 40));
+  };
+  const loadSaved = (s) => { setPot(s.names.map((n) => ingredients.find((i) => i.name === n)).filter(Boolean)); setMode("make"); };
+  const delSaved = (idx) => setSaved((saved || []).filter((_, i) => i !== idx));
+
+  const MODES = [["make", "Make"], ["goals", "I need…"], ["browse", "Ingredients"], ["book", "Cookbook"], ["rules", "Rules"]];
+
+  return (
+    <div className="ref cookv">
+      <h2 className="ref-title">Cooking</h2>
+      <p className="ref-lede">The one system the game never explains. Build a pot and I'll predict the dish — and warn you the moment a combo would cancel or waste a rare ingredient.</p>
+      <div className="seg seg-scroll">{MODES.map(([k, l]) => <button key={k} className={"seg-btn" + (mode === k ? " seg-on" : "")} onClick={() => setMode(k)}>{l}</button>)}</div>
+
+      {mode === "make" && <>
+        <div className="pot-slots">
+          {[0, 1, 2, 3, 4].map((i) => {
+            const ing = pot[i];
+            return <button key={i} className={"pot-slot" + (ing ? " pot-slot-full" : "")} onClick={() => ing && removeAt(i)} aria-label={ing ? "Remove " + ing.name : "Empty slot"}>
+              {ing ? <><span className="ps-name">{ing.name}</span><span className="ps-x">✕</span></> : <span className="ps-empty">+</span>}
+            </button>;
+          })}
+        </div>
+        <CookResultCard r={result} toneOf={toneOf} />
+        <div className="pot-actions">
+          <button className="pot-btn" onClick={() => setPot([])} disabled={!pot.length}>Clear</button>
+          <button className="pot-btn pot-btn-save" onClick={saveCurrent} disabled={!pot.length}><Glyph name="book" size={13} /> Save to cookbook</button>
+        </div>
+        <div className="search"><input className="search-input" placeholder="Add an ingredient — search by name or effect…" value={q} onChange={(e) => setQ(e.target.value)} />{q && <button className="search-clear" onClick={() => setQ("")}>✕</button>}</div>
+        <div className="seg seg-scroll cook-filters">{FILTERS.map(([k, l]) => <button key={k} className={"seg-btn" + (filter === k ? " seg-on" : "")} onClick={() => setFilter(k)}>{l}</button>)}</div>
+        <div className="ing-grid">
+          {picker.map((i) => <button key={i.name} className={"ing-chip ic-" + i.role + (pot.length >= 5 ? " ic-dis" : "")} onClick={() => add(i)} disabled={pot.length >= 5}>
+            <span className="ic-name">{i.name}</span>
+            <span className="ic-meta">{i.effect ? <span className={"ic-eff eff-" + toneOf(i.effect)}>{i.effect}</span> : <span className="ic-role">{ROLE_LABEL[i.role]}</span>}</span>
+          </button>)}
+          {picker.length === 0 && <div className="empty">No ingredient matches.</div>}
+        </div>
+      </>}
+
+      {mode === "goals" && <>
+        <p className="panel-note" style={{ margin: "0 0 12px" }}>First-timers think in goals, not combos. Pick what you need — I'll decode the buzzword and give you the dead-simple recipe.</p>
+        <div className="goal-grid">{COOK_GOALS.map((g) => <button key={g.goal} className={"goal-chip" + (goal === g.effect ? " goal-on" : "")} onClick={() => setGoal(g.effect)}>{g.goal}</button>)}</div>
+        {(() => {
+          const g = COOK_GOALS.find((x) => x.effect === goal); const r = (recipes || []).find((x) => x.eff === goal); if (!g) return null;
+          return <div className="goal-card">
+            <div className={"goal-eff eff-" + toneOf(goal)}>{goal}</div>
+            <div className="goal-decode">{g.sub}</div>
+            {r && <><div className="recipe-does">{r.does}</div><div className="recipe-key"><b>Use any of:</b> {r.key}</div><div className="recipe-make"><b>Easiest dish:</b> {r.recipe}</div></>}
+            <button className="pot-btn pot-btn-save" style={{ marginTop: 10 }} onClick={() => loadStaple(goal)}><Glyph name="pot" size={13} /> Load a sample into the pot</button>
+          </div>;
+        })()}
+        <div className="goal-card goal-money">
+          <div className="goal-eff eff-gold">Make money</div>
+          <div className="recipe-does">Cooked dishes sell for far more than raw parts. 5 Raw Gourmet Meat → a ~490-rupee skewer; a Lynel-guts monster elixir can fetch 2,000+.</div>
+          <div className="recipe-key"><b>Never</b> put gems or ore in a pot — sell those raw or save them for armor upgrades.</div>
+        </div>
+      </>}
+
+      {mode === "browse" && <>
+        <p className="panel-note" style={{ margin: "0 0 10px" }}>The thing the game hides: every ingredient with its effect shown up front. Tap one to drop it in the pot.</p>
+        <div className="search"><input className="search-input" placeholder="Search ingredients…" value={q} onChange={(e) => setQ(e.target.value)} />{q && <button className="search-clear" onClick={() => setQ("")}>✕</button>}</div>
+        <div className="seg seg-scroll cook-filters">{FILTERS.map(([k, l]) => <button key={k} className={"seg-btn" + (filter === k ? " seg-on" : "")} onClick={() => setFilter(k)}>{l}</button>)}</div>
+        <div className="ing-list">
+          {picker.map((i) => <button key={i.name} className="ing-row" onClick={() => add(i)}>
+            <span className="ir-main"><span className="ir-name">{i.name}</span>{i.where && <span className="ir-where">{i.where}</span>}</span>
+            <span className="ir-side">{i.effect ? <span className={"ic-eff eff-" + toneOf(i.effect)}>{i.effect}</span> : <span className="ic-role">{ROLE_LABEL[i.role]}</span>}{i.sell ? <span className="ir-sell">{i.sell}r</span> : null}</span>
+          </button>)}
+          {picker.length === 0 && <div className="empty">No ingredient matches.</div>}
+        </div>
+      </>}
+
+      {mode === "book" && <>
+        <p className="panel-note" style={{ margin: "0 0 12px" }}>The cookbook the game refuses to give you. Saved on this device; rides along in your backup.</p>
+        {(!saved || saved.length === 0) && <div className="empty">No saved recipes yet. Build a dish in <b>Make</b> and tap “Save to cookbook”.</div>}
+        {(saved || []).map((s, idx) => <div className="book-row" key={idx}>
+          <button className="book-main" onClick={() => loadSaved(s)}>
+            <span className="book-dish">{s.dish}{s.effect ? <span className={"ic-eff eff-" + toneOf(s.effect)}>{s.effect}</span> : null}</span>
+            <span className="book-ings">{s.names.join(" + ")}</span>
+          </button>
+          <button className="book-del" onClick={() => delSaved(idx)} aria-label="Delete">✕</button>
+        </div>)}
+      </>}
+
+      {mode === "rules" && <CookReference recipes={recipes} rules={rules} cooking={cooking} rulesOnly />}
+      <div className="footer-space" />
+    </div>
+  );
+}
+
+// Reference view: rules + go-to recipes + dragon parts (also the TotK / no-data fallback for the Cook tab).
+function CookReference({ recipes, rules, cooking, rulesOnly }) {
+  return (
+    <div className="ref">
+      {!rulesOnly && <><h2 className="ref-title">Cooking</h2>
+        <p className="ref-lede">Drop ingredients in a pot; the buff comes from the ingredient's prefix. Match one effect to what you need.</p></>}
+      <div className="rules">{(rules || []).map((r, i) => <div className="rule" key={i}><span className="rule-dot" />{r}</div>)}</div>
+      {!rulesOnly && (recipes || []).map((r) => (
+        <div className={"recipe" + (r.now ? " recipe-now" : "")} key={r.eff}>
+          <div className={"eff eff-" + r.tone}>{r.eff}</div>
+          <div className="recipe-body">{r.now && <div className="recipe-flag">You need this on the Plateau</div>}<div className="recipe-does">{r.does}</div><div className="recipe-key"><b>Use:</b> {r.key}</div><div className="recipe-make"><b>Try:</b> {r.recipe}</div></div>
+        </div>
+      ))}
+      {cooking && cooking.dragons && cooking.dragons.length > 0 && (
+        <div className="cook-extra">
+          <div className="inv-head"><span className="inv-head-l"><span className="inv-glyph" style={{ color: "var(--heart)" }}><Glyph name="champion" size={18} /></span>Dragon parts (guaranteed crit)</span></div>
+          <p className="panel-note" style={{ margin: "0 0 10px" }}>Shoot a passing dragon (never kill it) to knock loose a part — each makes a potent elixir and guarantees a critical cook. Horn shard maxes the timer to 30:00, then claw, fang, scale.</p>
+          {cooking.dragons.map((d, i) => (<div className="dragon-row" key={i}><div className="dragon-name">{d.name}<span className="dragon-el">{d.element}</span></div><p className="ref-line">{d.where}{d.parts ? " · " + d.parts : ""}</p></div>))}
+        </div>
+      )}
+      {cooking && cooking.notes && <p className="panel-note" style={{ marginTop: 12 }}>{cooking.notes}</p>}
+    </div>
+  );
+}
+
 /* ============================================================ STUCK? REVEAL (v9) ============================================================ */
 /* The GameFAQs "scroll down for the answer," but hidden by default: the step stays scannable,
    the exact how is one tap away. Spoiler-aware content, sourced like the rest of the guide. */
@@ -1629,6 +1881,63 @@ function StyleBlock() {
 .game-picker{display:flex;gap:7px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:13px;padding:5px;margin:0 0 16px;}
 .game-pill{flex:1;font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:14px;color:var(--parch-dim);background:none;border:none;border-radius:9px;padding:9px 8px;cursor:pointer;letter-spacing:.3px;}
 .game-pill-on{color:var(--abyss);background:linear-gradient(180deg,var(--cyan),var(--cyan-dim));box-shadow:0 2px 10px rgba(95,214,226,0.25);}
+/* --- v10: cooking tool (pot simulator, guardrails, goal finder, cookbook) --- */
+.pot-slots{display:flex;gap:6px;margin:2px 0 12px;}
+.pot-slot{flex:1;min-width:0;height:58px;border-radius:12px;border:1.5px dashed rgba(95,214,226,0.25);background:rgba(95,214,226,0.03);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;padding:4px;position:relative;transition:all .2s;}
+.pot-slot-full{border-style:solid;border-color:rgba(240,144,42,0.45);background:rgba(240,144,42,0.07);}
+.ps-empty{font-size:22px;color:var(--ink-line);font-weight:300;}
+.ps-name{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;line-height:1.1;text-align:center;color:var(--parch);overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
+.ps-x{position:absolute;top:3px;right:5px;font-size:9px;color:var(--parch-dim);}
+.pot-result{border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:13px 14px;margin-bottom:11px;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,0.55));}
+.pot-good{border-color:rgba(95,214,226,0.32);box-shadow:0 0 18px rgba(95,214,226,0.07);}
+.pot-bad{border-color:rgba(224,80,107,0.4);box-shadow:0 0 18px rgba(224,80,107,0.08);}
+.pot-empty{display:flex;align-items:center;gap:12px;border:1px dashed rgba(95,214,226,0.22);border-radius:14px;padding:16px;margin-bottom:11px;color:var(--parch-dim);font-size:13.5px;line-height:1.5;}
+.pot-empty svg{color:var(--cyan-dim);flex-shrink:0;}
+.pot-dish-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:9px;}
+.pot-dish{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:18px;color:var(--parch);}
+.pot-bad .pot-dish{color:var(--malice);}
+.pot-eff{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.5px;padding:2px 9px;border-radius:20px;border:1px solid;}
+.pot-crit{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.5px;color:var(--gold);border:1px solid rgba(242,193,78,0.4);background:rgba(242,193,78,0.08);border-radius:20px;padding:2px 9px;}
+.pot-stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
+.pst{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12.5px;padding:3px 10px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);}
+.pst-h{color:var(--heart);}.pst-t{color:var(--cyan-dim);}.pst-c{color:var(--parch-dim);}
+.pot-warn{font-size:13px;line-height:1.5;border-radius:9px;padding:8px 11px;margin-top:8px;border:1px solid;}
+.pw-bad{color:#f3c0c8;background:rgba(224,80,107,0.09);border-color:rgba(224,80,107,0.32);}
+.pw-warn{color:var(--gold);background:rgba(242,193,78,0.07);border-color:rgba(242,193,78,0.3);}
+.pw-tip{color:var(--cyan-dim);background:rgba(95,214,226,0.06);border-color:rgba(95,214,226,0.25);}
+.pot-actions{display:flex;gap:8px;margin-bottom:16px;}
+.pot-btn{flex:1;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.5px;color:var(--parch-dim);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+.pot-btn:disabled{opacity:.4;cursor:default;}
+.pot-btn-save{color:var(--cyan);border-color:rgba(95,214,226,0.3);background:rgba(95,214,226,0.06);}
+.cook-filters{margin-bottom:12px;}
+.cook-filters .seg-btn{padding:7px 13px;font-size:12px;}
+.ing-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.ing-chip{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:9px 11px;border-radius:11px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);cursor:pointer;border-left:3px solid var(--ink-line);transition:all .15s;}
+.ing-chip:disabled{opacity:.4;cursor:default;}
+.ic-effect{border-left-color:var(--orange);}.ic-critter{border-left-color:var(--sneak);}.ic-monster{border-left-color:var(--malice);}.ic-dragon{border-left-color:var(--gold);}.ic-neutral{border-left-color:var(--ink-line);}.ic-special{border-left-color:var(--cyan);}
+.ic-name{font-weight:600;font-size:13px;color:var(--parch);line-height:1.2;}
+.ic-meta{display:flex;}
+.ic-eff{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:.4px;padding:1px 7px;border-radius:20px;border:1px solid;}
+.ic-role{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;letter-spacing:.4px;text-transform:uppercase;color:var(--parch-dim);}
+.ing-list{display:flex;flex-direction:column;gap:6px;}
+.ing-row{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;text-align:left;padding:10px 12px;border-radius:11px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.015);cursor:pointer;}
+.ir-main{min-width:0;display:flex;flex-direction:column;gap:2px;}
+.ir-name{font-weight:600;font-size:13.5px;color:var(--parch);}
+.ir-where{font-size:11px;color:var(--parch-dim);}
+.ir-side{display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.ir-sell{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;color:var(--gold);}
+.goal-grid{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;}
+.goal-chip{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.3px;color:var(--parch-dim);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:20px;padding:8px 13px;cursor:pointer;}
+.goal-on{color:var(--abyss);background:var(--cyan);border-color:var(--cyan);}
+.goal-card{border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:14px;margin-bottom:11px;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,0.5));}
+.goal-eff{display:inline-block;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.5px;padding:3px 11px;border-radius:8px;border:1px solid;margin-bottom:9px;}
+.goal-decode{font-size:13.5px;line-height:1.5;color:var(--gold);margin-bottom:9px;}
+.goal-money .recipe-does{color:var(--parch);}
+.book-row{display:flex;align-items:stretch;gap:8px;margin-bottom:8px;}
+.book-main{flex:1;min-width:0;text-align:left;padding:11px 13px;border-radius:11px;border:1px solid rgba(255,255,255,0.07);background:rgba(255,255,255,0.02);cursor:pointer;display:flex;flex-direction:column;gap:4px;}
+.book-dish{display:flex;align-items:center;gap:8px;font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:14.5px;color:var(--parch);}
+.book-ings{font-size:12px;color:var(--parch-dim);line-height:1.4;}
+.book-del{flex-shrink:0;width:40px;border-radius:11px;border:1px solid rgba(224,80,107,0.25);background:rgba(224,80,107,0.05);color:var(--malice);cursor:pointer;font-size:13px;}
 /* --- v9: joy pass (check animation, tactile press, transitions), resume, stuck, progressive spoiler --- */
 .box{position:relative;}
 .box-flash{animation:box-bounce .36s ease;}
@@ -5007,6 +5316,1172 @@ const REGION_MAPS = {
   ]
  }
 };
+const COOK_INGREDIENTS = [
+ {
+  "name": "Chillfin Trout",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Chilly",
+  "potency": 3,
+  "hearts": 2,
+  "sell": 6,
+  "where": "cold waters of the Hebra Mountains and Tabantha "
+ },
+ {
+  "name": "Chillshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Chilly",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 5,
+  "where": "Cold climates: Hateno Tower region"
+ },
+ {
+  "name": "Cool Safflina",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Chilly",
+  "potency": 1,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "Hebra Mtns / Gerudo Highlands snowy peaks"
+ },
+ {
+  "name": "Hydromelon",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Chilly",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 4,
+  "where": "Gerudo Desert"
+ },
+ {
+  "name": "Electric Safflina",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Electro",
+  "potency": 1,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "Gerudo Desert dunes / around Gerudo Town"
+ },
+ {
+  "name": "Voltfin Trout",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Electro",
+  "potency": 3,
+  "hearts": 2,
+  "sell": 6,
+  "where": "waters of Hyrule Ridge and the Tabantha Frontier"
+ },
+ {
+  "name": "Voltfruit",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Electro",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 4,
+  "where": "Gerudo Desert on cactus-like plants near oases"
+ },
+ {
+  "name": "Zapshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Electro",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 4,
+  "where": "Gerudo Highlands and Deep Akkala"
+ },
+ {
+  "name": "Endura Carrot",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Enduring",
+  "potency": 2,
+  "hearts": 2,
+  "bonus": "+ stamina wheel",
+  "sell": 30,
+  "where": "Satori Mountain / Malanya Spring"
+ },
+ {
+  "name": "Endura Shroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Enduring",
+  "potency": 1,
+  "hearts": 1,
+  "bonus": "+ stamina wheel",
+  "sell": 24,
+  "where": "Hyrule Ridge"
+ },
+ {
+  "name": "Bright-Eyed Crab",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Energizing",
+  "potency": 2,
+  "hearts": 1,
+  "bonus": "refills stamina",
+  "sell": 10,
+  "where": "beaches and riverbanks across Necluda and Hyrule"
+ },
+ {
+  "name": "Stamella Shroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Energizing",
+  "potency": 1,
+  "hearts": 0.5,
+  "bonus": "refills stamina",
+  "sell": 5,
+  "where": "Forests across Hyrule"
+ },
+ {
+  "name": "Staminoka Bass",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Energizing",
+  "hearts": 1,
+  "bonus": "refills stamina",
+  "sell": 18,
+  "where": "remote ponds, notably around West Necluda / Lake"
+ },
+ {
+  "name": "Fleet-Lotus Seeds",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Hasty",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 5,
+  "where": "Floating lotus plants in ponds/marshes"
+ },
+ {
+  "name": "Rushroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Hasty",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "On cliff walls / rock faces, especially Lanayru "
+ },
+ {
+  "name": "Swift Carrot",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Hasty",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 4,
+  "where": "Grown/sold around Kakariko and Hateno"
+ },
+ {
+  "name": "Swift Violet",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Hasty",
+  "potency": 2,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 10,
+  "where": "cliffsides: Ludfo's Bog, Thundra Plateau, Gerudo"
+ },
+ {
+  "name": "Big Hearty Radish",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Hearty",
+  "hearts": 4,
+  "bonus": "hearty:+5",
+  "sell": 15,
+  "where": "Satori Mountain and Hyrule Field"
+ },
+ {
+  "name": "Big Hearty Truffle",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Hearty",
+  "hearts": 3,
+  "bonus": "hearty:+16",
+  "sell": 15,
+  "where": "Rare"
+ },
+ {
+  "name": "Hearty Bass",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Hearty",
+  "bonus": "hearty:+2",
+  "sell": 18,
+  "where": "bodies of water across Hyrule, most common in We"
+ },
+ {
+  "name": "Hearty Blueshell Snail",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Hearty",
+  "bonus": "hearty:+3",
+  "sell": 15,
+  "where": "beaches and coastal rocks, especially the shore "
+ },
+ {
+  "name": "Hearty Durian",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Hearty",
+  "hearts": 3,
+  "bonus": "hearty:+4",
+  "sell": 15,
+  "where": "Faron jungle"
+ },
+ {
+  "name": "Hearty Radish",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Hearty",
+  "hearts": 2.5,
+  "bonus": "hearty:+3",
+  "sell": 8,
+  "where": "Hyrule Field, near Satori Mountain, Sanidin Park"
+ },
+ {
+  "name": "Hearty Salmon",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Hearty",
+  "bonus": "hearty:+4",
+  "sell": 10,
+  "where": "cold rivers/lakes of the Hebra Mountains and Tab"
+ },
+ {
+  "name": "Hearty Truffle",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Hearty",
+  "hearts": 2,
+  "bonus": "hearty:+4",
+  "sell": 6,
+  "where": "Shaded spots under cliffs/rocks, often near cave"
+ },
+ {
+  "name": "Mighty Bananas",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Mighty",
+  "potency": 2,
+  "hearts": 0.5,
+  "timeSec": 90,
+  "sell": 5,
+  "where": "Tropical Faron jungle and the Yiga Hideout"
+ },
+ {
+  "name": "Mighty Carp",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Mighty",
+  "potency": 2,
+  "hearts": 2,
+  "timeSec": 50,
+  "sell": 10,
+  "where": "rivers and lakes of Lanayru, e"
+ },
+ {
+  "name": "Mighty Thistle",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Mighty",
+  "potency": 2,
+  "timeSec": 90,
+  "sell": 5,
+  "where": "Spiky purple weed in Akkala, Eldin, Hebra"
+ },
+ {
+  "name": "Razorclaw Crab",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Mighty",
+  "potency": 2,
+  "hearts": 2,
+  "timeSec": 50,
+  "sell": 8,
+  "where": "beaches and riverbanks across Necluda and much o"
+ },
+ {
+  "name": "Razorshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Mighty",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 5,
+  "where": "Hyrule Ridge / Tabantha region"
+ },
+ {
+  "name": "Blue Nightshade",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Sneaky",
+  "potency": 1,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 4,
+  "where": "near Cotera's Great Fairy"
+ },
+ {
+  "name": "Silent Princess",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Sneaky",
+  "potency": 2,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 10,
+  "where": "Satori Mtn, Korok Forest, several Great Fairy fo"
+ },
+ {
+  "name": "Silent Shroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Sneaky",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "Grows at night"
+ },
+ {
+  "name": "Sneaky River Snail",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Sneaky",
+  "potency": 1,
+  "hearts": 2,
+  "sell": 6,
+  "where": "shores in West Necluda and the Lanayru Great Spr"
+ },
+ {
+  "name": "Stealthfin Trout",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Sneaky",
+  "potency": 2,
+  "hearts": 2,
+  "sell": 10,
+  "where": "Great Hyrule Forest and the Eldin region"
+ },
+ {
+  "name": "Sizzlefin Trout",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Spicy",
+  "potency": 3,
+  "hearts": 2,
+  "sell": 6,
+  "where": "hot-spring waters and lakes of the Eldin Mountai"
+ },
+ {
+  "name": "Spicy Pepper",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Spicy",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 3,
+  "where": "Eldin foothills, Necluda/Hyrule woods, near camp"
+ },
+ {
+  "name": "Sunshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Spicy",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 4,
+  "where": "Eldin / Death Mountain region"
+ },
+ {
+  "name": "Warm Safflina",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Spicy",
+  "potency": 1,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "Gerudo Desert"
+ },
+ {
+  "name": "Armoranth",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Tough",
+  "potency": 2,
+  "timeSec": 90,
+  "sell": 8,
+  "where": "Reddish leafy plant in Faron, Necluda, Hyrule Fi"
+ },
+ {
+  "name": "Armored Carp",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Tough",
+  "potency": 2,
+  "hearts": 2,
+  "timeSec": 50,
+  "sell": 10,
+  "where": "bodies of water around Hyrule, especially the La"
+ },
+ {
+  "name": "Fortified Pumpkin",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Tough",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 90,
+  "sell": 5,
+  "where": "Grown at Kakariko/Hateno gardens"
+ },
+ {
+  "name": "Ironshell Crab",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Tough",
+  "potency": 2,
+  "hearts": 2,
+  "timeSec": 50,
+  "sell": 8,
+  "where": "beaches and riverbanks across Necluda and Hyrule"
+ },
+ {
+  "name": "Ironshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Tough",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 5,
+  "where": "Akkala and Deep Akkala forests"
+ },
+ {
+  "name": "Acorn",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0.25,
+  "where": "drops from trees when chopped"
+ },
+ {
+  "name": "Apple",
+  "role": "neutral",
+  "cat": "fruit",
+  "effect": null,
+  "hearts": 0.5,
+  "sell": 3,
+  "where": "Everywhere"
+ },
+ {
+  "name": "Bird Egg",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 2,
+  "sell": 3,
+  "where": "bird nests in trees"
+ },
+ {
+  "name": "Cane Sugar",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0,
+  "sell": 3,
+  "where": "buy: general stores in Goron City / Rito Village"
+ },
+ {
+  "name": "Chickaloo Tree Nut",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0.25,
+  "sell": 3,
+  "where": "scattered plains/forests"
+ },
+ {
+  "name": "Fresh Milk",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 1,
+  "sell": 3,
+  "where": "buy: Hateno Village general store"
+ },
+ {
+  "name": "Goat Butter",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0,
+  "sell": 3,
+  "where": "buy: Rito Village / Kakariko / Hateno general st"
+ },
+ {
+  "name": "Goron Spice",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0,
+  "sell": 4,
+  "where": "buy: Goron City general store"
+ },
+ {
+  "name": "Hylian Rice",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 1,
+  "sell": 3,
+  "where": "cut grass in East Necluda"
+ },
+ {
+  "name": "Hylian Shroom",
+  "role": "neutral",
+  "cat": "mushroom",
+  "effect": null,
+  "hearts": 0.5,
+  "sell": 3,
+  "where": "Extremely common in forests/grasslands Hyrule-wi"
+ },
+ {
+  "name": "Hylian Tomato",
+  "role": "neutral",
+  "cat": "veg",
+  "effect": null,
+  "hearts": 1,
+  "sell": 4,
+  "where": "Central Hyrule fields, Hateno/Necluda"
+ },
+ {
+  "name": "Hyrule Bass",
+  "role": "neutral",
+  "cat": "fish",
+  "effect": null,
+  "hearts": 2,
+  "sell": 6,
+  "where": "rivers, ponds and coasts all over Hyrule"
+ },
+ {
+  "name": "Palm Fruit",
+  "role": "neutral",
+  "cat": "fruit",
+  "effect": null,
+  "hearts": 1,
+  "sell": 4,
+  "where": "Tropical Faron palm trees, Lurelin Village"
+ },
+ {
+  "name": "Raw Bird Drumstick",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 2,
+  "sell": 8,
+  "where": "Drops from pigeons, sparrows, seagulls and other"
+ },
+ {
+  "name": "Raw Bird Thigh",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 3,
+  "sell": 15,
+  "where": "Drops from hawks, larger pigeons and Eldin ostri"
+ },
+ {
+  "name": "Raw Gourmet Meat",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 6,
+  "sell": 35,
+  "where": "Rare drop from the largest animals"
+ },
+ {
+  "name": "Raw Meat",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 2,
+  "sell": 8,
+  "where": "Drops from boars, foxes, deer and other low-tier"
+ },
+ {
+  "name": "Raw Prime Meat",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 3,
+  "sell": 15,
+  "where": "Drops from water buffalo, mountain goats and lar"
+ },
+ {
+  "name": "Raw Whole Bird",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 6,
+  "sell": 35,
+  "where": "Drops from White Pigeons and Eldin Ostriches"
+ },
+ {
+  "name": "Rock Salt",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0,
+  "sell": 2,
+  "where": "mined from ore/rock deposits in caves & mountain"
+ },
+ {
+  "name": "Sanke Carp",
+  "role": "neutral",
+  "cat": "fish",
+  "effect": null,
+  "hearts": 2,
+  "sell": 20,
+  "where": "the pool around Impa's Hall"
+ },
+ {
+  "name": "Tabantha Wheat",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 1,
+  "sell": 3,
+  "where": "cut grass around Tabantha/Rito"
+ },
+ {
+  "name": "Wildberry",
+  "role": "neutral",
+  "cat": "fruit",
+  "effect": null,
+  "hearts": 0.5,
+  "sell": 3,
+  "where": "Bushes in hilly/forest regions"
+ },
+ {
+  "name": "Cold Darner",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Chilly",
+  "potency": 2,
+  "sell": 2,
+  "where": "Cool highland and snow-edge grass"
+ },
+ {
+  "name": "Winterwing Butterfly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Chilly",
+  "potency": 1,
+  "sell": 2,
+  "where": "Cold/snowy areas"
+ },
+ {
+  "name": "Electric Darner",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Electro",
+  "potency": 2,
+  "sell": 2,
+  "where": "Stormy / desert-edge areas"
+ },
+ {
+  "name": "Thunderwing Butterfly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Electro",
+  "potency": 1,
+  "sell": 2,
+  "where": "Gerudo Desert / Thundra Plateau and stormy Hyrul"
+ },
+ {
+  "name": "Tireless Frog",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Enduring",
+  "potency": 2,
+  "hearts": 3,
+  "bonus": "+ stamina wheel",
+  "sell": 20,
+  "where": "Near water in Lanayru, Hyrule Ridge, and the Nec"
+ },
+ {
+  "name": "Energetic Rhino Beetle",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Energizing",
+  "potency": 6,
+  "bonus": "refills stamina",
+  "sell": 30,
+  "where": "On tree trunks at night/early morning in Faron, "
+ },
+ {
+  "name": "Restless Cricket",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Energizing",
+  "potency": 1,
+  "bonus": "refills stamina",
+  "sell": 2,
+  "where": "In grass across Hyrule"
+ },
+ {
+  "name": "Fireproof Lizard",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Fireproof",
+  "potency": 1,
+  "sell": 5,
+  "where": "Death Mountain / Eldin"
+ },
+ {
+  "name": "Smotherwing Butterfly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Fireproof",
+  "potency": 2,
+  "sell": 2,
+  "where": "Death Mountain / Eldin"
+ },
+ {
+  "name": "Hightail Lizard",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Hasty",
+  "potency": 1,
+  "sell": 2,
+  "where": "On trees/grass in warmer regions"
+ },
+ {
+  "name": "Hot-Footed Frog",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Hasty",
+  "potency": 2,
+  "sell": 2,
+  "where": "Near ponds/waterfalls in Lanayru"
+ },
+ {
+  "name": "Hearty Lizard",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Hearty",
+  "bonus": "hearty:+4",
+  "sell": 20,
+  "where": "On palm trees in Gerudo Desert and along the Nec"
+ },
+ {
+  "name": "Bladed Rhino Beetle",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Mighty",
+  "potency": 1,
+  "sell": 4,
+  "where": "On tree trunks at night in Central Hyrule / Hyru"
+ },
+ {
+  "name": "Sunset Firefly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Sneaky",
+  "potency": 1,
+  "sell": 2,
+  "where": "Glowing at night near water/grass in many region"
+ },
+ {
+  "name": "Summerwing Butterfly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Spicy",
+  "potency": 1,
+  "sell": 2,
+  "where": "Warm grasslands"
+ },
+ {
+  "name": "Warm Darner",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Spicy",
+  "potency": 2,
+  "sell": 2,
+  "where": "Warm/temperate grasslands"
+ },
+ {
+  "name": "Rugged Rhino Beetle",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Tough",
+  "potency": 1,
+  "sell": 4,
+  "where": "On tree trunks at night in Faron / Lanayru and H"
+ },
+ {
+  "name": "Bokoblin Fang",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 3,
+  "where": "Dropped by Bokoblins"
+ },
+ {
+  "name": "Bokoblin Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 20,
+  "where": "Rarer Bokoblin drop"
+ },
+ {
+  "name": "Bokoblin Horn",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 3,
+  "where": "Dropped by red/common Bokoblins everywhere"
+ },
+ {
+  "name": "Chuchu Jelly",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 5,
+  "where": "Dropped by Chuchus"
+ },
+ {
+  "name": "Hinox Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 80,
+  "where": "Dropped by Hinox"
+ },
+ {
+  "name": "Hinox Toenail",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 20,
+  "where": "Dropped by Hinox"
+ },
+ {
+  "name": "Keese Eyeball",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 20,
+  "where": "Rarer Keese drop"
+ },
+ {
+  "name": "Keese Wing",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 3,
+  "where": "Dropped by Keese"
+ },
+ {
+  "name": "Lizalfos Horn",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 10,
+  "where": "Dropped by Lizalfos"
+ },
+ {
+  "name": "Lizalfos Tail",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 28,
+  "where": "Rarer Lizalfos drop"
+ },
+ {
+  "name": "Lizalfos Talon",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 8,
+  "where": "Dropped by Lizalfos"
+ },
+ {
+  "name": "Lynel Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 200,
+  "where": "Rare Lynel drop"
+ },
+ {
+  "name": "Lynel Hoof",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 50,
+  "where": "Dropped by Lynels"
+ },
+ {
+  "name": "Lynel Horn",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 40,
+  "where": "Dropped by Lynels"
+ },
+ {
+  "name": "Moblin Fang",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 8,
+  "where": "Dropped by Moblins"
+ },
+ {
+  "name": "Moblin Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 25,
+  "where": "Rarer Moblin drop"
+ },
+ {
+  "name": "Moblin Horn",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 5,
+  "where": "Dropped by Moblins"
+ },
+ {
+  "name": "Molduga Fin",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 30,
+  "where": "Dropped by the four Molduga"
+ },
+ {
+  "name": "Molduga Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 110,
+  "where": "Dropped by Molduga"
+ },
+ {
+  "name": "Octorok Eyeball",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 25,
+  "where": "Rarer Octorok drop"
+ },
+ {
+  "name": "Octorok Tentacle",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 5,
+  "where": "Dropped by Octoroks"
+ },
+ {
+  "name": "Dinraal's Claw",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 210,
+  "bonus": "guaranteed crit",
+  "sell": 180,
+  "where": "Shoot Dinraal's claws/legs as it flies over Eldi"
+ },
+ {
+  "name": "Dinraal's Scale",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 90,
+  "bonus": "guaranteed crit",
+  "sell": 150,
+  "where": "Shoot Dinraal"
+ },
+ {
+  "name": "Farosh's Claw",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 210,
+  "bonus": "guaranteed crit",
+  "sell": 180,
+  "where": "Shoot Farosh's claws/legs around Lake Hylia"
+ },
+ {
+  "name": "Farosh's Scale",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 90,
+  "bonus": "guaranteed crit",
+  "sell": 150,
+  "where": "Shoot Farosh"
+ },
+ {
+  "name": "Naydra's Claw",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 210,
+  "bonus": "guaranteed crit",
+  "sell": 180,
+  "where": "Shoot Naydra's claws/legs around Mount Lanayru"
+ },
+ {
+  "name": "Naydra's Scale",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 90,
+  "bonus": "guaranteed crit",
+  "sell": 150,
+  "where": "Shoot Naydra"
+ },
+ {
+  "name": "Shard of Dinraal's Fang",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 630,
+  "bonus": "guaranteed crit",
+  "sell": 250,
+  "where": "Shoot Dinraal in the mouth as it flies over Eldi"
+ },
+ {
+  "name": "Shard of Dinraal's Horn",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 1800,
+  "bonus": "maxes 30:00 · guaranteed crit",
+  "sell": 300,
+  "where": "Shoot Dinraal's horns as it flies over Eldin"
+ },
+ {
+  "name": "Shard of Farosh's Fang",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 630,
+  "bonus": "guaranteed crit",
+  "sell": 250,
+  "where": "Shoot Farosh in the mouth around Lake Hylia"
+ },
+ {
+  "name": "Shard of Farosh's Horn",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 1800,
+  "bonus": "maxes 30:00 · guaranteed crit",
+  "sell": 300,
+  "where": "Shoot Farosh's horns around Lake Hylia"
+ },
+ {
+  "name": "Shard of Naydra's Fang",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 630,
+  "bonus": "guaranteed crit",
+  "sell": 250,
+  "where": "Shoot Naydra in the mouth around Mount Lanayru"
+ },
+ {
+  "name": "Shard of Naydra's Horn",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 1800,
+  "bonus": "maxes 30:00 · guaranteed crit",
+  "sell": 300,
+  "where": "Shoot Naydra's horns around Mount Lanayru"
+ },
+ {
+  "name": "Fairy",
+  "role": "special",
+  "cat": "other",
+  "effect": null,
+  "bonus": "heal tonic",
+  "sell": 2,
+  "where": "Great Fairy Fountains and hidden spots"
+ },
+ {
+  "name": "Monster Extract",
+  "role": "special",
+  "cat": "other",
+  "effect": null,
+  "bonus": "randomizes · cancels crit",
+  "sell": 3,
+  "where": "Reward/drop"
+ },
+ {
+  "name": "Star Fragment",
+  "role": "special",
+  "cat": "other",
+  "effect": null,
+  "bonus": "guaranteed crit",
+  "sell": 300,
+  "where": "Falls as a shooting star at night"
+ }
+];
 const TOTK = {
  "id": "totk",
  "label": "Tears of the Kingdom",
@@ -9546,5 +11021,5 @@ const TOTK = {
  "KOROKS": null,
  "MAP_BEASTS": []
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK };
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK };
 /* GEN:DATA:END */

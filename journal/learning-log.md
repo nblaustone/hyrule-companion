@@ -5,6 +5,41 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-16 — v10: the interactive cooking tool (research → build)
+
+- **The user found the wedge by feel, not features.** After I floated a feature menu and a "three souls" reframe
+  (both missed), the user landed on "make the cooking thing way more interactive and very useful." Lesson banked:
+  this user reaches the right idea through *feeling* and rejection — give vivid concrete things to push against,
+  don't list. Cooking was the perfect target: it's the one system BotW refuses to explain.
+- **Research first, as asked.** Two workflows: (1) **player-pain study** — 6 angles (Reddit, GameFAQs, UX
+  critiques, existing calculators) → ranked spec. Unambiguous: #1 pain is **opacity** (raw ingredients hide their
+  effect symbol — "the most baffling design choice"), worst hurt is **silent waste** (mixing 2 effects cancels
+  both, no refund), no in-game cookbook, elixirs an unexplained 2nd system, Spicy/Chilly backwards. (2) a sourced
+  **120-ingredient table** — 8 categories × finder→adversarial-verifier, web-checked → `cooking-ingredients.json`.
+  Key realization that de-risked everything: the *most-painful* pains need correct **logic**, not exact numbers —
+  so the tool can be bulletproof where it matters and honest (`≈`) where it estimates.
+- **The build.** `CookView` (5 modes: Make / I need… / Ingredients / Cookbook / Rules) over a pure, deterministic
+  `cookResult(items)` engine. The differentiator is the **guardrails** — real-time warnings the calculators skip:
+  effect-cancel, critter-needs-monster-part, monster-part-in-food→Dubious, Monster-Extract-kills-crit, past-max-
+  tier, Hearty +25 cap, Fireproof-is-elixir-only. Verified in-browser: 5 Big Hearty Radish → "full heal + 25
+  bonus" (exact cap); 4 Mighty Bananas + Dinraal's Claw → "Mighty Lv 3 (max) + crit"; Fireproof Lizard alone →
+  "add a monster part"; mixing Spicy + Hearty → "two effects cancel". 0 live console errors.
+- **Data wiring + honesty.** `assemble-cooking.mjs` reconciles the workflow output (the verifiers had reinterpreted
+  fields — e.g. Hearty's "potency" = yellow-heart count, "hearts" = raw not cooked): it normalizes effects to the
+  11 buffs, re-encodes Hearty yellow-hearts as a `hearty:+N` bonus the engine parses, tags dragon (effect=null
+  duration+crit boosters) / special semantics, shortens locations, dedups, and refuses to write unless all 11
+  effects are present. Then `inline-data.mjs` inlines it → `COOK_INGREDIENTS` in `GEN:DATA`, exposed per-game on
+  `GAMES.botw` (so TotK's is absent → `CookView` falls back to `CookReference`, verified no crash).
+- **Two gotchas:** (1) had a stray `)` in the first dataset-workflow's pipeline verifier line (`[] }),` vs `[] },`)
+  — the Workflow tool rejects with a JS parse error before running; fix and resubmit. (2) Moving `COOK_INGREDIENTS`
+  from a hand-authored placeholder const into `GEN:DATA` means you MUST delete the placeholder first or you get a
+  duplicate-const error — spliced it out by bracket-matching, then added the json to `inline-data`'s data map.
+- **Honest-over-perfect, again:** rejected an LLM recipe generator (the popular AI cooking tools hallucinate combos
+  — breaks law #1) and a frame-perfect calculator (BotW's hearts/duration math has finicky edges); the engine is
+  deterministic on the logic and labels hearts/duration with `≈`. (ADR 0007.)
+
+---
+
 ## 2026-06-16 — v9: polish one companion (joy · resume · progressive spoiler · "Stuck?" hints)
 
 - **The brainstorm landed on restraint.** A long Claude.ai session kept proposing bigger architecture (a 3-lens

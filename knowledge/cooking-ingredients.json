@@ -1,0 +1,1166 @@
+[
+ {
+  "name": "Chillfin Trout",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Chilly",
+  "potency": 3,
+  "hearts": 2,
+  "sell": 6,
+  "where": "cold waters of the Hebra Mountains and Tabantha "
+ },
+ {
+  "name": "Chillshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Chilly",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 5,
+  "where": "Cold climates: Hateno Tower region"
+ },
+ {
+  "name": "Cool Safflina",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Chilly",
+  "potency": 1,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "Hebra Mtns / Gerudo Highlands snowy peaks"
+ },
+ {
+  "name": "Hydromelon",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Chilly",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 4,
+  "where": "Gerudo Desert"
+ },
+ {
+  "name": "Electric Safflina",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Electro",
+  "potency": 1,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "Gerudo Desert dunes / around Gerudo Town"
+ },
+ {
+  "name": "Voltfin Trout",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Electro",
+  "potency": 3,
+  "hearts": 2,
+  "sell": 6,
+  "where": "waters of Hyrule Ridge and the Tabantha Frontier"
+ },
+ {
+  "name": "Voltfruit",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Electro",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 4,
+  "where": "Gerudo Desert on cactus-like plants near oases"
+ },
+ {
+  "name": "Zapshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Electro",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 4,
+  "where": "Gerudo Highlands and Deep Akkala"
+ },
+ {
+  "name": "Endura Carrot",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Enduring",
+  "potency": 2,
+  "hearts": 2,
+  "bonus": "+ stamina wheel",
+  "sell": 30,
+  "where": "Satori Mountain / Malanya Spring"
+ },
+ {
+  "name": "Endura Shroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Enduring",
+  "potency": 1,
+  "hearts": 1,
+  "bonus": "+ stamina wheel",
+  "sell": 24,
+  "where": "Hyrule Ridge"
+ },
+ {
+  "name": "Bright-Eyed Crab",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Energizing",
+  "potency": 2,
+  "hearts": 1,
+  "bonus": "refills stamina",
+  "sell": 10,
+  "where": "beaches and riverbanks across Necluda and Hyrule"
+ },
+ {
+  "name": "Stamella Shroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Energizing",
+  "potency": 1,
+  "hearts": 0.5,
+  "bonus": "refills stamina",
+  "sell": 5,
+  "where": "Forests across Hyrule"
+ },
+ {
+  "name": "Staminoka Bass",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Energizing",
+  "hearts": 1,
+  "bonus": "refills stamina",
+  "sell": 18,
+  "where": "remote ponds, notably around West Necluda / Lake"
+ },
+ {
+  "name": "Fleet-Lotus Seeds",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Hasty",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 5,
+  "where": "Floating lotus plants in ponds/marshes"
+ },
+ {
+  "name": "Rushroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Hasty",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "On cliff walls / rock faces, especially Lanayru "
+ },
+ {
+  "name": "Swift Carrot",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Hasty",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 4,
+  "where": "Grown/sold around Kakariko and Hateno"
+ },
+ {
+  "name": "Swift Violet",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Hasty",
+  "potency": 2,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 10,
+  "where": "cliffsides: Ludfo's Bog, Thundra Plateau, Gerudo"
+ },
+ {
+  "name": "Big Hearty Radish",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Hearty",
+  "hearts": 4,
+  "bonus": "hearty:+5",
+  "sell": 15,
+  "where": "Satori Mountain and Hyrule Field"
+ },
+ {
+  "name": "Big Hearty Truffle",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Hearty",
+  "hearts": 3,
+  "bonus": "hearty:+16",
+  "sell": 15,
+  "where": "Rare"
+ },
+ {
+  "name": "Hearty Bass",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Hearty",
+  "bonus": "hearty:+2",
+  "sell": 18,
+  "where": "bodies of water across Hyrule, most common in We"
+ },
+ {
+  "name": "Hearty Blueshell Snail",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Hearty",
+  "bonus": "hearty:+3",
+  "sell": 15,
+  "where": "beaches and coastal rocks, especially the shore "
+ },
+ {
+  "name": "Hearty Durian",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Hearty",
+  "hearts": 3,
+  "bonus": "hearty:+4",
+  "sell": 15,
+  "where": "Faron jungle"
+ },
+ {
+  "name": "Hearty Radish",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Hearty",
+  "hearts": 2.5,
+  "bonus": "hearty:+3",
+  "sell": 8,
+  "where": "Hyrule Field, near Satori Mountain, Sanidin Park"
+ },
+ {
+  "name": "Hearty Salmon",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Hearty",
+  "bonus": "hearty:+4",
+  "sell": 10,
+  "where": "cold rivers/lakes of the Hebra Mountains and Tab"
+ },
+ {
+  "name": "Hearty Truffle",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Hearty",
+  "hearts": 2,
+  "bonus": "hearty:+4",
+  "sell": 6,
+  "where": "Shaded spots under cliffs/rocks, often near cave"
+ },
+ {
+  "name": "Mighty Bananas",
+  "role": "effect",
+  "cat": "fruit",
+  "effect": "Mighty",
+  "potency": 2,
+  "hearts": 0.5,
+  "timeSec": 90,
+  "sell": 5,
+  "where": "Tropical Faron jungle and the Yiga Hideout"
+ },
+ {
+  "name": "Mighty Carp",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Mighty",
+  "potency": 2,
+  "hearts": 2,
+  "timeSec": 50,
+  "sell": 10,
+  "where": "rivers and lakes of Lanayru, e"
+ },
+ {
+  "name": "Mighty Thistle",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Mighty",
+  "potency": 2,
+  "timeSec": 90,
+  "sell": 5,
+  "where": "Spiky purple weed in Akkala, Eldin, Hebra"
+ },
+ {
+  "name": "Razorclaw Crab",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Mighty",
+  "potency": 2,
+  "hearts": 2,
+  "timeSec": 50,
+  "sell": 8,
+  "where": "beaches and riverbanks across Necluda and much o"
+ },
+ {
+  "name": "Razorshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Mighty",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 5,
+  "where": "Hyrule Ridge / Tabantha region"
+ },
+ {
+  "name": "Blue Nightshade",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Sneaky",
+  "potency": 1,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 4,
+  "where": "near Cotera's Great Fairy"
+ },
+ {
+  "name": "Silent Princess",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Sneaky",
+  "potency": 2,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 10,
+  "where": "Satori Mtn, Korok Forest, several Great Fairy fo"
+ },
+ {
+  "name": "Silent Shroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Sneaky",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "Grows at night"
+ },
+ {
+  "name": "Sneaky River Snail",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Sneaky",
+  "potency": 1,
+  "hearts": 2,
+  "sell": 6,
+  "where": "shores in West Necluda and the Lanayru Great Spr"
+ },
+ {
+  "name": "Stealthfin Trout",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Sneaky",
+  "potency": 2,
+  "hearts": 2,
+  "sell": 10,
+  "where": "Great Hyrule Forest and the Eldin region"
+ },
+ {
+  "name": "Sizzlefin Trout",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Spicy",
+  "potency": 3,
+  "hearts": 2,
+  "sell": 6,
+  "where": "hot-spring waters and lakes of the Eldin Mountai"
+ },
+ {
+  "name": "Spicy Pepper",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Spicy",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 150,
+  "sell": 3,
+  "where": "Eldin foothills, Necluda/Hyrule woods, near camp"
+ },
+ {
+  "name": "Sunshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Spicy",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 4,
+  "where": "Eldin / Death Mountain region"
+ },
+ {
+  "name": "Warm Safflina",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Spicy",
+  "potency": 1,
+  "hearts": 0,
+  "timeSec": 30,
+  "sell": 3,
+  "where": "Gerudo Desert"
+ },
+ {
+  "name": "Armoranth",
+  "role": "effect",
+  "cat": "herb",
+  "effect": "Tough",
+  "potency": 2,
+  "timeSec": 90,
+  "sell": 8,
+  "where": "Reddish leafy plant in Faron, Necluda, Hyrule Fi"
+ },
+ {
+  "name": "Armored Carp",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Tough",
+  "potency": 2,
+  "hearts": 2,
+  "timeSec": 50,
+  "sell": 10,
+  "where": "bodies of water around Hyrule, especially the La"
+ },
+ {
+  "name": "Fortified Pumpkin",
+  "role": "effect",
+  "cat": "veg",
+  "effect": "Tough",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 90,
+  "sell": 5,
+  "where": "Grown at Kakariko/Hateno gardens"
+ },
+ {
+  "name": "Ironshell Crab",
+  "role": "effect",
+  "cat": "fish",
+  "effect": "Tough",
+  "potency": 2,
+  "hearts": 2,
+  "timeSec": 50,
+  "sell": 8,
+  "where": "beaches and riverbanks across Necluda and Hyrule"
+ },
+ {
+  "name": "Ironshroom",
+  "role": "effect",
+  "cat": "mushroom",
+  "effect": "Tough",
+  "potency": 1,
+  "hearts": 0.5,
+  "timeSec": 30,
+  "sell": 5,
+  "where": "Akkala and Deep Akkala forests"
+ },
+ {
+  "name": "Acorn",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0.25,
+  "where": "drops from trees when chopped"
+ },
+ {
+  "name": "Apple",
+  "role": "neutral",
+  "cat": "fruit",
+  "effect": null,
+  "hearts": 0.5,
+  "sell": 3,
+  "where": "Everywhere"
+ },
+ {
+  "name": "Bird Egg",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 2,
+  "sell": 3,
+  "where": "bird nests in trees"
+ },
+ {
+  "name": "Cane Sugar",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0,
+  "sell": 3,
+  "where": "buy: general stores in Goron City / Rito Village"
+ },
+ {
+  "name": "Chickaloo Tree Nut",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0.25,
+  "sell": 3,
+  "where": "scattered plains/forests"
+ },
+ {
+  "name": "Fresh Milk",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 1,
+  "sell": 3,
+  "where": "buy: Hateno Village general store"
+ },
+ {
+  "name": "Goat Butter",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0,
+  "sell": 3,
+  "where": "buy: Rito Village / Kakariko / Hateno general st"
+ },
+ {
+  "name": "Goron Spice",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0,
+  "sell": 4,
+  "where": "buy: Goron City general store"
+ },
+ {
+  "name": "Hylian Rice",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 1,
+  "sell": 3,
+  "where": "cut grass in East Necluda"
+ },
+ {
+  "name": "Hylian Shroom",
+  "role": "neutral",
+  "cat": "mushroom",
+  "effect": null,
+  "hearts": 0.5,
+  "sell": 3,
+  "where": "Extremely common in forests/grasslands Hyrule-wi"
+ },
+ {
+  "name": "Hylian Tomato",
+  "role": "neutral",
+  "cat": "veg",
+  "effect": null,
+  "hearts": 1,
+  "sell": 4,
+  "where": "Central Hyrule fields, Hateno/Necluda"
+ },
+ {
+  "name": "Hyrule Bass",
+  "role": "neutral",
+  "cat": "fish",
+  "effect": null,
+  "hearts": 2,
+  "sell": 6,
+  "where": "rivers, ponds and coasts all over Hyrule"
+ },
+ {
+  "name": "Palm Fruit",
+  "role": "neutral",
+  "cat": "fruit",
+  "effect": null,
+  "hearts": 1,
+  "sell": 4,
+  "where": "Tropical Faron palm trees, Lurelin Village"
+ },
+ {
+  "name": "Raw Bird Drumstick",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 2,
+  "sell": 8,
+  "where": "Drops from pigeons, sparrows, seagulls and other"
+ },
+ {
+  "name": "Raw Bird Thigh",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 3,
+  "sell": 15,
+  "where": "Drops from hawks, larger pigeons and Eldin ostri"
+ },
+ {
+  "name": "Raw Gourmet Meat",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 6,
+  "sell": 35,
+  "where": "Rare drop from the largest animals"
+ },
+ {
+  "name": "Raw Meat",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 2,
+  "sell": 8,
+  "where": "Drops from boars, foxes, deer and other low-tier"
+ },
+ {
+  "name": "Raw Prime Meat",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 3,
+  "sell": 15,
+  "where": "Drops from water buffalo, mountain goats and lar"
+ },
+ {
+  "name": "Raw Whole Bird",
+  "role": "neutral",
+  "cat": "meat",
+  "effect": null,
+  "hearts": 6,
+  "sell": 35,
+  "where": "Drops from White Pigeons and Eldin Ostriches"
+ },
+ {
+  "name": "Rock Salt",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 0,
+  "sell": 2,
+  "where": "mined from ore/rock deposits in caves & mountain"
+ },
+ {
+  "name": "Sanke Carp",
+  "role": "neutral",
+  "cat": "fish",
+  "effect": null,
+  "hearts": 2,
+  "sell": 20,
+  "where": "the pool around Impa's Hall"
+ },
+ {
+  "name": "Tabantha Wheat",
+  "role": "neutral",
+  "cat": "other",
+  "effect": null,
+  "hearts": 1,
+  "sell": 3,
+  "where": "cut grass around Tabantha/Rito"
+ },
+ {
+  "name": "Wildberry",
+  "role": "neutral",
+  "cat": "fruit",
+  "effect": null,
+  "hearts": 0.5,
+  "sell": 3,
+  "where": "Bushes in hilly/forest regions"
+ },
+ {
+  "name": "Cold Darner",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Chilly",
+  "potency": 2,
+  "sell": 2,
+  "where": "Cool highland and snow-edge grass"
+ },
+ {
+  "name": "Winterwing Butterfly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Chilly",
+  "potency": 1,
+  "sell": 2,
+  "where": "Cold/snowy areas"
+ },
+ {
+  "name": "Electric Darner",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Electro",
+  "potency": 2,
+  "sell": 2,
+  "where": "Stormy / desert-edge areas"
+ },
+ {
+  "name": "Thunderwing Butterfly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Electro",
+  "potency": 1,
+  "sell": 2,
+  "where": "Gerudo Desert / Thundra Plateau and stormy Hyrul"
+ },
+ {
+  "name": "Tireless Frog",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Enduring",
+  "potency": 2,
+  "hearts": 3,
+  "bonus": "+ stamina wheel",
+  "sell": 20,
+  "where": "Near water in Lanayru, Hyrule Ridge, and the Nec"
+ },
+ {
+  "name": "Energetic Rhino Beetle",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Energizing",
+  "potency": 6,
+  "bonus": "refills stamina",
+  "sell": 30,
+  "where": "On tree trunks at night/early morning in Faron, "
+ },
+ {
+  "name": "Restless Cricket",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Energizing",
+  "potency": 1,
+  "bonus": "refills stamina",
+  "sell": 2,
+  "where": "In grass across Hyrule"
+ },
+ {
+  "name": "Fireproof Lizard",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Fireproof",
+  "potency": 1,
+  "sell": 5,
+  "where": "Death Mountain / Eldin"
+ },
+ {
+  "name": "Smotherwing Butterfly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Fireproof",
+  "potency": 2,
+  "sell": 2,
+  "where": "Death Mountain / Eldin"
+ },
+ {
+  "name": "Hightail Lizard",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Hasty",
+  "potency": 1,
+  "sell": 2,
+  "where": "On trees/grass in warmer regions"
+ },
+ {
+  "name": "Hot-Footed Frog",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Hasty",
+  "potency": 2,
+  "sell": 2,
+  "where": "Near ponds/waterfalls in Lanayru"
+ },
+ {
+  "name": "Hearty Lizard",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Hearty",
+  "bonus": "hearty:+4",
+  "sell": 20,
+  "where": "On palm trees in Gerudo Desert and along the Nec"
+ },
+ {
+  "name": "Bladed Rhino Beetle",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Mighty",
+  "potency": 1,
+  "sell": 4,
+  "where": "On tree trunks at night in Central Hyrule / Hyru"
+ },
+ {
+  "name": "Sunset Firefly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Sneaky",
+  "potency": 1,
+  "sell": 2,
+  "where": "Glowing at night near water/grass in many region"
+ },
+ {
+  "name": "Summerwing Butterfly",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Spicy",
+  "potency": 1,
+  "sell": 2,
+  "where": "Warm grasslands"
+ },
+ {
+  "name": "Warm Darner",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Spicy",
+  "potency": 2,
+  "sell": 2,
+  "where": "Warm/temperate grasslands"
+ },
+ {
+  "name": "Rugged Rhino Beetle",
+  "role": "critter",
+  "cat": "critter",
+  "effect": "Tough",
+  "potency": 1,
+  "sell": 4,
+  "where": "On tree trunks at night in Faron / Lanayru and H"
+ },
+ {
+  "name": "Bokoblin Fang",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 3,
+  "where": "Dropped by Bokoblins"
+ },
+ {
+  "name": "Bokoblin Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 20,
+  "where": "Rarer Bokoblin drop"
+ },
+ {
+  "name": "Bokoblin Horn",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 3,
+  "where": "Dropped by red/common Bokoblins everywhere"
+ },
+ {
+  "name": "Chuchu Jelly",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 5,
+  "where": "Dropped by Chuchus"
+ },
+ {
+  "name": "Hinox Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 80,
+  "where": "Dropped by Hinox"
+ },
+ {
+  "name": "Hinox Toenail",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 20,
+  "where": "Dropped by Hinox"
+ },
+ {
+  "name": "Keese Eyeball",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 20,
+  "where": "Rarer Keese drop"
+ },
+ {
+  "name": "Keese Wing",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 3,
+  "where": "Dropped by Keese"
+ },
+ {
+  "name": "Lizalfos Horn",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 10,
+  "where": "Dropped by Lizalfos"
+ },
+ {
+  "name": "Lizalfos Tail",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 28,
+  "where": "Rarer Lizalfos drop"
+ },
+ {
+  "name": "Lizalfos Talon",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 8,
+  "where": "Dropped by Lizalfos"
+ },
+ {
+  "name": "Lynel Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 200,
+  "where": "Rare Lynel drop"
+ },
+ {
+  "name": "Lynel Hoof",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 50,
+  "where": "Dropped by Lynels"
+ },
+ {
+  "name": "Lynel Horn",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 40,
+  "where": "Dropped by Lynels"
+ },
+ {
+  "name": "Moblin Fang",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 8,
+  "where": "Dropped by Moblins"
+ },
+ {
+  "name": "Moblin Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 25,
+  "where": "Rarer Moblin drop"
+ },
+ {
+  "name": "Moblin Horn",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 5,
+  "where": "Dropped by Moblins"
+ },
+ {
+  "name": "Molduga Fin",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 30,
+  "where": "Dropped by the four Molduga"
+ },
+ {
+  "name": "Molduga Guts",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 160,
+  "sell": 110,
+  "where": "Dropped by Molduga"
+ },
+ {
+  "name": "Octorok Eyeball",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 80,
+  "sell": 25,
+  "where": "Rarer Octorok drop"
+ },
+ {
+  "name": "Octorok Tentacle",
+  "role": "monster",
+  "cat": "monster",
+  "effect": null,
+  "timeSec": 40,
+  "sell": 5,
+  "where": "Dropped by Octoroks"
+ },
+ {
+  "name": "Dinraal's Claw",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 210,
+  "bonus": "guaranteed crit",
+  "sell": 180,
+  "where": "Shoot Dinraal's claws/legs as it flies over Eldi"
+ },
+ {
+  "name": "Dinraal's Scale",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 90,
+  "bonus": "guaranteed crit",
+  "sell": 150,
+  "where": "Shoot Dinraal"
+ },
+ {
+  "name": "Farosh's Claw",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 210,
+  "bonus": "guaranteed crit",
+  "sell": 180,
+  "where": "Shoot Farosh's claws/legs around Lake Hylia"
+ },
+ {
+  "name": "Farosh's Scale",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 90,
+  "bonus": "guaranteed crit",
+  "sell": 150,
+  "where": "Shoot Farosh"
+ },
+ {
+  "name": "Naydra's Claw",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 210,
+  "bonus": "guaranteed crit",
+  "sell": 180,
+  "where": "Shoot Naydra's claws/legs around Mount Lanayru"
+ },
+ {
+  "name": "Naydra's Scale",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 90,
+  "bonus": "guaranteed crit",
+  "sell": 150,
+  "where": "Shoot Naydra"
+ },
+ {
+  "name": "Shard of Dinraal's Fang",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 630,
+  "bonus": "guaranteed crit",
+  "sell": 250,
+  "where": "Shoot Dinraal in the mouth as it flies over Eldi"
+ },
+ {
+  "name": "Shard of Dinraal's Horn",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 1800,
+  "bonus": "maxes 30:00 · guaranteed crit",
+  "sell": 300,
+  "where": "Shoot Dinraal's horns as it flies over Eldin"
+ },
+ {
+  "name": "Shard of Farosh's Fang",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 630,
+  "bonus": "guaranteed crit",
+  "sell": 250,
+  "where": "Shoot Farosh in the mouth around Lake Hylia"
+ },
+ {
+  "name": "Shard of Farosh's Horn",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 1800,
+  "bonus": "maxes 30:00 · guaranteed crit",
+  "sell": 300,
+  "where": "Shoot Farosh's horns around Lake Hylia"
+ },
+ {
+  "name": "Shard of Naydra's Fang",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 630,
+  "bonus": "guaranteed crit",
+  "sell": 250,
+  "where": "Shoot Naydra in the mouth around Mount Lanayru"
+ },
+ {
+  "name": "Shard of Naydra's Horn",
+  "role": "dragon",
+  "cat": "dragon",
+  "effect": null,
+  "timeSec": 1800,
+  "bonus": "maxes 30:00 · guaranteed crit",
+  "sell": 300,
+  "where": "Shoot Naydra's horns around Mount Lanayru"
+ },
+ {
+  "name": "Fairy",
+  "role": "special",
+  "cat": "other",
+  "effect": null,
+  "bonus": "heal tonic",
+  "sell": 2,
+  "where": "Great Fairy Fountains and hidden spots"
+ },
+ {
+  "name": "Monster Extract",
+  "role": "special",
+  "cat": "other",
+  "effect": null,
+  "bonus": "randomizes · cancels crit",
+  "sell": 3,
+  "where": "Reward/drop"
+ },
+ {
+  "name": "Star Fragment",
+  "role": "special",
+  "cat": "other",
+  "effect": null,
+  "bonus": "guaranteed crit",
+  "sell": 300,
+  "where": "Falls as a shooting star at night"
+ }
+]

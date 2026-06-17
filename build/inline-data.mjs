@@ -24,6 +24,7 @@ const data = {
   KOROKS: noNotes(K("koroks.json")),
   WORLD: noNotes(K("world.json")),
   REGION_MAPS: K("region-maps.json"),
+  COOK_INGREDIENTS: K("cooking-ingredients.json"),
 };
 
 // TotK bundle (optional — present once build/assemble-totk.mjs has run)
@@ -38,7 +39,7 @@ try {
 const BOTW_GAME =
   `const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", ` +
   `REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, ` +
-  `RUNES, TIPS, COOK_RULES, RECIPES, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, ` +
+  `RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, ` +
   `terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, ` +
   `guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["world","World"],["settings","Settings"]], ` +
   `postRegionId:"destroy_ganon" }${totkInGames} };`;
