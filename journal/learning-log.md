@@ -67,6 +67,19 @@ re-make a rejected one. Newest at top.
   Confirmed *correct* and left alone: m_l6 ("southeast of Serenne Stable" checks out), m_l2/4/8/10/12/13.
   **Lesson:** the original v1–v4 hand-authored walkthrough predates the honesty gate and carries unsourced
   geography — worth a broader audit of the non-memory regions' route claims with the same rigor before OoT.
+- **Full walkthrough honesty audit (the broader sweep).** Ran it: `gen-audit-workflow.mjs` → 9 non-memory
+  regions × (finder → adversarial verifier), web-sourced, 18 agents / 552K tokens. Deliberately conservative
+  prompts (only flag a claim a source directly contradicts; empty per region is the expected honest result; the
+  verifier drops false positives). Result: **6 of 9 regions clean**, only **3 confirmed corrections**, all
+  high-confidence — which is the reassuring outcome (the rest of the walkthrough holds up). Fixed:
+  (1) **r15 Vah Ruta** — the Toto Lake Magnesis chest holds the **Zora Helm** (completes the Zora set you need
+  for the Ruta questline), NOT "Ice Arrows ×10"; the wrong item was in the step `t`, the `stuck` hint, AND the
+  `items` pouch chip, so all three were corrected (the audit only flagged `t` — fixing the *fact* means fixing
+  every instance of it). (2) **k8 Kakariko** — Hestu's maracas chest is on TOP of the Bokoblin lookout tower
+  (must climb), not "at the back of the camp." (3) **md2 Vah Medoh** — Rito Village is **north** of Tabantha
+  Tower, not "northeast" (northeast points at Tanagar Canyon). Sources: Game8, Zelda Dungeon, Zeldapedia,
+  TheGamer, Thonky. **Takeaway:** the finder-flags-one-field but the fix may span `t`/`stuck`/`items` — always
+  grep the whole step for the wrong fact, don't trust the flagged field alone.
 
 ---
 

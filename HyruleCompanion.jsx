@@ -125,7 +125,7 @@ const KAKARIKO = {
     ]},
     { id: "k_road", name: "The Road to Kakariko", sub: "Stable · Hestu · the river path", steps: [
       { id: "k7", k: "step", t: "Stop at the Dueling Peaks Stable to rest, buy supplies, and register a horse if you've tamed one." },
-      { id: "k8", k: "tip", stuck: "Head northeast up the road toward Kakariko to a Bokoblin camp tucked in the rocks. Clear the three Blue Bokoblins, then open the chest at the back of the camp to recover the maracas for Hestu.", t: "BIG: find Hestu on the path (a giant Korok with maracas). His quest 'The Priceless Maracas' lets you trade Korok Seeds to expand your weapon, bow, and shield slots — do this as soon as you can." },
+      { id: "k8", k: "tip", stuck: "Head northeast up the road toward Kakariko to a Bokoblin camp tucked in the rocks. Clear the three Blue Bokoblins, then climb the Bokoblin lookout tower at the back of the camp and open the chest on top to recover the maracas for Hestu.", t: "BIG: find Hestu on the path (a giant Korok with maracas). His quest 'The Priceless Maracas' lets you trade Korok Seeds to expand your weapon, bow, and shield slots — do this as soon as you can." },
       { id: "k9", k: "step", t: "Follow the Squabble River north. An NPC by a fire near the gate (Nanna) will point you to Impa's house." },
     ]},
     { id: "k_village", name: "Kakariko Village", sub: "Ta'loh Naeg · Impa", steps: [
@@ -217,7 +217,7 @@ const VAH_RUTA = {
     { id: "r_inside", name: "Inside Vah Ruta", sub: "Activate 5 terminals", reward: "Control of Vah Ruta", steps: [
       { id: "r13", k: "step", stuck: "The Malice eyeball is the orange eye above the ramp; one arrow kills it. The gate on your left is underwater pillar territory: stand facing it, aim Cryonis at the water in front, and the ice column raises the gate.", t: "Mipha's spirit tells you to light 5 terminals, then the main control unit. First room: shoot the Malice eyeball at the top of the ramp, deal with the Guardian Scout, and use Cryonis to lift the gate on your left." },
       { id: "r14", k: "step", stuck: "Open the map, select Vah Ruta's trunk, and set its angle so its waterfall pours onto a wall cogwheel; that spins platforms into reach. Use Magnesis (red rune) on the metal cranks/handles to raise the sunken terminals.", t: "The map terminal also lets you ROTATE Ruta's trunk — this aims its waterfall and controls the water level. Pour water onto the cogwheels to spin platforms; use Cryonis on water/ice and Magnesis on cranks and chests to reach each terminal." },
-      { id: "r15", k: "optional", stuck: "Exit and swim up the big waterfall directly north of the Domain to reach Toto Lake. Stand over the sunken stone ruins, switch to Magnesis, and drag the rubble aside; the metal chest under it holds Ice Arrows x10.", t: "Optional: swim up to Toto Lake (north) and use Magnesis on the submerged ruins for an Ice Arrows ×10 chest.", items: [{ name: "Ice Arrows ×10", cat: "material", note: "Optional chest, Toto Lake" }] },
+      { id: "r15", k: "optional", stuck: "Exit and swim up the big waterfall directly north of the Domain to reach Toto Lake. Stand over the sunken stone ruins, switch to Magnesis, and drag the rubble aside; the metal chest under it holds the Zora Helm.", t: "Optional: swim up to Toto Lake (north) and use Magnesis on the submerged ruins for a chest holding the Zora Helm — the head piece of the Zora set.", items: [{ name: "Zora Helm", cat: "armor", note: "Magnesis chest, Toto Lake — completes the Zora set" }] },
       { id: "r16", k: "step", t: "For the last terminal, rotate the trunk to pour water and douse the fire blocking the path. Grab any chests now — you can't return after the boss. Then activate all 5 terminals and the main control unit." },
     ]},
     { id: "r_boss", name: "Boss: Waterblight Ganon", sub: "Free Mipha", reward: "Mipha's Grace + Heart Container", steps: [
@@ -1670,7 +1670,7 @@ const VAH_MEDOH = {
   sections: [
     { id: "md_reach", name: "Reach Rito Village", sub: "Tabantha · cold", steps: [
       { id: "md1", k: "warn", t: "Tabantha is a cold region. Bring cold resistance — the Snowquill set (sold in Rito Village) is the clean fix, or cook Spicy food." },
-      { id: "md2", k: "step", t: "Warp to Tabantha Tower and glide northeast to Rito Village, built around a tall rock spire." },
+      { id: "md2", k: "step", t: "Warp to Tabantha Tower and glide north to Rito Village, built around a tall rock spire." },
       { id: "md3", k: "optional", t: "Activate the Akh Va'quot Shrine in the village for a warp point.", items: [{ name: "Spirit Orb", cat: "key", note: "Akh Va'quot Shrine", orb: true }] },
       { id: "md4", k: "loot", t: "Buy the Snowquill armor set from the village shop — strong cold resistance for the whole northwest.", items: [{ name: "Snowquill Set", cat: "armor", note: "Cold resistance (Rito shop)" }] },
       { id: "md5", k: "step", t: "At the top, talk to Elder Kaneli — he asks you to help Teba take on Vah Medoh. Talk to Saki (next hut) to learn Teba is at the Flight Range." },

@@ -35,7 +35,7 @@ for (const name of names) {
   const steps = [];
   for (const sec of reg.sections || [])
     for (const st of sec.steps || [])
-      steps.push({ id: st.id, k: st.k, t: st.t, section: sec.name, hasStuck: !!st.stuck });
+      steps.push({ id: st.id, k: st.k, t: st.t, section: sec.name, stuck: st.stuck || null });
   out.push({ const: name, id: reg.id, name: reg.name, kind: reg.kind, steps });
 }
 
