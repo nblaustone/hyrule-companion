@@ -25,6 +25,7 @@ const data = {
   WORLD: noNotes(K("world.json")),
   REGION_MAPS: K("region-maps.json"),
   COOK_INGREDIENTS: K("cooking-ingredients.json"),
+  LORE: K("lore.json"),
 };
 
 // TotK bundle (optional — present once build/assemble-totk.mjs has run)

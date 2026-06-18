@@ -104,9 +104,13 @@ it runs fully offline once it's on the device. First load needs no network. The 
 - **Honest over flattering.** Mark anything uncertain; a dash-with-a-reason beats a fake fact.
 - **Spoiler-aware, beginner-first.** Hints, not lore-dumps. Assume a player who has never touched the game.
 - **Mobile-first.** 560px max width, thumb-reachable tab bar, big tap targets, reduced-motion honored.
+- **Always ship it (standing approval).** This is the owner's private personal app — there's nothing to fear in
+  publishing. After any change, **commit and push to `main`** so GitHub Pages redeploys (the installed PWA then
+  offers "Update"). No need to ask each time — the owner has granted standing permission. The one guardrail:
+  **build (`node build/build.mjs`) and sanity-check before pushing** so we never deploy a white-screen.
 
-## Tabs & features (v6–v9)
-Tabs: **Status · Journey · Shrines · Items · Cook · Guide** (6) + a **global-search** overlay (topbar magnifier,
+## Tabs & features (v6–v11)
+Tabs: **Status · Journey · Shrines · Items · Cook · Guide · Lore** (7) + a **global-search** overlay (topbar magnifier,
 `SearchOverlay`) across everything. **v9 additions:** a persistent **Resume "you're here"** affordance (topbar
 pin + Status hero, `resumeTarget`/`jumpToStep` → opens + flashes your first uncompleted step); a **joy pass**
 (`box-flash` Sheikah check-pulse, section/tab fades, `:active` press — all under the global reduced-motion
@@ -152,6 +156,14 @@ layout, `REGION_MAPS` = the per-region coords.
   table, two workflows) → a **pot simulator** with **waste-warnings**, a **goal-first finder**, an **ingredient
   browser**, and a **Cookbook**. Pure `cookResult` engine; hearts/duration shown as honest ≈. Verified both
   games (TotK falls back to the reference Cook), 0 live console errors.
+- **v11 (done):** the **Lore Library** (ADR 0008) — a 7th **Lore** tab: a from-scratch, offline **page-turn
+  reader** (`LibraryView` + `LoreReader`; CSS multi-column engine, themes slate/sepia/night, A−/A+ font steps,
+  Continue-reading, bookmarks, progress rings) over original, **sourced** Zelda lore (`knowledge/lore.json` →
+  `LORE`, shared cross-game; `ReadBlock[]` with `canon`/`creator`/`theory` tags). Voice **locked** to a
+  lyrical-folklore master-novelist register (`docs/lore-style-bible.md`); v1 = 7 chapters (creation → Demise's
+  curse → the timeline → Master Sword → the Calamity → the Champions → the peoples). Authored via a
+  source→draft→adversarial-edit **writers'-room Workflow**; verified in-browser, 0 console errors. Reading state
+  is top-level `hyrule:reading`/`hyrule:bookmarks`/`hyrule:readerprefs`. Deferred: per-chapter SVG art (`t:"art"`).
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

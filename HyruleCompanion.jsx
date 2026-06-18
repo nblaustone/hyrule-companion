@@ -536,6 +536,10 @@ function HyruleGame({ game, setGame, games }) {
   const [notes, setNotes] = useState({});           // per-step/shrine notes (botw:notes)
   const [armorTier, setArmorTier] = useState({});   // armor upgrade tier 0..4 by set index (botw:armortier)
   const [recipes, setRecipes] = useState([]);       // v10: saved cooking builds (botw:recipes)
+  const [reading, setReading] = useState({});        // v11: lore reading position {chapterId:{page,pct,at}} (hyrule:reading)
+  const [bookmarks, setBookmarks] = useState({});    // v11: saved lore chapters (hyrule:bookmarks)
+  const [readerPrefs, setReaderPrefs] = useState({ scale: 1, theme: "slate" }); // v11: lore reader prefs (hyrule:readerprefs)
+  const [loreArt, setLoreArt] = useState({});        // v11: per-chapter personal cover images, device-local base64 (hyrule:loreart)
   const [searchOpen, setSearchOpen] = useState(false);
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
@@ -549,8 +553,9 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr, rc] = await Promise.all([
+      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la] = await Promise.all([
         store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
+        store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -560,6 +565,10 @@ function HyruleGame({ game, setGame, games }) {
       try { if (at) setArmorTier(JSON.parse(at)); } catch (e) {}
       try { if (pr) { const o = JSON.parse(pr); if (o && typeof o.spoiler === "boolean") setSpoiler(o.spoiler); } } catch (e) {}
       try { if (rc) { const a = JSON.parse(rc); if (Array.isArray(a)) setRecipes(a); } } catch (e) {}
+      try { if (rd) { const o = JSON.parse(rd); if (o && typeof o === "object") setReading(o); } } catch (e) {}
+      try { if (bm) { const o = JSON.parse(bm); if (o && typeof o === "object") setBookmarks(o); } } catch (e) {}
+      try { if (rp) { const o = JSON.parse(rp); if (o && typeof o === "object") setReaderPrefs((d) => ({ ...d, ...o })); } } catch (e) {}
+      try { if (la) { const o = JSON.parse(la); if (o && typeof o === "object") setLoreArt(o); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -571,6 +580,10 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
   useEffect(() => { if (loaded) store.set(K("recipes"), JSON.stringify(recipes)); }, [recipes, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler })); }, [spoiler, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:reading", JSON.stringify(reading)); }, [reading, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:bookmarks", JSON.stringify(bookmarks)); }, [bookmarks, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:readerprefs", JSON.stringify(readerPrefs)); }, [readerPrefs, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:loreart", JSON.stringify(loreArt)); }, [loreArt, loaded]);
 
   progressRef.current = progress;
   const toggleStep = useCallback((id) => {
@@ -923,6 +936,8 @@ function HyruleGame({ game, setGame, games }) {
           </div>
         ) : tab === "cook" ? (
           <CookView ingredients={COOK_INGREDIENTS} recipes={RECIPES} rules={COOK_RULES} cooking={COOKING} saved={recipes} setSaved={setRecipes} />
+        ) : tab === "library" ? (
+          <LibraryView books={LORE} reading={reading} setReading={setReading} bookmarks={bookmarks} setBookmarks={setBookmarks} prefs={readerPrefs} setPrefs={setReaderPrefs} loreArt={loreArt} setLoreArt={setLoreArt} />
         ) : (
           <div className="ref">
             <div className="seg seg-scroll">
@@ -966,6 +981,7 @@ function HyruleGame({ game, setGame, games }) {
         <TabBtn active={tab === "items"} onClick={() => setTab("items")} glyph="bag" label="Items" />
         <TabBtn active={tab === "cook"} onClick={() => setTab("cook")} glyph="pot" label="Cook" />
         <TabBtn active={tab === "guide"} onClick={() => setTab("guide")} glyph="book" label="Guide" />
+        <TabBtn active={tab === "library"} onClick={() => setTab("library")} glyph="scroll" label="Lore" />
       </nav>
     </div>
   );
@@ -973,6 +989,176 @@ function HyruleGame({ game, setGame, games }) {
 
 function TabBtn({ active, onClick, glyph, label }) {
   return (<button className={"tab" + (active ? " tab-on" : "")} onClick={onClick}><Glyph name={glyph} size={21} /><span>{label}</span></button>);
+}
+
+/* ============================================================ LORE LIBRARY TAB (v11) ============================================================ */
+/* A reader for original, sourced Zelda lore. Page-turn engine = CSS multi-column flow inside a
+   fixed-height viewport, shifted by translateX one page-width at a time (no epub.js, fully offline). */
+const LORE_THEMES = {
+  slate: { bg: "var(--abyss)", fg: "var(--parch)", dim: "var(--parch-dim)" },
+  sepia: { bg: "#efe5d0", fg: "#3b2f1d", dim: "#8a7252" },
+  night: { bg: "#04070a", fg: "#c6cec8", dim: "#6f8489" },
+};
+const LORE_SCALES = [0.9, 1, 1.14, 1.3];
+const LORE_NOTE = { canon: { label: "Canon", glyph: "◈" }, creator: { label: "Creator note", glyph: "✦" }, theory: { label: "Theory", glyph: "◇" } };
+
+function LibraryView({ books, reading, setReading, bookmarks, setBookmarks, prefs, setPrefs, loreArt, setLoreArt }) {
+  const [openId, setOpenId] = useState(null);
+  const list = books || [];
+  const open = openId ? list.find((b) => b.id === openId) : null;
+  const cont = useMemo(() => {
+    let best = null;
+    for (const b of list) { const r = reading[b.id]; if (r && (r.pct || 0) < 0.985 && (r.at || 0)) { if (!best || (r.at || 0) > (reading[best.id].at || 0)) best = b; } }
+    return best;
+  }, [list, reading]);
+
+  if (open) {
+    return (
+      <LoreReader chapter={open} prefs={prefs} setPrefs={setPrefs} reading={reading} setReading={setReading} loreArt={loreArt} setLoreArt={setLoreArt}
+        bookmarked={!!bookmarks[open.id]}
+        toggleBookmark={() => setBookmarks((m) => { const n = { ...m }; if (n[open.id]) delete n[open.id]; else n[open.id] = { at: Date.now() }; return n; })}
+        onClose={() => setOpenId(null)} />
+    );
+  }
+  if (!list.length) return (<div className="ref"><h2 className="ref-title">Lore Library</h2><p className="empty">The library is being written. Check back soon.</p></div>);
+
+  return (
+    <div className="ref">
+      <h2 className="ref-title">Lore Library</h2>
+      <p className="ref-lede">The real story of Hyrule — sourced, spoiler-aware, and written to be read. Tap a tale to open it.</p>
+      {cont && (() => { const r = reading[cont.id]; const pct = Math.round((r.pct || 0) * 100); return (
+        <button className="lore-cont" onClick={() => setOpenId(cont.id)}>
+          <span className="lore-cont-bar" style={{ width: Math.max(3, pct) + "%" }} />
+          <span className="lore-cont-k">Continue reading</span>
+          <span className="lore-cont-t">{cont.title}</span>
+          <span className="lore-cont-s">{pct}% · {cont.eyebrow}</span>
+        </button>); })()}
+      <div className="lore-shelf">
+        {list.map((b, i) => { const r = reading[b.id]; const pct = r ? Math.round((r.pct || 0) * 100) : 0; const done = pct >= 98; return (
+          <button key={b.id} className="lore-card" onClick={() => setOpenId(b.id)}>
+            <span className="lore-card-no">{String(i + 1).padStart(2, "0")}</span>
+            <span className="lore-card-body">
+              <span className="lore-card-eye">{b.eyebrow}</span>
+              <span className="lore-card-title">{b.title}</span>
+              <span className="lore-card-meta">{b.estMin ? b.estMin + " min read" : ""}{bookmarks[b.id] ? " · ◈ saved" : ""}{pct > 0 ? " · " + (done ? "finished" : pct + "%") : ""}</span>
+            </span>
+            {pct > 0 && (<span className="lore-card-ring" style={{ background: "conic-gradient(var(--cyan) " + (pct * 3.6) + "deg, rgba(255,255,255,0.09) 0)" }}><span className="lore-card-ring-in">{done ? <Glyph name="check" size={12} /> : pct}</span></span>)}
+          </button>); })}
+      </div>
+      <p className="panel-note" style={{ marginTop: 14 }}>Every passage is tagged <b style={{ color: "var(--cyan)" }}>Canon</b>, <b style={{ color: "var(--gold)" }}>Creator</b>, or <b style={{ color: "var(--orange)" }}>Theory</b> — so you always know what's confirmed and what's still debated.</p>
+      <div className="footer-space" />
+    </div>
+  );
+}
+
+function LoreBlock({ b }) {
+  if (b.t === "art") return null; // banner art is rendered once at the top of the reader, not inline
+  if (b.t === "pq") return <blockquote className="lore-pq">{b.text}</blockquote>;
+  if (b.t === "h") return <h3 className="lore-h2">{b.text}</h3>;
+  if (b.t === "note") {
+    const m = LORE_NOTE[b.kind] || LORE_NOTE.canon;
+    return (<aside className={"lore-note lore-note-" + (b.kind || "canon")}>
+      <span className="lore-note-k">{m.glyph} {m.label}{b.source ? <span className="lore-note-src"> · {b.source}</span> : null}</span>
+      <span className="lore-note-t">{b.text}</span>
+    </aside>);
+  }
+  return <p className="lore-p">{b.text}</p>;
+}
+
+function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked, toggleBookmark, onClose, loreArt, setLoreArt }) {
+  const PAD = 18, GAP = 36;
+  const viewRef = useRef(null);
+  const colsRef = useRef(null);
+  const [dims, setDims] = useState({ w: 300, h: 440 }); // w = inner page (text) width
+  const [page, setPage] = useState(() => (reading[chapter.id] && reading[chapter.id].page) || 0);
+  const [pages, setPages] = useState(1);
+  const [showSet, setShowSet] = useState(false);
+  const theme = LORE_THEMES[prefs.theme] || LORE_THEMES.slate;
+  const scaleIdx = prefs.scale != null ? prefs.scale : 1;
+  const scale = LORE_SCALES[scaleIdx] || 1;
+
+  useEffect(() => {
+    const measure = () => {
+      const el = viewRef.current; if (!el) return;
+      const top = el.getBoundingClientRect().top;
+      const h = Math.max(260, Math.round((window.innerHeight || 640) - top - 116));
+      setDims({ w: Math.max(200, el.clientWidth - PAD * 2), h });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [showSet]);
+
+  useEffect(() => {
+    const el = colsRef.current; if (!el || !dims.w) return;
+    const total = Math.max(1, Math.round((el.scrollWidth + GAP) / (dims.w + GAP)));
+    setPages(total);
+    setPage((p) => Math.min(p, total - 1));
+  }, [dims.w, dims.h, chapter.id, scaleIdx, prefs.theme]);
+
+  useEffect(() => {
+    const pct = pages > 1 ? page / (pages - 1) : 1;
+    setReading((m) => ({ ...m, [chapter.id]: { page, pct, at: Date.now() } }));
+  }, [page, pages, chapter.id]);
+
+  const go = useCallback((d) => setPage((p) => Math.max(0, Math.min(pages - 1, p + d))), [pages]);
+  const touchX = useRef(0);
+  const onTS = (e) => { touchX.current = e.touches[0].clientX; };
+  const onTE = (e) => { const dx = e.changedTouches[0].clientX - touchX.current; if (Math.abs(dx) > 44) go(dx < 0 ? 1 : -1); };
+  const progPct = pages > 1 ? (page / (pages - 1)) * 100 : 100;
+  const fileRef = useRef(null);
+  const onPickImage = (e) => { const f = e.target.files && e.target.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => setLoreArt((m) => ({ ...m, [chapter.id]: r.result })); r.readAsDataURL(f); e.target.value = ""; };
+  const personalArt = loreArt && loreArt[chapter.id];
+  const artBlock = chapter.blocks.find((b) => b.t === "art");
+
+  return (
+    <div className="lore-reader" style={{ "--rbg": theme.bg, "--rfg": theme.fg, "--rdim": theme.dim }}>
+      <div className="lore-rbar">
+        <button className="lore-x" onClick={onClose}>‹ Library</button>
+        <div className="lore-rtitle">{chapter.title}</div>
+        <div className="lore-rctrls">
+          <button className={"lore-bm" + (bookmarked ? " lore-bm-on" : "")} onClick={toggleBookmark} aria-label="Save this tale">◈</button>
+          <button className="lore-aa" onClick={() => setShowSet((s) => !s)} aria-label="Reading settings">Aa</button>
+        </div>
+      </div>
+      {showSet && (
+        <div className="lore-settings">
+          <div className="lore-set-grp">
+            <button className="lore-step" onClick={() => setPrefs((p) => ({ ...p, scale: Math.max(0, (p.scale != null ? p.scale : 1) - 1) }))}>A−</button>
+            <button className="lore-step" onClick={() => setPrefs((p) => ({ ...p, scale: Math.min(LORE_SCALES.length - 1, (p.scale != null ? p.scale : 1) + 1) }))}>A+</button>
+          </div>
+          <div className="lore-set-grp">
+            {["slate", "sepia", "night"].map((t) => (<button key={t} className={"lore-sw lore-sw-" + t + ((prefs.theme || "slate") === t ? " lore-sw-on" : "")} onClick={() => setPrefs((p) => ({ ...p, theme: t }))} aria-label={t + " theme"} />))}
+          </div>
+          <div className="lore-set-grp">
+            <button className="lore-step" onClick={() => fileRef.current && fileRef.current.click()} aria-label="Add a cover image">▣ Cover</button>
+            {personalArt && <button className="lore-step" onClick={() => setLoreArt((m) => { const n = { ...m }; delete n[chapter.id]; return n; })} aria-label="Reset to original art">Reset</button>}
+          </div>
+        </div>
+      )}
+      <input type="file" accept="image/*" ref={fileRef} onChange={onPickImage} style={{ display: "none" }} />
+      <div className="lore-view" ref={viewRef} style={{ height: dims.h }}>
+        <div className="lore-cols" ref={colsRef} onTouchStart={onTS} onTouchEnd={onTE}
+          style={{ width: dims.w + "px", height: dims.h, columnWidth: dims.w + "px", columnGap: GAP + "px", fontSize: Math.round(16 * scale) + "px", transform: "translateX(" + (-page * (dims.w + GAP)) + "px)" }}>
+          {(personalArt || artBlock) && (personalArt
+            ? <div className="lore-banner"><img className="lore-banner-img" src={personalArt} alt="" /></div>
+            : <div className="lore-banner" dangerouslySetInnerHTML={{ __html: artBlock.svg }} />)}
+          <div className="lore-eyebrow">{chapter.eyebrow}</div>
+          <h1 className="lore-h1">{chapter.title}</h1>
+          {chapter.blocks.map((b, i) => <LoreBlock key={i} b={b} />)}
+          <div className="lore-end">◈</div>
+        </div>
+        <button className="lore-edge lore-edge-l" onClick={() => go(-1)} disabled={page <= 0} aria-label="Previous page" />
+        <button className="lore-edge lore-edge-r" onClick={() => go(1)} disabled={page >= pages - 1} aria-label="Next page" />
+      </div>
+      <div className="lore-foot">
+        <button className="lore-nav" onClick={() => go(-1)} disabled={page <= 0}>‹</button>
+        <div className="lore-prog"><span className="lore-prog-bar" style={{ width: progPct + "%" }} /></div>
+        <div className="lore-page">{page + 1} / {pages}</div>
+        <button className="lore-nav" onClick={() => go(1)} disabled={page >= pages - 1}>›</button>
+      </div>
+    </div>
+  );
 }
 
 /* ============================================================ SHRINES TAB ============================================================ */
@@ -1968,6 +2154,63 @@ function StyleBlock() {
 .veil-tap{color:var(--cyan-dim);text-decoration:underline;text-underline-offset:2px;font-weight:700;}
 .veil-inline{font:inherit;color:var(--cyan-dim);background:none;border:none;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;}
 @media (max-width:380px){.resume-trigger span{display:none;}.resume-trigger{padding:6px 8px;}}
+/* Lore Library (v11) */
+.lore-cont{position:relative;display:block;width:100%;text-align:left;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,.5));border:1px solid rgba(95,214,226,.25);border-radius:14px;padding:14px 15px;margin:0 0 16px;cursor:pointer;overflow:hidden;}
+.lore-cont-bar{position:absolute;top:0;left:0;height:3px;background:var(--cyan);}
+.lore-cont-k{display:block;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:3px;}
+.lore-cont-t{display:block;font-family:'Cinzel',Georgia,serif;font-size:17px;color:var(--parch);margin-bottom:2px;}
+.lore-cont-s{display:block;font-size:12px;color:var(--parch-dim);}
+.lore-shelf{display:flex;flex-direction:column;gap:9px;}
+.lore-card{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,.5));border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:13px 14px;cursor:pointer;color:inherit;}
+.lore-card-no{font-family:'Cinzel',Georgia,serif;font-size:15px;color:var(--cyan-dim);opacity:.65;flex-shrink:0;width:22px;text-align:center;}
+.lore-card-body{flex:1;min-width:0;}
+.lore-card-eye{display:block;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lore-card-title{display:block;font-family:'Cinzel',Georgia,serif;font-size:16px;color:var(--parch);line-height:1.2;margin-bottom:3px;}
+.lore-card-meta{display:block;font-size:11px;color:var(--parch-dim);}
+.lore-card-ring{flex-shrink:0;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.lore-card-ring-in{width:27px;height:27px;border-radius:50%;background:var(--panel);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;color:var(--cyan);}
+.lore-reader{background:var(--rbg);color:var(--rfg);margin:-14px -16px 0;min-height:calc(100vh - 52px);display:flex;flex-direction:column;}
+.lore-rbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(127,127,127,.18);}
+.lore-x{background:none;border:none;color:var(--rdim);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;cursor:pointer;flex-shrink:0;}
+.lore-rtitle{flex:1;min-width:0;text-align:center;font-family:'Cinzel',Georgia,serif;font-size:13px;color:var(--rfg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.82;}
+.lore-rctrls{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.lore-bm{background:none;border:none;color:var(--rdim);font-size:16px;cursor:pointer;line-height:1;padding:0;}
+.lore-bm-on{color:var(--cyan);}
+.lore-aa{background:none;border:none;color:var(--rdim);font-family:'Cinzel',Georgia,serif;font-size:15px;cursor:pointer;padding:0;}
+.lore-settings{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;border-bottom:1px solid rgba(127,127,127,.18);}
+.lore-set-grp{display:flex;gap:7px;}
+.lore-step{background:rgba(127,127,127,.12);border:1px solid rgba(127,127,127,.28);color:var(--rfg);border-radius:8px;padding:5px 12px;font-family:'Cinzel',Georgia,serif;font-size:13px;cursor:pointer;}
+.lore-sw{width:24px;height:24px;border-radius:50%;border:1px solid rgba(127,127,127,.45);cursor:pointer;padding:0;}
+.lore-sw-slate{background:#0f1c22;}.lore-sw-sepia{background:#efe5d0;}.lore-sw-night{background:#04070a;}
+.lore-sw-on{box-shadow:0 0 0 2px var(--cyan);}
+.lore-view{position:relative;overflow:hidden;width:100%;padding:0 18px;}
+.lore-banner{margin:16px 0 6px;border-radius:12px;overflow:hidden;border:1px solid rgba(127,127,127,.2);break-inside:avoid;line-height:0;}
+.lore-banner svg,.lore-banner-img{display:block;width:100%;height:auto;}
+.lore-banner-img{max-height:200px;object-fit:cover;}
+.lore-cols{column-fill:auto;will-change:transform;transition:transform .26s ease;}
+.lore-eyebrow{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:.7em;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan-dim);margin:16px 0 8px;}
+.lore-h1{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:1.62em;line-height:1.2;margin:0 0 18px;color:var(--rfg);}
+.lore-p{font-size:1em;line-height:1.78;margin:0 0 15px;color:var(--rfg);}
+.lore-h2{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:1.14em;margin:8px 0 10px;color:var(--rfg);}
+.lore-pq{font-family:'Cinzel',Georgia,serif;font-style:italic;font-size:1.2em;line-height:1.4;border-left:3px solid var(--cyan);margin:8px 0 17px;padding:2px 0 2px 15px;color:var(--rfg);break-inside:avoid;}
+.lore-note{display:block;border-left:3px solid var(--cyan);background:rgba(127,127,127,.09);border-radius:0 8px 8px 0;padding:10px 13px;margin:6px 0 16px;break-inside:avoid;}
+.lore-note-creator{border-left-color:var(--gold);}
+.lore-note-theory{border-left-color:var(--orange);}
+.lore-note-k{display:block;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.62em;letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:4px;}
+.lore-note-creator .lore-note-k{color:var(--gold);}
+.lore-note-theory .lore-note-k{color:var(--orange);}
+.lore-note-src{opacity:.7;}
+.lore-note-t{display:block;font-size:.86em;line-height:1.6;color:var(--rfg);opacity:.92;}
+.lore-end{text-align:center;color:var(--rdim);font-size:1em;margin:4px 0 18px;opacity:.6;}
+.lore-edge{position:absolute;top:0;bottom:0;width:22%;background:none;border:none;cursor:pointer;padding:0;-webkit-tap-highlight-color:transparent;}
+.lore-edge-l{left:0;}.lore-edge-r{right:0;}
+.lore-edge:disabled{cursor:default;}
+.lore-foot{display:flex;align-items:center;gap:11px;padding:11px 16px calc(11px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(127,127,127,.18);}
+.lore-nav{background:rgba(127,127,127,.12);border:1px solid rgba(127,127,127,.28);color:var(--rfg);width:34px;height:34px;border-radius:9px;font-size:18px;line-height:1;cursor:pointer;flex-shrink:0;}
+.lore-nav:disabled{opacity:.3;cursor:default;}
+.lore-prog{flex:1;height:4px;border-radius:4px;background:rgba(127,127,127,.18);overflow:hidden;}
+.lore-prog-bar{display:block;height:100%;background:var(--cyan);transition:width .25s;}
+.lore-page{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;color:var(--rdim);flex-shrink:0;min-width:44px;text-align:right;}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 `}</style>);
 }
@@ -6480,6 +6723,551 @@ const COOK_INGREDIENTS = [
   "bonus": "guaranteed crit",
   "sell": 300,
   "where": "Falls as a shooting star at night"
+ }
+];
+const LORE = [
+ {
+  "id": "lore_goddesses",
+  "title": "The Three Who Shaped the World",
+  "eyebrow": "The making of Hyrule",
+  "estMin": 4,
+  "spoiler": "Creation myth and series origins only; no Breath of the Wild story spoilers beyond Link waking on the Great Plateau.",
+  "blocks": [
+   {
+    "t": "art",
+    "svg": "<svg width=\"100%\" viewBox=\"0 0 680 300\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Creation</title><desc>Three motes of golden light hover above a dark formless void; below where they descend, a single radiant three-lobed golden sigil coalesces, light pressing into deep abyss with gold and cyan glow.</desc><defs><radialGradient id=\"void\" cx=\"0.5\" cy=\"0.16\" r=\"1.05\"><stop offset=\"0\" stop-color=\"#13252b\"/><stop offset=\"0.42\" stop-color=\"#0f1c22\"/><stop offset=\"1\" stop-color=\"#070f12\"/></radialGradient><radialGradient id=\"descent\" cx=\"0.5\" cy=\"0.16\" r=\"0.62\"><stop offset=\"0\" stop-color=\"#f2c14e\" stop-opacity=\"0.34\"/><stop offset=\"0.45\" stop-color=\"#f0902a\" stop-opacity=\"0.12\"/><stop offset=\"1\" stop-color=\"#f0902a\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"mote\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff4d6\" stop-opacity=\"1\"/><stop offset=\"0.3\" stop-color=\"#f2c14e\" stop-opacity=\"0.85\"/><stop offset=\"1\" stop-color=\"#f2c14e\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"cyanmist\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#5fd6e2\" stop-opacity=\"0.6\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"emblemglow\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff2c4\" stop-opacity=\"0.95\"/><stop offset=\"0.35\" stop-color=\"#f2c14e\" stop-opacity=\"0.55\"/><stop offset=\"0.7\" stop-color=\"#f0902a\" stop-opacity=\"0.18\"/><stop offset=\"1\" stop-color=\"#f0902a\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"lobeFill\" cx=\"0.5\" cy=\"0.3\" r=\"0.75\"><stop offset=\"0\" stop-color=\"#fff3cc\"/><stop offset=\"0.55\" stop-color=\"#f2c14e\"/><stop offset=\"1\" stop-color=\"#f0902a\"/></radialGradient><radialGradient id=\"floorpool\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#5fd6e2\" stop-opacity=\"0.22\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient></defs><rect width=\"680\" height=\"300\" fill=\"url(#void)\"/><rect width=\"680\" height=\"300\" fill=\"url(#descent)\"/><ellipse cx=\"340\" cy=\"262\" rx=\"300\" ry=\"40\" fill=\"url(#floorpool)\"/><g stroke=\"#5fd6e2\" stroke-width=\"0.6\" opacity=\"0.12\"><line x1=\"206\" y1=\"74\" x2=\"474\" y2=\"74\"/><line x1=\"206\" y1=\"74\" x2=\"340\" y2=\"200\"/><line x1=\"474\" y1=\"74\" x2=\"340\" y2=\"200\"/></g><g opacity=\"0.5\"><circle cx=\"120\" cy=\"50\" r=\"1.4\" fill=\"#79b8c0\"/><circle cx=\"560\" cy=\"44\" r=\"1.2\" fill=\"#79b8c0\"/><circle cx=\"610\" cy=\"96\" r=\"1.6\" fill=\"#f2c14e\"/><circle cx=\"70\" cy=\"120\" r=\"1.2\" fill=\"#f2c14e\"/><circle cx=\"500\" cy=\"120\" r=\"1\" fill=\"#5fd6e2\"/><circle cx=\"170\" cy=\"150\" r=\"1\" fill=\"#79b8c0\"/></g><circle cx=\"206\" cy=\"74\" r=\"46\" fill=\"url(#cyanmist)\" opacity=\"0.7\"/><circle cx=\"340\" cy=\"60\" r=\"50\" fill=\"url(#cyanmist)\" opacity=\"0.7\"/><circle cx=\"474\" cy=\"74\" r=\"46\" fill=\"url(#cyanmist)\" opacity=\"0.7\"/><circle cx=\"206\" cy=\"74\" r=\"40\" fill=\"url(#mote)\"/><circle cx=\"340\" cy=\"60\" r=\"46\" fill=\"url(#mote)\"/><circle cx=\"474\" cy=\"74\" r=\"40\" fill=\"url(#mote)\"/><circle cx=\"206\" cy=\"74\" r=\"4.4\" fill=\"#fff8e6\"/><circle cx=\"340\" cy=\"60\" r=\"5.2\" fill=\"#fff8e6\"/><circle cx=\"474\" cy=\"74\" r=\"4.4\" fill=\"#fff8e6\"/><g opacity=\"0.55\"><path d=\"M206 74 Q230 130 300 184\" stroke=\"#f2c14e\" stroke-width=\"1.2\" fill=\"none\"/><path d=\"M340 60 Q340 130 340 184\" stroke=\"#f2c14e\" stroke-width=\"1.4\" fill=\"none\"/><path d=\"M474 74 Q450 130 380 184\" stroke=\"#f2c14e\" stroke-width=\"1.2\" fill=\"none\"/></g><circle cx=\"340\" cy=\"218\" r=\"118\" fill=\"url(#emblemglow)\"/><g opacity=\"0.92\"><path d=\"M340 200 C322 178 318 160 340 150 C362 160 358 178 340 200 Z\" fill=\"url(#lobeFill)\"/><path d=\"M340 224 C360 216 380 218 386 240 C368 256 348 250 340 224 Z\" fill=\"url(#lobeFill)\"/><path d=\"M340 224 C320 216 300 218 294 240 C312 256 332 250 340 224 Z\" fill=\"url(#lobeFill)\"/></g><g fill=\"none\" stroke=\"#fff3cc\" stroke-width=\"1\" opacity=\"0.45\"><path d=\"M340 200 C322 178 318 160 340 150 C362 160 358 178 340 200 Z\"/><path d=\"M340 224 C360 216 380 218 386 240 C368 256 348 250 340 224 Z\"/><path d=\"M340 224 C320 216 300 218 294 240 C312 256 332 250 340 224 Z\"/></g><circle cx=\"340\" cy=\"208\" r=\"16\" fill=\"none\" stroke=\"#5fd6e2\" stroke-width=\"0.7\" opacity=\"0.4\"/><circle cx=\"340\" cy=\"208\" r=\"5\" fill=\"#fff8e6\" opacity=\"0.95\"/><g fill=\"#f2c14e\" opacity=\"0.7\"><circle cx=\"262\" cy=\"232\" r=\"1.3\"/><circle cx=\"418\" cy=\"236\" r=\"1.3\"/><circle cx=\"300\" cy=\"280\" r=\"1.1\"/><circle cx=\"384\" cy=\"278\" r=\"1.1\"/><circle cx=\"340\" cy=\"142\" r=\"1.2\"/></g></svg>"
+   },
+   {
+    "t": "p",
+    "text": "The land had no shape before it had a name. Out of the chaos came three goddesses, sisters, descending on a place that was not yet a world. There was nothing under their feet to stand on. So they made it."
+   },
+   {
+    "t": "p",
+    "text": "Din came first. The oldest tellings give her arms of fire, and she set them to the raw stuff of the place the way a farmer sets hands to a field — pressing, turning, working it until it held a shape and stayed. Where there had been nothing solid, there was ground. Ocarina of Time, the version most players have actually heard, says only that she cultivated the land and made the earth. The later books add the color: red earth, they call it, a hue that has followed Din ever since as the goddess of Power."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "\"Strong flaming arms\" and \"the earth\" come from Ocarina of Time's prologue. The red earth is the later phrasing in Hyrule Historia and the Encyclopedia. The familiar picture of Din heaving up mountains is an embellishment — the canonical lines never mention them.",
+    "source": "OoT prologue; Hyrule Historia / Encyclopedia"
+   },
+   {
+    "t": "p",
+    "text": "Nayru, goddess of Wisdom, built nothing you could stand on. She poured her wisdom onto the new earth and gave it law — order itself, laid down over the ground like a second substance. The later books make the gesture larger: she lit the firmament overhead with her wisdom and set the fundamental rules the realm would run by. Before her, the ground simply existed. After her, it obeyed."
+   },
+   {
+    "t": "p",
+    "text": "Farore came last, goddess of Courage, and she filled what the others had readied. The game says her rich soul made all the life that would uphold the law — living things given a duty from the first breath. The fuller telling lingers on the order of it. She breathed life onto the barren earth and into the seas, and the green things came first, grasses and trees and vines, and only after them the many peoples of Hyrule. Each sister worked on what the one before had left. A bare sphere, then a sphere with rules, then a sphere finally alive."
+   },
+   {
+    "t": "pq",
+    "text": "Their work done, the three returned to the heavens — and left a mark on the world where they had stood."
+   },
+   {
+    "t": "p",
+    "text": "That mark was the Triforce: three golden triangles locked together, one for each sister's essence, Power and Wisdom and Courage. Ocarina of Time puts it plainly. Where the Triforce stood became sacred land. The Golden Power did not hover in some abstraction; it pressed an imprint into the ground, and that place — later lore names it the Sacred Realm — has been worth dying for in every age since."
+   },
+   {
+    "t": "p",
+    "text": "Here is the dangerous heart of it. The Triforce grants a wish to whatever hand touches it, and it does not care whose hand that is. No test of worth. No moral filter. But it answers an honest hand and a divided one differently. A heart balanced in equal parts Power, Wisdom, and Courage can hold the whole relic and command it. A heart that leans — and most do — cannot. The Triforce breaks apart, and the one who reached for it keeps only the single triangle of the trait they believe in most. That fracture is the quiet engine under the whole long saga: Power left in one set of hands, Wisdom and Courage scattered to others."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "The balanced-heart-versus-shattering mechanic comes chiefly from A Link to the Past and is formalized in the Encyclopedia. It is not part of Ocarina of Time's creation narration, though it holds consistent across the series.",
+    "source": "A Link to the Past; Zelda Encyclopedia"
+   },
+   {
+    "t": "p",
+    "text": "The three sisters never came back to tend what they made. Skyward Sword tells what happened next. They entrusted the world and the Triforce to a different goddess entirely — Hylia, a guardian, not one of the three and not bound to any single virtue. When demons led by Demise tore up through a fissure in the earth, reaching for the relic, Hylia gathered the surviving people onto a slab of ground and ripped it loose into the air, lifting them and the Triforce above a sea of clouds. That single act split the sky from the surface. Later, because a god cannot wield the Triforce, she gave up her divinity to be reborn mortal — the first thread of the line that becomes Princess Zelda."
+   },
+   {
+    "t": "p",
+    "text": "By the time Link wakes on the Great Plateau, none of this is spoken aloud. Breath of the Wild never recites the old creation myth, and the Triforce itself never appears as a thing you can hold — only the faint gold on Zelda's raised hand and the crests worn into royal stone. The three sisters survive there mostly as three names carved over spring water: Power, Wisdom, Courage. The statues you pray to are Hylia's. The makers had stepped so far back they became almost the geography itself."
+   },
+   {
+    "t": "note",
+    "kind": "theory",
+    "text": "Where the goddesses went, and whether they still watch, Nintendo leaves open. The texts say only that they departed for the heavens — not that they are dead, gone, or looking on. Anything past that is a reader's guess, not canon.",
+    "source": "reading of OoT / Hyrule Historia (deliberately unresolved)"
+   }
+  ],
+  "sources": [
+   "The Legend of Zelda: Ocarina of Time — prologue narration",
+   "The Legend of Zelda: Hyrule Historia (Dark Horse, 2013) — creation passage, via transcription",
+   "The Legend of Zelda Encyclopedia / Zelda Wiki & Zelda Dungeon Wiki — Golden Goddesses & Triforce",
+   "A Link to the Past — Triforce as the Golden Power, and the balanced-heart mechanic",
+   "Skyward Sword — Hylia, the entrusted goddess; the raising of the land",
+   "Wikipedia, 'Triforce'"
+  ]
+ },
+ {
+  "id": "lore_cycle",
+  "title": "The Curse That Would Not Die",
+  "eyebrow": "Why the story always returns",
+  "estMin": 4,
+  "spoiler": "Touches the endings of Skyward Sword and Breath of the Wild.",
+  "blocks": [
+   {
+    "t": "art",
+    "svg": "<svg width=\"100%\" viewBox=\"0 0 680 300\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>The eternal return</title><desc>A great luminous ring turning in the dark, a thread of red malice woven through it, and three faint repeating marks spaced around the wheel suggesting an endless cycle.</desc><defs><radialGradient id=\"void\" cx=\"0.5\" cy=\"0.46\" r=\"0.72\"><stop offset=\"0\" stop-color=\"#13252b\"/><stop offset=\"0.55\" stop-color=\"#0c1a1f\"/><stop offset=\"1\" stop-color=\"#091317\"/></radialGradient><radialGradient id=\"core\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#f2c14e\" stop-opacity=\"0.9\"/><stop offset=\"0.4\" stop-color=\"#5fd6e2\" stop-opacity=\"0.35\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"ringgrad\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#5fd6e2\"/><stop offset=\"0.5\" stop-color=\"#79b8c0\"/><stop offset=\"1\" stop-color=\"#f2c14e\"/></linearGradient><radialGradient id=\"haze\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#5fd6e2\" stop-opacity=\"0.5\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient></defs><rect width=\"680\" height=\"300\" fill=\"url(#void)\"/><g opacity=\"0.5\"><circle cx=\"120\" cy=\"60\" r=\"1\" fill=\"#79b8c0\"/><circle cx=\"600\" cy=\"48\" r=\"1.3\" fill=\"#5fd6e2\"/><circle cx=\"560\" cy=\"240\" r=\"1\" fill=\"#79b8c0\"/><circle cx=\"80\" cy=\"230\" r=\"1.2\" fill=\"#5fd6e2\"/><circle cx=\"640\" cy=\"150\" r=\"1\" fill=\"#79b8c0\"/><circle cx=\"40\" cy=\"140\" r=\"1\" fill=\"#79b8c0\"/><circle cx=\"340\" cy=\"30\" r=\"1.1\" fill=\"#5fd6e2\"/></g><circle cx=\"340\" cy=\"150\" r=\"150\" fill=\"url(#haze)\" opacity=\"0.7\"/><g fill=\"none\"><circle cx=\"340\" cy=\"150\" r=\"118\" stroke=\"#0f1c22\" stroke-width=\"20\" opacity=\"0.9\"/><circle cx=\"340\" cy=\"150\" r=\"118\" stroke=\"url(#ringgrad)\" stroke-width=\"6\" opacity=\"0.95\"/><circle cx=\"340\" cy=\"150\" r=\"106\" stroke=\"#5fd6e2\" stroke-width=\"1\" opacity=\"0.45\"/><circle cx=\"340\" cy=\"150\" r=\"130\" stroke=\"#f2c14e\" stroke-width=\"1\" opacity=\"0.35\"/></g><g stroke=\"#5fd6e2\" stroke-width=\"1.4\" opacity=\"0.55\"><line x1=\"340\" y1=\"32\" x2=\"340\" y2=\"60\"/><line x1=\"458\" y1=\"150\" x2=\"430\" y2=\"150\"/><line x1=\"340\" y1=\"268\" x2=\"340\" y2=\"240\"/><line x1=\"222\" y1=\"150\" x2=\"250\" y2=\"150\"/><line x1=\"424\" y1=\"66\" x2=\"405\" y2=\"85\"/><line x1=\"424\" y1=\"234\" x2=\"405\" y2=\"215\"/><line x1=\"256\" y1=\"234\" x2=\"275\" y2=\"215\"/><line x1=\"256\" y1=\"66\" x2=\"275\" y2=\"85\"/></g><path d=\"M340 32 C402 60 408 110 372 150 C338 188 268 196 256 234 C300 250 380 248 424 234 C400 200 410 130 448 118 C420 70 388 44 340 32 Z\" fill=\"none\" stroke=\"#e0506b\" stroke-width=\"2.6\" opacity=\"0.85\"/><path d=\"M340 32 C402 60 408 110 372 150 C338 188 268 196 256 234\" fill=\"none\" stroke=\"#e0506b\" stroke-width=\"1\" opacity=\"0.5\"/><g fill=\"#e0506b\" opacity=\"0.7\"><circle cx=\"372\" cy=\"150\" r=\"3\"/><circle cx=\"256\" cy=\"234\" r=\"3\"/><circle cx=\"448\" cy=\"118\" r=\"2.4\"/></g><circle cx=\"340\" cy=\"150\" r=\"62\" fill=\"url(#core)\"/><g opacity=\"0.9\"><path d=\"M340 92 L350 132 L340 124 L330 132 Z\" fill=\"#f2c14e\"/><path d=\"M340 92 L350 132 L340 124 L330 132 Z\" fill=\"#f0902a\" opacity=\"0.4\"/></g><g opacity=\"0.85\" transform=\"translate(391 178)\"><path d=\"M0 -26 L9 -4 L0 18 L-9 -4 Z\" fill=\"#5fd6e2\"/><path d=\"M0 -26 L9 -4 L0 18 L-9 -4 Z\" fill=\"#79b8c0\" opacity=\"0.3\"/></g><g opacity=\"0.85\" transform=\"translate(289 178)\" stroke=\"#e0506b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"><circle cx=\"0\" cy=\"0\" r=\"6\"/><line x1=\"0\" y1=\"-15\" x2=\"0\" y2=\"-10\"/><line x1=\"0\" y1=\"10\" x2=\"0\" y2=\"15\"/><line x1=\"-15\" y1=\"0\" x2=\"-10\" y2=\"0\"/><line x1=\"10\" y1=\"0\" x2=\"15\" y2=\"0\"/></g><g fill=\"#091317\" opacity=\"0.55\"><path d=\"M0 268 L150 252 L300 270 L460 256 L680 272 L680 300 L0 300 Z\"/></g><circle cx=\"340\" cy=\"150\" r=\"5.5\" fill=\"#eafcff\"/><circle cx=\"340\" cy=\"150\" r=\"2.5\" fill=\"#f2c14e\"/></svg>"
+   },
+   {
+    "t": "p",
+    "text": "At the end of the oldest game in the chronology, a dying king pauses to compliment the man who killed him. \"Extraordinary,\" he says. The hero stands as a paragon of his kind; he fights like no human or demon the king has ever known. And then — though this is not the end. The Demon King Demise spends his last breath not on rage but on arithmetic, a sentence built to outlast him."
+   },
+   {
+    "t": "p",
+    "text": "What he leaves behind is not a son or an heir but a pattern. In the English script of Skyward Sword he lays his curse across two bloodlines at once: the line that carries the blood of the goddess Hylia, and the line that carries the spirit of the hero. Something of him, he promises, will keep coming back to meet them, over and over, with no door at the end of the hall."
+   },
+   {
+    "t": "pq",
+    "text": "An incarnation of my hatred shall ever follow your kind, dooming them to wander a blood-soaked sea of darkness for all time."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "Demise's exact words at the close of Skyward Sword (2011). The image is deliberately physical — not vague dread but a sea of blood and dark the cursed lines must wander without end.",
+    "source": "The Legend of Zelda: Skyward Sword, ending dialogue (Demise); Zelda Wiki (Fandom) 'Demise'"
+   },
+   {
+    "t": "p",
+    "text": "Here the three roles every player half-recognizes get stated almost as a formula: a princess descended from a goddess, a hero who fights like no one else, and a returning darkness that wears a new face each time but carries the same hatred underneath. Skyward Sword sits first in the official timeline, so the curse reaches forward over every game that follows and backward over every one made before, and recasts all of them as another turn of one wheel."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "The tidy 'three bound souls' framing is largely a synthesis of Skyward Sword's dialogue with the supplementary books (Hyrule Historia, the Encyclopedia). And these are reincarnated roles, not one immortal trio — different Links and Zeldas across the ages, bound by another's hate.",
+    "source": "Hyrule Historia; Zelda Encyclopedia; Zelda Wiki (Fandom) 'Curse of Demise'"
+   },
+   {
+    "t": "p",
+    "text": "The wheel has a real name underneath the translation. The Japanese word at the heart of the curse is on'nen — a Buddhist term for lingering malice caught inside samsara, the cycle of death and rebirth. The official Encyclopedia renders that malice as Demise's \"curse\"; the game's English script renders it as his \"hatred.\" Same concept, different weight: the English shrinks the wheel down to one furious being's grudge."
+   },
+   {
+    "t": "note",
+    "kind": "theory",
+    "text": "Fan re-translations argue the Japanese frames this as the curse of an entire Demon Tribe, steeped in samsara rather than personal revenge. One close reading goes further still — that the curse may be born from Hylia's hatred as much as Demise's, so the 'incarnation' walks beside the hero and princess instead of merely hunting them. An interpretation of the Japanese, not stated canon, but it unsettles the story of one-sided vengeance.",
+    "source": "'An Incarnation of My Hatred,' pocketseizure / Mossflower Journal; Zelda Dungeon, 'Demise's Speech Re-Translated By a Fan'"
+   },
+   {
+    "t": "p",
+    "text": "Now hold all of that against Breath of the Wild, and notice what is missing. Demise never appears. Ganondorf never appears. The name of the curse is never spoken. What the game shows instead is the pattern running on its own, told partly in cloth. The Calamity Ganon Tapestry depicts a war ten thousand years gone — an ancient Hero with the Sword that Seals the Darkness, a Princess marked by sacred Triforce power, and the Sheikah's Guardians and Divine Beasts. The Sheikah did not merely beat Ganon then. They wrote down that he would come back, and built their machines as a hedge against a return they treated as certain."
+   },
+   {
+    "t": "p",
+    "text": "And he did return — on a birthday. The Great Calamity broke a hundred years before Link wakes, on the day Zelda turned seventeen, her sacred power still locked inside her and unable to answer in time. When she finally names the enemy at the game's close, she calls Ganon \"a pure embodiment of the ancient evil that is reborn time and time again.\" It is the nearest Breath of the Wild ever comes to Demise's curse, and it gets there without him."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "The honest caveat: the named link between BotW's Ganon and Demise's curse comes from Skyward Sword and the supplementary books — not from BotW's own script, which mentions neither Demise nor Skyward Sword. Zelda's 'reborn time and time again' evokes the cycle; it does not confirm the source of it on screen. Whether Ganon literally is Demise reborn, Nintendo leaves open.",
+    "source": "Breath of the Wild ending dialogue (Princess Zelda); Hyrule Historia; Zelda Wiki (Fandom) 'Demise'"
+   },
+   {
+    "t": "note",
+    "kind": "creator",
+    "text": "One design choice tips Nintendo's hand without committing to it. A developer recounts that to make Demise resemble Ganondorf, the team didn't just give him red hair — they set it on fire. A strong implication of the connection, stated in commentary rather than in any game.",
+    "source": "Hyrule Historia (developer commentary); Nintendo Life, 'Are Ganondorf And Ganon The Same Person?'"
+   },
+   {
+    "t": "p",
+    "text": "There is one more crack worth seeing clearly. When Ganon drops his schemes and becomes Dark Beast Ganon, the English says he \"has given up on reincarnation and assumed his pure, enraged form\" — hatred with the disguise stripped off. The Japanese reads almost the opposite: that the form was born from his refusal to give up on revival. The honest reconciliation is that he abandoned one battle's unfinished body, not the cycle itself."
+   },
+   {
+    "t": "note",
+    "kind": "theory",
+    "text": "This ending line is a known localization landmine. English 'given up on reincarnation' and Japanese 'refused to give up on revival' scan as opposites; treat neither as the single literal meaning.",
+    "source": "Nintendo Life, 'Translation of Zelda: BotW's Japanese Ending Prompts Interesting Debate' (Aug 2017); Legends of Localization"
+   },
+   {
+    "t": "p",
+    "text": "The wheel keeps turning either way. And when the final seal holds, the malice drains out of the land and Hyrule's monsters go quiet — as if the hatred had never belonged to Ganon alone, but had soaked into the world he kept coming back to ruin."
+   }
+  ],
+  "sources": [
+   "The Legend of Zelda: Skyward Sword — in-game ending dialogue (Demise's curse)",
+   "The Legend of Zelda: Breath of the Wild — in-game ending dialogue (Princess Zelda on Ganon / Dark Beast Ganon)",
+   "Hyrule Historia (Dark Horse / Nintendo) — official timeline placement and Demise/Ganondorf design commentary",
+   "The Legend of Zelda Encyclopedia (Dark Horse / Nintendo) — Demise / curse (on'nen) terminology",
+   "Zelda Wiki (Fandom): 'Demise' — https://zelda.fandom.com/wiki/Demise",
+   "Zelda Wiki (Fandom): 'Curse of Demise' — https://zelda.fandom.com/wiki/Curse_of_Demise",
+   "Nintendo Life: 'Are Ganondorf And Ganon The Same Person? — Zelda Villains Explained'",
+   "Nintendo Life: 'Translation of Zelda: Breath of the Wild's Japanese Ending Prompts Interesting Debate' (Aug 2017)",
+   "Legends of Localization: 'How Ganon's Motivation Changed in Breath of the Wild's English Translation'",
+   "'An Incarnation of My Hatred' — pocketseizure / Mossflower Journal (close reading of the Japanese on'nen / gonge)",
+   "Zelda Dungeon: 'Demise's Speech Re-Translated By a Fan'",
+   "Zelda Wiki (Fandom): 'Great Calamity' / 'Calamity Ganon' / 'Calamity Ganon Tapestry'"
+  ]
+ },
+ {
+  "id": "lore_timeline",
+  "title": "The Shape of Time",
+  "eyebrow": "How every Zelda connects",
+  "estMin": 4,
+  "spoiler": "Reveals the endings of Ocarina of Time and Wind Waker, and where Breath of the Wild sits in the saga.",
+  "blocks": [
+   {
+    "t": "art",
+    "svg": "<svg width=\"100%\" viewBox=\"0 0 680 300\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Time as a branching tree of light</title><desc>A single bright point at the base sends one luminous trunk rising into the dark abyss, splitting into three glowing boughs that represent three eras, their far tips fading into teal and gold.</desc><defs><radialGradient id=\"bgGlow\" cx=\"0.5\" cy=\"1\" r=\"1.05\"><stop offset=\"0\" stop-color=\"#12262b\"/><stop offset=\"0.45\" stop-color=\"#0d1c21\"/><stop offset=\"1\" stop-color=\"#091317\"/></radialGradient><radialGradient id=\"seed\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fdf6e3\" stop-opacity=\"1\"/><stop offset=\"0.3\" stop-color=\"#f2c14e\" stop-opacity=\"0.95\"/><stop offset=\"0.7\" stop-color=\"#5fd6e2\" stop-opacity=\"0.35\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"trunk\" x1=\"0\" y1=\"1\" x2=\"0\" y2=\"0\"><stop offset=\"0\" stop-color=\"#f2c14e\"/><stop offset=\"0.5\" stop-color=\"#7fd9e0\"/><stop offset=\"1\" stop-color=\"#5fd6e2\"/></linearGradient><linearGradient id=\"boughGold\" x1=\"0\" y1=\"1\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#f2c14e\" stop-opacity=\"0.95\"/><stop offset=\"1\" stop-color=\"#f0902a\" stop-opacity=\"0\"/></linearGradient><linearGradient id=\"boughCyan\" x1=\"0\" y1=\"1\" x2=\"0\" y2=\"0\"><stop offset=\"0\" stop-color=\"#5fd6e2\" stop-opacity=\"0.95\"/><stop offset=\"1\" stop-color=\"#79b8c0\" stop-opacity=\"0\"/></linearGradient><linearGradient id=\"boughCyanL\" x1=\"1\" y1=\"1\" x2=\"0\" y2=\"0\"><stop offset=\"0\" stop-color=\"#5fd6e2\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#79b8c0\" stop-opacity=\"0\"/></linearGradient><radialGradient id=\"tipGlow\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#eafcff\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient></defs><rect width=\"680\" height=\"300\" fill=\"url(#bgGlow)\"/><ellipse cx=\"340\" cy=\"290\" rx=\"300\" ry=\"70\" fill=\"#5fd6e2\" opacity=\"0.05\"/><g opacity=\"0.7\"><circle cx=\"120\" cy=\"60\" r=\"1.4\" fill=\"#79b8c0\"/><circle cx=\"560\" cy=\"48\" r=\"1.2\" fill=\"#f2c14e\"/><circle cx=\"470\" cy=\"90\" r=\"1\" fill=\"#79b8c0\"/><circle cx=\"230\" cy=\"40\" r=\"1\" fill=\"#79b8c0\"/><circle cx=\"610\" cy=\"120\" r=\"1.3\" fill=\"#5fd6e2\"/><circle cx=\"70\" cy=\"130\" r=\"1\" fill=\"#79b8c0\"/></g><g fill=\"none\" stroke-linecap=\"round\" opacity=\"0.28\"><path d=\"M340 288 C 320 230 300 200 250 170\" stroke=\"#5fd6e2\" stroke-width=\"10\"/><path d=\"M340 288 C 360 230 380 200 430 170\" stroke=\"#f2c14e\" stroke-width=\"10\"/></g><path d=\"M340 290 C 338 250 340 220 340 196\" fill=\"none\" stroke=\"url(#trunk)\" stroke-width=\"9\" stroke-linecap=\"round\"/><path d=\"M340 290 C 338 250 340 220 340 196\" fill=\"none\" stroke=\"#eafcff\" stroke-width=\"2.6\" stroke-linecap=\"round\" opacity=\"0.8\"/><g fill=\"none\" stroke-linecap=\"round\"><path d=\"M340 200 C 320 168 250 150 150 116\" stroke=\"url(#boughCyanL)\" stroke-width=\"6.5\"/><path d=\"M340 198 C 342 150 348 110 352 64\" stroke=\"url(#boughCyan)\" stroke-width=\"6.5\"/><path d=\"M340 200 C 360 168 430 150 540 120\" stroke=\"url(#boughGold)\" stroke-width=\"6.5\"/></g><g fill=\"none\" stroke-linecap=\"round\" opacity=\"0.85\"><path d=\"M225 134 C 200 120 185 100 178 78\" stroke=\"url(#boughCyanL)\" stroke-width=\"3\"/><path d=\"M205 124 C 188 132 170 132 150 138\" stroke=\"url(#boughCyanL)\" stroke-width=\"2.4\"/><path d=\"M349 120 C 332 104 318 96 300 86\" stroke=\"url(#boughCyan)\" stroke-width=\"3\"/><path d=\"M350 96 C 364 82 380 76 396 66\" stroke=\"url(#boughCyan)\" stroke-width=\"2.6\"/><path d=\"M455 138 C 480 124 498 106 506 86\" stroke=\"url(#boughGold)\" stroke-width=\"3\"/><path d=\"M470 132 C 488 140 506 142 528 148\" stroke=\"url(#boughGold)\" stroke-width=\"2.4\"/></g><g fill=\"none\" stroke-linecap=\"round\" opacity=\"0.5\"><path d=\"M178 78 C 168 66 158 58 148 50\" stroke=\"#79b8c0\" stroke-width=\"1.5\"/><path d=\"M396 66 C 408 56 418 50 428 44\" stroke=\"#79b8c0\" stroke-width=\"1.5\"/><path d=\"M506 86 C 514 74 522 66 530 58\" stroke=\"#f2c14e\" stroke-width=\"1.5\"/></g><circle cx=\"150\" cy=\"116\" r=\"20\" fill=\"url(#tipGlow)\"/><circle cx=\"352\" cy=\"64\" r=\"22\" fill=\"url(#tipGlow)\"/><circle cx=\"540\" cy=\"120\" r=\"20\" fill=\"url(#tipGlow)\"/><circle cx=\"148\" cy=\"50\" r=\"10\" fill=\"url(#tipGlow)\"/><circle cx=\"428\" cy=\"44\" r=\"10\" fill=\"url(#tipGlow)\"/><circle cx=\"530\" cy=\"58\" r=\"10\" fill=\"url(#tipGlow)\"/><g fill=\"#eafcff\"><circle cx=\"150\" cy=\"116\" r=\"2.6\"/><circle cx=\"352\" cy=\"64\" r=\"2.8\"/><circle cx=\"540\" cy=\"120\" r=\"2.6\"/></g><g fill=\"#5fd6e2\" opacity=\"0.9\"><circle cx=\"148\" cy=\"50\" r=\"1.6\"/><circle cx=\"396\" cy=\"66\" r=\"1.4\"/><circle cx=\"428\" cy=\"44\" r=\"1.6\"/></g><g fill=\"#f2c14e\" opacity=\"0.9\"><circle cx=\"530\" cy=\"58\" r=\"1.6\"/><circle cx=\"300\" cy=\"86\" r=\"1.4\"/></g><circle cx=\"340\" cy=\"290\" r=\"70\" fill=\"url(#seed)\"/><circle cx=\"340\" cy=\"290\" r=\"6\" fill=\"#fdf6e3\"/></svg>"
+   },
+   {
+    "t": "p",
+    "text": "For twenty-five years the games arrived out of order and nobody minded. The 1986 original dropped a boy into a kingdom already in ruins; later games reached back behind that ruin, or sideways from it, and the threads never quite tied. Then, for the series' anniversary, Nintendo printed the knot. A book called Hyrule Historia ran a section it titled a chronology, and the scattered legend finally had an official order: this happened, then this, then the world split."
+   },
+   {
+    "t": "p",
+    "text": "It begins with almost nothing. Three golden goddesses — Din, Nayru, Farore — shape the world, leave the Triforce behind, and depart. They give its keeping to one goddess, Hylia, and everything after hangs from that single handoff. Skyward Sword sits first: the age just after creation, when Hylia seals away the demon Demise and lifts the surviving mortals onto islands floating above a sea of cloud, a whole people raised into the sky to keep them out of his reach. There a Link feeds three sacred flames into the goddess's blade and tempers it, on screen, into the Master Sword every later hero will draw. And there the dying Demise lays down a curse: the goddess and her chosen knight will be born again across the ages, and his hatred will return each time wearing the face of Ganon. That curse is the engine of the whole saga."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "The Master Sword, the Triforce, the Demise-to-Ganon curse, and the rebirth of Link and Zelda all begin here, in Skyward Sword's age — and then recur down every branch that follows. They belong to no single later game; they are the inheritance all of them share.",
+    "source": "Hyrule Historia; Green Man Gaming timeline"
+   },
+   {
+    "t": "p",
+    "text": "From there a single line runs forward — the founding of Hyrule, the first quarrels over the Triforce, the era of the Minish and the Four Sword — until it reaches Ocarina of Time. And at Ocarina of Time the line does not bend. It shatters into three."
+   },
+   {
+    "t": "pq",
+    "text": "One boy's single adventure splays into three futures that cannot all be true at once."
+   },
+   {
+    "t": "p",
+    "text": "Two of the three are kinder. In one, the hero who beat Ganondorf as an adult is sent back to his own childhood to warn the princess before the man ever rises — the Child Era, where the warning holds and Majora's Mask, Twilight Princess, and Four Swords Adventures play out. In the other, that same return leaves the future with no hero in it at all; Ganon comes back, and the gods drown Hyrule beneath an endless ocean, until only the old mountaintops break the surface as islands. That is the Adult Era, the Great Sea, where Wind Waker opens on the waves, followed by Phantom Hourglass and Spirit Tracks."
+   },
+   {
+    "t": "p",
+    "text": "The third branch is the strange one. It asks what happens if Link simply loses — if the hero falls at Ocarina of Time and Ganon takes the whole Triforce. This is the Downfall branch, the canonized Game Over: the future where you failed, made real. No in-game text had ever declared it; the chronology took the hypothetical defeat and set it down as alternate history. Down that ruined road runs the oldest run of games — the 1986 original, Zelda II, A Link to the Past, Link's Awakening, the Oracle pair, A Link Between Worlds, Tri Force Heroes — the NES quest playing out in the ashes."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "The branch names drift between sources and translations: Downfall, Decline, and Fallen Hero all mean the same line. And the order inside it has already been revised — Nintendo later moved Link's Awakening ahead of the Oracle games. The chronology is treated as correctable, not carved. The pre-split early line, the Minish and Four Sword stretch most of all, is the thinnest and most contested part of it.",
+    "source": "Kotaku (Schreier, 2018); Hyrule Historia"
+   },
+   {
+    "t": "p",
+    "text": "Which leaves the question every player asks: where does Breath of the Wild fall? Nintendo's answer is a deliberate non-answer. They placed it at the very end — but at the end of all three branches at once, refusing to pin it to one. When Famitsu pressed Aonuma on which timeline, he half-dodged: of course it's at the very end, he said — but you mean which timeline's end. Director Fujibayashi handed the question straight back: that's up to the player's imagination, isn't it. In Creating a Champion, Aonuma made the reasoning plain. A fixed placement would settle the story and close the room to imagine, and he liked watching players build their own readings out of the fragments. He has said Nintendo will never reveal it."
+   },
+   {
+    "t": "note",
+    "kind": "creator",
+    "text": "For Tears of the Kingdom, Aonuma held the same line — chronology, he said, can box the design in and limit where the story is allowed to go — so its place in the order is left looser still. Read its position as openly unsettled, not as a branch waiting to be named.",
+    "source": "Game Informer / IGN, Dec 2023; Creating a Champion (2018)"
+   },
+   {
+    "t": "note",
+    "kind": "creator",
+    "text": "The book that fixed all this prints its own hedge: the chronicle, Nintendo wrote, merely collects what is believed to be true at this time. An official history that admits up front it may be wrong.",
+    "source": "Hyrule Historia; Aonuma afterword"
+   },
+   {
+    "t": "p",
+    "text": "So the shape of time here is not a line but a tree — rooted in one goddess's hand and a dying demon's curse, splitting once at a boy's hardest choice. And at its furthest tip stands a kingdom Nintendo has set down exactly where every reading of it stays true at once."
+   }
+  ],
+  "sources": [
+   "The Legend of Zelda: Hyrule Historia (Shogakukan 2011 / Dark Horse 2013) — 'The History of Hyrule: A Chronology', overseen by Eiji Aonuma",
+   "The Legend of Zelda: Breath of the Wild — Creating a Champion (2018) — Aonuma on deliberate ambiguity",
+   "Famitsu (2017), Aonuma & Fujibayashi on BotW placement — via Kotaku, Jason Schreier, Aug 6 2018",
+   "Nintendo Everything — Aonuma: Nintendo will never reveal BotW's placement",
+   "Game Informer / IGN interview, Dec 2023 — Aonuma on chronology 'boxing us in' (TotK)",
+   "Dexerto — Fallen Hero, Child and Adult Timelines explained (per-branch game lists)",
+   "CBR — Legend of Zelda Downfall Timeline guide",
+   "Green Man Gaming — The Legend of Zelda Timeline, all games in order (creation / Hylia / Demise)"
+  ]
+ },
+ {
+  "id": "lore_master_sword",
+  "title": "The Blade That Seals the Darkness",
+  "eyebrow": "The Master Sword, from the first goddess to the rusted pedestal",
+  "estMin": 4,
+  "spoiler": "Discusses Recovered Memory 18 and how Link gets the Master Sword in Breath of the Wild.",
+  "blocks": [
+   {
+    "t": "art",
+    "svg": "<svg width=\"100%\" viewBox=\"0 0 680 300\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>A blade resting in a forest pedestal</title><desc>A stylized sword stands point-down in a weathered stone pedestal within a quiet forest clearing, lit by a pale shaft of light from above with drifting motes, framed by faint dark trees.</desc><defs><linearGradient id=\"forest\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#070f12\"/><stop offset=\"0.55\" stop-color=\"#0c1a18\"/><stop offset=\"1\" stop-color=\"#091317\"/></linearGradient><linearGradient id=\"beam\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#5fd6e2\" stop-opacity=\"0.42\"/><stop offset=\"0.6\" stop-color=\"#9bc08a\" stop-opacity=\"0.16\"/><stop offset=\"1\" stop-color=\"#9bc08a\" stop-opacity=\"0\"/></linearGradient><radialGradient id=\"clearing\" cx=\"0.5\" cy=\"0.42\" r=\"0.55\"><stop offset=\"0\" stop-color=\"#5fd6e2\" stop-opacity=\"0.28\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"floor\" cx=\"0.5\" cy=\"0.9\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#9bc08a\" stop-opacity=\"0.18\"/><stop offset=\"1\" stop-color=\"#9bc08a\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"blade\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#79b8c0\"/><stop offset=\"0.5\" stop-color=\"#5fd6e2\"/><stop offset=\"1\" stop-color=\"#e9e2d2\"/></linearGradient><linearGradient id=\"grip\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#2a484e\"/><stop offset=\"0.5\" stop-color=\"#4a7880\"/><stop offset=\"1\" stop-color=\"#2a484e\"/></linearGradient><radialGradient id=\"gem\" cx=\"0.5\" cy=\"0.4\" r=\"0.6\"><stop offset=\"0\" stop-color=\"#f2c14e\"/><stop offset=\"1\" stop-color=\"#f0902a\"/></radialGradient></defs><rect width=\"680\" height=\"300\" fill=\"url(#forest)\"/><polygon points=\"290,0 390,0 430,300 250,300\" fill=\"url(#beam)\"/><ellipse cx=\"340\" cy=\"130\" rx=\"180\" ry=\"150\" fill=\"url(#clearing)\"/><g fill=\"#060d10\" opacity=\"0.92\"><polygon points=\"40,300 58,90 76,300\"/><polygon points=\"46,120 58,96 70,120\"/><polygon points=\"44,160 58,140 72,160\"/><polygon points=\"42,200 58,178 74,200\"/><polygon points=\"120,300 134,140 148,300\"/><polygon points=\"124,170 134,152 144,170\"/><polygon points=\"122,210 134,190 146,210\"/></g><g fill=\"#070f12\" opacity=\"0.9\"><polygon points=\"612,300 628,80 644,300\"/><polygon points=\"616,116 628,90 640,116\"/><polygon points=\"614,158 628,136 642,158\"/><polygon points=\"612,202 628,178 644,202\"/><polygon points=\"540,300 552,150 564,300\"/><polygon points=\"544,178 552,158 560,178\"/><polygon points=\"542,218 552,196 562,218\"/></g><g fill=\"#0a1518\" opacity=\"0.85\"><polygon points=\"200,300 210,200 220,300\"/><polygon points=\"470,300 480,196 490,300\"/></g><ellipse cx=\"340\" cy=\"262\" rx=\"150\" ry=\"26\" fill=\"url(#floor)\"/><g><polygon points=\"296,250 384,250 372,300 308,300\" fill=\"#0d1a1d\"/><polygon points=\"296,250 384,250 388,238 292,238\" fill=\"#16282b\"/><rect x=\"292\" y=\"234\" width=\"96\" height=\"8\" rx=\"2\" fill=\"#1d3236\"/><path d=\"M340 234 L340 224\" stroke=\"#5fd6e2\" stroke-width=\"1\" opacity=\"0.3\"/></g><g><polygon points=\"340,28 348,42 348,180 340,196 332,180 332,42\" fill=\"url(#blade)\"/><line x1=\"340\" y1=\"44\" x2=\"340\" y2=\"178\" stroke=\"#091317\" stroke-width=\"1\" opacity=\"0.35\"/><polygon points=\"340,28 344,40 340,46 336,40\" fill=\"#e9e2d2\"/></g><g><rect x=\"310\" y=\"180\" width=\"60\" height=\"9\" rx=\"3\" fill=\"#79b8c0\"/><polygon points=\"310,189 370,189 360,184 320,184\" fill=\"#5fd6e2\" opacity=\"0.5\"/><rect x=\"334\" y=\"189\" width=\"12\" height=\"40\" fill=\"url(#grip)\"/><circle cx=\"340\" cy=\"231\" r=\"6.5\" fill=\"url(#gem)\"/><circle cx=\"340\" cy=\"231\" r=\"6.5\" fill=\"none\" stroke=\"#f2c14e\" stroke-width=\"0.8\" opacity=\"0.6\"/></g><circle cx=\"340\" cy=\"120\" r=\"58\" fill=\"url(#clearing)\" opacity=\"0.7\"/><g fill=\"#e9e2d2\"><circle cx=\"312\" cy=\"96\" r=\"1.6\" opacity=\"0.8\"/><circle cx=\"368\" cy=\"150\" r=\"1.3\" opacity=\"0.6\"/><circle cx=\"326\" cy=\"200\" r=\"1.8\" opacity=\"0.7\"/><circle cx=\"356\" cy=\"78\" r=\"1.2\" opacity=\"0.5\"/><circle cx=\"300\" cy=\"168\" r=\"1.4\" opacity=\"0.55\"/><circle cx=\"380\" cy=\"110\" r=\"1.5\" opacity=\"0.6\"/><circle cx=\"344\" cy=\"60\" r=\"1.1\" opacity=\"0.5\"/><circle cx=\"318\" cy=\"140\" r=\"1.2\" opacity=\"0.65\"/></g><g fill=\"#f2c14e\"><circle cx=\"334\" cy=\"116\" r=\"1.3\" opacity=\"0.7\"/><circle cx=\"360\" cy=\"190\" r=\"1.2\" opacity=\"0.5\"/><circle cx=\"308\" cy=\"120\" r=\"1\" opacity=\"0.55\"/></g></svg>"
+   },
+   {
+    "t": "p",
+    "text": "Deep in the Lost Woods, past the fog that turns a traveler in circles until he quits, there is a clearing, and in the clearing a pedestal, and in the pedestal a sword. It has waited a hundred years. When Link finds it, it does not gleam the way the songs promise. The blade is chipped. Rust has spotted the steel. It looks like what it is: a holy thing that fought a war, lost, and was carried here to heal."
+   },
+   {
+    "t": "p",
+    "text": "The stories about where it came from do not agree, and the disagreement is itself part of its history. The oldest game to name it, A Link to the Past, said the people of Hyrule forged it — a blade made to resist magic, to turn aside even the power of the Triforce, so that mortals could stand against Ganon. They called it the Blade of Evil's Bane. Years later, Twilight Princess told it otherwise: not smiths but ancient sages had shaped it. Two answers, both spoken as truth."
+   },
+   {
+    "t": "p",
+    "text": "The account that now sits beneath the others arrived last and reaches furthest back. In Skyward Sword, the earliest tale in the whole chronology, the sword does not begin as a sword. The goddess Hylia made the Goddess Sword, and inside it she set a spirit named Fi — not an enchantment but a person of sorts, who speaks in cold arithmetic. She was made, by Hylia, for one purpose: to help the goddess's chosen hero carry the burden that was his to carry. Her own words put it long before her people kept any memory at all."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "Nintendo gave the contradiction an in-story alibi. Fi remarks that spoken tradition is among the least reliable ways to keep and pass on what is known — a quiet admission that the older origin tales were always going to drift.",
+    "source": "Skyward Sword (Fi dialogue); Den of Geek"
+   },
+   {
+    "t": "p",
+    "text": "And it was the hero, not the goddess, who finished it. Link bathed the Goddess Sword in three Sacred Flames, each tied to one of the Golden Goddesses. Farore's green fire, in the Ancient Cistern, lengthened the blade and doubled its strength. Nayru's blue fire, aboard the Sandship, sharpened Fi's sense for hidden things. In the Fire Sanctuary, Din's red flame poured sacred light into the steel, tripled its strength again, and granted the one power that mattered — to repel evil. Green, then blue, then red, and the Goddess Sword became the Master Sword."
+   },
+   {
+    "t": "pq",
+    "text": "It was made to end one evil. That evil promised to come back, and the blade has been answering the same enemy ever since."
+   },
+   {
+    "t": "p",
+    "text": "When the demon king Demise fell, his last act was a curse: his hatred would be reborn again and again, a cycle with no clean end. That reborn malice is understood to become Ganon — not Demise himself, but the seed he left in the world. Link set the sword back in its pedestal at the Sealed Grounds to keep the sealed evil contained, where it would rest until it was needed again. So the work of the blade is never finished. Only postponed."
+   },
+   {
+    "t": "note",
+    "kind": "theory",
+    "text": "Fans often say Demise's spirit is locked inside the Master Sword itself. The game never states that. What it shows is the blade returned to its pedestal to hold the seal, and a curse promising the evil will return — which is enough.",
+    "source": "community interpretation; Zelda Dungeon Forums"
+   },
+   {
+    "t": "p",
+    "text": "Which brings the cycle back to that rusted blade in the Korok Forest. The Great Deku Tree watches over it, and calls it the weapon of the ancient goddess, the sword that seals the darkness, that only the chosen knight can raise against the Calamity. Against Ganon, or anything stained with his Malice, it kindles with holy light and shows what it can truly do — though the Deku Tree warns Link not to lean on that power too hard. A century before, Zelda had laid it here herself, battle-worn from the fight against the Calamity. She spoke to it like a comrade, asking it to trust that Link would come back, then had him carried to the Shrine of Resurrection."
+   },
+   {
+    "t": "p",
+    "text": "To draw it now, a hero needs at least thirteen full hearts; the borrowed yellow kind do not count. Pulling it costs life as you pull — the bar drains while Link strains, and the Deku Tree shouts for him to stop before it kills him. Earn the right and the reward is a blade that will not shatter like the rusting arsenal around it. It only runs out of light, and rests about ten minutes before it glows again: a weapon that wakes when evil is near and sleeps the rest of the time."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "How Link first won the sword, a hundred years earlier, was left blank on purpose. Creating a Champion says the details are lost to time, though he likely took it around age twelve or thirteen. Where Breath of the Wild sits on the series timeline was also left open, by Aonuma's own account.",
+    "source": "Creating a Champion (Aonuma commentary)"
+   }
+  ],
+  "sources": [
+   "Wikipedia — Master Sword",
+   "Den of Geek — 'Who Forged the Master Sword?'",
+   "Zelda Dungeon Wiki — Sacred Flames; The Master Sword (Memory)",
+   "Zelda Wiki (Fandom) — Fi; The Goddess Hylia; Curse of Demise; Korok Forest",
+   "Game8; Nintendo Life; Dexerto — Master Sword (BotW)",
+   "Orcz — Great Deku Tree dialogue transcript",
+   "PRIMARY (in-game) — Skyward Sword (Fi); BotW Hyrule Compendium, Great Deku Tree dialogue, Recovered Memory 18",
+   "PRIMARY (book) — Breath of the Wild – Creating a Champion (Dark Horse, 2018)"
+  ]
+ },
+ {
+  "id": "lore_calamity",
+  "title": "When the Sky Turned Red",
+  "eyebrow": "The Great Calamity · a hundred years before Link wakes",
+  "estMin": 4,
+  "spoiler": "Tells the full backstory of the Great Calamity — the Champions' fate and Zelda's stand. It's the history your game begins after, so it's safe to read from the start.",
+  "blocks": [
+   {
+    "t": "art",
+    "svg": "<svg width=\"100%\" viewBox=\"0 0 680 300\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>When the sky turned red</title><desc>A stylized castle on a far hill beneath a blood-red, malice-streaked sky, with one cold blue point of Guardian light on the dark foreground ridge. Original art, no Nintendo assets.</desc><defs><linearGradient id=\"cbsky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#08151b\"/><stop offset=\"0.48\" stop-color=\"#1b1320\"/><stop offset=\"0.76\" stop-color=\"#5e1f2c\"/><stop offset=\"1\" stop-color=\"#b1303f\"/></linearGradient><radialGradient id=\"cbglow\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#7fe6f2\" stop-opacity=\"0.9\"/><stop offset=\"1\" stop-color=\"#7fe6f2\" stop-opacity=\"0\"/></radialGradient></defs><rect width=\"680\" height=\"300\" fill=\"url(#cbsky)\"/><circle cx=\"92\" cy=\"40\" r=\"1.2\" fill=\"#bfe9f0\" opacity=\"0.7\"/><circle cx=\"170\" cy=\"26\" r=\"1\" fill=\"#bfe9f0\" opacity=\"0.5\"/><circle cx=\"262\" cy=\"50\" r=\"1.1\" fill=\"#bfe9f0\" opacity=\"0.6\"/><circle cx=\"540\" cy=\"34\" r=\"1\" fill=\"#bfe9f0\" opacity=\"0.5\"/><circle cx=\"616\" cy=\"58\" r=\"1.3\" fill=\"#bfe9f0\" opacity=\"0.6\"/><circle cx=\"436\" cy=\"120\" r=\"104\" fill=\"#c4384b\" opacity=\"0.16\"/><circle cx=\"436\" cy=\"120\" r=\"66\" fill=\"#d34255\" opacity=\"0.16\"/><path d=\"M312 120 q66 -44 142 -14 q56 24 24 78\" fill=\"none\" stroke=\"#e2566a\" stroke-width=\"2\" opacity=\"0.32\" stroke-linecap=\"round\"/><path d=\"M340 160 q74 -34 142 6\" fill=\"none\" stroke=\"#e2566a\" stroke-width=\"1.5\" opacity=\"0.24\" stroke-linecap=\"round\"/><path d=\"M0 196 L120 168 L212 192 L342 162 L470 190 L560 168 L680 196 L680 300 L0 300 Z\" fill=\"#0a141a\" opacity=\"0.85\"/><g fill=\"#070f14\"><rect x=\"396\" y=\"138\" width=\"18\" height=\"58\"/><polygon points=\"396,138 405,121 414,138\"/><rect x=\"420\" y=\"126\" width=\"24\" height=\"70\"/><polygon points=\"420,126 432,103 444,126\"/><rect x=\"450\" y=\"146\" width=\"16\" height=\"50\"/><polygon points=\"450,146 458,131 466,146\"/><rect x=\"378\" y=\"156\" width=\"13\" height=\"40\"/><polygon points=\"378,156 384,144 391,156\"/></g><path d=\"M0 236 L150 224 L300 246 L470 228 L680 252 L680 300 L0 300 Z\" fill=\"#04090c\"/><g transform=\"translate(214,236)\" fill=\"#04090c\"><circle cx=\"0\" cy=\"-12\" r=\"4\"/><rect x=\"-3\" y=\"-9\" width=\"6\" height=\"12\" rx=\"2.4\"/><rect x=\"-7\" y=\"-6\" width=\"4.6\" height=\"2.8\" rx=\"1.4\" transform=\"rotate(-26 -5 -5)\"/><rect x=\"2.4\" y=\"-8\" width=\"3.6\" height=\"13\" rx=\"1.8\" transform=\"rotate(18 4 -2)\"/></g><circle cx=\"150\" cy=\"224\" r=\"30\" fill=\"url(#cbglow)\"/><circle cx=\"150\" cy=\"224\" r=\"4.2\" fill=\"#eafcff\"/><circle cx=\"150\" cy=\"224\" r=\"2\" fill=\"#0a141a\"/><line x1=\"150\" y1=\"224\" x2=\"406\" y2=\"170\" stroke=\"#7fe6f2\" stroke-width=\"1\" opacity=\"0.4\" stroke-linecap=\"round\"/><circle cx=\"120\" cy=\"266\" r=\"1.4\" fill=\"#f0902a\" opacity=\"0.8\"/><circle cx=\"252\" cy=\"278\" r=\"1.1\" fill=\"#f0902a\" opacity=\"0.6\"/><circle cx=\"470\" cy=\"270\" r=\"1.3\" fill=\"#f0902a\" opacity=\"0.7\"/><circle cx=\"566\" cy=\"284\" r=\"1\" fill=\"#f0902a\" opacity=\"0.5\"/></svg>"
+   },
+   {
+    "t": "p",
+    "text": "Long before Link woke beneath the Great Plateau with the dust of a century on his skin, Hyrule had already died once — and saved itself, and forgotten how."
+   },
+   {
+    "t": "p",
+    "text": "The oldest stories begin ten thousand years ago, in a Hyrule far richer and wiser than the one Link would wake into, and they begin the way the worst stories do: with a warning that came true. Ganon, the histories say, was less a monster than a malice — old, patient, and bottomless — and when the seers foretold his coming, the people did not run. They built."
+   },
+   {
+    "t": "p",
+    "text": "It was the Sheikah who built, for no people in the world could match their craft. They made an army of Guardians: tall things that walked on jointed legs and watched the world through a single eye, and when that eye woke it shone a cold and certain blue, and a thread of light would unspool from it to settle on whatever it meant to kill. And they made four Divine Beasts — mountains that moved, each shaped after a living creature and each given an element to carry. An elephant for the water. A salamander for the fire. An eagle for the wind. A camel for the thunder."
+   },
+   {
+    "t": "p",
+    "text": "But it was not the engines that ended the first Calamity. In that age a princess was born with a sacred light inside her, and a knight rose to stand at her side bearing the sword that seals the darkness, and between the two of them — the power and the blade — they bound Ganon and sealed the darkness away. Their names should have outlasted the mountains. Instead the kingdom kept the machines and lost the people, and no one alive today can tell you who that first hero was, or that first princess. Only that they were."
+   },
+   {
+    "t": "p",
+    "text": "What came after is the part the Sheikah's children would pay for. The kings who followed looked at a people who could build a seeing eye and a walking fortress, and they were afraid — and fear did what fear always does. The Sheikah were thanked, and then watched, and then sent away, their works buried and their knowledge let go like a held breath. And there it stayed, under the grass and the years, until the prophecy came around again, the way prophecies do."
+   },
+   {
+    "t": "p",
+    "text": "That turning came a hundred years before our story. King Rhoam read the old signs — the same signs his ancestors had read — and understood that the Calamity was returning, and so Hyrule went digging in its own grave. Out of the soil came the sleeping Guardians and the four Divine Beasts, made, the king said, “by the hands of our distant ancestors”: a hundred centuries of earth brushed from machines that still remembered how to wake. And Rhoam chose four of his people to ride the Beasts into the war he knew was coming."
+   },
+   {
+    "t": "p",
+    "text": "He named them Champions. Mipha of the Zora, a princess whose hands could close a wound and draw the pain out after it. Daruk of the Gorons, broad and bright-hearted, built like the mountain that raised him. Revali of the Rito, the finest archer ever to leave the ground — and the first to tell you so. Urbosa, chief of the Gerudo, who could reach into a cloudless sky and pull the lightning down. Over them stood Princess Zelda, their commander, who carried in her blood the sealing light of the goddess Hylia; and at her side a knight named Link, chosen — as a nameless hero had been chosen long before — by that same sword that seals the darkness. Five of them, if you count Link. Count Link."
+   },
+   {
+    "t": "p",
+    "text": "Only one part of the plan was not made of metal and prophecy, and it was the part that broke. The goddess's light would not wake in Zelda. She knelt at every sacred spring the kingdom held and felt nothing rise to meet her, season after season, until a last cold morning high on Mount Lanayru, at the Spring of Wisdom, on her seventeenth birthday — when the water gave her back nothing but her own reflection. That was the morning the sky tore open."
+   },
+   {
+    "t": "pq",
+    "text": "They built an army to end Ganon. Ganon woke, and made the army his own."
+   },
+   {
+    "t": "p",
+    "text": "He came up out of the dark beneath Hyrule Castle, and a red light bled into the sky above its towers and spread until it could be seen from every corner of the land. He did not bother to fight the great engines waiting to destroy him. He simply took them. The Guardians raised to guard Castle Town turned and burned it down to its stones. And into each of the four Divine Beasts slipped a sliver of him — Waterblight, Fireblight, Windblight, Thunderblight, one shadow apiece — and in the dark of those vast bodies they killed the Champions who piloted them. Mipha. Daruk. Revali. Urbosa. Four of the five."
+   },
+   {
+    "t": "p",
+    "text": "The fifth was Link. He stood between the princess and the end of the world for as long as a body can, and then he went down, broken, still trying to shield her. The Sheikah who loved her — Impa, Purah, Robbie — carried him out of the burning to the one place that might undo his dying: the Shrine of Resurrection on the Great Plateau, a still chamber of old healing light, where they laid him down to sleep while it knit him slowly back together, over a hundred years."
+   },
+   {
+    "t": "p",
+    "text": "And in that hour — her knight dying, her Champions dead, her father the king dead, her city on fire — the light the goddess had withheld from Zelda all her life finally answered. It rose out of her in a blaze that stilled the Guardians closing in: too late to win, just in time to hold. So she did the only thing left to do. She folded that light around Ganon, and around herself, and shut the two of them inside the castle together. Not a victory. A hand closed around a coal, kept shut by a will that did not dare to open."
+   },
+   {
+    "t": "p",
+    "text": "She held on for a hundred years. And then, in a cave on the Great Plateau, a man with no memory opened his eyes to a voice he did not know — and the long, quiet ruin of Hyrule waited to see what he would do."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "source": "In-game · Creating a Champion",
+    "text": "The first princess and the first knight, the two who bound Ganon ten thousand years ago (as near as the histories can reckon it), are never named — not in the game, and not in the official books. Hyrule remembered the deed and forgot the hands that did it. That gap is the secret shape of the whole legend: a hero, a princess, a darkness — the same three threads spun new in every age."
+   },
+   {
+    "t": "note",
+    "kind": "theory",
+    "source": "Fan reading",
+    "text": "Readers have long suspected the Divine Beasts carry the names of sages from older tales — Ruta, Rudania, Medoh, and Naboris echoing Ruto, Darunia, Medli, and Nabooru — though Nintendo has never said so."
+   }
+  ],
+  "sources": [
+   "The Legend of Zelda: Breath of the Wild — Creating a Champion (Nintendo / Dark Horse)",
+   "Breath of the Wild — in-game (King Rhoam's account; the Recovered Memories)",
+   "Zelda Wiki / Zelda Dungeon (cross-check)"
+  ]
+ },
+ {
+  "id": "lore_champions",
+  "title": "The Four Who Were Chosen",
+  "eyebrow": "Mipha, Daruk, Revali, Urbosa",
+  "estMin": 4,
+  "spoiler": "How the four Champions died inside their Divine Beasts during the Great Calamity, and how Link frees their spirits a century later.",
+  "blocks": [
+   {
+    "t": "art",
+    "svg": "<svg width=\"100%\" viewBox=\"0 0 680 300\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Four elemental sigils over a ceremonial field</title><desc>Four glowing original emblems arrayed across a dark altar — water in blue, fire in coral-orange, wind in teal, thunder in gold — balanced and reverent over a stone dais lit from below.</desc><defs><linearGradient id=\"field\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#070f12\"/><stop offset=\"0.55\" stop-color=\"#0b181d\"/><stop offset=\"1\" stop-color=\"#0f1c22\"/></linearGradient><radialGradient id=\"hall\" cx=\"0.5\" cy=\"0.42\" r=\"0.62\"><stop offset=\"0\" stop-color=\"#163038\" stop-opacity=\"0.55\"/><stop offset=\"1\" stop-color=\"#163038\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"gWater\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#5fd6e2\" stop-opacity=\"0.85\"/><stop offset=\"0.5\" stop-color=\"#79b8c0\" stop-opacity=\"0.28\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"gFire\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#f0902a\" stop-opacity=\"0.9\"/><stop offset=\"0.5\" stop-color=\"#f0902a\" stop-opacity=\"0.3\"/><stop offset=\"1\" stop-color=\"#f0902a\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"gWind\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#9bc08a\" stop-opacity=\"0.8\"/><stop offset=\"0.5\" stop-color=\"#5fd6e2\" stop-opacity=\"0.25\"/><stop offset=\"1\" stop-color=\"#5fd6e2\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"gThunder\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#f2c14e\" stop-opacity=\"0.9\"/><stop offset=\"0.5\" stop-color=\"#f2c14e\" stop-opacity=\"0.3\"/><stop offset=\"1\" stop-color=\"#f2c14e\" stop-opacity=\"0\"/></radialGradient></defs><rect width=\"680\" height=\"300\" fill=\"url(#field)\"/><rect width=\"680\" height=\"300\" fill=\"url(#hall)\"/><g opacity=\"0.5\"><line x1=\"120\" y1=\"300\" x2=\"170\" y2=\"236\" stroke=\"#16282f\" stroke-width=\"1\"/><line x1=\"270\" y1=\"300\" x2=\"295\" y2=\"236\" stroke=\"#16282f\" stroke-width=\"1\"/><line x1=\"410\" y1=\"300\" x2=\"385\" y2=\"236\" stroke=\"#16282f\" stroke-width=\"1\"/><line x1=\"560\" y1=\"300\" x2=\"510\" y2=\"236\" stroke=\"#16282f\" stroke-width=\"1\"/></g><path d=\"M0 238 L150 230 L340 224 L530 230 L680 238 L680 300 L0 300 Z\" fill=\"#0a141a\"/><path d=\"M0 238 L150 230 L340 224 L530 230 L680 238\" fill=\"none\" stroke=\"#1d3640\" stroke-width=\"1\" opacity=\"0.7\"/><ellipse cx=\"340\" cy=\"262\" rx=\"300\" ry=\"20\" fill=\"#0d1b21\" opacity=\"0.6\"/><line x1=\"40\" y1=\"150\" x2=\"640\" y2=\"150\" stroke=\"#13242b\" stroke-width=\"0.5\" opacity=\"0.6\"/><g><circle cx=\"130\" cy=\"148\" r=\"62\" fill=\"url(#gWater)\"/><path d=\"M130 110 C150 138 158 156 158 172 C158 190 146 202 130 202 C114 202 102 190 102 172 C102 156 110 138 130 110 Z\" fill=\"none\" stroke=\"#5fd6e2\" stroke-width=\"2\" opacity=\"0.9\"/><path d=\"M130 132 C140 150 145 162 145 173 C145 185 138 192 130 192\" fill=\"none\" stroke=\"#79b8c0\" stroke-width=\"1.5\" opacity=\"0.7\"/><circle cx=\"130\" cy=\"172\" r=\"5\" fill=\"#eafcff\"/><circle cx=\"130\" cy=\"148\" r=\"62\" fill=\"none\" stroke=\"#5fd6e2\" stroke-width=\"0.5\" opacity=\"0.35\"/></g><g><circle cx=\"270\" cy=\"148\" r=\"62\" fill=\"url(#gFire)\"/><path d=\"M270 104 C286 132 296 142 296 162 C296 186 285 202 270 202 C255 202 244 186 244 162 C244 142 254 132 270 104 Z\" fill=\"none\" stroke=\"#f0902a\" stroke-width=\"2\" opacity=\"0.95\"/><path d=\"M270 138 C278 156 282 164 282 176 C282 190 277 198 270 198 C263 198 258 190 258 176 C258 168 262 156 270 138 Z\" fill=\"#f0902a\" opacity=\"0.25\"/><path d=\"M270 150 C275 164 277 170 277 178 C277 188 274 194 270 194 C266 194 263 188 263 178 C263 170 265 164 270 150 Z\" fill=\"#f2c14e\" opacity=\"0.55\"/><circle cx=\"270\" cy=\"148\" r=\"62\" fill=\"none\" stroke=\"#f0902a\" stroke-width=\"0.5\" opacity=\"0.35\"/></g><g><circle cx=\"410\" cy=\"148\" r=\"62\" fill=\"url(#gWind)\"/><path d=\"M376 138 C404 124 442 124 446 142 C449 156 432 162 414 158\" fill=\"none\" stroke=\"#5fd6e2\" stroke-width=\"2\" opacity=\"0.9\"/><path d=\"M372 162 C404 150 452 150 456 170 C459 186 438 192 418 186\" fill=\"none\" stroke=\"#9bc08a\" stroke-width=\"2\" opacity=\"0.85\"/><path d=\"M380 184 C402 176 432 178 434 190 C436 200 424 204 412 200\" fill=\"none\" stroke=\"#79b8c0\" stroke-width=\"1.5\" opacity=\"0.7\"/><circle cx=\"410\" cy=\"148\" r=\"62\" fill=\"none\" stroke=\"#9bc08a\" stroke-width=\"0.5\" opacity=\"0.3\"/></g><g><circle cx=\"550\" cy=\"148\" r=\"62\" fill=\"url(#gThunder)\"/><path d=\"M561 108 L525 156 L547 156 L531 196 L575 142 L551 142 Z\" fill=\"none\" stroke=\"#f2c14e\" stroke-width=\"2\" opacity=\"0.95\"/><path d=\"M561 108 L525 156 L547 156 L531 196 L575 142 L551 142 Z\" fill=\"#f2c14e\" opacity=\"0.18\"/><circle cx=\"550\" cy=\"148\" r=\"62\" fill=\"none\" stroke=\"#f2c14e\" stroke-width=\"0.5\" opacity=\"0.35\"/></g><g opacity=\"0.5\"><line x1=\"130\" y1=\"210\" x2=\"270\" y2=\"210\" stroke=\"#5fd6e2\" stroke-width=\"0.5\"/><line x1=\"270\" y1=\"210\" x2=\"410\" y2=\"210\" stroke=\"#9bc08a\" stroke-width=\"0.5\"/><line x1=\"410\" y1=\"210\" x2=\"550\" y2=\"210\" stroke=\"#f2c14e\" stroke-width=\"0.5\"/></g><circle cx=\"130\" cy=\"210\" r=\"3\" fill=\"#5fd6e2\"/><circle cx=\"270\" cy=\"210\" r=\"3\" fill=\"#f0902a\"/><circle cx=\"410\" cy=\"210\" r=\"3\" fill=\"#9bc08a\"/><circle cx=\"550\" cy=\"210\" r=\"3\" fill=\"#f2c14e\"/><circle cx=\"40\" cy=\"46\" r=\"1.4\" fill=\"#5fd6e2\" opacity=\"0.5\"/><circle cx=\"636\" cy=\"58\" r=\"1.4\" fill=\"#f2c14e\" opacity=\"0.5\"/><circle cx=\"612\" cy=\"40\" r=\"1\" fill=\"#e9e2d2\" opacity=\"0.4\"/><circle cx=\"64\" cy=\"72\" r=\"1\" fill=\"#e9e2d2\" opacity=\"0.35\"/></svg>"
+   },
+   {
+    "t": "p",
+    "text": "Four machines, and each machine was a mountain. When the old kingdom dug the Divine Beasts out of the ground to fight Ganon a second time, no ordinary soldier could move them. So King Rhoam and his daughter went looking across every people in Hyrule for four who could. What they found were not soldiers. They were a healer, a glutton, a braggart, and a queen, and a hundred years before Link woke beneath the Plateau, the King gave each of them a blue sash and a beast that walked."
+   },
+   {
+    "t": "p",
+    "text": "Mipha took the elephant. Princess of the Zora, daughter of King Dorephan, elder sister to a small boy named Sidon, she carried the Lightscale Trident the way other royals carry a scepter — but the spear was never the point of her. Her hands were. No other Zora could do what she did: lay her palms on a wound and close it, glowing, the hurt simply gone. When Zelda set down her notes on the four, she wrote with some surprise that Mipha, who seemed the most fragile, had the easiest time of anyone bending her Divine Beast to her will. The gentle one was the natural pilot."
+   },
+   {
+    "t": "p",
+    "text": "Her diary says she first met Link when he was about four years old, already a swordsman who could beat grown men. She was older, and she did not forget him. In the quiet between the work she made him something. By an old Zora custom, a princess weaves armor from her own silver scales for the one she means to marry, and Mipha wove. She finished it. She never gave it. The proposal stayed folded inside the gift, the gift stayed unspoken, and then the time for both ran out."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "The Zora Armor and Mipha's diary make her love for Link plain. Whether Link felt the same is left deliberately blank — he never speaks. The armor was a gift she carried to her death, not a promise the two of them made aloud.",
+    "source": "BotW — Zora Armor description; Mipha's Diary (The Champions' Ballad)"
+   },
+   {
+    "t": "p",
+    "text": "Daruk took the salamander. The Goron Champion was built like the boulders he broke, and he swung a two-handed maul called the Boulder Breaker as though it weighed nothing. He decided he liked Link after the two of them put down a fire-bodied Talus together — Link's strength impressed him, and so did the boy's willingness to eat absolutely anything — so Daruk did what Gorons do with the people they love, and made Link a sworn brother. His gift in battle is stubbornness shaped into light. Daruk's Protection throws up a barrier that snaps shut around its bearer the instant a blow comes in. His grandson Yunobo, a timid boy, still carries a thinner measure of it in his blood."
+   },
+   {
+    "t": "p",
+    "text": "Revali took the eagle, and resented every minute of the company he kept to do it. He was perhaps the finest archer the Rito ever produced, and his Great Eagle Bow loosed three arrows for the price of one. But where Mipha and Daruk were born able, Revali built his gift with his own bleeding hands. Alone, over and over, training past the point of injury, he taught the wind to lift him. Revali's Gale, an updraft summoned from nothing, flings a flier straight up into open sky. He was not given a legend. He manufactured one. And it galled him without end that the Champions answered to Link, a boy whose only claim was the sword on his back."
+   },
+   {
+    "t": "pq",
+    "text": "He invented the wind that lifts you. That is the thing to remember about Revali: every other gift here was a birthright. His was a wound he kept reopening until it learned to fly."
+   },
+   {
+    "t": "note",
+    "kind": "theory",
+    "text": "His diary confirms Revali built his Gale through self-punishing solitary work, and his jealousy of Link is open canon. The common reading — that the arrogance is armor over deep self-doubt — is persuasive characterization, not a flat line in the game. Treat it as interpretation.",
+    "source": "The Diary of Revali (canon); community character analysis (theory)"
+   },
+   {
+    "t": "p",
+    "text": "Urbosa took the camel, Vah Naboris, the lightning-beast, and of the four she needed it least to be frightening. Chief of the Gerudo, she fought with the Scimitar of the Seven and the mirror-bright Daybreaker shield, and her gift was the storm itself: a snap of her fingers, and lightning fell where she pointed. But the storm was not the half of her that mattered. Urbosa had been a friend of Hyrule's late Queen, and when the Queen died she stepped without being asked into the cold place she left behind. She stood over Zelda — who could not yet unlock her own power, and was breaking under the failure — as something fiercer and warmer than a guardian. A second mother, with a sword."
+   },
+   {
+    "t": "note",
+    "kind": "creator",
+    "text": "Designer Naoki Mori described Urbosa as kind, relaxed, and sassy, and the team gave her a deliberately maternal bearing meant to hold the strength of a warrior and a mother at once. For Mipha, lead artist Hirohito Shinoda began from a dolphin, dressing her in delicate Zora pieces to make her feel fleeting and soft.",
+    "source": "Creating a Champion (Dark Horse / Nintendo, 2018)"
+   },
+   {
+    "t": "p",
+    "text": "There is one happy picture of them all. At the inauguration in Hyrule Castle, Purah lined up the Sheikah Slate to capture Link, Zelda, and the four, and at the last second Daruk's huge arm swept everyone together into a crooked, laughing crowd. That photograph is the last warm thing. When Ganon woke, the Divine Beasts turned, and the malice ran each Champion down inside the very machine chosen to carry them. Their spirits stayed locked in there, in the dark, for a hundred years. Link freed them one by one, fighting through the Blight that had taken each beast — Waterblight in Ruta, Fireblight in Rudania, Windblight in Medoh, Thunderblight in Naboris — and each Champion, ghost-blue and finally able to rest, pressed a gift into his hands on the way out."
+   }
+  ],
+  "sources": [
+   "The Legend of Zelda: Breath of the Wild (Nintendo, 2017) — recovered memories, Champion ability and item descriptions, NPC dialogue (King Dorephan, Zelda's research notes)",
+   "BotW — The Champions' Ballad DLC (Mipha's Diary, The Diary of Revali, the inauguration / Picture of the Champions memory)",
+   "BotW — Creating a Champion (Dark Horse / Nintendo, 2018) — developer design notes (Shinoda on Mipha; Mori on Urbosa)",
+   "Zelda Dungeon Wiki — Mipha, Daruk, Urbosa, Champion, Blight Ganon, Picture of the Champions",
+   "Zelda Wiki / Fandom — Daruk, Revali, Revali's Gale, Scimitar of the Seven",
+   "Wikipedia — Urbosa; GameFAQs — Champion Weaponry guide"
+  ]
+ },
+ {
+  "id": "lore_peoples",
+  "title": "The Peoples of Hyrule",
+  "eyebrow": "The races of the kingdom",
+  "estMin": 4,
+  "spoiler": "Names the four Champions and how each died in the Calamity; touches the Sheikah's exile and where the Master Sword now rests.",
+  "blocks": [
+   {
+    "t": "art",
+    "svg": "<svg width=\"100%\" viewBox=\"0 0 680 300\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>The Many Realms of One Kingdom</title><desc>A panoramic twilight vista rendered in layered silhouette bands: still reflecting water in the foreground, a glowing volcano, a desert dune, a high cold snow peak, and a forest edge, beneath a teal-to-gold sky.</desc><defs><linearGradient id=\"sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#091317\"/><stop offset=\"0.42\" stop-color=\"#16323a\"/><stop offset=\"0.74\" stop-color=\"#3c6a63\"/><stop offset=\"1\" stop-color=\"#f2c14e\"/></linearGradient><radialGradient id=\"sun\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#f2c14e\" stop-opacity=\"0.95\"/><stop offset=\"0.5\" stop-color=\"#f0902a\" stop-opacity=\"0.4\"/><stop offset=\"1\" stop-color=\"#f0902a\" stop-opacity=\"0\"/></radialGradient><radialGradient id=\"ember\" cx=\"0.5\" cy=\"0.3\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#f0902a\" stop-opacity=\"0.85\"/><stop offset=\"0.5\" stop-color=\"#e0506b\" stop-opacity=\"0.3\"/><stop offset=\"1\" stop-color=\"#e0506b\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"water\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#16323a\"/><stop offset=\"1\" stop-color=\"#091317\"/></linearGradient><linearGradient id=\"snowpk\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#79b8c0\"/><stop offset=\"1\" stop-color=\"#0f1c22\"/></linearGradient></defs><rect width=\"680\" height=\"300\" fill=\"url(#sky)\"/><circle cx=\"372\" cy=\"150\" r=\"150\" fill=\"url(#sun)\"/><circle cx=\"372\" cy=\"150\" r=\"30\" fill=\"#f2c14e\" opacity=\"0.5\"/><g opacity=\"0.7\"><circle cx=\"540\" cy=\"48\" r=\"1.4\" fill=\"#5fd6e2\"/><circle cx=\"600\" cy=\"70\" r=\"1\" fill=\"#79b8c0\"/><circle cx=\"120\" cy=\"40\" r=\"1.2\" fill=\"#5fd6e2\"/><circle cx=\"78\" cy=\"84\" r=\"0.9\" fill=\"#79b8c0\"/><circle cx=\"640\" cy=\"36\" r=\"1\" fill=\"#5fd6e2\"/></g><path d=\"M0 150 L70 132 L150 156 L235 92 L300 150 L360 124 L360 175 L0 175 Z\" fill=\"#16323a\" opacity=\"0.55\"/><polygon points=\"235,92 268,150 202,150\" fill=\"url(#snowpk)\" opacity=\"0.85\"/><polygon points=\"235,98 248,118 240,116 233,128 226,116 222,120\" fill=\"#e9e2d2\" opacity=\"0.7\"/><path d=\"M340 175 L410 142 L460 158 L520 120 L560 150 L620 134 L680 158 L680 175 Z\" fill=\"#1a2c2e\" opacity=\"0.6\"/><polygon points=\"520,120 565,178 475,178\" fill=\"#0f1c22\"/><circle cx=\"520\" cy=\"132\" r=\"26\" fill=\"url(#ember)\"/><path d=\"M512 124 L520 110 L528 124 L524 130 L520 122 L516 130 Z\" fill=\"#f0902a\" opacity=\"0.8\"/><path d=\"M520 118 Q524 108 521 100 Q528 106 525 116 Z\" fill=\"#e0506b\" opacity=\"0.6\"/><path d=\"M0 188 L80 178 L180 192 L320 170 L470 190 L600 176 L680 192 L680 200 L0 200 Z\" fill=\"#0f1c22\"/><path d=\"M40 188 L60 168 L80 188 Z M64 188 L84 162 L104 188 Z M86 188 L102 172 L118 188 Z M110 190 L132 166 L154 190 Z M138 190 L156 174 L174 190 Z\" fill=\"#091317\"/><path d=\"M55 168 L57 160 L59 168 Z M129 166 L131 158 L133 166 Z\" fill=\"#9bc08a\" opacity=\"0.5\"/><path d=\"M380 175 Q480 160 600 178 L680 175 L680 195 L380 195 Z\" fill=\"#1a2c2e\" opacity=\"0.5\"/><path d=\"M420 178 Q520 165 640 182\" fill=\"none\" stroke=\"#f2c14e\" stroke-width=\"0.8\" opacity=\"0.25\"/><rect x=\"0\" y=\"200\" width=\"680\" height=\"100\" fill=\"url(#water)\"/><circle cx=\"372\" cy=\"200\" r=\"120\" fill=\"url(#sun)\" opacity=\"0.35\"/><line x1=\"372\" y1=\"200\" x2=\"372\" y2=\"282\" stroke=\"#f2c14e\" stroke-width=\"14\" opacity=\"0.18\"/><line x1=\"372\" y1=\"200\" x2=\"372\" y2=\"270\" stroke=\"#f2c14e\" stroke-width=\"4\" opacity=\"0.3\"/><line x1=\"520\" y1=\"200\" x2=\"520\" y2=\"260\" stroke=\"#f0902a\" stroke-width=\"6\" opacity=\"0.2\"/><line x1=\"235\" y1=\"200\" x2=\"235\" y2=\"252\" stroke=\"#79b8c0\" stroke-width=\"4\" opacity=\"0.18\"/><g stroke=\"#5fd6e2\" stroke-width=\"0.7\" opacity=\"0.22\"><line x1=\"40\" y1=\"216\" x2=\"180\" y2=\"216\"/><line x1=\"260\" y1=\"232\" x2=\"430\" y2=\"232\"/><line x1=\"480\" y1=\"222\" x2=\"640\" y2=\"222\"/><line x1=\"120\" y1=\"250\" x2=\"300\" y2=\"250\"/><line x1=\"380\" y1=\"262\" x2=\"560\" y2=\"262\"/></g><line x1=\"372\" y1=\"200\" x2=\"100\" y2=\"190\" stroke=\"#f2c14e\" stroke-width=\"0.6\" opacity=\"0.2\"/><line x1=\"372\" y1=\"200\" x2=\"600\" y2=\"188\" stroke=\"#5fd6e2\" stroke-width=\"0.6\" opacity=\"0.18\"/></svg>"
+   },
+   {
+    "t": "p",
+    "text": "Walk far enough across Hyrule and the land names its people before any of them speak. A stone town under a hill-castle, where the folk have ears tapered to a point. A city of pearl and falling water in the green of Lanayru. A village of forge and rubble baking under a volcano. Warriors with copper skin who turn men away at a desert gate. Each people grew into the place that shaped it, and each holds a different piece of the old story."
+   },
+   {
+    "t": "p",
+    "text": "The Hylians are the most numerous, and the kingdom is theirs in name. The older lore says their pointed ears were made to catch the voices of the gods, and that their name comes down from Hylia, the goddess who was said to have made them. Their castle and the town below it look out of medieval Europe: stone walls, a king, a court. For an age that court was guarded by a stranger people who asked for nothing but the right to serve."
+   },
+   {
+    "t": "p",
+    "text": "Those were the Sheikah, a long-lived, red-eyed folk sworn to the goddess and to the royal line that descended from her. No hands in the world were finer at making things. Some ten thousand years ago, when the histories say Ganon was coming, it was the Sheikah who built the defense: the watchful Guardians, the four Divine Beasts, the shrines, the towers, the Shrine of Resurrection where a dying hero could be mended. Ganon was sealed. And then the Hylians the Sheikah had saved grew afraid of what their saviors could build."
+   },
+   {
+    "t": "pq",
+    "text": "They saved Hyrule, and Hyrule, frightened by how, drove them out."
+   },
+   {
+    "t": "p",
+    "text": "Much of the old technology was buried. The Sheikah were named a threat and pushed into exile, and the wound of it never fully closed. Most kept faith regardless. They founded Kakariko Village, where loyal Sheikah still live, and they gave the kingdom its long memory in people like Impa, once the king's advisor; her sister Purah, who will tell you she is about a hundred and twenty-four; and the researcher Robbie. But some never forgave. The Sheikah crest is an open eye with three lashes and a single tear, read as the eye that seeks the truth and the tear for how far the tribe would go, and how long it had suffered. The bitter ones took that emblem and turned it upside down."
+   },
+   {
+    "t": "note",
+    "kind": "canon",
+    "text": "That inverted eye belongs to the Yiga Clan, Sheikah who renounced the royal family and pledged themselves to Ganon. The named clan is only about a century old, founded under Master Kohga in Karusa Valley near the desert; the grievance it feeds on is ten thousand years older than the banner.",
+    "source": "Breath of the Wild (in-game); Creating a Champion (Dark Horse, 2018)"
+   },
+   {
+    "t": "p",
+    "text": "The other peoples kept to their corners of the map. The Zora are an aquatic folk of the Lanayru springs, and their dialogue implies lifespans that run into centuries: Prince Sidon, child-sized barely a hundred years ago, is a grown warrior now and still counted young. Their bodies hold water even on dry land, which makes a single bolt of lightning agony. King Dorephan rules their domain. His daughter Mipha forged Link's Zora Armor and carried feelings for him, and she piloted the elephant-shaped Vah Ruta until Ganon's blight killed her inside it."
+   },
+   {
+    "t": "p",
+    "text": "Up on Death Mountain live the Gorons, called the rock people since the days Hylia ruled. They eat stone, the molten delicacy being Rock Roast, and they mine the mountain. Curiously, no one can point to a Goron woman, a riddle the game leaves unsolved. Their Champion Daruk drove the lizard-shaped Vah Rudania, and his shielding power, Daruk's Protection, still runs in his descendant Yunobo. Across the sands the Gerudo are an almost wholly female people; in their tongue a woman is vai and a man is voe, and Gerudo Town bars every voe at the wall. Tradition holds that one male is born to them roughly once a century, to be their king. Ganondorf is the one the histories name. Their Champion Urbosa, who knew the Calamity had risen out of that ancient king, called lightning down from the camel-shaped Vah Naboris; a hundred years on, the young chief Riju leads them."
+   },
+   {
+    "t": "p",
+    "text": "High in the cold of the Hebra frontier perch the Rito, a bird-people whose Champion Revali flew the eagle-shaped Vah Medoh and left behind the updraft called Revali's Gale. And in a wood reached only through the maze of the Lost Woods live the Koroks, small forest spirits, nine hundred of them hidden across the land, each squeaking \"Ya-ha-ha! You found me!\" when you stumble on one. They are the cherished children of the Great Deku Tree, the ancient guardian who has watched the forest since long before this age, and who now keeps the Master Sword where Princess Zelda set it in his shade."
+   },
+   {
+    "t": "note",
+    "kind": "creator",
+    "text": "Director Eiji Aonuma has said the Rito are evolved Zora and the Koroks are what the forest Kokiri became after they left the woods, both adaptations tied to The Wind Waker's drowned timeline, not stated anywhere in Breath of the Wild. Since BotW shows Rito and Zora living side by side, treat the lineage as a creator's note across games, not in-game fact.",
+    "source": "Eiji Aonuma interview (The Wind Waker era)"
+   }
+  ],
+  "sources": [
+   "The Legend of Zelda: Breath of the Wild (Nintendo, 2017) — in-game text, memories, and NPC dialogue",
+   "The Legend of Zelda Encyclopedia (Dark Horse, 2018)",
+   "The Legend of Zelda: Breath of the Wild – Creating a Champion (Dark Horse, 2018)",
+   "The Legend of Zelda: Hyrule Historia (Dark Horse, 2013)",
+   "Eiji Aonuma interview (The Wind Waker era)"
+  ]
  }
 ];
 const TOTK = {
