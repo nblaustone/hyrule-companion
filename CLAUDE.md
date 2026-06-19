@@ -215,6 +215,15 @@ layout, `REGION_MAPS` = the per-region coords.
   `resumeIdx` now tracks the frontier, so the spoiler veil reveals everything you've actually reached. **Rule:
   "where am I" in a non-linear game = max(progress), never min(gaps).** **Next:** Hyrule Historia → new canon
   Lore chapters; OoT Pathways → seed the OoT (game 3) walkthrough.
+- **v12.6 (done):** reader typography (ported from the `~/Desktop/preg` reader). The LoreReader gains a settings
+  sheet: **Theme** (added a light **Day** → slate/sepia/day/night), **Text size** (6 steps), **Typeface**
+  (serif/sans/easy-read), **Line spacing**, **Margins** (dynamic `.lore-view` pad + measure), **Brightness**
+  (`.lore-dim` overlay), + Cover. New prefs ride in `hyrule:readerprefs` (`LORE_FONTS/LORE_LH/LORE_MARGINS/
+  LORE_BRIGHT`). BookReader's night-dim is now warm. **Column-engine note:** a `relayout` flag toggles
+  `.lore-cols-still{transition:none}` on dims/size/font/margin change so the column **snaps** to its new aligned
+  position (no half-column slide) while page *turns* keep the smooth `.26s` transition. Verified each control
+  applies/persists/re-paginates aligned, 0 console errors. Deferred from preg: TOC, search-in-book, multi-page
+  bookmarks, highlights/notes.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

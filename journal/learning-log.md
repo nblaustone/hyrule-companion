@@ -5,6 +5,30 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.6: reader typography (ported from the preg reader)
+
+- **User: "whatever we can add from preg for the reader, let's do it."** Ported the premium reading controls into
+  the LoreReader: a proper settings sheet with **Theme** (added a light **Day** theme → slate/sepia/day/night),
+  **Text size** (6 steps, index 1 still = 1.0 for back-compat), **Typeface** (Serif / Sans / Easy-read with
+  letter+word spacing), **Line spacing** (Snug/Normal/Roomy), **Margins** (Narrow/Normal/Wide → dynamic
+  `.lore-view` padding + measure), **Brightness** (a `.lore-dim` overlay, 4 steps), and the existing Cover. New
+  prefs ride in `hyrule:readerprefs` (auto-persist via the existing effect; `||` fallbacks for old saves). The
+  BookReader's night-dim is now **warm** (`#1a0f02`) instead of pure black.
+- **The column engine is fragile (ADR 0008's warning held).** Changing margins/size/font changes `dims.w`, which
+  changes BOTH the column width and the page stride — and `.lore-cols` has a `.26s` transform transition, so the
+  column *slides* between the old and new layout, flashing a half-column for a moment. **Fix:** a `relayout`
+  flag (set for 80ms whenever dims/scale/font/lh/pad change) toggles a `.lore-cols-still{transition:none}` class
+  so the column **snaps** to its new aligned position on re-layout, while page *turns* (transform changes with
+  dims unchanged) keep the smooth slide.
+- **Verification gotcha (banked):** my first screenshot showed two clipped half-columns and I almost "fixed" a
+  non-bug — it was a **mid-transition capture** from changing 5 settings in rapid succession via `preview_eval`.
+  Waiting 1.5s (past the .26s transition) showed `translateX` exactly matching `-page*(dims.w+GAP)`. **Lesson:
+  for animated/transitioned UI, measure after the transition settles, and confirm a *single* user-style action
+  (not a scripted burst) before concluding there's a bug.** Re-verified: each control applies, persists, and
+  re-paginates aligned; 0 console errors.
+- **Deferred from preg (still available):** table-of-contents, search-within-book, multi-page bookmarks list,
+  highlights/notes. Lower value for this app's short lore tales; easy adds for the big imported guides later.
+
 ## 2026-06-19 — v12.5: Resume followed the first gap, not the frontier
 
 - **User, mid-game:** Resume kept sending him back to "Stay Warm First" because he never grabbed the Warm

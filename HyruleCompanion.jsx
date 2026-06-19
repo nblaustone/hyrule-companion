@@ -1124,8 +1124,17 @@ const LORE_THEMES = {
   slate: { bg: "var(--abyss)", fg: "var(--parch)", dim: "var(--parch-dim)" },
   sepia: { bg: "#efe5d0", fg: "#3b2f1d", dim: "#8a7252" },
   night: { bg: "#04070a", fg: "#c6cec8", dim: "#6f8489" },
+  day: { bg: "#f7f1e3", fg: "#2c2418", dim: "#8a7c63" },
 };
-const LORE_SCALES = [0.9, 1, 1.14, 1.3];
+const LORE_SCALES = [0.9, 1, 1.14, 1.3, 1.5, 1.72];   // v12.6: more size range (index 1 = 1.0 stays the default)
+const LORE_FONTS = [   // reading typeface (ported from the preg reader)
+  { id: "serif", label: "Serif", css: "Georgia, 'Iowan Old Style', 'Times New Roman', serif" },
+  { id: "sans", label: "Sans", css: "system-ui, -apple-system, 'Helvetica Neue', sans-serif" },
+  { id: "easy", label: "Easy-read", css: "'Trebuchet MS', system-ui, sans-serif", spaced: true },
+];
+const LORE_LH = [{ id: "snug", label: "Snug", v: 1.5 }, { id: "normal", label: "Normal", v: 1.78 }, { id: "roomy", label: "Roomy", v: 2.08 }];
+const LORE_MARGINS = [{ id: "narrow", label: "Narrow", pad: 9 }, { id: "normal", label: "Normal", pad: 18 }, { id: "wide", label: "Wide", pad: 32 }];
+const LORE_BRIGHT = [0, 0.16, 0.32, 0.5];   // dim-overlay opacity steps
 const LORE_NOTE = { canon: { label: "Canon", glyph: "◈" }, creator: { label: "Creator note", glyph: "✦" }, theory: { label: "Theory", glyph: "◇" } };
 
 // Render full-screen readers at document.body level so they escape the tab content's
@@ -1329,7 +1338,7 @@ function LoreBlock({ b }) {
 }
 
 function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked, toggleBookmark, onClose, loreArt, setLoreArt }) {
-  const PAD = 18, GAP = 36;
+  const GAP = 36;
   const viewRef = useRef(null);
   const colsRef = useRef(null);
   const [dims, setDims] = useState({ w: 300, h: 440 }); // w = inner page (text) width
@@ -1339,40 +1348,51 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
   const theme = LORE_THEMES[prefs.theme] || LORE_THEMES.slate;
   const scaleIdx = prefs.scale != null ? prefs.scale : 1;
   const scale = LORE_SCALES[scaleIdx] || 1;
+  const fontDef = LORE_FONTS.find((f) => f.id === prefs.font) || LORE_FONTS[0];
+  const lhDef = LORE_LH.find((l) => l.id === prefs.lh) || LORE_LH[1];
+  const pad = (LORE_MARGINS.find((m) => m.id === prefs.margin) || LORE_MARGINS[1]).pad;
+  const bright = LORE_BRIGHT[prefs.bright || 0] || 0;
+  const setPref = (k, v) => setPrefs((p) => ({ ...p, [k]: v }));
 
   useEffect(() => {
     const measure = () => {
       const el = viewRef.current; if (!el) return;
       const top = el.getBoundingClientRect().top;
       const h = Math.max(260, el.clientHeight || Math.round((window.innerHeight || 640) - top - 64));
-      setDims({ w: Math.max(200, el.clientWidth - PAD * 2), h });
+      setDims({ w: Math.max(180, el.clientWidth - pad * 2), h });
     };
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
-  }, [showSet]);
+  }, [showSet, pad]);
 
   useEffect(() => {
     const el = colsRef.current; if (!el || !dims.w) return;
     const total = Math.max(1, Math.round((el.scrollWidth + GAP) / (dims.w + GAP)));
     setPages(total);
     setPage((p) => Math.min(p, total - 1));
-  }, [dims.w, dims.h, chapter.id, scaleIdx, prefs.theme]);
+  }, [dims.w, dims.h, chapter.id, scaleIdx, prefs.theme, prefs.font, prefs.lh]);
 
   useEffect(() => {
     const pct = pages > 1 ? page / (pages - 1) : 1;
     setReading((m) => ({ ...m, [chapter.id]: { page, pct, at: Date.now() } }));
   }, [page, pages, chapter.id]);
 
+  // suppress the page-slide transition during a RE-LAYOUT (size/font/spacing/margin change) so the column
+  // snaps to its new aligned position instead of sliding through a half-column; keep it for page turns.
+  const [relayout, setRelayout] = useState(false);
+  useEffect(() => { setRelayout(true); const t = setTimeout(() => setRelayout(false), 80); return () => clearTimeout(t); }, [dims.w, dims.h, scaleIdx, prefs.font, prefs.lh, pad]);
+
   const go = useCallback((d) => setPage((p) => Math.max(0, Math.min(pages - 1, p + d))), [pages]);
   const touchX = useRef(0);
   const onTS = (e) => { touchX.current = e.touches[0].clientX; };
   const onTE = (e) => { const dx = e.changedTouches[0].clientX - touchX.current; if (Math.abs(dx) > 44) go(dx < 0 ? 1 : -1); };
-  const progPct = pages > 1 ? (page / (pages - 1)) * 100 : 100;
   const fileRef = useRef(null);
   const onPickImage = (e) => { const f = e.target.files && e.target.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => setLoreArt((m) => ({ ...m, [chapter.id]: r.result })); r.readAsDataURL(f); e.target.value = ""; };
   const personalArt = loreArt && loreArt[chapter.id];
   const artBlock = chapter.blocks.find((b) => b.t === "art");
+  const colStyle = { width: dims.w + "px", height: dims.h, columnWidth: dims.w + "px", columnGap: GAP + "px", fontSize: Math.round(16 * scale) + "px", lineHeight: lhDef.v, fontFamily: fontDef.css, transform: "translateX(" + (-page * (dims.w + GAP)) + "px)" };
+  if (fontDef.spaced) { colStyle.letterSpacing = "0.02em"; colStyle.wordSpacing = "0.06em"; }
 
   return (
     <div className="lore-reader" style={{ "--rbg": theme.bg, "--rfg": theme.fg, "--rdim": theme.dim }}>
@@ -1381,28 +1401,40 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
         <div className="lore-rtitle">{chapter.title}</div>
         <div className="lore-rctrls">
           <button className={"lore-bm" + (bookmarked ? " lore-bm-on" : "")} onClick={toggleBookmark} aria-label="Save this tale">◈</button>
-          <button className="lore-aa" onClick={() => setShowSet((s) => !s)} aria-label="Reading settings">Aa</button>
+          <button className={"lore-aa" + (showSet ? " lore-aa-on" : "")} onClick={() => setShowSet((s) => !s)} aria-label="Reading settings">Aa</button>
         </div>
       </div>
       {showSet && (
         <div className="lore-settings">
-          <div className="lore-set-grp">
-            <button className="lore-step" onClick={() => setPrefs((p) => ({ ...p, scale: Math.max(0, (p.scale != null ? p.scale : 1) - 1) }))}>A−</button>
-            <button className="lore-step" onClick={() => setPrefs((p) => ({ ...p, scale: Math.min(LORE_SCALES.length - 1, (p.scale != null ? p.scale : 1) + 1) }))}>A+</button>
-          </div>
-          <div className="lore-set-grp">
-            {["slate", "sepia", "night"].map((t) => (<button key={t} className={"lore-sw lore-sw-" + t + ((prefs.theme || "slate") === t ? " lore-sw-on" : "")} onClick={() => setPrefs((p) => ({ ...p, theme: t }))} aria-label={t + " theme"} />))}
-          </div>
-          <div className="lore-set-grp">
-            <button className="lore-step" onClick={() => fileRef.current && fileRef.current.click()} aria-label="Add a cover image">▣ Cover</button>
-            {personalArt && <button className="lore-step" onClick={() => setLoreArt((m) => { const n = { ...m }; delete n[chapter.id]; return n; })} aria-label="Reset to original art">Reset</button>}
-          </div>
+          <div className="lset-row"><span className="lset-k">Theme</span><div className="lset-opts">
+            {["slate", "sepia", "day", "night"].map((t) => (<button key={t} className={"lore-sw lore-sw-" + t + ((prefs.theme || "slate") === t ? " lore-sw-on" : "")} onClick={() => setPref("theme", t)} aria-label={t + " theme"} />))}
+          </div></div>
+          <div className="lset-row"><span className="lset-k">Text size</span><div className="lset-opts">
+            <button className="lset-step" onClick={() => setPref("scale", Math.max(0, scaleIdx - 1))} disabled={scaleIdx <= 0}>A−</button>
+            <span className="lset-dots">{LORE_SCALES.map((_, i) => <span key={i} className={"lset-dot" + (i === scaleIdx ? " lset-dot-on" : "")} />)}</span>
+            <button className="lset-step" onClick={() => setPref("scale", Math.min(LORE_SCALES.length - 1, scaleIdx + 1))} disabled={scaleIdx >= LORE_SCALES.length - 1}>A+</button>
+          </div></div>
+          <div className="lset-row"><span className="lset-k">Typeface</span><div className="lset-opts">
+            {LORE_FONTS.map((f) => <button key={f.id} className={"lset-chip" + (fontDef.id === f.id ? " lset-chip-on" : "")} onClick={() => setPref("font", f.id)}>{f.label}</button>)}
+          </div></div>
+          <div className="lset-row"><span className="lset-k">Line spacing</span><div className="lset-opts">
+            {LORE_LH.map((l) => <button key={l.id} className={"lset-chip" + (lhDef.id === l.id ? " lset-chip-on" : "")} onClick={() => setPref("lh", l.id)}>{l.label}</button>)}
+          </div></div>
+          <div className="lset-row"><span className="lset-k">Margins</span><div className="lset-opts">
+            {LORE_MARGINS.map((m) => <button key={m.id} className={"lset-chip" + ((prefs.margin || "normal") === m.id ? " lset-chip-on" : "")} onClick={() => setPref("margin", m.id)}>{m.label}</button>)}
+          </div></div>
+          <div className="lset-row"><span className="lset-k">Brightness</span><div className="lset-opts">
+            {["Bright", "Dim", "Dimmer", "Dark"].map((lbl, i) => <button key={i} className={"lset-chip" + ((prefs.bright || 0) === i ? " lset-chip-on" : "")} onClick={() => setPref("bright", i)}>{lbl}</button>)}
+          </div></div>
+          <div className="lset-row"><span className="lset-k">Cover</span><div className="lset-opts">
+            <button className="lset-chip" onClick={() => fileRef.current && fileRef.current.click()}>▣ Add image</button>
+            {personalArt && <button className="lset-chip" onClick={() => setLoreArt((m) => { const n = { ...m }; delete n[chapter.id]; return n; })}>Reset</button>}
+          </div></div>
         </div>
       )}
       <input type="file" accept="image/*" ref={fileRef} onChange={onPickImage} style={{ display: "none" }} />
-      <div className="lore-view" ref={viewRef}>
-        <div className="lore-cols" ref={colsRef} onTouchStart={onTS} onTouchEnd={onTE}
-          style={{ width: dims.w + "px", height: dims.h, columnWidth: dims.w + "px", columnGap: GAP + "px", fontSize: Math.round(16 * scale) + "px", transform: "translateX(" + (-page * (dims.w + GAP)) + "px)" }}>
+      <div className="lore-view" ref={viewRef} style={{ padding: "0 " + pad + "px" }}>
+        <div className={"lore-cols" + (relayout ? " lore-cols-still" : "")} ref={colsRef} onTouchStart={onTS} onTouchEnd={onTE} style={colStyle}>
           {(personalArt || artBlock) && (personalArt
             ? <div className="lore-banner"><img className="lore-banner-img" src={personalArt} alt="" /></div>
             : <div className="lore-banner" dangerouslySetInnerHTML={{ __html: artBlock.svg }} />)}
@@ -1413,6 +1445,7 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
         </div>
         <button className="lore-edge lore-edge-l" onClick={() => go(-1)} disabled={page <= 0} aria-label="Previous page" />
         <button className="lore-edge lore-edge-r" onClick={() => go(1)} disabled={page >= pages - 1} aria-label="Next page" />
+        {bright > 0 && <div className="lore-dim" style={{ opacity: bright }} />}
       </div>
       <div className="lore-foot">
         <button className="lore-nav" onClick={() => go(-1)} disabled={page <= 0} aria-label="Previous page">‹</button>
@@ -2523,20 +2556,32 @@ function StyleBlock() {
 .lore-bm{background:none;border:none;color:var(--rdim);font-size:16px;cursor:pointer;line-height:1;padding:0;}
 .lore-bm-on{color:var(--cyan);}
 .lore-aa{background:none;border:none;color:var(--rdim);font-family:'Cinzel',Georgia,serif;font-size:15px;cursor:pointer;padding:0;}
-.lore-settings{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;border-bottom:1px solid rgba(127,127,127,.18);}
-.lore-set-grp{display:flex;gap:7px;}
-.lore-step{background:rgba(127,127,127,.12);border:1px solid rgba(127,127,127,.28);color:var(--rfg);border-radius:8px;padding:5px 12px;font-family:'Cinzel',Georgia,serif;font-size:13px;cursor:pointer;}
+.lore-aa-on{color:var(--cyan);}
+.lore-settings{display:flex;flex-direction:column;gap:2px;padding:8px 16px;border-bottom:1px solid rgba(127,127,127,.18);max-height:54vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.lset-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid rgba(127,127,127,.1);}
+.lset-row:last-child{border-bottom:none;}
+.lset-k{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--rdim);flex-shrink:0;}
+.lset-opts{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;}
+.lset-chip{background:rgba(127,127,127,.12);border:1px solid rgba(127,127,127,.28);color:var(--rfg);border-radius:8px;padding:5px 11px;font-family:'Cinzel',Georgia,serif;font-size:12.5px;cursor:pointer;opacity:.78;}
+.lset-chip-on{border-color:var(--cyan);color:var(--cyan);opacity:1;background:rgba(95,214,226,.1);}
+.lset-step{background:rgba(127,127,127,.12);border:1px solid rgba(127,127,127,.28);color:var(--rfg);border-radius:8px;padding:4px 11px;font-family:'Cinzel',Georgia,serif;font-size:13px;cursor:pointer;}
+.lset-step:disabled{opacity:.35;cursor:default;}
+.lset-dots{display:inline-flex;align-items:center;gap:4px;}
+.lset-dot{width:5px;height:5px;border-radius:50%;background:var(--rdim);opacity:.4;}
+.lset-dot-on{opacity:1;background:var(--cyan);transform:scale(1.3);}
 .lore-sw{width:24px;height:24px;border-radius:50%;border:1px solid rgba(127,127,127,.45);cursor:pointer;padding:0;}
-.lore-sw-slate{background:#0f1c22;}.lore-sw-sepia{background:#efe5d0;}.lore-sw-night{background:#04070a;}
+.lore-sw-slate{background:#0f1c22;}.lore-sw-sepia{background:#efe5d0;}.lore-sw-night{background:#04070a;}.lore-sw-day{background:#f7f1e3;}
 .lore-sw-on{box-shadow:0 0 0 2px var(--cyan);}
+.lore-dim{position:absolute;inset:0;background:#0a0600;pointer-events:none;}
 .lore-view{position:relative;overflow:hidden;width:100%;padding:0 18px;flex:1;min-height:0;}
 .lore-banner{margin:16px 0 6px;border-radius:12px;overflow:hidden;border:1px solid rgba(127,127,127,.2);break-inside:avoid;line-height:0;}
 .lore-banner svg,.lore-banner-img{display:block;width:100%;height:auto;}
 .lore-banner-img{max-height:200px;object-fit:cover;}
 .lore-cols{column-fill:auto;will-change:transform;transition:transform .26s ease;}
+.lore-cols-still{transition:none !important;}
 .lore-eyebrow{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:.7em;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan-dim);margin:16px 0 8px;}
 .lore-h1{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:1.62em;line-height:1.2;margin:0 0 18px;color:var(--rfg);}
-.lore-p{font-size:1em;line-height:1.78;margin:0 0 15px;color:var(--rfg);}
+.lore-p{font-size:1em;line-height:inherit;margin:0 0 15px;color:var(--rfg);}
 .lore-h2{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:1.14em;margin:8px 0 10px;color:var(--rfg);}
 .lore-pq{font-family:'Cinzel',Georgia,serif;font-style:italic;font-size:1.2em;line-height:1.4;border-left:3px solid var(--cyan);margin:8px 0 17px;padding:2px 0 2px 15px;color:var(--rfg);break-inside:avoid;}
 .lore-note{display:block;border-left:3px solid var(--cyan);background:rgba(127,127,127,.09);border-radius:0 8px 8px 0;padding:10px 13px;margin:6px 0 16px;break-inside:avoid;}
@@ -2613,7 +2658,7 @@ function StyleBlock() {
 .reader-chrome-off .reader-bar-top,.reader-chrome-off .reader-bar-bot{display:none;}
 .bk-ic{background:none;border:none;color:#7b8a90;font-size:16px;cursor:pointer;padding:2px 3px;line-height:1;}
 .bk-ic-on{color:var(--cyan);}
-.bk-dim{position:absolute;inset:0;background:#000;pointer-events:none;}
+.bk-dim{position:absolute;inset:0;background:#1a0f02;pointer-events:none;}
 .bk-tiphint{position:absolute;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.5px;color:rgba(255,255,255,.5);background:rgba(0,0,0,.45);padding:4px 11px;border-radius:20px;pointer-events:none;}
 .bk-jump{display:flex;align-items:center;gap:5px;flex-shrink:0;}
 .bk-jump-in{width:46px;background:rgba(255,255,255,.1);border:1px solid var(--cyan);color:#e8eef1;border-radius:7px;padding:4px 6px;font-size:12px;text-align:center;}
