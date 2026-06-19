@@ -5,6 +5,30 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.8: combat guides (boss fights + a primer that fights overwhelm)
+
+- **Brainstorm → the user picked "boss & enemy fight guides," but his real wall is "overwhelmed by systems"**
+  (and he plays with his son; no DLC). Key design move: don't just add boss guides — make them *reduce* overwhelm.
+  So every `battle` guide **leads with what gear/food to bring** (so he doesn't have to reason across armor +
+  cooking + materials first), and we added a **Combat Basics primer** (7 cards) addressing the overwhelm head-on.
+  **Lesson banked: when the chosen feature and the stated pain differ, build the feature so it serves the pain.**
+- **Reused the shrine machinery wholesale.** Same author→adversarial-verify Workflow (`gen-battle-guides-
+  workflow.mjs`, 54 agents, ~1.9M tok, 16 min) → `merge-battle-guides.mjs`. UI: `StuckReveal` just gained
+  `label`/`openLabel` props ("Stuck? How to win this fight") and renders under each enemy; `EnemiesView` got a
+  collapsible primer from `BESTIARY.basics`. The proven pattern (StuckReveal + sourced workflow + merge-only-the-
+  -new-field) is now the standard play for "spoiler-gated how-to on a reference row."
+- **The verify pass paid off again (this is now a reliable pattern, not luck).** It caught: flurry-rush dodge
+  directions **inverted** by the author (backflip vs horizontal, side-hop vs vertical/thrust); crouch is the
+  LEFT stick; **Igneo Talus — a Fireproof Elixir does NOT stop the touch-burn or let you climb it; only 2★
+  Flamebreaker armor does** (a genuinely common misconception); Thunderblight's omitted aggressive 3rd phase;
+  Frost/Igneo Talus tier + drop fixes. Sneakstrike ×8 and mid-air bow slow-mo confirmed.
+- **inline-data gotcha:** `noNotes()` strips only *top-level* `notes/confidence/changes`. `bestiary.json` top
+  level is `{enemies, notes, basics}` — so the long-standing `notes` lede is stripped (EnemiesView already falls
+  back to a default), but the new top-level `basics` array survives, as do per-enemy `battle` fields. **Don't
+  name a surfaced data field `notes`** or inline-data will eat it.
+- 26/34 enemies now have a fight guide (the 8 trash commons keep one-liners; camps covered in the primer).
+  Build clean (offline + 120/15/4), verified in-browser (7 cards + Igneo reveal), 0 console errors.
+
 ## 2026-06-19 — v12.7 (cont.): scaled shrine solutions to all 120 (the other 100)
 
 - **Scaled the sample to the full game.** After the hand-vetted 20-shrine sample, ran the same author→adversarial-

@@ -233,6 +233,20 @@ layout, `REGION_MAPS` = the per-region coords.
   were then done by **`build/gen-shrine-solutions-workflow.mjs`** (per-shrine author→verify pipeline, 200 agents)
   → `build/merge-shrine-solutions.mjs` splices only the `solution` field into `knowledge/shrines.json` →
   `inline-data` (preserves the field) → UI. Verified in-browser (Lanayru reveals render, 0 console errors).
+- **v12.8 (done):** **combat guides** (Guide→Enemies) — the user (mid-game, with his son) asked for boss/enemy
+  fight help; his deeper pain was *feeling overwhelmed by systems*, so this ships two halves. (1) A collapsible
+  **Combat Basics primer** (7 cards: flurry rush, perfect guard/parry, sneakstrike, weak-points, elements,
+  durability, and a **"what to bring" loadout** that cuts the menu-overwhelm) at the top of `EnemiesView`, from
+  `BESTIARY.basics`. (2) A spoiler-gated **"Stuck? How to win this fight"** reveal on the **26 marquee enemies**
+  (4 Blights, both Ganon phases, 4 Lynels, 5 Guardians, Hinox/Stalnox, 5 Taluses, Molduga, Wizzrobe, both Yiga)
+  — each `battle` guide *leads with gear/food*, then opening → core loop → a safe/"cheese" option → drops.
+  `StuckReveal` gained `label`/`openLabel` props (reused as-is). Authored by the same author→adversarial-verify
+  Workflow (`build/gen-battle-guides-workflow.mjs`, 54 agents → `build/merge-battle-guides.mjs` splices `battle`
+  by name + the `basics` array into `knowledge/bestiary.json`). Verify pass caught real errors (flurry-dodge
+  directions inverted; **Igneo Talus needs 2★ Flamebreaker to climb — a Fireproof Elixir does NOT stop the
+  touch-burn**; Thunderblight's omitted 3rd phase; Talus drop/tier fixes). Verified in-browser (7 cards + Igneo
+  reveal render, 0 console errors). **Note:** `inline-data` strips only *top-level* `notes/confidence/changes`,
+  so `bestiary.basics` (top-level array) and per-enemy `battle` survive — don't name a data field `notes`.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

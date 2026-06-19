@@ -1,209 +1,265 @@
 {
-  "enemies": [
-    {
-      "name": "Bokoblin",
-      "tier": "common",
-      "tactic": "Sneakstrike from behind for a one-shot, or aim a charged arrow at the head; a parried club leaves it open to combos.",
-      "drops": "Bokoblin Horn, Bokoblin Fang, Bokoblin Guts"
-    },
-    {
-      "name": "Moblin",
-      "tier": "common",
-      "tactic": "Bigger Bokoblin: dodge its wide swing, then backstab, or whittle it with arrows; a sneakstrike still helps but won't one-shot stronger ones.",
-      "drops": "Moblin Horn, Moblin Fang, Moblin Guts"
-    },
-    {
-      "name": "Lizalfos",
-      "tier": "common",
-      "tactic": "They strafe and leap, so bait an attack then flurry-rush; headshot arrows stagger them and elemental arrows counter their element.",
-      "drops": "Lizalfos Horn, Lizalfos Talon, Lizalfos Tail"
-    },
-    {
-      "name": "Chuchu (elemental)",
-      "tier": "common",
-      "tactic": "Hit Fire Chuchu with ice (and vice versa) or just smack it; killing an elemental one leaves jelly you can throw to freeze, burn, or shock foes.",
-      "drops": "Chuchu Jelly; elemental ones drop Red/White/Yellow Chuchu Jelly"
-    },
-    {
-      "name": "Keese",
-      "tier": "common",
-      "tactic": "Swat with any melee swing or a single arrow; elemental Keese are quenched by their opposite element and their wings/eyeballs are crafting loot.",
-      "drops": "Keese Wing, Keese Eyeball"
-    },
-    {
-      "name": "Octorok",
-      "tier": "common",
-      "tactic": "They snipe from grass or water, so hit the head with an arrow, or catch their rock spit on a shield to bounce it right back at them.",
-      "drops": "Octo Balloon, Octorok Tentacle, Octorok Eyeball"
-    },
-    {
-      "name": "Wizzrobe (elemental)",
-      "tier": "common",
-      "tactic": "Six types: Fire/Ice/Electric and stronger Meteo/Blizz/Thunder; each is weak to its opposite element, so shoot it with an opposing arrow to drop it.",
-      "drops": "Elemental rods (Fire/Ice/Lightning, and Meteor/Blizzard/Thunderstorm rods)"
-    },
-    {
-      "name": "Pebblit",
-      "tier": "common",
-      "tactic": "Mini-Talus in Stone, Igneo and Frost types: smash it with a heavy weapon or a bomb; Igneo and Frost ones burn or freeze on touch, so use ranged hits.",
-      "drops": "Flint, ore, or a gem (Frost ones can drop Sapphire)"
-    },
-    {
-      "name": "Stone Talus",
-      "tier": "mini-boss",
-      "tactic": "Climb on and pound the black ore lump on its back with a hammer/heavy weapon; bomb arrows or a Knight's claymore wreck the weak spot fast.",
-      "drops": "Flint, Amber, Opal, gems and ore"
-    },
-    {
-      "name": "Stone Talus (Luminous)",
-      "tier": "mini-boss",
-      "tactic": "Same fight as a Stone Talus but tougher (about 600 HP); the back lump is luminous ore, so hit it for Luminous Stone plus gems.",
-      "drops": "Luminous Stone, Topaz, Diamond, Amber, Opal, Flint"
-    },
-    {
-      "name": "Stone Talus (Rare)",
-      "tier": "mini-boss",
-      "tactic": "The toughest stone type (around 900 HP); attack the ore vein on its back and expect rich gem drops like Ruby, Sapphire and Diamond.",
-      "drops": "Ruby, Sapphire, Diamond, Topaz, Amber, Opal, Flint"
-    },
-    {
-      "name": "Igneo Talus",
-      "tier": "mini-boss",
-      "tactic": "Found in Eldin and made of lava; douse its glowing core with ice arrows to cool it, then climb up and smash the back weak point.",
-      "drops": "Flint, Ruby, ore"
-    },
-    {
-      "name": "Frost Talus",
-      "tier": "mini-boss",
-      "tactic": "Hebra/Gerudo highlands cousin of Igneo; hit its icy core with fire arrows to thaw it, then climb on and hammer the back lump.",
-      "drops": "Flint, Sapphire, ore"
-    },
-    {
-      "name": "Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin)",
-      "tier": "common",
-      "tactic": "Nighttime skeletons: knock them apart, then quickly smash the skull before the bones reassemble; one good hit to the head ends them.",
-      "drops": "Bokoblin/Moblin/Lizalfos Horns, Fangs and Talons; each leaves a usable arm (no Guts)"
-    },
-    {
-      "name": "Hinox",
-      "tier": "mini-boss",
-      "tactic": "Shoot its single eye to stun it, then unload on the downed giant; you can also pluck the weapons hanging from its neck while it sleeps.",
-      "drops": "Hinox Toenail, Hinox Tooth, Hinox Guts, Hinox Horn; necklace weapons"
-    },
-    {
-      "name": "Stalnox",
-      "tier": "mini-boss",
-      "tactic": "Skeletal Hinox: arrow its eye to make it pop out, grab or destroy the loose eyeball, then attack; smash the skull when it collapses to bones.",
-      "drops": "Hinox Tooth; rare weapons lodged in its skeleton"
-    },
-    {
-      "name": "Molduga",
-      "tier": "boss",
-      "tactic": "In the Gerudo sand it tracks footsteps, so toss a Remote Bomb to lure it up, detonate to stun, then sprint in and combo before it dives.",
-      "drops": "Molduga Fin, Molduga Guts"
-    },
-    {
-      "name": "Guardian Stalker",
-      "tier": "guardian",
-      "tactic": "Walking six-legged Guardian: perfect-parry its blue charged laser with a shield to reflect it for huge damage, or shoot the glowing eye to stun.",
-      "drops": "Ancient parts (gears, springs, cores, shafts); can drop Giant Ancient Core"
-    },
-    {
-      "name": "Guardian Skywatcher",
-      "tier": "guardian",
-      "tactic": "Flying Guardian that beams from above; time a shield parry on its laser to bounce it back, or snipe the eye with ancient/strong arrows.",
-      "drops": "Ancient parts (gears, cores, shafts); can drop Giant Ancient Core"
-    },
-    {
-      "name": "Guardian Turret",
-      "tier": "guardian",
-      "tactic": "Stationary laser Guardian fixed to floors in shrines/ruins; parry the laser back at it or arrow the eye, then climb up to finish it.",
-      "drops": "Ancient parts; can drop Giant Ancient Core"
-    },
-    {
-      "name": "Decayed Guardian",
-      "tier": "guardian",
-      "tactic": "Broken husks stuck in the ground that swing arms; dodge the sweep and flurry-rush, or just shoot the eye and smash the arms off.",
-      "drops": "Ancient parts (often Ancient Screw/Spring)"
-    },
-    {
-      "name": "Guardian Scout",
-      "tier": "guardian",
-      "tactic": "Shrine Guardians come in I-IV with sword/spear/laser arms; flurry-rush after a dodge and parry the spinning laser sweep to reflect it.",
-      "drops": "Ancient parts; Scout III/IV can drop an Ancient Core"
-    },
-    {
-      "name": "Yiga Footsoldier",
-      "tier": "yiga",
-      "tactic": "They disguise as travelers then turn hostile; dodge the sickle and flurry-rush, stun with arrows, and many can be calmed with a Mighty Banana.",
-      "drops": "Mighty Bananas, occasionally weapons"
-    },
-    {
-      "name": "Yiga Blademaster",
-      "tier": "yiga",
-      "tactic": "Big windcleaver Yiga that teleports and goes invisible; wait out the leaping overhead slam, sidestep into a flurry rush, repeat until down.",
-      "drops": "Mighty Bananas, Demon Carver/Windcleaver, gems"
-    },
-    {
-      "name": "Lynel (Red-maned)",
-      "tier": "mini-boss",
-      "tactic": "Weakest Lynel: headshot to stagger, sprint up and mount it for free hits; perfect-dodge its charge or parry its beam to flurry-rush.",
-      "drops": "Lynel Horn/Hoof/Guts, Lynel weapons, shield"
-    },
-    {
-      "name": "Lynel (Blue-maned)",
-      "tier": "mini-boss",
-      "tactic": "Tougher than red and adds fire/elemental attacks; same plan: headshot to stun, mount and slash, flurry-rush its melee and charges.",
-      "drops": "Lynel Horn/Hoof/Guts, stronger Lynel gear"
-    },
-    {
-      "name": "Lynel (White-maned)",
-      "tier": "mini-boss",
-      "tactic": "High HP and aggressive elemental attacks; stock strong bows for headshot stuns, mount for big hits, and never stop dodging into flurry rushes.",
-      "drops": "Lynel Horn/Hoof/Guts, mighty Lynel gear"
-    },
-    {
-      "name": "Lynel (Silver)",
-      "tier": "mini-boss",
-      "tactic": "The deadliest Lynel with the most HP; multishot bow headshots to stun, mount and combo, and flurry-rush every charge, slam and beam.",
-      "drops": "Lynel Horn/Hoof/Guts, savage Lynel weapons/shield/bow"
-    },
-    {
-      "name": "Windblight Ganon",
-      "tier": "boss",
-      "tactic": "Vah Medoh blight: use Revali's Gale to reposition past its wind blasts, then snipe the glowing eye; bomb arrows or a strong bow burn it down.",
-      "drops": null
-    },
-    {
-      "name": "Waterblight Ganon",
-      "tier": "boss",
-      "tactic": "Vah Ruta blight: in phase two raise Cryonis blocks for cover and to climb, dodge the spear lunges, and flurry-rush or arrow the eye.",
-      "drops": null
-    },
-    {
-      "name": "Fireblight Ganon",
-      "tier": "boss",
-      "tactic": "Vah Rudania blight: shield or dodge its fireballs, and when it charges a fire ring, hit it with an ice arrow or Daruk's Protection to break it.",
-      "drops": null
-    },
-    {
-      "name": "Thunderblight Ganon",
-      "tier": "boss",
-      "tactic": "Vah Naboris blight: flurry-rush its lightning-fast dashes in phase one; in phase two it electrifies pillars, so topple one with a strike to stun it.",
-      "drops": null
-    },
-    {
-      "name": "Calamity Ganon",
-      "tier": "boss",
-      "tactic": "Final boss recaps the Blights' attacks; parry Guardian-style lasers, flurry-rush its melee, and pour bomb/ancient arrows into the orange weak spot.",
-      "drops": null
-    },
-    {
-      "name": "Dark Beast Ganon",
-      "tier": "boss",
-      "tactic": "On horseback, fire the Bow of Light at the glowing spots on each side (three per side), then the belly spot, then the eye on its forehead to win.",
-      "drops": null
-    }
-  ],
-  "notes": "Adversarial verify complete; web-checked against Game8/Zelda Dungeon/Fandom/Zeldapedia. Corrections made (errors/invented content found): (1) Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin) do NOT drop Guts -- organs have decayed -- and 'Ancient Bones' is a Tears of the Kingdom item, NOT BotW; removed both. They drop Horns/Fangs/Talons and each leaves a usable arm. (2) Stalnox does NOT drop 'Ancient Bones'/'Stalnox parts'; it drops Hinox Tooth plus rare weapons lodged in its skeleton. Corrected. (3) Wizzrobe: original listed only 5 types and missed Thunder Wizzrobe -- there are SIX (Fire/Ice/Electric base + Meteo/Blizz/Thunder strong variants). Drops corrected: Wizzrobes drop only elemental rods; 'wing tips/horns' was invented (no such monster-part drop in BotW). (4) Guardian Scout: removed 'Giant Ancient Core' -- Scouts only drop a regular Ancient Core (III/IV); Giant Ancient Cores come only from Stalker/Skywatcher/Turret, so I added that note to those three. (5) Dark Beast Ganon weak points corrected: NOT 'eyes and chest core' -- it is three glowing spots on each side (6 total), then a belly spot, then a single eye on the forehead. (6) Pebblit types corrected to the real names Stone/Igneo/Frost ('lava' is the Igneo type). Verified-accurate items kept: Stone Talus (Luminous) ~600 HP and Rare ~900 HP confirmed; Luminous drops Luminous Stone+Topaz+Diamond, Rare drops Ruby/Sapphire/Diamond/Topaz; Hinox drops (Toenail/Tooth/Guts/Horn); Octorok (Octo Balloon/Tentacle/Eyeball); Lizalfos (Horn/Talon/Tail) all real; Molduga (Fin/Guts); the four Blights and both Ganon forms. Schema note: tier enum has no 'blight', so the four Divine Beast Blights and the two Ganon forms are filed under 'boss'. Confidence high on the corrections; the exact gem mix per Talus drop can vary by RNG so those are representative, not exhaustive. Minor caveat: White-maned Lynel gear is the 'Mighty' tier and Silver is 'Savage' -- adjusted from the original which labeled White as 'savage'. Chuchu base form drops plain Chuchu Jelly; only elemental Chuchus drop colored jelly (clarified)."
+ "enemies": [
+  {
+   "name": "Bokoblin",
+   "tier": "common",
+   "tactic": "Sneakstrike from behind for a one-shot, or aim a charged arrow at the head; a parried club leaves it open to combos.",
+   "drops": "Bokoblin Horn, Bokoblin Fang, Bokoblin Guts"
+  },
+  {
+   "name": "Moblin",
+   "tier": "common",
+   "tactic": "Bigger Bokoblin: dodge its wide swing, then backstab, or whittle it with arrows; a sneakstrike still helps but won't one-shot stronger ones.",
+   "drops": "Moblin Horn, Moblin Fang, Moblin Guts"
+  },
+  {
+   "name": "Lizalfos",
+   "tier": "common",
+   "tactic": "They strafe and leap, so bait an attack then flurry-rush; headshot arrows stagger them and elemental arrows counter their element.",
+   "drops": "Lizalfos Horn, Lizalfos Talon, Lizalfos Tail"
+  },
+  {
+   "name": "Chuchu (elemental)",
+   "tier": "common",
+   "tactic": "Hit Fire Chuchu with ice (and vice versa) or just smack it; killing an elemental one leaves jelly you can throw to freeze, burn, or shock foes.",
+   "drops": "Chuchu Jelly; elemental ones drop Red/White/Yellow Chuchu Jelly"
+  },
+  {
+   "name": "Keese",
+   "tier": "common",
+   "tactic": "Swat with any melee swing or a single arrow; elemental Keese are quenched by their opposite element and their wings/eyeballs are crafting loot.",
+   "drops": "Keese Wing, Keese Eyeball"
+  },
+  {
+   "name": "Octorok",
+   "tier": "common",
+   "tactic": "They snipe from grass or water, so hit the head with an arrow, or catch their rock spit on a shield to bounce it right back at them.",
+   "drops": "Octo Balloon, Octorok Tentacle, Octorok Eyeball"
+  },
+  {
+   "name": "Wizzrobe (elemental)",
+   "tier": "common",
+   "tactic": "Six types: Fire/Ice/Electric and stronger Meteo/Blizz/Thunder; each is weak to its opposite element, so shoot it with an opposing arrow to drop it.",
+   "drops": "Elemental rods (Fire/Ice/Lightning, and Meteor/Blizzard/Thunderstorm rods)",
+   "battle": "Wizzrobes look scary but most die in a single shot if you bring the right arrow. Pack a bow with a few of each elemental arrow — Ice Arrows for the Fire and Meteo Wizzrobes, Fire Arrows (or a Bomb Arrow) for the Ice Wizzrobe and Blizzrobe — plus a meal that boosts attack or defense; the Electric and Thunder Wizzrobes have no elemental weakness, so a strong plain bow and a good melee weapon handle those. The fight starts with the Wizzrobe dancing in the air, vanishing and reappearing as it floats, raising the temperature or chilling the area and lobbing element balls or summoning little Keese and Chuchus. The core loop is simple: line up a headshot with its opposite element and one hit usually drops it on the spot. For the electric ones, keep firing arrows at its head to stun it, then close in and hit it while it's down; a long spear can stab it from below while it hovers. If it keeps teleporting away, freeze it with Stasis, then headshot it before it moves. Easy fallback for a struggling player: pick off the weaker summoned minions first, then deal with the Wizzrobe one safe arrow at a time. Each one drops the rod it was using — a Fire, Ice, or Lightning Rod, or the stronger Meteor, Blizzard, or Thunderstorm Rod — handy elemental weapons."
+  },
+  {
+   "name": "Pebblit",
+   "tier": "common",
+   "tactic": "Mini-Talus in Stone, Igneo and Frost types: smash it with a heavy weapon or a bomb; Igneo and Frost ones burn or freeze on touch, so use ranged hits.",
+   "drops": "Flint, ore, or a gem (Frost ones can drop Sapphire)"
+  },
+  {
+   "name": "Stone Talus",
+   "tier": "mini-boss",
+   "tactic": "Climb on and pound the black ore lump on its back with a hammer/heavy weapon; bomb arrows or a Knight's claymore wreck the weak spot fast.",
+   "drops": "Flint, Amber, Opal, gems and ore",
+   "battle": "A Stone Talus is a walking wall of rock, so leave your sword sheathed and bring the right tools: a bow with a good stack of arrows, plus a heavy two-handed \"smasher\" if you have one — mining hammers like a Cobble Crusher, Stone Smasher, or Iron Sledgehammer do huge bonus damage, and bomb arrows or a Knight's Claymore work too; a defense-up or attack-up meal takes the sting out of mistakes. The \"rock\" stands up when you get close — look for the black ore lump (on its top or back), because that is the only weak point. Shoot that ore with an arrow to stagger it for a couple of seconds, then run behind it, press up to grab on, climb to the ore, and land charged hits before you slide off — it keeps moving even when stunned, so be careful not to slip, and just hop down and dodge its swinging stone arms until you stun it again to remount. If climbing is too fiddly, the easy route is Stasis to lock it in place and pelt the ore, lob a bomb at an arm to knock it flat, or unleash Urbosa's Fury, which Taluses are severely weak to and can drop one fast. Smashing it open showers you with loot — Flint, Amber, Opal, sometimes Ruby, and other gems and ore worth good rupees."
+  },
+  {
+   "name": "Stone Talus (Luminous)",
+   "tier": "mini-boss",
+   "tactic": "Same fight as a Stone Talus but tougher (about 600 HP); the back lump is luminous ore, so hit it for Luminous Stone plus gems.",
+   "drops": "Luminous Stone, Topaz, Diamond, Amber, Opal, Flint",
+   "battle": "Bring your heaviest two-handed weapon — a hammer or sledgehammer hits hardest on rock — plus a bow with a stack of arrows and a few Remote Bombs ready on your Slate; a defense-up or attack-up dish helps if a boulder or stray arm clips you. No element is needed for this one (only Igneo wants ice and Frost wants fire). The fight starts the moment you walk up and the rocky giant heaves itself out of the ground, with a glowing ore lump on its body as its weak spot. Open by shooting an arrow at that ore to stun it for a couple seconds, then sprint in, climb up its body — ideally from behind, away from its swinging arms — and lay into the ore with a charged spin attack, jumping off before it shakes you loose. That's the loop: stun, climb, smash, drop off. It can swing an arm, pound you with the other, throw an arm (losing it), or even topple forward to crush you, so dodge by sprinting clear rather than trying to parry; knocking its arms off with bombs collapses it and gives you a free window to climb and hit the ore. If it's overwhelming you, freeze it with Stasis and wail on the ore while it's locked, use Remote Bombs to break its arms and save arrows, or unleash Urbosa's Fury, which all Taluses are badly weak to. With about 600 HP it takes a few cycles, but the payoff is great: the luminous ore showers Luminous Stone, and you can also collect gems like Topaz, Diamond, Amber, and Opal, plus Flint."
+  },
+  {
+   "name": "Stone Talus (Rare)",
+   "tier": "mini-boss",
+   "tactic": "The toughest stone type (around 900 HP); attack the ore vein on its back and expect rich gem drops like Ruby, Sapphire and Diamond.",
+   "drops": "Ruby, Sapphire, Diamond, Topaz, Amber, Opal, Flint",
+   "battle": "Bring your best mining weapon if you have one — an Iron Sledgehammer or any heavy stone-breaker hammer does huge bonus damage to ore and chews through this thing far faster than a sword — plus a bow with a healthy stack of arrows and a meal that boosts attack or defense, because this is the toughest of the standard Stone Talus types (around 900 HP) and the fight runs long. No element is required. It wakes up as a walking boulder when you get close; it really only has one attack, swinging or throwing its stone arms in a wide arc, so back off, let it slam, then close in while it pauses to grow new arms. Its only weak spot is the ore vein jutting out of it — fire an arrow at that ore to stun it for a couple of seconds, sprint up onto its back, and pound the ore with charged hammer swings. Don't bother trying to parry it; just climb and smash. Knocked off? Shoot the ore, climb, smash again. If the vein sits awkwardly, climb to its head and leap off while aiming your bow to trigger slow-motion. If it's wearing you down, a charged Urbosa's Fury does big damage, Remote Bombs can blow off its arms to stagger it, and a Stasis hit buys a free window to climb and swing. Beating it spills one of the richest hauls in the game — gems like Ruby, Sapphire and Diamond, plus Topaz, Amber, Opal and Flint."
+  },
+  {
+   "name": "Igneo Talus",
+   "tier": "mini-boss",
+   "tactic": "Found in Eldin and made of lava; douse its glowing core with ice arrows to cool it, then climb up and smash the back weak point.",
+   "drops": "Flint, Ruby, ore",
+   "battle": "This lava boulder lives in the volcanic Eldin region, so come prepared for heat: bring ice arrows or a frost weapon (Frostblade, Ice Rod, or Blizzard Rod) to cool it, and a heavy two-handed hammer or club for big climbing hits. Crucially, its body burns you on contact, and the only thing that lets you touch and climb it safely is the Flamebreaker armor set upgraded to two stars (the \"Fireproof\" set bonus) — a Fireproof Elixir or hearty meal only keeps you alive in Death Mountain's ambient heat, it will NOT stop the Talus's burn or let you mount it. To open the fight, hit its glowing body or core with an ice arrow or frost weapon; that snuffs the fire and briefly freezes it, raising steam as it turns grey. While it's frozen, sprint over, climb onto its body, and pound the ore deposit on top (a charged hammer swing hurts most) — don't linger more than a few seconds. It will shake you off and re-light, and it slams its head or launches its rock arms, so dash to the side to dodge, then re-freeze and climb again. Repeat that freeze-climb-smash loop until it crumbles. The easy fallback: wear two-star Flamebreaker armor so the heat can't hurt you, and climb on to wail on the ore any time it's down, no perfect freezing needed; a Remote Bomb can also knock it over. For your trouble it drops Flint, ore, and valuable gems — Ruby, Opal, Amber, and sometimes a Diamond."
+  },
+  {
+   "name": "Frost Talus",
+   "tier": "mini-boss",
+   "tactic": "Hebra/Gerudo highlands cousin of Igneo; hit its icy core with fire arrows to thaw it, then climb on and hammer the back lump.",
+   "drops": "Flint, Sapphire, ore",
+   "battle": "A Frost Talus is a walking ice boulder, so the whole fight is about fire and footing. Bring a bow with Fire Arrows (or a fire weapon like a Flameblade), a heavy two-handed or hammer-type weapon for the finish, and a defense-up or attack-up cooked meal. The catch: touching its frozen body freezes Link solid, so either thaw it with fire before you climb, or wear the full Snowquill set upgraded to two stars or higher for the \"Unfreezable\" set bonus. Open by hitting its body with a Fire Arrow or a fire weapon: that melts the ice and stuns it for a couple of seconds. The core loop is simple — fire to thaw and stun, then sprint over, press up to climb onto its back, and hammer the ore deposit on top (charged spin attacks hit hardest). Back off the instant it shudders to throw you, and the moment it slams the ground to recover an arm, since that smash has a wide reach; when it hurls a stone arm at range, just run left or right. If climbing feels scary, you can stay on the ground and chuck Remote Bombs at its arms to knock it down, or trigger Urbosa's Fury for a big free hit. It's worth it for the loot it coughs up — Flint and gems, most reliably Sapphire, with the odd Opal, Ruby, or Diamond."
+  },
+  {
+   "name": "Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin)",
+   "tier": "common",
+   "tactic": "Nighttime skeletons: knock them apart, then quickly smash the skull before the bones reassemble; one good hit to the head ends them.",
+   "drops": "Bokoblin/Moblin/Lizalfos Horns, Fangs and Talons; each leaves a usable arm (no Guts)"
+  },
+  {
+   "name": "Hinox",
+   "tier": "mini-boss",
+   "tactic": "Shoot its single eye to stun it, then unload on the downed giant; you can also pluck the weapons hanging from its neck while it sleeps.",
+   "drops": "Hinox Toenail, Hinox Tooth, Hinox Guts, Hinox Horn; necklace weapons",
+   "battle": "A Hinox is a slow giant, so the real target is its single eye — bring a bow and plenty of arrows, your strongest one- or two-handed weapon for when it's down, and a meal that boosts attack or defense to soak a stomp. No element is required, but if one leg is wrapped in wooden armor you can light it on fire to make it flail, and a metal-armored leg can be stunned with a shock arrow. You'll usually find it asleep: glide onto its belly, crouch, and quietly pluck the weapons hanging from its neck (it carries three) before backing off. The core loop is simple — shoot it in the eye and it reels and crashes onto its back, so sprint in and unload your best weapon until it sits up, then repeat. As its health drops it starts shielding the eye with a hand, so wait for an opening or freeze it with Stasis and fire a clean shot. If things go badly, keep your distance and chip the eye from range, or trigger Urbosa's Fury to blast it. Beating it drops Hinox Toenails, Teeth, and the valuable Hinox Guts, plus whatever weapons it was wearing."
+  },
+  {
+   "name": "Stalnox",
+   "tier": "mini-boss",
+   "tactic": "Skeletal Hinox: arrow its eye to make it pop out, grab or destroy the loose eyeball, then attack; smash the skull when it collapses to bones.",
+   "drops": "Hinox Tooth; rare weapons lodged in its skeleton",
+   "battle": "A Stalnox is a skeletal Hinox that only rises at night (it's just a pile of bones by day), so come prepared: bring a bow with a good stack of arrows (a few bomb arrows help a lot), your strongest one- or two-handed weapons for when it goes down, and a meal that boosts attack or hearts — a hearty dish is plenty of safety for an early-game player. No special element is needed for this one. The whole fight is about its single glowing eye. Open by firing an arrow straight into that eye: it stuns the giant and it buckles, so sprint in and unload your best weapons while it's down. Beware — if you let the loose eye drift back to its body, the Stalnox recovers a chunk of health, so hit hard and keep cycling: arrow the eye, rush in, swing, repeat. As its health falls it starts guarding the eye with a hand; when that happens, get close, bait a swing so the eye exposes, then shoot. An easy fallback is the upgraded Stasis rune: freeze it in place, line up a clean arrow into the eye, and pile on hits before the freeze ends. Past about half health the eyeball falls out entirely — pummel it, or even pick it up and throw it clear of the body, but finish it fast before it returns. When the bones collapse you get a Hinox Tooth plus the rare weapons lodged in its skeleton."
+  },
+  {
+   "name": "Molduga",
+   "tier": "boss",
+   "tactic": "In the Gerudo sand it tracks footsteps, so toss a Remote Bomb to lure it up, detonate to stun, then sprint in and combo before it dives.",
+   "drops": "Molduga Fin, Molduga Guts",
+   "battle": "Before you wade in, find a chunk of solid rock or a broken pillar to stand on — out on the open sand the Molduga senses your footsteps and one hit can flatten you, so bring your best-upgraded armor and a meal that boosts defense (or extra hearts), plus a stack of Remote Bombs, a two-handed weapon, and a bow with bomb arrows if you have them. From the rock, throw a Remote Bomb onto the sand to bait it: it surfaces and lunges at the noise, swallowing the bomb as it leaps, and when it's on (or eating) the bomb you detonate, which stuns it and leaves it flopping and exposed. That's the whole loop — stun it, sprint in for a couple of charged two-handed swings before it burrows again, then retreat to the rock, drop another bomb, and repeat. You can also hit it with bomb arrows while it's leaping through the air to stagger it without ever leaving safe ground. The easy button: lightning is a real weakness, so if you've freed Vah Naboris, Urbosa's Fury hits it for huge chunks of health — charge it and let it rip. Beat it and it drops Molduga Fin and Molduga Guts, and it leaves behind a metal treasure chest or two worth grabbing."
+  },
+  {
+   "name": "Guardian Stalker",
+   "tier": "guardian",
+   "tactic": "Walking six-legged Guardian: perfect-parry its blue charged laser with a shield to reflect it for huge damage, or shoot the glowing eye to stun.",
+   "drops": "Ancient parts (gears, springs, cores, shafts); can drop Giant Ancient Core",
+   "battle": "Bring a sturdy metal shield (a wooden one gets blasted apart in one shot), a bow with plenty of arrows, and a defense-up or attack-up meal so a stray laser doesn't one-shot you; if you have any ancient arrows, this is exactly what they're for. The fight starts when the Stalker's eye locks onto you and a ticking sound builds — that's the laser charging. The safest core loop is to raise your shield, hold steady through the ticking, and the instant it fires press A to parry: a perfect parry reflects the beam back for huge damage and doesn't wear your shield at all, and about three good parries will destroy it. If parrying feels too scary, fight at range instead — shoot the glowing eye and every hit stuns it for a moment, so keep firing, or run in while it's stunned and chop its legs (cutting each leg shaves off a fixed chunk of health and stops it chasing you). The kid-friendly cheese: use Stasis to freeze it in place and pound a leg, or fire a single ancient arrow into its eye for an instant kill. It drops ancient parts — gears, screws, springs, shafts, and cores — and sometimes a rare Giant Ancient Core, all prized for ancient gear and upgrades."
+  },
+  {
+   "name": "Guardian Skywatcher",
+   "tier": "guardian",
+   "tactic": "Flying Guardian that beams from above; time a shield parry on its laser to bounce it back, or snipe the eye with ancient/strong arrows.",
+   "drops": "Ancient parts (gears, cores, shafts); can drop Giant Ancient Core",
+   "battle": "Bring a bow and as many arrows as you can spare — ancient arrows are the real answer here, with bomb arrows as backup — plus a sturdy shield to parry, and eat an attack-up or defense-up dish first; if you've got the Master Sword, it deals extra damage to Guardians for the finish. The fight opens with this flying Guardian sweeping a red searchlight; the moment it spots you it locks on and charges a blue laser from above, so keep moving. The core loop is to target its glowing eye: a well-aimed arrow to the eye staggers it and interrupts the attack, and a clean ancient-arrow hit to the eye can destroy it outright. If it's hard to aim, use Stasis to freeze it for about two seconds, or fire while gliding off an updraft to drop into slow-motion. As a safe fallback, raise your shield and parry the laser right as it fires to bounce the beam back — it takes a few clean parries. You can also knock it out of the sky by blasting its propellers (a few bomb arrows each, or one ancient arrow per propeller); once they're all destroyed it crashes down defenseless for an easy melee finish. Your reward is a haul of valuable ancient parts — gears, screws, shafts, springs, and Ancient Cores — and, if you're lucky, the rare Giant Ancient Core used for the best upgrades."
+  },
+  {
+   "name": "Guardian Turret",
+   "tier": "guardian",
+   "tactic": "Stationary laser Guardian fixed to floors in shrines/ruins; parry the laser back at it or arrow the eye, then climb up to finish it.",
+   "drops": "Ancient parts; can drop Giant Ancient Core",
+   "battle": "Bring a bow with a full quiver and, ideally, one or two Ancient Arrows, plus a sturdy shield you don't mind risking and a defense-up meal so a stray laser doesn't end you; a strong melee weapon (the Master Sword hits especially hard against Guardians, jumping to 60 damage up close) finishes the job. These are the immobile Guardians fixed in place around Hyrule Castle: a Turret can't move, but it has a Stalker's full health and long range, firing a slow-charging blue laser — watch its head rise and its eye glow as it locks on, your cue it's about to shoot. The opening: break line of sight behind a pillar or wall, peek out, and shoot it in the glowing eye. An eye hit resets its tracking and buys you a few seconds, so the loop is simple — pop out, hit the eye, dash in and pound it with your best weapon, then duck back to cover before it recharges. The easy way out, if the fight is overwhelming: a single Ancient Arrow to the eye destroys it outright, or use Stasis to freeze it and stack free hits; you can also raise your shield and parry the beam at the last instant to fire it straight back — three good deflections kill it. Its spoils are valuable ancient parts for upgrades, and it can even drop a rare Giant Ancient Core."
+  },
+  {
+   "name": "Decayed Guardian",
+   "tier": "guardian",
+   "tactic": "Broken husks stuck in the ground that swing arms; dodge the sweep and flurry-rush, or just shoot the eye and smash the arms off.",
+   "drops": "Ancient parts (often Ancient Screw/Spring)",
+   "battle": "Bring a sturdy shield you don't mind scratching, a bow with a stack of arrows, and a defense-up dish (a Tough meal from armored fish or rugged ingredients) so a stray laser won't one-shot you; Ancient armor helps a lot if you have it, and the Master Sword (like all ancient weapons) hits harder against these corrupted machines. A Decayed Guardian is a broken husk half-buried in the ground — it has no legs and cannot move or chase you, so the only thing it does is lock its glowing eye onto you and fire a laser. The fight starts the moment its eye lights up and a thin targeting line finds you, so don't panic: you have a moment before it shoots. The clean win is to raise your shield and tap A to parry the beam right as it fires (a hair late beats early) — the laser bounces back into its own eye and a single perfect deflect destroys it outright. If parrying scares you, just shoot it: an arrow to the eye stuns it, and one Ancient Arrow to the eye blows it up instantly. The easy fallback is to keep your distance behind a rock and chip away, or use Stasis to freeze it while you reposition — since it can't follow you, you're never truly in danger. It drops valuable Ancient parts (Ancient Screws, Springs, Gears, and Shafts) you'll want for buying Ancient gear and arrows later."
+  },
+  {
+   "name": "Guardian Scout",
+   "tier": "guardian",
+   "tactic": "Shrine Guardians come in I-IV with sword/spear/laser arms; flurry-rush after a dodge and parry the spinning laser sweep to reflect it.",
+   "drops": "Ancient parts; Scout III/IV can drop an Ancient Core",
+   "battle": "Bring a sturdy shield (a Guardian or Ancient shield is best — it auto-deflects the laser), a fast sword or spear, a bow for the eye, and an attack- or defense-up meal; Scout III and IV hit hard, so pack extra hearts. The fight starts when you enter the room and its eye locks on. Core loop: when it swings a sword, spear, or axe arm, dodge at the last instant (side-hop the sword/spear, backflip the axe) for a flurry rush, then attack; for its laser, raise your shield and parry at the flash to reflect it (a Guardian/Ancient shield does this for you). When it spins forward, lure it into a pillar or Cryonis ice block so it crashes and staggers, then punish; an arrow to the eye also staggers it. Near defeat it fires several beams — dodge between, then strike while it recharges. Win and you earn ancient parts for gear at the tech labs, and Scout III and IV can drop a prized Ancient Core."
+  },
+  {
+   "name": "Yiga Footsoldier",
+   "tier": "yiga",
+   "tactic": "They disguise as travelers then turn hostile; dodge the sickle and flurry-rush, stun with arrows, and many can be calmed with a Mighty Banana.",
+   "drops": "Mighty Bananas, occasionally weapons",
+   "battle": "Gear is simple and you barely need to prepare: bring any bow with a few arrows to stun them, a one-handed weapon you don't mind swinging, and a shield to block; a hearty meal for extra hearts is plenty, since this fight needs no special element. The trap is the opening — one stands around disguised as a harmless traveler, and the moment you talk to them (they may even try to sell you Mighty Bananas first) they drop the disguise and attack. As soon as that happens, back off and ready your bow. Their pattern is predictable: they teleport into the air and either fire arrows at you, or teleport overhead to slam down with a sickle, telegraphed by a glowing red ring of symbols — just step or side-hop out of that circle. The winning loop is to fire an arrow straight at the head; a direct headshot stuns them (or drops a weakened one outright), so the instant they freeze, rush in and swing freely, then dodge the next move and repeat. The Yiga are famously obsessed with Mighty Bananas, so as an easy fallback you can drop one to lure and distract them — this works best on one you haven't fully engaged, giving a free opening or a clean escape. Beat them and they teleport away, leaving behind Mighty Bananas, some rupees, and usually the weapon they were holding."
+  },
+  {
+   "name": "Yiga Blademaster",
+   "tier": "yiga",
+   "tactic": "Big windcleaver Yiga that teleports and goes invisible; wait out the leaping overhead slam, sidestep into a flurry rush, repeat until down.",
+   "drops": "Mighty Bananas, Demon Carver/Windcleaver, gems",
+   "battle": "Bring your strongest weapon, a bow with a good stack of arrows, and a sturdy shield, plus a meal that boosts attack or defense (or restores a lot of hearts) — these hit very hard, so a hearty or armor-up dish gives you breathing room. The fight starts when the Blademaster appears in a puff and goes invisible or teleports around with its big two-handed windcleaver; stay patient and keep your eyes on it. The core loop: when it leaps up for the heavy overhead slam, wait for it to commit, then dodge to the side at the last instant to trigger a flurry rush and unload, or shoot an arrow at its head to stagger it and rush in for free hits — repeat until it drops. When it cracks the ground and a gust kicks up, pop your paraglider in the updraft, float above, and strike down from the air. The easy fallback: stay hidden and toss a Mighty Banana on the ground — it can't resist, and while it's distracted you sneak up for a one-hit sneakstrike (Ancient Arrows also obliterate them from range). One catch: beat it in fair combat — a stealth kill or keeping it stunned the whole time means no weapon — and it can drop its Windcleaver, a strong swift blade, along with Mighty Bananas and gems."
+  },
+  {
+   "name": "Lynel (Red-maned)",
+   "tier": "mini-boss",
+   "tactic": "Weakest Lynel: headshot to stagger, sprint up and mount it for free hits; perfect-dodge its charge or parry its beam to flurry-rush.",
+   "drops": "Lynel Horn/Hoof/Guts, Lynel weapons, shield",
+   "battle": "The Red-maned Lynel is the weakest kind, so it's the best one to learn on — but it still hits hard, so come prepared. Bring a strong weapon, a bow with plenty of arrows, a sturdy shield for parrying, and a meal that boosts attack or defense before you start. Sneak in close first, since Lynels hear you from a long way off. Open with an arrow to its head — a clean headshot makes it stagger and kneel, so sprint in, press up to mount its back, and mash attack for big free damage that doesn't even wear out your weapon. After you're thrown off, run the core loop: bait its melee swing and hop aside at the last instant for a flurry rush, or raise your shield as it swings to parry. Stay right on top of it so it can't back off to breathe fire or fire shock arrows from range; when it plants its weapon to blast fire, dash or circle away from the blast. Every headshot stuns it again — remount and repeat. If the fight overwhelms you, lean on Urbosa's Fury or Stasis to freeze it for free hits, and keep food ready to heal. Its drops — Lynel horns, hooves, and guts, plus its powerful sword, bow, and shield — are some of the best in the game."
+  },
+  {
+   "name": "Lynel (Blue-maned)",
+   "tier": "mini-boss",
+   "tactic": "Tougher than red and adds fire/elemental attacks; same plan: headshot to stun, mount and slash, flurry-rush its melee and charges.",
+   "drops": "Lynel Horn/Hoof/Guts, stronger Lynel gear",
+   "battle": "A blue-maned Lynel is a real skill check, but it dies to the same plan as a red one if you commit and come prepared. Bring a strong two-handed weapon for mounted damage, a bow with plenty of arrows, a sturdy shield to parry, and a meal that boosts attack or defense (three Mighty Bananas in the pot make an easy attack-up dish); some hearty food for a buffer helps too. Sneak in close and open with a headshot — an arrow to its face staggers it, so sprint up, press up to mount its back, swap to your two-hander, and mash attack for free hits. On the ground, bait its charge and side-hop at the last instant for a flurry rush, or raise your shield as it swings to parry, then remount every time you stun it again. Watch for its fire blast — when it roars and slams its weapon into the ground, a well-timed shield raise parries even that, and staying close keeps it from spamming fireballs. If it's overwhelming you, the safe fall-back is hit-and-run: chip its face with arrows from cover to keep landing those free mounts, or unleash Urbosa's Fury if you have it to stun and pile on. Its drops are some of the best around — Lynel horns, hooves, and guts, plus its powerful Mighty Lynel weapon, bow, and shield."
+  },
+  {
+   "name": "Lynel (White-maned)",
+   "tier": "mini-boss",
+   "tactic": "High HP and aggressive elemental attacks; stock strong bows for headshot stuns, mount for big hits, and never stop dodging into flurry rushes.",
+   "drops": "Lynel Horn/Hoof/Guts, mighty Lynel gear",
+   "battle": "A White-maned Lynel is a tougher, more aggressive Lynel — beatable once you commit, but bring real gear: a strong two-handed weapon for mounted hits, your best bow with plenty of arrows, a sturdy shield to parry, and a meal that boosts attack or defense (or both, plus extra hearts to survive a mistake). No special element is required — plain arrows are fine, though fire or shock arrows work too. Open with a headshot from stealth or range; when an arrow hits its face the Lynel reels and kneels, so sprint in, press up to mount its back, and mash attack for big, durability-free damage. On the ground, bait its charge and side-hop or backflip at the last instant for a flurry rush, or raise your shield as it swings to parry; stay close so it can't unload its fireball or shock-arrow volleys, and re-stun with a face shot to mount again. Struggling? Lean on Urbosa's Fury, or use Stasis to land free hits — but shoot its face only after Stasis wears off, since a frozen Lynel can't be mounted. Its drops — Lynel horns, hooves, and guts, plus some of the best weapons, bows, and shields in the game — make it well worth the fight."
+  },
+  {
+   "name": "Lynel (Silver)",
+   "tier": "mini-boss",
+   "tactic": "The deadliest Lynel with the most HP; multishot bow headshots to stun, mount and combo, and flurry-rush every charge, slam and beam.",
+   "drops": "Lynel Horn/Hoof/Guts, savage Lynel weapons/shield/bow",
+   "battle": "A Silver Lynel is the deadliest one you'll face in the regular game, with a huge health pool, so come ready: bring your strongest two-handed weapon (a Royal Broadsword, or a savage Lynel weapon if you have one), a bow that fires several arrows at once plus a big stack of arrows, a sturdy shield like the Royal, Hylian, or a Lynel shield to parry, and eat an attack-up or defense-up meal before you go in. Open from stealth or range with a headshot — an arrow to its face makes it reel and kneel, so sprint in, press the on-screen mount prompt to climb onto its back, and mash attack for free hits; a multishot bow can land several headshots at once. On the ground, bait a charge, slam, or its weapon swing and back-hop or side-hop at the last instant for a flurry rush, or raise your shield right as it strikes to parry. Stay close so it can't back off and switch to its fireball or shock-arrow volleys, and re-mount every time you stun it again. If it's overwhelming you, lean on Urbosa's Fury to stagger it for free hits, and remember you can always retreat, heal, and chip away. Its drops are some of the best around: Lynel horns, hooves, and guts, plus its powerful savage weapon, bow, and shield (and a Silver Lynel often drops gems too)."
+  },
+  {
+   "name": "Windblight Ganon",
+   "tier": "boss",
+   "tactic": "Vah Medoh blight: use Revali's Gale to reposition past its wind blasts, then snipe the glowing eye; bomb arrows or a strong bow burn it down.",
+   "drops": null,
+   "battle": "Bring your strongest bow and as many arrows as you can carry (bomb arrows or a high-damage bow burn it down fastest), a one-handed weapon for when it lands, a shield, and a few cooked meals; it has no element to counter, so the only reason for cold-resist food/warm armor is the chilly trek up to Vah Medoh. The fight begins the instant you drop in: Windblight Ganon floats and teleports around, firing laser shots from its arm cannon and summoning a tornado (slow wind-up, easy to outrun). Core loop: catch one of the updrafts on Vah Medoh's back (or use Revali's Gale) to launch, and while you glide and aim your bow, time slows into bullet-time for a clean shot at its glowing eye, its weak spot. Solid eye hits stun it; when it is grounded, sprint in and combo with your one-handed weapon, then repeat. At half health it summons four small machines that bounce its lasers into harder-to-dodge crossfire, so take cover behind the walls and columns (you can also shoot the machines to disrupt them) while you keep landing arrows on its eye. If you prefer to stay grounded, you can shield-parry its cannon shots straight back, like deflecting a Guardian beam. Beating it frees Vah Medoh and rewards a Heart Container."
+  },
+  {
+   "name": "Waterblight Ganon",
+   "tier": "boss",
+   "tactic": "Vah Ruta blight: in phase two raise Cryonis blocks for cover and to climb, dodge the spear lunges, and flurry-rush or arrow the eye.",
+   "drops": null,
+   "battle": "Bring your best one-handed weapon and a bow with plenty of arrows; this Calamity blight is a water creature, so Shock Arrows are the real prize here — lightning staggers it fast, especially on the eye. Ancient or Guardian weapons also hit extra hard, and an attack- or defense-boosting meal (plus a Hearty dish or two for spare hearts) gives you a cushion. Lock on with ZL and read the gaps between its spear moves. Phase one: it jabs, swipes, and hurls its spear — side-hop a lunge at the last instant for a flurry rush, deflect a thrown spear back with a shield, or duck behind a Cryonis pillar for cover; then put an arrow in its glowing eye to stun it and wail away. At half health the floor floods and you fight from four platforms — paraglide between them, use Cryonis to pop the ice blocks it throws (it sends more and more at once), and keep punishing the eye when it drops low. Late on it charges a Guardian-style eye beam — block and parry it with a shield, or just keep moving. Cheese option for when you're low on arrows: freeze an incoming ice block with Stasis, smack it, and launch it back into him for big damage. Win and you earn a Heart Container and Mipha's Grace, the Champion ability that revives you once with bonus hearts."
+  },
+  {
+   "name": "Fireblight Ganon",
+   "tier": "boss",
+   "tactic": "Vah Rudania blight: shield or dodge its fireballs, and when it charges a fire ring, hit it with an ice arrow or Daruk's Protection to break it.",
+   "drops": null,
+   "battle": "Come prepared: this fight is outside in a heat level-2 zone, so wear two pieces of fire-resistant gear or drink a Fireproof Elixir, and leave wooden weapons behind — the heat sets them on fire. Bring metal weapons, a sturdy shield, and a bow with plenty of arrows, including ice arrows, and eat a defense-up or attack-up meal. It opens swinging a large sword and lobbing small fireballs; dodge the swings and pop incoming fireballs with an ice arrow before they hit you. Core loop: shoot its single glowing eye (or land a Remote Bomb) to stun it, then rush in and slash while it reels — and dodge its sword swing at the last second to trigger a flurry rush. Hitting it with two Remote Bombs in a row will also stun it (the first knocks it down, the second finishes the stun). If it fires a red-targeted energy blast, a perfect shield-guard knocks it back and stuns it for a free counter. At half health it floats up out of sword range and wraps itself in a force field while charging a huge fireball; when it starts inhaling, throw a Remote Bomb into the suck, let it get pulled in, and detonate to shatter the shield and drop it — then unload, and freeze its fireballs with ice arrows. Winning earns you a Heart Container."
+  },
+  {
+   "name": "Thunderblight Ganon",
+   "tier": "boss",
+   "tactic": "Vah Naboris blight: flurry-rush its lightning-fast dashes in phase one; in phase two it electrifies pillars, so topple one with a strike to stun it.",
+   "drops": null,
+   "battle": "Bring shock protection first: a Rubber armor piece or upgraded Desert Voe set, or a meal/elixir with electricity resistance, since this blight is fast and hits hard with lightning. Pack a quick one-handed sword or spear (slow two-handers won't land — it won't wait for you) and any strong weapons; avoid metal weapons and shields, which conduct its electricity, so favor a non-metal shield for parrying. The fight opens with it teleporting toward you in a fast zigzag, then slashing; your core move is to side-hop or backflip the instant it swings to trigger a flurry rush, then pile on hits. It also throws three balls of lightning — just dodge them sideways; don't try to deflect them or you'll shock yourself. Around half health it rises out of reach and drives electrified metal pillars into the ground: equip Magnesis, grab a pillar and hold it near the blight so the arcing electricity shocks it down, then rush in and attack (re-buff your shock resistance before you close in). In the final phase it fights like the first but much more aggressively, recharging its sword with electricity and adding a Guardian-style energy beam — take cover or raise your shield to parry it, lean on Urbosa's Fury for a free burst, and heal freely with food. Beating it frees Divine Beast Vah Naboris and earns you a Heart Container plus Urbosa's Fury, a lightning blast you can use anytime."
+  },
+  {
+   "name": "Calamity Ganon",
+   "tier": "boss",
+   "tactic": "Final boss recaps the Blights' attacks; parry Guardian-style lasers, flurry-rush its melee, and pour bomb/ancient arrows into the orange weak spot.",
+   "drops": null,
+   "battle": "Come stocked: the Master Sword (it powers up to 60 attack near Ganon, perfect here), a bow, all the ancient arrows and bomb arrows you can carry, a sturdy shield like the Hylian Shield, your best armor (Ancient or Barbarian set), a defense- or attack-up dish, and a fairy or two as insurance. Free all four Divine Beasts first if you can — the Champions' blasts cut his health in half the instant the fight opens. The core loop reuses the four Blights' attacks you already know: parry his Guardian-style laser to stagger him, then rush in and swing; sidestep his melee for a flurry rush; and ancient arrows knock him down for free hits. When he glows red and turns invincible, break it by parrying his beam back at him or, the easy way, with Urbosa's Fury, then pour on damage. Win and Zelda hands you the Bow of Light for the final stretch against Dark Beast Ganon — then Hyrule is yours."
+  },
+  {
+   "name": "Dark Beast Ganon",
+   "tier": "boss",
+   "tactic": "On horseback, fire the Bow of Light at the glowing spots on each side (three per side), then the belly spot, then the eye on its forehead to win.",
+   "drops": null,
+   "battle": "Prep note: this final form needs no special gear or cooking of its own, but it begins the instant you beat Calamity Ganon with no save in between, so arrive at that fight already stocked. Once it starts, Princess Zelda places you beside your horse and hands you the Bow of Light, the only weapon that hurts Dark Beast Ganon, and it never runs out of arrows. Mount up (the fight is doable on foot but the horse makes reaching both sides far easier). The opening: just ride, staying off the front and to its sides so its sweeping light beam misses you. When Zelda pushes back the dark Malice, three glowing weak spots appear on one side; shoot all three, then wait for her signal and ride around to hit the three on the other side. Clearing all six opens a weak spot on its belly: ride underneath and shoot up into it. That reveals a giant eye on its forehead, but shooting from the ground just makes the eye close. Instead, when it attacks, an updraft forms in front of it; run in, pop your paraglider to rise, and aim in midair to slow time, then loose the final Light Arrow into the eye. That ends the fight, freeing Zelda and banishing Ganon, rolling straight into the credits and your completed save."
+  }
+ ],
+ "notes": "Adversarial verify complete; web-checked against Game8/Zelda Dungeon/Fandom/Zeldapedia. Corrections made (errors/invented content found): (1) Stal-enemies (Stalkoblin/Stalizalfos/Stalmoblin) do NOT drop Guts -- organs have decayed -- and 'Ancient Bones' is a Tears of the Kingdom item, NOT BotW; removed both. They drop Horns/Fangs/Talons and each leaves a usable arm. (2) Stalnox does NOT drop 'Ancient Bones'/'Stalnox parts'; it drops Hinox Tooth plus rare weapons lodged in its skeleton. Corrected. (3) Wizzrobe: original listed only 5 types and missed Thunder Wizzrobe -- there are SIX (Fire/Ice/Electric base + Meteo/Blizz/Thunder strong variants). Drops corrected: Wizzrobes drop only elemental rods; 'wing tips/horns' was invented (no such monster-part drop in BotW). (4) Guardian Scout: removed 'Giant Ancient Core' -- Scouts only drop a regular Ancient Core (III/IV); Giant Ancient Cores come only from Stalker/Skywatcher/Turret, so I added that note to those three. (5) Dark Beast Ganon weak points corrected: NOT 'eyes and chest core' -- it is three glowing spots on each side (6 total), then a belly spot, then a single eye on the forehead. (6) Pebblit types corrected to the real names Stone/Igneo/Frost ('lava' is the Igneo type). Verified-accurate items kept: Stone Talus (Luminous) ~600 HP and Rare ~900 HP confirmed; Luminous drops Luminous Stone+Topaz+Diamond, Rare drops Ruby/Sapphire/Diamond/Topaz; Hinox drops (Toenail/Tooth/Guts/Horn); Octorok (Octo Balloon/Tentacle/Eyeball); Lizalfos (Horn/Talon/Tail) all real; Molduga (Fin/Guts); the four Blights and both Ganon forms. Schema note: tier enum has no 'blight', so the four Divine Beast Blights and the two Ganon forms are filed under 'boss'. Confidence high on the corrections; the exact gem mix per Talus drop can vary by RNG so those are representative, not exhaustive. Minor caveat: White-maned Lynel gear is the 'Mighty' tier and Silver is 'Savage' -- adjusted from the original which labeled White as 'savage'. Chuchu base form drops plain Chuchu Jelly; only elemental Chuchus drop colored jelly (clarified).",
+ "basics": [
+  {
+   "title": "Flurry Rush",
+   "body": "Wait until an enemy is mid-swing, then dodge at the last possible moment with X plus the stick: against a horizontal/sweeping side-slash, backflip (stick pulled back); against a vertical/overhead chop or a straight thrust, hop to the side (stick pushed left or right). A perfect dodge triggers slow-motion, and mashing Y then lands a flurry of free hits. This is the single most important combat skill, so practice it on weak enemies first."
+  },
+  {
+   "title": "Perfect Guard (Parry)",
+   "body": "Hold up your shield with ZL, then press A at the exact instant a blow is about to hit you to deflect it instead of just blocking. A well-timed parry briefly staggers the attacker and opens them up, and it spares your shield from wear. It's also how you fight Guardians: parry their laser the moment it fires and you reflect the beam straight back, often destroying the Guardian outright."
+  },
+  {
+   "title": "Sneakstrike",
+   "body": "Crouch by clicking the left stick to move quietly, and watch the noise meter in the lower-right corner by the minimap. Sneak up behind an enemy that hasn't noticed you, and your first hit lands as a sneakstrike that deals 8 times your weapon's normal damage. Stealth armor and quiet-making food (the Sneaky dishes) make it far easier to get close."
+  },
+  {
+   "title": "Weak points & headshots",
+   "body": "A bow shot to the head or eye staggers most enemies and does bonus damage, so aim high. Many bigger foes and bosses have a glowing weak spot to target. And here's the trick to landing those shots: pull out your bow while in mid-air, after a jump or while gliding off the paraglider, and time slows down so you can aim carefully (it drains stamina, so it can't last long)."
+  },
+  {
+   "title": "Elements: fire, ice, shock",
+   "body": "Fire burns wooden weapons, shields, and grass (burning grass creates updrafts you can glide on), ice freezes an enemy solid so the next hit shatters them for triple damage, and shock makes most enemies drop whatever they're holding. The big warning: never carry metal weapons or shields during a thunderstorm or near a Wizzrobe's lightning, or you'll get struck. Swap to wooden or non-metal gear when the sky turns dark."
+  },
+  {
+   "title": "Weapons break — that's normal",
+   "body": "Every weapon in this game wears out and shatters with use, and that is by design, not a mistake you're making, so don't hoard your best ones for a \"later\" that never comes. Carry several weapons and use them freely; a weapon that's about to break can be thrown to shatter on impact for double damage. Keep grabbing the weapons enemies drop so you always have replacements."
+  },
+  {
+   "title": "What to bring to a hard fight",
+   "body": "Cut the overwhelm down to a simple loadout: one cooked meal that boosts defense OR attack, a strong melee weapon (two-handed or one-handed), and a bow with a healthy stack of arrows plus a few elemental arrows for emergencies. Round it out with a solid shield so you can parry, and bring a couple of healing meals as backup. That's genuinely all you need."
+  }
+ ]
 }
