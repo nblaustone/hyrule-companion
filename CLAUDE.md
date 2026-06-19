@@ -185,8 +185,11 @@ layout, `REGION_MAPS` = the per-region coords.
   `readHbook`. `BookReader` (swipe page-images, fit-page ↔ fit-width) for comics/PDF guides; the EPUB reflows
   through `LoreReader`. ~250MB source → ~159MB packs; the **published build stays ~1MB and asset-clean** (books
   never touch the repo — `.gitignore` + offline-check). Verified in-browser end-to-end (import → IndexedDB →
-  page render → reflow), 0 console errors. **Next:** use the books as the **accuracy cross-reference** for the
-  walkthrough/shrines/cooking/memories honesty audits, and as canon sourcing for new Lore chapters.
+  page render → reflow), 0 console errors. **Accuracy cross-reference (done):** a 7-agent verified Workflow
+  checked the BotW main-quest spine against the *official* Explorer's Guide (each conflict re-read from the page
+  image) → **0 verified conflicts / 28 confirms**; applied 3 tiny additive tweaks (STATUS_RUNES "Remote Bombs",
+  softened `om1` torch line, Cryonis-shatters-ice). **Next:** Hyrule Historia → new canon Lore chapters; OoT
+  Pathways → seed the OoT (game 3) walkthrough.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

@@ -132,7 +132,7 @@ const GREAT_PLATEAU = {
       { id: "awk5", k: "tip", t: "Almost everything can be climbed, but climbing drains the green stamina wheel. If it empties mid-climb, Link falls. Keep early climbs short." },
     ]},
     { id: "oldman", name: "The Old Man & Temple of Time", sub: "Get your bearings", steps: [
-      { id: "om1", k: "step", t: "Head down to the Old Man at the campfire and talk to him. He mentions the Temple of Time and offers you a Torch." },
+      { id: "om1", k: "step", t: "Head down to the Old Man at the campfire and talk to him. He points you toward the Temple of Time — your next goal. (There's a torch by his fire you can grab.)" },
       { id: "om2", k: "loot", stuck: "The bow chest is up the broken pillars on the LEFT as you enter the temple ruins; climb the rubble to reach it. The Arrows are in a small pile on the floor near the altar at the back.", t: "Inside the Temple of Time ruins: climb the rubble to a chest with a Traveler's Bow, and grab Arrows near the altar. This is a common starter bow — there are several on the Plateau (another waits inside Oman Au). Grab both; bows break, so spares help.", items: [{ name: "Traveler's Bow", cat: "bow", note: "From Temple of Time · power 5" }] },
       { id: "om3", k: "tip", t: "Note the Goddess Statue inside the temple — you'll return here to trade Spirit Orbs for a heart or stamina upgrade." },
       { id: "om4", k: "optional", t: "The Temple roof hides a Korok seed under a small rock. Korok seeds expand your inventory slots later." },
@@ -324,7 +324,7 @@ const VAH_RUTA = {
 
 const STATUS_RUNES = [
   { name: "Magnesis", glyph: "magnesis", step: "oa1" },
-  { name: "Bombs", glyph: "bomb", step: "jb1" },
+  { name: "Remote Bombs", glyph: "bomb", step: "jb1" },
   { name: "Stasis", glyph: "stasis", step: "od1" },
   { name: "Cryonis", glyph: "cryonis", step: "kn1" },
   { name: "Camera", glyph: "camera", step: "h6" },
@@ -356,7 +356,7 @@ const RUNES = [
   { id: "magnesis", name: "Magnesis", glyph: "magnesis", from: "Oman Au Shrine", what: "Lift, move, and drop anything metal — bridges, chests, slabs, even enemies.", tip: "Drop a metal slab on a Guardian Scout for a free kill." },
   { id: "bombs", name: "Remote Bombs", glyph: "bomb", from: "Ja Baij Shrine", what: "Two infinite bombs — round one rolls, cube one stays put — on a short cooldown.", tip: "Bombs break ore deposits and rock piles, and clear weak enemy groups." },
   { id: "stasis", name: "Stasis", glyph: "stasis", from: "Owa Daim Shrine", what: "Freeze one object in time. Hit it while frozen to store force, released when it unfreezes.", tip: "Freeze a boulder, smash it, and launch it at enemies." },
-  { id: "cryonis", name: "Cryonis", glyph: "cryonis", from: "Keh Namut Shrine", what: "Raise pillars of ice from any water — platforms, cover, or a lift for gates and chests.", tip: "Make a pillar under yourself to rise out of deep water." },
+  { id: "cryonis", name: "Cryonis", glyph: "cryonis", from: "Keh Namut Shrine", what: "Raise pillars of ice from any water — platforms, cover, or a lift for gates and chests. It also shatters ice blocks.", tip: "Make a pillar under yourself to rise out of deep water — and use it to break the ice Waterblight Ganon throws." },
   { id: "camera", name: "Camera", glyph: "camera", from: "Hateno Tech Lab", what: "Photograph creatures, items, and enemies to build the Hyrule Compendium.", tip: "Registered things can be located by Hyrule's photo trader later." },
 ];
 const TIPS = [

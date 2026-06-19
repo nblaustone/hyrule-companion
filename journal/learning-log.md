@@ -30,7 +30,17 @@ re-make a rejected one. Newest at top.
 - **Verified end-to-end headless.** Drove the real file `<input>` via a synthetic `DataTransfer` + change event
   in `preview_eval` (fetch pack → File → dispatch), then asserted IndexedDB import → spine appears → page image
   renders (1500×1029) → nav advances → EPUB opens in the reflow reader. 0 console errors. Packs are gitignored;
-  test copies were deleted before commit. **Deferred (the user's other ask): the accuracy cross-reference pass.**
+  test copies were deleted before commit.
+- **Accuracy cross-reference (the second ask) — done, and it vindicated the app.** A 7-agent Workflow checked the
+  main-quest spine (Plateau, runes, champions/beasts, Master Sword, memories, cooking) against the **official**
+  Explorer's Guide, with every flagged conflict re-verified against the actual page *image* (so jumbled
+  multi-column OCR couldn't manufacture a false correction). Result: **0 verified conflicts, 28 confirms.** The
+  two raised "conflicts" (campfire torch, Plateau shrine order) verified as *app-is-right*. The one cooking
+  "gap" the agent flagged was **already covered** in `COOK_RULES` (line 371) — exactly why the workflow reported
+  for review instead of auto-editing. Applied 3 tiny additive tweaks only: STATUS_RUNES "Bombs"→"Remote Bombs"
+  (matches RUNES + the guide), softened `om1`'s unconfirmed "offers you a Torch", and added Cryonis-shatters-ice.
+  Lesson: a "report-then-review" workflow beats auto-fix when the source is noisy — most flags were the *source
+  read* being wrong, not the app.
 
 ## 2026-06-16 — v10: the interactive cooking tool (research → build)
 
