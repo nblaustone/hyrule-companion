@@ -639,6 +639,9 @@ function HyruleGame({ game, setGame, games }) {
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
   const [flash, setFlash] = useState(null);          // v9: step id whose check is pulsing (joy pass)
   const [stepFlash, setStepFlash] = useState(null);  // v9: step id highlighted after a Resume jump
+  const [shrinePin, setShrinePin] = useState(null);     // v12.3: "I'm here" current-shrine id (botw:shrinepin)
+  const [shrineRecents, setShrineRecents] = useState([]); // v12.3: recently focused shrine ids (botw:shrinerecents)
+  const [shrineFlash, setShrineFlash] = useState(null);   // v12.3: shrine row highlight after a focus jump
   const [revealed, setRevealed] = useState(() => new Set()); // v9: journey reward/boss spoilers tapped open
   const progressRef = useRef({});                    // v9: read current progress inside toggle without re-memoizing
   const flashTimer = useRef(null);
@@ -646,9 +649,10 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk] = await Promise.all([
+      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec] = await Promise.all([
         store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
         store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"), store.get("hyrule:books"),
+        store.get(K("shrinepin")), store.get(K("shrinerecents")),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -663,6 +667,8 @@ function HyruleGame({ game, setGame, games }) {
       try { if (rp) { const o = JSON.parse(rp); if (o && typeof o === "object") setReaderPrefs((d) => ({ ...d, ...o })); } } catch (e) {}
       try { if (la) { const o = JSON.parse(la); if (o && typeof o === "object") setLoreArt(o); } } catch (e) {}
       try { if (bk) { const a = JSON.parse(bk); if (Array.isArray(a)) setUserBooks(a); } } catch (e) {}
+      try { if (spin) setShrinePin(JSON.parse(spin)); } catch (e) {}
+      try { if (srec) { const a = JSON.parse(srec); if (Array.isArray(a)) setShrineRecents(a); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -679,6 +685,8 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set("hyrule:readerprefs", JSON.stringify(readerPrefs)); }, [readerPrefs, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:loreart", JSON.stringify(loreArt)); }, [loreArt, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:books", JSON.stringify(userBooks)); }, [userBooks, loaded]);
+  useEffect(() => { if (loaded) store.set(K("shrinepin"), JSON.stringify(shrinePin)); }, [shrinePin, loaded]);
+  useEffect(() => { if (loaded) store.set(K("shrinerecents"), JSON.stringify(shrineRecents)); }, [shrineRecents, loaded]);
 
   // v12: import / remove on-device books. Page blobs go to IndexedDB; the index rides in localStorage.
   const importBooks = useCallback(async (fileList) => {
@@ -819,6 +827,19 @@ function HyruleGame({ game, setGame, games }) {
     setTab("shrines"); setQuery(""); setOpenSections((o) => ({ ...o, ["shrg_" + rk]: true }));
     setTimeout(() => { const el = document.getElementById("shrg-" + rk); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
   }, []);
+  // v12.3: "I'm here" pin + recents. pinShrine marks the current shrine; focusShrine scrolls to + flashes any shrine.
+  const pinShrine = useCallback((id) => {
+    setShrinePin(id);
+    if (id) setShrineRecents((r) => [id, ...r.filter((x) => x !== id)].slice(0, 8));
+  }, []);
+  const focusShrine = useCallback((rk, id) => {
+    setTab("shrines"); setQuery("");
+    setOpenSections((o) => ({ ...o, ["shrg_" + rk]: true }));
+    setShrineRecents((r) => [id, ...r.filter((x) => x !== id)].slice(0, 8));
+    setShrineFlash(id);
+    setTimeout(() => { const el = document.getElementById("shrow-" + id); if (el) el.scrollIntoView({ behavior: "smooth", block: "center" }); }, 90);
+    setTimeout(() => setShrineFlash(null), 2200);
+  }, []);
 
   const q = query.trim().toLowerCase();
   const filterSections = useMemo(() => {
@@ -852,7 +873,7 @@ function HyruleGame({ game, setGame, games }) {
           data={{ REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS }}
           nav={{
             step: (rid, sid) => jumpTo(rid, sid),
-            shrine: (rk) => jumpShrineRegion(rk),
+            shrine: (rk, sid) => (sid ? focusShrine(rk, sid) : jumpShrineRegion(rk)),
             guide: (seg) => { setTab("guide"); setGuideSub(seg); },
             cook: () => setTab("cook"),
           }} />
@@ -1029,30 +1050,9 @@ function HyruleGame({ game, setGame, games }) {
             <div className="footer-space" />
           </>
         ) : tab === "shrines" ? (
-          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} flash={flash} />
+          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} flash={flash} shrinePin={shrinePin} pinShrine={pinShrine} clearPin={() => setShrinePin(null)} shrineRecents={shrineRecents} focusShrine={focusShrine} shrineFlash={shrineFlash} />
         ) : tab === "items" ? (
-          <div className="ref">
-            <h2 className="ref-title">Pouch</h2>
-            <p className="ref-lede">Everything you collect across every region lands here automatically. Tap an item to jump to where you find it. Found {inventory.invDone} of {inventory.invTotal}.</p>
-            {CATS.map((cat) => {
-              const list = inventory.byCat[cat.id]; if (!list || !list.length) return null;
-              const got = list.filter((it) => progress[it.stepId]).length;
-              return (
-                <div className="inv-cat" key={cat.id}>
-                  <div className="inv-head"><span className="inv-head-l"><span className="inv-glyph"><Glyph name={cat.glyph} size={18} /></span>{cat.name}</span><span className={"inv-count" + (got === list.length ? " inv-count-done" : "")}>{got}/{list.length}</span></div>
-                  <div className="inv-grid">
-                    {list.map((it, i) => { const has = !!progress[it.stepId]; return (
-                      <button key={it.stepId + i} className={"item" + (has ? " item-on" : "")} onClick={() => jumpTo((REGIONS.find((r) => r.name === it.where) || {}).id || region, it.secId)}>
-                        <div className="item-ic"><Glyph name={it.rune || cat.glyph} size={22} /></div>
-                        <div className="item-body"><div className="item-name">{it.name}</div><div className="item-note">{it.note}</div><div className="item-where">{has ? "✓ collected" : "from " + it.where}</div></div>
-                      </button>); })}
-                  </div>
-                </div>
-              );
-            })}
-            <p className="panel-note" style={{ marginTop: 14 }}>Duplicates are real, not bugs — e.g. the Traveler's Bow shows up in three chests on the Plateau. Bows break, so spares are a good thing.</p>
-            <div className="footer-space" />
-          </div>
+          <PouchView inventory={inventory} progress={progress} jumpTo={jumpTo} regions={REGIONS} region={region} cats={CATS} />
         ) : tab === "cook" ? (
           <CookView ingredients={COOK_INGREDIENTS} recipes={RECIPES} rules={COOK_RULES} cooking={COOKING} saved={recipes} setSaved={setRecipes} />
         ) : tab === "library" ? (
@@ -1401,18 +1401,27 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
 }
 
 /* ============================================================ SHRINES TAB ============================================================ */
-function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps, flash }) {
+function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps, flash, shrinePin, pinShrine, clearPin, shrineRecents, focusShrine, shrineFlash }) {
   const [revealed, setRevealed] = useState(() => new Set());
   const reveal = (id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; });
   const q = query.trim().toLowerCase();
   const pct = Math.round((stats.done / 120) * 100);
   const upgrades = Math.floor(stats.done / 4);
+  const shrineById = useMemo(() => {
+    const m = {};
+    groups.forEach((g) => g.shrines.forEach((sh, i) => { m["shr_" + g.regionKey + "_" + i] = { sh, i, regionKey: g.regionKey, regionName: g.regionName }; }));
+    return m;
+  }, [groups]);
+  // search by anything you can remember: name, region, nearest town/landmark, hint, shrine-quest, or puzzle type
+  const hay = (g, sh) => (g.regionName + " " + sh.name + " " + sh.location + " " + sh.oneLine + " " + (sh.shrineQuest || "") + " " + (SHRINE_CAT[sh.category] || SHRINE_CAT.puzzle).label).toLowerCase();
   const view = q
     ? groups.map((g) => {
-        const shrines = g.shrines.filter((sh, i) => (g.regionName + " " + sh.name + " " + sh.location + " " + sh.oneLine).toLowerCase().includes(q) ? (sh._i = i, true) : false);
+        const shrines = g.shrines.filter((sh, i) => hay(g, sh).includes(q) ? (sh._i = i, true) : false);
         return shrines.length ? { ...g, shrines: shrines.map((sh) => ({ sh, i: sh._i })) } : null;
       }).filter(Boolean)
     : groups.map((g) => ({ ...g, shrines: g.shrines.map((sh, i) => ({ sh, i })) }));
+  const pinned = shrinePin && shrineById[shrinePin];
+  const recents = (shrineRecents || []).map((id) => ({ id, r: shrineById[id] })).filter((x) => x.r).slice(0, 6);
   return (
     <div className="ref">
       <h2 className="ref-title">Shrines</h2>
@@ -1425,9 +1434,32 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
         <div className="reg-bar shrine-bar"><span className="reg-fill" style={{ width: pct + "%", background: pct === 100 ? "var(--cyan)" : "var(--orange)" }} /></div>
       </div>
       <div className="search">
-        <input className="search-input" placeholder="Search shrines, regions, hints…" value={query} onChange={(e) => setQuery(e.target.value)} />
+        <input className="search-input" placeholder="Find a shrine — name, region, town, or puzzle type…" value={query} onChange={(e) => setQuery(e.target.value)} />
         {query && <button className="search-clear" onClick={() => setQuery("")}>✕</button>}
       </div>
+      {pinned && (() => {
+        const id = shrinePin, done = !!progress[id];
+        return (
+          <div className={"shrine-pin" + (done ? " shrine-pin-done" : "")}>
+            <div className="shrine-pin-k"><Glyph name="pin" size={12} /> You're here{done ? " · cleared" : ""}</div>
+            <button className="shrine-pin-main" onClick={() => focusShrine(pinned.regionKey, id)}>
+              <div className="shrine-pin-name">{pinned.sh.name}</div>
+              <div className="shrine-pin-loc"><Glyph name="tower" size={10} /> {pinned.regionName} · {pinned.sh.location}</div>
+              <div className="shrine-pin-hint">{pinned.sh.oneLine}</div>
+            </button>
+            <div className="shrine-pin-acts">
+              <button className="shrine-pin-done-btn" onClick={() => { if (!done) toggleStep(id); }} disabled={done}>{done ? "✓ Done" : "Mark done"}</button>
+              <button className="shrine-pin-clear" onClick={clearPin}>Clear pin</button>
+            </div>
+          </div>
+        );
+      })()}
+      {!q && recents.length > 0 && (
+        <div className="shrine-recents">
+          <span className="shrine-recents-k">Recent</span>
+          {recents.map(({ id, r }) => <button key={id} className={"shrine-chip" + (progress[id] ? " shrine-chip-done" : "") + (shrinePin === id ? " shrine-chip-pin" : "")} onClick={() => focusShrine(r.regionKey, id)}>{progress[id] ? "✓ " : ""}{r.sh.name}</button>)}
+        </div>
+      )}
       {view.length === 0 && <div className="empty">No shrines match “{query}”.</div>}
       {view.map((g) => {
         const okey = "shrg_" + g.regionKey;
@@ -1448,10 +1480,13 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                   const id = "shr_" + g.regionKey + "_" + i; const checked = !!progress[id];
                   const meta = SHRINE_CAT[sh.category] || SHRINE_CAT.puzzle;
                   return (
-                    <li key={id} className={"step shrine-row" + (checked ? " checked" : "")}>
+                    <li key={id} id={"shrow-" + id} className={"step shrine-row" + (checked ? " checked" : "") + (shrineFlash === id ? " step-hl" : "")}>
                       <button className={"box" + (checked ? " box-on" : "") + (flash === id ? " box-flash" : "")} onClick={() => toggleStep(id)} aria-label={checked ? "Mark not done" : "Mark done"}>{checked && <Glyph name="check" size={15} />}</button>
                       <div className="step-body">
-                        <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
+                        <div className="shrine-row-top">
+                          <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
+                          <button className={"shrine-pinbtn" + (shrinePin === id ? " shrine-pinbtn-on" : "")} onClick={() => (shrinePin === id ? clearPin() : pinShrine(id))} aria-label={shrinePin === id ? "Unpin" : "Pin as the shrine you're in"}><Glyph name="pin" size={11} /> {shrinePin === id ? "pinned" : "I'm here"}</button>
+                        </div>
                         <span className="step-text"><span className="shrine-num">{i + 1}</span><b className="shrine-name">{sh.name}</b>{spoiler && !revealed.has(id) ? <button className="spoiler-hint" onClick={() => reveal(id)}>— tap to reveal hint</button> : <> — {sh.oneLine}</>}</span>
                         <span className="shrine-loc"><Glyph name="tower" size={11} /> {sh.location}{sh.shrineQuest ? <span className="shrine-q"> · Quest: {sh.shrineQuest}</span> : null}</span>
                         <NoteAffordance id={id} notes={notes} setNote={setNote} open={noteOpen} setOpen={setNoteOpen} />
@@ -1948,6 +1983,54 @@ function NoteAffordance({ id, notes, setNote, open, setOpen }) {
 }
 
 /* ============================================================ GLOBAL SEARCH ============================================================ */
+function PouchView({ inventory, progress, jumpTo, regions, region, cats }) {
+  const [q, setQ] = useState("");
+  const [activeCat, setActiveCat] = useState("all");
+  const query = q.trim().toLowerCase();
+  const matches = (it) => !query || (it.name + " " + (it.note || "") + " " + (it.where || "")).toLowerCase().includes(query);
+  const shown = cats
+    .map((cat) => {
+      const list = (inventory.byCat[cat.id] || []).filter((it) => (activeCat === "all" || activeCat === cat.id) && matches(it));
+      return list.length ? { cat, list } : null;
+    })
+    .filter(Boolean);
+  const totalShown = shown.reduce((n, s) => n + s.list.length, 0);
+  return (
+    <div className="ref">
+      <h2 className="ref-title">Pouch</h2>
+      <p className="ref-lede">Everything you collect lands here automatically. Search or filter to find a piece of gear fast; tap an item to jump to where you find it. Found {inventory.invDone} of {inventory.invTotal}.</p>
+      <div className="search">
+        <input className="search-input" placeholder="Search your pouch — name, where, effect…" value={q} onChange={(e) => setQ(e.target.value)} />
+        {q && <button className="search-clear" onClick={() => setQ("")}>✕</button>}
+      </div>
+      <div className="seg seg-scroll inv-filter">
+        <button className={"seg-btn" + (activeCat === "all" ? " seg-on" : "")} onClick={() => setActiveCat("all")}>All</button>
+        {cats.map((c) => { const list = inventory.byCat[c.id]; if (!list || !list.length) return null; const got = list.filter((it) => progress[it.stepId]).length; return (
+          <button key={c.id} className={"seg-btn" + (activeCat === c.id ? " seg-on" : "")} onClick={() => setActiveCat(c.id)}>{c.name} <span className="seg-ct">{got}/{list.length}</span></button>
+        ); })}
+      </div>
+      {totalShown === 0 && <div className="empty">{query ? "Nothing in your pouch matches “" + q + "”." : "Nothing here yet — collect items as you play."}</div>}
+      {shown.map(({ cat, list }) => {
+        const got = list.filter((it) => progress[it.stepId]).length;
+        return (
+          <div className="inv-cat" key={cat.id}>
+            <div className="inv-head"><span className="inv-head-l"><span className="inv-glyph"><Glyph name={cat.glyph} size={18} /></span>{cat.name}</span><span className={"inv-count" + (got === list.length ? " inv-count-done" : "")}>{got}/{list.length}</span></div>
+            <div className="inv-grid">
+              {list.map((it, i) => { const has = !!progress[it.stepId]; return (
+                <button key={it.stepId + i} className={"item" + (has ? " item-on" : "")} onClick={() => jumpTo((regions.find((r) => r.name === it.where) || {}).id || region, it.secId)}>
+                  <div className="item-ic"><Glyph name={it.rune || cat.glyph} size={22} /></div>
+                  <div className="item-body"><div className="item-name">{it.name}</div><div className="item-note">{it.note}</div><div className="item-where">{has ? "✓ collected" : "from " + it.where}</div></div>
+                </button>); })}
+            </div>
+          </div>
+        );
+      })}
+      <p className="panel-note" style={{ marginTop: 14 }}>Duplicates are real, not bugs — e.g. the Traveler's Bow shows up in three chests on the Plateau. Bows break, so spares are a good thing.</p>
+      <div className="footer-space" />
+    </div>
+  );
+}
+
 function SearchOverlay({ query, setQuery, onClose, nav, data }) {
   const { REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS } = data;
   const q = query.trim().toLowerCase();
@@ -1960,7 +2043,7 @@ function SearchOverlay({ query, setQuery, onClose, nav, data }) {
     }
     if (stepHits.length) groups.push({ cat: "Walkthrough", glyph: "tower", items: stepHits });
     const shrineHits = [];
-    for (const g of SHRINES) g.shrines.forEach((sh, i) => { if (shrineHits.length < cap && (sh.name + " " + sh.location + " " + sh.oneLine + " " + g.regionName).toLowerCase().includes(q)) shrineHits.push({ label: sh.name, sub: g.regionName + " · " + sh.oneLine, act: () => nav.shrine(g.regionKey) }); });
+    for (const g of SHRINES) g.shrines.forEach((sh, i) => { if (shrineHits.length < cap && (sh.name + " " + sh.location + " " + sh.oneLine + " " + g.regionName + " " + (sh.shrineQuest || "")).toLowerCase().includes(q)) shrineHits.push({ label: sh.name, sub: g.regionName + " · " + sh.location, act: () => nav.shrine(g.regionKey, "shr_" + g.regionKey + "_" + i) }); });
     if (shrineHits.length) groups.push({ cat: "Shrines", glyph: "shrine", items: shrineHits });
     const armorHits = ARMOR.sets.filter((a) => (a.name + " " + a.bonus + " " + a.where).toLowerCase().includes(q)).slice(0, cap).map((a) => ({ label: a.name, sub: a.bonus, act: () => nav.guide("armor") }));
     if (armorHits.length) groups.push({ cat: "Armor", glyph: "armor", items: armorHits });
@@ -2502,6 +2585,29 @@ function StyleBlock() {
 .bk-prog{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;}
 .bk-prog-bar{display:block;height:100%;background:var(--cyan);transition:width .25s;}
 .bk-page{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;color:#9aa7ac;flex-shrink:0;min-width:54px;text-align:right;}
+/* ---- v12.3 mid-game usability: pouch filters + shrine quick-find / pin / recents ---- */
+.inv-filter{margin-bottom:14px;}
+.seg-ct{opacity:.6;font-size:.82em;font-weight:600;margin-left:3px;}
+.shrine-pin{background:linear-gradient(180deg,rgba(240,144,42,.12),rgba(15,28,34,.5));border:1px solid var(--orange);border-radius:13px;padding:11px 13px;margin-bottom:12px;}
+.shrine-pin-done{border-color:var(--cyan);background:linear-gradient(180deg,rgba(95,214,226,.1),rgba(15,28,34,.5));}
+.shrine-pin-k{display:flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+.shrine-pin-done .shrine-pin-k{color:var(--cyan);}
+.shrine-pin-main{display:block;width:100%;text-align:left;background:none;border:none;color:inherit;cursor:pointer;padding:0;}
+.shrine-pin-name{font-family:'Cinzel',Georgia,serif;font-size:17px;color:var(--parch);line-height:1.2;}
+.shrine-pin-loc{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--cyan-dim);margin:3px 0;}
+.shrine-pin-hint{font-size:12px;line-height:1.45;color:var(--parch-dim);}
+.shrine-pin-acts{display:flex;gap:8px;margin-top:9px;}
+.shrine-pin-done-btn{flex:1;background:rgba(95,214,226,.14);border:1px solid var(--cyan);color:var(--cyan);border-radius:8px;padding:7px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;cursor:pointer;}
+.shrine-pin-done-btn:disabled{opacity:.6;cursor:default;}
+.shrine-pin-clear{background:none;border:1px solid rgba(255,255,255,.16);color:var(--parch-dim);border-radius:8px;padding:7px 12px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;cursor:pointer;}
+.shrine-recents{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+.shrine-recents-k{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--parch-dim);}
+.shrine-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--parch);border-radius:20px;padding:4px 11px;font-size:11.5px;cursor:pointer;white-space:nowrap;}
+.shrine-chip-done{color:var(--cyan);border-color:rgba(95,214,226,.4);}
+.shrine-chip-pin{border-color:var(--orange);color:var(--orange);}
+.shrine-row-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:2px;}
+.shrine-pinbtn{display:inline-flex;align-items:center;gap:3px;background:none;border:1px solid rgba(255,255,255,.14);color:var(--parch-dim);border-radius:14px;padding:2px 9px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;flex-shrink:0;}
+.shrine-pinbtn-on{border-color:var(--orange);color:var(--orange);background:rgba(240,144,42,.1);}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 `}</style>);
 }

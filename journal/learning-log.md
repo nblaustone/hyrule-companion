@@ -5,6 +5,31 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-18 — v12.3: mid-game usability (real-play feedback)
+
+- **Source: the user playing with his son.** Two pains: (1) "we're in a shrine, forget its alien name, and
+  it's hard to look up"; (2) "I have so many weapons, you collect/lose so much — it's impossible to keep the
+  whole inventory in the app too."
+- **Inventory — I pitched the honest reframe (stop mirroring the live bag; track only durable gear), the user
+  chose "keep the full pouch but add filters/search."** Respected that: extracted the inline Items block to
+  `PouchView` with a search box + category filter chips (All / Runes / Weapons / …, each with a got/total
+  count). Lesson: offer the principled reframe, but the owner gets the call on his own app — he wanted the
+  full pouch, just navigable.
+- **Shrine lookup — the app can't know which shrine you're in, so the win is "find it in 2 taps."** Built all
+  four the user picked: (a) **Quick-Find** — the Shrines search now matches name + region + nearest town +
+  hint + shrine-quest + **puzzle type** (so "combat" or "kakariko" finds it even when you forgot the name);
+  (b) **"I'm here" pin** (`shrinePin`) → a "You're here" card at the top with the shrine's hint + Mark-done +
+  Clear, plus a per-row pin button; (c) **Recents** chips (`shrineRecents`, cap 8) that focus-scroll+flash the
+  row; (d) **global search now jumps to the EXACT shrine** (`nav.shrine(rk, id)` → `focusShrine`) instead of
+  just expanding the region. Map drill-down already existed (`jumpShrineRegion`).
+- **New per-game state** `botw:shrinepin` / `botw:shrinerecents`; reused the existing `.step-hl` flash + a
+  `shrow-<id>` DOM id for scroll targets. Verified every path in-browser (pouch search/filter, shrine search by
+  town & puzzle-type, pin→card→recents→focus-flash, map tap, global-search→exact-shrine), 0 console errors.
+- **Test gotcha banked:** React controlled `<input>` ignores a raw `el.value = …` (it resets to state on
+  re-render). To drive search inputs in `preview_eval`, use the native setter
+  (`Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(el,val)`) then dispatch
+  `input`. (File inputs differ — there a plain `dispatchEvent(change)` after setting `.files` works.)
+
 ## 2026-06-18 — v12.2: reader polish — the fixed-overlay/containing-block trap
 
 - **Smoke test from the user (playing with his son): the book reader was glitchy** — "the bottom bar

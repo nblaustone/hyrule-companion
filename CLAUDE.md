@@ -188,8 +188,18 @@ layout, `REGION_MAPS` = the per-region coords.
   page render → reflow), 0 console errors. **Accuracy cross-reference (done):** a 7-agent verified Workflow
   checked the BotW main-quest spine against the *official* Explorer's Guide (each conflict re-read from the page
   image) → **0 verified conflicts / 28 confirms**; applied 3 tiny additive tweaks (STATUS_RUNES "Remote Bombs",
-  softened `om1` torch line, Cryonis-shatters-ice). **Next:** Hyrule Historia → new canon Lore chapters; OoT
-  Pathways → seed the OoT (game 3) walkthrough.
+  softened `om1` torch line, Cryonis-shatters-ice).
+- **v12.2 (done):** reader polish — both readers (`BookReader`/`LoreReader`) are now full-screen overlays
+  **portaled to `document.body`** (`portal()` helper) so they escape the tab content's stacking context + any
+  ancestor transform. Fixed the "bottom bar floats in the middle" bug; `.body` fadeIn is now opacity-only (a
+  transform there became the containing block for fixed children); `.lore-view` is `flex:1` so the footer pins
+  flush. **Rule of thumb: portal any full-screen overlay to body.**
+- **v12.3 (done):** mid-game usability (real-play feedback) — **Items Pouch** gains search + category filter
+  chips (`PouchView`); **Shrines** gains a **Quick-Find** (search now matches region/town/hint/shrine-quest/
+  **puzzle type**), an **"I'm here" pin** (`shrinePin` → "You're here" card + per-row pin) and **Recents** chips
+  (`shrineRecents`) that focus-scroll+flash a row; **global search now jumps to the exact shrine**. New keys
+  `botw:shrinepin`/`botw:shrinerecents`. **Next:** Hyrule Historia → new canon Lore chapters; OoT Pathways →
+  seed the OoT (game 3) walkthrough.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3
