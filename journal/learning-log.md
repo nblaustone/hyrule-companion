@@ -5,6 +5,30 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.7 (cont.): scaled shrine solutions to all 120 (the other 100)
+
+- **Scaled the sample to the full game.** After the hand-vetted 20-shrine sample, ran the same author→adversarial-
+  verify pattern over the remaining **100 shrines (12 regions)** as a single Workflow: per-shrine pipeline,
+  **200 agents** (author web-researches one shrine on Game8/Zelda Dungeon/Thonky/Zeldapedia; an independent
+  skeptic re-researches from a *different* source, fact-checks every claim — chest contents especially — and
+  corrects). ~6.9M subagent tokens, 1920 web tool-calls, ~38 min. Returned 100/100, 0 missing.
+- **Tooling (reusable):** `build/gen-shrine-solutions-workflow.mjs` reads `knowledge/shrines.json`, embeds every
+  solution-less shrine + two style anchors (Oman Au puzzle, Lakna Rokee hidden) as **consts** (not `args` — the
+  v12.7 serialization gotcha), and emits `/tmp/shrine-solutions-workflow.mjs`. `build/merge-shrine-solutions.mjs`
+  splices ONLY the `solution` field back in (matched by regionKey+name; additive, won't overwrite without
+  `--force`). Note: `inline-data.mjs` does NOT run `noNotes` on SHRINES, so the merge must write *only*
+  `solution` — never let `sources`/`corrections` into shrines.json or they'd reach the bundle.
+- **Validation scans caught one real bug + dodged false positives.** A scan for <300-char solutions caught
+  **To Quomo Shrine**: its verifier wrote the literal word `"verified"` into the `solution` field and left the
+  real content in `corrections` (treated "solution" as a status flag). Re-authored it with a focused agent
+  (Royal Claymore chest confirmed ×4 sources). A TotK-mechanic bleed scan flagged **Shae Katha** on `zonai` —
+  **false positive** (the Zonai Ruins are a real BotW place near Lake Hylia). **Lesson: always post-scan
+  Workflow structured output for (1) status-word-in-content-field, (2) length outliers, (3) wrong-game vocab —
+  but read the hit before "fixing" it.**
+- **Honesty pass held:** verifiers softened unconfirmable specifics (e.g. Soh Kofi's "Guardian Sword/Shield" →
+  "the Guardian weapon and shield it drops", since a Scout II carries the ++ variants). Build clean (offline +
+  120/15/4), in-browser Lanayru reveals render, 0 console errors. **All 120 shrines now have a solution.**
+
 ## 2026-06-19 — v12.7: shrine solutions (the "stuck in a shrine" gap) — sample first
 
 - **User (playing with his son) chose "deeper BotW playthrough help."** Assessed: all 120 shrines had only a

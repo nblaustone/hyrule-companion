@@ -3034,63 +3034,72 @@ const SHRINES = [
     "location": "Lanayru Wetlands, directly beside the west side of the Wetland Stable, northwest of Lanayru Tower",
     "category": "puzzle",
     "oneLine": "Shields From Water: use Cryonis to raise ice pillars across the water-filled chambers, navigating past a Guardian Scout to reach the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This whole shrine is about the Cryonis rune, which raises a pillar of ice out of any water surface. From the start, aim Cryonis at the water to make ice blocks as stepping stones and cross toward the waterfall, then aim near the side of the falls to raise a block you can climb to reach the next chamber. A Guardian Scout waits on the platform ahead, so pick it off with arrows (or deflect its beam by parrying with a shield) before crossing. Off to the right a treasure chest sits half-sunk in the water; aim Cryonis directly beneath it to push it up, then open it for an Ancient Core. Keep building ice blocks to reach the next stretch, a fast-flowing channel guarded by two more Guardian Scouts, which you again clear with arrows or deflected shots. On the left wall there, look for a closed gate over the water and aim Cryonis directly beneath it to lift it, revealing a hidden chest holding a Knight's Broadsword. Finally, raise one last ice block at the very end of the stream where the water spills over, then jump and glide down to the monk's platform and touch Kaya Wan's altar to claim your Spirit Orb."
    },
    {
     "name": "Daka Tuss Shrine",
     "location": "On a small island in the Lanayru Wetlands, southwest of Lanayru Tower and north of Kakariko Village",
     "category": "puzzle",
     "oneLine": "Sunken Scoop: use Magnesis on the sunken metal bowl to scoop floating balls and drop them into the cages, then sink the bowl onto the switch.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Magnesis puzzle built around a metal scoop sitting in the water. In the first room, aim Magnesis at the submerged metal scoop and lift it up, then move it under one of the floating balls so the ball drops into the bowl; carry the loaded scoop over to the caged receptacle beside the pool and tilt it so the ball rolls out and falls into the cage, which opens the gate to the next room. Bring the scoop with you using Magnesis. In the second room, scoop up another ball the same way and jiggle the scoop to drop it onto the roof of the cage that holds the second receptacle, then set the empty scoop down onto the large floor switch that's underwater nearby to press it; the cage opens, the ball drops in, and the water in both rooms drains away. Now go back to the first room and walk down into the emptied pool: through an opening in the wall there's a treasure chest holding a Silver Longsword. Return to the second room, drop into its drained pool, head through the opening and up the ramps, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Sheh Rata Shrine",
     "location": "On a small island in the Hylia River within the Lanayru Wetlands, reachable via an underwater path or raft",
     "category": "puzzle",
     "oneLine": "Speed of Light: spin the crank to rotate the laser onto the crystal switch, using Cryonis ice pillars to cross the water and reach platforms.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "The shrine sits on a small island in the Lanayru Wetlands, ringed by thorny vines you must burn away first (a Fire Arrow or a lit wooden weapon works). Inside is the \"Speed of Light\" puzzle. Near the entrance, drop right onto a ledge for a chest holding an Opal. On the left, a crank rotates a platform carrying a laser; turn it to swing the laser onto the crystal switch on the right, raising the water. With the water high, use Cryonis to make ice pillars to the laser platform, then set a Remote Bomb beside the crystal switch but do NOT detonate it yet. Cross to the far side, where a metal barrel and a submerged floor switch sit; shoot the crystal switch to drain the water, then use Magnesis (or carry it) to set the barrel on the switch, opening the gate to the monk. Detonate the bomb to raise the water again, then use Cryonis to climb to the second chest, which holds a Giant Boomerang. Touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Soh Kofi Shrine",
     "location": "On a cliff just north of Lanayru Tower, near the path to Sidon's bridge; glide over from the tower top",
     "category": "combat",
     "oneLine": "A Minor Test of Strength: defeat the Guardian Scout II with sword and shield, dodging its spin and beam attacks; chest holds a Knight's Bow.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is A Minor Test of Strength, so there's no puzzle, just a single Guardian Scout II to defeat with your sword and shield. It opens by either swinging at you or charging a spin attack with its arms stretched out; when it spins, duck behind one of the stone pillars (don't hug it too tightly) and let it grind to a stop against the column, then rush in and combo it. It also fires a blue beam, so raise your shield as it shoots and, with good timing, press A to parry the beam straight back for big damage. As its health drops it adds a spinning laser that kicks up an updraft you can glide on to attack from above, and at very low health it rapid-fires a burst of beams, so either dash in and keep hitting to interrupt it or back off behind cover. Grab the Guardian weapon and shield it drops along with any ancient parts, they're excellent against other Guardians. Don't leave without the treasure chest, which holds a Knight's Bow, then examine the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Ne'ez Yohma Shrine",
     "location": "In the center of Zora's Domain, below King Dorephan's throne room",
     "category": "puzzle",
     "oneLine": "Pushing Power: use Cryonis to shove the Ancient Orb across the sloped waterway into its slot while dodging the boulders rolling down.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine (\"Pushing Power\") is a Cryonis puzzle: you nudge a big glowing Ancient Orb down a water-covered slope and drop it into its socket using ice pillars. For the optional chest, climb the right side of the giant slope to the top (stones tumble down as you climb, so keep right and dodge them, or freeze one with Cryonis if it's about to hit you; they stop once you're at the top). Then follow the raised walkway off to the side until you can drop onto a small triangular platform with a chest holding a Zora Spear. For the puzzle, stand at the top of the slope behind the orb and aim Cryonis at the water just behind it to raise a pillar that shoves the orb forward onto the slope. Where the orb would fall into a gap (the spot where a beam of light meets a platform), raise an ice pillar in that gap so it rolls across to the next platform instead of dropping. Keep making pillars to keep it moving and in line; near the end, raise one pillar to stop the orb beside the socket and a final one beneath it to lift it so it rolls into the hole. With the orb seated and the gate open, touch the monk Ne'ez Yohma's altar to claim your Spirit Orb."
    },
    {
     "name": "Dagah Keek Shrine",
     "location": "Lanayru Great Spring, atop Veiled Falls near Zora's Domain (revealed by the shrine quest)",
     "category": "quest",
     "oneLine": "Blessing shrine revealed by the shrine quest; a free Spirit Orb and a chest with a Silver Rupee wait inside, no puzzle.",
-    "shrineQuest": "The Ceremonial Song"
+    "shrineQuest": "The Ceremonial Song",
+    "solution": "This shrine stays hidden until you finish the shrine quest \"The Ceremonial Song,\" which only opens after you've cleared Divine Beast Vah Ruta (you'll already have the Zora Armor from King Dorephan by then). In Zora's Domain, talk to Laruta, a young Zora singing near Champion Mipha's statue, and ask to hear the song; she points you to Trello, a Zora standing on the bridge that leads northwest out of the Domain. Trello admits he dropped the metal Ceremonial Trident into the water below. Drop down to the river, use the Magnesis rune on the water to find the sunken trident (make a Cryonis ice pillar if you need a closer footing), and lift it out with Magnesis. Now head to Veiled Falls, the tall waterfall just south of that bridge, with an orange platform at its base. Put the Zora Armor on and equip the Ceremonial Trident, then swim straight up the waterfall. At the top, glide back down toward the orange platform and, while still in midair above it, press the attack button (Y) to dive-stab the platform with the trident. It turns from orange to blue and Dagah Keek Shrine rises up. Inside there's no puzzle: it's a blessing shrine, so open the chest beside the altar for a Silver Rupee (worth 100 rupees), then touch the monk's altar to claim your free Spirit Orb."
    },
    {
     "name": "Rucco Maag Shrine",
     "location": "On the Samasa Plain in the Lanayru Great Spring, south of Zora's Domain, set within a stone-spike maze patrolled by Lizalfos",
     "category": "puzzle",
     "oneLine": "Five Flames: light all five torches on the floating cube and pillars with a torch, avoiding the water spout and keeping the flame above water.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"Five Flames\" trial wants all five torches lit at once — three on the big floating cube and one on each of the two side pillars — and the trick is to light one flame, then rotate the cube so its fire spreads to the rest, all while keeping flames out of the water and away from the cube's water spout (a torch dipped underwater or sprayed by the spout goes out). You rotate the big cube by shooting arrows at the crystals on the small cube near the entrance. Facing the big cube, shoot the crystal on the BOTTOM of the small cube first, then shoot the crystal FARTHEST from the big cube twice, then the crystal on the LEFT, and finally keep shooting that far crystal again to keep turning it — each rotation lets an already-lit torch tip its flame onto the next one, until lit cube torches reach the side pillars and all five burn together. Pause between turns so each flame catches before you rotate. Two treasure chests sit on wooden platforms on the back wall: light a regular arrow by drawing it through a lit torch (or use a fire arrow) and hit each platform to burn it away and drop the chests — one holds an Opal, the other a Silver Bow. When the gate opens, cross to the monk Rucco Maag's altar and touch it to claim your Spirit Orb."
    },
    {
     "name": "Kah Mael Shrine",
     "location": "On Tingel Island, the northernmost island of the chain in the Lanayru Sea (far northeast), hidden under a stone slab",
     "category": "puzzle",
     "oneLine": "Drop and Rise: lift the slab with an Octo Balloon or Stasis to enter, then shoot the ropes so the cube drops on the scale and launches the barrel up.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine hides under a flat stone slab on Tingel Island, the northernmost island of the Lanayru Sea chain. To get inside you must lift that slab: the easy way is to drop an Octo Balloon on it (no balloon? kill an Octorok on the island for one) so it floats up, or freeze the slab with Stasis and hit it a few times to fling it away, then drop into the hole beneath. Inside is a big seesaw-style scale, with a heavy metal block resting on a wooden platform suspended high above one end. Climb onto the lower end of the scale, look up at the block, and shoot the two ropes holding its platform with your bow. The block crashes down onto the far end, throwing your end skyward. At the peak of that launch, paraglide onto the elevated ledge on the right to reach a treasure chest holding a Diamond. To reach the monk, drop back to the scale and use Magnesis to lift the metal block high over the scale's raised end, then release it so it slams down and launches you up. Glide to the altar and touch it to claim your Spirit Orb."
    },
    {
     "name": "Shai Yota Shrine",
     "location": "On a small island in Horon Lagoon in the Lanayru Sea, far east of the region (revealed by the shrine quest)",
     "category": "quest",
     "oneLine": "Free Spirit Orb: the monk grants the orb simply for reaching the shrine; the real challenge is the Master of the Wind quest outside.",
-    "shrineQuest": "Master of the Wind"
+    "shrineQuest": "Master of the Wind",
+    "solution": "This shrine doesn't exist until you finish the shrine quest \"Master of the Wind,\" which starts with the traveling Rito bard Kass, who plays his accordion out at Horon Lagoon in the Lanayru Sea (far east, southeast of Zora's Domain). Talk to him and listen to his ancient song: it hints that you must clear the way for the wind and then ride \"wings of cloth and wood\" — your paraglider — to land on the altar. Scattered around the big U-shaped rock formation in the lagoon are four piles of cracked rock blocking the gusts (some sit high in the stone archway overhead). Blow up every one with a Remote Bomb or a Bomb Arrow; once they're all gone, the wind blows freely toward the center and a brief cutscene lights up a glowing pedestal. Climb to the highest point you can, jump off, open your paraglider, and ride the wind currents inward toward that pedestal — and do NOT stow the glider until you actually touch down on it, or it won't count. Landing on it raises Shai Yota Shrine from a nearby island. Inside there's no puzzle: open the treasure chest for a Great Flameblade, then touch the monk's altar to claim your Spirit Orb."
    }
   ]
  },
@@ -3103,42 +3112,48 @@ const SHRINES = [
     "location": "On a high ledge a short climb up the hill just south of Highland Stable, overlooking the stable.",
     "category": "puzzle",
     "oneLine": "Trial 'Metal Doors Open the Way' — use Magnesis to move the metal doors and use them as ramps/bridges to reach the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This whole trial runs on the Magnesis rune. At the entrance, aim Magnesis at the big metal doors and pull them aside to get in. In the main chamber two Guardian Scouts activate in the corners, so deal with them first (arrows or melee both work). For the optional loot, turn on Magnesis and scan the back platform: there's a loose metal cube tucked in the structure plus more metal you can grab. Pull the hidden block free and climb into the gap it leaves to reach a chest holding 300 Rupees. Up on a stone pile sits a metal chest, an Opal inside, that you can pull down with Magnesis. The bombable/breakable blocks pinning a metal door can be cleared (use a metal object or a bomb) to free that door and reach another chest holding a bow. To finish, grab a big metal door with Magnesis and lay it across the gap as a bridge, then reposition it as a ramp up to the final platform, and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Pumaag Nitae Shrine",
     "location": "In the woods southeast of Lake Hylia, near the border of Pagos Woods and Finra Woods, a short trip from Lake Tower.",
     "category": "combat",
     "oneLine": "'A Minor Test of Strength' — defeat the Guardian Scout II (sword and shield); use Flurry Rush on its melee swings.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a \"Minor Test of Strength,\" so there's no puzzle — it's a straight fight against a Guardian Scout II that wields a Guardian Sword and a Guardian Shield, and it has a big health pool, so come in with your best weapons and some food to heal. Don't trade blows recklessly: hold your shield up and wait for its melee swing, then time a sidestep or backflip to trigger Flurry Rush and unload a free combo, or block at the last instant for a perfect guard and counterattack. When it leaps back and starts spinning toward you, run clear or put a pillar between you and let it pass, then close back in. Around half health it adds a spinning laser that kicks up wind, and near death it fires a burst of consecutive lasers — keep dodging and chipping away. Before you leave, open the treasure chest in the room for a Boomerang. Then step onto the monk Pumaag Nitae's altar and accept your Spirit Orb."
    },
    {
     "name": "Ishto Soh Shrine",
     "location": "Atop a cliff west of Oseira Plains and east of Daval Peak, in the southwest of the Lake region.",
     "category": "puzzle",
     "oneLine": "Trial 'Bravery's Grasp' — set the portable laser on the moving platform to hit the crystal switch, then climb the raised ledges.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "As you enter, drop into the pit/passage just in front of you to grab a chest holding a Topaz, then climb back up. The puzzle is the laser: find the portable laser emitter (a small cube shooting a beam) and pick it up by holding it. Carry it onto the slow moving platform and set it down so its beam points at the orange crystal switch. As the platform drifts back and forth it keeps cutting and restoring the beam, which makes the tall platforms on the back wall rise and fall in turn. Head back up to the start, then time a jump and glide so you land on one of those platforms while it is in its shorter (lowered) position. Stand and wait as it rises, then hop across to the next platform when it lowers and ride it up too. Work your way up this way; one of the platforms lets you reach a side chest containing an Ancient Core, worth grabbing on the way. Keep riding the rising platforms upward until you reach the monk's altar, then touch it to claim your Spirit Orb."
    },
    {
     "name": "Ya Naga Shrine",
     "location": "In the center of Hylia Island, the large island in Lake Hylia; paraglide in from Lake Tower to the west.",
     "category": "puzzle",
     "oneLine": "Trial 'Shatter the Heavens' — use Stasis/Remote Bombs to drive the stone cube up its track and smash the blocks to launch up.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This trial uses your Remote Bomb rune, not Stasis. At the back of the room a square stone cube sits on a ramp, with a funnel-shaped launcher in the floor beneath it. First drop a round (spherical) Remote Bomb into the funnel so it rolls under the cube, then walk up the ramp and stick a square Remote Bomb on top of the cube. Detonate the round bomb to fire the cube straight up its track, and the instant it reaches the ceiling, switch runes and detonate the square bomb so the blast shatters the cracked blocks in the ceiling above it. With the ceiling broken open, drop a fresh round bomb into the funnel, then climb on top of the stone cube yourself, face to the right toward the pillar where the chest sits, and detonate the bomb to launch yourself skyward; open your paraglider at the peak and glide right onto that pillar. The chest there holds an Eightfold Blade. Then touch the monk Ya Naga's altar to claim your Spirit Orb."
    },
    {
     "name": "Shae Katha Shrine",
     "location": "Behind the Goddess Statue at the Spring of Courage, by Damel Forest north of the Zonai Ruins, southeast of Lake Hylia.",
     "category": "quest",
     "oneLine": "Blessing shrine — no inner puzzle. The door behind the Goddess Statue opens only after the shrine quest.",
-    "shrineQuest": "The Serpent's Jaws"
+    "shrineQuest": "The Serpent's Jaws",
+    "solution": "This shrine stays hidden until you finish the shrine quest \"The Serpent's Jaws.\" It starts when you find the traveling Rito bard Kass playing his accordion in the woods near Damel Forest, east of Lake Hylia; his song points you to the Spring of Courage, a small wooded spring with a Goddess Statue tucked north of the Zonai Ruins by Dracozu Lake. Pray at the statue and it asks you to \"Offer Farosh's scale, received from the golden spirit.\" Farosh is the giant golden serpent-dragon that rises out of Lake Hylia late at night, so wait until around midnight, get up high (the south bridge tower over the lake works well), and shoot Farosh's body (not its horns, claws, or mouth) with an arrow; a glittering scale drops for you to collect. Bring the Farosh's Scale back to the Goddess Statue and offer it, and the path behind the statue opens to the shrine. Inside there's no puzzle — it's a blessing shrine: open the treasure chest for a Thunderspear (a strong electric spear), then touch the monk's altar to claim your free Spirit Orb."
    },
    {
     "name": "Shoqa Tatone Shrine",
     "location": "Rises on Puffer Beach on the southern coast, south of Lake Tower, only after its shrine quest is solved.",
     "category": "quest",
     "oneLine": "Hidden until you finish the quest; once it surfaces, place the orb to raise it and walk in for the blessing — no inner puzzle.",
-    "shrineQuest": "Guardian Slideshow"
+    "shrineQuest": "Guardian Slideshow",
+    "solution": "This shrine stays buried until you finish the shrine quest \"Guardian Slideshow.\" Go to Puffer Beach on the southern coast (south of Lake Tower) and talk to Loone, a researcher by a wrecked Guardian and a glowing orange pedestal; she wants camera photos of three Guardian types. Snap a Guardian Skywatcher (the flying kind — plenty around Akkala Tower or Hyrule Castle), a Guardian Scout (the small ones inside any Test of Strength shrine — the one back in Oman Au on the Great Plateau works), and a Guardian Stalker (the big walking kind — one roams the coast just east, near Komo Shoreline). A red exclamation mark in the shot means it counts. Bring all three back and Loone hands you the orb; set it in the orange pedestal and Shoqa Tatone Shrine rises. Inside is a combat trial, \"A Modest Test of Strength\" — fight a Guardian Scout III armed with a spear and shield; hide behind the pillars to dodge its spin and beams. After it falls, open the chest for a Royal Broadsword, then touch the altar to claim your Spirit Orb."
    }
   ]
  },
@@ -3151,56 +3166,64 @@ const SHRINES = [
     "location": "Inside a cave behind a breakable rock wall at the base of Ubota Point, just behind Lakeside Stable.",
     "category": "puzzle",
     "oneLine": "Halt the Tilt: use Stasis to freeze the tilting platforms and climb up. You can also pin them with the metal chest via Magnesis.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine sits in a cave behind a breakable rock wall at the base of Ubota Point, just behind Lakeside Stable — break the wall open with a bomb (a Remote Bomb works fine) to get in. Inside, the trial \"Halt the Tilt\" is all about the seesaw ramps: as you step on one it tips down under your weight, so aim Stasis at a ramp to freeze it solid, then quickly walk up it before the freeze ends. Do this on the first ramp, then freeze and climb the second; following that ramp up to the side leads to a chest holding an early melee weapon worth grabbing. Note the metal chest in the room — pull it to you with Magnesis. To reach the monk, lower the next ramp toward the upper path and drop the metal chest onto it with Magnesis to pin it level so you can cross, or just freeze it with Stasis and walk up. For the hidden second chest, stand on the low end of a seesaw, lift the metal chest with Magnesis high above the seesaw's far end, then release it — the falling weight launches you into the air, so paraglide across to the back ledge and open that chest for an Ancient Core (a key crafting material for ancient armor). Then make your way to the altar and touch it to claim your Spirit Orb."
    },
    {
     "name": "Shoda Sah Shrine",
     "location": "Behind the waterfall flowing from Riola Spring, southeast in the Faron rainforest.",
     "category": "puzzle",
     "oneLine": "Impeccable Timing: load an orb in the launcher and hit the crystal switch when the moving platforms are farthest apart to land it in the receptacle.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a timing puzzle called \"Impeccable Timing.\" Across a pool of water you'll find two orb launchers, each with its own crystal switch, aimed at a receptacle (a concave slot) that moving platforms keep blocking. Pick up a glowing orb and drop it into a launcher, then watch the platforms: strike the crystal switch the moment the path is clear — that's when the platforms are farthest apart — so the orb flies across into the slot. Land it and a treasure chest is launched over to your side. Do this for both launchers: the left slot's chest holds a Small Key, the right slot's chest holds five Ice Arrows. If your timing keeps failing, you don't have to give up on a launch — you can pick the orb back up and carry it closer, and the still water lets you make Cryonis platforms to reposition yourself for a cleaner shot. Once you have the Small Key, use it to unlock the door at the end of the bridge, walk through to the monk's altar, and touch it to claim your Spirit Orb."
    },
    {
     "name": "Yah Rin Shrine",
     "location": "On the cliffs on the northwestern outskirts of Lurelin Village, East Necluda, overlooking the village.",
     "category": "puzzle",
     "oneLine": "A Weighty Decision: stand on one scale and use Magnesis to lift the metal cube high over the other scale, then drop it to launch yourself up.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This one's a \"weighty decision\" — every step uses Magnesis to play with the balance scales. In the first room, step onto the scale that has the metal cube on it, then aim Magnesis at that cube and lift it up high over the other side; with the weight gone, your scale drops and the launch flings you up to the higher ledge. Head down into the next room and beat the Guardian Scout waiting there. Then look for a metal treasure chest stuck behind some bars — grab it with Magnesis and lift it over the bars to open it (a Knight's Broadsword), then set that same metal chest down onto the floor switch beside the gate to open it, and go through. In the inner room you do the same trick on the lower scales: stand on one scale, use Magnesis to hoist the heavy metal object up high over the other scale and let it drop, launching you upward to the next platform. Along the way there's an optional chest you can reach that holds an Opal (a sellable gem). Finally walk up to the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Muwo Jeem Shrine",
     "location": "Atop Cape Cales, the cape overlooking the Necluda Sea in southeastern East Necluda, reached by gliding or climbing the cliffs.",
     "category": "combat",
     "oneLine": "A Modest Test of Strength: beat the Guardian Scout III. Dodge for flurry rushes and use the breakable stone pillars as cover or to stun it.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a \"Modest Test of Strength\" combat shrine, so there's no puzzle to solve — just one tough enemy, a Guardian Scout III armed with an Ancient Battle Axe+ and a Guardian Shield+, and a gate to the altar that only opens once it's beaten. The room has breakable stone pillars; duck behind one when the Scout winds up its spinning charge so the attack smacks into the pillar instead of you, then dart out and combo it while it recovers. You can also perfect-dodge its horizontal axe swings to trigger a flurry rush, or perfect-parry the spin with a Guardian-type shield. Elemental weapons help a lot: a shock or frost weapon stuns it on the first hit so you can hammer it freely. Around half health it spins while firing lasers and kicks up an updraft — keep your distance and use that updraft to launch and glide over the beams. Near death it fires a charged laser burst; circle around it until it fires, then rush in for hits while it recharges, or parry the blast. Beating it drops its weapons plus ancient parts and opens the gate. A treasure chest by the altar holds a Knight's Bow — open it, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Qukah Nata Shrine",
     "location": "Rises from a mound in Calora Lake, atop a waterfall directly east of Faron Tower.",
     "category": "quest",
     "oneLine": "A Song of Storms: equip metal gear and stand on the mound in a thunderstorm so lightning strikes it, revealing the shrine; inside is a free orb.",
-    "shrineQuest": "A Song of Storms"
+    "shrineQuest": "A Song of Storms",
+    "solution": "This shrine stays hidden until you finish the shrine quest \"A Song of Storms,\" given by Kass, the Rito bard with the accordion. Find him by the waterfall on Calora Lake, the stormy lake just east of Faron Tower. He sings a riddle: when a lost hero calls down lightning from the sky, the monk answers from a giant mound on high. That mound is the grassy hill rising out of the lake atop the waterfall. To reveal the shrine you need lightning to strike it, so wait for a thunderstorm. The safe way: climb onto the mound, drop a metal weapon or shield (or fire a metal arrow at it), then step back so the bolt hits the metal, not you. Lightning cracks the mound open and raises the shrine. (You can instead stand on the mound in all-metal gear, but dropping metal is safest.) Inside there is no puzzle: open the chest for the Rubber Tights, the shock-resistant legs of the Rubber Armor set, then touch monk Qukah Nata's altar to claim your Spirit Orb."
    },
    {
     "name": "Kah Yah Shrine",
     "location": "At the Palmorae Ruins, the curving spit of land east of Lurelin Village (a fragment sits out at Soka Point); revealed after restoring the broken monument.",
     "category": "quest",
     "oneLine": "Quick Thinking: carry a barrel onto the moving platform, crouch under the barriers, then set it on the far floor switch to open the gate.",
-    "shrineQuest": "A Fragmented Monument"
+    "shrineQuest": "A Fragmented Monument",
+    "solution": "This shrine won't appear until you finish the shrine quest \"A Fragmented Monument\": at the Palmorae Ruins, the curving spit of land east of Lurelin Village, talk to a researcher named Garini, who asks you to find three broken-off pieces of the monument and photograph them with your Camera rune. One shard sits in the grass just to the right of the ruins, one is in the water among rocks at the west end of Palmorae Beach, and the third is out under a tree at Soka Point to the south. Photograph all three and show Garini, and he deciphers a line telling you to kneel on the two pedestals; stand on one of the large pedestals beside the ruins and crouch, and Garini kneels on the other, turning them blue and raising Kah Yah Shrine. Inside, pick up a barrel, stand on the slow moving platform, and crouch under each low barrier as it carries you across, then set the barrel down on the floor switch on the far side to open the gate and grab the small key from the chest there. Before you finish, the right-hand side has an optional barrel-and-platform run guarded by crystal switches you shoot with an arrow to open the gates, leading to a chest holding a Knight's Claymore. Use the small key on the locked door, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Korgu Chideh Shrine",
     "location": "On Koholit Rock at the summit of Eventide Island, far southeast in the Necluda Sea.",
     "category": "quest",
     "oneLine": "Stranded on Eventide: stripped of gear, carry the three Ancient Orbs to their pedestals to raise the shrine; inside is a free orb.",
-    "shrineQuest": "Stranded on Eventide"
+    "shrineQuest": "Stranded on Eventide",
+    "solution": "This shrine doesn't exist until you finish the shrine quest \"Stranded on Eventide,\" which begins the moment you set foot on Eventide Island, the lone island far in the southeast Necluda Sea (paraglide over from the nearby coast or raft across with a Korok Leaf). As you arrive, the voice of Korgu Chideh strips you of everything — every weapon, bow, shield, all armor, and all food and materials — and challenges you to survive on only what the island provides; your runes stay with you. Your goal is to find three Ancient Orbs and set each into a matching concave pedestal: one sits atop the Bokoblin camp on the east side, one rests on a raised platform on Koholit Rock, and the third is worn by a sleeping Blue Hinox — rather than fight it, quietly crouch-climb onto the hand it scratches its belly with and let it lift you up to grab the orb safely. Carry each orb (you can only hold one at a time) to its pedestal. For the northern pedestal, throw the orb into the water and raise a Cryonis ice pillar under it, then climb up and drop it in; another pedestal is blocked by a stone slab you'll need to move out of the way (Stasis it and hit it, or shove it aside). When the third orb is seated, Korgu Chideh Shrine rises atop Koholit Rock. There's no puzzle inside — it's a blessing shrine: open the chest for a Gold Rupee (worth 300 Rupees) and touch the monk's altar to claim your Spirit Orb. Your stored gear is returned once the quest is done."
    },
    {
     "name": "Tawa Jinn Shrine",
     "location": "Buried on the eastern slope of Mount Taran, above Taran Pass on the Faron/East Necluda border; rises once the quest is done.",
     "category": "quest",
     "oneLine": "The Three Giant Brothers: take the Ancient Orb from each of the three Hinox on Mount Taran and place them in the pedestals to raise the shrine; inside is a free orb.",
-    "shrineQuest": "The Three Giant Brothers"
+    "shrineQuest": "The Three Giant Brothers",
+    "solution": "This shrine stays buried until you finish the shrine quest \"The Three Giant Brothers.\" Atop Mount Taran (above Taran Pass) you'll find a stone tablet flanked by three empty pedestals; read it to start the quest. It speaks of three giant brothers, each a sleeping Hinox wearing an Ancient Orb on a necklace: the youngest is a regular Hinox northeast at Hanu Pond, the middle one is a Blue Hinox south at Uten Marsh, and the oldest is a Black Hinox west at Rabella Wetlands. You don't have to fight them — quietly climb onto a sleeping Hinox and lift the orb off its neck, or wake and beat it if you prefer. Carry each orb back and drop it into the pedestal facing the direction that Hinox came from (the one pointing toward Hanu Pond takes the youngest's orb, and so on). If a carried orb ever vanishes, leave the area and return to reset it. With all three pedestals filled, Tawa Jinn Shrine rises from the ground between them. Inside there's no puzzle — it's a blessing shrine: open the treasure chest for a Great Thunderblade, then touch the monk's altar to claim your free Spirit Orb."
    }
   ]
  },
@@ -3213,56 +3236,64 @@ const SHRINES = [
     "location": "Directly southwest of Central Tower, at the base of Mount Daphnes just west of Windvane Meadow in Hyrule Field.",
     "category": "puzzle",
     "oneLine": "Trial of Power. Use Magnesis and Stasis to swing the hanging boulder, then time your sprint past the rolling spiked boulders.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the long Trial of Power, where you smash open a series of gates. At the first gate, aim Magnesis at the big hanging boulder's metal anchor, drag it to one side, then release so the boulder swings down like a pendulum and rams the doors open. Past there is a corridor of rolling spiked balls: aim Stasis at one ball to freeze it in place, then sprint through the gap it leaves before time runs out. In the room beyond, two Guardian Scouts attack, and a chest near the dry leaves holds an Edge of Duality (a one-handed sword). To open that gate, shoot an arrow at the rope of the lit lantern hanging above the leaves (a Remote Bomb works too); the falling flame burns the platform and drops a boulder that rolls into the doors. Keep working forward the same way. The final gate is different: stand on the apparatus and use the motion controls, tilting your controller to swing the hammer so it shoves the big boulder down the track into the doors. Optional chests worth grabbing along the way include a Knight's Broadsword to the left of the stairs and a Diamond in a chest tucked directly beneath the monk's altar. Finally, hit the orange crystal switch to launch the platform up, glide across, and touch Kaam Ya'tak's altar to claim your Spirit Orb."
    },
    {
     "name": "Rota Ooh Shrine",
     "location": "At Outskirt Stable, in southwestern Central Hyrule along the road southwest of the Castle Town Ruins.",
     "category": "puzzle",
     "oneLine": "Passing of the Gates. Use Stasis and timing to slip past the spinning gates, and Magnesis metal blocks to bridge gaps and hit switches.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Passing of the Gates\" shrine, built around a big central gate that rotates whenever you hit the orange crystal switch with an arrow. Start by shooting the crystal switch to spin the gate, then walk across its grating to reach the orange orb on the far side. Pick up the orb and carry it back to the metal basket on the mechanism, drop it in, then shoot the crystal switch again so the gate flips and the orb rolls into the receptacle behind it — this activates a small platform in the center of the room. Duck into the short hallway on the left and open the first chest for a Small Key, which you use to open the locked gate on the mechanism. Step onto the small platform and wait for it to launch you upward; while you are airborne, hold your bow to enter bullet time (slow motion) and shoot the crystal switch one more time so the gate rotates and reveals the path to the altar. As you glide down from the launch, steer toward the chest sitting on a ledge to grab a Feathered Edge (a sword). Then head up the exposed path and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Wahgo Katta Shrine",
     "location": "Southeast Central Hyrule, right beside Riverside Stable near the Hylia River.",
     "category": "puzzle",
     "oneLine": "Metal Connections. Use Magnesis to move the metal crates and complete the circuit, building a path to the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Magnesis puzzle, so equip that rune as you walk in. Look to your right for three metal crates stacked beside a raised platform. Before solving anything, climb that stack to reach the platform and open the treasure chest there for a piece of Amber (a gem you can sell or use later). Now solve the room: aim Magnesis at the bottom crate to drag the whole stack across the floor, parking it close to the monk's raised altar. On the upper level there is a long flat metal plate (a slab); grab it with Magnesis and lower it to the ground. Stack the crates neatly into a tall step beside the altar, then lay the metal plate from the top of the stack up to the monk's platform so it forms a sloping ramp. Climb the crates, walk up the plate to the top, and touch the altar to meet Wahgo Katta and claim your Spirit Orb."
    },
    {
     "name": "Katah Chuki Shrine",
     "location": "Southwest of Hyrule Castle, out in Hyrule Field near the Castle Town Ruins.",
     "category": "combat",
     "oneLine": "A Minor Test of Strength. Beat the Guardian Scout; flurry rush its swings and use the chest weapons to finish it quickly.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Minor Test of Strength, so there's no rune puzzle, just one fight: a Guardian Scout rises from the floor wielding a Guardian Spear, and you destroy it to open the gate at the back. Best plan is to bait its spear: it telegraphs slow stabs and overhead swings, so sidehop or backflip right as it strikes to trigger a Flurry Rush, then unload a string of hits. When it pulls in and starts a fast spinning attack, get a wall or pillar between you and it to break line of sight, then come out and hit it while it recovers. Once it's around half health it sweeps a laser around itself; that spin kicks up an updraft, so pull your paraglider to rise above the beam, then drop and strike from above. Use your strongest weapons and don't be shy about chipping it with arrows. When it shatters, the gate opens. Just before the altar there's a chest holding a Royal Halberd, a strong two-handed spear well worth grabbing. Then step up to Monk Katah Chuki's altar and claim your Spirit Orb."
    },
    {
     "name": "Saas Ko'sah Shrine",
     "location": "Inside Hyrule Castle at the Docks, on the northwest side where water leads into the castle. Light the central torch to raise the buried shrine.",
     "category": "combat",
     "oneLine": "A Major Test of Strength. Hardest Guardian Scout IV in the game; bring strong weapons, dodge for flurry rushes, lift the metal floor blocks with Magnesis for cover.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is buried at the Docks on the northwest side of Hyrule Castle, where water leads in at ground level. Cross the moat by swimming, using Cryonis ice platforms, or paragliding, then head through the cave into the dock passage. Clear out the Lizalfos and Keese you meet, climb the stone steps, and you'll reach a platform with several torches and one unlit brazier; light it (carry fire from a lit torch, fire an arrow lit on a flame, or hit it with a flame weapon) to raise the buried shrine. Inside it's A Major Test of Strength against a Guardian Scout IV, the toughest in the game, so bring your strongest weapons. When it leaps back to wind up its spinning attack, aim Magnesis at the metal floor blocks and lift one up as a shield to soak the hit, then strike while it's open; when it lunges, dodge or guard at the last instant to trigger a flurry rush. At low health it fires eye lasers, so keep dodging and chipping away. Defeating it opens the gate at the back to a chest holding a Flameblade; grab it, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Dah Kaso Shrine",
     "location": "Under the Digdogg Suspension Bridge in southwestern Central Hyrule, near the Regencia River.",
     "category": "combat",
     "oneLine": "A Minor Test of Strength. Defeat the Guardian Scout with flurry rushes and the weapons it drops.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Minor Test of Strength, so there's no puzzle — just one fight against a Guardian Scout, a floating Sheikah machine wielding a Guardian Spear. Step in and lock on, but don't trade blows: wait for it to swing or lunge, then dodge sideways at the last instant to trigger a flurry rush (a slow-motion window where you mash attack for free hits). If you'd rather deflect than dodge, hold up a shield and time a perfect guard. The scout drops its own weapon as you damage it — grab the Guardian Spear and turn it back on the machine, since it hits much harder than your starting gear. As its health drops it adds a spinning sweep and, near death, fires a burst of lasers, so keep moving, duck behind a pillar if needed, and close the distance. Once it's destroyed, the gate opens. Open the lone treasure chest in the room for an Ancient Core (a valuable upgrade material), then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Namika Ozz Shrine",
     "location": "Northeast Central Hyrule in the Crenel Hills, hidden inside a large hollowed tree stump.",
     "category": "combat",
     "oneLine": "A Modest Test of Strength. Fight the stronger Guardian Scout III; flurry rush its spear and axe, then grab the Frostspear from the chest.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is \"A Modest Test of Strength,\" a combat shrine with no puzzle — you just have to beat the Guardian Scout III waiting inside. It has a lot of health and swaps between two weapons, a spear and an axe, so come in with your strongest weapons and a few healing meals. The trick is the flurry rush: when it swings, dodge sideways or backflip at the last instant for a perfect dodge, then hammer the attack button while time slows. Don't try to trade blows during its spin attack — when it jumps back and charges at you spinning, duck behind one of the big stone pillars so it crashes into the pillar and stuns itself, then punish it. As its health drops it adds laser attacks: a sweeping arc beam around half health, then a burst of charged red beams when it's nearly dead. Keep circling and dodging the beams, and shoot an arrow at its glowing eye to stun it so you can close in and finish it. Once it's destroyed, the gate ahead opens; the treasure chest there holds a Frostspear (a freezing spear). Grab it, then step onto the platform and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Noya Neha Shrine",
     "location": "North of Central Tower (east of Ridgeland Tower) on the island west of Hyrule Castle, in a cave behind thorny vines and a cracked wall.",
     "category": "combat",
     "oneLine": "A Minor Test of Strength. Burn the thorns, bomb the cracked wall to open the cave, then beat the Guardian Scout inside.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is sealed inside a cave on the island west of Hyrule Castle (east of Ridgeland Tower), behind a wall of thorns on the cliffside at the south end of the island. First burn the thorns away — a fire arrow works, or set down some wood and flint and strike it with a metal weapon to spark a flame, or just swing a fire weapon like a Flameblade. Behind the thorns is a cracked stone wall; aim your Remote Bomb at it and detonate to blow it open and reveal the shrine entrance. Inside it's a Minor Test of Strength, so there's no puzzle — just a Guardian Scout II swinging an Ancient Battle Axe. Keep moving, dodge its overhead axe swings (or hold up a shield and time a Perfect Guard), and trigger a Flurry Rush by jumping aside at the last second to land free hits; a shock or ice attack will stun it, and an arrow to its eye staggers it too. When it falls, the gate opens — grab the treasure chest just before the altar for a Knight's Shield, then touch the monk's altar to claim your Spirit Orb."
    }
   ]
  },
@@ -3275,49 +3306,56 @@ const SHRINES = [
     "location": "Inside a cliff cave southwest of the Maritta Exchange Ruins; there's a Bokoblin camp with a tall lookout tower nearby - face south from the tower for the cracked rocks",
     "category": "blessing",
     "oneLine": "\"Maag No'rah's Blessing\" - no trial inside; blow open the cracked rocks on the cliff with a bomb arrow or remote bomb, climb in, and claim the orb.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This one is a blessing shrine, so there's no trial inside - the catch is just getting in. Head to the Bokoblin camp southwest of the Maritta Exchange Ruins and climb its tall lookout tower. From the top, face SOUTH toward the cliff and scan the rock face - you'll spot cracked rocks hiding the cave entrance. Blast them open: either fire a Bomb Arrow at them from the tower, or climb to the little ledge just above the opening, set a Remote Bomb, climb clear, and detonate it (a heavy weapon swing works too). With the rocks gone, climb into the cave to reach the shrine. Inside there's no puzzle at all - just follow the short path to the lone treasure chest and open it for a Silver Rupee (worth 100 rupees), then touch Maag No'rah's altar to claim your free Spirit Orb."
    },
    {
     "name": "Mogg Latan Shrine",
     "location": "Atop Satori Mountain, southwest of Ridgeland Tower, south of Hyrule Ridge",
     "category": "puzzle",
     "oneLine": "\"Synced Swing\" - use Magnesis (and Stasis) to swing and steady the chained metal platforms, timing your jumps across the gaps to the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is built around a string of chained metal platforms and lanterns, so Magnesis is your main tool throughout. At the start, hop onto the first swinging metal platform and ride it across; if it slows, aim Magnesis at it and push it back and forth to keep it swinging, then jump off at the far side. Do the same with the next swing, pulling it toward you with Magnesis before you leap on. Next is a drawbridge held upright by ropes — shoot the ropes with an arrow so it drops flat to cross; a chest off to the side of the bridge holds a Forest Dweller's Spear. Past the bridge, a narrow ledge is blocked by hanging spiked balls — use Magnesis to swing each one aside while you slip past, and there's a chest along this stretch holding a Forest Dweller's Bow. Then use Magnesis to pull the metal blocks on the rails toward you and ride them up like a staircase; there's also a chest down among the lower blocks holding a Gold Rupee (300 Rupees), worth grabbing before you climb. Finally, hit the crystal switch to drop two fire lanterns from the ceiling — get one swinging with Magnesis, then shoot its rope with an arrow as it swings over the pile of dry leaves so the flame falls and burns them away (a Fire Arrow also works). With the leaves gone, aim Magnesis at the metal doors and pull them open, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Zalta Wa Shrine",
     "location": "In the Breach of Demise, right along the path just southeast of Ridgeland Tower",
     "category": "puzzle",
     "oneLine": "\"Two Orbs to Guide You\" - shoot the first orb into its slot, carry the freed orb onto the floor switch, then use the shock-launch platform to reach the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "When you enter, look to the right for an orb resting on a short pillar near the wall, with a slot in the floor below it. Shoot the orb with an arrow to knock it down into that slot; if the shot is awkward, hit the orb with the Stasis rune first to steady it, then loose your arrow. Dropping the orb into its slot opens a gate that reveals a second orb. Pick up the second orb and carry it to the floor switch on the left side of the room. While you stand on that switch to keep it held down, throw the orb into the second slot nearby, which sets a platform in the center of the room moving. Step onto the launch pad in the middle, and when the moving wall sweeps toward you, hit the crystal switch to fire yourself up, then open your paraglider to catch the platform and ride it toward the exit ramp. Before you finish, look down off the upper ledge for a treasure chest beside a blue lamp atop the structure you threw the second orb into; glide down and open it for a Knight's Bow. Then climb up and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Mijah Rokee Shrine",
     "location": "Southern part of Washa's Bluff, north of Satori Mountain past the Tamio River; Kass sits in a tree nearby",
     "category": "mixed",
     "oneLine": "Find Kass for \"Under a Red Moon,\" then stand bare on the pedestal during a Blood Moon to raise it; inside is \"A Modest Test of Strength\" (Guardian Scout III).",
-    "shrineQuest": "Under a Red Moon"
+    "shrineQuest": "Under a Red Moon",
+    "solution": "This shrine stays buried until you start the shrine quest \"Under a Red Moon.\" Head to Washa's Bluff on Hyrule Ridge (north of Satori Mountain, past the Tamio River) and find the traveling bard Kass perched in a tree on one of the flat-topped rocks, playing his accordion; talk to him to hear the ancient song, which hints you must stand bare on the pedestal beneath his tree during a Blood Moon. A Blood Moon is the red-moon event that rises at midnight, mainly after a few hours of uninterrupted play (defeating lots of enemies makes it come sooner); if you want a heads-up on the moon, Hino at Dueling Peaks Stable studies it and will hint when one is near. On a Blood Moon night, climb onto the pedestal below Kass's tree and unequip everything — no weapon, no bow, no shield, and no armor in any slot — between about 9 p.m. and 1 a.m. (a campfire nearby lets you wait for night). With Link standing there empty-handed, the pedestal lights up and Mijah Rokee Shrine rises out of the ground; touch it to enter. Inside is the combat trial \"A Modest Test of Strength,\" a single Guardian Scout III armed with a Guardian Sword+ and Guardian Shield+: dodge its swings with a back-flip or side-hop, trigger a flurry rush, and watch for its spinning laser. Before leaving, grab the treasure chest for a Frostblade (an ice sword), then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Sheem Dagoze Shrine",
     "location": "On a cliffside in the West Hyrule Plains, northwest of Jeddo Bridge overlooking the river; Kass is nearby",
     "category": "quest",
     "oneLine": "Solve \"The Two Rings\" - shoot one arrow through both stone rings to raise the shrine; inside, guide two Ancient Orbs down the ramps into their slots.",
-    "shrineQuest": "The Two Rings"
+    "shrineQuest": "The Two Rings",
+    "solution": "This shrine is hidden until you finish the shrine quest \"The Two Rings.\" Find the Rito bard Kass, who stands on a rock formation out on the West Hyrule Plains near Jeddo Bridge (northwest of the bridge, on a cliffside overlooking the river); talk to him to hear his ancient song about an arrow threading two rings to raise a shrine. Look out over the plains and you'll spot two ring-shaped stone formations lined up opposite each other. Position yourself so both rings line up in front of you, then loose a single arrow that passes clean through BOTH rings without clipping either one (aim a touch high to carry the distance, and don't use a multi-shot bow). It may take a few tries, but when one arrow threads both rings the shrine rises out of the ground. Inside, the puzzle uses Ancient Orbs on tilting ramps controlled by floor pressure plates: step on the plates to release and steer each orb down its ramp into the matching slot at the bottom, which opens the gate. Before you leave, paraglide down to the platform between the two lower ramps and open the chest tucked there for a Great Thunderblade. Then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Toh Yahsa Shrine",
     "location": "On Thundra Plateau, west of Ridgeland Tower",
     "category": "quest",
     "oneLine": "\"Trial of Thunder\" - use Stasis to knock the four colored orbs into their matching slots on the plateau to raise the shrine; inside is a short Magnesis puzzle.",
-    "shrineQuest": "Trial of Thunder"
+    "shrineQuest": "Trial of Thunder",
+    "solution": "This shrine is hidden until you finish the shrine quest \"Trial of Thunder,\" which begins on its own when you climb onto Thundra Plateau, the storm-topped rise near Ridgeland Tower. Four colored slots sit on the plateau; drop the matching orb into each. The purple orb is already up there, so set it in the purple slot. The green orb sits atop its pillar, so climb up to grab it or knock it down with an arrow. The red and orange orbs rest on tall statues off the plateau; for each, aim Stasis at the orb, then whack it so it launches onto the plateau when Stasis wears off. With all four placed, the shrine rises. Inside, use Remote Bombs on the breakable rock cubes; one near the start hides a chest with Rubber Armor. Use Magnesis on the metal cube you uncover to knock a chest off a tall pillar for an Opal, then use the cube as a step and set it on a pressure plate to open the gate. Climb up and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Shae Loya Shrine",
     "location": "On a ridge in Hyrule Ridge just south of Tabantha Bridge Stable",
     "category": "puzzle",
     "oneLine": "\"Aim for the Moment\" - ride the rotating platforms and shoot the eye switches with arrows at the right instant to open the gates to the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Stasis puzzle, no fighting. As soon as you enter, look up for a wooden platform held up by two ropes near the entrance; shoot both ropes with arrows to drop it, then open the chest that falls for a Falcon Bow. The main puzzle is the contraption ahead: a launcher keeps tossing an ancient orb up into the air. Hit the orb with Stasis while it is at the top to freeze it, then fire arrows at it so that when Stasis wears off it is knocked forward and rolls down into the round concave slot below. Dropping the orb in the slot activates the launcher on your side. Step onto that launcher to be flung high into the air, then deploy your paraglider; while gliding, draw your bow to slip into slow motion and shoot the glowing orange crystal switch set in the wall, which raises the gate blocking the monk (use a single-shot bow here, since a multi-shot bow can register twice and make the gate close again). While airborne off the launcher you can also glide across to a separate ledge for a second chest holding a Topaz. Once the gate is up, head through and touch the monk's altar to claim your Spirit Orb."
    }
   ]
  },
@@ -3330,42 +3368,48 @@ const SHRINES = [
     "location": "In Rito Village itself, on a separate stone spire reached by the wooden bridge near the top of the village's spiraling walkway.",
     "category": "puzzle",
     "oneLine": "Trial of the Windmills: raise the metal sail-fans into the wind so the propellers spin and move platforms; ride them up to reach the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Trial of the Windmills,\" and the goal is to get every windmill in the room spinning at the same time by aiming the big sail-fans at them. You don't hit the fans directly: each fan platform has a glowing crystal switch, and striking it (with a melee weapon or an arrow) rotates the fan to point in a new direction, with a small arrow by the crystal hinting which way it will turn. Hit each fan's switch until its blast of air points at a windmill; the spinning parts glow blue when air reaches them, while idle ones stay orange. Work fan by fan around the room until all the windmills turn together, which opens the gate to the monk. For the loot: off to the side is a water section, so climb the steps and use the Cryonis rune to raise ice pillars and reach two openings on the right, one chest holding a Sapphire and the other a Feathered Spear. There's also a chest sealed behind a gate; shoot the distant crystal switch with an arrow so the fan turns and its wind spins that windmill to raise the gate, revealing a chest with an Ancient Core. Once the windmills are all spinning and you've grabbed the loot, step onto the altar and touch the monk to claim your Spirit Orb."
    },
    {
     "name": "Sha Warvo Shrine",
     "location": "On Dronoc's Pass, the 'home' shrine of the Rito Flight Range, northwest of Rito Village past the Rito Stable path.",
     "category": "puzzle",
     "oneLine": "Path of Hidden Winds: paraglide above the floating fans to ride their updrafts up and across gaps; time your glides with the rotating walls.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Path of Hidden Winds\" — a paraglider course over fans that blow upward air currents (updrafts). From the entry, jump and open your paraglider over the first fan and ride its updraft straight up to the platform above. Ride the next updraft toward the platform on the left, but watch for a Guardian Scout waiting there — land and beat it (or pick it off with arrows from the air), then open its chest for a purple rupee worth 50 Rupees. From that platform, glide across to the opposite updraft and ride it up to a moving platform, then climb the ladder at its end to the next fan. Ride that updraft up, and as you rise circle LEFT around the tall floating stone column, keeping the camera on it — you'll spot an opening cut into the column's side with another fan blasting an updraft up inside it; this hidden updraft is your route to the top. Ride it up and a short hop puts you on the monk's platform — touch the altar to claim your Spirit Orb. (Optional: from that high area you can glide off to a small isolated platform for an extra chest holding a Knight's Bow before finishing.)"
    },
    {
     "name": "Tena Ko'sah Shrine",
     "location": "At the head of the Ancient Columns, southwest of the Tabantha Great Bridge, reached up through the Rayne Highlands.",
     "category": "combat",
     "oneLine": "A Major Test of Strength: defeat a Guardian Scout IV. Use the pillars to block its spin charge, then combo it while it's staggered.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Major Test of Strength, so there's no puzzle — just a tough fight against a Guardian Scout IV, the strongest scout, armed with a sword, an axe, and a shield. Use the stone pillars in the room. When the scout leaps back and starts spinning rapidly to charge, dodge behind a pillar so it smashes into the column instead of you and is left stunned — then run in and combo it while it reels. You can also stop the spin early with a well-aimed arrow to its glowing eye. Its swings can be sidestepped or backflipped for a Flurry Rush, and a Perfect Guard (raise the shield the instant a blow lands) buys safe hits; a Guardian-type shield resists it best. Around half health it sweeps a laser in a wide arc that kicks up an updraft — open your paraglider to ride the gust, aim your bow in midair to slow time, and shoot its eye to knock it down. Near death it charges several beams in a row; dodge them while closing in, then strike while it recharges. When it's down the gate opens — open the chest by the altar for a Knight's Halberd, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Kah Okeo Shrine",
     "location": "Far southwestern corner of the region, near the foot of the Rayne Highlands; the entrance sits beneath a movable stone platform.",
     "category": "puzzle",
     "oneLine": "Wind Guide: grab the Korok Leaf from the chest and fan the floating platforms across the wind currents to reach the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "The entrance is sealed under a heavy stone slab, so before you can drop in you have to clear it: aim Stasis at the slab to freeze it, then hammer it with a melee weapon to fling it off (sticking an Octo Balloon to it works too). Inside, the very first chest holds a Korok Leaf, and that leaf is the key to the whole shrine, swing it to puff wind at the windmill-style fans. Fan the first fan to open the barred gate, then dash through before it drops. Equip a weapon and clear the Guardian Scout IIs guarding the way, then keep using the leaf to spin fans, which raise floating platforms you ride across the gaps and updrafts that carry you upward. For the explosive-barrel puzzle, hit the wind switch in the side room to spawn a balloon-suspended bomb barrel, then use the leaf's wind to gently steer it out over the column of cracked blocks and bump it against one of the lit torches beside them, the flame sets it off and the blast shatters the blocks (a fire arrow works if you can't nudge it close enough). That opens an updraft, glide up it to the chest holding the small key. If you want extra loot, optional chests reached by the floating platforms and gliding hold a Forest Dweller's Sword, a gold rupee, and a Giant Ancient Core, but the small key is the one you must grab. Take the key, float down and unlock the monk's door, and touch Kah Okeo's altar to claim your Spirit Orb."
    },
    {
     "name": "Voo Lota Shrine",
     "location": "At Warbler's Nest, directly west of Rito Village near Dragon Bone Mire; it rises from the ground once the quest is done.",
     "category": "quest",
     "oneLine": "Complete the shrine quest to reveal it: cook Salmon Meuniere, then have the Rito sisters sing on the pedestals in the order the song dictates.",
-    "shrineQuest": "Recital at Warbler's Nest"
+    "shrineQuest": "Recital at Warbler's Nest",
+    "solution": "This shrine stays hidden until you finish the shrine quest \"Recital at Warbler's Nest\" (it's at Warbler's Nest, just west of Rito Village). Talk to the young Rito Kheel there to start it, then head to Rito Village and collect ingredients from her three sisters: Cree in the general store gives Goat Butter, Notts up on the ledges above the armor shop gives Tabantha Wheat, and Kotts by the pond near the entrance gives a Hearty Salmon. Cook all three together at the cooking pot near Genli's hut to make Salmon Meuniere, then hand the dish to Genli. Go back to Warbler's Nest where the four sisters now sing the melody in the order 4, 5, 3, 1, 2. Stand on the central stone and use a Korok Leaf to blow air through the numbered rock pedestals in that same order, and Voo Lota Shrine rises from the ground. Inside (\"The Winding Route\") no rune is required, just your paraglider: climb the ladder and hit the crystal switch at the end to drop the floor, open your paraglider as you fall, and ride the fans and air currents from platform to platform, briefly putting the glider away to drop under a spike wall. Open the chest along the way for a Small Key, and for an optional detour glide to the side platform for a chest holding a Flameblade. Use the Small Key on the locked gate, then touch the monk Voo Lota's altar to claim your Spirit Orb."
    },
    {
     "name": "Bareeda Naag Shrine",
     "location": "South of Rito Village at the base of Cuho Mountain, along the path from Rito Stable toward the Flight Range.",
     "category": "quest",
     "oneLine": "Learn the song (Bedoli then Laissa). At midday (~12:40) sun shines through a heart-shaped hole onto the pedestal; light a flame on it to reveal it.",
-    "shrineQuest": "The Ancient Rito Song"
+    "shrineQuest": "The Ancient Rito Song",
+    "solution": "This shrine stays buried until you finish the shrine quest \"The Ancient Rito Song,\" which only becomes available after you've calmed Divine Beast Vah Medoh. Start it by talking to Bedoli at Revali's Landing in Rito Village; she sings the first half of an old song, so go find her sister Laissa elsewhere in the village and recite it back to hear the rest. The full clue points to the tall rock pillar south of Rito Village (along the path toward the Flight Range): around midday the sun shines through a heart-shaped hole in the pillar and lights up the stone pedestal at its base. Wait until about 12:40, stand on the glowing pedestal, and light a flame on it (a lit torch or a fire arrow works) to make Bareeda Naag Shrine rise from the ground. Inside is a puzzle, not a free orb: bomb the cracked stone wall to open a chest holding a Falcon Bow. Then climb the ladder behind the big cannon, drop a round Remote Bomb into the chute, and detonate it so the launched orb slips past the moving barriers and hits the switch, opening the door. Past the altar a second cannon fires at a moving target; time a shot to hit it and open a chest with a Diamond. Finally, step up to the monk's altar and claim your Spirit Orb."
    }
   ]
  },
@@ -3378,91 +3422,104 @@ const SHRINES = [
     "location": "Far northwestern corner of the map, at the base of the Icefall Foothills",
     "category": "combat",
     "oneLine": "A Major Test of Strength vs a Guardian Scout IV. Dodge its melee for flurry rushes; ancient/strong weapons end it fast. Chest holds a Sapphire.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is \"A Major Test of Strength,\" so there's no puzzle, just a tough fight against a Guardian Scout IV that swaps between a sword, a spear, and a battle axe. Eat hearty food and bring your best gear first; ancient or Guardian weapons hit it especially hard, and its weak spot is the single eye. Bait its telegraphed melee and dodge at the last instant to trigger a Flurry Rush, then unload on the eye: side-hop the vertical sword and head-on spear thrusts, and backflip over the sweeping battle axe. When it jumps back and spins to charge across the floor, use Magnesis to raise one of the metal cubes from the ground and leave it as cover between you and the Scout to block the charge, then counterattack while it's open. Around half health it spins while firing a laser, which kicks up a strong updraft; jump into that draft, paraglide up, then aim your bow in midair to slow time and put an arrow in its eye. If you're overwhelmed, an Ice Arrow freezes it for a free charged hit. When it falls, the gate opens; grab the Sapphire from the chest, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Goma Asaagh Shrine",
     "location": "Behind ice chunks at the southwestern base of Hebra Peak",
     "category": "combat",
     "oneLine": "Major Test of Strength vs a Guardian Scout IV. Melt or smash the ice with fire/bombs to enter, then flurry-rush the scout.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine sits behind chunks of ice at the southwestern base of Hebra Peak, so first clear the entrance: set a campfire right next to the ice (drop wood and light it with a Fire Arrow or a flame weapon) or shoot the ice with Fire Arrows, and it slowly melts away to expose the door. Inside is \"A Major Test of Strength,\" so there's no puzzle, only a fight against a Guardian Scout IV, which drops a Guardian Sword++, a Guardian Spear++, and an Ancient Battle Axe++ and takes a lot of hits. The whole floor is covered in a thin layer of water, so use the Cryonis rune to raise ice pillars between you and the scout for instant cover when it winds up its spinning attack or fires its laser beams. The cleanest way to do real damage is the flurry rush: wait for it to swing a weapon at you, dodge sideways at the last instant with a backflip or sidehop, and the slow-motion window lets you land a free combo; you can also parry its spinning attack to stun it. A strong weapon helps you finish fast before its beams charge up. Before you leave, open the treasure chest by the altar for a Royal Claymore, a strong two-handed sword, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Mozo Shenno Shrine",
     "location": "Inside a small cave under the Biron Snowshelf, in the Hebra Mountains",
     "category": "combat",
     "oneLine": "Major Test of Strength vs a Guardian Scout IV. Revealed by the shrine quest 'The Bird in the Mountains' (talk to Molli at Rito Village first).",
-    "shrineQuest": "The Bird in the Mountains"
+    "shrineQuest": "The Bird in the Mountains",
+    "solution": "This shrine stays hidden until you do the shrine quest \"The Bird in the Mountains,\" which you get from a young Rito named Molli, who sits by herself on one of the ledges at Rito Village. She tells of her grandfather climbing to a tree and seeing a huge snow-white bird to the northwest, so head to Talonto Peak, stand by the lone tree at its summit, and look northwest: the Biron Snowshelf really does look like a giant white bird with its wings spread. Glide toward it; an orange light marks the shrine, tucked in a cave on the side of that snowshelf (use Revali's Gale if you fall short of the ledge), and reaching it finishes the quest. Bundle up first, since Hebra is freezing: wear cold-resistance gear like the Snowquill set or sip a spicy elixir. Inside it's a Major Test of Strength against a Guardian Scout IV that wields an Ancient Battle Axe++, a Guardian Sword++, and a Guardian Spear++. Dodge its swings for a flurry rush and parry its laser shots back with a shield to break its guard. Beating it opens the gate; grab the chest off to the side for a Diamond, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Qaza Tokki Shrine",
     "location": "In the center of the North Lomei Labyrinth, northeast of the Tabantha Tundra in the Hebra range",
     "category": "quest",
     "oneLine": "Solve the North Lomei Labyrinth maze to reach it; gliding from above makes navigation far easier. Grants Qaza Tokki's Blessing.",
-    "shrineQuest": "Trial on the Cliff"
+    "shrineQuest": "Trial on the Cliff",
+    "solution": "This shrine is hidden inside the North Lomei Labyrinth, the giant cube-shaped maze in the freezing Hebra range northeast of the Tabantha Tundra, so bring cold-resistance gear (the Snowquill set or a spicy meal) first. Just walking into the labyrinth starts the shrine quest \"Trial on the Cliff\" — a voice promises a blessing if you reach the maze's center, where the shrine stays hidden until you arrive. You can work through the maze on foot (the path leads past a glowing Malice Eyeball you'll want to shoot to clear the corruption blocking the way), but the easier route is to climb the outer wall and glide down to the center from above, skipping the dead ends. The shrine's chest holds the Barbarian Leg Wraps (one piece of the attack-up Barbarian set, found only in the three labyrinths). Reaching the center is the whole challenge — it's a blessing shrine with no puzzle, so step onto Monk Qaza Tokki's altar to claim your Spirit Orb."
    },
    {
     "name": "Lanno Kooh Shrine",
     "location": "West of Hebra Tower, just north of the Hebra Plunge",
     "category": "blessing",
     "oneLine": "A free blessing shrine - just walk in and claim the Spirit Orb (and the bonus chest).",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a \"Lanno Kooh's Blessing\" shrine, so there's no puzzle inside — the Spirit Orb is free once you get in. The catch is getting there: the shrine sits at the base of the Hebra Falls (the Hebra Plunge), west of Hebra Tower, tucked under a small rise with cold river water all around it, so dress for the cold or this trip will sap your hearts. The easiest way down is to find a tree near the river northwest of the shrine, chop it so it falls into the water, then ride the log as it floats down through the Hebra Headspring and over the falls — crouch to stay on it until it stops at the shrine's island, rather than freezing your way across the water on foot. Inside there's nothing to solve — open the treasure chest along the path for a Gold Rupee (worth 300 rupees), then touch the monk's altar to claim your free Spirit Orb."
    },
    {
     "name": "To Quomo Shrine",
     "location": "Inside a cave at the center of the Hebra North Summit",
     "category": "blessing",
     "oneLine": "A blessing shrine; the work is reaching it through the freezing summit, not the puzzle. Grab the orb and bonus chest.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "To Quomo is a blessing shrine, so there's no trial inside — the real challenge is reaching the icy summit and getting the door open. The Hebra North Summit is deep-cold, so before you go bring level 2 cold resistance: two or more pieces of warm gear like the Snowquill set, or top up with a spicy/cold-resist meal or elixir (peppers cooked into food, or a chilly elixir's opposite). The shrine sits in a cave whose entrance is sealed by big stone doors that ignore your runes. Looking out from the doors, find the small pool of water nearby and aim Cryonis at it to raise two ice pillars side by side, forming a ramp out of the pool toward the doors. Then pick up the largest snowball you can carry from the slope, set it rolling so it travels up over your Cryonis ramp and slams into the doors — that knocks them open. Head inside, where a path leads straight to the monk; grab the treasure chest along the way, which holds a Royal Claymore, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Sha Gehma Shrine",
     "location": "Northern edge of the North Tabantha Snowfield, west of the North Lomei Labyrinth",
     "category": "puzzle",
     "oneLine": "'Shift and Lock' - rotate and lock the moving floor/wall sections to build a path across to the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"Shift and Lock\" puzzle uses Magnesis and Stasis. Walk up the ramps and aim Magnesis at the big metal cube on the central rail, then lift it straight up to where two platforms drift back and forth near the top. The trick: hold the cube up there with Magnesis until a platform slides beneath it, then quickly switch to Stasis and freeze the cube in place (switching runes is fine — it stays suspended). While it's frozen, drop or glide down to the treasure chest tucked directly beneath the cube and grab the Small Key inside — be quick, the freeze is brief and the cube falls back. For a bonus, climb the central walkways and glide off to the separate chest on a side platform for a Royal Broadsword. Then head to the ground floor, use the Small Key on the locked door opposite the entrance, and step up to Sha Gehma's altar to claim your Spirit Orb."
    },
    {
     "name": "Shada Naw Shrine",
     "location": "A few steps north of Selmie's Spot, high on the Hebra mountainside",
     "category": "puzzle",
     "oneLine": "Use Cryonis pillars on the water surfaces and Magnesis on metal to bridge the gaps and reach the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Ignore the Cryonis part of the hint: there is no water here. This is a Magnesis puzzle built around wind fans and a moving platform, and your job is to get the round orb into the hole at the center of the room so the platform by the entrance rises and lets you reach the monk. First grab the optional chest: it sits in a small cubby on a raised ledge in a corner, so point Magnesis at it, pull it down, and open it for a Great Frostblade. Now aim Magnesis at the wall near the orb's receptacle and you will see a hidden red metal block; pull it outward so it sticks out as a little shelf, then use Magnesis to set the large metal cube on top of that shelf to block the wind path so the orb gets funneled into the hole instead of being blown past it. Carry the orb to the fans, set it down so the wind streams catch it, and let it ride into the receptacle. If it won't cooperate, place the orb where it will roll downhill toward the hole, freeze it with Stasis, then run back and stand on the pale elevator platform by the entrance and wait: when Stasis wears off the orb drops into the hole, the platform rises, and you can walk up and touch Shada Naw's altar to claim your Spirit Orb."
    },
    {
     "name": "Rok Uwog Shrine",
     "location": "At the north end of Pikida Stonegrove",
     "category": "puzzle",
     "oneLine": "Roll the giant boulder onto pressure switches; line up the ball drops to open each gate in turn.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine (\"Power of Reach\") is a Magnesis-and-combat run, not a boulder puzzle. From the entrance, aim Magnesis at the metal treasure chest on the ledge across the room, pull it down, and open it for a Drillshaft (a handy spear). The way forward is blocked by dry leaves: burn them away with a fire arrow, an arrow shot through a torch flame, or any flame weapon (knocking the lit torch onto them also works). In the next room a Guardian Scout II attacks and drops a Guardian Spear; beat it. Then deal with the ramp: use Magnesis to pull the metal block out from under the wooden box, which drops the platform into a walkable ramp (it usually smashes the box; if not, blow the box up with a Remote Bomb). Go up and fight a second Guardian Scout II. Ahead, a floor switch behind a fence is held down by two wooden barrels; smash the barrels with a spear (the Drillshaft or a dropped Guardian Spear works well) and the bars open. Slip through and open the chest there for a Small Key, then climb back up, unlock the door near the elevator where you entered, and touch Rok Uwog's altar to claim your Spirit Orb."
    },
    {
     "name": "Maka Rah Shrine",
     "location": "In a clifftop cavern near Lake Kilsie, northwest of Rito Village (enter via the cave under the cliff edge northeast of the lake's pier)",
     "category": "puzzle",
     "oneLine": "'Steady Thy Heart' - use Magnesis to steer the big spiked metal ball, smashing crates and clearing the path; grab the Diamond chest.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Getting in is half the puzzle: around Lake Kilsie, bomb the cracked rock piles to release updrafts and paraglide up the cliffs toward the torch-lit cave opening, then drop inside (open your paraglider a few times to slow the fall) and follow the path into the shrine. Inside, light the unlit torch by the locked gate from any fire source (a Fire Arrow shot from the lit torch, or a flaming weapon) to raise the bars. Next is the \"steady thy heart\" centerpiece: a rotating spiked column over lava - take it slow and time your steps through the safe gaps without rushing off the edge, then step on the floor switch at the end. In the room beyond, defeat the weak Guardian Scouts, then use Cryonis to raise an ice pillar up to a side chest holding ten Bomb Arrows, and use it again to reach a switch. Now for the big spiked ball: stand on the next floor switch and it releases a large metal ball that rolls down and smashes through the wall of wooden crates, clearing the path - just dodge to the side as it comes (you can use Magnesis to steer it or Stasis to freeze a rolling ball if it threatens you). Head up the ramp; at the top, bomb the three breakable blocks and use Magnesis to pull out the chest with a Diamond. Use Magnesis again to grab the nearby chest holding an Ancient Core. Then make your way to the monk's altar and touch it to claim your Spirit Orb."
    },
    {
     "name": "Rin Oyaa Shrine",
     "location": "Northeast of Hebra Tower, hidden under a rock near Snowfield Stable",
     "category": "puzzle",
     "oneLine": "Use the water wheels and Magnesis to move the metal blocks/balls onto switches; redirect the flow to open the gates.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Directing the Wind\" puzzle: the goal is to get the Ancient Orb into the round hole in the center of the floor, which raises the exit platform. The room has two wind fans (whirlwinds) blowing across the floor and two loose metal cubes. Carry or roll the orb into the wind, then use Magnesis to grab a metal cube and set it down right in front of a fan so the airflow nudges the orb across the floor and into the central hole instead of scattering it; nudge it with a second cube or a quick Magnesis grab if it drifts. When the orb drops in, the grey platform near the ramp rises, so stand on that platform as it lifts to ride up toward the far side. For the optional chest across the gap, use Magnesis to set a metal cube on the launcher/ramp to bridge the gap, then cross and open the chest for an Ancient Core (a valuable Guardian crafting part). Once you've ridden up and crossed over, touch monk Rin Oyaa's altar to claim your Spirit Orb."
    },
    {
     "name": "Dunba Taag Shrine",
     "location": "In Tanagar Canyon, just southeast of Rito Stable, southwest of Hebra Tower",
     "category": "puzzle",
     "oneLine": "Use Stasis on the spinning cogwheel and on the stone ball/barrels (Stasis-golf) to whack them onto the switches and open each gate.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This whole shrine is a Stasis workout, so the trick everywhere is freeze-then-roll or freeze-then-whack. In the first room a boulder keeps dropping onto a slowly spinning cogwheel; aim Stasis at the cogwheel and freeze it the instant its top platform is roughly level (tilt the left side slightly higher than the right) so the next boulder rolls straight across it like a bridge and strikes the switch, opening the gate ahead (reapply Stasis and let another boulder drop if it falls short). For the Falcon Bow, turn left to the room with stone barrels and, across the pit, a wall of stone blocks; throw a Remote Bomb to clear those blocks and expose a switch, then carry a barrel to the spot facing it, freeze it with Stasis and smack it several times so it rockets into the switch when time resumes, opening the gate to that chest. For the Great Thunderblade, drop to the round stone ball, roll it to the small ramp, then Stasis it and hit it so it launches up and over onto the floor switch, opening the bars to its chest. Finally, grab another barrel, set it on the platform, freeze it with Stasis and strike it so it knocks a large stone plate down onto the last switch, opening the door to the altar. Touch the monk Dunba Taag to claim your Spirit Orb."
    },
    {
     "name": "Gee Ha'rah Shrine",
     "location": "Northwest of Hebra Tower, just south of Kopeeki Drifts",
     "category": "puzzle",
     "oneLine": "A pinwheel/maze puzzle - rotate the wind-powered wheels to spin the maze walls and roll the ball to its goal.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine (trial: \"Tandem\") is sealed behind a pair of stone doors at the bottom of Kopeeki Drifts, and there's no puzzle until you smash those doors open with a snowball. Head to the snowball campsite on the hill across from the doors, pick up one of the snowballs, and roll it down the second track from the left; it grows as it rolls and crashes through the gate, opening the way in. Inside, this shrine is all about dropping a heavy stone ball onto a floor switch by cutting the ropes holding it up, so keep your bow ready. In the first room, shoot the rope above the ball so it falls onto the switch and opens the door ahead. Go through and look for a ball hung from two ropes over a wall switch; shoot the rope farther from the switch so the ball swings into it, opening a gate to a treasure chest holding a Diamond. For the last room, the ball hangs too high to simply cut free, so aim the Stasis rune at it to freeze it in place, then quickly shoot both ropes while it's frozen; when Stasis wears off the ball drops straight onto the switch and opens the final door. Step up to the monk's altar and touch it to claim your Spirit Orb."
    }
   ]
  },
@@ -3475,56 +3532,64 @@ const SHRINES = [
     "location": "At the base of the Great Deku Tree in Korok Forest, center of the Lost Woods.",
     "category": "puzzle",
     "oneLine": "Look to the stars: place each orb in the row matching how many times that constellation appears on the back wall (5-3-1-2, left to right).",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "No rune is needed here, so this constellation-matching puzzle just has you pick up the orbs by hand and drop them into the floor sockets. There are four lanes of sockets, each lane lined up with one of the four constellations carved on the back wall, and the rows are marked by the lit lamp-posts up the side (counting up to five). The trick is to count how many times each constellation repeats on the wall, then place that lane's orb in the matching row. Reading left to right the answer is 5-3-1-2: far-left orb in the fifth row, the next in the third, the next in the first, and the far-right in the second. That opens the main gate. For the optional reward, check the second, smaller constellation wall to the side, then rearrange the four orbs left to right into rows 4-2-2-1 to open a side gate. Inside is a chest holding a Claymore (a Knight's Claymore at lower progress, a Royal Claymore once you're further along). Finally, talk to the monk Keo Ruug to claim your Spirit Orb."
    },
    {
     "name": "Mirro Shaz Shrine",
     "location": "Just east of Woodland Stable near Pico Pond, on the eastern fringe of the Great Hyrule Forest by the road.",
     "category": "puzzle",
     "oneLine": "Tempered Power: line up behind the orb, freeze it with Stasis, then whack it with a sledgehammer to launch it straight into the slot.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Stasis \"golf\" shrine. Drop in and open the chest at the bottom for an Iron Sledgehammer, then look at the puzzle: a round orb sits on a raised tee, and across the gap is a wall with a hole beneath a Sheikah eye that you need to sink the orb into. Stand directly behind the orb so it will fly straight toward that hole, aim Stasis at the orb to freeze it, then wind up and smack it with the sledgehammer (any heavy two-handed weapon works) about five times in a row while it's frozen, then let Stasis wear off and the orb rockets into the slot, raising the wall. Too few or too many hits sends it short or long into the water, so just line up and Stasis-hit it again. In the next part, freeze the cube on the rail with Stasis and hammer it so the upright slab tips down into a see-saw bridge, climb the ladder, walk partway up the see-saw, then freeze it with Stasis so it holds still while you cross to the top. Before you finish, take the optional detour into the caged golfing area: line up behind that orb, Stasis it, hit it five times with the sledgehammer and then once with a one-handed weapon (sword/boomerang) for the extra reach to sink it — that opens a gate to a chest holding a Giant Ancient Core. Then touch the monk Mirro Shaz's altar to claim your Spirit Orb."
    },
    {
     "name": "Monya Toma Shrine",
     "location": "On Salari Hill on the western edge of the region, south of Serenne Stable.",
     "category": "puzzle",
     "oneLine": "Drawing Parabolas: shoot the crystal switch to aim the rotating launchers, then fire the orb through the arcing launchers into the caged receptacle.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Drawing Parabolas\" puzzle, all about aiming the angled launchers that fling things across the room. Up on the big rotating platform is a crystal switch: shoot it with an arrow to turn the platform a notch, so the launchers point where you want. The goal is to drop the orange orb onto a launcher so its arc carries it across into the caged receptacle, which opens the gate guarding the monk. First, a wall of wooden crates blocks the orb's flight path on the far side, so clear them out: the easiest way is a Fire Arrow to burn them down (a bomb works too). Then re-aim the switch so a launcher lines up with the now-open path to the receptacle, carry the orb (it sits near the entrance) up the right ramp onto the angled launcher, and let it sling the orb into the socket; ride the launchers up after it if you need to nudge it the rest of the way. For the optional treasure, shoot the crystal switch twice so the launchers point toward the back, then stand on the launcher to your right to be flung to the rear platform, hop on its launcher to be tossed higher, and paraglide to the raised ledge with the chest, which holds a Thunderblade. Once the orb is in the receptacle the bars drop, so step in and touch Monya Toma's altar to claim your Spirit Orb."
    },
    {
     "name": "Daag Chokah Shrine",
     "location": "Northwest of Korok Forest in the Lost Woods, revealed after the shrine quest.",
     "category": "quest",
     "oneLine": "Finish The Lost Pilgrimage by stealth-following the Korok Oaki through the Lost Woods without being spotted; free orb inside, no puzzle.",
-    "shrineQuest": "The Lost Pilgrimage"
+    "shrineQuest": "The Lost Pilgrimage",
+    "solution": "This shrine doesn't exist until you finish the shrine quest \"The Lost Pilgrimage.\" Head deep into Korok Forest and find a Korok named Tasho standing on a rock in the northwest part of the forest, near where the Lost Woods begins; talk to him and he asks you to quietly watch over another Korok, Oaki, as he makes his own pilgrimage through the woods without ever being spotted. This is a stealth tail: keep your distance, push in the left stick to crouch and sneak, hide behind trees and tall grass when Oaki stops, and wear stealth gear or eat sneak-boosting food so he can't hear or see you. Oaki is small, so listen for his rattling gear and watch his speech bubbles to track him. The spot that traps everyone is a big hollow log on the path: Oaki walks through it, but you should NOT follow him out the far end. Instead stay inside the log, tuck behind the wall, and just peek out to watch where he goes before moving on. Farther along a wolf shows up and circles around you both, so ignore it (or pick it off with one arrow) rather than fighting in the open. If Oaki ever spots you the trial resets and you start over. When he reaches the end, Daag Chokah Shrine rises up. Inside there's no puzzle, just a free blessing: grab the chest along the path for an Ancient Core, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Maag Halan Shrine",
     "location": "In the Lost Woods east of Korok Forest, revealed after the shrine quest.",
     "category": "quest",
     "oneLine": "Complete The Test of Wood: cross the Lost Woods without breaking or unequipping the Forest Dweller's sword, shield, and bow; free orb inside.",
-    "shrineQuest": "The Test of Wood"
+    "shrineQuest": "The Test of Wood",
+    "solution": "This shrine stays hidden until you finish the shrine quest \"The Test of Wood,\" one of the Korok Trials. To start it, go to the eastern edge of Korok Forest (the forest around the Master Sword pedestal, by Keo Ruug Shrine) and follow the narrow archway path east into the Lost Woods until you reach a lone Korok named Damia. You need an empty sword, bow, and shield slot; Damia hands you a Forest Dweller's Sword, Forest Dweller's Shield, and Forest Dweller's Bow and challenges you to reach the shrine using only those. If any of them breaks, or you swap to another weapon, the trial fails and you start over (it is not timed). To save your fragile gear, lean on Remote Bombs for the wooden crates and weak Keese early on; shoot the Fire Keese and Fire/Electric Chuchus and the ice-arrow Stalkoblins with arrows. At the boggy stretch, take out the Water Octoroks with arrows, then raise Cryonis pillars to hop across the Bottomless Bog (falling in sends you back to the start). Reaching the end raises Maag Halan Shrine. Inside there is no puzzle: open the chest for a Giant Ancient Core, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Kuhn Sidajj Shrine",
     "location": "On the shore of Lake Saria in the southwest of the Lost Woods, revealed after the shrine quest.",
     "category": "quest",
     "oneLine": "Solve Trial of Second Sight: follow the Ogre Trees (use Magnesis on the metal boulders) and return the chest to the island tree; free orb inside.",
-    "shrineQuest": "Trial of Second Sight"
+    "shrineQuest": "Trial of Second Sight",
+    "solution": "This shrine won't appear until you finish the shrine quest \"Trial of Second Sight.\" It starts with Zooki, a Korok in the southwest part of Korok Forest, who tells you the hungry trees will show the way — \"spy their iron to win the day.\" Equip the Magnesis rune and keep it switched on as you walk: the metal held in each tree's mouth glows, so you can pick out the next tree even through the mist. Follow that trail of trees, dealing with any enemies you meet along the way. It ends at a Rusty Shield stuck in a tree, with a stone plaque nearby; grab the shield and use Magnesis to feed it into the tree's mouth. That makes a treasure chest appear in a nearby tree. Carry that chest to the shore and across the water to the small island tree — either fan the floating raft along with a Korok Leaf or weapon swing, or grab the chest with Magnesis and use it to push the raft over. Place the chest into that last tree's mouth and Kuhn Sidajj Shrine rises from the ground. Inside there's no puzzle: open the chest for a Giant Ancient Core, then touch the altar to claim your Spirit Orb."
    },
    {
     "name": "Ketoh Wawai Shrine",
     "location": "Inside the pitch-dark Thyphlo Ruins, north of Korok Forest, revealed after the shrine quest.",
     "category": "quest",
     "oneLine": "Shrouded Shrine: light the bird statues with a torch to navigate, take the orb from the sleeping Hinox, set it on the pedestal; free orb inside.",
-    "shrineQuest": "Shrouded Shrine"
+    "shrineQuest": "Shrouded Shrine",
+    "solution": "This shrine is hidden until you brave Thyphlo Ruins, the pitch-black forest north of Korok Forest, which starts the shrine quest \"Shrouded Shrine\" the moment you step in. Cross the bridge on the western side and the lights go out, so you navigate by fire. Grab the lit torch propped by the brazier at the entrance (or light your own torch there) and look for the stone bird statues: light each one, note which way its beak points, and head that direction to find the next statue, repeating to thread through the dark. Lighting the statues and braziers also marks where you've already been. Along this path you'll pass a pair of chests holding an Amber and a Star Fragment. Keep going toward the central area, where the orb you need hangs on the necklace of a sleeping Hinox. Either defeat the Hinox (shoot its eye to stun it, then strike) or sneak onto its hand, let it lift you to its belly, and grab the orb, then carry it to the nearby pedestal and set it in place to raise Ketoh Wawai Shrine. Inside there's no puzzle: head to the chest for an Ancient Core, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Rona Kachta Shrine",
     "location": "At the back of the Forgotten Temple in Tanagar Canyon, far western edge of the region.",
     "category": "blessing",
     "oneLine": "Survive the Guardian gauntlet through the Forgotten Temple to reach the shrine behind the Goddess Statue; free orb, no inner puzzle.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine sits at the very back of the Forgotten Temple in Tanagar Canyon, and the real challenge is just getting there alive. The long sloped hall is lined with Decayed Guardians (the broken, stationary kind) that fire homing laser beams at you, but you don't have to fight any of them. Strong wind updrafts blow up through the temple, so pull out your paraglider and ride those gusts: keep moving toward the far end, staying high and fast and re-opening the glider on the updrafts so the beams can't track you. (If you'd rather fight, you can stand your ground and reflect a beam back at a Guardian with a well-timed shield parry to destroy it and farm Guardian parts, but gliding past is far safer for a first-timer.) Once you reach the shrine entrance and drop in, there's no puzzle at all: walk up the stairs, open the lone treasure chest for a Great Flameblade (a strong two-handed fire sword), then step onto the monk's altar to claim your Spirit Orb."
    }
   ]
  },
@@ -3537,63 +3602,72 @@ const SHRINES = [
     "location": "Atop a cliff just east of Foothill Stable, at the southern edge of Eldin Canyon.",
     "category": "puzzle",
     "oneLine": "Trial 'Metal Makes a Path'. Use Magnesis to slide the large metal blocks and build a bridge across the gaps to the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This trial mixes Magnesis and Stasis. Big spheres roll down ramps at you: the gray concrete ones can't be grabbed with Magnesis, but the dark metal spheres can. Head up the first slope, and if a concrete sphere rolls toward you, hit it with Stasis to freeze it so it can't knock you back. Look to the right, where metal spheres roll down a ramp; grab one with Magnesis to hold it still, climb past it, and open the chest up there for a Knight's Broadsword. Now keep a metal sphere with Magnesis and thrust it up into the cracked blocks in the ceiling to break them open and drop a chest holding a Ruby. The way up to the monk is the left ramp, which has a stream of boulders rolling down it; the trick is to hold a metal sphere out in front of you with Magnesis and use it as a moving shield, pushing it ahead to plow the other boulders aside as you walk up. At the top, touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Sah Dahaj Shrine",
     "location": "Eldin Canyon, hidden in a gorge directly north of Cephla Lake, near the road up Death Mountain.",
     "category": "puzzle",
     "oneLine": "Trial 'Power of Fire'. Light the torch from the flame and use it past fire jets; the chest sits behind a bombable cracked wall.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"Power of Fire\" trial is about spreading flame, so no rune is needed — just keep a fire source handy. In the first room, knock a lit torch onto the pile of dry leaves on the floor (whack it with a weapon or shoot it); the fire spreads and burns away the wooden crates blocking the hole, opening the way down. In the next room a Guardian Scout is waiting — defeat it, then climb the ladder. From here, drop fire from above: shoot the rope of a hanging lantern so it falls into the leaves below, and the spreading fire burns the crates in your path. In the final chamber, burn the caged leaf piles the same way; once the crates are gone, a stone slab drops onto the floor switch and opens the door to the monk. For the treasure, shoot the rope of the lantern over the chest's wooden platform so the fire drops the chest to you (or grab it with Magnesis) — it holds a Knight's Bow. Then touch Sah Dahaj's altar to claim your Spirit Orb."
    },
    {
     "name": "Daqa Koh Shrine",
     "location": "Off the Mountain Road to Death Mountain, east of Goron Hot Springs and shortly before the Bridge of Eldin.",
     "category": "puzzle",
     "oneLine": "Trial 'Stalled Flight'. Stand on the launching block and Stasis it the instant the connector links, holding the gate open to glide in.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the Stalled Flight trial, built around one big stone block in the middle of the room that keeps getting flung up and dropping back down. Stand near the launch spot so you get flung up too, and as you come down, paraglide onto the top of that giant block. The block has a glowing green crystal on it, and each time the block reaches the very top of its rise the crystal touches a device on the ceiling and briefly opens the locked gate over the exit, only for a moment. So ride the block up, and while standing on it pull out the Stasis rune, aim it at the block, and freeze it the instant you hear the electric crackle of the crystal hitting the ceiling (its highest point). The frozen block holds the gate open, so paraglide forward through the gate to the monk's room. For the optional chest: get launched up onto the block again and, at its peak, glide over to the raised platform near the entrance to reach a chest holding a silver rupee. Then go to the altar and touch it to claim your Spirit Orb."
    },
    {
     "name": "Qua Raym Shrine",
     "location": "On a small islet in Goronbi Lake, west of Eldin Tower (hidden behind a rock in the lake).",
     "category": "puzzle",
     "oneLine": "Trial 'A Balanced Approach'. Burn the crate on the scale to lift it, grab the key from the chest, then Magnesis the metal box.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "First you have to reach the shrine itself, which sits on a small island in Goronbi Lake, west of Eldin Tower. Aim Magnesis at the metal blocks near the shore and lay them down as a makeshift bridge, or simply glide in from a higher ledge with the Paraglider. Inside is the trial \"A Balanced Approach,\" built around big balance scales. In the middle of the room a wooden crate sits on one side of a scale, weighing it down. Burn that crate to lighten the scale: shoot it with a Fire Arrow, or if you have none, fire a plain arrow through one of the torch flames on the far side of the room so the arrow lights itself, then hit the crate. With the crate gone the scale rises and reveals a chest holding a Small Key. Use that key on the locked door at the back. For the optional treasure, use Magnesis to set a metal block on a scale, then add your own weight so the shifting balance lifts you up to a ledge with a chest containing a Knight's Claymore (mind the cracked boulders above as you rise). When you're done, head to the monk Qua Raym's altar at the back and touch it to claim your Spirit Orb."
    },
    {
     "name": "Shae Mo'sah Shrine",
     "location": "On a cliff in the northern part of Goron City, in Eldin Canyon.",
     "category": "puzzle",
     "oneLine": "Trial 'Swinging Flames'. Light a torch and ride the swinging and moving platforms to carry the flame and reach the monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Inside, look up through the hole in the ceiling to spot a lit lantern hanging by a rope; fire an arrow at the rope to drop the flame onto the dry leaves below, which burns them away and frees a stone barrel. Set that barrel on the orange floor switch to open the first gate. Past it, look left for a chest holding a Stone Smasher (a two-handed weapon), then clear out the Guardian Scouts and grab the Ruby from the chest in the corner. Head up the ramp to an orange switch and step on it to drop a lit lantern; use the Magnesis rune to swing that flame into the patch of dry leaves on the wall, which burns through and lets a metal ball roll down its ramp. There's a chest tucked below holding ten Ice Arrows. Step on the next switch to lift the bars so the ball rolls on and turns a gear, opening a barred alcove with a chest that holds a Small Key. Use the key on the locked door, and at the last switch drop the flame lanterns and again use Magnesis to swing one into the leaves so the barrel falls; place it on the switch to open the way. Step in and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Shora Hah Shrine",
     "location": "Beneath the crab-shaped Isle of Rabac, reached by riding a mine cart from the Abandoned North Mine.",
     "category": "puzzle",
     "oneLine": "Trial 'Blue Flame'. Carry the blue flame across gusts and gaps to light the braziers; use moving platforms to cross.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Blue Flame\" trial, and the rule that breaks beginners is that a lit torch goes out if you run, jump, or paraglide, so carry every flame by walking. Use Magnesis to lift the spiked metal block up its rails and pass under it, and to slide the magnetic platforms to a chest with a Royal Bow. Light a torch from the blue flame and walk it to the unlit torch to open the gate. In the water-spout rooms that snuff flames, draw your bow near a blue flame to light an arrow and shoot the far torches, and aim Stasis at a blocking spout to freeze it so a flame slips past. A floor switch rolls a magnetic spiked ball at you; Magnesis it to smash the Guardian Scouts (side chests hold a Great Flameblade and a Giant Ancient Core). For the last gate, light your weapon on a blue flame, stand on the center tile in the ring of braziers, and hold attack for a spin attack to light them all at once. Then touch Shora Hah's altar for your Spirit Orb."
    },
    {
     "name": "Kayra Mah Shrine",
     "location": "Revealed in the Abandoned North Mine area northeast of Goron City, dug out during the shrine quest.",
     "category": "quest",
     "oneLine": "Start 'A Brother's Roast' with Bladon in Goron City; bring Gonguron a grilled rock roast so he digs out the shrine.",
-    "shrineQuest": "A Brother's Roast"
+    "shrineQuest": "A Brother's Roast",
+    "solution": "This shrine stays buried until you finish the shrine quest \"A Brother's Roast,\" which starts in Goron City: find Bladon in his house and he'll tell you his brother Gonguron never came back from digging. Head out to Gorko Tunnel (south of Goron City, near Gorko Lake) and talk to Gonguron, who is too worn out to keep breaking through the bedrock. He needs food, so go down the slope toward Gortram Cliff below and grab a Rock Roast off the ledge by the lava (a few enemies roam there, but you can scoop one up and run). Bring the Rock Roast back and give it to Bladon, who grills it on the nearby cooking pot; the smell rouses Gonguron, who eats it, gets his strength back, and smashes through the rock to reveal Kayra Mah Shrine. Inside there's no real puzzle, just a long slope to climb while large metal boulders and small spiked spheres roll down at you, with rupees scattered to tempt you into harm's way. Run up and dodge through the gaps, or use Stasis to freeze a boulder (or Magnesis to pull a metal one aside) so you can slip past. About halfway up, in an alcove on the right wall, is a chest holding a Ruby; at the very top, glide off to a ledge to reach a chest with 5 Bomb Arrows. Then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Gorae Torr Shrine",
     "location": "Atop Gut Check Rock, north of Death Mountain in northeastern Eldin.",
     "category": "quest",
     "oneLine": "Win Bayge's Gut Check Challenge: climb Gut Check Rock in under 3 minutes collecting 100+ rupees. A free blessing waits inside.",
-    "shrineQuest": "The Gut Check Challenge"
+    "shrineQuest": "The Gut Check Challenge",
+    "solution": "This shrine doesn't exist until you win the shrine quest \"The Gut Check Challenge.\" Climb to the top of Gut Check Rock in northeastern Eldin, north of Death Mountain, and talk to the Goron Bayge, who runs a climbing game; pay the 20-rupee fee to play, then race up the rock face and grab at least 100 rupees scattered along the route before time runs out (you have under three minutes). It's a stamina test, so come prepared: wear a piece of the Climbing armor set if you have it and bring an Energizing Elixir or a stamina-restoring dish, follow the trail of rupees, and pause on the flat ledges to let your stamina wheel refill so you don't fall. Reach the top in time with enough rupees and Bayge opens the way to Gorae Torr Shrine. Inside there's no puzzle at all — it's a free blessing. Open the chest sitting near the altar for a Great Frostblade (a strong sword that deals freezing damage), then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Tah Muhl Shrine",
     "location": "Southwest of Foothill Stable, just north of Trilby Valley in Eldin Canyon (revealed via the quest).",
     "category": "quest",
     "oneLine": "Trial 'Passing the Flame'. Talk to Mayro about the stable painting, then stand where it was painted (south) to spot the shrine.",
-    "shrineQuest": "A Landscape of a Stable"
+    "shrineQuest": "A Landscape of a Stable",
+    "solution": "This shrine stays hidden until you start the shrine quest \"A Landscape of a Stable.\" Go to Foothill Stable in Eldin and talk to Mayro inside, who is studying a wall painting of a stable with a shrine and Death Mountain in it; take a moment to look at the painting (a photo helps you remember the angle). The shrine sits southwest of the stable, just north of Trilby Valley — go stand roughly where the painting was made, looking back toward the scene, to spot it, then activate it. Inside is the \"Passing the Flame\" trial, all about fire: grab a flame from one of the lit torches (light an arrow or a torch/wooden weapon on it) and use it to burn the ivy and wooden crates blocking your path. Burn the crate stack under the nearby chest to drop an Opal, and burn the ivy/crates across from the locked door to reach a chest holding a Cobble Crusher (a Goron two-handed club). Next, burn the ivy on the wall left of the locked door to expose a small chest behind the bars, then use Magnesis to lift the Small Key over the fence to you; open the locked door and grab the chest beyond for a Ruby. Finally, burn the four crates propping up the raised walkway so the ramp lowers, climb it, and touch the monk's altar to claim your Spirit Orb."
    }
   ]
  },
@@ -3606,56 +3680,64 @@ const SHRINES = [
     "location": "On a cliff south of Tarrey Town overlooking Lake Akkala, just east of Akkala Tower and near Great Fairy Mija's fountain",
     "category": "combat",
     "oneLine": "A Minor Test of Strength. Beat the Guardian Scout II; dodge its axe swings for a flurry rush, or stun it with shock/ice arrows.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Minor Test of Strength, so there's no puzzle — just one fight against a Guardian Scout II wielding an Ancient Battle Axe. It telegraphs its moves: it leaps back and spins toward you, and as its health drops it adds a spinning laser sweep and bursts of charged laser fire. The cleanest approach is to time a dodge to the side just as its axe swing is about to land — that triggers a slow-motion flurry rush you can pour hits into. If your timing isn't reliable yet, you have two backups: duck behind the stone pillars in the arena so its spinning charge slams into one instead of you, then strike while it's staggered; or hit it with a shock arrow to stun it so you can freely combo it. When you finish it off, before you grab your reward, open the treasure chest in the room for a Giant Ancient Core (a valuable material for upgrading ancient gear). Then step onto the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Ze Kasho Shrine",
     "location": "On a ridge above South Akkala Stable, central Akkala on the main road",
     "category": "puzzle",
     "oneLine": "Ze Kasho Apparatus. Use motion controls to tilt the platform so the floor spikes slide clear of your path, then cross the laser room.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine, \"Ze Kasho Apparatus,\" is built around tilting platforms you control with your controller's motion sensor (no rune needed), so it requires a gyro-capable controller. In the first room, examine the tilting platform to grab it, then gently tilt your controller to slide the patches of floor spikes along their rails until there's a clear path straight down the middle, and walk across. In the laser room, shoot the crystal switch with an arrow (or throw a weapon at it) to flip the black blocks up so they briefly block the beams, then run past the first pair; hit the crystal again and dash past the second pair. For the optional chest, hit the crystal once more to start the square block rotating up along the walkway near the exit, jump onto it while it's low, and at its high point paraglide across to the ledge holding the chest, which contains a Silverscale Spear. In the last room, grab the apparatus again and use slow, gentle tilts to roll all three Ancient Orbs onto the three floor switches at the same time; when they all stay seated the door opens. Step through and touch Ze Kasho's altar to claim your Spirit Orb."
    },
    {
     "name": "Katosa Aug Shrine",
     "location": "Just east of East Akkala Stable, near the eastern edge of the region",
     "category": "puzzle",
     "oneLine": "Katosa Aug Apparatus. Use motion controls to swing the putter/hammer so it knocks the Ancient Orb across into the concave receptacle.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the Katosa Aug Apparatus, a motion-control puzzle (no rune needed) that plays like a tiny game of mini-golf. Step up to the apparatus and grab the hammer mechanism in front of the Ancient Orb. Now tilt your controller to swing the hammer: rock it away from the orb, then flick it back to strike. A gentle, controlled tap works far better than a hard swing — you want the orb to roll into the round concave slot, not fly past it. Wait until the orb actually drops into the socket, then let go; that activates a moving platform you can ride toward the monk's chamber. There's a second, trickier apparatus tucked behind the monk's pedestal: hit that orb at an angle so it banks toward its slot. Clearing this one activates another moving platform that carries you to a treasure chest holding a Great Frostblade. Grab it, then ride back and touch the monk Katosa Aug's altar to claim your Spirit Orb. If an orb rolls off, just step away and try again — there's no penalty."
    },
    {
     "name": "Ke'nai Shakah Shrine",
     "location": "In a cave on the southern cliffside facing Ulria Grotto, southeast Akkala; bomb the cracked rock to get in",
     "category": "combat",
     "oneLine": "A Modest Test of Strength. Bomb-arrow the cracked wall to enter, then beat the Guardian Scout III with flurry rushes and shock/ice arrows.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine hides in a cave in the cliffside at Ulria Grotto, in southeast Akkala — its entrance is sealed by a weak, cracked rock wall facing the grotto. Glide down into Ulria Grotto from the rim above, line up the cracked patch, and fire a Bomb Arrow at it to blast the wall open, then paraglide through the gap into the cave. This is a combat shrine, \"A Modest Test of Strength\": step into the large room and a Guardian Scout III activates, wielding a Guardian Sword+ and an Ancient Battle Axe+ — it has a lot of health, so bring sturdy weapons. Its signature move is a spinning charge — it hops back, then whirls and rushes you; duck behind one of the stone pillars to break the charge, then dart out and land a few hits while it recovers. If your timing is good, dodge sideways the instant it swings to trigger a flurry rush, and shock or ice arrows will briefly stun it for free combos. Later it adds a spinning laser that throws up an updraft, and near the end it plants itself and fires bursts of lasers — keep closing the gap between volleys and strike when it pauses to recharge. Once it's destroyed, open the treasure chest by the altar for a Sapphire, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Zuna Kai Shrine",
     "location": "Atop a tall stone pillar in the left 'eye' of Skull Lake, far north Akkala (revealed after the shrine quest)",
     "category": "quest",
     "oneLine": "Quest 'The Skull's Eye': get the tip from Jerrin, then climb or paraglide to the pillar in Skull Lake's left eye. Inside is a free blessing.",
-    "shrineQuest": "The Skull's Eye"
+    "shrineQuest": "The Skull's Eye",
+    "solution": "This shrine stays hidden until you start the shrine quest \"The Skull's Eye.\" Go to the Akkala Ancient Tech Lab in far northeast Hyrule (the lab opens up through Robbie's research questline) and talk to Jerrin, Robbie's wife; she tells you an ancient shrine sits on the left eye of Skull Lake. Watch the wording: she means the skull's OWN left, which is the eastern island — on your right as you look at the lake from the north — and it's the HIGHER of the two stone pillars (the lower, right eye has Kilton's monster shop, so if you find him you climbed the wrong one). The whole challenge is just getting up there. Climb the ridge north of Skull Lake to a high point, then jump and open your paraglider to glide over to the tall eastern pillar; you'll usually fall a little short, so grab the rock face and climb the last stretch (wait for rain to stop first, or use Revali's Gale to launch higher and skip the climb). There's no puzzle inside — it's a blessing shrine. Open the chest on the way for a Flameblade, then touch the monk's altar to claim your free Spirit Orb."
    },
    {
     "name": "Ritaag Zumo Shrine",
     "location": "At the spiral tip of Rist Peninsula, far northeast Akkala coast (revealed after the shrine quest)",
     "category": "quest",
     "oneLine": "Quest 'Into the Vortex': carry the nearby Ancient Orb to the center of the Rist Peninsula spiral and set it in the pedestal. Free blessing inside.",
-    "shrineQuest": "Into the Vortex"
+    "shrineQuest": "Into the Vortex",
+    "solution": "This shrine doesn't exist until you finish the shrine quest \"Into the Vortex\" out on the Rist Peninsula in far northeast Akkala. Among the ruins at the base of the spiral peninsula, east of Malin Bay, you'll find a stone tablet and a loose Ancient Orb sitting nearby; read the tablet (it says only a hero bearing the orb may take the trial on Rist Peninsula) to start the quest. Now you have to carry that Ancient Orb all the way up the curling spiral to the pedestal at its center tip. The trouble is the path is crawling with enemies (Moblins, Bokoblins, Lizalfos, and Water Octoroks), and getting knocked down makes you drop the orb. The simplest way is just to walk it along the land the long way around the spiral, fighting or dodging as you go; if you'd rather not lug it on foot, you can set it in the shallow water and inch it forward by raising ice pillars under it with the Cryonis rune, nudging it toward the center bit by bit. Set the orb into the pedestal's slot at the spiral's tip and Ritaag Zumo Shrine rises out of the ground. Inside there's no puzzle at all, it's a blessing shrine: open the lone treasure chest for a Giant Ancient Core (a valuable crafting/sell material), then touch the monk's altar to claim your free Spirit Orb."
    },
    {
     "name": "Tu Ka'loh Shrine",
     "location": "On Lomei Labyrinth Island, the maze island off the far northeast Akkala coast (revealed after the shrine quest)",
     "category": "quest",
     "oneLine": "Quest 'Trial of the Labyrinth': cross the Guardian-filled maze (fire-arrow the Malice eye) to the shrine; free blessing, plus a Barbarian Helm chest.",
-    "shrineQuest": "Trial of the Labyrinth"
+    "shrineQuest": "Trial of the Labyrinth",
+    "solution": "This shrine starts hidden inside Lomei Labyrinth Island, the giant maze island far off the northeast Akkala coast. To reach it, climb the cliffs by the Akkala Ancient Tech Lab and paraglide out to the island (or take the raft from North Akkala Beach); approaching the ruins begins the shrine quest \"Trial of the Labyrinth.\" There is no Malice eye to shoot here in the original game — the trial is simply threading the maze. Watch out: several Guardians patrol the island, including a Guardian Stalker roaming the floor, so move along the walls and avoid their laser sightlines (or fight them if you're strong). Navigating uses Magnesis to slide the metal boxes out of your way and fire (a Fire Arrow or any flame) to burn the thorny brambles blocking some passages. A reliable route: from the entrance go straight and bear left to enter the maze at the top-left, head north to a metal block, take a right, then follow the path to a ladder and climb the staircases up to the shrine. For an optional detour, burning the brambles near the west of the central building exposes a chest holding a Great Flameblade. Tu Ka'loh Shrine itself has no puzzle — it's a blessing: open the chest on the way in for the Barbarian Helm (one piece of the Barbarian armor set), then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Tutsuwa Nima Shrine",
     "location": "At the Spring of Power, central-east Akkala west of East Akkala Stable (revealed after the shrine quest)",
     "category": "mixed",
     "oneLine": "Quest 'The Spring of Power': offer a Shard of Dinraal's Scale at the spring to open it; inside is a Major Test of Strength vs a Guardian Scout IV.",
-    "shrineQuest": "The Spring of Power"
+    "shrineQuest": "The Spring of Power",
+    "solution": "This shrine stays hidden until you finish the shrine quest \"The Spring of Power\": go to East Akkala Stable and talk to Nobo by the campfire, asking about the area to start the quest. It tells you to offer Dinraal's Scale at the Spring of Power. Dinraal is the red fire dragon, who flies a fixed route over Eldin and northern Akkala; he rises each day near the Eldin Great Skeleton, so wait there (a campfire helps you pass time) until he appears. Shoot an arrow into his body — anywhere except his horns, mouth, or claws, since those drop different items — and a glowing Dinraal's Scale will fall for you to pick up. Carry it to the Spring of Power, the goddess statue between Ordorac Quarry and North Akkala Valley (west of the stable), wade in toward the statue and throw the scale into the water; the gate opens and Tutsuwa Nima Shrine rises. Inside is a Major Test of Strength against a Guardian Scout IV — the toughest type, swinging a Guardian sword, spear, and shield. Use your strongest weapons and parry or dodge into flurry rushes when it lunges, and watch its laser beams as it weakens. Open the treasure chest for a Flamespear, then touch the monk's altar to claim your Spirit Orb."
    }
   ]
  },
@@ -3668,42 +3750,48 @@ const SHRINES = [
     "location": "Gerudo Highlands, southeast of Gerudo Tower",
     "category": "combat",
     "oneLine": "Sign of the Shadow: talk to Kass atop Gerudo Tower, then between 3–4PM stand on the pedestal SE of the tower and shoot an arrow at the sun.",
-    "shrineQuest": "Sign of the Shadow"
+    "shrineQuest": "Sign of the Shadow",
+    "solution": "This shrine stays hidden until you solve the shrine quest \"Sign of the Shadow.\" Climb to the very top of Gerudo Tower and talk to the traveling bard Kass there; his song is a riddle about light from the northwest skies and an arrow flying from the tower's shadow. Glide off the tower toward the southeast and land on the round stone pedestal on the ground below. Now wait for the sun to line up directly behind the top of the tower as seen from the pedestal so the tower's shadow reaches you — this happens at roughly 3 PM in-game (sit at a campfire to pass time), and the pedestal will glow orange. (At night it also works when the moon lines up behind the tower.) Standing on the lit pedestal, aim your bow up at the sun where it meets the tower's peak and loose an arrow into it; that \"pierces heaven's light\" and makes Sasa Kai Shrine rise nearby. Inside, this is a Modest Test of Strength, so there's no puzzle — you fight a single Guardian Scout that cycles between a sword and a spear. Lock on and dodge its swings and beam attacks (a sidestep or backflip into a flurry rush makes quick work of it), then clear the room. Grab the chest for a Frostblade (an ice sword that can freeze enemies), then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Joloo Nah Shrine",
     "location": "Gerudo Highlands, buried on Mount Nabooru",
     "category": "puzzle",
     "oneLine": "Unearthed via the Test of Will quest. Inside, use motion controls to roll the cube and light every torch while dodging water spouts.",
-    "shrineQuest": "Test of Will"
+    "shrineQuest": "Test of Will",
+    "solution": "This shrine stays buried until you finish the shrine quest \"Test of Will.\" Climb Mount Nabooru in the Gerudo Highlands (northeast of Wasteland Tower), where three Goron brothers — Bayge, Heehl, and Kabetta — are training by a fire; talk to them to start a heat-endurance contest, where you must stay on a scorching platform without leaving. The first, milder round only needs Level 2 heat resistance, so wear the Desert Voe set (or eat a heat-resisting meal) and outlast them. The second round uses a far hotter platform that sets you ablaze, so you need Flame Guard — drink a Fireproof Elixir (heat armor alone won't protect you here) and tough it out longer than the brothers. Win and the Joloo Nah Shrine rises from the ground. Inside, the puzzles use motion controls to tilt floating cubes. Room 1: rotate the cube until every electric switch touches the ceiling's power source (or just fire a Shock Arrow at the cube to power them all at once and skip it). Room 2: tilt the wind cube so its streams spin the windmills, opening the gate; for the chest here (a Golden Claymore) point a wind stream toward the ledge it sits on and paraglide up. Room 3: rotate the brazier cube so all its torches light without crossing the water streams — turn it so the torches sit clear of the water, then light them. The chest on the wooden platform overhead (a Gerudo Spear) drops if you hit the platform with a Fire Arrow. Once every torch is lit the door opens — step through and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Keeha Yoog Shrine",
     "location": "Gerudo Highlands, above Vatorsa Snowfield east of Gerudo Summit",
     "category": "blessing",
     "oneLine": "Cliffside Etchings: Geggle at Tabantha Bridge Stable points out a thunderbolt etching — ride the updraft and hit it with a Shock Arrow.",
-    "shrineQuest": "Cliffside Etchings"
+    "shrineQuest": "Cliffside Etchings",
+    "solution": "This shrine stays buried until you finish the shrine quest \"Cliffside Etchings.\" Start it by talking to Geggle at the Tabantha Bridge Stable, who points across the canyon at a section of cliff face that looks man-made. Head into the Gerudo Highlands to the cliffs above Vatorsa Snowfield, on the east side of Gerudo Summit, and look for a large etching on the rock wall: lightning bolts pointing inward at an ancient pedestal in the center. To raise the shrine, hit that center pedestal with a Shock Arrow (bomb arrows or other elements won't work). You can line the shot up from the ground below, or use the thermal updraft beside the etching to glide up with your paraglider and aim your bow in midair, where the brief slow-motion helps you steady the shot, whichever is easier for you. When the Shock Arrow strikes the pedestal, Keeha Yoog Shrine rises out of the ground. Inside there's no puzzle, only a short walk: it's a blessing shrine, so grab the Diamond from the treasure chest on the path, then step onto the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Kema Kosassa Shrine",
     "location": "Gerudo Highlands, western end of Risoka Snowfield",
     "category": "combat",
     "oneLine": "A Major Test of Strength — a Guardian Scout IV rises from the floor. Bring strong weapons and cold protection (Snowquill).",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Major Test of Strength, so there's no puzzle, just one tough fight against a Guardian Scout IV that rises from the floor carrying an axe, a spear, and a shield, in a big room whose floor is a thin layer of water. Come prepared: bring strong weapons (Guardian weapons or anything you don't mind breaking), a good bow with arrows, and wear cold protection like the Snowquill set for the snowy Gerudo Highlands trek. There are no stone pillars here, but the shallow water lets you use Cryonis: raise an ice block between you and the Scout when it spins and charges, and it rams the pillar instead of you, leaving it open for a combo. You can also dodge its spear stabs and axe swings to trigger Flurry Rush, or shoot its eye with an arrow to stop a spin and stun it for free hits. Below half health it retracts and spins a wide laser that kicks up a strong updraft, glide up on that wind to clear the danger circle, then dive in and attack. After it falls, open the chest in the room for a silver rupee (100 Rupees), then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Kuh Takkar Shrine",
     "location": "Gerudo Highlands, Vatorsa Snowfield at the base of Laparoh Mesa",
     "category": "puzzle",
     "oneLine": "The shrine is sealed in ice — melt it with any fire (Fire Arrow, torch, red-Chuchu jelly), then solve the ice-block puzzle inside.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "When you reach it the shrine is sealed inside a giant block of ice, so thaw it first: hit the ice with any fire — a few Fire Arrows, a flaming weapon like a Flameblade, or set a campfire beside it — and it melts away to reveal the entrance. Inside, the trial \"Melting Ice Hazard\" gives you one job: carry a single block of ice to the monk without the room's flames melting it away. Pick up the ice block and start up the path, but don't linger near any flame or it shrinks fast. The main obstacle is a wall of fire jets: aim Magnesis at the large metal cube in the room, lift it, and hold it up like a moving shield between you and the flames so you can walk the ice safely past while the metal soaks the fire. For the optional chest, set the ice down, then use Magnesis to drop the metal cube onto the fire jets coming from a nearby pillar to block them, climb a bit up the ramp, and glide down through the opening to land by the chest — it holds a Frostblade (an ice sword). At the last set of vertical flames you can simply toss the ice block through; it loses a little size but survives. Bring it up to the altar and touch Kuh Takkar to claim your Spirit Orb."
    },
    {
     "name": "Sho Dantu Shrine",
     "location": "Gerudo Highlands, along Karusa Valley",
     "category": "mixed",
     "oneLine": "A pedestal asks for a shining blue stone — break the nearby luminous-stone deposits and place a Luminous Stone on it to raise the shrine.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine starts as just a pedestal in Karusa Valley, surrounded by glowing Luminous Stone Deposits. Smash those deposits with any weapon to knock loose a Luminous Stone, then pick it up and set it on the pedestal to raise Sho Dantu Shrine from the ground. Inside, the puzzle is all about your Remote Bomb rune, and you get both a square (cube) bomb and a round bomb. In the first room, turn left and toss a bomb at the stack of wooden crates blocking the way, then blow them open. Behind the pillar in that side area, grab the chest for a Silver Rupee. The rooms use launcher columns (pistons) that rise and fling whatever sits on them upward toward a metal cage holding a crystal switch: set a square bomb on a launcher, let the column throw it up, and detonate it right as it reaches the cage to hit the switch and open the next gate. The final chamber needs both bombs: put a round bomb in one launcher and a square bomb in another, stand on the platform, detonate the square bomb to raise your platform, then detonate the round bomb as it passes the last crystal switch to clear the bars blocking the exit. Step through and touch the monk's altar to claim your Spirit Orb."
    }
   ]
  },
@@ -3716,84 +3804,96 @@ const SHRINES = [
     "location": "Gerudo Desert, just outside the gate of Gerudo Town",
     "category": "puzzle",
     "oneLine": "The Whole Picture: use Magnesis to lift and slot the metal panels so the wall image lines up, opening the path.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Despite the \"Whole Picture\" name, this is a Magnesis puzzle about carrying electricity, not lining up an image: a glowing green power source feeds wires across the floor, and you complete each circuit by setting metal objects onto the breaks in the wire so the current jumps the gap and opens the next gate. In the first room, aim Magnesis at the metal barrel and set it on the end of the long lit wire, then grab the big metal cube and place it on the new stretch that lights up; this opens a gate and frees a second barrel. Work through the next rooms the same way, always moving a metal object to the far end of whatever wire is currently glowing to extend the power one more step. Partway through you can even pick up the treasure chest itself with Magnesis and use it as a conductor on a wire to keep the current flowing; open that chest for a Thunderblade (a solid early one-handed sword). Eventually the circuit reveals the metal cubes you need; place the cubes on the short wires beside the staircase to power the last gate, climb up, and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Kay Noh Shrine",
     "location": "Gerudo Desert, north of Gerudo Town near the Great Cliffs",
     "category": "puzzle",
     "oneLine": "Power of Electricity: chain the electrical orb and wires to power the gates and the launch mechanism to the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "In the first room, pick up the glowing green electrical orb and set it on the round pedestal on the right to power the light and open the gate, then go through. In the next room, defeat the Guardian Scout, then shoot the rope holding the second green orb so it drops, carry that orb to the round pedestal on the other side to start a conveyor belt, and let it bring a chest within reach: open it for a Small Key. Use the key on the locked door, climb the stairs, and defeat the sword-wielding Guardian Scout at the top. In the final room, before solving the puzzle look high on the wall/ledge across from the gears for a metal treasure chest and pull it down with Magnesis for a Gerudo Scimitar. To finish, use Magnesis to slide the sparking metal cube against the other metal cube by the big green power node so the current chains across both and reaches the orange light, powering the gears and opening the bars. Step through and touch Kay Noh's altar to claim your Spirit Orb."
    },
    {
     "name": "Jee Noh Shrine",
     "location": "Gerudo Desert, east of Gerudo Town near Daqa Koh",
     "category": "puzzle",
     "oneLine": "On the Move: ride the moving platforms, using Stasis and timing to cross the gaps to the chest and monk.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is a series of orb-on-conveyor puzzles, so keep your bow ready. In the first room a sphere rides a moving belt above an orange receptacle bowl; aim Stasis at the belt (or the orb) to freeze it, then shoot it with an arrow so it drops into the bowl below and opens the gate (if a sphere rolls off, just wait for another to come along). The second room is the same trick but two Guardian Scouts ride the belt first, so pick them off with arrows from a distance before they spot you, then freeze and shoot another sphere into its bowl. In the third room, look across to a treasure chest riding a far belt: aim Magnesis at it and pull it to you for an Opal (a gem you can sell). Then grab the loose sphere here and carry it toward the altar past a row of damaging lasers, where stone blocks slide along on parallel platforms; tuck behind a block to ride past one beam, and where a block won't cover you, use Stasis on the laser to stop it briefly while you slip by carrying the sphere. Drop the sphere into the final receptacle to open the way, then climb the stairs and touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Hawa Koth Shrine",
     "location": "Gerudo Desert, far southwest near the Great Fairy Fountain (Tera)",
     "category": "puzzle",
     "oneLine": "The Current Solution: route the rolling spheres and electric currents to power each gate in sequence.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is mostly a Magnesis shrine with one Stasis trick at the end. In the first room, use Magnesis to set the two metal cubes side by side on the short pillars so they bridge the electric node to the light, completing the circuit and lifting the gate ahead. Before moving on, look in the water nearby and use Magnesis to pull out a sunken chest holding an Ancient Core. In the next room a metal sphere hangs on a chain; use Magnesis to free it and set it by the light to power an elevator up. Up top, defeat the three Guardian Scouts, then lift the electric orb with Magnesis and carry it high (away from the floor lights) onto the raised pedestal on the right wall to open the way. The final room is the sticking point: step on the floor switch, then use Stasis to freeze the stone block in front of the middle light, and use Magnesis to slide a metal block into line so the lights connect and the bars lift. Use Magnesis to move the gear/cogwheel and open the chest behind it for a Sapphire, then carry that gear back to slot it between the other gears, opening the door. A side chest along the way holds a Gold Rupee. Touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Misae Suma Shrine",
     "location": "Gerudo Desert, revealed inside Gerudo Town",
     "category": "blessing",
     "oneLine": "A free blessing unlocked by helping out in Gerudo Town (cure Pokki's stomach trouble) — finish the errand, then claim the orb.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine stays dormant in the desert southeast of Gerudo Town until you finish the shrine quest \"The Perfect Drink.\" At the shrine you'll find a Gerudo woman, Pokki, slumped over the pedestal — talk to her to start the quest; she's begging for an ice-cold drink called the Noble Pursuit. To make it, enter Gerudo Town (you need the Gerudo outfit to pass the gate) and talk to Furosa, the bartender at the Noble Canteen — she's out of ice. Head north out of town, past the ruins, to the Northern Icehouse: the entrance is a hatch under a big turtle-shaped rock. Talk to Anche inside and pay 50 rupees for a block of ice (Pokki repays you). The sun melts it, so hurry back and stay in the shade, then hand the still-frozen ice to Furosa to mix the drink. Return to Pokki, talk to her (she runs off), and examine the pedestal to open the shrine. No puzzle inside — open the chest for a Diamond, then touch the altar to claim your Spirit Orb."
    },
    {
     "name": "Raqa Zunzo Shrine",
     "location": "Gerudo Desert, far east near the East Gerudo Ruins",
     "category": "blessing",
     "oneLine": "Win the sand-seal race out on the eastern dunes (beat the target time) to reveal this blessing shrine.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine stays buried until you win the Sand-Seal Rally race, which only opens up after you've freed Divine Beast Vah Naboris near Gerudo Town. Once that's done, the shrine quest \"The Undefeated Champ\" becomes available at the Sand-Seal Rally on the dunes south of Gerudo Town: talk to Shabonne, pay the 50-rupee entry fee, and surf your sand seal through every arch along the course, finishing under Tali's record of about a minute and a half. Keep your speed up by tapping A to dash whenever your seal starts to slow, and take the curves smoothly instead of cutting them sharply; watch for rocks and the occasional boulder along the way, easing off just enough to weave past them, and don't fall off your shield or you'll be disqualified. Beat the record and you're handed the Ancient Orb (the Grand Trophy) — set it into the nearby pedestal and the Raqa Zunzo Shrine rises out of the sand. Inside there's no puzzle: it's a blessing shrine, so walk forward, open the chest in the room for a Radiant Shield, then touch the monk's altar to claim your free Spirit Orb."
    },
    {
     "name": "Dako Tah Shrine",
     "location": "Gerudo Desert, southwest near the Seven Heroines",
     "category": "quest",
     "oneLine": "Electric Path: revealed via The Eye of the Sandstorm (Nobiro, Kara Kara Bazaar). Inside, guide the moving electric orb to power the gates.",
-    "shrineQuest": "The Eye of the Sandstorm"
+    "shrineQuest": "The Eye of the Sandstorm",
+    "solution": "This shrine stays hidden until you do the shrine quest \"The Eye of the Sandstorm.\" Go to Kara Kara Bazaar (the oasis north of Gerudo Town) and talk to Nobiro, a man at the lookout on the bazaar's northwest side; he tells you that the sandstorm over the Great Cliffs is rumored to hide an ancient treasure, but it never seems to clear by day. It does clear at night, so head up to the Great Cliffs (north of the bazaar, southeast of Gerudo Tower) between about 9 PM and 4 AM, when the air clears enough to find Dako Tah Shrine and warp in. Inside, this is a Magnesis puzzle built around a glowing electric power-cube that runs the moving platforms. Use Magnesis to carry the cube and hold it against the wall circuits to keep the platforms moving, riding them up to progress; dropping the cube on metal flooring also electrocutes the weak Guardian Scouts you meet. Grab the chests as you go: one holds a Moonlight Scimitar, one an Ancient Core, and one a Silver Rupee (worth 100). On the last moving platform a large metal block is in your way, so push it aside with Magnesis to ride past safely without getting electrocuted; then slide that block back into place so you can reach the final chest, which holds a Radiant Shield. Finally, step onto the altar and touch the monk to claim your Spirit Orb."
    },
    {
     "name": "Korsh O'hu Shrine",
     "location": "Gerudo Desert, at the Seven Heroines statues",
     "category": "quest",
     "oneLine": "The Seven Heroines: read each statue's missing symbol and place the matching orbs on the correct pedestals.",
-    "shrineQuest": "The Seven Heroines"
+    "shrineQuest": "The Seven Heroines",
+    "solution": "This shrine is hidden in the East Gerudo Ruins, the temple of seven heroine statues east of Gerudo Town, and only rises once you solve the shrine quest \"The Seven Heroines.\" Start it by talking to Rotana, an archaeologist near the town bar (the Noble Canteen) in Gerudo Town; you can only get into town after finishing \"Forbidden City Entry,\" which means wearing the Gerudo vai (female) outfit. Head to the ruins, where seven stone heroine statues stand in a ring around the sand, and find seven metal orbs, each marked with a different symbol that matches a symbol somewhere on one of the statues (look on their feet, swords, or bodies). Aim Magnesis to grab and carry each orb; it also makes the hidden ones glow, since several are buried in the sand. Set each orb into the empty socket at the foot of the statue whose symbol matches it. The last orb is the tricky one: it rests on top of the northernmost statue, so climb up the statue (or use Revali's Gale if you have it) and drop it down with Magnesis. Once all seven orbs are correctly placed, Korsh O'hu Shrine rises from the center. Inside there is no puzzle: open the chest for a Flamespear, then touch the monk's altar to claim your Spirit Orb."
    },
    {
     "name": "Kema Zoos Shrine",
     "location": "Gerudo Desert, northwest by the Statue of the Eighth Heroine",
     "category": "puzzle",
     "oneLine": "A Delayed Puzzle: face the swordswomen statues' pointing direction and time the launch ramp/ball to reach the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "You'll find this one northwest of Gerudo Town, out by the Statue of the Eighth Heroine; it's visible on the map, so you don't need any quest to enter. (If you want a guide, Laine at Gerudo Town's northwest gate gives the optional \"Silent Swordswomen\" quest, where each statue points its blade toward the next one until you reach the shrine.) Inside, a glowing metal ball is fired back and forth between two launchers, carrying an electric charge you'll use to power switches. The trick is timing: hit the ball with Stasis while it's in flight, then shoot it with a couple of arrows to knock it off course so it falls to the floor (alternatively, Stasis the ball while it's sitting in a launcher so it drops instead of firing). Once it's on the ground, switch to Magnesis, grab the ball, and carry it to the switch just to the right of the altar gate; setting the charged ball against that switch powers it and opens the gate to the monk. For the bonus, use the same ball on the other switch by the caged-off corner to open it, then claim the chest inside, which holds a Moonlight Scimitar. Finally, step through to the altar and touch it to receive your Spirit Orb."
    },
    {
     "name": "Dila Maag Shrine",
     "location": "Gerudo Desert, center of the South Lomei Labyrinth (East Barrens)",
     "category": "quest",
     "oneLine": "The Desert Labyrinth: navigate the maze to its core for the blessing (the Barbarian Helm is nearby).",
-    "shrineQuest": "The Desert Labyrinth"
+    "shrineQuest": "The Desert Labyrinth",
+    "solution": "This shrine is buried in the center of the South Lomei Labyrinth, the big square maze out on the east side of the Gerudo Desert (the East Barrens); the shrine quest \"The Desert Labyrinth\" starts the moment you step inside, when a voice promises a blessing at the labyrinth's end. Head in through the entrance and work your way toward the middle through the corridors. The only real obstacle is Ganon's Malice (the writhing dark goo) smeared along some walls and floors — you can't safely climb or walk through it, so when a passage is blocked, take a different corridor around it and keep heading toward the center. If the maze frustrates you, there's an easy cheat: climb up onto the tall outer walls and travel across the top of the labyrinth, paragliding over the corridors straight to the central platform. Once you reach the middle the shrine rises up. There's no puzzle inside — it's a blessing shrine, so the orb is free. Open the lone treasure chest near the altar for the Barbarian Armor (the chest/body piece of the Barbarian set; its matching Helm and Leg Wraps are hidden in two other labyrinths elsewhere in Hyrule). Then step on the monk Dila Maag's altar to claim your Spirit Orb."
    },
    {
     "name": "Suma Sahma Shrine",
     "location": "Gerudo Desert, southeast corner just south of Mount Granajh",
     "category": "quest",
     "oneLine": "Secret of the Snowy Peaks: read the Mountain Peak Log, then at ~4PM follow the cold shadow cast on the peak to dig out the shrine.",
-    "shrineQuest": "Secret of the Snowy Peaks"
+    "shrineQuest": "Secret of the Snowy Peaks",
+    "solution": "This shrine stays buried until you finish the shrine quest \"Secret of the Snowy Peaks.\" Climb to the snowy cabin/ruins on Mount Granajh in the Gerudo Highlands and read the open book on the pedestal there, the Mountain Peak Log; it hints that a \"cold shadow\" cast on a nearby pedestal will reveal the shrine. First clear out the Ice Lizalfos and any other enemies prowling the area, since they will smash the large snowballs lying around. Pick up one of those snowballs and carry it to the cliff edge overlooking the marked pedestal. In the late afternoon (about 4:00 to 6:00 PM) that pedestal lights up; there is firewood nearby, so light a fire and wait if you need to reach that time of day. Stand at the edge and hold the snowball over your head so its shadow falls onto the glowing pedestal (a Cryonis ice block works just as well if you have no snowball). When the cold shadow covers it, the Suma Sahma Shrine rises out of the snow. Inside there is no puzzle — it's a blessing shrine, so the orb is free: open the chest near the entrance for a Moonlight Scimitar, then speak with the monk Suma Sahma to claim your Spirit Orb."
    },
    {
     "name": "Tho Kayu Shrine",
     "location": "Gerudo Desert, eastern dunes near the East Gerudo Ruins",
     "category": "puzzle",
     "oneLine": "Light all four unlit torches scattered around the buried site to make the shrine rise from the sand.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine starts buried in the sand, and the whole puzzle is outside: light the four unlit torches set on the rocky outcrops around the site and the shrine rises up out of the dunes. The catch is a Molduga, a huge sand-swimming sub-boss that patrols this stretch of desert and can wipe most of your hearts in one bite, so deal with it before you wander between torches. The safe trick: lob a Remote Bomb onto the open sand and wait up on a rock outcrop; when the Molduga lunges up to swallow the bomb, detonate it to stun and flip it, then run in and hit it with your strongest weapon or arrows, repeating until it dies (or just stay on the rocks and light torches between its passes). Light each brazier by striking it with a fire weapon or shooting a Fire Arrow at it; once all four are burning, Tho Kayu Shrine emerges. Inside there is no puzzle and no enemies, just one large room: open the chest for a Golden Bow, then touch the monk's altar to claim your Spirit Orb."
    }
   ]
  }
