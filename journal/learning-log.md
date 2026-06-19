@@ -5,6 +5,24 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.5: Resume followed the first gap, not the frontier
+
+- **User, mid-game:** Resume kept sending him back to "Stay Warm First" because he never grabbed the Warm
+  Doublet — even though he'd progressed far past it. Classic open-world mismatch.
+- **Root cause (two layers):** (1) `resumeTarget` returned the **first incomplete `k:"step"`** in spine order —
+  i.e. the first *gap*, not where you are. In an open world you skip things, so the first gap is usually behind
+  you. (2) The Warm Doublet steps (`wd1/wd2/wd3`) were mis-marked `k:"step"` (mandatory spine) when the whole
+  "Stay Warm First" section is **optional** prep (spicy food, the doublet, or just endure).
+- **Fix (both):** (A) Algorithm — Resume is now **frontier-based**: find the *furthest* completed spine step,
+  then return the next incomplete step *after* it; `null` if nothing remains ahead. A skipped earlier step can
+  no longer drag you back. (B) Data — reclassified `wd1/wd2/wd3` to `k:"optional"`.
+- **Verified in-app** by injecting progress: "past the doublet, wd skipped" → Resume = "Cross to the Dueling
+  Peaks" (was "Stay Warm First"); fresh start → "Awakening"; only-one-late-step → frontier after it. Also
+  improves the spoiler veil (`resumeIdx` now tracks the frontier, revealing everything you've actually reached).
+- **Lesson:** "where am I" in a non-linear game = the max of your progress, never the min of your gaps. The
+  earlier v9.1 fix ("spine = k:step only") was necessary but insufficient — it stopped *loot* from trapping
+  Resume but a mandatory-marked-but-actually-optional *step* still could. Frontier logic fixes the whole class.
+
 ## 2026-06-19 — v12.4: reader unbricked (safe-area) + a real toolset
 
 - **The v12.2 "portal to body" fix had a nasty side effect on-device:** making the readers full-screen

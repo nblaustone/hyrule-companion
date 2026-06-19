@@ -207,8 +207,14 @@ layout, `REGION_MAPS` = the per-region coords.
   counter), **double-tap zoom**, **night-dim**; LoreReader gets the scrubber. Bars hide via
   `.reader-chrome-off`. Verified by simulating a 48px notch in-browser (back button clears it) + exercising
   every control, 0 console errors. **Rule: anything replacing the topbar as top-most chrome must re-add
-  `env(safe-area-inset-top)`.** **Next:** Hyrule Historia → new canon Lore chapters; OoT Pathways → seed the
-  OoT (game 3) walkthrough.
+  `env(safe-area-inset-top)`.**
+- **v12.5 (done):** Resume "you're here" is now **frontier-based** — it anchors on the *furthest* completed
+  main-quest (`k:"step"`) step and points to the next incomplete step *after* it, instead of the first gap. A
+  skipped-but-walked-past step (the classic: never grabbed the optional Warm Doublet) can no longer drag Resume
+  into the past. Also reclassified the "Stay Warm First" steps (`wd1/wd2/wd3`) to `k:"optional"` (they are).
+  `resumeIdx` now tracks the frontier, so the spoiler veil reveals everything you've actually reached. **Rule:
+  "where am I" in a non-linear game = max(progress), never min(gaps).** **Next:** Hyrule Historia → new canon
+  Lore chapters; OoT Pathways → seed the OoT (game 3) walkthrough.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

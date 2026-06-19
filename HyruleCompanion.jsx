@@ -165,9 +165,9 @@ const GREAT_PLATEAU = {
     ]},
     { id: "warm", name: "Stay Warm First", sub: "Before the mountain shrines", steps: [
       { id: "wd0", k: "warn", t: "The last two shrines are up cold Mount Hylia. Go up unprepared and you'll lose hearts to the cold. Sort warmth first." },
-      { id: "wd1", k: "step", t: "Quick fix: cook 2–3 Spicy Peppers into Spicy Sautéed Peppers for a few minutes of cold resistance. (See the Cook tab.)" },
-      { id: "wd2", k: "step", stuck: "The cabin (Woodcutter's House) is in the southwest, down near Mount Hylia's base by a pond. Walk inside and read the book on the table; the diary lists a recipe but leaves out one ingredient.", t: "Better fix — the Warm Doublet: go to the Old Man's cabin (south, near Mount Hylia's base) and read his diary." },
-      { id: "wd3", k: "step", stuck: "Hyrule Bass is the fish in the nearby pond (toss a bomb in to stun them, then grab them). Throw Raw Meat + Spicy Pepper + Hyrule Bass into any cooking pot together, then talk to the Old Man holding the dish.", t: "Cook his recipe — Spicy Meat and Seafood Fry = Raw Meat + Spicy Pepper + Hyrule Bass — then show him the dish." },
+      { id: "wd1", k: "optional", t: "Quick fix: cook 2–3 Spicy Peppers into Spicy Sautéed Peppers for a few minutes of cold resistance. (See the Cook tab.)" },
+      { id: "wd2", k: "optional", stuck: "The cabin (Woodcutter's House) is in the southwest, down near Mount Hylia's base by a pond. Walk inside and read the book on the table; the diary lists a recipe but leaves out one ingredient.", t: "Better fix — the Warm Doublet: go to the Old Man's cabin (south, near Mount Hylia's base) and read his diary." },
+      { id: "wd3", k: "optional", stuck: "Hyrule Bass is the fish in the nearby pond (toss a bomb in to stun them, then grab them). Throw Raw Meat + Spicy Pepper + Hyrule Bass into any cooking pot together, then talk to the Old Man holding the dish.", t: "Cook his recipe — Spicy Meat and Seafood Fry = Raw Meat + Spicy Pepper + Hyrule Bass — then show him the dish." },
       { id: "wd4", k: "reward", t: "He rewards you with the Warm Doublet: permanent cold resistance. (Or grab it from his cabin chest after all 4 shrines.)", items: [{ name: "Warm Doublet", cat: "armor", note: "Passive cold resistance" }] },
     ]},
     { id: "owa", name: "Owa Daim Shrine", sub: "Stasis Trial · Mount Hylia (cold)", reward: "Stasis Rune", steps: [
@@ -801,9 +801,16 @@ function HyruleGame({ game, setGame, games }) {
   // never trap Resume in the past. reward-only sections (Master Sword, the final blow) aren't anchors either —
   // they have no checkable step and you pass them by being there.
   const resumeTarget = useMemo(() => {
+    // "You're here" = the FRONTIER: the next mandatory (k:"step") step AFTER your furthest completed step —
+    // not the first gap. Using furthest progress (not first incomplete) means a skipped earlier step — e.g. an
+    // optional Warm Doublet you never grabbed but walked past — can never drag Resume back into the past. (v12.5)
+    const spine = [];
     for (const reg of REGIONS) for (const sec of reg.sections) for (const step of sec.steps)
-      if (step.k === "step" && !progress[step.id]) return { regionId: reg.id, secId: sec.id, stepId: step.id, regionName: reg.name, secName: sec.name };
-    return null;
+      if (step.k === "step") spine.push({ regionId: reg.id, secId: sec.id, stepId: step.id, regionName: reg.name, secName: sec.name, done: !!progress[step.id] });
+    let lastDone = -1;
+    for (let i = 0; i < spine.length; i++) if (spine[i].done) lastDone = i;
+    for (let i = lastDone + 1; i < spine.length; i++) if (!spine[i].done) { const { done, ...t } = spine[i]; return t; }
+    return null; // everything ahead of your furthest point is done → you've reached the end
   }, [progress]);
   const resumeIdx = useMemo(() => resumeTarget ? REGIONS.findIndex((r) => r.id === resumeTarget.regionId) : REGIONS.length, [resumeTarget]);
 
