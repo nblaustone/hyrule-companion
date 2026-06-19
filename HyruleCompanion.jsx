@@ -1256,35 +1256,52 @@ function BookReader({ book, getPageBlob, reading, setReading, bookmarked, toggle
   useEffect(() => { const pct = total > 1 ? page / (total - 1) : 1; setReading((m) => ({ ...m, [book.id]: { page, pct, at: Date.now() } })); }, [page, total, book.id]);
   useEffect(() => { if (stageRef.current) stageRef.current.scrollTop = 0; }, [page, fit]);
 
+  const [chrome, setChrome] = useState(true);     // tap-center toggles the top/bottom bars
+  const [dim, setDim] = useState(0);              // 0..3 night-dim overlay
+  const [jumpOpen, setJumpOpen] = useState(false);
+  const [jumpVal, setJumpVal] = useState("");
   const go = useCallback((d) => setPage((p) => Math.max(0, Math.min(total - 1, p + d))), [total]);
   const touch = useRef({ x: 0, y: 0 });
+  const swiped = useRef(false);
   const onTS = (e) => { touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }; };
-  const onTE = (e) => { const dx = e.changedTouches[0].clientX - touch.current.x, dy = e.changedTouches[0].clientY - touch.current.y; if (fit === "page" && Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1); };
-  const progPct = total > 1 ? (page / (total - 1)) * 100 : 100;
+  const onTE = (e) => { const dx = e.changedTouches[0].clientX - touch.current.x, dy = e.changedTouches[0].clientY - touch.current.y; if (fit === "page" && Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy)) { swiped.current = true; go(dx < 0 ? 1 : -1); } };
+  const lastTap = useRef(0), tapTimer = useRef(null);
+  const onStageTap = () => {
+    if (swiped.current) { swiped.current = false; return; }       // a swipe shouldn't toggle chrome
+    const now = Date.now();
+    if (now - lastTap.current < 280) { clearTimeout(tapTimer.current); lastTap.current = 0; setFit((f) => (f === "page" ? "width" : "page")); } // double-tap = zoom
+    else { lastTap.current = now; tapTimer.current = setTimeout(() => setChrome((c) => !c), 280); }
+  };
+  const doJump = () => { const n = parseInt(jumpVal, 10); if (n >= 1 && n <= total) setPage(n - 1); setJumpOpen(false); setJumpVal(""); };
   const cur = urls[page];
 
   return (
-    <div className="bk-reader">
-      <div className="bk-rbar">
+    <div className={"bk-reader" + (chrome ? "" : " reader-chrome-off")}>
+      <div className="bk-rbar reader-bar-top">
         <button className="bk-x" onClick={onClose}>‹ Library</button>
         <div className="bk-rtitle">{book.title}</div>
         <div className="bk-rctrls">
-          <button className={"bk-bm" + (bookmarked ? " bk-bm-on" : "")} onClick={toggleBookmark} aria-label="Save">◈</button>
-          <button className="bk-fit" onClick={() => setFit((f) => (f === "page" ? "width" : "page"))} aria-label="Toggle zoom">{fit === "page" ? "⤢" : "▢"}</button>
+          <button className={"bk-ic" + (dim ? " bk-ic-on" : "")} onClick={() => setDim((d) => (d + 1) % 4)} aria-label="Dim screen">☾</button>
+          <button className={"bk-ic" + (bookmarked ? " bk-ic-on" : "")} onClick={toggleBookmark} aria-label="Save place">◈</button>
+          <button className="bk-ic" onClick={() => setFit((f) => (f === "page" ? "width" : "page"))} aria-label="Toggle zoom">{fit === "page" ? "⤢" : "▢"}</button>
         </div>
       </div>
-      <div className={"bk-stage bk-stage-" + fit} ref={stageRef} onTouchStart={onTS} onTouchEnd={onTE}>
+      <div className={"bk-stage bk-stage-" + fit} ref={stageRef} onTouchStart={onTS} onTouchEnd={onTE} onClick={onStageTap}>
         {cur ? <img className="bk-img" src={cur} alt={"Page " + (page + 1)} draggable={false} /> : <div className="bk-loading">Loading page {page + 1}…</div>}
+        {dim > 0 && <div className="bk-dim" style={{ opacity: dim * 0.22 }} />}
         {fit === "page" && <>
-          <button className="bk-edge bk-edge-l" onClick={() => go(-1)} disabled={page <= 0} aria-label="Previous page" />
-          <button className="bk-edge bk-edge-r" onClick={() => go(1)} disabled={page >= total - 1} aria-label="Next page" />
+          <button className="bk-edge bk-edge-l" onClick={(e) => { e.stopPropagation(); go(-1); }} disabled={page <= 0} aria-label="Previous page" />
+          <button className="bk-edge bk-edge-r" onClick={(e) => { e.stopPropagation(); go(1); }} disabled={page >= total - 1} aria-label="Next page" />
         </>}
+        {!chrome && <div className="bk-tiphint">tap to show controls</div>}
       </div>
-      <div className="bk-foot">
-        <button className="bk-nav" onClick={() => go(-1)} disabled={page <= 0}>‹</button>
-        <div className="bk-prog"><span className="bk-prog-bar" style={{ width: progPct + "%" }} /></div>
-        <div className="bk-page">{page + 1} / {total}</div>
-        <button className="bk-nav" onClick={() => go(1)} disabled={page >= total - 1}>›</button>
+      <div className="bk-foot reader-bar-bot">
+        <button className="bk-nav" onClick={() => go(-1)} disabled={page <= 0} aria-label="Previous page">‹</button>
+        <input className="bk-scrub" type="range" min={0} max={Math.max(0, total - 1)} value={page} onChange={(e) => setPage(+e.target.value)} aria-label="Jump to page" />
+        {jumpOpen
+          ? <span className="bk-jump"><input className="bk-jump-in" type="number" min="1" max={total} value={jumpVal} placeholder={String(page + 1)} autoFocus onChange={(e) => setJumpVal(e.target.value)} onKeyDown={(e) => e.key === "Enter" && doJump()} /><button className="bk-jump-go" onClick={doJump}>Go</button></span>
+          : <button className="bk-page" onClick={() => { setJumpOpen(true); setJumpVal(""); }} aria-label="Type a page number">{page + 1} / {total}</button>}
+        <button className="bk-nav" onClick={() => go(1)} disabled={page >= total - 1} aria-label="Next page">›</button>
       </div>
     </div>
   );
@@ -1391,10 +1408,10 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
         <button className="lore-edge lore-edge-r" onClick={() => go(1)} disabled={page >= pages - 1} aria-label="Next page" />
       </div>
       <div className="lore-foot">
-        <button className="lore-nav" onClick={() => go(-1)} disabled={page <= 0}>‹</button>
-        <div className="lore-prog"><span className="lore-prog-bar" style={{ width: progPct + "%" }} /></div>
+        <button className="lore-nav" onClick={() => go(-1)} disabled={page <= 0} aria-label="Previous page">‹</button>
+        <input className="lore-scrub" type="range" min={0} max={Math.max(0, pages - 1)} value={page} onChange={(e) => setPage(+e.target.value)} aria-label="Jump to page" />
         <div className="lore-page">{page + 1} / {pages}</div>
-        <button className="lore-nav" onClick={() => go(1)} disabled={page >= pages - 1}>›</button>
+        <button className="lore-nav" onClick={() => go(1)} disabled={page >= pages - 1} aria-label="Next page">›</button>
       </div>
     </div>
   );
@@ -2492,7 +2509,7 @@ function StyleBlock() {
 .lore-card-ring{flex-shrink:0;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .lore-card-ring-in{width:27px;height:27px;border-radius:50%;background:var(--panel);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;color:var(--cyan);}
 .lore-reader{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:560px;height:100vh;height:100dvh;z-index:60;background:var(--rbg);color:var(--rfg);display:flex;flex-direction:column;}
-.lore-rbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(127,127,127,.18);}
+.lore-rbar{display:flex;align-items:center;gap:8px;padding:calc(10px + env(safe-area-inset-top,0px)) calc(14px + env(safe-area-inset-right,0px)) 10px calc(14px + env(safe-area-inset-left,0px));border-bottom:1px solid rgba(127,127,127,.18);}
 .lore-x{background:none;border:none;color:var(--rdim);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;cursor:pointer;flex-shrink:0;}
 .lore-rtitle{flex:1;min-width:0;text-align:center;font-family:'Cinzel',Georgia,serif;font-size:13px;color:var(--rfg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.82;}
 .lore-rctrls{display:flex;align-items:center;gap:10px;flex-shrink:0;}
@@ -2563,7 +2580,7 @@ function StyleBlock() {
 .bk-rm-no{background:none;border:none;color:var(--parch-dim);font-size:10px;cursor:pointer;}
 /* book reader (page images) */
 .bk-reader{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:560px;height:100vh;height:100dvh;z-index:60;background:#06090c;color:#e8eef1;display:flex;flex-direction:column;}
-.bk-rbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.1);}
+.bk-rbar{display:flex;align-items:center;gap:8px;padding:calc(10px + env(safe-area-inset-top,0px)) calc(14px + env(safe-area-inset-right,0px)) 10px calc(14px + env(safe-area-inset-left,0px));border-bottom:1px solid rgba(255,255,255,.1);}
 .bk-x{background:none;border:none;color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;cursor:pointer;flex-shrink:0;}
 .bk-rtitle{flex:1;min-width:0;text-align:center;font-family:'Cinzel',Georgia,serif;font-size:12px;color:#cfd8dc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.85;}
 .bk-rctrls{display:flex;align-items:center;gap:12px;flex-shrink:0;}
@@ -2584,7 +2601,23 @@ function StyleBlock() {
 .bk-nav:disabled{opacity:.3;cursor:default;}
 .bk-prog{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;}
 .bk-prog-bar{display:block;height:100%;background:var(--cyan);transition:width .25s;}
-.bk-page{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;color:#9aa7ac;flex-shrink:0;min-width:54px;text-align:right;}
+.bk-page{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;color:#9aa7ac;flex-shrink:0;min-width:54px;text-align:right;background:none;border:none;cursor:pointer;padding:4px 2px;}
+/* ---- v12.4 reader tools: safe-area, chrome toggle, scrubber, jump, dim ---- */
+.reader-chrome-off .reader-bar-top,.reader-chrome-off .reader-bar-bot{display:none;}
+.bk-ic{background:none;border:none;color:#7b8a90;font-size:16px;cursor:pointer;padding:2px 3px;line-height:1;}
+.bk-ic-on{color:var(--cyan);}
+.bk-dim{position:absolute;inset:0;background:#000;pointer-events:none;}
+.bk-tiphint{position:absolute;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.5px;color:rgba(255,255,255,.5);background:rgba(0,0,0,.45);padding:4px 11px;border-radius:20px;pointer-events:none;}
+.bk-jump{display:flex;align-items:center;gap:5px;flex-shrink:0;}
+.bk-jump-in{width:46px;background:rgba(255,255,255,.1);border:1px solid var(--cyan);color:#e8eef1;border-radius:7px;padding:4px 6px;font-size:12px;text-align:center;}
+.bk-jump-go{background:rgba(95,214,226,.16);border:1px solid var(--cyan);color:var(--cyan);border-radius:7px;padding:4px 9px;font-size:11px;font-weight:700;cursor:pointer;}
+/* range scrubbers (drag to any page) */
+.bk-scrub,.lore-scrub{flex:1;-webkit-appearance:none;appearance:none;height:22px;background:transparent;cursor:pointer;margin:0;}
+.bk-scrub::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:rgba(255,255,255,.2);}
+.lore-scrub::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:rgba(127,127,127,.28);}
+.bk-scrub::-moz-range-track,.lore-scrub::-moz-range-track{height:4px;border-radius:4px;background:rgba(127,127,127,.28);}
+.bk-scrub::-webkit-slider-thumb,.lore-scrub::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:17px;height:17px;border-radius:50%;background:var(--cyan);margin-top:-6.5px;box-shadow:0 1px 4px rgba(0,0,0,.45);}
+.bk-scrub::-moz-range-thumb,.lore-scrub::-moz-range-thumb{width:17px;height:17px;border:none;border-radius:50%;background:var(--cyan);box-shadow:0 1px 4px rgba(0,0,0,.45);}
 /* ---- v12.3 mid-game usability: pouch filters + shrine quick-find / pin / recents ---- */
 .inv-filter{margin-bottom:14px;}
 .seg-ct{opacity:.6;font-size:.82em;font-weight:600;margin-left:3px;}

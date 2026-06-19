@@ -198,8 +198,17 @@ layout, `REGION_MAPS` = the per-region coords.
   chips (`PouchView`); **Shrines** gains a **Quick-Find** (search now matches region/town/hint/shrine-quest/
   **puzzle type**), an **"I'm here" pin** (`shrinePin` → "You're here" card + per-row pin) and **Recents** chips
   (`shrineRecents`) that focus-scroll+flash a row; **global search now jumps to the exact shrine**. New keys
-  `botw:shrinepin`/`botw:shrinerecents`. **Next:** Hyrule Historia → new canon Lore chapters; OoT Pathways →
-  seed the OoT (game 3) walkthrough.
+  `botw:shrinepin`/`botw:shrinerecents`.
+- **v12.4 (done):** reader unbricked + a real toolset. **Critical fix:** the full-screen readers' top bars had
+  no `env(safe-area-inset-top)`, so on a real iPhone the "‹ Library" back + top controls hid under the notch
+  (had to force-quit to escape). Added top/left/right safe-area insets to `.bk-rbar`/`.lore-rbar`
+  (`viewport-fit=cover` already set). **New tools** (ported from the owner's `~/Desktop/preg` reader, read-only):
+  BookReader gets tap-center **chrome toggle**, a **draggable page scrubber**, **jump-to-page** (tap the
+  counter), **double-tap zoom**, **night-dim**; LoreReader gets the scrubber. Bars hide via
+  `.reader-chrome-off`. Verified by simulating a 48px notch in-browser (back button clears it) + exercising
+  every control, 0 console errors. **Rule: anything replacing the topbar as top-most chrome must re-add
+  `env(safe-area-inset-top)`.** **Next:** Hyrule Historia → new canon Lore chapters; OoT Pathways → seed the
+  OoT (game 3) walkthrough.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

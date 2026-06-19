@@ -5,6 +5,30 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.4: reader unbricked (safe-area) + a real toolset
+
+- **The v12.2 "portal to body" fix had a nasty side effect on-device:** making the readers full-screen
+  overlays covered the app's own topbar, and my reader top bars had **no `env(safe-area-inset-top)`** — so on
+  the user's iPhone the "‹ Library" back button + every top control sat *under the notch*, untappable. He
+  couldn't exit a book without force-quitting the app. Real regression, caught by real play. The footers had
+  the bottom inset; I'd simply forgotten the top one when the bar stopped being the app's (safe-area-aware)
+  `.topbar`. **Lesson: any element that replaces the topbar as the top-most chrome must re-add
+  `env(safe-area-inset-top)` — and `viewport-fit=cover` is already set, so it Just Works once added.**
+- **Process the user asked for (and it paid off): assess → plan → intervene → re-evaluate.** Assessed (found
+  the missing inset + confirmed viewport-fit=cover), read his **preg** app's reader to harvest features
+  (read-only; an Explore agent returned a full inventory), planned, intervened, then re-evaluated by
+  **simulating a 48px notch** in headless Chrome (inject `.bk-rbar,.lore-rbar{padding-top:calc(10px+48px)!important}`,
+  since `env()` resolves to 0 with no real notch) and measuring the back button at y=60 → below the notch.
+  One pass was enough; no replan.
+- **Tools ported from the preg reader (BookReader):** tap-center to **toggle chrome** (immersive; swipe is
+  suppressed from toggling via a `swiped` ref; double-tap = zoom), a **draggable page scrubber** (`<input
+  type=range>` — essential for 275-page Historia, the old ‹/› was one-page-at-a-time), **jump-to-page** (tap the
+  counter), **night-dim** overlay (cycles 0–3), kept swipe/edge nav + fit toggle. LoreReader got the scrubber
+  too. Bars hide via `.reader-chrome-off → display:none` (flex stage refills; images just re-fit, no
+  re-pagination needed). Verified every control in-browser, 0 console errors.
+- **Deliberately deferred** (preg has them, not critical now): per-book typography (line-height/margins/font
+  family), brightness/warmth sliders, TOC/search-within-book, highlights/notes. Easy follow-ups if wanted.
+
 ## 2026-06-18 — v12.3: mid-game usability (real-play feedback)
 
 - **Source: the user playing with his son.** Two pains: (1) "we're in a shrine, forget its alien name, and
