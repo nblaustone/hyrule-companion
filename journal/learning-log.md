@@ -5,6 +5,29 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.7: shrine solutions (the "stuck in a shrine" gap) — sample first
+
+- **User (playing with his son) chose "deeper BotW playthrough help."** Assessed: all 120 shrines had only a
+  one-line hint; 38 are hidden behind shrine-quests (the #1 "where IS it?" pain). The `StuckReveal` spoiler-gate
+  already existed for walkthrough steps — reused it on shrine rows.
+- **Plan/intervene:** add a spoiler-gated `solution` to each shrine (clear the puzzle/combat; for hidden ones,
+  HOW TO MAKE IT APPEAR; blessing = free orb). Authored via a Workflow: per shrine, an author agent web-researches
+  (Game8/Zelda Dungeon/Thonky/Shacknews via WebSearch+WebFetch) then an adversarial verifier fact-checks against
+  a SECOND source. The verify pass earned its keep — it caught real mechanical errors (Oman Au "swing the gate"→
+  "pull toward you"; Ja Baij "ride a block"→"stand on the launcher"; Keh Namut invented "ice pillar blocks the
+  laser" → removed). **Vetted a 20-shrine sample of the user's current area (Plateau + Dueling Peaks + Hateno)
+  before scaling to 120** — matches the [[zelda-lore-no-ai-slop]] "vet a sample before scaling" rule.
+- **Pipeline:** solutions written into `knowledge/shrines.json` (new `solution` field) → `inline-data.mjs`
+  preserves it (only `notes/confidence/changes` are stripped) → `SHRINES` const → `<StuckReveal text={sh.solution}>`
+  on each shrine row. Honesty gate still passes (120/15/4). Verified in-browser: 9 reveals in Dueling Peaks, the
+  hidden Hila Rao shows its full find-it-then-solve-it text; 0 console errors.
+- **Workflow gotcha banked:** passing the 20-shrine list via the Workflow `args` field arrived as a non-array
+  (serialization) → `pipeline() expects an array` and the run died in 9ms with 0 agents. Fix: **embed the input
+  array as a `const` in the script** rather than relying on `args` for structured data. (Or guard:
+  `const X = typeof args === 'string' ? JSON.parse(args) : args`.)
+- **Next:** scale the same author→verify Workflow to the remaining 100 shrines (12 more regions), region by
+  region, then spot-check.
+
 ## 2026-06-19 — v12.6: reader typography (ported from the preg reader)
 
 - **User: "whatever we can add from preg for the reader, let's do it."** Ported the premium reading controls into

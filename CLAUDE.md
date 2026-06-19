@@ -224,6 +224,13 @@ layout, `REGION_MAPS` = the per-region coords.
   position (no half-column slide) while page *turns* keep the smooth `.26s` transition. Verified each control
   applies/persists/re-paginates aligned, 0 console errors. Deferred from preg: TOC, search-in-book, multi-page
   bookmarks, highlights/notes.
+- **v12.7 (in progress):** **shrine solutions** — a spoiler-gated `solution` field on each shrine, rendered via
+  the existing `StuckReveal` ("Stuck? Tap for the exact how") on shrine rows. For puzzle/combat shrines = the
+  actual trick; for the 38 **hidden** (shrine-quest) shrines = **how to make it appear** + solve. Authored by an
+  author→adversarial-verify **Workflow** (web-sourced Game8/Zelda Dungeon/Thonky, second-source fact-check —
+  caught real errors). **Done so far: a 20-shrine sample** (Great Plateau + Dueling Peaks + Hateno, the early
+  game) written into `knowledge/shrines.json` → `inline-data` (preserves the field) → UI. **Next: scale the same
+  Workflow to the other 12 regions (100 shrines).**
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3
