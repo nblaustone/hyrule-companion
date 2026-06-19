@@ -28,6 +28,97 @@ const store = {
 };
 const CHECKABLE = new Set(["step", "loot", "optional", "reward"]);
 
+/* ============================================================
+   ON-DEVICE BOOKSHELF (v12 · ADR 0009)
+   The owner's own books/comics live ONLY on this device — never in the
+   public build (they're copyrighted, and Hyrule Historia alone is 180MB,
+   past GitHub's 100MB limit). Page images go in IndexedDB (big binary);
+   the small book *index* rides in the normal `store` (localStorage).
+   Import packs are STORE-ONLY zips, so we read them with a tiny
+   zero-dependency parser — no decompression library is shipped, the
+   offline build stays ~1MB, and nothing copyrighted is ever published. */
+const BOOKS_DB = "hyrule-books", BOOKS_STORE = "pages";
+const booksDB = {
+  _p: null,
+  open() {
+    if (this._p) return this._p;
+    this._p = new Promise((res, rej) => {
+      if (typeof indexedDB === "undefined") return rej(new Error("no IndexedDB"));
+      const r = indexedDB.open(BOOKS_DB, 1);
+      r.onupgradeneeded = () => { const db = r.result; if (!db.objectStoreNames.contains(BOOKS_STORE)) db.createObjectStore(BOOKS_STORE); };
+      r.onsuccess = () => res(r.result);
+      r.onerror = () => rej(r.error);
+    });
+    return this._p;
+  },
+  async putPages(bookId, entries, onProg) {
+    const db = await this.open();
+    const CH = 10; // chunk writes so one transaction never holds hundreds of big blobs
+    for (let i = 0; i < entries.length; i += CH) {
+      const slice = entries.slice(i, i + CH);
+      await new Promise((res, rej) => {
+        const tx = db.transaction(BOOKS_STORE, "readwrite"), os = tx.objectStore(BOOKS_STORE);
+        for (const e of slice) os.put(e.blob, bookId + "/" + e.name);
+        tx.oncomplete = res; tx.onerror = () => rej(tx.error); tx.onabort = () => rej(tx.error);
+      });
+      if (onProg) onProg(Math.min(entries.length, i + CH), entries.length);
+    }
+  },
+  async getPage(bookId, name) {
+    const db = await this.open();
+    return new Promise((res, rej) => {
+      const rq = db.transaction(BOOKS_STORE, "readonly").objectStore(BOOKS_STORE).get(bookId + "/" + name);
+      rq.onsuccess = () => res(rq.result || null); rq.onerror = () => rej(rq.error);
+    });
+  },
+  async deleteBook(bookId) {
+    const db = await this.open();
+    return new Promise((res, rej) => {
+      const tx = db.transaction(BOOKS_STORE, "readwrite"), os = tx.objectStore(BOOKS_STORE);
+      const rq = os.openKeyCursor(IDBKeyRange.bound(bookId + "/", bookId + "/￿"));
+      rq.onsuccess = () => { const c = rq.result; if (c) { os.delete(c.primaryKey); c.continue(); } };
+      tx.oncomplete = res; tx.onerror = () => rej(tx.error);
+    });
+  },
+};
+
+/* read a STORE-ONLY .hbook.zip (ArrayBuffer) → { meta, files:Map(name→Uint8Array) } */
+function readHbook(buf) {
+  const dv = new DataView(buf), u8 = new Uint8Array(buf), n = buf.byteLength;
+  let eo = -1;
+  for (let i = n - 22; i >= 0 && i >= n - 22 - 65557; i--) { if (dv.getUint32(i, true) === 0x06054b50) { eo = i; break; } }
+  if (eo < 0) throw new Error("not a .hbook (no zip directory found)");
+  const count = dv.getUint16(eo + 10, true);
+  let p = dv.getUint32(eo + 16, true);
+  const dec = new TextDecoder(), files = new Map();
+  for (let k = 0; k < count; k++) {
+    if (dv.getUint32(p, true) !== 0x02014b50) break;
+    const method = dv.getUint16(p + 10, true), csize = dv.getUint32(p + 20, true);
+    const nlen = dv.getUint16(p + 28, true), elen = dv.getUint16(p + 30, true), clen = dv.getUint16(p + 32, true);
+    const lho = dv.getUint32(p + 42, true);
+    const name = dec.decode(u8.subarray(p + 46, p + 46 + nlen));
+    const ds = lho + 30 + dv.getUint16(lho + 26, true) + dv.getUint16(lho + 28, true);
+    if (method !== 0) throw new Error("pack isn't store-only — re-run build/pack-books.mjs");
+    files.set(name, u8.subarray(ds, ds + csize));
+    p += 46 + nlen + elen + clen;
+  }
+  const mj = files.get("book.json");
+  if (!mj) throw new Error("pack is missing book.json");
+  return { meta: JSON.parse(dec.decode(mj)), files };
+}
+
+/* import one .hbook.zip File → a lightweight index record (page blobs go to IndexedDB) */
+async function importBookFromFile(file, onProg) {
+  const { meta, files } = readHbook(await file.arrayBuffer());
+  if (!meta || !meta.id) throw new Error("invalid pack (no id)");
+  const base = { id: meta.id, title: meta.title, author: meta.author, year: meta.year, kind: meta.kind, cite: meta.cite };
+  if (meta.type === "text") return { ...base, type: "text", blocks: meta.blocks || [] };
+  const entries = (meta.files || []).map((name) => ({ name, blob: new Blob([files.get(name)], { type: "image/jpeg" }) }));
+  if (!entries.length) throw new Error("pack has no pages");
+  await booksDB.putPages(meta.id, entries, onProg);
+  return { ...base, type: "pages", pages: entries.length, files: meta.files };
+}
+
 /* ============================================================ REGION 1 · GREAT PLATEAU ============================================================ */
 const GREAT_PLATEAU = {
   id: "plateau", name: "The Great Plateau", sub: "Tutorial", kind: "region",
@@ -540,6 +631,8 @@ function HyruleGame({ game, setGame, games }) {
   const [bookmarks, setBookmarks] = useState({});    // v11: saved lore chapters (hyrule:bookmarks)
   const [readerPrefs, setReaderPrefs] = useState({ scale: 1, theme: "slate" }); // v11: lore reader prefs (hyrule:readerprefs)
   const [loreArt, setLoreArt] = useState({});        // v11: per-chapter personal cover images, device-local base64 (hyrule:loreart)
+  const [userBooks, setUserBooks] = useState([]);    // v12: imported on-device books index (hyrule:books); page blobs live in IndexedDB
+  const [bookBusy, setBookBusy] = useState(null);    // v12: import status {name,done,total} | {name,error}
   const [searchOpen, setSearchOpen] = useState(false);
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
@@ -553,9 +646,9 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la] = await Promise.all([
+      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk] = await Promise.all([
         store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
-        store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"),
+        store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"), store.get("hyrule:books"),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -569,6 +662,7 @@ function HyruleGame({ game, setGame, games }) {
       try { if (bm) { const o = JSON.parse(bm); if (o && typeof o === "object") setBookmarks(o); } } catch (e) {}
       try { if (rp) { const o = JSON.parse(rp); if (o && typeof o === "object") setReaderPrefs((d) => ({ ...d, ...o })); } } catch (e) {}
       try { if (la) { const o = JSON.parse(la); if (o && typeof o === "object") setLoreArt(o); } } catch (e) {}
+      try { if (bk) { const a = JSON.parse(bk); if (Array.isArray(a)) setUserBooks(a); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -584,6 +678,31 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set("hyrule:bookmarks", JSON.stringify(bookmarks)); }, [bookmarks, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:readerprefs", JSON.stringify(readerPrefs)); }, [readerPrefs, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:loreart", JSON.stringify(loreArt)); }, [loreArt, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:books", JSON.stringify(userBooks)); }, [userBooks, loaded]);
+
+  // v12: import / remove on-device books. Page blobs go to IndexedDB; the index rides in localStorage.
+  const importBooks = useCallback(async (fileList) => {
+    const files = Array.from(fileList || []);
+    for (const file of files) {
+      try {
+        setBookBusy({ name: file.name, done: 0, total: 0 });
+        const rec = await importBookFromFile(file, (d, t) => setBookBusy({ name: file.name, done: d, total: t }));
+        rec.addedAt = Date.now();
+        setUserBooks((bs) => [...bs.filter((b) => b.id !== rec.id), rec]);
+        if (typeof navigator !== "undefined" && navigator.storage && navigator.storage.persist) { try { await navigator.storage.persist(); } catch (e) {} }
+      } catch (e) {
+        setBookBusy({ name: file.name, error: (e && e.message) || "import failed" });
+        await new Promise((r) => setTimeout(r, 2600));
+      }
+    }
+    setBookBusy(null);
+  }, []);
+  const removeUserBook = useCallback(async (id) => {
+    try { await booksDB.deleteBook(id); } catch (e) {}
+    setUserBooks((bs) => bs.filter((b) => b.id !== id));
+    setReading((m) => { const n = { ...m }; delete n[id]; return n; });
+    setBookmarks((m) => { const n = { ...m }; delete n[id]; return n; });
+  }, []);
 
   progressRef.current = progress;
   const toggleStep = useCallback((id) => {
@@ -937,7 +1056,7 @@ function HyruleGame({ game, setGame, games }) {
         ) : tab === "cook" ? (
           <CookView ingredients={COOK_INGREDIENTS} recipes={RECIPES} rules={COOK_RULES} cooking={COOKING} saved={recipes} setSaved={setRecipes} />
         ) : tab === "library" ? (
-          <LibraryView books={LORE} reading={reading} setReading={setReading} bookmarks={bookmarks} setBookmarks={setBookmarks} prefs={readerPrefs} setPrefs={setReaderPrefs} loreArt={loreArt} setLoreArt={setLoreArt} />
+          <LibraryView books={LORE} userBooks={userBooks} onImportBooks={importBooks} onRemoveBook={removeUserBook} bookBusy={bookBusy} getPageBlob={(id, name) => booksDB.getPage(id, name)} reading={reading} setReading={setReading} bookmarks={bookmarks} setBookmarks={setBookmarks} prefs={readerPrefs} setPrefs={setReaderPrefs} loreArt={loreArt} setLoreArt={setLoreArt} />
         ) : (
           <div className="ref">
             <div className="seg seg-scroll">
@@ -1002,25 +1121,57 @@ const LORE_THEMES = {
 const LORE_SCALES = [0.9, 1, 1.14, 1.3];
 const LORE_NOTE = { canon: { label: "Canon", glyph: "◈" }, creator: { label: "Creator note", glyph: "✦" }, theory: { label: "Theory", glyph: "◇" } };
 
-function LibraryView({ books, reading, setReading, bookmarks, setBookmarks, prefs, setPrefs, loreArt, setLoreArt }) {
+const BOOK_HUES = {
+  historia: ["#1d3a2e", "#0b1812"], ootmanga: ["#37202f", "#140a11"],
+  explorer: ["#163039", "#091820"], pathways: ["#332c17", "#14110a"],
+  yuwguide: ["#2a1c16", "#130c09"], _default: ["#1b2b33", "#0b151a"],
+};
+
+function BookSpine({ book, pct, done, onOpen, confirming, onAskRemove, onConfirmRemove }) {
+  const hue = BOOK_HUES[book.id] || BOOK_HUES._default;
+  const sub = book.type === "pages" ? book.pages + " pages" : "text · readable";
+  return (
+    <div className="bk-cell">
+      <button className="bk-spine" style={{ "--bk1": hue[0], "--bk2": hue[1] }} onClick={onOpen}>
+        <span className="bk-spine-band" />
+        <span className="bk-spine-emblem"><Glyph name="book" size={17} /></span>
+        <span className="bk-spine-title">{book.title}</span>
+        <span className="bk-spine-by">{book.author}{book.year ? " · " + book.year : ""}</span>
+        <span className="bk-spine-kind">{book.kind}</span>
+        {pct > 0 && <span className="bk-spine-bar"><span style={{ width: Math.max(5, pct) + "%" }} /></span>}
+        {pct > 0 && <span className="bk-spine-badge">{done ? "✓ read" : pct + "%"}</span>}
+      </button>
+      <div className="bk-cell-foot">
+        <span className="bk-cell-sub">{sub}</span>
+        {confirming
+          ? <span className="bk-rm-grp"><button className="bk-rm-yes" onClick={onConfirmRemove}>Remove</button><button className="bk-rm-no" onClick={onAskRemove}>keep</button></span>
+          : <button className="bk-rm" onClick={onAskRemove}>remove</button>}
+      </div>
+    </div>
+  );
+}
+
+function LibraryView({ books, userBooks, onImportBooks, onRemoveBook, bookBusy, getPageBlob, reading, setReading, bookmarks, setBookmarks, prefs, setPrefs, loreArt, setLoreArt }) {
   const [openId, setOpenId] = useState(null);
-  const list = books || [];
-  const open = openId ? list.find((b) => b.id === openId) : null;
+  const [confirmRm, setConfirmRm] = useState(null);
+  const fileRef = useRef(null);
+  const lore = books || [], shelf = userBooks || [];
+  const all = useMemo(() => [...(books || []), ...(userBooks || [])], [books, userBooks]);
+  const open = openId ? all.find((b) => b.id === openId) : null;
   const cont = useMemo(() => {
     let best = null;
-    for (const b of list) { const r = reading[b.id]; if (r && (r.pct || 0) < 0.985 && (r.at || 0)) { if (!best || (r.at || 0) > (reading[best.id].at || 0)) best = b; } }
+    for (const b of all) { const r = reading[b.id]; if (r && (r.pct || 0) < 0.985 && (r.at || 0)) { if (!best || (r.at || 0) > (reading[best.id].at || 0)) best = b; } }
     return best;
-  }, [list, reading]);
+  }, [all, reading]);
 
   if (open) {
-    return (
-      <LoreReader chapter={open} prefs={prefs} setPrefs={setPrefs} reading={reading} setReading={setReading} loreArt={loreArt} setLoreArt={setLoreArt}
-        bookmarked={!!bookmarks[open.id]}
-        toggleBookmark={() => setBookmarks((m) => { const n = { ...m }; if (n[open.id]) delete n[open.id]; else n[open.id] = { at: Date.now() }; return n; })}
-        onClose={() => setOpenId(null)} />
-    );
+    const tog = () => setBookmarks((m) => { const n = { ...m }; if (n[open.id]) delete n[open.id]; else n[open.id] = { at: Date.now() }; return n; });
+    if (open.type === "pages")
+      return <BookReader book={open} getPageBlob={getPageBlob} reading={reading} setReading={setReading} bookmarked={!!bookmarks[open.id]} toggleBookmark={tog} onClose={() => setOpenId(null)} />;
+    const chapter = open.type === "text" ? { ...open, eyebrow: open.eyebrow || ((open.author ? open.author + " · " : "") + (open.kind || "Guide")) } : open;
+    return <LoreReader chapter={chapter} prefs={prefs} setPrefs={setPrefs} reading={reading} setReading={setReading} loreArt={loreArt} setLoreArt={setLoreArt}
+      bookmarked={!!bookmarks[open.id]} toggleBookmark={tog} onClose={() => setOpenId(null)} />;
   }
-  if (!list.length) return (<div className="ref"><h2 className="ref-title">Lore Library</h2><p className="empty">The library is being written. Check back soon.</p></div>);
 
   return (
     <div className="ref">
@@ -1031,10 +1182,10 @@ function LibraryView({ books, reading, setReading, bookmarks, setBookmarks, pref
           <span className="lore-cont-bar" style={{ width: Math.max(3, pct) + "%" }} />
           <span className="lore-cont-k">Continue reading</span>
           <span className="lore-cont-t">{cont.title}</span>
-          <span className="lore-cont-s">{pct}% · {cont.eyebrow}</span>
+          <span className="lore-cont-s">{pct}% · {cont.eyebrow || cont.kind}</span>
         </button>); })()}
       <div className="lore-shelf">
-        {list.map((b, i) => { const r = reading[b.id]; const pct = r ? Math.round((r.pct || 0) * 100) : 0; const done = pct >= 98; return (
+        {lore.map((b, i) => { const r = reading[b.id]; const pct = r ? Math.round((r.pct || 0) * 100) : 0; const done = pct >= 98; return (
           <button key={b.id} className="lore-card" onClick={() => setOpenId(b.id)}>
             <span className="lore-card-no">{String(i + 1).padStart(2, "0")}</span>
             <span className="lore-card-body">
@@ -1045,8 +1196,90 @@ function LibraryView({ books, reading, setReading, bookmarks, setBookmarks, pref
             {pct > 0 && (<span className="lore-card-ring" style={{ background: "conic-gradient(var(--cyan) " + (pct * 3.6) + "deg, rgba(255,255,255,0.09) 0)" }}><span className="lore-card-ring-in">{done ? <Glyph name="check" size={12} /> : pct}</span></span>)}
           </button>); })}
       </div>
-      <p className="panel-note" style={{ marginTop: 14 }}>Every passage is tagged <b style={{ color: "var(--cyan)" }}>Canon</b>, <b style={{ color: "var(--gold)" }}>Creator</b>, or <b style={{ color: "var(--orange)" }}>Theory</b> — so you always know what's confirmed and what's still debated.</p>
+
+      <div className="bk-shelf-head">
+        <h3 className="bk-shelf-title"><Glyph name="book" size={14} /> Bookshelf</h3>
+        <button className="bk-add" onClick={() => fileRef.current && fileRef.current.click()}>＋ Add a book</button>
+      </div>
+      <p className="bk-shelf-note">Your own books &amp; comics, stored <b>only on this device</b> — never uploaded or published. Import the <code>.hbook.zip</code> packs (in iCloud → <code>_companion-packs</code>).</p>
+      <input type="file" accept=".zip,application/zip" multiple ref={fileRef} onChange={(e) => { onImportBooks(e.target.files); e.target.value = ""; }} style={{ display: "none" }} />
+      {bookBusy && (
+        <div className={"bk-busy" + (bookBusy.error ? " bk-busy-err" : "")}>
+          {bookBusy.error
+            ? "Couldn't import " + bookBusy.name + " — " + bookBusy.error
+            : "Importing " + bookBusy.name + "… " + (bookBusy.total ? Math.round((bookBusy.done / bookBusy.total) * 100) + "%" : "reading")}
+        </div>)}
+      {shelf.length === 0
+        ? <button className="bk-empty" onClick={() => fileRef.current && fileRef.current.click()}><b>Your bookshelf is empty.</b><span>Tap to add a book pack.</span></button>
+        : <div className="bk-grid">{shelf.map((b) => { const r = reading[b.id]; const pct = r ? Math.round((r.pct || 0) * 100) : 0; const done = pct >= 98; return (
+            <BookSpine key={b.id} book={b} pct={pct} done={done} onOpen={() => setOpenId(b.id)}
+              confirming={confirmRm === b.id} onAskRemove={() => setConfirmRm(confirmRm === b.id ? null : b.id)}
+              onConfirmRemove={() => { onRemoveBook(b.id); setConfirmRm(null); }} />
+          ); })}</div>}
+
+      <p className="panel-note" style={{ marginTop: 14 }}>Lore passages are tagged <b style={{ color: "var(--cyan)" }}>Canon</b>, <b style={{ color: "var(--gold)" }}>Creator</b>, or <b style={{ color: "var(--orange)" }}>Theory</b>. Your imported books are your own copies — the lore tales above are sourced from them and the other guides.</p>
       <div className="footer-space" />
+    </div>
+  );
+}
+
+function BookReader({ book, getPageBlob, reading, setReading, bookmarked, toggleBookmark, onClose }) {
+  const files = book.files || [];
+  const total = files.length;
+  const [page, setPage] = useState(() => Math.min(Math.max(0, (reading[book.id] && reading[book.id].page) || 0), Math.max(0, total - 1)));
+  const [urls, setUrls] = useState({});
+  const [fit, setFit] = useState("page"); // 'page' = whole page (swipe) · 'width' = fill width + scroll
+  const urlsRef = useRef({});
+  const stageRef = useRef(null);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      const want = [page, page + 1, page - 1, page + 2].filter((i) => i >= 0 && i < total);
+      const next = { ...urlsRef.current };
+      for (const i of want) {
+        if (next[i]) continue;
+        try { const blob = await getPageBlob(book.id, files[i]); if (!alive) return; if (blob) next[i] = URL.createObjectURL(blob); } catch (e) {}
+      }
+      for (const k of Object.keys(next)) { const i = +k; if (Math.abs(i - page) > 3) { URL.revokeObjectURL(next[i]); delete next[i]; } }
+      urlsRef.current = next; if (alive) setUrls({ ...next });
+    })();
+    return () => { alive = false; };
+  }, [page, total, book.id]);
+  useEffect(() => () => { Object.values(urlsRef.current).forEach((u) => URL.revokeObjectURL(u)); urlsRef.current = {}; }, []);
+  useEffect(() => { const pct = total > 1 ? page / (total - 1) : 1; setReading((m) => ({ ...m, [book.id]: { page, pct, at: Date.now() } })); }, [page, total, book.id]);
+  useEffect(() => { if (stageRef.current) stageRef.current.scrollTop = 0; }, [page, fit]);
+
+  const go = useCallback((d) => setPage((p) => Math.max(0, Math.min(total - 1, p + d))), [total]);
+  const touch = useRef({ x: 0, y: 0 });
+  const onTS = (e) => { touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }; };
+  const onTE = (e) => { const dx = e.changedTouches[0].clientX - touch.current.x, dy = e.changedTouches[0].clientY - touch.current.y; if (fit === "page" && Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1); };
+  const progPct = total > 1 ? (page / (total - 1)) * 100 : 100;
+  const cur = urls[page];
+
+  return (
+    <div className="bk-reader">
+      <div className="bk-rbar">
+        <button className="bk-x" onClick={onClose}>‹ Library</button>
+        <div className="bk-rtitle">{book.title}</div>
+        <div className="bk-rctrls">
+          <button className={"bk-bm" + (bookmarked ? " bk-bm-on" : "")} onClick={toggleBookmark} aria-label="Save">◈</button>
+          <button className="bk-fit" onClick={() => setFit((f) => (f === "page" ? "width" : "page"))} aria-label="Toggle zoom">{fit === "page" ? "⤢" : "▢"}</button>
+        </div>
+      </div>
+      <div className={"bk-stage bk-stage-" + fit} ref={stageRef} onTouchStart={onTS} onTouchEnd={onTE}>
+        {cur ? <img className="bk-img" src={cur} alt={"Page " + (page + 1)} draggable={false} /> : <div className="bk-loading">Loading page {page + 1}…</div>}
+        {fit === "page" && <>
+          <button className="bk-edge bk-edge-l" onClick={() => go(-1)} disabled={page <= 0} aria-label="Previous page" />
+          <button className="bk-edge bk-edge-r" onClick={() => go(1)} disabled={page >= total - 1} aria-label="Next page" />
+        </>}
+      </div>
+      <div className="bk-foot">
+        <button className="bk-nav" onClick={() => go(-1)} disabled={page <= 0}>‹</button>
+        <div className="bk-prog"><span className="bk-prog-bar" style={{ width: progPct + "%" }} /></div>
+        <div className="bk-page">{page + 1} / {total}</div>
+        <button className="bk-nav" onClick={() => go(1)} disabled={page >= total - 1}>›</button>
+      </div>
     </div>
   );
 }
@@ -2211,6 +2444,58 @@ function StyleBlock() {
 .lore-prog{flex:1;height:4px;border-radius:4px;background:rgba(127,127,127,.18);overflow:hidden;}
 .lore-prog-bar{display:block;height:100%;background:var(--cyan);transition:width .25s;}
 .lore-page{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;color:var(--rdim);flex-shrink:0;min-width:44px;text-align:right;}
+/* ---- v12 Bookshelf (on-device books) ---- */
+.bk-shelf-head{display:flex;align-items:center;justify-content:space-between;margin:26px 0 4px;}
+.bk-shelf-title{display:flex;align-items:center;gap:7px;font-family:'Cinzel',Georgia,serif;font-size:15px;color:var(--parch);margin:0;}
+.bk-add{background:rgba(95,214,226,.12);border:1px solid var(--cyan);color:var(--cyan);border-radius:9px;padding:6px 12px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;cursor:pointer;}
+.bk-shelf-note{font-size:11px;line-height:1.55;color:var(--parch-dim);margin:0 0 12px;}
+.bk-shelf-note code{font-family:ui-monospace,Menlo,monospace;font-size:10px;background:rgba(255,255,255,.06);padding:1px 4px;border-radius:4px;}
+.bk-busy{background:rgba(95,214,226,.1);border:1px solid rgba(95,214,226,.35);color:var(--cyan);border-radius:9px;padding:9px 12px;font-size:12px;margin-bottom:12px;font-family:'Rajdhani',sans-serif;font-weight:600;}
+.bk-busy-err{background:rgba(214,95,95,.12);border-color:rgba(214,95,95,.4);color:#e7a3a3;}
+.bk-empty{display:flex;flex-direction:column;gap:4px;width:100%;text-align:center;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,.4));border:1px dashed rgba(255,255,255,.16);border-radius:13px;padding:26px 16px;cursor:pointer;color:var(--parch-dim);}
+.bk-empty b{color:var(--parch);font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:14px;}
+.bk-empty span{font-size:12px;}
+.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.bk-cell{display:flex;flex-direction:column;gap:5px;}
+.bk-spine{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-align:left;aspect-ratio:3/4.1;background:linear-gradient(155deg,var(--bk1),var(--bk2));border:1px solid rgba(255,255,255,.1);border-left:4px solid rgba(255,255,255,.16);border-radius:5px 10px 10px 5px;padding:13px 12px;cursor:pointer;color:var(--parch);overflow:hidden;box-shadow:0 5px 14px rgba(0,0,0,.32);}
+.bk-spine-band{position:absolute;top:0;bottom:0;left:9px;width:1px;background:rgba(255,255,255,.1);}
+.bk-spine-emblem{color:var(--gold);opacity:.85;margin-bottom:2px;}
+.bk-spine-title{font-family:'Cinzel',Georgia,serif;font-size:13px;line-height:1.22;color:#f3ead4;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+.bk-spine-by{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--parch-dim);line-height:1.25;}
+.bk-spine-kind{margin-top:auto;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:8.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--cyan-dim);}
+.bk-spine-bar{display:block;width:100%;height:3px;border-radius:3px;background:rgba(255,255,255,.14);overflow:hidden;}
+.bk-spine-bar span{display:block;height:100%;background:var(--cyan);}
+.bk-spine-badge{position:absolute;top:9px;right:9px;background:rgba(7,15,18,.7);border:1px solid rgba(95,214,226,.4);color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:9px;padding:1px 6px;border-radius:20px;}
+.bk-cell-foot{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 2px;}
+.bk-cell-sub{font-size:10px;color:var(--parch-dim);font-family:'Rajdhani',sans-serif;}
+.bk-rm{background:none;border:none;color:var(--parch-dim);opacity:.6;font-size:10px;cursor:pointer;padding:0;text-decoration:underline;}
+.bk-rm-grp{display:flex;gap:6px;align-items:center;}
+.bk-rm-yes{background:rgba(214,95,95,.16);border:1px solid rgba(214,95,95,.45);color:#e7a3a3;border-radius:6px;font-size:10px;padding:2px 7px;cursor:pointer;}
+.bk-rm-no{background:none;border:none;color:var(--parch-dim);font-size:10px;cursor:pointer;}
+/* book reader (page images) */
+.bk-reader{background:#06090c;color:#e8eef1;margin:-14px -16px 0;min-height:calc(100vh - 52px);display:flex;flex-direction:column;}
+.bk-rbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.1);}
+.bk-x{background:none;border:none;color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;cursor:pointer;flex-shrink:0;}
+.bk-rtitle{flex:1;min-width:0;text-align:center;font-family:'Cinzel',Georgia,serif;font-size:12px;color:#cfd8dc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.85;}
+.bk-rctrls{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.bk-bm{background:none;border:none;color:#7b8a90;font-size:16px;cursor:pointer;padding:0;line-height:1;}
+.bk-bm-on{color:var(--cyan);}
+.bk-fit{background:none;border:none;color:#7b8a90;font-size:16px;cursor:pointer;padding:0;line-height:1;}
+.bk-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#06090c;}
+.bk-stage-page{overflow:hidden;}
+.bk-stage-page .bk-img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;}
+.bk-stage-width{overflow-y:auto;overflow-x:hidden;align-items:flex-start;justify-content:flex-start;-webkit-overflow-scrolling:touch;}
+.bk-stage-width .bk-img{width:100%;height:auto;display:block;}
+.bk-img{user-select:none;-webkit-user-drag:none;}
+.bk-loading{color:#7b8a90;font-family:'Rajdhani',sans-serif;font-size:13px;}
+.bk-edge{position:absolute;top:0;bottom:0;width:26%;background:none;border:none;cursor:pointer;padding:0;-webkit-tap-highlight-color:transparent;}
+.bk-edge-l{left:0;}.bk-edge-r{right:0;}
+.bk-foot{display:flex;align-items:center;gap:11px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(255,255,255,.1);background:#06090c;}
+.bk-nav{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#e8eef1;width:34px;height:34px;border-radius:9px;font-size:18px;line-height:1;cursor:pointer;flex-shrink:0;}
+.bk-nav:disabled{opacity:.3;cursor:default;}
+.bk-prog{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;}
+.bk-prog-bar{display:block;height:100%;background:var(--cyan);transition:width .25s;}
+.bk-page{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;color:#9aa7ac;flex-shrink:0;min-width:54px;text-align:right;}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 `}</style>);
 }

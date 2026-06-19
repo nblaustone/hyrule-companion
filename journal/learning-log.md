@@ -5,6 +5,33 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-18 — v12: the on-device Bookshelf (read-my-own-copy vs. publish)
+
+- **The user reframed the whole request, and was right to.** He handed over a folder of real Zelda books/comics
+  (from a shadow library) and said "add all of it to our library + use it to cross-check accuracy." My first
+  instinct was the project's reflex: don't embed, just *mine* the books as sources (the v11 method). He pushed
+  back — "change the rule, this is private, on my phone." The lesson banked: **ADR 0003 was always about
+  *publishing*, not about him reading his own copies.** The honest split (ADR 0009) keeps 0003's hard line for
+  the published artifact and adds a private, on-device reader. Don't conflate "we won't redistribute" with "you
+  can't read what you own."
+- **The real wall wasn't copyright — it was plumbing.** I verified before asserting: the repo is **public** and
+  auto-pushes, and GitHub rejects files >100MB (*Hyrule Historia* is 181MB). So "embed all the books" literally
+  can't be committed. That hard fact — surfaced, not hand-waved — is what made on-device-only the obviously-right
+  architecture, and the user picked it himself. Check the remote/visibility before designing.
+- **Avoid shipping a library you don't need.** CBR=RAR, which is painful to parse in-browser. Sidestepped it
+  entirely: pre-process on the Mac (bsdtar + sips + `zip -0`) into **store-only** zips. JPEGs are already
+  compressed, so STORE costs nothing — and the reader needs a ~30-line `readHbook` (central-dir walk + byte
+  slice), **zero decompression lib**. The offline build stayed ~1MB. When a format is hard, move the hard work to
+  build time and ship the dumbest possible runtime.
+- **Two storage tiers, on purpose.** localStorage can't hold 159MB; page blobs went to a dedicated **IndexedDB**
+  db, only the tiny index rode in `store`. Reused `hyrule:reading`/`bookmarks` so Continue-reading + progress
+  rings worked across books and tales for free. The EPUB reused `LoreReader` (reflow); only comics/PDF guides
+  needed the new `BookReader` (page images).
+- **Verified end-to-end headless.** Drove the real file `<input>` via a synthetic `DataTransfer` + change event
+  in `preview_eval` (fetch pack → File → dispatch), then asserted IndexedDB import → spine appears → page image
+  renders (1500×1029) → nav advances → EPUB opens in the reflow reader. 0 console errors. Packs are gitignored;
+  test copies were deleted before commit. **Deferred (the user's other ask): the accuracy cross-reference pass.**
+
 ## 2026-06-16 — v10: the interactive cooking tool (research → build)
 
 - **The user found the wedge by feel, not features.** After I floated a feature menu and a "three souls" reframe

@@ -3,3 +3,10 @@ build/.app.processed.jsx
 # os
 .DS_Store
 node_modules/
+# v12 ADR 0009: copyrighted book artifacts NEVER touch the public repo.
+# Source books live in iCloud; import packs are generated locally and stay on-device.
+*.hbook.zip
+*.cbr
+*.cbz
+_companion-packs/
+books/

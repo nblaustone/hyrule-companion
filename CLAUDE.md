@@ -16,7 +16,10 @@
 - **Not a networked app.** No backend, no analytics, no external asset at runtime. It must work in airplane mode.
 - **Not a data-dump.** It's a *path* through the game (Plateau → 4 Divine Beasts → Master Sword → Ganon) with
   reference tabs hanging off it — not a wiki. Depth is curated, spoiler-aware, beginner-first.
-- **Not copyright-infringing.** We describe and re-draw; we never embed Nintendo assets. (ADR 0003)
+- **Not copyright-infringing.** We describe and re-draw; we never embed Nintendo assets *in the published
+  build*. (ADR 0003) The v12 Bookshelf is the one nuance: the owner may import **his own** book/comic copies
+  into **private on-device storage** (IndexedDB) through neutral reader tooling — never uploaded, never in the
+  repo or the built `index.html`. The published artifact stays 100% asset-clean. (ADR 0009)
 
 ## Posture (the three laws — inherited from the brain family)
 1. **Don't invent.** Every step/fact traces to a real BotW source, or it's marked uncertain. An honest "unsure"
@@ -59,6 +62,7 @@ The pipeline has three reproducible steps (run in order only when the data chang
 | `node build/assemble-knowledge.mjs` | research output (`knowledge/_raw-research.json`) → clean, **reconciled** datasets (`knowledge/shrines.json` …). Refuses to write unless it sums to **120 shrines / 15 towers / 4 Great Fairies, 0 dup names**. |
 | `node build/assemble-cooking.mjs` | v10 cooking-tool ingredient sweep (`/tmp/cook-raw.json`) → reconciled `knowledge/cooking-ingredients.json` (120 ingredients; normalizes effects, encodes Hearty `hearty:+N`, dedups). Refuses to write unless all 11 effects are covered. |
 | `node build/inline-data.mjs` | inlines `knowledge/*.json` (incl. `cooking-ingredients.json` → `COOK_INGREDIENTS`) into the `.jsx` GEN:DATA block (strips agent `notes` so verification meta never reaches the UI) |
+| `node build/pack-books.mjs [id…]` | **LOCAL only, never part of the build** (v12, ADR 0009). Turns the owner's own iCloud book files (CBR/PDF/EPUB) into downscaled, store-only `<id>.hbook.zip` packs in `iCloud/Zelda/_companion-packs/` for private on-device import. Books never enter the repo (gitignored). |
 | `node build/build.mjs` | compile `HyruleCompanion.jsx` → self-contained offline `index.html` (+ `manifest.webmanifest`, `icon-*.png`) |
 | open `index.html`      | works by double-click in any browser; on iPhone Safari → Share → **Add to Home Screen** |
 | (host) push `index.html` + `manifest.webmanifest` + `icon-512.png` to GitHub Pages | gives a tap-to-install URL |
@@ -88,6 +92,10 @@ it runs fully offline once it's on the device. First load needs no network. The 
   `window.storage` if present (Claude artifact) **and falls back to `localStorage`** (standalone/phone). Backup =
   base64 of `{progress,koroks,notes,armorTier,recipes}` (blob v7).
   Counters use the functional updater `setKoroks(k=>…)` (stale-closure guard).
+  Lore/reader state is top-level `hyrule:reading`/`hyrule:bookmarks`/`hyrule:readerprefs`/`hyrule:loreart`.
+  **v12 Bookshelf:** the small book index is `hyrule:books` (in `store`); the big page **blobs** live in a
+  dedicated **IndexedDB** db `hyrule-books` (store `pages`, key `bookId/filename`) — see `booksDB` + `readHbook`
+  near the top of the `.jsx`. Books are device-local; never in `store`/backup/repo (ADR 0009).
 - **Glyphs** are inline SVG in `Glyph()` — add a `case` for a new icon. **Styling** is one injected `<style>` in
   `StyleBlock()`. Dark teal base; ember-orange = "to do", activated-cyan = "done" (mirrors Sheikah tech state).
 
@@ -109,7 +117,13 @@ it runs fully offline once it's on the device. First load needs no network. The 
   offers "Update"). No need to ask each time — the owner has granted standing permission. The one guardrail:
   **build (`node build/build.mjs`) and sanity-check before pushing** so we never deploy a white-screen.
 
-## Tabs & features (v6–v11)
+## Tabs & features (v6–v12)
+**v12:** the **Lore** tab now also carries a **Bookshelf** (`LibraryView` extended + `BookReader` + `BookSpine`)
+— a private, on-device reader for the owner's own books/comics (ADR 0009). Import `.hbook.zip` packs (made by
+`build/pack-books.mjs`) → page blobs go to IndexedDB (`booksDB`), parsed by the zero-dep `readHbook`. Comics +
+PDF guides render as swipeable page images (`BookReader`, fit-page ↔ fit-width); the EPUB reflows through the
+existing `LoreReader`. Reading position/bookmarks/Continue-reading are shared with the lore tales. Nothing is
+uploaded or committed — the published build stays asset-clean (`.gitignore` blocks all book artifacts).
 Tabs: **Status · Journey · Shrines · Items · Cook · Guide · Lore** (7) + a **global-search** overlay (topbar magnifier,
 `SearchOverlay`) across everything. **v9 additions:** a persistent **Resume "you're here"** affordance (topbar
 pin + Status hero, `resumeTarget`/`jumpToStep` → opens + flashes your first uncompleted step); a **joy pass**
@@ -164,6 +178,15 @@ layout, `REGION_MAPS` = the per-region coords.
   curse → the timeline → Master Sword → the Calamity → the Champions → the peoples). Authored via a
   source→draft→adversarial-edit **writers'-room Workflow**; verified in-browser, 0 console errors. Reading state
   is top-level `hyrule:reading`/`hyrule:bookmarks`/`hyrule:readerprefs`. Deferred: per-chapter SVG art (`t:"art"`).
+- **v12 (done):** the **on-device Bookshelf** (ADR 0009) — the Lore tab gains a private reader for the owner's
+  **own** book/comic copies (*Hyrule Historia*, the *OoT* manga, the official *BotW Explorer's Guide*, the Yuw
+  *BotW Game Guide*, *OoT: Pathways*). `build/pack-books.mjs` (local; sips downscale + store-only zip) →
+  `.hbook.zip` packs in iCloud → import once → page blobs in IndexedDB (`booksDB`), read by a zero-dep
+  `readHbook`. `BookReader` (swipe page-images, fit-page ↔ fit-width) for comics/PDF guides; the EPUB reflows
+  through `LoreReader`. ~250MB source → ~159MB packs; the **published build stays ~1MB and asset-clean** (books
+  never touch the repo — `.gitignore` + offline-check). Verified in-browser end-to-end (import → IndexedDB →
+  page render → reflow), 0 console errors. **Next:** use the books as the **accuracy cross-reference** for the
+  walkthrough/shrines/cooking/memories honesty audits, and as canon sourcing for new Lore chapters.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3
