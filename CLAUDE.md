@@ -247,6 +247,23 @@ layout, `REGION_MAPS` = the per-region coords.
   touch-burn**; Thunderblight's omitted 3rd phase; Talus drop/tier fixes). Verified in-browser (7 cards + Igneo
   reveal render, 0 console errors). **Note:** `inline-data` strips only *top-level* `notes/confidence/changes`,
   so `bestiary.basics` (top-level array) and per-enemy `battle` survive — don't name a data field `notes`.
+- **v12.9 (done):** **playthrough-depth bundle** — four features the user greenlit together. (1) An **armor
+  upgrade tracker**: each set gets `tiers` (★1–★4 full-set materials + rupees) + a `farm` note (where to get
+  them); `ArmorView` shows the *next* star's shopping list inside the existing tier stepper (the 2 non-
+  upgradeable sets — Gerudo Vai, Royal Guard — carry a clean "can't be upgraded" note). (2) A **"What to do
+  next" coach** on Status (`nextUp` memo, pure logic over progress): prioritized jump-cards — continue the main
+  quest, shrines in your pinned region, vessel ready, next memory, a Great Fairy, armor worth chasing, Hestu.
+  (3) A **Korok solver** (`KorokSolver`): search + category chips over 19 enriched puzzle types (see/do). (4) A
+  new **Money** guide segment (`EconomyView`, `knowledge/economy.json`: rupee earners + material farming + tips).
+  Data authored by one 3-phase Workflow (`build/gen-depth-workflow.mjs`, 38 agents → `build/merge-depth.mjs`).
+  Verify pass caught real armor errors (SegmentNext's wrong ★4 Champion's Tunic = Silent Princess ×10 not ×3;
+  SAMURAI GAMERS' Amber ×30; sites confusing Great-Fairy **awakening fees** 100/500/1k/10k with upgrade rupees —
+  left at 0 where unconfirmable, honesty law). New wiring: `ECONOMY` added to `inline-data` data + GAMES bundle +
+  a `["economy","Money"]` guideSeg. Verified in-browser, 0 console errors. **Gotcha:** the published app's
+  **service worker caches `localhost:<port>`**, so after a rebuild the preview serves the STALE build — verify
+  on a fresh port/origin (or unregister SW + clear caches) or you'll "verify" the old bundle. Also: the preview
+  tool's own python server can wedge (macOS local-network permission gate); a plain `python3 -m http.server` on a
+  new port + `window.location.href` works around it.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

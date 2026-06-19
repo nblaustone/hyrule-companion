@@ -1,0 +1,135 @@
+{
+ "rupees": [
+  {
+   "method": "Sell gems (mine ore deposits)",
+   "detail": "Smash black ore deposits (hammer/heavy weapon) for gems that sell to General Stores at fixed rates — Amber 30, Opal 30, Topaz 180, Ruby 210, Sapphire 260, Diamond 500 — with the densest rare-gem mining in the Eldin mountains (Goron/Death Mountain mines) and Gerudo Highlands. (Beedle pays a bit more for some, e.g. 60 for Opal.)"
+  },
+  {
+   "method": "Sell to the premium gem buyer (Ramella)",
+   "detail": "Ramella, a traveling Gerudo merchant in Goron City, pays a markup over normal shops — e.g. 10 rubies for 1,300, 10 sapphires for 1,700, 10 diamonds for 5,500. Catch: she buys only ONE gem type per visit (it rotates), and only in batches of 10. Save your gems and check what she wants each day."
+  },
+  {
+   "method": "Farm Talus gems",
+   "detail": "Stone Taluses (and the rarer Luminous/Rare/Frost/Igneo variants) drop ore and gems including diamonds when smashed apart; Luminous and Rare Taluses are the most reliable diamond sources but are tougher fights, so this is a mid-game earner."
+  },
+  {
+   "method": "Dragon-horn / scale farming",
+   "detail": "Shoot a dragon's horn for a Shard of Horn that sells for ~300 rupees (scales from hitting the body are easier but worth less). Farosh is the easiest to camp — it rises from Riola Spring at night (warp to Shoda Sah Shrine near Lakeside Stable). Use a wooden (non-metal) bow because metal draws its lightning, and wear Zora gear to grab parts that fall in the water."
+  },
+  {
+   "method": "Mine luminous stones",
+   "detail": "Luminous Stones glow at night and cluster on the cliffs around Zora's Domain; they sell for ~70 rupees each. Note: trading 10 to Ledo in Zora's Domain ('Luminous Stone Gathering') gives a Diamond, but 10 stones (~700) for one Diamond (~500) is a net loss — do it for the Diamond material, not for profit. Selling the stones outright is the better cash."
+  },
+  {
+   "method": "Cook and sell high-value dishes",
+   "detail": "A cooked dish is worth more than its raw parts, so five-ingredient meals of pricey items sell well — e.g. five Raw Gourmet Meat cooks into a Meat Skewer that sells for ~490 rupees. Reliable but slower than gems/dragons and it ties up ingredients."
+  },
+  {
+   "method": "Sell monster parts at shops (not Kilton)",
+   "detail": "Bokoblin/Lizalfos/Moblin parts (fangs, horns, guts) only fetch Kilton's 'Mon' currency at the Fang & Bone — to get actual rupees, sell stacks of these and leftover Guardian parts (the common ones) to regular General Stores. Each is cheap, but bulk adds up."
+  },
+  {
+   "method": "Treasure-chest gambling at Lurelin (save-scum)",
+   "detail": "Cloyne in Lurelin Village lets you wager 10/50/100 rupees on 1-of-3 chests; only the 100-rupee bet is worth it (one chest holds a Gold Rupee = 300, i.e. 3x). Odds are 1-in-3 honestly, but you can save before picking and reload on a loss, making the 100 wager an effectively risk-free triple."
+  },
+  {
+   "method": "Gut Check Rock challenges",
+   "detail": "At Gut Check Rock in the Gerudo Highlands, the Super Gut Check Challenge costs 100 rupees to enter and you keep 300 collected on the climb (net +200) plus an Endura Shroom. A handy one-time-ish payout once you can reach the top."
+  },
+  {
+   "method": "Snowball Bowling at Pondo's Lodge",
+   "detail": "At Pondo's Lodge northeast of Hebra Tower, bowling costs 20 rupees a throw; a strike pays a Gold Rupee (300) — your first-ever strike instead gives the Blizzard Rod — and with practice it's one of the fastest repeatable rupee earners in the game."
+  },
+  {
+   "method": "Ridgeland Tower gliding (Branli)",
+   "detail": "Branli atop Ridgeland Tower (20-rupee entry) pays by how far you glide: under 450m nothing, 450–600m a Purple Rupee (50), over 600m a Silver Rupee (100, the cap). The top prize is reachable without Revali's Gale — glide southeast toward the lowest ground. A small, largely one-time reward, not a real farm."
+  },
+  {
+   "method": "Horse-gear archery/race minigames",
+   "detail": "These pay gear rather than rupees but save you buying it: the Mounted Archery Camp in Faron (near Highland Stable, run by Jini, 20-rupee entry) gives the Knight's Bridle/Saddle for hitting 20/23 balloon targets from horseback."
+  }
+ ],
+ "farming": [
+  {
+   "item": "Star Fragment",
+   "where": "Top of the Dueling Peaks (warp to Shee Vaneer Shrine, climb behind it) — any high, open vantage works.",
+   "tip": "They fall at night, roughly 9:00 PM to 3:30 AM (and you have until ~5 AM to grab one before it despawns). Light a fire and pass time to 9 PM, watch for a falling streak, then paraglide toward the golden landing glow. Some players report more falling stars on a Blood Moon night, but that isn't a confirmed mechanic. Needed for the top tier of many armor upgrades."
+  },
+  {
+   "item": "Diamonds & rare gems (Ruby/Sapphire/Topaz)",
+   "where": "Rare Ore Deposits (golden ore) in the Eldin mines — a couple just south of Goron City — plus the Talus monsters across Hyrule.",
+   "tip": "Smash ore deposits with a Hammer/Drillshaft-type weapon for the best gem odds; they respawn after a Blood Moon. The most reliable Diamond source is killing Stone Talus (Luminous/Rare), Frost Talus, and Igneo Talus — each can drop a Diamond and they respawn on Blood Moon."
+  },
+  {
+   "item": "Lynel parts — horns, hooves, guts (incl. Silver/Gold)",
+   "where": "Ploymus Mountain east of Zora's Domain (one fixed Red-Maned Lynel — stays the same, easy repeat), the Coliseum Ruins near Outskirts Stable (upgrades with your progress), and three Silver Lynels north of Hebra Tower.",
+   "tip": "Lynels respawn every Blood Moon. After all 4 Divine Beasts (or ~23+ hearts) most non-fixed spawns become Silver, giving the best horns/guts. Sneakstrike, then mount-and-headshot (climb on for free hits) downs them fast. Lynel parts upgrade the Barbarian set."
+  },
+  {
+   "item": "Bokoblin / Moblin / Lizalfos parts (horns, fangs, guts)",
+   "where": "Any enemy camp; dense early spots are along the road south of Dueling Peaks and the Great Plateau perimeter. Gerudo Desert camps are good once Vah Naboris is done (no lightning storms).",
+   "tip": "Plain red/orange enemies drop only horns/fangs (or talons for Lizalfos) — GUTS come from the upgraded Blue/Black/Silver/Gold Bokoblin and Moblin variants (Lizalfos don't drop guts at all). Stronger variants appear in greater numbers after Divine Beasts. Everything respawns each Blood Moon, so clear camps the night before."
+  },
+  {
+   "item": "Ancient parts (gears, screws, springs, shafts, cores)",
+   "where": "Active Guardians around Hyrule Castle / Hyrule Field, and Akkala (near the Akkala Tech Lab) — the densest Guardian Stalker fields.",
+   "tip": "Use Ancient Arrows or a strong shield to parry the beam (one-shot). Hitting/severing the legs yields extra parts. Cores/Giant Cores are the rare drops. The merchant Teli (walks Fort Hateno ↔ Hateno Village) sells screws/springs/gears, and on RAINY days doubles stock and adds Shafts and Cores. Ancient parts power the Ancient armor set, ancient weapons, and rune upgrades."
+  },
+  {
+   "item": "Dragon parts — Dinraal (fire)",
+   "where": "Tabantha Great Bridge / Tanagar Canyon — warp to Shae Loya Shrine, rest to morning, then look north around 6–6:30 AM as Dinraal flies south through the canyon under the bridge.",
+   "tip": "One part per day. Shoot the HORN on its head for the horn shard, the mouth for fang, feet for claw, body for scale. Wear Flamebreaker armor — Dinraal radiates fire. (Note: Dinraal has no associated spring quest — that's Naydra.)"
+  },
+  {
+   "item": "Dragon parts — Naydra (ice)",
+   "where": "Mount Lanayru — warp to Jitan Sa'mi Shrine near the peak (unlocked after the Spring of Wisdom quest), make a fire, rest to morning, then glide down as Naydra rises/circles the mountain in the early morning.",
+   "tip": "One part per day; same horn/mouth/feet/body targeting. Wear Snowquill for the cold. Naydra only appears after you cleanse it of Malice during 'The Spring of Wisdom.' Its parts give cold/shock-resist cooking and high-value horns."
+  },
+  {
+   "item": "Dragon parts — Farosh (lightning)",
+   "where": "Riola Spring (warp to Shoda Sah Shrine) is the most reliable spot — trees shield your fire from rain and Farosh surfaces within seconds of resting to night. Also rises from Lake Hylia (Bridge of Hylia towers) at night.",
+   "tip": "The easiest dragon to farm. Appears at night (~9 PM–7 AM); shoot horn/mouth/feet/body for the part you need (one/day). Do NOT use metal gear/bows — Farosh discharges lightning. Wear Zora armor to retrieve parts that drop in the water. Its parts feed shock-resist and the Rubber armor upgrades."
+  },
+  {
+   "item": "Hearty Durian (max +stamina/hearts food)",
+   "where": "Faron region — warp to Faron Tower; the plateau just NORTH of it is dotted with Hearty Durian trees; also northwest of Dracozu Lake.",
+   "tip": "Respawns each Blood Moon. Cooking 5 Hearty Durians = a full-heal dish with big bonus (yellow) hearts — the best survival food in the game. Grab a full stack each visit."
+  },
+  {
+   "item": "Big Hearty Radish / Hearty Radish",
+   "where": "Big Hearty Radish: Akkala Highlands and Lanayru Great Spring. Hearty Radish is common around Hyrule Ridge / Sahasra Slope near Kakariko.",
+   "tip": "Pick the same routes after each Blood Moon. A single Big Hearty Radish in a dish grants the most temporary (yellow) hearts of any one ingredient — the go-to for tough fights when you're low on Durians."
+  },
+  {
+   "item": "Stealth bugs/critters — Cold Darner, Warm Darner, Sunset Firefly, Sneaky River Snail",
+   "where": "Cold Darner: Thundra Plateau / Tabantha. Warm Darner: Akkala Highlands / Hyrule Field. Sunset Firefly: Kakariko Village and night fields. Sneaky River Snail: water's edge in Zora's Domain.",
+   "tip": "Wear stealth gear or drink a Sneaky Elixir, then creep slowly — these flee if you rush. Fireflies are night-only, most abundant midnight–3 AM, and don't appear in rain. These feed Sneaky/Heat/Cold elixirs; 15 Sunset Fireflies fully upgrade the Stealth (Sheikah) set."
+  },
+  {
+   "item": "Heat/cold-resist butterflies — Warm/Cold Darner, Summerwing & Smotherwing Butterfly",
+   "where": "Summerwing Butterfly: warm zones — base of Death Mountain, Great Plateau. Smotherwing Butterfly: edges of the lava lakes in Eldin Canyon / Death Mountain.",
+   "tip": "Smotherwing needs Flamebreaker armor (or a Fireproof Elixir) just to reach it without burning. Cook a butterfly + monster part for a Fireproof or Chilly/Spicy elixir. Beedle also sells some of these at certain stables if you'd rather buy."
+  },
+  {
+   "item": "Sunshrooms (heat-resist) & Hearty/Mighty produce",
+   "where": "Sunshrooms grow on the warm slopes of Eldin (around Goron City / Death Mountain foothills). Mighty Bananas: Faron jungle and Eventide Island.",
+   "tip": "Sunshroom dishes give Heat Resistance. Mighty Bananas cook into Attack-up (Mighty) food — five = a strong attack buff for boss fights. All respawn after a Blood Moon."
+  },
+  {
+   "item": "Raw Gourmet Meat (best meat) + Prime Meat / fish",
+   "where": "Raw Gourmet Meat drops from large animals in the cold north — moose, water buffalo, rhinos, bears — in the Hebra/Tabantha snowfields. Hyrule Bass: nearly any pond; Hearty Salmon/Bass: cold rivers.",
+   "tip": "Sneak-shoot or bomb big animals for Raw Gourmet Meat (best per-piece). Stunning fish with a shock weapon or dropped bomb lets you scoop a whole school at once. Cooked into Meat Skewers, this is both top-tier buff food and the best cook-to-sell."
+  }
+ ],
+ "tips": [
+  "DON'T sell Ancient parts (Guardian drops) — you need them for the Ancient armor set, ancient weapons, and the Sheikah Sensor / Remote Bomb / Stasis rune upgrades at the Akkala Tech Lab.",
+  "DON'T sell Star Fragments — they're rare and required for the best armor upgrades, far outweighing their 300-rupee sell price.",
+  "DON'T sell dragon parts (scales, horns, claws, fangs) for quick cash — most high-tier armor upgrades demand them, and they're tedious to refarm (one per day).",
+  "DO cook ingredients before selling — a finished dish is worth several times its raw materials (a Gourmet Meat Skewer sells for ~490 rupees).",
+  "DO sell ores, surplus monster parts, and extra food as your everyday rupee source — they're renewable and not needed in bulk.",
+  "DON'T panic if your Hylian Shield breaks — once you've claimed it from Hyrule Castle's Lockup, Granté in Tarrey Town restocks it for 3,000 rupees (after you finish building Tarrey Town).",
+  "DO remember armor bought from town shops can be sold back, so a wrong purchase isn't fully wasted.",
+  "DO save up before Great Fairy Fountains — unlocking them costs 100, then 500, then 1,000, then 10,000 rupees (11,600 total), each one adding an armor-upgrade tier.",
+  "DO buy arrows in bulk whenever shops stock them — field pickup is unreliable, regular arrows are cheap, and Bomb Arrows come 10-for-350 at Fyson's shop in Tarrey Town."
+ ]
+}

@@ -1,133 +1,935 @@
 {
-  "sets": [
+ "sets": [
+  {
+   "name": "Champion's Tunic",
+   "pieces": "1 (body only)",
+   "where": "Given by Impa in Kakariko Village after recovering your first memory (Captured Memories); the blue tunic Zelda made for Link.",
+   "bonus": "No set bonus. Unique effect: displays exact enemy HP numbers when equipped. Strong base defense (highest single piece when fully upgraded).",
+   "upgrade": "Silver/Gold Lynel parts at higher stars (Lynel Hoof, Horn, Guts) plus rupees. No matching pieces, so it never grants a set bonus.",
+   "priority": "mid",
+   "tiers": [
     {
-      "name": "Champion's Tunic",
-      "pieces": "1 (body only)",
-      "where": "Given by Impa in Kakariko Village after recovering your first memory (Captured Memories); the blue tunic Zelda made for Link.",
-      "bonus": "No set bonus. Unique effect: displays exact enemy HP numbers when equipped. Strong base defense (highest single piece when fully upgraded).",
-      "upgrade": "Silver/Gold Lynel parts at higher stars (Lynel Hoof, Horn, Guts) plus rupees. No matching pieces, so it never grants a set bonus.",
-      "priority": "mid"
+     "star": 1,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      }
+     ]
     },
     {
-      "name": "Hylian Set",
-      "pieces": "3 (Hood, Tunic, Trousers)",
-      "where": "Bought cheaply early on. Tunic/Trousers from Enchanted (Kakariko) and Ventest Clothing Boutique (Hateno); the Hood from those same armor shops.",
-      "bonus": "No set bonus. Just solid, cheap all-around defense for beginners. The Hood gives no environmental resistance, only defense.",
-      "upgrade": "Bokoblin parts (Bokoblin Horn, Fang, Guts) at low tiers, the most common monster drops, so very easy to upgrade.",
-      "priority": "beginner"
+     "star": 2,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      },
+      {
+       "item": "Shard of Farosh's Horn",
+       "qty": 2
+      }
+     ]
     },
     {
-      "name": "Soldier's Set",
-      "pieces": "3 (Helm, Armor, Greaves)",
-      "where": "Bought at Ventest Clothing Boutique in Hateno Village; a step up in defense from Hylian. (Not sold at the Kakariko shop.)",
-      "bonus": "No set bonus. Higher base defense than Hylian for mid-game survivability.",
-      "upgrade": "Chuchu Jelly and Bokoblin Guts at low tiers, then Keese/Moblin and Lizalfos/Lynel parts at higher tiers.",
-      "priority": "mid"
+     "star": 3,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      },
+      {
+       "item": "Shard of Naydra's Horn",
+       "qty": 2
+      }
+     ]
     },
     {
-      "name": "Climbing Set (Climber's Bandanna + Climbing Gear)",
-      "pieces": "3 (Climber's Bandanna, Climbing Gear, Climbing Boots)",
-      "where": "Bandanna in a chest in Ree Dahee Shrine (Dueling Peaks); Gear in Chaas Qeta Shrine (SE off the coast); Boots in Tahno O'ah Shrine (eastern Mount Lanayru, Hateno region).",
-      "bonus": "Each piece gives Climbing Speed Up (faster scaling). Set bonus Climbing Jump Stamina Up (at 2 stars) cuts the stamina cost of jumping while climbing.",
-      "upgrade": "Keese parts plus Hightail Lizards / Hot-Footed Frogs (speed-themed materials).",
-      "priority": "beginner"
-    },
-    {
-      "name": "Stealth Set (Sheikah)",
-      "pieces": "3 (Stealth Mask, Stealth Chest Guard, Stealth Tights)",
-      "where": "Bought from Enchanted in Kakariko Village.",
-      "bonus": "Each piece gives Stealth Up (quieter, harder for enemies to notice). Set bonus Night Speed Up (at 2 stars).",
-      "upgrade": "Sneaky River Snails, Sunset Fireflies, and Rushrooms (stealth/night-themed materials).",
-      "priority": "mid"
-    },
-    {
-      "name": "Snowquill Set",
-      "pieces": "3 (Headdress, Tunic, Trousers)",
-      "where": "Bought from the Brazen Beak armor shop in Rito Village.",
-      "bonus": "Each piece gives 1 level Cold Resistance. Set bonus Unfreezable (at 2 stars) — immune to being frozen.",
-      "upgrade": "Cold-themed parts: Cold Darner, Winterwing Butterfly, and Ice Keese Wings.",
-      "priority": "beginner"
-    },
-    {
-      "name": "Flamebreaker Set",
-      "pieces": "3 (Helm, Armor, Boots)",
-      "where": "Helm, Armor, and Boots can be bought at Ripped and Shredded in Goron City; the Armor can alternatively be earned by trading 10 Fireproof Lizards to Kima at the Southern Mine (Fireproof Lizard Roundup).",
-      "bonus": "Each piece grants Flame Guard (resist burning/lava heat). Set bonus Fireproof (at 2 stars) — no damage from open flame.",
-      "upgrade": "Fire-themed parts: Fireproof Lizards, Smotherwing Butterflies, and Flame Keese Wings.",
-      "priority": "mid"
-    },
-    {
-      "name": "Desert Voe Set",
-      "pieces": "3 (Headband, Spaulder, Trousers)",
-      "where": "Bought from the armor shop in Gerudo Town, or from Rhondson once she moves to Tarrey Town.",
-      "bonus": "Each piece gives 1 level Heat Resistance (desert daytime). Set bonus Shock Resistance Up (at 2 stars) — reduces electric damage, but NOT full immunity.",
-      "upgrade": "Voltfin Trout, Voltfruit, and Electric Lizalfos parts (electricity-themed).",
-      "priority": "mid"
-    },
-    {
-      "name": "Gerudo Set (Vai Outfit)",
-      "pieces": "3 (Veil, Top, Sirwal)",
-      "where": "Bought from Vilia atop the cliffs at Kara Kara Bazaar for 600 rupees — required to enter Gerudo Town as a 'vai'.",
-      "bonus": "Each piece gives 1 level Heat Resistance. Set bonus Unfreezable (at 2 stars). Main draw: grants access to Gerudo Town.",
-      "upgrade": "Heat-themed parts: Hightail Lizard, Warm Darner, and Sand Cicada.",
-      "priority": "beginner"
-    },
-    {
-      "name": "Zora Set",
-      "pieces": "3 (Helm, Armor, Greaves)",
-      "where": "Armor from King Dorephan during the Vah Ruta quest at Zora's Domain; Helm in a sunken chest at Toto Lake; Greaves reward for the Lynel Safari side quest.",
-      "bonus": "Each piece gives Swim Speed Up; Zora Armor also lets you swim up waterfalls. Set bonus Swim Dash Stamina Up (at 2 stars) — cheaper swim-dashing.",
-      "upgrade": "Lizalfos parts (Lizalfos Tail, Talon, Horn) and Hyrule Bass — aquatic/lizard-themed.",
-      "priority": "mid"
-    },
-    {
-      "name": "Rubber Set",
-      "pieces": "3 (Helm, Armor, Tights)",
-      "where": "Found in shrine chests scattered across Hyrule (e.g. Toto Sah, Daka Tuss, Sasa Kai). No single shop.",
-      "bonus": "Each piece gives Shock Resistance. Set bonus Unshockable (at 2 stars) — full immunity to electric damage, including thunderstorm lightning.",
-      "upgrade": "Electricity-themed: Yellow Chuchu Jelly, Electric Keese Wings, and Electric Lizalfos Tails.",
-      "priority": "mid"
-    },
-    {
-      "name": "Radiant Set",
-      "pieces": "3 (Mask, Shirt, Tights)",
-      "where": "Bought from the Gerudo Secret Club in Gerudo Town after The Secret Club's Secret quest; each piece also costs Luminous Stones plus rupees.",
-      "bonus": "Set bonus (at 2 stars) Disguise (Stal-types ignore you) plus Bone Atk. Up (boosts bone/Stal-type weapon damage). Glows in the dark.",
-      "upgrade": "Luminous Stones and Stal parts (Stalkoblin/Stalizalfos bones).",
-      "priority": "late"
-    },
-    {
-      "name": "Barbarian Set",
-      "pieces": "3 (Helm, Armor, Leg Wraps)",
-      "where": "Each piece is a reward from a shrine inside a Labyrinth: Tu Ka'loh (Lomei Labyrinth Island), Dako Tah (South Lomei Labyrinth), Qaza Tokki (North Lomei Labyrinth).",
-      "bonus": "Each piece gives Attack Up. Set bonus Charge Attack Stamina Up (at 2 stars) — cheaper spin/charge attacks.",
-      "upgrade": "Lynel parts (Hoof, Horn, Guts) — mid-to-high tiers need Lynel materials.",
-      "priority": "late"
-    },
-    {
-      "name": "Ancient Set",
-      "pieces": "3 (Helm, Cuirass, Greaves)",
-      "where": "Bought from Cherry (the shop terminal) at the Akkala Ancient Tech Lab, after lighting the lab's furnace. Costs rupees + Ancient Materials.",
-      "bonus": "Each piece gives Guardian Resist Up (less damage from Guardians/ancient weapons). Set bonus Ancient Proficiency (at 2 stars) — +80% damage with ancient and Guardian weapons (not the Master Sword).",
-      "upgrade": "Ancient parts: Ancient Screws, Springs, Gears, Shafts, Cores, and a Giant Ancient Core at the top tier.",
-      "priority": "late"
-    },
-    {
-      "name": "Royal Guard Set",
-      "pieces": "3 (Cap, Uniform, Boots)",
-      "where": "The Champions' Ballad DLC. Pieces found in chests via the EX Royal Guard Rumors side quest (in/around Hyrule Castle).",
-      "bonus": "Set bonus Charge Attack Stamina Up. Low base defense (4 per piece). Cannot be upgraded by a Great Fairy and cannot be dyed.",
-      "upgrade": "None — this set cannot be enhanced at a Great Fairy Fountain.",
-      "priority": "late"
-    },
-    {
-      "name": "Wild Set (amiibo)",
-      "pieces": "3 (Cap of the Wild, Tunic of the Wild, Trousers of the Wild)",
-      "where": "Obtained via amiibo (the BotW Link amiibo / 30th Anniversary line); the classic green hero look.",
-      "bonus": "Set bonus Master Sword Beam Up (at 2 stars) — boosts the Master Sword's energy beam at full health. Each piece is high defense.",
-      "upgrade": "Star Fragments and Lynel parts (Silver/Gold Lynel Horn, Hoof, Guts) at the higher tiers.",
-      "priority": "late"
+     "star": 4,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 10
+      },
+      {
+       "item": "Shard of Dinraal's Horn",
+       "qty": 2
+      }
+     ]
     }
-  ],
-  "notes": "CORRECTIONS made after web verification (Game8, Zelda Dungeon, Zelda Wiki/Fandom):\\n\\n1. CLIMBING SET (three errors fixed): Climber's Bandanna is in REE DAHEE SHRINE (Dueling Peaks), not \\\"Ploymus Mountain Cave\\\" — Ploymus Mountain Cave is a Tears of the Kingdom location, NOT BotW. Climbing Boots are in TAHNO O'AH SHRINE (eastern Mount Lanayru), not Ta'loh Naeg (that's the Kakariko tutorial shrine, which gives the Shield of the Mind's Eye / Eightfold Blade). Set bonus is CLIMBING JUMP STAMINA UP (cheaper jumps while climbing); the per-piece effect is Climbing Speed Up — the original conflated the two.\\n\\n2. SOLDIER'S SET: sold at Ventest Clothing Boutique in HATENO VILLAGE, not \\\"the Enchanted shop in Kakariko.\\\" Enchanted (Kakariko) sells the Stealth/Sheikah set and Hylian Hood, not Soldier's.\\n\\n3. HYLIAN HOOD source: bought from Enchanted (Kakariko) or Ventest (Hateno), not \\\"Bugut at the General Shoppe.\\\" Bugut runs Hateno's General Shoppe (food/arrows), and does not sell the Hood. Also removed the false claim (in the old notes) that the Hylian Hood grants Heat Resistance — it gives NO environmental resistance, only defense.\\n\\n4. ZORA SET bonus is SWIM DASH STAMINA UP (cheaper swim-dashing), not \\\"Swim Speed Up.\\\" Swim Speed Up is the per-piece effect; the original swapped them.\\n\\n5. RADIANT/ANCIENT/BARBARIAN: confirmed Disguise+Bone Atk. Up, Ancient Proficiency +80% (ancient AND Guardian weapons, not Master Sword), and Charge Attack Stamina Up. Fixed Barbarian labyrinth shrine names: Tu Ka'loh, Dako Tah (South Lomei), Qaza Tokki (North Lomei) — the original listed \\\"Dila Maag,\\\" which is not the South Lomei monk.\\n\\n6. Minor: Snowquill shop is the Brazen Beak (owner detail dropped as unverified); Desert Voe set bonus is officially Shock Resistance Up (partial), correctly distinguished from Rubber's Unshockable (full immunity).\\n\\nVERIFIED ACCURATE: Champion's Tunic (Impa, exact HP numbers, no set bonus, Lynel upgrades); set bonuses activate at 2 stars (★★) for all standard sets; Snowquill, Flamebreaker, Gerudo Vai, Rubber, Royal Guard (low defense 4/piece, cannot upgrade or dye), Wild amiibo set (Master Sword Beam Up at 2 stars).\\n\\nBEGINNER HEADLINERS still hold: Warm Doublet (single body piece, free from the Old Man for 10 Wood on the Great Plateau, or bought at Ventest in Hateno) for first cold protection; Snowquill (Rito) for Hebra/Lanayru; Flamebreaker (Goron City) for Death Mountain; Desert Voe + Gerudo Vai for Gerudo Desert heat (Vai also unlocks Gerudo Town). Rubber Set is the true full-immunity SHOCK answer; Desert Voe only partially resists shock.\\n\\nKEY DISTINCTIONS: Heat Resistance (Desert Voe, Gerudo Vai) covers desert daytime; Flame Guard (Flamebreaker) covers fire/lava — NOT interchangeable, and the Hylian Hood does NOT provide heat resistance. Set-bonus star thresholds: 1st upgrade needs only the first Great Fairy (Cotera) unlocked; 4-star needs all four fountains. Set bonuses kick in at ★★ for standard sets.\\n\\nConfidence: HIGH on all corrected locations and set-bonus names. The exact Rubber Set shrine list varies (it appears in multiple shrine chests, not a shop) — representative shrines named; treat an exhaustive chest list as a per-shrine lookup. Sources: Game8, Zelda Dungeon Wiki, Zelda Wiki/Fandom (verified June 2026)."
+   ],
+   "farm": "Silent Princess is a rare wild flower; it grows near sacred places — around Great Fairy Fountains, on Satori Mountain, in Korok Forest near the Master Sword, and across West Necluda and Hyrule Ridge. The dragon-horn shards come from the three dragons: shoot Farosh (Faron/Lake Hylia), Naydra (Mount Lanayru, East Necluda), and Dinraal (Eldin/Tabantha) — \"Shard of [Dragon]'s Horn\" specifically requires hitting the horns on the dragon's head as it flies (other body parts give scales/claws/fangs). Parts despawn at dawn and each dragon yields only one part per ~10-min pass, so x10 Silent Princess + horn farming makes ★4 the real grind."
+  },
+  {
+   "name": "Hylian Set",
+   "pieces": "3 (Hood, Tunic, Trousers)",
+   "where": "Bought cheaply early on. Tunic/Trousers from Enchanted (Kakariko) and Ventest Clothing Boutique (Hateno); the Hood from those same armor shops.",
+   "bonus": "No set bonus. Just solid, cheap all-around defense for beginners. The Hood gives no environmental resistance, only defense.",
+   "upgrade": "Bokoblin parts (Bokoblin Horn, Fang, Guts) at low tiers, the most common monster drops, so very easy to upgrade.",
+   "priority": "beginner",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Bokoblin Horn",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Bokoblin Horn",
+       "qty": 24
+      },
+      {
+       "item": "Bokoblin Fang",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Bokoblin Fang",
+       "qty": 30
+      },
+      {
+       "item": "Bokoblin Guts",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Bokoblin Guts",
+       "qty": 45
+      },
+      {
+       "item": "Amber",
+       "qty": 45
+      }
+     ]
+    }
+   ],
+   "farm": "All upgrade materials are common Bokoblin drops — kill regular red Bokoblins for Horns and Fangs, and tougher blue/black/silver Bokoblins for Guts (silver have the best Guts drop rate) — while Amber is mined from the black ore deposits scattered on cliffs and in caves across Hyrule (and is also a frequent Bokoblin drop). This is one of the earliest sets you can fully max because every ingredient is so common."
+  },
+  {
+   "name": "Soldier's Set",
+   "pieces": "3 (Helm, Armor, Greaves)",
+   "where": "Bought at Ventest Clothing Boutique in Hateno Village; a step up in defense from Hylian. (Not sold at the Kakariko shop.)",
+   "bonus": "No set bonus. Higher base defense than Hylian for mid-game survivability.",
+   "upgrade": "Chuchu Jelly and Bokoblin Guts at low tiers, then Keese/Moblin and Lizalfos/Lynel parts at higher tiers.",
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Bokoblin Guts",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Keese Eyeball",
+       "qty": 9
+      },
+      {
+       "item": "Moblin Guts",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Lizalfos Tail",
+       "qty": 6
+      },
+      {
+       "item": "Hinox Guts",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Lynel Hoof",
+       "qty": 6
+      },
+      {
+       "item": "Lynel Guts",
+       "qty": 6
+      }
+     ]
+    }
+   ],
+   "farm": "The hardest materials are the late-game monster guts. Hinox Guts (★3) drop one per Hinox — large, dozing ogres found across Hyrule's fields and forests; you need 6, so 6 Hinox (or fewer with Blood-Moon respawns). Lynel Hoof + Lynel Guts (★4) drop from Lynels, the toughest overworld enemy; Lynel Guts is a comparatively rare drop, so expect to fight several (good spots: Ploymus Mountain above Zora's Domain, the Coliseum Ruins near Central Hyrule, or Lynels in Hyrule Field/Hebra). Bokoblin/Moblin Guts and Chuchu Jelly are common drops you'll have in bulk by mid-game."
+  },
+  {
+   "name": "Climbing Set (Climber's Bandanna + Climbing Gear)",
+   "pieces": "3 (Climber's Bandanna, Climbing Gear, Climbing Boots)",
+   "where": "Bandanna in a chest in Ree Dahee Shrine (Dueling Peaks); Gear in Chaas Qeta Shrine (SE off the coast); Boots in Tahno O'ah Shrine (eastern Mount Lanayru, Hateno region).",
+   "bonus": "Each piece gives Climbing Speed Up (faster scaling). Set bonus Climbing Jump Stamina Up (at 2 stars) cuts the stamina cost of jumping while climbing.",
+   "upgrade": "Keese parts plus Hightail Lizards / Hot-Footed Frogs (speed-themed materials).",
+   "priority": "beginner",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Keese Wing",
+       "qty": 9
+      },
+      {
+       "item": "Rushroom",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Electric Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Hightail Lizard",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Ice Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Hot-Footed Frog",
+       "qty": 30
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Fire Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Swift Violet",
+       "qty": 45
+      }
+     ]
+    }
+   ],
+   "farm": "Keese variants drop colored wings in their element habitats: Fire Keese around Death Mountain / Eldin; Ice Keese in Hebra and the Gerudo highlands; Electric Keese in Ridgeland / near Thundra Plateau. Swift Violets glow on cliff ledges and rock walls at night (Satori Mountain, Gerudo Highlands, Hebra) — pluck them in the dark. Hot-Footed Frogs hop near grassland ponds and rivers; sneak up to grab them. Hightail Lizards skitter in warm grasslands; Rushrooms grow on cliffsides and ledges. Each piece is upgraded separately, so multiply per-piece needs by 3 for the whole set."
+  },
+  {
+   "name": "Stealth Set (Sheikah)",
+   "pieces": "3 (Stealth Mask, Stealth Chest Guard, Stealth Tights)",
+   "where": "Bought from Enchanted in Kakariko Village.",
+   "bonus": "Each piece gives Stealth Up (quieter, harder for enemies to notice). Set bonus Night Speed Up (at 2 stars).",
+   "upgrade": "Sneaky River Snails, Sunset Fireflies, and Rushrooms (stealth/night-themed materials).",
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Blue Nightshade",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Blue Nightshade",
+       "qty": 15
+      },
+      {
+       "item": "Sunset Firefly",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Silent Shroom",
+       "qty": 24
+      },
+      {
+       "item": "Sneaky River Snail",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Stealthfin Trout",
+       "qty": 30
+      },
+      {
+       "item": "Silent Princess",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "The hardest material is Silent Princess (the rare wild flower) — it grows sparsely in shady spots of the Great Hyrule Forest (notably around the Korok Forest / Master Sword area) and in cool highland fields; pick it and replant the seeds nearby, or buy small amounts from traveling merchants. The rest are night/stealth gathers: Blue Nightshade and Silent Shroom in shaded forest grass (Great Hyrule Forest, Faron, Hyrule Field tree shade); Sunset Firefly glowing in grass after dark (cut grass or sneak-grab them at night); Sneaky River Snail on rocks along rivers and lakeshores; Stealthfin Trout in fresh water at night (they glow). Cooking any of these into a dish gives a stealth-up effect, so over-farm and you can cook the surplus."
+  },
+  {
+   "name": "Snowquill Set",
+   "pieces": "3 (Headdress, Tunic, Trousers)",
+   "where": "Bought from the Brazen Beak armor shop in Rito Village.",
+   "bonus": "Each piece gives 1 level Cold Resistance. Set bonus Unfreezable (at 2 stars) — immune to being frozen.",
+   "upgrade": "Cold-themed parts: Cold Darner, Winterwing Butterfly, and Ice Keese Wings.",
+   "priority": "beginner",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Red Chuchu Jelly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Red Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Warm Safflina",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Fire Keese Wing",
+       "qty": 24
+      },
+      {
+       "item": "Sunshroom",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Red Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Ruby",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "Red Chuchu Jelly and Fire Keese Wing come from Red Chuchus and Fire Keese in Eldin (the Southern Mine near Goron City is dense with both); Red Lizalfos Tails drop from Red Lizalfos at Eldin fortresses (use the Sheikah Sensor+ to track them); Sunshrooms grow on Eldin's warm slopes (and the Gerudo Highlands); Warm Safflina grows around Gerudo Wasteland (and Eldin); Rubies come from ore deposits and ore-rich caves around Death Mountain/Eldin."
+  },
+  {
+   "name": "Flamebreaker Set",
+   "pieces": "3 (Helm, Armor, Boots)",
+   "where": "Helm, Armor, and Boots can be bought at Ripped and Shredded in Goron City; the Armor can alternatively be earned by trading 10 Fireproof Lizards to Kima at the Southern Mine (Fireproof Lizard Roundup).",
+   "bonus": "Each piece grants Flame Guard (resist burning/lava heat). Set bonus Fireproof (at 2 stars) — no damage from open flame.",
+   "upgrade": "Fire-themed parts: Fireproof Lizards, Smotherwing Butterflies, and Flame Keese Wings.",
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Fireproof Lizard",
+       "qty": 3
+      },
+      {
+       "item": "Moblin Horn",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Fireproof Lizard",
+       "qty": 9
+      },
+      {
+       "item": "Moblin Fang",
+       "qty": 12
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Moblin Guts",
+       "qty": 9
+      },
+      {
+       "item": "Smotherwing Butterfly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Hinox Guts",
+       "qty": 6
+      },
+      {
+       "item": "Smotherwing Butterfly",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "Fireproof Lizards and Smotherwing Butterflies are caught around Eldin/Death Mountain (Smotherwing all over Eldin Canyon; Fireproof Lizards abundant at the Southern Mine — sneak up to catch, and they're also the trade item to Kima at the Southern Mine for the Armor piece). Moblin Horn/Fang/Guts drop from Moblins (Guts from blue-tier and up); Hinox Guts drop from any defeated Hinox."
+  },
+  {
+   "name": "Desert Voe Set",
+   "pieces": "3 (Headband, Spaulder, Trousers)",
+   "where": "Bought from the armor shop in Gerudo Town, or from Rhondson once she moves to Tarrey Town.",
+   "bonus": "Each piece gives 1 level Heat Resistance (desert daytime). Set bonus Shock Resistance Up (at 2 stars) — reduces electric damage, but NOT full immunity.",
+   "upgrade": "Voltfin Trout, Voltfruit, and Electric Lizalfos parts (electricity-themed).",
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "White Chuchu Jelly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "White Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Ice Keese Wing",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Ice Keese Wing",
+       "qty": 24
+      },
+      {
+       "item": "Icy Lizalfos Tail",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Icy Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Sapphire",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "White Chuchu Jelly comes from White (ice) Chuchu in cold regions (Hebra, Tabantha tundra, Mount Lanayru) — or freeze any Chuchu with an ice weapon/ice arrow and shatter it. Ice Keese Wing drops from Ice Keese and Icy Lizalfos Tail from Icy Lizalfos, both found in those same cold areas (Hebra/Tabantha/Mount Lanayru). Sapphire is mined from rare-ore deposits and ore veins (common in the Gerudo Highlands, Hebra, and Death Mountain) or bought from the Gerudo Town gem shop. NOTE: the cold-element materials are slow to farm; Blood-Moon farming Ice Keese/Icy Lizalfos camps in Hebra is the fastest route to the 33 Ice Keese Wings and 39 Icy Lizalfos Tails the full set needs."
+  },
+  {
+   "name": "Gerudo Set (Vai Outfit)",
+   "pieces": "3 (Veil, Top, Sirwal)",
+   "where": "Bought from Vilia atop the cliffs at Kara Kara Bazaar for 600 rupees — required to enter Gerudo Town as a 'vai'.",
+   "bonus": "Each piece gives 1 level Heat Resistance. Set bonus Unfreezable (at 2 stars). Main draw: grants access to Gerudo Town.",
+   "upgrade": "Heat-themed parts: Hightail Lizard, Warm Darner, and Sand Cicada.",
+   "priority": "beginner",
+   "tiers": [],
+   "note": "Can't be upgraded at a Great Fairy — it stays at its base defense."
+  },
+  {
+   "name": "Zora Set",
+   "pieces": "3 (Helm, Armor, Greaves)",
+   "where": "Armor from King Dorephan during the Vah Ruta quest at Zora's Domain; Helm in a sunken chest at Toto Lake; Greaves reward for the Lynel Safari side quest.",
+   "bonus": "Each piece gives Swim Speed Up; Zora Armor also lets you swim up waterfalls. Set bonus Swim Dash Stamina Up (at 2 stars) — cheaper swim-dashing.",
+   "upgrade": "Lizalfos parts (Lizalfos Tail, Talon, Horn) and Hyrule Bass — aquatic/lizard-themed.",
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Lizalfos Horn",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Hyrule Bass",
+       "qty": 15
+      },
+      {
+       "item": "Lizalfos Talon",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Hearty Bass",
+       "qty": 15
+      },
+      {
+       "item": "Lizalfos Tail",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Opal",
+       "qty": 45
+      }
+     ]
+    }
+   ],
+   "farm": "Lizalfos parts (Horn, Talon, Tail) drop from Lizalfos, very common in the Lanayru wetlands and Faron jungle/coast; kill many to stockpile all three. Hyrule Bass is everywhere in normal lakes/rivers (and sold in shops); Hearty Bass is the larger fish found in colder waters such as around Mount Lanayru, Tabantha, and the Hebra/Gerudo highlands. Opal is mined from the common blue-glinting ore deposits in caves, on cliffs, and along mountain paths."
+  },
+  {
+   "name": "Rubber Set",
+   "pieces": "3 (Helm, Armor, Tights)",
+   "where": "Found in shrine chests scattered across Hyrule (e.g. Toto Sah, Daka Tuss, Sasa Kai). No single shop.",
+   "bonus": "Each piece gives Shock Resistance. Set bonus Unshockable (at 2 stars) — full immunity to electric damage, including thunderstorm lightning.",
+   "upgrade": "Electricity-themed: Yellow Chuchu Jelly, Electric Keese Wings, and Electric Lizalfos Tails.",
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Yellow Chuchu Jelly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Yellow Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Voltfruit",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Zapshroom",
+       "qty": 15
+      },
+      {
+       "item": "Yellow Lizalfos Tail",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Yellow Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Topaz",
+       "qty": 30
+      }
+     ]
+    }
+   ],
+   "farm": "Yellow Chuchu Jelly drops from Electric Chuchus (or chop any Chuchu, then hit the jelly with a shock arrow / electric weapon to convert it to Yellow). Yellow Lizalfos Tails drop from Electric (Yellow) Lizalfos, common around the Lanayru wetlands and Faron. Voltfruit grows at Gerudo Desert oases (and is sold in Gerudo Town). Zapshrooms grow on warm cliffsides around Faron/Lanayru and the Gerudo highlands. Topaz is mined from ore deposits (esp. Death Mountain / Eldin) and can be bought from Ramella at Goron City."
+  },
+  {
+   "name": "Radiant Set",
+   "pieces": "3 (Mask, Shirt, Tights)",
+   "where": "Bought from the Gerudo Secret Club in Gerudo Town after The Secret Club's Secret quest; each piece also costs Luminous Stones plus rupees.",
+   "bonus": "Set bonus (at 2 stars) Disguise (Stal-types ignore you) plus Bone Atk. Up (boosts bone/Stal-type weapon damage). Glows in the dark.",
+   "upgrade": "Luminous Stones and Stal parts (Stalkoblin/Stalizalfos bones).",
+   "priority": "late",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Luminous Stone",
+       "qty": 15
+      },
+      {
+       "item": "Bokoblin Guts",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Luminous Stone",
+       "qty": 24
+      },
+      {
+       "item": "Moblin Guts",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Luminous Stone",
+       "qty": 30
+      },
+      {
+       "item": "Molduga Guts",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Luminous Stone",
+       "qty": 60
+      },
+      {
+       "item": "Lynel Guts",
+       "qty": 3
+      }
+     ]
+    }
+   ],
+   "farm": "Luminous Stone is mined from glowing rock deposits at night (plentiful around Zora's Domain, the Gerudo Highlands/Yiga hideout cliffs, and the Eldin/Death Mountain foothills); the gating materials are guts dropped by enemies — Bokoblin/Moblin Guts from those mobs (silver variants drop the most), Molduga Guts from the four sand-swimming Moldugas in the Gerudo Desert, and Lynel Guts from Lynels (the white-maned Lynel atop Ploymus Mountain above Zora's Domain is an easy fixed respawn). Quantities above are SET TOTALS across all three pieces (per-piece x3, since Mask/Shirt/Tights are identical at every star)."
+  },
+  {
+   "name": "Barbarian Set",
+   "pieces": "3 (Helm, Armor, Leg Wraps)",
+   "where": "Each piece is a reward from a shrine inside a Labyrinth: Tu Ka'loh (Lomei Labyrinth Island), Dako Tah (South Lomei Labyrinth), Qaza Tokki (North Lomei Labyrinth).",
+   "bonus": "Each piece gives Attack Up. Set bonus Charge Attack Stamina Up (at 2 stars) — cheaper spin/charge attacks.",
+   "upgrade": "Lynel parts (Hoof, Horn, Guts) — mid-to-high tiers need Lynel materials.",
+   "priority": "late",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Lynel Horn",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Lynel Horn",
+       "qty": 9
+      },
+      {
+       "item": "Lynel Hoof",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Lynel Hoof",
+       "qty": 12
+      },
+      {
+       "item": "Lynel Guts",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Lynel Guts",
+       "qty": 6
+      },
+      {
+       "item": "Shard of Dinraal's Horn",
+       "qty": 1
+      },
+      {
+       "item": "Shard of Farosh's Horn",
+       "qty": 1
+      },
+      {
+       "item": "Shard of Naydra's Horn",
+       "qty": 1
+      }
+     ]
+    }
+   ],
+   "farm": "Every tier is Lynel-based: kill Lynels for Lynel Horn, Lynel Hoof, and Lynel Guts (Silver/Golden Lynels drop the most Guts) — biggest hunting grounds are around Hyrule Field, the Coliseum Ruins, and Ploymus Mountain; the 4-star dragon shards come from shooting the horn of each dragon as it flies (Dinraal over Eldin/Tabantha north, Farosh in Faron/Lake Hylia/Lanayru, Naydra at Mount Lanayru), then waiting ~10 min / sleeping for them to respawn."
+  },
+  {
+   "name": "Ancient Set",
+   "pieces": "3 (Helm, Cuirass, Greaves)",
+   "where": "Bought from Cherry (the shop terminal) at the Akkala Ancient Tech Lab, after lighting the lab's furnace. Costs rupees + Ancient Materials.",
+   "bonus": "Each piece gives Guardian Resist Up (less damage from Guardians/ancient weapons). Set bonus Ancient Proficiency (at 2 stars) — +80% damage with ancient and Guardian weapons (not the Master Sword).",
+   "upgrade": "Ancient parts: Ancient Screws, Springs, Gears, Shafts, Cores, and a Giant Ancient Core at the top tier.",
+   "priority": "late",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Ancient Screw",
+       "qty": 15
+      },
+      {
+       "item": "Ancient Spring",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Ancient Spring",
+       "qty": 45
+      },
+      {
+       "item": "Ancient Gear",
+       "qty": 30
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Ancient Shaft",
+       "qty": 45
+      },
+      {
+       "item": "Ancient Core",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Star Fragment",
+       "qty": 3
+      },
+      {
+       "item": "Giant Ancient Core",
+       "qty": 6
+      }
+     ]
+    }
+   ],
+   "farm": "Ancient parts (Screw, Spring, Gear, Shaft, Core, Giant Ancient Core) drop from defeated Guardians — Stalkers, Skywatchers, and Decayed/turret Guardians, especially in Central Hyrule and at Hyrule Castle; you can also buy ancient parts from Cherry at the Akkala Ancient Tech Lab. Star Fragments fall from the night sky (~9pm onward) as glowing landings — fast-travel toward one to grab it before it fades."
+  },
+  {
+   "name": "Royal Guard Set",
+   "pieces": "3 (Cap, Uniform, Boots)",
+   "where": "The Champions' Ballad DLC. Pieces found in chests via the EX Royal Guard Rumors side quest (in/around Hyrule Castle).",
+   "bonus": "Set bonus Charge Attack Stamina Up. Low base defense (4 per piece). Cannot be upgraded by a Great Fairy and cannot be dyed.",
+   "upgrade": "None — this set cannot be enhanced at a Great Fairy Fountain.",
+   "priority": "late",
+   "tiers": [],
+   "note": "Can't be upgraded at a Great Fairy — it stays at its base defense."
+  },
+  {
+   "name": "Wild Set (amiibo)",
+   "pieces": "3 (Cap of the Wild, Tunic of the Wild, Trousers of the Wild)",
+   "where": "Obtained via amiibo (the BotW Link amiibo / 30th Anniversary line); the classic green hero look.",
+   "bonus": "Set bonus Master Sword Beam Up (at 2 stars) — boosts the Master Sword's energy beam at full health. Each piece is high defense.",
+   "upgrade": "Star Fragments and Lynel parts (Silver/Gold Lynel Horn, Hoof, Guts) at the higher tiers.",
+   "priority": "late",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Acorn",
+       "qty": 30
+      },
+      {
+       "item": "Farosh's Scale",
+       "qty": 2
+      },
+      {
+       "item": "Naydra's Scale",
+       "qty": 2
+      },
+      {
+       "item": "Dinraal's Scale",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Courser Bee Honey",
+       "qty": 15
+      },
+      {
+       "item": "Farosh's Claw",
+       "qty": 2
+      },
+      {
+       "item": "Naydra's Claw",
+       "qty": 2
+      },
+      {
+       "item": "Dinraal's Claw",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Energetic Rhino Beetle",
+       "qty": 15
+      },
+      {
+       "item": "Shard of Farosh's Fang",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Naydra's Fang",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Dinraal's Fang",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Star Fragment",
+       "qty": 3
+      },
+      {
+       "item": "Shard of Farosh's Horn",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Naydra's Horn",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Dinraal's Horn",
+       "qty": 2
+      }
+     ]
+    }
+   ],
+   "farm": "Star Fragments fall from the night sky (wait at a high vantage from ~9 PM and shoot/grab the fallen light — they vanish at dawn). The dragon parts come from the three roaming dragons: shoot a scale/claw/fang/horn off each as it flies. Each PIECE is locked to one dragon — Cap=Farosh (Faron/Lake Hylia at night, Lake Floria), Tunic=Naydra (Mount Lanayru, dawn ascent), Trousers=Dinraal (Eldin/Tanagar Canyon, North Tabantha, mornings). Acorns drop from trees (and from squirrels), Courser Bee Honey hangs in beehives, and Energetic Rhino Beetles cling to tree trunks at night in Faron / Hyrule Forest."
+  }
+ ],
+ "notes": "CORRECTIONS made after web verification (Game8, Zelda Dungeon, Zelda Wiki/Fandom):\\n\\n1. CLIMBING SET (three errors fixed): Climber's Bandanna is in REE DAHEE SHRINE (Dueling Peaks), not \\\"Ploymus Mountain Cave\\\" — Ploymus Mountain Cave is a Tears of the Kingdom location, NOT BotW. Climbing Boots are in TAHNO O'AH SHRINE (eastern Mount Lanayru), not Ta'loh Naeg (that's the Kakariko tutorial shrine, which gives the Shield of the Mind's Eye / Eightfold Blade). Set bonus is CLIMBING JUMP STAMINA UP (cheaper jumps while climbing); the per-piece effect is Climbing Speed Up — the original conflated the two.\\n\\n2. SOLDIER'S SET: sold at Ventest Clothing Boutique in HATENO VILLAGE, not \\\"the Enchanted shop in Kakariko.\\\" Enchanted (Kakariko) sells the Stealth/Sheikah set and Hylian Hood, not Soldier's.\\n\\n3. HYLIAN HOOD source: bought from Enchanted (Kakariko) or Ventest (Hateno), not \\\"Bugut at the General Shoppe.\\\" Bugut runs Hateno's General Shoppe (food/arrows), and does not sell the Hood. Also removed the false claim (in the old notes) that the Hylian Hood grants Heat Resistance — it gives NO environmental resistance, only defense.\\n\\n4. ZORA SET bonus is SWIM DASH STAMINA UP (cheaper swim-dashing), not \\\"Swim Speed Up.\\\" Swim Speed Up is the per-piece effect; the original swapped them.\\n\\n5. RADIANT/ANCIENT/BARBARIAN: confirmed Disguise+Bone Atk. Up, Ancient Proficiency +80% (ancient AND Guardian weapons, not Master Sword), and Charge Attack Stamina Up. Fixed Barbarian labyrinth shrine names: Tu Ka'loh, Dako Tah (South Lomei), Qaza Tokki (North Lomei) — the original listed \\\"Dila Maag,\\\" which is not the South Lomei monk.\\n\\n6. Minor: Snowquill shop is the Brazen Beak (owner detail dropped as unverified); Desert Voe set bonus is officially Shock Resistance Up (partial), correctly distinguished from Rubber's Unshockable (full immunity).\\n\\nVERIFIED ACCURATE: Champion's Tunic (Impa, exact HP numbers, no set bonus, Lynel upgrades); set bonuses activate at 2 stars (★★) for all standard sets; Snowquill, Flamebreaker, Gerudo Vai, Rubber, Royal Guard (low defense 4/piece, cannot upgrade or dye), Wild amiibo set (Master Sword Beam Up at 2 stars).\\n\\nBEGINNER HEADLINERS still hold: Warm Doublet (single body piece, free from the Old Man for 10 Wood on the Great Plateau, or bought at Ventest in Hateno) for first cold protection; Snowquill (Rito) for Hebra/Lanayru; Flamebreaker (Goron City) for Death Mountain; Desert Voe + Gerudo Vai for Gerudo Desert heat (Vai also unlocks Gerudo Town). Rubber Set is the true full-immunity SHOCK answer; Desert Voe only partially resists shock.\\n\\nKEY DISTINCTIONS: Heat Resistance (Desert Voe, Gerudo Vai) covers desert daytime; Flame Guard (Flamebreaker) covers fire/lava — NOT interchangeable, and the Hylian Hood does NOT provide heat resistance. Set-bonus star thresholds: 1st upgrade needs only the first Great Fairy (Cotera) unlocked; 4-star needs all four fountains. Set bonuses kick in at ★★ for standard sets.\\n\\nConfidence: HIGH on all corrected locations and set-bonus names. The exact Rubber Set shrine list varies (it appears in multiple shrine chests, not a shop) — representative shrines named; treat an exhaustive chest list as a per-shrine lookup. Sources: Game8, Zelda Dungeon Wiki, Zelda Wiki/Fandom (verified June 2026)."
 }

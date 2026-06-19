@@ -613,7 +613,7 @@ function GamePicker({ games, game, setGame }) {
    storage loads cleanly. G shadows the data globals with the active game's data (ADR 0005). */
 function HyruleGame({ game, setGame, games }) {
   const G = games[game];
-  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms, guideSegs, postRegionId } = G;
+  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms, guideSegs, postRegionId } = G;
   const K = (s) => game + ":" + s; // storage key namespace per game (botw:* preserves existing data)
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState({});
@@ -814,6 +814,26 @@ function HyruleGame({ game, setGame, games }) {
   }, [progress]);
   const resumeIdx = useMemo(() => resumeTarget ? REGIONS.findIndex((r) => r.id === resumeTarget.regionId) : REGIONS.length, [resumeTarget]);
 
+  // v12.9: "What's next?" coach — a short, prioritized list of the best things to do given your progress.
+  // Pure logic over existing state; deliberately capped so it informs without overwhelming. Each card jumps.
+  const nextUp = useMemo(() => {
+    const cards = [];
+    if (resumeTarget) cards.push({ key: "mq", glyph: "pin", color: "var(--orange)", title: "Continue the main quest", detail: resumeTarget.regionName + " · " + resumeTarget.secName, go: () => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId) });
+    if (shrinePin) {
+      const m = String(shrinePin).match(/^shr_(.+)_(\d+)$/);
+      const g = m && SHRINES.find((x) => x.regionKey === m[1]);
+      if (g) { const left = g.shrines.filter((_, j) => !progress["shr_" + m[1] + "_" + j]).length; if (left > 0) cards.push({ key: "pin", glyph: "shrine", color: "var(--cyan)", title: left + " shrine" + (left > 1 ? "s" : "") + " left in " + g.regionName, detail: "You pinned a shrine here — clear the rest nearby", go: () => setTab("shrines") }); }
+    }
+    if (upgrades >= 1 && inventory.orbsDone % 4 === 0) cards.push({ key: "orb", glyph: "orb", color: "var(--cyan)", title: "A vessel is ready to claim", detail: "You have a full set of 4 Spirit Orbs — pray at a Goddess Statue for a heart or stamina", go: () => setTab("shrines") });
+    if (extraStats.memTotal > 0 && extraStats.mem < extraStats.memTotal) cards.push({ key: "mem", glyph: "camera", color: "var(--heart)", title: "Recover your next memory", detail: extraStats.mem + "/" + extraStats.memTotal + " found — show photos to Pikango for hints", go: () => openRegion("memories") });
+    if (extraStats.gf < extraStats.gfTotal) cards.push({ key: "gf", glyph: "fairy", color: "var(--heart)", title: "Unlock a Great Fairy", detail: extraStats.gf + "/" + extraStats.gfTotal + " found — each one raises every armor upgrade", go: () => { setTab("guide"); setGuideSub("fairies"); } });
+    const prio = { beginner: 0, mid: 1, late: 2 };
+    const chase = ARMOR.sets.map((s, i) => ({ s, i })).filter(({ i }) => !progress["arm_" + i]).sort((a, b) => (prio[a.s.priority] ?? 3) - (prio[b.s.priority] ?? 3))[0];
+    if (chase) cards.push({ key: "arm", glyph: "armor", color: "var(--gold)", title: "Armor worth chasing: " + chase.s.name, detail: (chase.s.bonus || "").split(".")[0], go: () => { setTab("guide"); setGuideSub("armor"); } });
+    if (koroks < 441) cards.push({ key: "kor", glyph: "leaf", color: "var(--moss)", title: "Bigger pouches from Hestu", detail: koroks + " Korok seeds — trade them to expand weapon/bow/shield slots", go: () => { setTab("guide"); setGuideSub("koroks"); } });
+    return cards.slice(0, 4);
+  }, [resumeTarget, shrinePin, upgrades, inventory, extraStats, koroks, progress, SHRINES, ARMOR]);
+
   const jumpTo = useCallback((regionId, secId) => {
     setTab("journey"); setRegion(regionId); setOpenSections((o) => ({ ...o, [secId]: true }));
     setTimeout(() => { const el = document.getElementById("sec-" + secId); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
@@ -900,6 +920,17 @@ function HyruleGame({ game, setGame, games }) {
                 {resumeTarget ? (<button className="hero-cont" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)}><span className="hero-cont-k"><Glyph name="pin" size={13} /> Resume — you're here</span><span className="hero-cont-s">{resumeTarget.secName}</span></button>) : (<div className="hero-done">All chapters complete — onward!</div>)}
               </div>
             </div>
+
+            {nextUp.length > 0 && <div className="panel nextup">
+              <div className="panel-h"><Glyph name="champion" size={14} /> What to do next</div>
+              {nextUp.map((c) => (
+                <button className="nextup-row" key={c.key} onClick={c.go}>
+                  <span className="nextup-ic" style={{ color: c.color }}><Glyph name={c.glyph} size={18} /></span>
+                  <span className="nextup-txt"><span className="nextup-title">{c.title}</span>{c.detail && <span className="nextup-detail">{c.detail}</span>}</span>
+                  <span className="nextup-chev">›</span>
+                </button>
+              ))}
+            </div>}
 
             {Object.keys(MAP_NODES || {}).length > 0 && <div className="panel">
               <div className="panel-h">Map of Hyrule</div>
@@ -1087,6 +1118,7 @@ function HyruleGame({ game, setGame, games }) {
             : guideSub === "quests" ? <QuestsView data={SIDE_QUESTS} progress={progress} toggleStep={toggleStep} />
             : guideSub === "enemies" ? <EnemiesView data={BESTIARY} />
             : guideSub === "koroks" ? <KoroksView data={KOROKS} koroks={koroks} setKoroks={setKoroks} />
+            : guideSub === "economy" ? <EconomyView data={ECONOMY} />
             : guideSub === "world" ? <WorldView data={WORLD} />
             : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
             : (
@@ -1573,6 +1605,8 @@ function ArmorView({ data, progress, toggleStep, armorTier, setTier }) {
       <div className="track-meter"><span>Sets owned</span><span className="track-count">{owned}/{data.sets.length}</span></div>
       {data.sets.map((a, i) => {
         const have = !!progress["arm_" + i]; const tier = armorTier[i] || 0;
+        const tiers = a.tiers || []; const maxStar = tiers.length ? Math.max(...tiers.map((t) => t.star)) : 0;
+        const nextTier = tiers.find((t) => t.star === tier + 1);
         return (
         <div className={"rune-card" + (have ? " card-done" : "")} key={i}>
           <div className="rune-icon" style={{ color: have ? "var(--orange)" : "var(--ink-line)" }}><Glyph name="armor" size={28} /></div>
@@ -1580,7 +1614,8 @@ function ArmorView({ data, progress, toggleStep, armorTier, setTier }) {
             <div className="rune-top"><span className="rune-name">{a.name}</span>{a.priority && <span className="prio-pill" style={{ color: tone(a.priority), borderColor: tone(a.priority) }}>{a.priority}</span>}</div>
             <p className="rune-what"><b>Effect:</b> {a.bonus}</p>
             <p className="ref-line"><b>Where:</b> {a.where}</p>
-            <p className="ref-line"><b>Pieces:</b> {a.pieces} · <b>Upgrade:</b> {a.upgrade}</p>
+            <p className="ref-line"><b>Pieces:</b> {a.pieces}{!tiers.length && a.upgrade ? <> · <b>Upgrade:</b> {a.upgrade}</> : null}</p>
+            {a.farm && <p className="ref-line"><b>Materials:</b> {a.farm}</p>}
             <div className="armor-track">
               <button className={"track-box" + (have ? " track-box-on" : "")} onClick={() => toggleStep("arm_" + i)}>{have ? "✓ Owned" : "Own it"}</button>
               {have && (
@@ -1590,6 +1625,18 @@ function ArmorView({ data, progress, toggleStep, armorTier, setTier }) {
                 </div>
               )}
             </div>
+            {have && tiers.length > 0 && (
+              tier >= maxStar
+                ? <div className="armor-recipe armor-recipe-max">★{maxStar} — fully upgraded ✓</div>
+                : nextTier && <div className="armor-recipe">
+                    <div className="recipe-h">To reach ★{tier + 1}, bring:</div>
+                    <div className="recipe-mats">
+                      {nextTier.materials.map((m, mi) => <span className="mat-chip" key={mi}>{m.qty}× {m.item}</span>)}
+                      {nextTier.rupees ? <span className="mat-chip mat-rupee">{nextTier.rupees} rupees</span> : null}
+                    </div>
+                  </div>
+            )}
+            {a.note && <p className="armor-note">{a.note}</p>}
           </div>
         </div>);
       })}
@@ -1706,6 +1753,28 @@ function EnemiesView({ data }) {
     </>
   );
 }
+function KorokSolver({ types }) {
+  const [q, setQ] = useState(""); const [cat, setCat] = useState("all");
+  const list = types || [];
+  const cats = ["all", ...Array.from(new Set(list.map((p) => p.category).filter(Boolean)))];
+  const query = q.trim().toLowerCase();
+  const view = list.filter((p) => (cat === "all" || p.category === cat) && (!query || (p.type + " " + (p.see || "") + " " + (p.do || p.how || "")).toLowerCase().includes(query)));
+  return (
+    <>
+      <div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l"><span className="inv-glyph" style={{ color: "var(--moss)" }}><Glyph name="leaf" size={18} /></span>Korok puzzle solver</span><span className="inv-count">{list.length}</span></div>
+      <input className="search-input" placeholder="What do you see? rock, flower, balloon, pinwheel…" value={q} onChange={(e) => setQ(e.target.value)} />
+      {cats.length > 2 && <div className="goal-grid korok-cats">{cats.map((c) => <button key={c} className={"goal-chip" + (cat === c ? " goal-on" : "")} onClick={() => setCat(c)}>{c === "all" ? "All" : c}</button>)}</div>}
+      {view.map((p, i) => (
+        <div className="korok-row" key={i}>
+          <div className="korok-type">{p.type}{p.category && <span className="korok-cat">{p.category}</span>}</div>
+          {p.see && <p className="korok-how"><b>You see:</b> {p.see}</p>}
+          <p className="korok-how"><b>Do:</b> {p.do || p.how}</p>
+        </div>
+      ))}
+      {view.length === 0 && <div className="empty">No puzzle type matches “{q}”.</div>}
+    </>
+  );
+}
 function KoroksView({ data, koroks, setKoroks }) {
   const pct = Math.min(100, Math.round((koroks / 441) * 100));
   return (
@@ -1724,15 +1793,30 @@ function KoroksView({ data, koroks, setKoroks }) {
         <p className="korok-c-note">{koroks >= 441 ? "Enough to max every weapon/bow/shield slot!" : `${441 - koroks} more to max all inventory slots (441). 900 seeds exist in total.`}</p>
       </div>
       <div className="tip-card"><div className="tip-name"><Glyph name="leaf" size={16} /> Hestu & inventory</div><p className="ref-line">{data.hestu}</p></div>
-      <div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l">Common puzzle types</span><span className="inv-count">{data.puzzleTypes.length}</span></div>
-      {data.puzzleTypes.map((p, i) => (
-        <div className="korok-row" key={i}><div className="korok-type">{p.type}</div><p className="korok-how">{p.how}</p></div>
-      ))}
+      <KorokSolver types={data.puzzleTypes} />
       <div className="tip-card" style={{ marginTop: 12 }}>
         <div className="tip-name"><Glyph name="leaf" size={16} /> Reliable early hotspots</div>
         <ul className="tip-list">{data.hotspots.map((h, i) => <li key={i}>{h}</li>)}</ul>
       </div>
       {data.notes && <p className="panel-note">{data.notes}</p>}
+    </>
+  );
+}
+function EconomyView({ data }) {
+  if (!data || (!data.rupees && !data.farming && !data.tips)) return <p className="ref-lede">No economy guide for this game yet.</p>;
+  const rupees = data.rupees || [], farming = data.farming || [], tips = data.tips || [];
+  return (
+    <>
+      <p className="ref-lede">Rupees and materials — how to fund your upgrades without grinding blindly.</p>
+      {rupees.length > 0 && (<>
+        <div className="inv-head"><span className="inv-head-l"><span className="inv-glyph" style={{ color: "var(--gold)" }}><Glyph name="gem" size={18} /></span>Making rupees</span><span className="inv-count">{rupees.length}</span></div>
+        {rupees.map((r, i) => (<div className="enemy-row" key={i}><div className="enemy-name">{r.method}</div><p className="enemy-tactic">{r.detail}</p></div>))}
+      </>)}
+      {farming.length > 0 && (<>
+        <div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l"><span className="inv-glyph" style={{ color: "var(--moss)" }}><Glyph name="leaf" size={18} /></span>Where to farm materials</span><span className="inv-count">{farming.length}</span></div>
+        {farming.map((f, i) => (<div className="enemy-row" key={i}><div className="enemy-name">{f.item}</div><p className="enemy-tactic">{f.where}</p>{f.tip && <p className="enemy-drops">{f.tip}</p>}</div>))}
+      </>)}
+      {tips.length > 0 && <div className="tip-card" style={{ marginTop: 12 }}><div className="tip-name"><Glyph name="gem" size={16} /> Money do's &amp; don'ts</div><ul className="tip-list">{tips.map((t, i) => <li key={i}>{t}</li>)}</ul></div>}
     </>
   );
 }
@@ -2389,8 +2473,28 @@ function StyleBlock() {
 .cb-num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(240,144,42,0.16);color:var(--orange);font-size:11px;font-weight:700;flex:none;}
 .cb-card-b{margin:4px 0 0;font-size:12.5px;line-height:1.55;color:var(--parch-dim);}
 .korok-row{padding:9px 12px;border:1px solid rgba(255,255,255,0.06);border-radius:11px;margin-bottom:7px;background:rgba(255,255,255,0.015);}
-.korok-type{font-weight:600;font-size:13px;color:var(--moss);}
+.korok-type{font-weight:600;font-size:13px;color:var(--moss);display:flex;align-items:center;gap:8px;}
 .korok-how{font-size:12.5px;line-height:1.5;color:var(--parch-dim);margin:3px 0 0;}
+.korok-how b{color:var(--parch);}
+.korok-cat{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--moss);border:1px solid rgba(155,192,138,0.4);border-radius:5px;padding:1px 6px;}
+.korok-cats{margin:8px 0 4px;}
+/* v12.9 — What's-next coach */
+.nextup .panel-h{display:flex;align-items:center;gap:7px;}
+.nextup-row{width:100%;display:flex;align-items:center;gap:11px;text-align:left;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.06);border-radius:11px;padding:10px 12px;margin-bottom:7px;cursor:pointer;}
+.nextup-row:last-child{margin-bottom:0;}
+.nextup-ic{flex:none;display:flex;}
+.nextup-txt{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0;}
+.nextup-title{font-weight:600;font-size:13.5px;color:var(--parch);}
+.nextup-detail{font-size:11.5px;line-height:1.45;color:var(--parch-dim);}
+.nextup-chev{color:var(--parch-dim);font-size:20px;line-height:1;flex:none;}
+/* v12.9 — armor next-tier recipe */
+.armor-recipe{margin-top:9px;padding:8px 11px;background:rgba(242,193,78,0.05);border-left:2px solid var(--gold);border-radius:0 8px 8px 0;}
+.armor-recipe-max{color:var(--cyan);font-size:12px;font-weight:600;border-left-color:var(--cyan);background:rgba(95,214,226,0.05);}
+.recipe-h{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.recipe-mats{display:flex;flex-wrap:wrap;gap:6px;}
+.mat-chip{font-size:11.5px;color:var(--parch);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:2px 8px;}
+.mat-rupee{color:var(--moss);border-color:rgba(155,192,138,0.4);}
+.armor-note{font-size:11px;color:var(--cyan-dim);margin:7px 0 0;font-style:italic;}
 .cook-extra{margin-top:18px;}
 .gorecipe{padding:11px 12px;border:1px solid rgba(255,255,255,0.06);border-radius:11px;margin-bottom:8px;background:rgba(255,255,255,0.015);}
 .gorecipe-name{font-weight:600;font-size:13.5px;color:var(--parch);}
@@ -4462,7 +4566,58 @@ const ARMOR = {
    "where": "Given by Impa in Kakariko Village after recovering your first memory (Captured Memories); the blue tunic Zelda made for Link.",
    "bonus": "No set bonus. Unique effect: displays exact enemy HP numbers when equipped. Strong base defense (highest single piece when fully upgraded).",
    "upgrade": "Silver/Gold Lynel parts at higher stars (Lynel Hoof, Horn, Guts) plus rupees. No matching pieces, so it never grants a set bonus.",
-   "priority": "mid"
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      },
+      {
+       "item": "Shard of Farosh's Horn",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      },
+      {
+       "item": "Shard of Naydra's Horn",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 10
+      },
+      {
+       "item": "Shard of Dinraal's Horn",
+       "qty": 2
+      }
+     ]
+    }
+   ],
+   "farm": "Silent Princess is a rare wild flower; it grows near sacred places — around Great Fairy Fountains, on Satori Mountain, in Korok Forest near the Master Sword, and across West Necluda and Hyrule Ridge. The dragon-horn shards come from the three dragons: shoot Farosh (Faron/Lake Hylia), Naydra (Mount Lanayru, East Necluda), and Dinraal (Eldin/Tabantha) — \"Shard of [Dragon]'s Horn\" specifically requires hitting the horns on the dragon's head as it flies (other body parts give scales/claws/fangs). Parts despawn at dawn and each dragon yields only one part per ~10-min pass, so x10 Silent Princess + horn farming makes ★4 the real grind."
   },
   {
    "name": "Hylian Set",
@@ -4470,7 +4625,62 @@ const ARMOR = {
    "where": "Bought cheaply early on. Tunic/Trousers from Enchanted (Kakariko) and Ventest Clothing Boutique (Hateno); the Hood from those same armor shops.",
    "bonus": "No set bonus. Just solid, cheap all-around defense for beginners. The Hood gives no environmental resistance, only defense.",
    "upgrade": "Bokoblin parts (Bokoblin Horn, Fang, Guts) at low tiers, the most common monster drops, so very easy to upgrade.",
-   "priority": "beginner"
+   "priority": "beginner",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Bokoblin Horn",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Bokoblin Horn",
+       "qty": 24
+      },
+      {
+       "item": "Bokoblin Fang",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Bokoblin Fang",
+       "qty": 30
+      },
+      {
+       "item": "Bokoblin Guts",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Bokoblin Guts",
+       "qty": 45
+      },
+      {
+       "item": "Amber",
+       "qty": 45
+      }
+     ]
+    }
+   ],
+   "farm": "All upgrade materials are common Bokoblin drops — kill regular red Bokoblins for Horns and Fangs, and tougher blue/black/silver Bokoblins for Guts (silver have the best Guts drop rate) — while Amber is mined from the black ore deposits scattered on cliffs and in caves across Hyrule (and is also a frequent Bokoblin drop). This is one of the earliest sets you can fully max because every ingredient is so common."
   },
   {
    "name": "Soldier's Set",
@@ -4478,7 +4688,62 @@ const ARMOR = {
    "where": "Bought at Ventest Clothing Boutique in Hateno Village; a step up in defense from Hylian. (Not sold at the Kakariko shop.)",
    "bonus": "No set bonus. Higher base defense than Hylian for mid-game survivability.",
    "upgrade": "Chuchu Jelly and Bokoblin Guts at low tiers, then Keese/Moblin and Lizalfos/Lynel parts at higher tiers.",
-   "priority": "mid"
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Bokoblin Guts",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Keese Eyeball",
+       "qty": 9
+      },
+      {
+       "item": "Moblin Guts",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Lizalfos Tail",
+       "qty": 6
+      },
+      {
+       "item": "Hinox Guts",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Lynel Hoof",
+       "qty": 6
+      },
+      {
+       "item": "Lynel Guts",
+       "qty": 6
+      }
+     ]
+    }
+   ],
+   "farm": "The hardest materials are the late-game monster guts. Hinox Guts (★3) drop one per Hinox — large, dozing ogres found across Hyrule's fields and forests; you need 6, so 6 Hinox (or fewer with Blood-Moon respawns). Lynel Hoof + Lynel Guts (★4) drop from Lynels, the toughest overworld enemy; Lynel Guts is a comparatively rare drop, so expect to fight several (good spots: Ploymus Mountain above Zora's Domain, the Coliseum Ruins near Central Hyrule, or Lynels in Hyrule Field/Hebra). Bokoblin/Moblin Guts and Chuchu Jelly are common drops you'll have in bulk by mid-game."
   },
   {
    "name": "Climbing Set (Climber's Bandanna + Climbing Gear)",
@@ -4486,7 +4751,62 @@ const ARMOR = {
    "where": "Bandanna in a chest in Ree Dahee Shrine (Dueling Peaks); Gear in Chaas Qeta Shrine (SE off the coast); Boots in Tahno O'ah Shrine (eastern Mount Lanayru, Hateno region).",
    "bonus": "Each piece gives Climbing Speed Up (faster scaling). Set bonus Climbing Jump Stamina Up (at 2 stars) cuts the stamina cost of jumping while climbing.",
    "upgrade": "Keese parts plus Hightail Lizards / Hot-Footed Frogs (speed-themed materials).",
-   "priority": "beginner"
+   "priority": "beginner",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Keese Wing",
+       "qty": 9
+      },
+      {
+       "item": "Rushroom",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Electric Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Hightail Lizard",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Ice Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Hot-Footed Frog",
+       "qty": 30
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Fire Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Swift Violet",
+       "qty": 45
+      }
+     ]
+    }
+   ],
+   "farm": "Keese variants drop colored wings in their element habitats: Fire Keese around Death Mountain / Eldin; Ice Keese in Hebra and the Gerudo highlands; Electric Keese in Ridgeland / near Thundra Plateau. Swift Violets glow on cliff ledges and rock walls at night (Satori Mountain, Gerudo Highlands, Hebra) — pluck them in the dark. Hot-Footed Frogs hop near grassland ponds and rivers; sneak up to grab them. Hightail Lizards skitter in warm grasslands; Rushrooms grow on cliffsides and ledges. Each piece is upgraded separately, so multiply per-piece needs by 3 for the whole set."
   },
   {
    "name": "Stealth Set (Sheikah)",
@@ -4494,7 +4814,58 @@ const ARMOR = {
    "where": "Bought from Enchanted in Kakariko Village.",
    "bonus": "Each piece gives Stealth Up (quieter, harder for enemies to notice). Set bonus Night Speed Up (at 2 stars).",
    "upgrade": "Sneaky River Snails, Sunset Fireflies, and Rushrooms (stealth/night-themed materials).",
-   "priority": "mid"
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Blue Nightshade",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Blue Nightshade",
+       "qty": 15
+      },
+      {
+       "item": "Sunset Firefly",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Silent Shroom",
+       "qty": 24
+      },
+      {
+       "item": "Sneaky River Snail",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Stealthfin Trout",
+       "qty": 30
+      },
+      {
+       "item": "Silent Princess",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "The hardest material is Silent Princess (the rare wild flower) — it grows sparsely in shady spots of the Great Hyrule Forest (notably around the Korok Forest / Master Sword area) and in cool highland fields; pick it and replant the seeds nearby, or buy small amounts from traveling merchants. The rest are night/stealth gathers: Blue Nightshade and Silent Shroom in shaded forest grass (Great Hyrule Forest, Faron, Hyrule Field tree shade); Sunset Firefly glowing in grass after dark (cut grass or sneak-grab them at night); Sneaky River Snail on rocks along rivers and lakeshores; Stealthfin Trout in fresh water at night (they glow). Cooking any of these into a dish gives a stealth-up effect, so over-farm and you can cook the surplus."
   },
   {
    "name": "Snowquill Set",
@@ -4502,7 +4873,62 @@ const ARMOR = {
    "where": "Bought from the Brazen Beak armor shop in Rito Village.",
    "bonus": "Each piece gives 1 level Cold Resistance. Set bonus Unfreezable (at 2 stars) — immune to being frozen.",
    "upgrade": "Cold-themed parts: Cold Darner, Winterwing Butterfly, and Ice Keese Wings.",
-   "priority": "beginner"
+   "priority": "beginner",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Red Chuchu Jelly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Red Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Warm Safflina",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Fire Keese Wing",
+       "qty": 24
+      },
+      {
+       "item": "Sunshroom",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Red Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Ruby",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "Red Chuchu Jelly and Fire Keese Wing come from Red Chuchus and Fire Keese in Eldin (the Southern Mine near Goron City is dense with both); Red Lizalfos Tails drop from Red Lizalfos at Eldin fortresses (use the Sheikah Sensor+ to track them); Sunshrooms grow on Eldin's warm slopes (and the Gerudo Highlands); Warm Safflina grows around Gerudo Wasteland (and Eldin); Rubies come from ore deposits and ore-rich caves around Death Mountain/Eldin."
   },
   {
    "name": "Flamebreaker Set",
@@ -4510,7 +4936,66 @@ const ARMOR = {
    "where": "Helm, Armor, and Boots can be bought at Ripped and Shredded in Goron City; the Armor can alternatively be earned by trading 10 Fireproof Lizards to Kima at the Southern Mine (Fireproof Lizard Roundup).",
    "bonus": "Each piece grants Flame Guard (resist burning/lava heat). Set bonus Fireproof (at 2 stars) — no damage from open flame.",
    "upgrade": "Fire-themed parts: Fireproof Lizards, Smotherwing Butterflies, and Flame Keese Wings.",
-   "priority": "mid"
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Fireproof Lizard",
+       "qty": 3
+      },
+      {
+       "item": "Moblin Horn",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Fireproof Lizard",
+       "qty": 9
+      },
+      {
+       "item": "Moblin Fang",
+       "qty": 12
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Moblin Guts",
+       "qty": 9
+      },
+      {
+       "item": "Smotherwing Butterfly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Hinox Guts",
+       "qty": 6
+      },
+      {
+       "item": "Smotherwing Butterfly",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "Fireproof Lizards and Smotherwing Butterflies are caught around Eldin/Death Mountain (Smotherwing all over Eldin Canyon; Fireproof Lizards abundant at the Southern Mine — sneak up to catch, and they're also the trade item to Kima at the Southern Mine for the Armor piece). Moblin Horn/Fang/Guts drop from Moblins (Guts from blue-tier and up); Hinox Guts drop from any defeated Hinox."
   },
   {
    "name": "Desert Voe Set",
@@ -4518,7 +5003,62 @@ const ARMOR = {
    "where": "Bought from the armor shop in Gerudo Town, or from Rhondson once she moves to Tarrey Town.",
    "bonus": "Each piece gives 1 level Heat Resistance (desert daytime). Set bonus Shock Resistance Up (at 2 stars) — reduces electric damage, but NOT full immunity.",
    "upgrade": "Voltfin Trout, Voltfruit, and Electric Lizalfos parts (electricity-themed).",
-   "priority": "mid"
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "White Chuchu Jelly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "White Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Ice Keese Wing",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Ice Keese Wing",
+       "qty": 24
+      },
+      {
+       "item": "Icy Lizalfos Tail",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Icy Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Sapphire",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "White Chuchu Jelly comes from White (ice) Chuchu in cold regions (Hebra, Tabantha tundra, Mount Lanayru) — or freeze any Chuchu with an ice weapon/ice arrow and shatter it. Ice Keese Wing drops from Ice Keese and Icy Lizalfos Tail from Icy Lizalfos, both found in those same cold areas (Hebra/Tabantha/Mount Lanayru). Sapphire is mined from rare-ore deposits and ore veins (common in the Gerudo Highlands, Hebra, and Death Mountain) or bought from the Gerudo Town gem shop. NOTE: the cold-element materials are slow to farm; Blood-Moon farming Ice Keese/Icy Lizalfos camps in Hebra is the fastest route to the 33 Ice Keese Wings and 39 Icy Lizalfos Tails the full set needs."
   },
   {
    "name": "Gerudo Set (Vai Outfit)",
@@ -4526,7 +5066,9 @@ const ARMOR = {
    "where": "Bought from Vilia atop the cliffs at Kara Kara Bazaar for 600 rupees — required to enter Gerudo Town as a 'vai'.",
    "bonus": "Each piece gives 1 level Heat Resistance. Set bonus Unfreezable (at 2 stars). Main draw: grants access to Gerudo Town.",
    "upgrade": "Heat-themed parts: Hightail Lizard, Warm Darner, and Sand Cicada.",
-   "priority": "beginner"
+   "priority": "beginner",
+   "tiers": [],
+   "note": "Can't be upgraded at a Great Fairy — it stays at its base defense."
   },
   {
    "name": "Zora Set",
@@ -4534,7 +5076,58 @@ const ARMOR = {
    "where": "Armor from King Dorephan during the Vah Ruta quest at Zora's Domain; Helm in a sunken chest at Toto Lake; Greaves reward for the Lynel Safari side quest.",
    "bonus": "Each piece gives Swim Speed Up; Zora Armor also lets you swim up waterfalls. Set bonus Swim Dash Stamina Up (at 2 stars) — cheaper swim-dashing.",
    "upgrade": "Lizalfos parts (Lizalfos Tail, Talon, Horn) and Hyrule Bass — aquatic/lizard-themed.",
-   "priority": "mid"
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Lizalfos Horn",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Hyrule Bass",
+       "qty": 15
+      },
+      {
+       "item": "Lizalfos Talon",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Hearty Bass",
+       "qty": 15
+      },
+      {
+       "item": "Lizalfos Tail",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Opal",
+       "qty": 45
+      }
+     ]
+    }
+   ],
+   "farm": "Lizalfos parts (Horn, Talon, Tail) drop from Lizalfos, very common in the Lanayru wetlands and Faron jungle/coast; kill many to stockpile all three. Hyrule Bass is everywhere in normal lakes/rivers (and sold in shops); Hearty Bass is the larger fish found in colder waters such as around Mount Lanayru, Tabantha, and the Hebra/Gerudo highlands. Opal is mined from the common blue-glinting ore deposits in caves, on cliffs, and along mountain paths."
   },
   {
    "name": "Rubber Set",
@@ -4542,7 +5135,58 @@ const ARMOR = {
    "where": "Found in shrine chests scattered across Hyrule (e.g. Toto Sah, Daka Tuss, Sasa Kai). No single shop.",
    "bonus": "Each piece gives Shock Resistance. Set bonus Unshockable (at 2 stars) — full immunity to electric damage, including thunderstorm lightning.",
    "upgrade": "Electricity-themed: Yellow Chuchu Jelly, Electric Keese Wings, and Electric Lizalfos Tails.",
-   "priority": "mid"
+   "priority": "mid",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Yellow Chuchu Jelly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Yellow Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Voltfruit",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Zapshroom",
+       "qty": 15
+      },
+      {
+       "item": "Yellow Lizalfos Tail",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Yellow Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Topaz",
+       "qty": 30
+      }
+     ]
+    }
+   ],
+   "farm": "Yellow Chuchu Jelly drops from Electric Chuchus (or chop any Chuchu, then hit the jelly with a shock arrow / electric weapon to convert it to Yellow). Yellow Lizalfos Tails drop from Electric (Yellow) Lizalfos, common around the Lanayru wetlands and Faron. Voltfruit grows at Gerudo Desert oases (and is sold in Gerudo Town). Zapshrooms grow on warm cliffsides around Faron/Lanayru and the Gerudo highlands. Topaz is mined from ore deposits (esp. Death Mountain / Eldin) and can be bought from Ramella at Goron City."
   },
   {
    "name": "Radiant Set",
@@ -4550,7 +5194,62 @@ const ARMOR = {
    "where": "Bought from the Gerudo Secret Club in Gerudo Town after The Secret Club's Secret quest; each piece also costs Luminous Stones plus rupees.",
    "bonus": "Set bonus (at 2 stars) Disguise (Stal-types ignore you) plus Bone Atk. Up (boosts bone/Stal-type weapon damage). Glows in the dark.",
    "upgrade": "Luminous Stones and Stal parts (Stalkoblin/Stalizalfos bones).",
-   "priority": "late"
+   "priority": "late",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Luminous Stone",
+       "qty": 15
+      },
+      {
+       "item": "Bokoblin Guts",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Luminous Stone",
+       "qty": 24
+      },
+      {
+       "item": "Moblin Guts",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Luminous Stone",
+       "qty": 30
+      },
+      {
+       "item": "Molduga Guts",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Luminous Stone",
+       "qty": 60
+      },
+      {
+       "item": "Lynel Guts",
+       "qty": 3
+      }
+     ]
+    }
+   ],
+   "farm": "Luminous Stone is mined from glowing rock deposits at night (plentiful around Zora's Domain, the Gerudo Highlands/Yiga hideout cliffs, and the Eldin/Death Mountain foothills); the gating materials are guts dropped by enemies — Bokoblin/Moblin Guts from those mobs (silver variants drop the most), Molduga Guts from the four sand-swimming Moldugas in the Gerudo Desert, and Lynel Guts from Lynels (the white-maned Lynel atop Ploymus Mountain above Zora's Domain is an easy fixed respawn). Quantities above are SET TOTALS across all three pieces (per-piece x3, since Mask/Shirt/Tights are identical at every star)."
   },
   {
    "name": "Barbarian Set",
@@ -4558,7 +5257,66 @@ const ARMOR = {
    "where": "Each piece is a reward from a shrine inside a Labyrinth: Tu Ka'loh (Lomei Labyrinth Island), Dako Tah (South Lomei Labyrinth), Qaza Tokki (North Lomei Labyrinth).",
    "bonus": "Each piece gives Attack Up. Set bonus Charge Attack Stamina Up (at 2 stars) — cheaper spin/charge attacks.",
    "upgrade": "Lynel parts (Hoof, Horn, Guts) — mid-to-high tiers need Lynel materials.",
-   "priority": "late"
+   "priority": "late",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Lynel Horn",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Lynel Horn",
+       "qty": 9
+      },
+      {
+       "item": "Lynel Hoof",
+       "qty": 6
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Lynel Hoof",
+       "qty": 12
+      },
+      {
+       "item": "Lynel Guts",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Lynel Guts",
+       "qty": 6
+      },
+      {
+       "item": "Shard of Dinraal's Horn",
+       "qty": 1
+      },
+      {
+       "item": "Shard of Farosh's Horn",
+       "qty": 1
+      },
+      {
+       "item": "Shard of Naydra's Horn",
+       "qty": 1
+      }
+     ]
+    }
+   ],
+   "farm": "Every tier is Lynel-based: kill Lynels for Lynel Horn, Lynel Hoof, and Lynel Guts (Silver/Golden Lynels drop the most Guts) — biggest hunting grounds are around Hyrule Field, the Coliseum Ruins, and Ploymus Mountain; the 4-star dragon shards come from shooting the horn of each dragon as it flies (Dinraal over Eldin/Tabantha north, Farosh in Faron/Lake Hylia/Lanayru, Naydra at Mount Lanayru), then waiting ~10 min / sleeping for them to respawn."
   },
   {
    "name": "Ancient Set",
@@ -4566,7 +5324,62 @@ const ARMOR = {
    "where": "Bought from Cherry (the shop terminal) at the Akkala Ancient Tech Lab, after lighting the lab's furnace. Costs rupees + Ancient Materials.",
    "bonus": "Each piece gives Guardian Resist Up (less damage from Guardians/ancient weapons). Set bonus Ancient Proficiency (at 2 stars) — +80% damage with ancient and Guardian weapons (not the Master Sword).",
    "upgrade": "Ancient parts: Ancient Screws, Springs, Gears, Shafts, Cores, and a Giant Ancient Core at the top tier.",
-   "priority": "late"
+   "priority": "late",
+   "tiers": [
+    {
+     "star": 1,
+     "materials": [
+      {
+       "item": "Ancient Screw",
+       "qty": 15
+      },
+      {
+       "item": "Ancient Spring",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "materials": [
+      {
+       "item": "Ancient Spring",
+       "qty": 45
+      },
+      {
+       "item": "Ancient Gear",
+       "qty": 30
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "materials": [
+      {
+       "item": "Ancient Shaft",
+       "qty": 45
+      },
+      {
+       "item": "Ancient Core",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "materials": [
+      {
+       "item": "Star Fragment",
+       "qty": 3
+      },
+      {
+       "item": "Giant Ancient Core",
+       "qty": 6
+      }
+     ]
+    }
+   ],
+   "farm": "Ancient parts (Screw, Spring, Gear, Shaft, Core, Giant Ancient Core) drop from defeated Guardians — Stalkers, Skywatchers, and Decayed/turret Guardians, especially in Central Hyrule and at Hyrule Castle; you can also buy ancient parts from Cherry at the Akkala Ancient Tech Lab. Star Fragments fall from the night sky (~9pm onward) as glowing landings — fast-travel toward one to grab it before it fades."
   },
   {
    "name": "Royal Guard Set",
@@ -4574,7 +5387,9 @@ const ARMOR = {
    "where": "The Champions' Ballad DLC. Pieces found in chests via the EX Royal Guard Rumors side quest (in/around Hyrule Castle).",
    "bonus": "Set bonus Charge Attack Stamina Up. Low base defense (4 per piece). Cannot be upgraded by a Great Fairy and cannot be dyed.",
    "upgrade": "None — this set cannot be enhanced at a Great Fairy Fountain.",
-   "priority": "late"
+   "priority": "late",
+   "tiers": [],
+   "note": "Can't be upgraded at a Great Fairy — it stays at its base defense."
   },
   {
    "name": "Wild Set (amiibo)",
@@ -4582,7 +5397,98 @@ const ARMOR = {
    "where": "Obtained via amiibo (the BotW Link amiibo / 30th Anniversary line); the classic green hero look.",
    "bonus": "Set bonus Master Sword Beam Up (at 2 stars) — boosts the Master Sword's energy beam at full health. Each piece is high defense.",
    "upgrade": "Star Fragments and Lynel parts (Silver/Gold Lynel Horn, Hoof, Guts) at the higher tiers.",
-   "priority": "late"
+   "priority": "late",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Acorn",
+       "qty": 30
+      },
+      {
+       "item": "Farosh's Scale",
+       "qty": 2
+      },
+      {
+       "item": "Naydra's Scale",
+       "qty": 2
+      },
+      {
+       "item": "Dinraal's Scale",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Courser Bee Honey",
+       "qty": 15
+      },
+      {
+       "item": "Farosh's Claw",
+       "qty": 2
+      },
+      {
+       "item": "Naydra's Claw",
+       "qty": 2
+      },
+      {
+       "item": "Dinraal's Claw",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Energetic Rhino Beetle",
+       "qty": 15
+      },
+      {
+       "item": "Shard of Farosh's Fang",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Naydra's Fang",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Dinraal's Fang",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Star Fragment",
+       "qty": 3
+      },
+      {
+       "item": "Shard of Farosh's Horn",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Naydra's Horn",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Dinraal's Horn",
+       "qty": 2
+      }
+     ]
+    }
+   ],
+   "farm": "Star Fragments fall from the night sky (wait at a high vantage from ~9 PM and shoot/grab the fallen light — they vanish at dawn). The dragon parts come from the three roaming dragons: shoot a scale/claw/fang/horn off each as it flies. Each PIECE is locked to one dragon — Cap=Farosh (Faron/Lake Hylia at night, Lake Floria), Tunic=Naydra (Mount Lanayru, dawn ascent), Trousers=Dinraal (Eldin/Tanagar Canyon, North Tabantha, mornings). Acorns drop from trees (and from squirrels), Courser Bee Honey hangs in beehives, and Energetic Rhino Beetles cling to tree trunks at night in Faron / Hyrule Forest."
   }
  ]
 };
@@ -4998,48 +5904,118 @@ const KOROKS = {
  "hestu": "Hestu moves, then settles. (1) First meeting: on the road between Dueling Peaks Stable and Kakariko Village, just past Kakariko Bridge — do the favor in the side quest The Priceless Maracas (recover his maracas from nearby Bokoblins) and he starts upgrading. (2) Next: near Riverside Stable, west of Kakariko in Hyrule Field, by a tree along the road. (3) Permanent home: Korok Forest, deep in the Great Hyrule Forest up north (Lost Woods), by the Great Deku Tree. Rising cost curve per slot — Weapons (11 upgrades): 1,2,3,5,8,12,17,25,35,45,55 = 208. Bows (8): 1,2,3,5,8,12,17,25 = 73. Shields (16): 1,2,3,4,5,10,10,10,10,10,15,15,15,15,15,20 = 160. Maxing ALL pouches costs exactly 441 seeds — that is the cap; beyond that, extra seeds do nothing for inventory. 900 seeds exist total; turning in all 900 earns Hestu's Gift, a purely cosmetic golden poop (\"smells pretty bad\") — a joke reward, no stats.",
  "puzzleTypes": [
   {
-   "type": "Rock in a ring / lift the lone rock",
-   "how": "See a circle of stones with one gap, or a single suspicious rock sitting alone? Pick up a nearby rock and drop it in the ring, or just lift the lone rock to reveal the Korok under it."
+   "type": "Lift the lone rock",
+   "see": "A single suspicious rock sitting by itself in an odd spot — often beside a tree, on a peak, or in a clearing where nothing else is around.",
+   "do": "Walk up and pick the rock up (hold the pickup button). The Korok pops out from underneath. No tools needed — this is the most common type.",
+   "category": "rocks"
   },
   {
-   "type": "Complete the pattern",
-   "how": "A near-symmetrical arrangement (rocks, blocks) with one piece obviously missing. Add or move a rock/block to finish the symmetry."
+   "type": "Hidden rock (clear the cover)",
+   "see": "A small pile of leaves, a flat slab, a movable pot, or a little wall of stacked rocks that looks deliberately placed.",
+   "do": "Clear or break whatever covers it — sweep the leaves, lift the slab, smash the pot, or knock the stack down — then lift the rock or grab the Korok hidden underneath.",
+   "category": "rocks"
   },
   {
-   "type": "Stone circles / place the boulder",
-   "how": "A ring of small stones around an empty center wants a boulder rolled or carried into the middle."
+   "type": "Rock in a ring (drop a rock in the gap)",
+   "see": "A circle of small stones with the center empty, or a ring sitting in shallow water.",
+   "do": "Find a loose rock nearby and carry or throw it into the empty center to complete the circle. (In water, shoot a small rock into the middle with an arrow, or use Magnesis on a metal one.)",
+   "category": "rocks"
   },
   {
-   "type": "Flower trail",
-   "how": "Spot a line of identical flowers (often yellow). Run to and touch each one IN ORDER without missing any; the last one spawns the Korok."
+   "type": "Complete the rock pattern",
+   "see": "A near-symmetrical arrangement of rocks with one obviously out of place — two matching little piles where one is short a stone.",
+   "do": "Pick up a nearby loose rock and place it in the gap (or rearrange the existing rocks) so the two halves match exactly.",
+   "category": "rocks"
   },
   {
-   "type": "Balls / orbs in holes",
-   "how": "A metal or stone ball near matching divots — roll or carry it into the hole. Sometimes you guide it with Magnesis or Stasis."
+   "type": "Boulder into the hole/pit",
+   "see": "A large boulder sitting near a round pit or depression in the ground.",
+   "do": "Push, roll, Stasis-launch, or carry the big boulder into the pit. (Shiny metal boulders can be moved with Magnesis.)",
+   "category": "rocks"
   },
   {
-   "type": "Race / reach the goal in time",
-   "how": "Activate a glowing wisp or ring of light, then sprint (often paraglide or shield-surf) to the goal before the timer runs out."
+   "type": "Roll the boulder to the goal",
+   "see": "A boulder oddly placed with no visible pit — but two trees, a marked spot, or a clear path nearby that reads as a goal.",
+   "do": "Roll or push the boulder to that goal spot (often between two trees) to spawn the Korok.",
+   "category": "rocks"
   },
   {
-   "type": "Shoot the target",
-   "how": "Spot a balloon, an acorn, an apple/fruit, or a small mark? Hit it with an arrow. Sometimes several balloons must all be popped."
+   "type": "Metal cube — complete the pattern (Magnesis)",
+   "see": "Two cube structures meant to mirror each other, with one metal cube missing from a slot — and a loose metal cube nearby. (This is the only BotW 'cube' puzzle.)",
+   "do": "Use Magnesis to grab the loose metal cube and set it into the empty slot so both structures match.",
+   "category": "place"
   },
   {
-   "type": "Offering to a pedestal / altar",
-   "how": "A small shrine-like pedestal with a fruit or item carved on it — place that exact item (apple, durian, etc.) on it."
+   "type": "Magnetic ball into the hole (Magnesis)",
+   "see": "A metal ball — sometimes a ball-and-chain or two balls linked by a chain — sitting near a matching hole, socket, or hollow tree.",
+   "do": "Use Magnesis to lift the metal ball and drop it into the hole/socket it belongs in.",
+   "category": "place"
   },
   {
-   "type": "Matching spin (pinwheel / cube)",
-   "how": "Two pinwheels or a floating cube — rotate the cube (climb and push, or Magnesis) so its colored faces match the surrounding pattern."
+   "type": "Match the trees — remove the extra fruit",
+   "see": "Two or three identical trees (cacti in the Gerudo Desert) in a row, where one has one or more extra fruit so it doesn't match its neighbors.",
+   "do": "Pluck or shoot off the extra fruit so every tree has fruit in exactly the same spots.",
+   "category": "place"
   },
   {
-   "type": "Light the torches",
-   "how": "Several unlit torches near one lit flame (or you bring fire). Light every torch, usually using a torch/fire arrow/flint."
+   "type": "Flower trail (follow the flowers)",
+   "see": "A single golden/yellow Korok flower in an odd spot that vanishes and reappears a short distance away when you approach.",
+   "do": "Chase it from flower to flower without missing one until it stops as a white flower — touch that final flower to spawn the Korok. (It is a chase, not a timed race.)",
+   "category": "other"
   },
   {
-   "type": "Dive into a ring",
-   "how": "A ring of light or floating circle below a cliff — paraglide or dive straight through the center to spawn the Korok."
+   "type": "Flowers by count (touch in order)",
+   "see": "Several clusters of the same flower with different bloom counts (e.g. a clump of 1, a clump of 2, a clump of 3).",
+   "do": "Touch the clusters in ascending order, fewest blooms to most. A correct touch changes its color; a wrong order resets the puzzle.",
+   "category": "other"
+  },
+  {
+   "type": "Timed race to the ring",
+   "see": "A tree stump marked with a leaf symbol (or a wisp/ring of light) that starts a countdown when you step on or activate it.",
+   "do": "Activate it, then sprint, paraglide, or shield-surf to the goal ring before the timer runs out.",
+   "category": "race"
+  },
+  {
+   "type": "Shoot the lone balloon or acorn",
+   "see": "A single floating balloon, or a large acorn hanging under a bridge or tucked inside a hollow tree trunk / fallen log.",
+   "do": "Hit it with one arrow. (Aim down sights; Stasis can freeze a tricky one to make the shot easy.)",
+   "category": "shoot"
+  },
+  {
+   "type": "Pinwheel — shoot the targets it spawns",
+   "see": "A small spinning pinwheel. Approaching it makes balloons or acorns appear — they may be moving, teleporting, or stationary.",
+   "do": "Shoot down every balloon/target the pinwheel spawns before time runs out. Stasis helps pin moving ones.",
+   "category": "shoot"
+  },
+  {
+   "type": "Dive through the ring / lily-pad circle",
+   "see": "A ring of light, or a circle of water lilies on a pond, sitting below a nearby ledge or cliff.",
+   "do": "Climb to the ledge above and do a forward dive straight through the center of the ring.",
+   "category": "dive"
+  },
+  {
+   "type": "Chase / reach the sparkles",
+   "see": "A trail of glowing sparkles (Korok leaves/sparks) drifting through the air, or a lone sparkle perched at the top of a tall structure.",
+   "do": "Reach and examine the sparkle — chase a moving trail to its end, or climb to the peak for a high one — to spawn the Korok.",
+   "category": "other"
+  },
+  {
+   "type": "Melt the odd ice block",
+   "see": "A strangely shaped or out-of-place block of ice, sometimes with a sparkle frozen inside.",
+   "do": "Apply fire — a torch, flame weapon, or fire arrow — to melt the ice and reveal the Korok or sparkle.",
+   "category": "light"
+  },
+  {
+   "type": "Light the unlit torch(es)",
+   "see": "One or more unlit torches/braziers grouped together, often with a flame source nearby.",
+   "do": "Light every torch in the set — carry fire from a flame, swing a burning weapon, or use a fire arrow until all are lit.",
+   "category": "light"
+  },
+  {
+   "type": "Offering at a statue/pedestal",
+   "see": "A prayer statue or a set of offering plates with one bowl empty — the other nearby bowls already hold an item (a fruit, an acorn, sometimes a rusty weapon).",
+   "do": "Place an item matching the ones in the other nearby bowls into the empty bowl (e.g. an apple if the others hold apples).",
+   "category": "offering"
   }
  ],
  "hotspots": [
@@ -7414,6 +8390,141 @@ const COOK_INGREDIENTS = [
   "where": "Falls as a shooting star at night"
  }
 ];
+const ECONOMY = {
+ "rupees": [
+  {
+   "method": "Sell gems (mine ore deposits)",
+   "detail": "Smash black ore deposits (hammer/heavy weapon) for gems that sell to General Stores at fixed rates — Amber 30, Opal 30, Topaz 180, Ruby 210, Sapphire 260, Diamond 500 — with the densest rare-gem mining in the Eldin mountains (Goron/Death Mountain mines) and Gerudo Highlands. (Beedle pays a bit more for some, e.g. 60 for Opal.)"
+  },
+  {
+   "method": "Sell to the premium gem buyer (Ramella)",
+   "detail": "Ramella, a traveling Gerudo merchant in Goron City, pays a markup over normal shops — e.g. 10 rubies for 1,300, 10 sapphires for 1,700, 10 diamonds for 5,500. Catch: she buys only ONE gem type per visit (it rotates), and only in batches of 10. Save your gems and check what she wants each day."
+  },
+  {
+   "method": "Farm Talus gems",
+   "detail": "Stone Taluses (and the rarer Luminous/Rare/Frost/Igneo variants) drop ore and gems including diamonds when smashed apart; Luminous and Rare Taluses are the most reliable diamond sources but are tougher fights, so this is a mid-game earner."
+  },
+  {
+   "method": "Dragon-horn / scale farming",
+   "detail": "Shoot a dragon's horn for a Shard of Horn that sells for ~300 rupees (scales from hitting the body are easier but worth less). Farosh is the easiest to camp — it rises from Riola Spring at night (warp to Shoda Sah Shrine near Lakeside Stable). Use a wooden (non-metal) bow because metal draws its lightning, and wear Zora gear to grab parts that fall in the water."
+  },
+  {
+   "method": "Mine luminous stones",
+   "detail": "Luminous Stones glow at night and cluster on the cliffs around Zora's Domain; they sell for ~70 rupees each. Note: trading 10 to Ledo in Zora's Domain ('Luminous Stone Gathering') gives a Diamond, but 10 stones (~700) for one Diamond (~500) is a net loss — do it for the Diamond material, not for profit. Selling the stones outright is the better cash."
+  },
+  {
+   "method": "Cook and sell high-value dishes",
+   "detail": "A cooked dish is worth more than its raw parts, so five-ingredient meals of pricey items sell well — e.g. five Raw Gourmet Meat cooks into a Meat Skewer that sells for ~490 rupees. Reliable but slower than gems/dragons and it ties up ingredients."
+  },
+  {
+   "method": "Sell monster parts at shops (not Kilton)",
+   "detail": "Bokoblin/Lizalfos/Moblin parts (fangs, horns, guts) only fetch Kilton's 'Mon' currency at the Fang & Bone — to get actual rupees, sell stacks of these and leftover Guardian parts (the common ones) to regular General Stores. Each is cheap, but bulk adds up."
+  },
+  {
+   "method": "Treasure-chest gambling at Lurelin (save-scum)",
+   "detail": "Cloyne in Lurelin Village lets you wager 10/50/100 rupees on 1-of-3 chests; only the 100-rupee bet is worth it (one chest holds a Gold Rupee = 300, i.e. 3x). Odds are 1-in-3 honestly, but you can save before picking and reload on a loss, making the 100 wager an effectively risk-free triple."
+  },
+  {
+   "method": "Gut Check Rock challenges",
+   "detail": "At Gut Check Rock in the Gerudo Highlands, the Super Gut Check Challenge costs 100 rupees to enter and you keep 300 collected on the climb (net +200) plus an Endura Shroom. A handy one-time-ish payout once you can reach the top."
+  },
+  {
+   "method": "Snowball Bowling at Pondo's Lodge",
+   "detail": "At Pondo's Lodge northeast of Hebra Tower, bowling costs 20 rupees a throw; a strike pays a Gold Rupee (300) — your first-ever strike instead gives the Blizzard Rod — and with practice it's one of the fastest repeatable rupee earners in the game."
+  },
+  {
+   "method": "Ridgeland Tower gliding (Branli)",
+   "detail": "Branli atop Ridgeland Tower (20-rupee entry) pays by how far you glide: under 450m nothing, 450–600m a Purple Rupee (50), over 600m a Silver Rupee (100, the cap). The top prize is reachable without Revali's Gale — glide southeast toward the lowest ground. A small, largely one-time reward, not a real farm."
+  },
+  {
+   "method": "Horse-gear archery/race minigames",
+   "detail": "These pay gear rather than rupees but save you buying it: the Mounted Archery Camp in Faron (near Highland Stable, run by Jini, 20-rupee entry) gives the Knight's Bridle/Saddle for hitting 20/23 balloon targets from horseback."
+  }
+ ],
+ "farming": [
+  {
+   "item": "Star Fragment",
+   "where": "Top of the Dueling Peaks (warp to Shee Vaneer Shrine, climb behind it) — any high, open vantage works.",
+   "tip": "They fall at night, roughly 9:00 PM to 3:30 AM (and you have until ~5 AM to grab one before it despawns). Light a fire and pass time to 9 PM, watch for a falling streak, then paraglide toward the golden landing glow. Some players report more falling stars on a Blood Moon night, but that isn't a confirmed mechanic. Needed for the top tier of many armor upgrades."
+  },
+  {
+   "item": "Diamonds & rare gems (Ruby/Sapphire/Topaz)",
+   "where": "Rare Ore Deposits (golden ore) in the Eldin mines — a couple just south of Goron City — plus the Talus monsters across Hyrule.",
+   "tip": "Smash ore deposits with a Hammer/Drillshaft-type weapon for the best gem odds; they respawn after a Blood Moon. The most reliable Diamond source is killing Stone Talus (Luminous/Rare), Frost Talus, and Igneo Talus — each can drop a Diamond and they respawn on Blood Moon."
+  },
+  {
+   "item": "Lynel parts — horns, hooves, guts (incl. Silver/Gold)",
+   "where": "Ploymus Mountain east of Zora's Domain (one fixed Red-Maned Lynel — stays the same, easy repeat), the Coliseum Ruins near Outskirts Stable (upgrades with your progress), and three Silver Lynels north of Hebra Tower.",
+   "tip": "Lynels respawn every Blood Moon. After all 4 Divine Beasts (or ~23+ hearts) most non-fixed spawns become Silver, giving the best horns/guts. Sneakstrike, then mount-and-headshot (climb on for free hits) downs them fast. Lynel parts upgrade the Barbarian set."
+  },
+  {
+   "item": "Bokoblin / Moblin / Lizalfos parts (horns, fangs, guts)",
+   "where": "Any enemy camp; dense early spots are along the road south of Dueling Peaks and the Great Plateau perimeter. Gerudo Desert camps are good once Vah Naboris is done (no lightning storms).",
+   "tip": "Plain red/orange enemies drop only horns/fangs (or talons for Lizalfos) — GUTS come from the upgraded Blue/Black/Silver/Gold Bokoblin and Moblin variants (Lizalfos don't drop guts at all). Stronger variants appear in greater numbers after Divine Beasts. Everything respawns each Blood Moon, so clear camps the night before."
+  },
+  {
+   "item": "Ancient parts (gears, screws, springs, shafts, cores)",
+   "where": "Active Guardians around Hyrule Castle / Hyrule Field, and Akkala (near the Akkala Tech Lab) — the densest Guardian Stalker fields.",
+   "tip": "Use Ancient Arrows or a strong shield to parry the beam (one-shot). Hitting/severing the legs yields extra parts. Cores/Giant Cores are the rare drops. The merchant Teli (walks Fort Hateno ↔ Hateno Village) sells screws/springs/gears, and on RAINY days doubles stock and adds Shafts and Cores. Ancient parts power the Ancient armor set, ancient weapons, and rune upgrades."
+  },
+  {
+   "item": "Dragon parts — Dinraal (fire)",
+   "where": "Tabantha Great Bridge / Tanagar Canyon — warp to Shae Loya Shrine, rest to morning, then look north around 6–6:30 AM as Dinraal flies south through the canyon under the bridge.",
+   "tip": "One part per day. Shoot the HORN on its head for the horn shard, the mouth for fang, feet for claw, body for scale. Wear Flamebreaker armor — Dinraal radiates fire. (Note: Dinraal has no associated spring quest — that's Naydra.)"
+  },
+  {
+   "item": "Dragon parts — Naydra (ice)",
+   "where": "Mount Lanayru — warp to Jitan Sa'mi Shrine near the peak (unlocked after the Spring of Wisdom quest), make a fire, rest to morning, then glide down as Naydra rises/circles the mountain in the early morning.",
+   "tip": "One part per day; same horn/mouth/feet/body targeting. Wear Snowquill for the cold. Naydra only appears after you cleanse it of Malice during 'The Spring of Wisdom.' Its parts give cold/shock-resist cooking and high-value horns."
+  },
+  {
+   "item": "Dragon parts — Farosh (lightning)",
+   "where": "Riola Spring (warp to Shoda Sah Shrine) is the most reliable spot — trees shield your fire from rain and Farosh surfaces within seconds of resting to night. Also rises from Lake Hylia (Bridge of Hylia towers) at night.",
+   "tip": "The easiest dragon to farm. Appears at night (~9 PM–7 AM); shoot horn/mouth/feet/body for the part you need (one/day). Do NOT use metal gear/bows — Farosh discharges lightning. Wear Zora armor to retrieve parts that drop in the water. Its parts feed shock-resist and the Rubber armor upgrades."
+  },
+  {
+   "item": "Hearty Durian (max +stamina/hearts food)",
+   "where": "Faron region — warp to Faron Tower; the plateau just NORTH of it is dotted with Hearty Durian trees; also northwest of Dracozu Lake.",
+   "tip": "Respawns each Blood Moon. Cooking 5 Hearty Durians = a full-heal dish with big bonus (yellow) hearts — the best survival food in the game. Grab a full stack each visit."
+  },
+  {
+   "item": "Big Hearty Radish / Hearty Radish",
+   "where": "Big Hearty Radish: Akkala Highlands and Lanayru Great Spring. Hearty Radish is common around Hyrule Ridge / Sahasra Slope near Kakariko.",
+   "tip": "Pick the same routes after each Blood Moon. A single Big Hearty Radish in a dish grants the most temporary (yellow) hearts of any one ingredient — the go-to for tough fights when you're low on Durians."
+  },
+  {
+   "item": "Stealth bugs/critters — Cold Darner, Warm Darner, Sunset Firefly, Sneaky River Snail",
+   "where": "Cold Darner: Thundra Plateau / Tabantha. Warm Darner: Akkala Highlands / Hyrule Field. Sunset Firefly: Kakariko Village and night fields. Sneaky River Snail: water's edge in Zora's Domain.",
+   "tip": "Wear stealth gear or drink a Sneaky Elixir, then creep slowly — these flee if you rush. Fireflies are night-only, most abundant midnight–3 AM, and don't appear in rain. These feed Sneaky/Heat/Cold elixirs; 15 Sunset Fireflies fully upgrade the Stealth (Sheikah) set."
+  },
+  {
+   "item": "Heat/cold-resist butterflies — Warm/Cold Darner, Summerwing & Smotherwing Butterfly",
+   "where": "Summerwing Butterfly: warm zones — base of Death Mountain, Great Plateau. Smotherwing Butterfly: edges of the lava lakes in Eldin Canyon / Death Mountain.",
+   "tip": "Smotherwing needs Flamebreaker armor (or a Fireproof Elixir) just to reach it without burning. Cook a butterfly + monster part for a Fireproof or Chilly/Spicy elixir. Beedle also sells some of these at certain stables if you'd rather buy."
+  },
+  {
+   "item": "Sunshrooms (heat-resist) & Hearty/Mighty produce",
+   "where": "Sunshrooms grow on the warm slopes of Eldin (around Goron City / Death Mountain foothills). Mighty Bananas: Faron jungle and Eventide Island.",
+   "tip": "Sunshroom dishes give Heat Resistance. Mighty Bananas cook into Attack-up (Mighty) food — five = a strong attack buff for boss fights. All respawn after a Blood Moon."
+  },
+  {
+   "item": "Raw Gourmet Meat (best meat) + Prime Meat / fish",
+   "where": "Raw Gourmet Meat drops from large animals in the cold north — moose, water buffalo, rhinos, bears — in the Hebra/Tabantha snowfields. Hyrule Bass: nearly any pond; Hearty Salmon/Bass: cold rivers.",
+   "tip": "Sneak-shoot or bomb big animals for Raw Gourmet Meat (best per-piece). Stunning fish with a shock weapon or dropped bomb lets you scoop a whole school at once. Cooked into Meat Skewers, this is both top-tier buff food and the best cook-to-sell."
+  }
+ ],
+ "tips": [
+  "DON'T sell Ancient parts (Guardian drops) — you need them for the Ancient armor set, ancient weapons, and the Sheikah Sensor / Remote Bomb / Stasis rune upgrades at the Akkala Tech Lab.",
+  "DON'T sell Star Fragments — they're rare and required for the best armor upgrades, far outweighing their 300-rupee sell price.",
+  "DON'T sell dragon parts (scales, horns, claws, fangs) for quick cash — most high-tier armor upgrades demand them, and they're tedious to refarm (one per day).",
+  "DO cook ingredients before selling — a finished dish is worth several times its raw materials (a Gourmet Meat Skewer sells for ~490 rupees).",
+  "DO sell ores, surplus monster parts, and extra food as your everyday rupee source — they're renewable and not needed in bulk.",
+  "DON'T panic if your Hylian Shield breaks — once you've claimed it from Hyrule Castle's Lockup, Granté in Tarrey Town restocks it for 3,000 rupees (after you finish building Tarrey Town).",
+  "DO remember armor bought from town shops can be sold back, so a wrong purchase isn't fully wasted.",
+  "DO save up before Great Fairy Fountains — unlocking them costs 100, then 500, then 1,000, then 10,000 rupees (11,600 total), each one adding an armor-upgrade tier.",
+  "DO buy arrows in bulk whenever shops stock them — field pickup is unreliable, regular arrows are cheap, and Bomb Arrows come 10-for-350 at Fyson's shop in Tarrey Town."
+ ]
+};
 const LORE = [
  {
   "id": "lore_goddesses",
@@ -12498,5 +13609,5 @@ const TOTK = {
  "KOROKS": null,
  "MAP_BEASTS": []
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK };
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK };
 /* GEN:DATA:END */

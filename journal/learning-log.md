@@ -5,6 +5,36 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.9: playthrough-depth bundle (armor upgrades · coach · korok solver · economy)
+
+- **User: "do all of those!"** — built the four remaining brainstorm ideas in one pass. Mix of sourced-data
+  (workflow) + pure-logic (built directly): armor upgrade tracker, "What's next?" coach, Korok solver, Money tab.
+- **One 3-phase Workflow** (`gen-depth-workflow.mjs`, 38 agents, ~1.7M tok, 28 min) produced all the data:
+  per-set armor recipes (pipeline, author→verify), an economy guide (3 parallel authors → 1 verify), and
+  enriched Korok types (author→verify). `merge-depth.mjs` splits the output into armor.json / economy.json /
+  koroks.json. **The coach was pure logic (no workflow)** — `nextUp` memo over existing progress state.
+- **Armor verify pass was the MVP** (exact-number data): caught SegmentNext's wrong ★4 Champion's Tunic
+  (Silent Princess ×3 → really ×10), SAMURAI GAMERS' Amber ×30/piece (→15), and multiple sites citing the
+  Great-Fairy **awakening fees** (100/500/1,000/10,000) as the *upgrade* cost. Where no fixed per-star rupee
+  value could be triangulated, agents honestly left `rupees:0` (UI hides the chip) — first law over completeness.
+  Two sets (Gerudo Vai, Royal Guard) correctly came back with **empty tiers** — they genuinely can't be upgraded;
+  shipped a clean "can't be upgraded" note instead of inventing recipes.
+- **Two verification traps banked (cost ~30 min):**
+  1. **Service-worker stale cache.** After rebuilding, the preview at `localhost:8137` served the SW-CACHED OLD
+     bundle — I "verified" and saw the *old* 10 guide segments (no Money), no coach. Tell: the data was a build
+     behind. Fix: verify on a **fresh port/origin** (SW is origin-scoped) or unregister SW + `caches.delete`.
+  2. **Preview server wedged.** After a few start/stop cycles the preview tool's python `http.server` spawned but
+     never bound the port (macOS local-network "disclaimer" permission gate) — page went `chrome-error`. Fix:
+     ran my OWN `python3 -m http.server <newport>` via Bash (sandbox-disabled) and pointed the preview Chrome at
+     it with `window.location.href`. Worked immediately. **Rule: when the preview server won't bind, BYO server
+     on a new port + navigate the Chrome to it.**
+- **Merge name-match gotcha:** an author returned `"Wild Set"` but armor.json has `"Wild Set (amiibo)"` → missed
+  the by-name merge. Patched the name in the result and re-ran. (Consider fuzzy/startsWith matching next time.)
+- Stripped the verbose agent `note` (verification meta) from shipped armor data — kept only `tiers` + `farm`,
+  plus a clean short note for the non-upgradeable two. Verified all four features in-browser with real data
+  (Hylian ★1 = 15× Bokoblin Horn + 30 rupees; economy 26 rows + 9 tips; korok search "balloon" → 2 cards),
+  0 console errors.
+
 ## 2026-06-19 — v12.8: combat guides (boss fights + a primer that fights overwhelm)
 
 - **Brainstorm → the user picked "boss & enemy fight guides," but his real wall is "overwhelmed by systems"**
