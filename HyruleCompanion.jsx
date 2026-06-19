@@ -1121,6 +1121,12 @@ const LORE_THEMES = {
 const LORE_SCALES = [0.9, 1, 1.14, 1.3];
 const LORE_NOTE = { canon: { label: "Canon", glyph: "◈" }, creator: { label: "Creator note", glyph: "✦" }, theory: { label: "Theory", glyph: "◇" } };
 
+// Render full-screen readers at document.body level so they escape the tab content's
+// stacking context (.body has z-index:1) and any ancestor transform — otherwise the
+// fixed reader gets painted under the tab bar / offset by the containing block. (v12.2 fix)
+const portal = (node) => (typeof ReactDOM !== "undefined" && ReactDOM.createPortal && typeof document !== "undefined")
+  ? ReactDOM.createPortal(node, document.body) : node;
+
 const BOOK_HUES = {
   historia: ["#1d3a2e", "#0b1812"], ootmanga: ["#37202f", "#140a11"],
   explorer: ["#163039", "#091820"], pathways: ["#332c17", "#14110a"],
@@ -1167,10 +1173,10 @@ function LibraryView({ books, userBooks, onImportBooks, onRemoveBook, bookBusy, 
   if (open) {
     const tog = () => setBookmarks((m) => { const n = { ...m }; if (n[open.id]) delete n[open.id]; else n[open.id] = { at: Date.now() }; return n; });
     if (open.type === "pages")
-      return <BookReader book={open} getPageBlob={getPageBlob} reading={reading} setReading={setReading} bookmarked={!!bookmarks[open.id]} toggleBookmark={tog} onClose={() => setOpenId(null)} />;
+      return portal(<BookReader book={open} getPageBlob={getPageBlob} reading={reading} setReading={setReading} bookmarked={!!bookmarks[open.id]} toggleBookmark={tog} onClose={() => setOpenId(null)} />);
     const chapter = open.type === "text" ? { ...open, eyebrow: open.eyebrow || ((open.author ? open.author + " · " : "") + (open.kind || "Guide")) } : open;
-    return <LoreReader chapter={chapter} prefs={prefs} setPrefs={setPrefs} reading={reading} setReading={setReading} loreArt={loreArt} setLoreArt={setLoreArt}
-      bookmarked={!!bookmarks[open.id]} toggleBookmark={tog} onClose={() => setOpenId(null)} />;
+    return portal(<LoreReader chapter={chapter} prefs={prefs} setPrefs={setPrefs} reading={reading} setReading={setReading} loreArt={loreArt} setLoreArt={setLoreArt}
+      bookmarked={!!bookmarks[open.id]} toggleBookmark={tog} onClose={() => setOpenId(null)} />);
   }
 
   return (
@@ -1314,7 +1320,7 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
     const measure = () => {
       const el = viewRef.current; if (!el) return;
       const top = el.getBoundingClientRect().top;
-      const h = Math.max(260, Math.round((window.innerHeight || 640) - top - 116));
+      const h = Math.max(260, el.clientHeight || Math.round((window.innerHeight || 640) - top - 64));
       setDims({ w: Math.max(200, el.clientWidth - PAD * 2), h });
     };
     measure();
@@ -1370,7 +1376,7 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
         </div>
       )}
       <input type="file" accept="image/*" ref={fileRef} onChange={onPickImage} style={{ display: "none" }} />
-      <div className="lore-view" ref={viewRef} style={{ height: dims.h }}>
+      <div className="lore-view" ref={viewRef}>
         <div className="lore-cols" ref={colsRef} onTouchStart={onTS} onTouchEnd={onTE}
           style={{ width: dims.w + "px", height: dims.h, columnWidth: dims.w + "px", columnGap: GAP + "px", fontSize: Math.round(16 * scale) + "px", transform: "translateX(" + (-page * (dims.w + GAP)) + "px)" }}>
           {(personalArt || artBlock) && (personalArt
@@ -2366,7 +2372,7 @@ function StyleBlock() {
 .steps{animation:stepsIn .28s ease;}
 @keyframes stepsIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
 .body{animation:fadeIn .24s ease;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(3px);}to{opacity:1;transform:none;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}} /* opacity-only: a transform here would become the containing block for the fixed readers (.bk-reader/.lore-reader) and break them */
 .reg-row:active,.regchip:active,.seg-btn:active,.tab:active,.item:active,.big-link:active,.hero-cont:active,.resume-trigger:active,.search-trigger:active,.game-pill:active,.card-head:active,.srch-item:active,.set-row:active{transform:scale(.975);}
 .step-hl{animation:stephl 2.2s ease;border-radius:10px;}
 @keyframes stephl{0%,100%{background:transparent;}14%{background:rgba(240,144,42,0.17);}55%{background:rgba(240,144,42,0.10);}}
@@ -2402,7 +2408,7 @@ function StyleBlock() {
 .lore-card-meta{display:block;font-size:11px;color:var(--parch-dim);}
 .lore-card-ring{flex-shrink:0;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .lore-card-ring-in{width:27px;height:27px;border-radius:50%;background:var(--panel);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;color:var(--cyan);}
-.lore-reader{background:var(--rbg);color:var(--rfg);margin:-14px -16px 0;min-height:calc(100vh - 52px);display:flex;flex-direction:column;}
+.lore-reader{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:560px;height:100vh;height:100dvh;z-index:60;background:var(--rbg);color:var(--rfg);display:flex;flex-direction:column;}
 .lore-rbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(127,127,127,.18);}
 .lore-x{background:none;border:none;color:var(--rdim);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;cursor:pointer;flex-shrink:0;}
 .lore-rtitle{flex:1;min-width:0;text-align:center;font-family:'Cinzel',Georgia,serif;font-size:13px;color:var(--rfg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.82;}
@@ -2416,7 +2422,7 @@ function StyleBlock() {
 .lore-sw{width:24px;height:24px;border-radius:50%;border:1px solid rgba(127,127,127,.45);cursor:pointer;padding:0;}
 .lore-sw-slate{background:#0f1c22;}.lore-sw-sepia{background:#efe5d0;}.lore-sw-night{background:#04070a;}
 .lore-sw-on{box-shadow:0 0 0 2px var(--cyan);}
-.lore-view{position:relative;overflow:hidden;width:100%;padding:0 18px;}
+.lore-view{position:relative;overflow:hidden;width:100%;padding:0 18px;flex:1;min-height:0;}
 .lore-banner{margin:16px 0 6px;border-radius:12px;overflow:hidden;border:1px solid rgba(127,127,127,.2);break-inside:avoid;line-height:0;}
 .lore-banner svg,.lore-banner-img{display:block;width:100%;height:auto;}
 .lore-banner-img{max-height:200px;object-fit:cover;}
@@ -2473,7 +2479,7 @@ function StyleBlock() {
 .bk-rm-yes{background:rgba(214,95,95,.16);border:1px solid rgba(214,95,95,.45);color:#e7a3a3;border-radius:6px;font-size:10px;padding:2px 7px;cursor:pointer;}
 .bk-rm-no{background:none;border:none;color:var(--parch-dim);font-size:10px;cursor:pointer;}
 /* book reader (page images) */
-.bk-reader{background:#06090c;color:#e8eef1;margin:-14px -16px 0;min-height:calc(100vh - 52px);display:flex;flex-direction:column;}
+.bk-reader{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:560px;height:100vh;height:100dvh;z-index:60;background:#06090c;color:#e8eef1;display:flex;flex-direction:column;}
 .bk-rbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.1);}
 .bk-x{background:none;border:none;color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;cursor:pointer;flex-shrink:0;}
 .bk-rtitle{flex:1;min-width:0;text-align:center;font-family:'Cinzel',Georgia,serif;font-size:12px;color:#cfd8dc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.85;}

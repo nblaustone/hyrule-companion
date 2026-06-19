@@ -5,6 +5,33 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-18 — v12.2: reader polish — the fixed-overlay/containing-block trap
+
+- **Smoke test from the user (playing with his son): the book reader was glitchy** — "the bottom bar
+  floats in the middle," stray page scrolling. Reproduced in the preview and measured: the reader was
+  `position:static; min-height:calc(100vh-52px)` so its own footer fell *below* the viewport and behind
+  the fixed `.tabbar`, and the page scrolled. The LoreReader had the identical latent bug (footer behind
+  the tab bar) — fixed both.
+- **Two CSS gotchas, stacked, both about `position:fixed` not meaning "relative to the viewport":**
+  1. **Containing block:** `.body` (the tab-content wrapper) ran a `fadeIn` that animated
+     `transform:translateY(3px)`. *Any* transform on an ancestor makes it the containing block for a
+     fixed descendant — so the reader's `top:0` resolved to `.body`'s top (y=103), not the viewport.
+     Fix: made the fade **opacity-only** (a transform on the main content wrapper will silently break any
+     fixed overlay inside it).
+  2. **Stacking context:** `.body` has `z-index:1`, so the reader (even at `z-index:60`) was trapped
+     under it and the sibling `.tabbar` (z-index:30) painted *over* the full-screen reader. Geometry was
+     right; paint order was wrong.
+- **The fix that kills both at once: portal the readers to `document.body`.** Added a tiny `portal()`
+  helper (`ReactDOM.createPortal` — `ReactDOM` is already a global since the build mounts with it) and
+  wrapped both reader returns. Now they're direct children of `<body>`: no ancestor transform, no
+  stacking trap, `top:0`=viewport-top. Also switched both readers to `position:fixed; height:100dvh`
+  (dvh tracks the iOS URL bar) and made `.lore-view` `flex:1` so the footer pins flush (its old
+  `innerHeight-top-116` magic constant was tuned for the broken layout). Verified: both readers cover the
+  full screen, footers flush, page-turn works, closing returns to the shelf at scrollY 0, 0 console errors.
+- **Lesson banked:** for any full-screen overlay in this app, **portal to body** — the centered 560px
+  column (`.app`) and the joy-pass animations create both a stacking context and (intermittently) a
+  transform containing block. Don't rely on `z-index` + `position:fixed` from inside the tab content.
+
 ## 2026-06-18 — v12: the on-device Bookshelf (read-my-own-copy vs. publish)
 
 - **The user reframed the whole request, and was right to.** He handed over a folder of real Zelda books/comics
