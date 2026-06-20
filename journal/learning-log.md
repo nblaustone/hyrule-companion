@@ -5,6 +5,27 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.12: answer-first search (the moment-of-need reframe)
+
+- **User reframed the whole app:** "imagine I'm playing and pull out the companion because I need help — how do
+  you help me? Build THOSE features." The point: we'd built a deep *library*, but in the moment you want the
+  *answer*, fast, one-handed. Offered a 4-option menu (answer-first search / panic buttons / search-as-home /
+  recent-nearby); he picked **only answer-first search** — the backbone.
+- **The real gap (measured):** the global SearchOverlay matched everything but every result was a LINK — tapping
+  "Kaya Wan" jumped to Shrines → opened the region → scrolled → and you STILL had to tap the "Stuck?" reveal
+  (≈4 taps). Enemies/armor/quests didn't even deep-link to the item, just the tab. Content was all there; the
+  taps-to-answer were the problem.
+- **Fix:** every search result now **expands inline to the actual answer** (shrine solution, enemy battle guide,
+  side-quest how-to, armor effect+recipe+farm, cooking, walkthrough stuck-hint), with a secondary "Open the full
+  page ›" that preserves the old deep-link for full context (ticking done, region map, etc.). Reordered categories
+  to lead with the panic ones (Shrines/Enemies/Side quests). Each hit carries a `detail` string; armor composes a
+  multi-line recipe rendered with `white-space:pre-line`; an `open` accordion state; reused chevron + cyan panel.
+- **Lesson banked:** *content is only as good as the taps to reach it.* After months of adding data, the highest-
+  value move was zero new content — just collapsing search → answer from ~4 taps to ~2. When the user frames a
+  need as a *moment* ("I'm sitting there…"), optimize the path to the answer, not the library.
+- Verified in-browser: Waterblight → full fight plan inline; Kaya Wan / Snowquill / Tarrey / spicy all expand
+  with the right answer; "Open the full page" still jumps. 0 console errors. Shipped v12.12.
+
 ## 2026-06-19 — v12.11: complete side quests + cross-link shrine quests (the "perfect shell")
 
 - **User's framing:** he'll play BotW for ~a year, so make BotW the GOLD-STANDARD shell every future Zelda game

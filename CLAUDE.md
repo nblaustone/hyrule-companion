@@ -300,6 +300,19 @@ layout, `REGION_MAPS` = the per-region coords.
   `store.get`/`store.set` are ASYNC (return Promises) — a sync `if (store.get(k))` is always truthy; always
   `await` inside an async IIFE in effects.** **Pattern: stable slug ids + a legacy-snapshot migration is the way
   to expand any positional dataset without losing progress.**
+- **v12.12 (done):** **answer-first search** — reframed around the moment-of-need ("I'm playing, I pull out the
+  companion because I'm stuck *right now*"). The global `SearchOverlay` (topbar magnifier, one tap) used to make
+  every result a LINK that navigated you to a tab where you still had to scroll + tap a reveal (≈4 taps to the
+  answer). Now each result **expands inline to the actual answer**: shrine `solution`, enemy `battle` guide, side-
+  quest `how` (+reward), armor effect+upgrade recipe+farm, cooking effect+ingredients, walkthrough `stuck`, tower
+  location — with a secondary **"Open the full page ›"** that still deep-links for full context. Results reordered
+  to lead with the panic categories (Shrines · Enemies · Side quests) then Armor/Cooking/Walkthrough/Towers.
+  Implementation: each search hit carries a `detail` string (armor composes a multi-line recipe; `.srch-detail`
+  uses `white-space:pre-line`); an `open` state drives the accordion; reused chevrons + a cyan answer panel.
+  Verified in-browser (Waterblight → full fight plan inline; Kaya Wan/Snowquill/Tarrey/spicy all expand), 0
+  console errors. The user picked ONLY this from a 4-option menu (deferred: panic buttons, search-as-home,
+  recent/nearby chips) — so those remain easy future adds. **Principle: content we already have is only as good
+  as the taps to reach it; the magnifier is now the "help me now" button.**
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

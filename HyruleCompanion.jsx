@@ -2268,46 +2268,65 @@ function PouchView({ inventory, progress, jumpTo, regions, region, cats }) {
 
 function SearchOverlay({ query, setQuery, onClose, nav, data }) {
   const { REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS } = data;
+  const [open, setOpen] = useState(null); // which result is expanded (answer-first)
   const q = query.trim().toLowerCase();
+  const armorDetail = (a) => {
+    let s = "Effect: " + a.bonus + "\nWhere: " + a.where;
+    if (a.tiers && a.tiers.length) s += "\n" + a.tiers.map((t) => "★" + t.star + ": " + t.materials.map((m) => m.qty + "× " + m.item).join(", ") + (t.rupees ? " + " + t.rupees + " rupees" : "")).join("\n");
+    if (a.farm) s += "\nFarm: " + a.farm;
+    if (a.note) s += "\n" + a.note;
+    return s;
+  };
   const groups = [];
   if (q) {
     const cap = 6;
+    const shrineHits = [];
+    for (const g of SHRINES) g.shrines.forEach((sh, i) => { if (shrineHits.length < cap && (sh.name + " " + sh.location + " " + sh.oneLine + " " + g.regionName + " " + (sh.shrineQuest || "")).toLowerCase().includes(q)) shrineHits.push({ label: sh.name, sub: g.regionName + " · " + sh.location, detail: sh.solution || sh.oneLine, act: () => nav.shrine(g.regionKey, "shr_" + g.regionKey + "_" + i) }); });
+    if (shrineHits.length) groups.push({ cat: "Shrines", glyph: "shrine", items: shrineHits });
+    const enemyHits = BESTIARY.enemies.filter((e) => (e.name + " " + e.tactic).toLowerCase().includes(q)).slice(0, cap).map((e) => ({ label: e.name, sub: e.tactic, detail: e.battle || e.tactic, act: () => nav.guide("enemies") }));
+    if (enemyHits.length) groups.push({ cat: "Enemies", glyph: "skull", items: enemyHits });
+    const questHits = []; SIDE_QUESTS.forEach((g) => g.quests.forEach((qq) => { if (questHits.length < cap && (qq.name + " " + qq.oneLine).toLowerCase().includes(q)) questHits.push({ label: qq.name, sub: g.region + " · " + qq.oneLine, detail: (qq.how || qq.oneLine) + (qq.reward ? "\nReward: " + qq.reward : ""), act: () => nav.guide("quests") }); }));
+    if (questHits.length) groups.push({ cat: "Side quests", glyph: "scroll", items: questHits });
+    const armorHits = ARMOR.sets.filter((a) => (a.name + " " + a.bonus + " " + a.where).toLowerCase().includes(q)).slice(0, cap).map((a) => ({ label: a.name, sub: a.bonus, detail: armorDetail(a), act: () => nav.guide("armor") }));
+    if (armorHits.length) groups.push({ cat: "Armor", glyph: "armor", items: armorHits });
+    const cookHits = RECIPES.filter((r) => (r.eff + " " + r.does + " " + r.key).toLowerCase().includes(q)).slice(0, cap).map((r) => ({ label: r.eff, sub: r.does, detail: r.does + (r.key ? "\nIngredients: " + r.key : ""), act: () => nav.cook() }));
+    if (cookHits.length) groups.push({ cat: "Cooking", glyph: "pot", items: cookHits });
     const stepHits = [];
     for (const reg of REGIONS) for (const sec of reg.sections) for (const st of sec.steps) {
-      if ((sec.name + " " + (sec.sub || "") + " " + st.t).toLowerCase().includes(q)) { stepHits.push({ label: sec.name, sub: st.t, act: () => nav.step(reg.id, sec.id) }); if (stepHits.length >= cap) break; }
+      if ((sec.name + " " + (sec.sub || "") + " " + st.t).toLowerCase().includes(q)) { stepHits.push({ label: sec.name, sub: st.t, detail: st.stuck || st.t, act: () => nav.step(reg.id, sec.id) }); if (stepHits.length >= cap) break; }
     }
     if (stepHits.length) groups.push({ cat: "Walkthrough", glyph: "tower", items: stepHits });
-    const shrineHits = [];
-    for (const g of SHRINES) g.shrines.forEach((sh, i) => { if (shrineHits.length < cap && (sh.name + " " + sh.location + " " + sh.oneLine + " " + g.regionName + " " + (sh.shrineQuest || "")).toLowerCase().includes(q)) shrineHits.push({ label: sh.name, sub: g.regionName + " · " + sh.location, act: () => nav.shrine(g.regionKey, "shr_" + g.regionKey + "_" + i) }); });
-    if (shrineHits.length) groups.push({ cat: "Shrines", glyph: "shrine", items: shrineHits });
-    const armorHits = ARMOR.sets.filter((a) => (a.name + " " + a.bonus + " " + a.where).toLowerCase().includes(q)).slice(0, cap).map((a) => ({ label: a.name, sub: a.bonus, act: () => nav.guide("armor") }));
-    if (armorHits.length) groups.push({ cat: "Armor", glyph: "armor", items: armorHits });
-    const enemyHits = BESTIARY.enemies.filter((e) => (e.name + " " + e.tactic).toLowerCase().includes(q)).slice(0, cap).map((e) => ({ label: e.name, sub: e.tactic, act: () => nav.guide("enemies") }));
-    if (enemyHits.length) groups.push({ cat: "Enemies", glyph: "skull", items: enemyHits });
-    const questHits = []; SIDE_QUESTS.forEach((g) => g.quests.forEach((qq) => { if (questHits.length < cap && (qq.name + " " + qq.oneLine).toLowerCase().includes(q)) questHits.push({ label: qq.name, sub: g.region + " · " + qq.oneLine, act: () => nav.guide("quests") }); }));
-    if (questHits.length) groups.push({ cat: "Side quests", glyph: "scroll", items: questHits });
-    const cookHits = RECIPES.filter((r) => (r.eff + " " + r.does + " " + r.key).toLowerCase().includes(q)).slice(0, cap).map((r) => ({ label: r.eff, sub: r.does, act: () => nav.cook() }));
-    if (cookHits.length) groups.push({ cat: "Cooking", glyph: "pot", items: cookHits });
-    const towerHits = TOWERS.filter((t) => (t.name + " " + t.region + " " + t.location).toLowerCase().includes(q)).slice(0, cap).map((t) => ({ label: t.name, sub: t.region, act: () => nav.guide("towers") }));
+    const towerHits = TOWERS.filter((t) => (t.name + " " + t.region + " " + t.location).toLowerCase().includes(q)).slice(0, cap).map((t) => ({ label: t.name, sub: t.region, detail: t.location, act: () => nav.guide("towers") }));
     if (towerHits.length) groups.push({ cat: "Towers", glyph: "tower", items: towerHits });
   }
   return (
     <div className="search-overlay">
       <div className="search-bar">
-        <input className="search-input" autoFocus placeholder="Search everything — shrines, items, enemies…" value={query} onChange={(e) => setQuery(e.target.value)} />
+        <input className="search-input" autoFocus placeholder="What do you need? a shrine, boss, recipe, quest…" value={query} onChange={(e) => setQuery(e.target.value)} />
         <button className="search-x" onClick={onClose}>Close</button>
       </div>
       <div className="search-results">
-        {!q && <div className="empty">Type to search shrines, the walkthrough, armor, enemies, side quests, recipes & towers.</div>}
+        {!q && <div className="empty">Type a shrine, boss, recipe, quest, armor set, or material — the answer opens right here. Tap “Open” to jump to the full page.</div>}
         {q && groups.length === 0 && <div className="empty">Nothing matches “{query}”.</div>}
         {groups.map((g) => (
           <div className="srch-group" key={g.cat}>
             <div className="srch-cat"><span className="srch-cat-ic"><Glyph name={g.glyph} size={15} /></span>{g.cat}</div>
-            {g.items.map((it, i) => (
-              <button className="srch-item" key={i} onClick={() => { it.act(); onClose(); }}>
-                <div className="srch-label">{it.label}</div><div className="srch-sub">{it.sub}</div>
-              </button>
-            ))}
+            {g.items.map((it, i) => {
+              const key = g.cat + ":" + i; const isOpen = open === key;
+              return (
+              <div className={"srch-item-wrap" + (isOpen ? " srch-open" : "")} key={key}>
+                <button className="srch-item" onClick={() => setOpen(isOpen ? null : key)} aria-expanded={isOpen}>
+                  <div className="srch-item-txt"><div className="srch-label">{it.label}</div><div className="srch-sub">{it.sub}</div></div>
+                  <span className={"chev" + (isOpen ? " chev-open" : "")}>›</span>
+                </button>
+                {isOpen && it.detail && (
+                  <div className="srch-answer">
+                    <p className="srch-detail">{it.detail}</p>
+                    {it.act && <button className="srch-jump" onClick={() => { it.act(); onClose(); }}>Open the full page ›</button>}
+                  </div>
+                )}
+              </div>);
+            })}
           </div>
         ))}
       </div>
@@ -2622,9 +2641,17 @@ function StyleBlock() {
 .srch-group{margin-bottom:16px;}
 .srch-cat{display:flex;align-items:center;gap:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:8px;}
 .srch-cat-ic{display:flex;color:var(--orange);}
-.srch-item{display:block;width:100%;text-align:left;padding:9px 12px;margin-bottom:6px;border:1px solid rgba(255,255,255,0.06);border-radius:10px;background:rgba(255,255,255,0.02);cursor:pointer;}
+.srch-item-wrap{margin-bottom:6px;border:1px solid rgba(255,255,255,0.06);border-radius:10px;background:rgba(255,255,255,0.02);overflow:hidden;}
+.srch-item-wrap.srch-open{border-color:rgba(95,214,226,0.4);}
+.srch-item{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:9px 12px;border:0;background:none;cursor:pointer;}
+.srch-item-txt{flex:1;min-width:0;}
 .srch-label{font-size:13.5px;font-weight:600;color:var(--parch);}
 .srch-sub{font-size:11.5px;color:var(--parch-dim);line-height:1.4;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.srch-open .srch-sub{white-space:normal;}
+.srch-answer{padding:0 12px 11px;}
+.srch-detail{white-space:pre-line;font-size:13px;line-height:1.55;color:var(--parch);background:rgba(95,214,226,0.05);border-left:2px solid var(--cyan-dim);border-radius:0 8px 8px 0;padding:9px 11px;margin:0;animation:stepsIn .2s ease;}
+.srch-jump{margin-top:8px;background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.32);color:var(--cyan);border-radius:8px;padding:5px 11px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.4px;text-transform:uppercase;cursor:pointer;}
+.srch-jump:focus-visible,.srch-item:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}
 .backup-box .backup-btns{display:flex;gap:8px;margin-bottom:8px;}
 .backup-ta{width:100%;min-height:54px;margin:8px 0;padding:9px 11px;border-radius:10px;background:var(--abyss);border:1px solid rgba(95,214,226,0.2);color:var(--parch-dim);font-family:ui-monospace,Menlo,monospace;font-size:11px;line-height:1.4;resize:vertical;word-break:break-all;}
 .backup-imp{margin-top:8px;}
