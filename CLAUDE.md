@@ -420,7 +420,13 @@ layout, `REGION_MAPS` = the per-region coords.
   `oot: OOT`. globals.json = OoT identity (terms: Heart Containers/Items & Songs/Spiritual Stones/Dungeon; items
   reference; roadmap; tips; guideSegs Items·Tips·Settings). walkthrough.json = hand-authored opening (Kokiri
   Forest + Inside the Great Deku Tree → Queen Gohma → Kokiri's Emerald + Fairy Ocarina, with Stuck hints). Status
-  "Shrines" panel gated to `shrineStats.total > 0`. Verified in-browser, 0 console errors. **Next:** a walkthrough
-  Workflow to author the remaining chapters (Hyrule Field/Zelda → Dodongo's Cavern → Jabu-Jabu → Master Sword →
-  Forest/Fire/Water/Shadow/Spirit Temples → Ganon's Castle); then OoT items/songs reference, enemies, Heart
-  Pieces/Gold Skulltulas/Biggoron trade. OoT is the owner's favorite (beaten many times) → self-verifiable.
+  "Shrines" panel gated to `shrineStats.total > 0`. **v14.1** (e7949e9): **full OoT main quest** — `gen-oot-
+  walkthrough-workflow.mjs` (author→verify, 20 agents, web-sourced) authored the remaining 10 chapters (Hyrule
+  Field/Zelda → Dodongo's Cavern → Jabu-Jabu → Door of Time/Master Sword → Forest/Fire/Water/Shadow/Spirit
+  Temples → Ganon's Castle), appended after the opening → **12 chapters, 217 steps, 112 Stuck hints.** All 9
+  Spiritual Stones + Medallions grant-as-item and wire to the Status tracker (assemble-oot's stepGranting). The
+  merge (`/tmp/oot-merge.mjs` pattern) strips region `sources`/`corrections` and asserts globally-unique step ids
+  + champion-grant coverage before writing. Verified in-browser, 0 console errors. **Next for OoT:** items/songs
+  reference depth (RUNES is only 6 entries), an enemies/bestiary segment, Heart Pieces/Gold Skulltulas trackers,
+  the Biggoron trade + side content, dungeon maps. OoT is the owner's favorite (beaten many times) →
+  self-verifiable.
