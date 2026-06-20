@@ -1,8 +1,24 @@
 # Hyrule Companion
 
-A mobile, **offline** walkthrough + living pouch for *The Legend of Zelda: Breath of the Wild* (Switch).
-Sheikah-Slate styled. One thumb, one screen, your whole first playthrough — checkmarks and inventory persist
-on-device with no account and no server.
+A mobile, **offline**, Sheikah-Slate-styled companion for *The Legend of Zelda: Breath of the Wild* (Switch) —
+built so a first-timer can play the whole game with one thumb. A living walkthrough + a complete, searchable
+reference, with progress that persists on-device (no account, no server, works in airplane mode).
+
+**What it covers (all sourced + adversarially verified):**
+- **120 shrines** — region-grouped, with maps and a spoiler-gated **full solution** for every one (hidden shrines
+  include how to make them appear).
+- **Combat** — a Combat Basics primer + **"how to win this fight"** guides for the 26 marquee bosses/enemies.
+- **Armor** — every set with **per-★ upgrade recipes** (materials + rupees) and where to farm them.
+- **Cooking** — an interactive pot simulator + goal finder over 120 ingredients.
+- **Quests** — the complete **78 side quests** (each with a how-to) + all **38 shrine quests**, cross-linked.
+- **Items** — a **410-entry Compendium**: every weapon, bow, shield, armor piece, material, and creature; tap any
+  for its stats, what it does, where to find it, and sell value.
+- **Money** (rupee + farming guide), a **Korok puzzle solver**, a **"what to do next" coach**, and a from-scratch
+  **Lore** reader + on-device bookshelf.
+- **Answer-first search** — one tap on the magnifier; type a shrine/boss/recipe/item and the answer opens inline.
+
+Also home to a second game (**Tears of the Kingdom**) behind a game picker; the BotW build is the gold-standard
+shell future games inherit.
 
 ## 📱 Use it on your phone
 **Live:** https://nblaustone.github.io/hyrule-companion/

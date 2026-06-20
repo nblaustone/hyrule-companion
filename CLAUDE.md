@@ -43,10 +43,17 @@ index.html            BUILT, self-contained, offline PWA (open this on your phon
 build/build.mjs       esbuild pipeline: jsx → transformed js → inlined into index.html (React + fonts inlined)
 build/assemble-knowledge.mjs  research output → reconciled knowledge/*.json (the 120/15/4 honesty gate)
 build/inline-data.mjs        knowledge/*.json → the .jsx GEN:DATA block (strips agent `notes`)
+build/gen-*-workflow.mjs     content authoring: each emits a self-contained author→adversarial-verify Workflow
+                      script (embeds its input as consts; v12.7+). Pair with a `build/merge-*.mjs` that splices
+                      ONLY the new field(s) back into knowledge/*.json (additive; strips sources/corrections).
+                      Used for: shrine solutions, battle guides, armor/economy/korok depth, side quests,
+                      the equipment + materials/creatures compendium.
 build/vendor/         pinned React + ReactDOM UMD (vendored so the build needs no network at runtime)
 manifest.webmanifest  PWA manifest (name, icons, standalone display) · icon-512/180.png  generated Sheikah eye
 knowledge/            researched, verified BotW data (sourced JSON). `_raw-research.json` = the full workflow
-                      output (provenance + agent notes); the rest are the clean, app-facing datasets
+                      output (provenance + agent notes); the rest are the clean, app-facing datasets —
+                      shrines · towers · great-fairies · side-quests · armor · bestiary · cooking ·
+                      cooking-ingredients · koroks · world · region-maps · economy · compendium · lore
 journal/
   decisions/          numbered ADRs (the project's law)
   learning-log.md     append-only reasoning log, newest at top — read on every session
@@ -84,13 +91,23 @@ it runs fully offline once it's on the device. First load needs no network. The 
   - `cat` ∈ `rune | weapon | bow | shield | armor | key | material` (see `CATS`).
   - `orb:true` → counts toward the Spirit-Orb tracker (4 orbs = 1 upgrade). `rune:'magnesis'|...` → pouch glyph.
 - **IDs must be globally unique** (progress is a flat `{stepId: true}` map). Prefix per region; never reuse an id.
+  Side quests use **stable `sq_<slug>` ids** (v12.11) — NOT positional — so the list can grow without corrupting
+  saved checks; a one-time name-based migration (`SQ_LEGACY` + `botw:sqmig`) carried the old positional checks over.
+  Shrine quests aren't separately tracked: their done-state mirrors the shrine's own `shr_*` checkbox.
+- **Data consts** (inlined by `inline-data.mjs`, bundled into `GAMES[game]`): the originals plus `ECONOMY`
+  (Money guide, v12.9) and `COMPENDIUM` (the 410-entry item catalog, v12.13–14). Any BotW-only const must degrade
+  when the active game lacks it — destructure it, guard its render, and the Items tab falls back to `PouchView`
+  when `COMPENDIUM` is empty (TotK). **TotK is the canary for "does this feature degrade?"**
 - **Status panels** key off specific step IDs: `STATUS_RUNES` (rune→step), `CHAMPIONS` (ability→step). Wire new
   beasts/runes here.
-- **Persistence keys**: `botw:progress` (JSON stepId→true — also holds tracker toggles `shr_* gf_* arm_* sq_*`
+- **Persistence keys**: `botw:progress` (JSON stepId→true — also holds tracker toggles `shr_* gf_* arm_* sq_<slug>`
   and the memory steps `m_l*`), `botw:ui` (tab/region/openSections/guideSub), `botw:koroks` (int), `botw:notes`
-  (id→text), `botw:armortier` (set-index→0..4), `botw:recipes` (v10 saved-cooking array). The `store` helper uses
-  `window.storage` if present (Claude artifact) **and falls back to `localStorage`** (standalone/phone). Backup =
-  base64 of `{progress,koroks,notes,armorTier,recipes}` (blob v7).
+  (id→text), `botw:armortier` (set-index→0..4), `botw:recipes` (v10 saved-cooking array), `botw:shrinepin` +
+  `botw:shrinerecents` (the "I'm here" pin + recents, v12.3), `botw:sqmig` (one-shot side-quest id-migration flag).
+  The `store` helper is **async** (`await store.get/set`) — it uses `window.storage` if present (Claude artifact)
+  **and falls back to `localStorage`** (standalone/phone); a sync `if (store.get(k))` is always truthy (a Promise),
+  so always `await` inside an async IIFE in effects. Backup = base64 of
+  `{progress,koroks,notes,armorTier,recipes,shrinePin,shrineRecents}` (blob **v8**).
   Counters use the functional updater `setKoroks(k=>…)` (stale-closure guard).
   Lore/reader state is top-level `hyrule:reading`/`hyrule:bookmarks`/`hyrule:readerprefs`/`hyrule:loreart`.
   **v12 Bookshelf:** the small book index is `hyrule:books` (in `store`); the big page **blobs** live in a
@@ -117,7 +134,28 @@ it runs fully offline once it's on the device. First load needs no network. The 
   offers "Update"). No need to ask each time — the owner has granted standing permission. The one guardrail:
   **build (`node build/build.mjs`) and sanity-check before pushing** so we never deploy a white-screen.
 
-## Tabs & features (v6–v12)
+## Tabs & features (v6–v14)
+**The 7 tabs:** **Status · Journey · Shrines · Items · Cook · Guide · Lore**, plus the topbar **global search**
+(magnifier, `SearchOverlay`). Current per-tab state (after the v12.7–v12.14 build-out):
+- **Status** — overall %, the **Resume "you're here"** pin, the **"What to do next" coach** (`nextUp` memo,
+  v12.9), the full Hyrule map, and Shrines/Collectibles meters. Spirit Orbs = `shrineStats.done` (1 shrine = 1 orb).
+- **Journey** — the main-quest walkthrough (Plateau → 4 beasts → Master Sword → Ganon) with `StuckReveal` hints.
+- **Shrines** — all 120, region-grouped + per-region maps; each row has a **spoiler-gated full `solution`**
+  (v12.7) and a tappable **"· Quest: X ›"** cross-link to its shrine quest (v12.11).
+- **Items** — now the **Compendium** (`CompendiumView`, v12.13–14): a **410-entry** browsable catalog (weapons ·
+  bows · shields · armor · materials · creatures), search + category filters, **tap any entry for its stats /
+  effect / where / sell**. Falls back to the old auto-pouch (`PouchView`) only when `COMPENDIUM` is empty (TotK).
+- **Cook** — the interactive pot simulator + finder + ingredient browser + Cookbook (v10).
+- **Guide** — a **10-segment** hub: Runes · Tips · Armor · Fairies · Towers · **Quests** · **Enemies** ·
+  Koroks · **Money** · World. Armor shows **per-★ upgrade recipes + where-to-farm** (v12.9); Enemies has a
+  **Combat Basics primer + per-boss "how to win" guides** (v12.8); Quests holds the complete **78 side quests**
+  (each with a spoiler-gated `how`) **+ all 38 shrine quests** cross-linked to their shrines (v12.11); **Money**
+  (`EconomyView`) is rupee earners + material farming + tips (v12.9); Koroks has the search/category **solver**.
+- **Lore** — the page-turn reader + the on-device Bookshelf.
+- **Global search is answer-first** (v12.12): each hit **expands inline to the actual answer** (shrine solution,
+  fight guide, quest how-to, armor recipe, an item's stats+sell, cooking, walkthrough hint) with a secondary
+  "Open the full page ›" deep-link. Categories lead with the panic ones (Shrines · Enemies · Items · Side quests).
+
 **v12:** the **Lore** tab now also carries a **Bookshelf** (`LibraryView` extended + `BookReader` + `BookSpine`)
 — a private, on-device reader for the owner's own books/comics (ADR 0009). Import `.hbook.zip` packs (made by
 `build/pack-books.mjs`) → page blobs go to IndexedDB (`booksDB`), parsed by the zero-dep `readHbook`. Comics +

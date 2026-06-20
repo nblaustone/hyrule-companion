@@ -1,5 +1,9 @@
 # Multi-game design (BotW + TotK + beyond) — ADR 0005 made real
 
+> **Architecture still current** (the `GAMES` wrapper + per-game `key` remount is unchanged). Note the per-game
+> bundle has since grown (e.g. `ECONOMY`, `COMPENDIUM`, `MAP_BEASTS`); the live list lives in `build/inline-data.mjs`
+> and `CLAUDE.md`. **Rule learned since: any BotW-only const must degrade when TotK lacks it — TotK is the canary.**
+
 How the single-game app becomes game-aware **without** rewriting the 1600-line component or risking the
 polished BotW experience. The trick: a thin wrapper + per-game `key` remount + shadowing the data globals.
 

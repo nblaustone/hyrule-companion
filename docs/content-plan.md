@@ -1,5 +1,9 @@
 # v5 content plan — wiring the research into the app
 
+> **Historical (v5).** This captures the original plan; the app has grown well past it (7 tabs, the Items tab is
+> now a 410-entry Compendium, Guide is 10 segments, etc.). For current state see `CLAUDE.md` (Tabs & features +
+> Roadmap) and `journal/learning-log.md`.
+
 How the verified `knowledge/*.json` (from the `botw-research` workflow) becomes app surfaces. Goal: deepen the
 game "in all its parts" without breaking the data-driven single-file model (ADR 0001) or the offline build
 (ADR 0004). Everything below is **inlined data + small UI**, no runtime fetch.
