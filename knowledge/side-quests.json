@@ -1,408 +1,773 @@
 [
-  {
-    "region": "Great Plateau",
-    "quests": [
-      {
-        "name": "The Old Man's Diary (Warm Doublet)",
-        "giver": "The Old Man, via his diary in the Woodcutter's House near the Forest of Spirits",
-        "reward": "Warm Doublet (cold-resistance armor)",
-        "oneLine": "Read his diary, then cook the dish he forgot: Spicy Meat and Seafood Fry (Raw Meat + Spicy Pepper + Hyrule Bass), and he'll reward you."
-      }
-    ]
-  },
-  {
-    "region": "Dueling Peaks",
-    "quests": [
-      {
-        "name": "The Stolen Heirloom",
-        "giver": "Paya / Dorian (Kakariko Village)",
-        "reward": "Lakna Rokee Shrine (Spirit Orb)",
-        "oneLine": "Investigate the theft of the Sheikah heirloom from Impa's house, tail Dorian at night, and recover the orb — this reveals Lakna Rokee Shrine."
-      },
-      {
-        "name": "Watch Out for the Flowers",
-        "giver": "Magda (Floret Sandbar)",
-        "reward": "Hila Rao Shrine (Spirit Orb)",
-        "oneLine": "Cross Magda's flower field to the shrine without stepping on a single bloom, or she turns hostile — this reveals Hila Rao Shrine."
-      },
-      {
-        "name": "Find the Fairy Fountain",
-        "giver": "Pikango (Kakariko Village)",
-        "reward": "Reveals Cotera's location; Pikango then offers shrine location hints",
-        "oneLine": "Help the traveling painter find the nearby Great Fairy Fountain northeast of Kakariko to awaken Cotera; afterward he gives shrine-photo hints."
-      },
-      {
-        "name": "By Firefly's Light",
-        "giver": "Lasli (Kakariko Village, at night)",
-        "reward": "Rupees",
-        "oneLine": "Catch and deliver 5 Sunset Fireflies to Lasli, who misses chasing them at night."
-      },
-      {
-        "name": "Cucco Conundrum",
-        "giver": "Cado (Kakariko Village)",
-        "reward": "Rupees",
-        "oneLine": "Round up Cado's escaped Cuccos and return all 10 to the pen near the chief's house."
-      }
-    ]
-  },
-  {
-    "region": "Hateno",
-    "quests": [
-      {
-        "name": "The Statue's Bargain",
-        "giver": "Teebo (boy in Hateno Village; Horned Statue on the village outskirts)",
-        "reward": "Ability to swap hearts/stamina (net 20-rupee fee per swap)",
-        "oneLine": "Pray to the Horned Statue to sell back a Heart Container or Stamina Vessel for 100 rupees, then rebuy for 120 to re-spec hearts vs stamina."
-      },
-      {
-        "name": "The Sheep Rustlers",
-        "giver": "Koyin (sheep keeper at Hateno Pasture)",
-        "reward": "10 bottles of Fresh Milk",
-        "oneLine": "Clear the Bokoblins menacing the herd, then drive the three loose sheep back into the pen at Hateno Pasture before time runs out."
-      },
-      {
-        "name": "The Weapon Connoisseur",
-        "giver": "Nebb (boy in Hateno Village)",
-        "reward": "Rupees per weapon, plus a Diamond on completion",
-        "oneLine": "Long quest: show Nebb 8 specific named weapons (Soldier's Broadsword, Knight's gear, etc.) one at a time over many visits."
-      },
-      {
-        "name": "A Gift for My Beloved",
-        "giver": "Manny (boy near the inn in Hateno Village)",
-        "reward": "Rupees",
-        "oneLine": "Find out innkeeper Prima's favorite drink for the lovestruck Manny, then bring her the right gift to win her over."
-      },
-      {
-        "name": "Slated for Upgrades",
-        "giver": "Purah (Hateno Ancient Tech Lab)",
-        "reward": "Sheikah Slate rune upgrades",
-        "oneLine": "After the lab is powered (Locked Mementos), bring Purah ancient materials and she powers up your Sheikah Slate runes (sensor, camera, etc.)."
-      },
-      {
-        "name": "Robbie's Research",
-        "giver": "Purah (Hateno Ancient Tech Lab; sends you to Robbie at Akkala)",
-        "reward": "3 Ancient Arrows and access to Akkala Tech Lab research",
-        "oneLine": "Purah sends you to find Robbie at the Akkala Ancient Tech Lab; show him your scars to prove who you are and unlock ancient-tech crafting."
-      }
-    ]
-  },
-  {
-    "region": "Lanayru",
-    "quests": [
-      {
-        "name": "Frog Catching",
-        "giver": "Tumbo (Zora child near the inn and general store, Zora's Domain)",
-        "reward": "Armoranth",
-        "oneLine": "Bring Tumbo five Hot-Footed Frogs caught around the Domain's pools and waterfalls."
-      },
-      {
-        "name": "Luminous Stone Gathering",
-        "giver": "Ledo (Zora at the entrance just past the bridge into Zora's Domain)",
-        "reward": "Diamonds (2 for the first 10 stones, then 1 per 10)",
-        "oneLine": "Mine Luminous Stones from nearby cliffs and hand them to Ledo in batches of ten."
-      },
-      {
-        "name": "Lynel Safari",
-        "giver": "Laflat (by the bridge at the eastern end of Zora's Domain)",
-        "reward": "Rupees",
-        "oneLine": "Sneak a photo of the Lynel roaming Ploymus Mountain with the camera rune and bring it back to Laflat."
-      },
-      {
-        "name": "Diving is Beauty!",
-        "giver": "Gruve (Zora on an upper level by a waterfall in Zora's Domain)",
-        "reward": "5 Fleet-Lotus Seeds",
-        "oneLine": "Perform a beautiful dive off the high platform into the water below, then report to Gruve."
-      },
-      {
-        "name": "Zora Stone Monuments",
-        "giver": "Jiahto (Zora historian on the floor below the throne room, Zora's Domain)",
-        "reward": "Diamond (on completion)",
-        "oneLine": "Read all ten Zora Stone Monuments scattered around Zora's Domain and Vah Ruta's region, then report back to Jiahto."
-      }
-    ]
-  },
-  {
-    "region": "Lake Hylia",
-    "quests": [
-      {
-        "name": "The Horseback Hoodlums",
-        "giver": "Perosa (Highland Stable)",
-        "reward": "Endura Carrot",
-        "oneLine": "Perosa asks you to drive off the Blue Bokoblins riding horses around the stable; defeat the five mounted Bokoblins on Fural Plain."
-      },
-      {
-        "name": "The Serpent's Jaws",
-        "giver": "Kass (in the Pagos Woods near the Spring of Courage)",
-        "reward": "Access to Shae Katha Shrine (Thunderspear chest + Spirit Orb)",
-        "oneLine": "Solve Kass's verse: drop a Farosh's Scale into the Spring of Courage to open the door behind the Goddess Statue to Shae Katha."
-      },
-      {
-        "name": "Guardian Slideshow",
-        "giver": "Loone (Puffer Beach)",
-        "reward": "Access to Shoqa Tatone Shrine (Spirit Orb)",
-        "oneLine": "Photograph three Guardian types (Scout, Skywatcher, Stalker) for Loone; she gives you her orb 'Roscoe' to raise Shoqa Tatone Shrine."
-      }
-    ]
-  },
-  {
-    "region": "Faron",
-    "quests": [
-      {
-        "name": "Thunder Magnet",
-        "giver": "Cima, at Lakeside Stable",
-        "reward": "Rubber Helm",
-        "oneLine": "Lightning keeps hitting the stable. Climb to the roof and use Magnesis to pull out the metal Woodcutter's Axe lodged in the wooden horse head."
-      },
-      {
-        "name": "Take Back the Sea",
-        "giver": "Sebasto, in Lurelin Village",
-        "reward": "Silver Rupee",
-        "oneLine": "Monsters have overrun Aris Beach east of the village. Clear out every enemy in the stronghold there, then report back to Sebasto."
-      },
-      {
-        "name": "The Hero's Cache",
-        "giver": "Kass, on a stone pillar at Kitano Bay (east Faron coast)",
-        "reward": "Gold Rupee",
-        "oneLine": "Solve Kass's riddle '17 of 24': at 5 PM the pillar's shadow points to a chest in the water. Pull it up with Magnesis to claim the cache."
-      }
-    ]
-  },
-  {
-    "region": "Central Hyrule",
-    "quests": [
-      {
-        "name": "The Royal White Stallion",
-        "giver": "Toffa at Outskirt Stable",
-        "reward": "Royal Saddle and Royal Bridle",
-        "oneLine": "Tame the pure-white royal horse roaming near Safula Hill and register it at the stable to claim the royal gear."
-      },
-      {
-        "name": "My Hero",
-        "giver": "Aliza, standing under the trees across the road from Outskirt Stable",
-        "reward": "Star Fragment",
-        "oneLine": "Show Aliza the Master Sword (you must already have pulled it) to prove you are the hero she's waiting for."
-      },
-      {
-        "name": "A Rare Find",
-        "giver": "Trott at Outskirt Stable",
-        "reward": "Silver Rupee (300 rupees)",
-        "oneLine": "Trott is sick of vegetarian meals; bring him fresh Raw Gourmet Meat (from Hebra/Gerudo wildlife) for his reward."
-      },
-      {
-        "name": "A Royal Recipe",
-        "giver": "Gotter at Riverside Stable",
-        "reward": "Silver Rupee (300 rupees); a second cake earns another",
-        "oneLine": "Cook the royal kitchen's Fruitcake (or Monster Cake) and bring it to Gotter; the recipes are in Hyrule Castle's library."
-      },
-      {
-        "name": "The Royal Guard's Gear",
-        "giver": "Parcy at Riverside Stable",
-        "reward": "300 Rupees",
-        "oneLine": "Parcy wants to see Royal Guard equipment; retrieve any Royal Guard armor piece from Hyrule Castle and show it to her."
-      }
-    ]
-  },
-  {
-    "region": "Hyrule Ridge",
-    "quests": [
-      {
-        "name": "A Gift for the Great Fairy",
-        "giver": "Toren, at Tabantha Bridge Stable",
-        "reward": "Access to Great Fairy Kaysa's fountain (armor upgrades)",
-        "oneLine": "Toren hands you his 500-rupee life savings to wake the Great Fairy; carry it southwest to Kaysa's fountain on Piper Ridge and pay her to open it."
-      },
-      {
-        "name": "Misko, the Great Bandit",
-        "giver": "Domidak and Prissen at Dueling Peaks Stable",
-        "reward": "Misko's hidden treasure (rupees and gear)",
-        "oneLine": "Started at Dueling Peaks Stable, but the clue points to ruined pillars where Rayne, Piper, and Tanagar meet in Hyrule Ridge - dig there for the stash."
-      }
-    ]
-  },
-  {
-    "region": "Tabantha",
-    "quests": [
-      {
-        "name": "A Gift for the Great Fairy",
-        "giver": "Toren, at Tabantha Bridge Stable",
-        "reward": "The revived Great Fairy Fountain (you keep the 500 Rupees if Kaysa is already free)",
-        "oneLine": "Toren gives you 500 Rupees to offer Great Fairy Kaysa; find her fountain on Piper Ridge south of Tabantha Tower and revive her."
-      },
-      {
-        "name": "The Spark of Romance",
-        "giver": "Jogo, in Rito Village",
-        "reward": "Purple Rupee (50 Rupees)",
-        "oneLine": "Bring Jogo a piece of flint so he can light a fire and bake apples for his wife."
-      },
-      {
-        "name": "The Apple of My Eye",
-        "giver": "Juney, in Rito Village",
-        "reward": "Mighty Bananas",
-        "oneLine": "Cook and deliver a Baked Apple to Juney so she can keep up her offering at the Goddess statue."
-      },
-      {
-        "name": "Find Kheel",
-        "giver": "Amali, in Rito Village",
-        "reward": "Rupees; also unlocks the Recital at Warbler's Nest shrine quest",
-        "oneLine": "Track down Amali's missing daughter Kheel; she has flown off to Warbler's Nest with her sisters."
-      },
-      {
-        "name": "Face the Frost Talus",
-        "giver": "Gesane, in Rito Village",
-        "reward": "Purple Rupee (50 Rupees)",
-        "oneLine": "Defeat the Frost Talus out in the Hebra/Tabantha mountains, then report back to Gesane."
-      }
-    ]
-  },
-  {
-    "region": "Hebra",
-    "quests": [
-      {
-        "name": "Stalhorse: Pictured!",
-        "giver": "Juannelle (Snowfield Stable)",
-        "reward": "Silver Rupee (100 Rupees)",
-        "oneLine": "Photograph a Stalhorse - they appear at night in the North Tabantha Snowfield - then show Juannelle the picture."
-      },
-      {
-        "name": "Snowball Bowling",
-        "giver": "Pondo (Pondo's Lodge, northeast of Hebra Tower)",
-        "reward": "Blizzard Rod for a first-throw strike (Gold Rupee on later strikes/full inventory)",
-        "oneLine": "Pay 20 rupees to roll a giant snowball down the slope at the totem 'pins'; a first-ball strike is the goal."
-      }
-    ]
-  },
-  {
-    "region": "Great Hyrule Forest",
-    "quests": [
-      {
-        "name": "The Korok Trials",
-        "giver": "Chio (Great Deku Tree, Korok Forest)",
-        "reward": "3 Big Hearty Truffles",
-        "oneLine": "Chio asks you to clear three forest shrine quests: Trial of Second Sight, The Lost Pilgrimage, and The Test of Wood."
-      },
-      {
-        "name": "Riddles of Hyrule",
-        "giver": "Walton (asleep atop the Great Deku Tree, Korok Forest)",
-        "reward": "A Diamond (after all five riddles)",
-        "oneLine": "Solve Walton's five riddles by dropping the right item on the leaf before him: apple, fortified pumpkin, sunshroom, voltfin trout, Lynel hoof."
-      }
-    ]
-  },
-  {
-    "region": "Eldin",
-    "quests": [
-      {
-        "name": "Fireproof Lizard Roundup",
-        "giver": "Kima (Southern Mine, southwest of Goron City)",
-        "reward": "Flamebreaker Armor (the chest piece of the heat-resistant set)",
-        "oneLine": "Catch and deliver 10 Fireproof Lizards to Kima to help the injured miners; he takes them in batches."
-      },
-      {
-        "name": "The Road to Respect",
-        "giver": "Fugo (Goron City)",
-        "reward": "100 Rupees (plus the gems the Igneo Talus drops)",
-        "oneLine": "Defeat the Igneo Talus at Darunia Lake that the blacksmith's apprentice Fugo couldn't beat, then report back to him."
-      },
-      {
-        "name": "Death Mountain's Secret",
-        "giver": "Dugby (Goron Hot Springs, daytime)",
-        "reward": "A Drillshaft",
-        "oneLine": "Find Dugby's hidden weapon along the path to the Bridge of Eldin, behind a bombable cracked wall above the lava falls."
-      },
-      {
-        "name": "The Jewel Trade",
-        "giver": "Ramella (Goron City)",
-        "reward": "Amber Earrings (jewelry that boosts defense)",
-        "oneLine": "Bring the gem collector Ramella 10 pieces of Amber while she tours Goron City."
-      }
-    ]
-  },
-  {
-    "region": "Akkala",
-    "quests": [
-      {
-        "name": "From the Ground Up",
-        "giver": "Hudson (Bolson Construction; met during 'Hylian Homeowner' in Hateno, then sent to Akkala)",
-        "reward": "Builds Tarrey Town (general store, dye shop, ongoing supplies) and a wedding scene",
-        "oneLine": "Send Hudson to Akkala, then recruit residents whose names end in 'son' to build Tarrey Town from scratch around the lakeside."
-      },
-      {
-        "name": "The Spring of Power",
-        "giver": "Nobo at East Akkala Stable",
-        "reward": "Reveals Tutsuwa Nima Shrine",
-        "oneLine": "Take the legend to the Spring of Power and offer a Shard of Dinraal's Scale to the goddess statue to reveal Tutsuwa Nima Shrine."
-      },
-      {
-        "name": "The Skull's Eye",
-        "giver": "Jerrin at the Akkala Ancient Tech Lab",
-        "reward": "Reveals Zuna Kai Shrine",
-        "oneLine": "Reach the Ancient Shrine atop the pillar in Skull Lake's left eye to reveal Zuna Kai Shrine."
-      },
-      {
-        "name": "Into the Vortex",
-        "giver": "Stone tablet at the base of Rist Peninsula (auto-logged when read)",
-        "reward": "Reveals Ritaag Zumo Shrine",
-        "oneLine": "Carry the nearby Ancient Orb to the center of the Rist Peninsula spiral and place it to make Ritaag Zumo Shrine rise."
-      },
-      {
-        "name": "Trial of the Labyrinth",
-        "giver": "Auto-logged on reaching Lomei Labyrinth Island",
-        "reward": "Reveals Tu Ka'loh Shrine; Barbarian Helm in the shrine chest",
-        "oneLine": "Navigate the Guardian-filled northeast maze and burn the Malice eye to reach Tu Ka'loh Shrine; a Barbarian Helm chest sits inside the shrine."
-      }
-    ]
-  },
-  {
-    "region": "Gerudo Desert",
-    "quests": [
-      {
-        "name": "The Search for Barta",
-        "giver": "Liana (Gerudo Town barracks)",
-        "reward": "Counts toward the Thunder Helm",
-        "oneLine": "Find the missing guard Barta, hiding near the Gerudo Great Skeleton, and report back to Liana."
-      },
-      {
-        "name": "Tools of the Trade",
-        "giver": "Isha (Gerudo Town jewelry shop)",
-        "reward": "Reopens the jewelry shop; counts toward the Thunder Helm",
-        "oneLine": "Bring Isha 10 Flint so she can get her jewelry stand running again."
-      },
-      {
-        "name": "Medicinal Molduga",
-        "giver": "Malena (Gerudo Town soldier training courtyard)",
-        "reward": "Gold Rupee; counts toward the Thunder Helm",
-        "oneLine": "Bring Malena Molduga Guts to treat her sick husband; fight the Molduga from a rock or ledge with bombs."
-      },
-      {
-        "name": "The Mystery Polluter",
-        "giver": "Dalia (Gerudo Town)",
-        "reward": "Counts toward the Thunder Helm",
-        "oneLine": "Follow the trail of Hydromelon rinds to Calyban on the wall by the water, who is polluting Dalia's garden, and get her to stop."
-      },
-      {
-        "name": "The Secret Club's Secret",
-        "giver": "Begins on trying to enter the Gerudo Secret Club (Greta's shop)",
-        "reward": "Access to the Gerudo Secret Club (sells Desert Voe and Radiant sets)",
-        "oneLine": "Eavesdrop at The Noble Canteen to learn the password 'GSC' (plus a diamond) and gain entry. Optional; not needed for the Thunder Helm."
-      },
-      {
-        "name": "The Thunder Helm",
-        "giver": "Chief Riju (Gerudo Town palace)",
-        "reward": "Thunder Helm (lightning immunity)",
-        "oneLine": "Complete the four Gerudo Town favors (Barta, Tools of the Trade, Medicinal Molduga, Mystery Polluter), then Riju lends you the Thunder Helm."
-      },
-      {
-        "name": "The Eighth Heroine",
-        "giver": "Bozai (outside Gerudo Town's gate, near Daqo Chisay Shrine)",
-        "reward": "Sand Boots (faster movement on sand)",
-        "oneLine": "Wearing the Gerudo outfit, photograph the Statue of the Eighth Heroine in the snowy Gerudo Highlands for Bozai. He lends Snow Boots to help."
-      },
-      {
-        "name": "The Forgotten Sword",
-        "giver": "Bozai (Gerudo Town, follow-up after The Eighth Heroine)",
-        "reward": "Snow Boots (faster movement on snow)",
-        "oneLine": "After The Eighth Heroine, find the heroine's missing sword on the snowfield near her statue and report back to Bozai."
-      }
-    ]
-  }
+ {
+  "region": "Great Plateau",
+  "quests": [
+   {
+    "id": "the-old-man-s-diary",
+    "name": "The Old Man's Diary",
+    "giver": "The Old Man (read his diary inside the Woodcutter's House, the small cabin in the south of the Great Plateau near the base of Mount Hylia / the Temple of Time)",
+    "location": "Great Plateau — Woodcutter's House (Old Man's cabin)",
+    "reward": "Warm Doublet (permanent low-level cold resistance)",
+    "oneLine": "Read the Old Man's diary, cook the cold-weather dish whose last ingredient he forgot, and he hands over his warm clothing.",
+    "how": "The diary lists Raw Meat + Spicy Pepper but omits the third ingredient — it's Hyrule Bass (a fish; scoop one from the pond near the Temple of Time). Cook Raw Meat + Spicy Pepper + Hyrule Bass at a pot to make Spicy Meat and Seafood Fry, then bring it back to the Old Man at the cabin (he reappears there, usually at night) to get the Warm Doublet. (Alternatively, he can be met at the snowy summit of Mount Hylia.) Note: it is not a logged Side Quest — it's a prologue interaction — and if you clear all 4 Great Plateau shrines first he stops appearing, leaving the Warm Doublet in a chest beside his diary in the Woodcutter's House."
+   }
+  ]
+ },
+ {
+  "region": "Dueling Peaks",
+  "quests": [
+   {
+    "id": "find-the-fairy-fountain",
+    "name": "Find the Fairy Fountain",
+    "giver": "Pikango, the traveling painter, by the pond/cooking pot near the Goddess Statue in Kakariko Village (daytime)",
+    "location": "Kakariko Village / Cotera's Great Fairy Fountain northeast of town",
+    "reward": "Unlock Great Fairy Cotera (armor upgrades); afterward Pikango will point you to Captured Memories (memory photo) locations you haven't found",
+    "oneLine": "Help the traveling painter find the nearby Great Fairy Fountain to awaken Cotera (needs the Camera rune).",
+    "how": "Talk to Pikango, then lead him up the path past Ta'loh Naeg Shrine to the dome-shaped fountain. Toss 100 rupees in to awaken Great Fairy Cotera, snap a photo with the Camera rune, and bring it back to Pikango. With Cotera unsealed you can upgrade armor, and Pikango will now help locate your remaining memory photos. (Some guides class this as a main quest in the camera/memory line, but it is given and completed entirely within this region.)"
+   },
+   {
+    "id": "by-firefly-s-light",
+    "name": "By Firefly's Light",
+    "giver": "Lasli, who works at the Enchanted (clothing) shop in Kakariko Village",
+    "location": "Kakariko Village",
+    "reward": "Purple Rupee (50 rupees)",
+    "oneLine": "Catch 5 Sunset Fireflies and release them loose inside Lasli's house at night.",
+    "how": "After finishing Find the Fairy Fountain and Flown the Coop, talk to Lasli. At night, sneak up on the glowing Sunset Fireflies drifting around Kakariko's grass and the nearby bridge (crouch and approach slowly so they don't scatter) and grab 5. Take them into Lasli's house and release all 5 loose inside to finish."
+   },
+   {
+    "id": "flown-the-coop",
+    "name": "Flown the Coop",
+    "giver": "Cado, the guard tending the Cucco pen near Impa's house in Kakariko Village (about 12pm-5pm)",
+    "location": "Kakariko Village",
+    "reward": "Purple Rupee (50 rupees)",
+    "oneLine": "Round up Cado's escaped Cuccos and return all of them to the pen by his house.",
+    "how": "Talk to Cado at the Cucco pen, then find the 7 loose Cuccos around the village — on rooftops, on the ledge toward the shrine, by the fire at Impa's house, and near the bridge at the town entrance (three more are already in the pen). Pick each one up and carry it back into the pen, then report to Cado."
+   },
+   {
+    "id": "the-priceless-maracas",
+    "name": "The Priceless Maracas",
+    "giver": "Hestu, on the road between Dueling Peaks Stable and Kakariko Village (near Kakariko Bridge)",
+    "location": "Kakariko Bridge / Blue-Bokoblin stronghold up the path",
+    "reward": "Unlock — Hestu can now expand your weapon, bow, and shield slots in exchange for Korok Seeds",
+    "oneLine": "Recover Hestu's stolen maracas from a nearby Bokoblin camp so he can start expanding your inventory.",
+    "how": "Talk to the giant Korok Hestu, who points you to the monster camp up the path. Clear the Blue Bokoblins at the stronghold; defeating them unlocks the treasure chest at the back. Open it for Hestu's Maracas, return them to Hestu, then trade Korok Seeds for inventory slot upgrades."
+   },
+   {
+    "id": "arrows-of-burning-heat",
+    "name": "Arrows of Burning Heat",
+    "giver": "Rola, owner of The Curious Quiver (the arrow shop) in Kakariko Village",
+    "location": "Kakariko Village",
+    "reward": "Red Rupee (20 rupees)",
+    "oneLine": "Light the four torches behind the Goddess Statue using fire.",
+    "how": "Go to the Goddess Statue in front of Impa's house, where four unlit torches stand behind it. Light an arrow at the nearby campfire (or use a fire weapon) and shoot each torch — do it when it isn't raining. With all four burning, return to Rola for the reward."
+   },
+   {
+    "id": "koko-s-kitchen",
+    "name": "Koko's Kitchen",
+    "giver": "Koko, the little girl at the cooking pot by the General Store in Kakariko Village (daytime)",
+    "location": "Kakariko Village",
+    "reward": "Hasty Veggie Cream Soup (a dish)",
+    "oneLine": "Bring Koko a Swift Carrot so she can cook for her family.",
+    "how": "Talk to Koko at her cooking pot during the day. Buy a Swift Carrot from the High Spirits Produce stand nearby (or pick one in the wild) and give it to her. She hands you a Hasty Veggie Cream Soup and the next Koko quest opens."
+   },
+   {
+    "id": "cooking-with-koko",
+    "name": "Cooking with Koko",
+    "giver": "Koko at the cooking pot by the General Store in Kakariko Village (after Koko's Kitchen)",
+    "location": "Kakariko Village",
+    "reward": "Hot Buttered Apple (a dish)",
+    "oneLine": "Bring Koko some Goat Butter for her next recipe.",
+    "how": "After finishing Koko's Kitchen, talk to Koko again during the day. Buy Goat Butter from the High Spirits Produce stand and give it to her (she already has the apple); she returns a Hot Buttered Apple and unlocks the next quest."
+   },
+   {
+    "id": "koko-cuisine",
+    "name": "Koko Cuisine",
+    "giver": "Koko at the cooking pot by the General Store in Kakariko Village (after Cooking with Koko)",
+    "location": "Kakariko Village",
+    "reward": "Tough Meat-Stuffed Pumpkin (a dish)",
+    "oneLine": "Bring Koko some Raw Meat to keep her cooking.",
+    "how": "After Cooking with Koko, speak to Koko again in the daytime. Get Raw Meat by hunting boars, deer, or other animals in the wild, then give it to her for a Tough Meat-Stuffed Pumpkin and the final Koko quest."
+   },
+   {
+    "id": "koko-s-specialty",
+    "name": "Koko's Specialty",
+    "giver": "Koko at the cooking pot by the General Store in Kakariko Village (after Koko Cuisine)",
+    "location": "Kakariko Village",
+    "reward": "Energizing Honeyed Apple (a dish)",
+    "oneLine": "Bring Koko some Courser Bee Honey for her special family recipe.",
+    "how": "After Koko Cuisine, talk to Koko once more in the daytime — she now needs Courser Bee Honey. Find a beehive in any wooded area, shoot or knock it down, and grab the honey before the bees swarm. Give it to Koko for an Energizing Honeyed Apple, completing her four-quest chain."
+   },
+   {
+    "id": "playtime-with-cottla",
+    "name": "Playtime with Cottla",
+    "giver": "Cottla, Koko's little sister, running around Kakariko Village (about 11am-4pm)",
+    "location": "Kakariko Village",
+    "reward": "Rock Salt (sometimes Amber)",
+    "oneLine": "Play a game of hide-and-seek or tag with the bored little girl Cottla.",
+    "how": "Talk to Cottla while she runs around the village during the day and agree to play. Choose hide-and-seek (she hides behind Impa's house) or tag (chase her down and talk to her). Win and she rewards you with Rock Salt (occasionally Amber); you can replay for more."
+   },
+   {
+    "id": "wild-horses",
+    "name": "Wild Horses",
+    "giver": "Rensa, standing in front of the Dueling Peaks Stable",
+    "location": "Dueling Peaks Stable",
+    "reward": "Purple Rupee (50 rupees)",
+    "oneLine": "Tame a wild horse and bring it back to the stable within two minutes.",
+    "how": "Ask Rensa about wild horses twice to start his timed challenge. Run to the wild horses in the fields just southeast (toward Bubinga Forest), sneak up behind one and mount it, then soothe it (press L) until it calms — spotted horses are easiest. Ride it back to the stable before the two-minute timer runs out."
+   },
+   {
+    "id": "misko-the-great-bandit",
+    "name": "Misko, the Great Bandit",
+    "giver": "Domidak and Prissen, two travelers inside the Dueling Peaks Stable",
+    "location": "Dueling Peaks Stable / Misko's cave on the cliff at the south edge of Hickaly Woods (above the Little Twin Bridge river's source)",
+    "reward": "Treasure — gems (Opal, Amber, two Sapphires, Luminous Stone), a Soldier's Spear, a Flameblade, and three Toasted Hearty Truffles",
+    "oneLine": "Pay for a clue to the bandit Misko's hidden treasure cave and loot it.",
+    "how": "Talk to Domidak/Prissen and pay 100 rupees for the riddle: \"the little twin steps over the little river... my cave rests above that river's source.\" Cross the Little Twin Bridge and follow the river south to its source at the south edge of Hickaly Woods, climb to the cracked wall above, and bomb it. Inside, open the chests (a second bombable wall hides the Flameblade) to claim the treasure."
+   }
+  ]
+ },
+ {
+  "region": "Hateno",
+  "quests": [
+   {
+    "id": "the-statue-s-bargain",
+    "name": "The Statue's Bargain",
+    "giver": "The black Horned Statue (a boy in the village leads you to it; he can be found near the village's western entrance)",
+    "location": "Hateno Village",
+    "reward": "Ability to re-spec: sell back a Heart Container or Stamina Vessel for 100 rupees (rebuy for 120)",
+    "oneLine": "Pray to the Horned Statue, then trade a Heart Container or Stamina Vessel for 100 rupees so you can rebalance hearts vs. stamina anytime.",
+    "how": "Follow the boy from the village's west entrance to the dark Horned Statue and pray to it to begin. Talk to the statue to sell one heart or stamina upgrade for 100 rupees, and buy it (or the other type) back for 120 rupees whenever you want to re-spec."
+   },
+   {
+    "id": "the-sheep-rustlers",
+    "name": "The Sheep Rustlers",
+    "giver": "Koyin, at Hateno Pasture (her house is just west of the Hateno Ancient Tech Lab, by the pasture)",
+    "location": "Hateno Village / Hateno Beach",
+    "reward": "10 bottles of Fresh Milk",
+    "oneLine": "Monsters at Hateno Beach are picking off the pasture's sheep; wipe out the whole monster camp and report back to Koyin.",
+    "how": "Talk to Koyin by the pasture, then head down to Hateno Beach and defeat all the monsters in the camp (about seven, including Bokoblins and a Black Moblin; clearing them also opens a chest). Return to Koyin to receive 10 Fresh Milk. (No timer and no sheep-herding — the task is just clearing the camp.)"
+   },
+   {
+    "id": "the-weapon-connoisseur",
+    "name": "The Weapon Connoisseur",
+    "giver": "Nebb, a boy who runs around Hateno Village",
+    "location": "Hateno Village",
+    "reward": "Escalating rupees/gems per weapon, culminating in a Diamond for the final one",
+    "oneLine": "Over many visits, show Nebb eight specific weapons one at a time, each for a bigger reward.",
+    "how": "Talk to Nebb in the village; each visit he names one weapon he wants to see. Have it in your inventory and talk to him to show it for a reward, then come back for the next. The eight, in order, are Traveler's Sword, Fire Rod, Moblin Club, Duplex Bow, Windcleaver, Ancient Battle Axe+, Frostspear, and Ancient Short Sword (the last buyable at the Akkala lab after Robbie's Research); the final reward is a Diamond."
+   },
+   {
+    "id": "a-gift-for-my-beloved",
+    "name": "A Gift for My Beloved",
+    "giver": "Manny, who hangs around near the Ton Pu Inn in Hateno Village",
+    "location": "Hateno Village (East Necluda)",
+    "reward": "Silver Rupee (100 rupees)",
+    "oneLine": "Manny is smitten with innkeeper Prima; find out she loves crickets and bring him a batch to give her.",
+    "how": "Talk to Manny by the inn, then ask the innkeeper Prima what she likes to learn she loves crickets. Catch 10 Restless Crickets (cut tall grass in and around the village) and bring them to Manny, who rewards you with a Silver Rupee (100 rupees)."
+   },
+   {
+    "id": "slated-for-upgrades",
+    "name": "Slated for Upgrades",
+    "giver": "Purah at the Hateno Ancient Tech Lab (east of the village)",
+    "location": "Hateno Ancient Tech Lab",
+    "reward": "Sheikah Slate rune upgrades (camera/album + Sensor+; further upgrades for more materials)",
+    "oneLine": "Once the lab is powered, bring Purah ancient parts and she powers up your Sheikah Slate runes (camera, then Sensor+).",
+    "how": "After the lab's furnace is lit (Locked Mementos), talk to Purah; she restores the Camera rune and album, then asks for ancient parts (e.g. ancient screws, shafts, and cores from Guardians) to upgrade the Sheikah Sensor to Sensor+ and unlock further rune upgrades."
+   },
+   {
+    "id": "robbie-s-research",
+    "name": "Robbie's Research",
+    "giver": "Purah at the Hateno Ancient Tech Lab (completed with Robbie at the Akkala Ancient Tech Lab)",
+    "location": "Hateno Ancient Tech Lab → Akkala Ancient Tech Lab",
+    "reward": "Unlocks ancient-tech crafting at Cherry's shop (ancient arrows, armor, weapons)",
+    "oneLine": "Purah sends you to find Robbie far to the northeast; prove who you are so he reopens the Akkala lab's ancient forge.",
+    "how": "Purah tells you to seek Robbie in the northeast. Travel to the Akkala Ancient Tech Lab (light its furnace with a Blue Flame from the nearby Ancient Furnace if it's out), then talk to Robbie and remove your armor to show your scars so he believes you, unlocking the ancient-tech forge (Cherry's shop)."
+   },
+   {
+    "id": "hylian-homeowner",
+    "name": "Hylian Homeowner",
+    "giver": "Bolson of Bolson Construction, at the house being torn down on the west edge of Hateno Village",
+    "location": "Hateno Village",
+    "reward": "Your own house (a bed plus wall mounts for weapons, bows, and shields)",
+    "oneLine": "Buy the abandoned house on the edge of Hateno Village from Bolson Construction and furnish it.",
+    "how": "Talk to Bolson at the house being demolished on the village's western edge and pay 3,000 rupees to claim it. Then buy upgrades from him (each costs 100 rupees plus 30 Bundles of Wood) to add a bed and weapon/bow/shield mounts."
+   },
+   {
+    "id": "from-the-ground-up",
+    "name": "From the Ground Up",
+    "giver": "Hudson of Bolson Construction (recruited via Hylian Homeowner); built at the East Akkala site, which becomes Tarrey Town",
+    "location": "Hateno Village → Tarrey Town (Akkala)",
+    "reward": "3 Diamonds, plus the new town Tarrey Town (general store, dye shop, jewelry merchant, armor shop, inn)",
+    "oneLine": "Help Hudson raise a brand-new town by supplying wood and recruiting residents whose names end in 'son'.",
+    "how": "After Hylian Homeowner, follow Hudson to the East Akkala construction site and supply the Bundles of Wood he asks for in stages. Recruit residents whose names end in 'son': Greyson (Goron), Rhondson (Gerudo), Hagie/Fyson (Rito), and Kapson the priest, then return for the wedding cutscene; Hudson rewards you with 3 Diamonds. (Guides file it under Hateno because it begins there, though Tarrey Town is in Akkala.)"
+   },
+   {
+    "id": "sunshroom-sensing",
+    "name": "Sunshroom Sensing",
+    "giver": "Symin at the Hateno Ancient Tech Lab",
+    "location": "Hateno Ancient Tech Lab",
+    "reward": "3 Hearty Truffles (also unlocks buying compendium pictures from Symin)",
+    "oneLine": "Photograph the lab's Sunshroom for Symin, then use the upgraded Sensor to track down three Sunshrooms.",
+    "how": "After getting Sensor+ from Slated for Upgrades, talk to Symin and photograph the Sunshroom on the hill behind the lab (only that one is accepted) to register it. Set the Sensor to it, gather 3 Sunshrooms (plenty up north near Retsam Forest), and give them to Symin for 3 Hearty Truffles."
+   },
+   {
+    "id": "the-hero-s-cache",
+    "name": "The Hero's Cache",
+    "giver": "Kass, the Rito bard, on a stone pillar at Kitano Bay (south of Hateno Village, near the coast)",
+    "location": "Kitano Bay, south of Hateno Village",
+    "reward": "Gold Rupee (300 rupees)",
+    "oneLine": "Solve Kass's song riddle — '17 of 24' means 5 PM — then fish the hidden chest out of the bay with Magnesis.",
+    "how": "Talk to Kass to hear the song: '17 of 24' is the 17th hour, 5 PM. Wait until 5 PM (camp by a fire to pass time); the pillar's shadow points to a chest sitting in the water to the west. Use Magnesis to lift the chest out for a Gold Rupee."
+   }
+  ]
+ },
+ {
+  "region": "Lanayru",
+  "quests": [
+   {
+    "id": "frog-catching",
+    "name": "Frog Catching",
+    "giver": "Tumbo, a Zora child running around the statue across from the shrine in Zora's Domain (daytime)",
+    "location": "Zora's Domain",
+    "reward": "Armoranth (x1)",
+    "oneLine": "Bring Tumbo five Hot-Footed Frogs caught around the Domain's pools and waterfalls.",
+    "how": "Catch five Hot-Footed Frogs (the little jumping frogs near water) and hand them over. They are plentiful in the grass by the ponds around Zora's Domain, and especially abundant during rain. Pick them up by hand, then return all five to Tumbo for an Armoranth."
+   },
+   {
+    "id": "luminous-stone-gathering",
+    "name": "Luminous Stone Gathering",
+    "giver": "Ledo, the Zora hammering a pillar south of Mipha's statue in central Zora's Domain",
+    "location": "Zora's Domain",
+    "reward": "2 Diamonds for the first batch of 10, then 1 Diamond per additional batch of 10 (repeatable)",
+    "oneLine": "Mine Luminous Stones from nearby cliffs and hand them to Ledo in batches of ten.",
+    "how": "Luminous Stones come from the glowing blue ore deposits on the cliffs around Zora's Domain and Ploymus Mountain (smash them with any weapon). Bring Ledo ten for 2 Diamonds the first time; every further set of ten gives 1 more Diamond. The blue rocks glow at night, making them easy to spot."
+   },
+   {
+    "id": "lynel-safari",
+    "name": "Lynel Safari",
+    "giver": "Laflat, near the general store / by the bridge in Zora's Domain",
+    "location": "Zora's Domain / Ploymus Mountain",
+    "reward": "Zora Greaves (the only way to get this armor piece)",
+    "oneLine": "Sneak a photo of the Lynel roaming Ploymus Mountain with the camera rune and bring it back to Laflat.",
+    "how": "You need the Camera rune (from the Hateno Ancient Tech Lab) first. Climb to Ploymus Mountain above Zora's Domain, where a red-maned Lynel roams near Shatterback Point. Stay at a distance, open the camera, frame the Lynel and snap a photo (you do not have to fight it), then return to Laflat for the Zora Greaves."
+   },
+   {
+    "id": "diving-is-beauty",
+    "name": "Diving is Beauty!",
+    "giver": "Gruve, standing by a small waterfall at the base of the stairs to the Throne Room in Zora's Domain",
+    "location": "Zora's Domain",
+    "reward": "5 Fleet-Lotus Seeds",
+    "oneLine": "Dive down off the platform and then swim back up the waterfall using the Zora armor, then report to Gruve.",
+    "how": "Equip the Zora armor, dive from the platform Gruve points out into the water below, then approach the waterfall and swim straight up it (the Zora set lets you scale waterfalls). Talk to Gruve afterward for 5 Fleet-Lotus Seeds."
+   },
+   {
+    "id": "zora-stone-monuments",
+    "name": "Zora Stone Monuments",
+    "giver": "Jiahto, in the plaza beneath the Throne Room in Zora's Domain (after calming Vah Ruta)",
+    "location": "Zora's Domain and the path leading to it",
+    "reward": "Diamond (x1) for reading all ten",
+    "oneLine": "Read all ten Zora Stone Monuments scattered around Zora's Domain and the approach to it, then report back to Jiahto.",
+    "how": "Ten engraved stone slabs (Zora Stone Monuments) are spread across Zora's Domain and along the path/rivers leading up to it. Walk up to each and read it; the in-game quest log tracks how many you've found. After reading all ten, return to Jiahto for a Diamond. Some are underwater or on high ledges, so use Zora swimming and climbing to reach them."
+   },
+   {
+    "id": "the-giant-of-ralis-pond",
+    "name": "The Giant of Ralis Pond",
+    "giver": "Torfeau, in the Sleeping Chamber area of Zora's Domain (after calming Vah Ruta)",
+    "location": "Ralis Pond, southwest of Zora's Domain",
+    "reward": "Silver Rupee (100 rupees)",
+    "oneLine": "Torfeau asks you to slay the Hinox that has appeared at Ralis Pond.",
+    "how": "Travel southwest to Ralis Pond, where a Blue Hinox sleeps near the water. Shoot it in the eye with an arrow to knock it down, then strike its eye/body repeatedly while it's stunned (repeat the arrow-to-eye stun as needed). After it's dead, return to Torfeau in Zora's Domain for a Silver Rupee."
+   },
+   {
+    "id": "a-wife-washed-away",
+    "name": "A Wife Washed Away",
+    "giver": "Fronk, in the plaza beneath the Throne Room in Zora's Domain (after calming Vah Ruta)",
+    "location": "Zora's Domain to Lake Hylia",
+    "reward": "5 Staminoka Bass",
+    "oneLine": "Fronk's wife Mei went fishing during Vah Ruta's flooding and never came back, so find her.",
+    "how": "Mei was swept down the river all the way to Lake Hylia. Find her swimming just east of Hylia Island (west of the Bridge of Hylia, near Ya Naga Shrine if you've unlocked it as a warp). Talk to her and she hands you 5 Staminoka Bass."
+   },
+   {
+    "id": "riverbed-reward",
+    "name": "Riverbed Reward",
+    "giver": "Izra, staring into the river at the water's edge by Wetland Stable",
+    "location": "Wetland Stable, Lanayru Wetlands",
+    "reward": "The chest's contents (a Royal Broadsword, or sometimes a Knight's Broadsword)",
+    "oneLine": "Izra spotted a sunken treasure chest in the river he can't reach and asks for your help.",
+    "how": "Stand at the riverbank where Izra points, equip the Magnesis rune, and use it to lift the metal chest out of the water onto land. Open it (it holds a Royal Broadsword, occasionally a Knight's Broadsword), then talk to Izra, who lets you keep the sword."
+   },
+   {
+    "id": "special-delivery",
+    "name": "Special Delivery",
+    "giver": "Finley, on the Bank of Wishes along the river southwest of Zora's Domain (after calming Vah Ruta)",
+    "location": "Zora River, downstream toward Lake Hylia",
+    "reward": "Gold Rupee (300 rupees)",
+    "oneLine": "Finley sends a love letter floating downriver and asks you to follow it safely to whoever picks it up.",
+    "how": "Finley drops a wooden letter carrier into the river. Escort it downstream without letting monsters destroy it: bomb the wooden wall/barricade blocking its path and clear the barrels and planks near Mercay Island. It floats to Sasan, who picks it up and heads to Zora's Domain. Return there and speak with Finley (and Sasan) for the Gold Rupee."
+   }
+  ]
+ },
+ {
+  "region": "Lake Hylia",
+  "quests": [
+   {
+    "id": "the-horseback-hoodlums",
+    "name": "The Horseback Hoodlums",
+    "giver": "Perosa, at the Highland Stable (south end of the Lake Hylia region, on the Bridge of Hylia road toward Faron)",
+    "location": "Highland Stable / Fural Plain, Lake Hylia region",
+    "reward": "Endura Carrot",
+    "oneLine": "Perosa asks you to drive off the five horse-riding Blue Bokoblins that have overrun the grassland north of the stable.",
+    "how": "Head onto Fural Plain just north/northwest of Highland Stable and find the five Blue Bokoblins riding horses. Defeat all five (knock them off and finish them, or shoot them down), then return to Perosa for an Endura Carrot."
+   },
+   {
+    "id": "hunt-for-the-giant-horse",
+    "name": "Hunt for the Giant Horse",
+    "giver": "Straia, at the Mounted Archery Camp (west of Highland Stable)",
+    "location": "Taobab Grasslands / Mounted Archery Camp, Lake Hylia region (border of Lake and Faron)",
+    "reward": "Silver Rupee (worth 100 Rupees); you also get to keep the Giant Horse",
+    "oneLine": "Straia asks you to track down and tame the rumored enormous horse, then bring it back to prove it exists.",
+    "how": "Travel to the Taobab Grasslands southwest of Owa Daim Shrine and find the huge dark Giant Horse standing in a herd. You need at least two full stamina wheels (Enduring food/elixir helps) to tame it: paraglide onto its back and hold the soothe button while it bucks until calm. Ride it back to Straia for a Silver Rupee, then register it at Highland Stable to keep it (two Lynels roam the route back, so be ready)."
+   }
+  ]
+ },
+ {
+  "region": "Faron",
+  "quests": [
+   {
+    "id": "thunder-magnet",
+    "name": "Thunder Magnet",
+    "giver": "Cima, the manager at the counter of Lakeside Stable (north of Lake Floria, southeast of Faron Tower)",
+    "location": "Lakeside Stable, Faron",
+    "reward": "Rubber Helm (shock resistance)",
+    "oneLine": "Lightning keeps striking the stable during every storm and the manager wants to know why.",
+    "how": "Climb onto the stable roof. A metal Woodcutter's Axe is lodged in the wooden horse-head ornament and it draws the lightning. Use Magnesis to pull the axe out (or knock it off), then talk to Cima for the Rubber Helm."
+   },
+   {
+    "id": "take-back-the-sea",
+    "name": "Take Back the Sea",
+    "giver": "Sebasto, a fisherman in Lurelin Village",
+    "location": "Aris Beach, southeast of Lurelin Village, Faron",
+    "reward": "Silver Rupee (100) from Sebasto (clearing the camp also unlocks a chest with a Knight's Halberd)",
+    "oneLine": "Monsters have overrun Aris Beach and Sebasto wants the fishing grounds cleared.",
+    "how": "Go southeast along the coast to Aris Beach and defeat every monster in the Bokoblin camp (clearing them unlocks the camp's chest containing a Knight's Halberd). Return to Sebasto in Lurelin Village to claim the Silver Rupee."
+   },
+   {
+    "id": "a-gift-of-nightshade",
+    "name": "A Gift of Nightshade",
+    "giver": "Wabbin, a Hylian man at Lover's Pond atop Tuft Mountain (southwest of Lurelin Village)",
+    "location": "Lover's Pond, Tuft Mountain, Faron",
+    "reward": "120 Rupees total (a Red Rupee/20, then a Silver Rupee/100 — both given by Wabbin)",
+    "oneLine": "A shy man wants to give a Blue Nightshade to the woman across the pond but lacks the courage.",
+    "how": "Pick a Blue Nightshade (they grow in shady grassy spots nearby) and bring it to Wabbin. He hands it to Perda, the Gerudo woman across the pond; after the cutscene he pays you 20 Rupees, then 100 more after Perda scolds his stinginess."
+   },
+   {
+    "id": "sunken-treasure",
+    "name": "Sunken Treasure",
+    "giver": "Rozel, a fisherman on the dock at Lurelin Village (ask him about the ocean)",
+    "location": "The bay south of Lurelin Village, Faron",
+    "reward": "Sunken-chest treasure: a Sapphire, 2 Topaz, and a Thunderblade",
+    "oneLine": "A fisherman shares a clue that treasure sleeps in the center of the 'golden triangle' out in the bay.",
+    "how": "The 'golden triangle' is three pointed rocks in the bay south of the village. Take the raft from the western shore and sail to the center of those rocks (use a Korok Leaf to blow the sail). At the center, use Magnesis to pull up the submerged chests."
+   },
+   {
+    "id": "what-s-for-dinner",
+    "name": "What's for Dinner?",
+    "giver": "Kiana, a woman at her house in Lurelin Village (talk to her during the day)",
+    "location": "Lurelin Village, Faron",
+    "reward": "Purple Rupee (50) plus a share of Seafood Paella",
+    "oneLine": "Kiana needs two ingredients to finish cooking dinner for her family.",
+    "how": "Bring her a Hearty Blueshell Snail (found along the Necluda Sea shore by Lurelin) and Goat Butter (bought from High Spirits Produce in Kakariko Village). Give both to Kiana to complete the quest."
+   }
+  ]
+ },
+ {
+  "region": "Central Hyrule",
+  "quests": [
+   {
+    "id": "the-royal-white-stallion",
+    "name": "The Royal White Stallion",
+    "giver": "Toffa, sitting outside Outskirt Stable (southwest Central Hyrule, near the Hylia River)",
+    "location": "Outskirt Stable / Safula Hill, Central Hyrule",
+    "reward": "Royal Saddle and Royal Bridle (cosmetic horse gear)",
+    "oneLine": "Tame the pure-white royal descendant horse roaming the fields near Safula Hill and register it at the stable to claim the royal gear.",
+    "how": "Toffa points you to Safula Hill, just north of the stable. Sneak up on the all-white horse there (crouch, approach from behind, mount and mash the soothe button to break it in - two stamina wheels or an Enduring Elixir helps). Ride it back to Outskirt Stable, register it, then talk to Toffa to receive the Royal Saddle and Royal Bridle."
+   },
+   {
+    "id": "my-hero",
+    "name": "My Hero",
+    "giver": "Aliza, under the tree across the road from Outskirt Stable",
+    "location": "Outskirt Stable, southwest Central Hyrule",
+    "reward": "Star Fragment",
+    "oneLine": "Show Aliza the Master Sword to prove you are the hero she's been waiting for.",
+    "how": "You must have already pulled the Master Sword from Korok Forest (Lost Woods). With the Master Sword in your inventory, talk to Aliza near the tree by the stable - she recognizes the blade and gives you a Star Fragment. (If you already had it when first meeting her, the quest auto-completes.)"
+   },
+   {
+    "id": "a-rare-find",
+    "name": "A Rare Find",
+    "giver": "Trott, inside Outskirt Stable",
+    "location": "Outskirt Stable, southwest Central Hyrule",
+    "reward": "Silver rupee (100 rupees); repeatable for more silver rupees",
+    "oneLine": "Trott is tired of vegetarian meals and wants a piece of Raw Gourmet Meat.",
+    "how": "Raw Gourmet Meat drops from large animals - water buffalo, bears, wolves, coyotes, moose, rhinos and the like across Hebra, Tabantha and the Gerudo Highlands (hit them with strong/multi-hit weapons or sneakstrikes). Bring one piece back to Trott and give it to him for a silver rupee; you can keep selling him more."
+   },
+   {
+    "id": "a-royal-recipe",
+    "name": "A Royal Recipe",
+    "giver": "Gotter, by the cooking pot at Riverside Stable",
+    "location": "Riverside Stable, Central Hyrule (near the Hylia River)",
+    "reward": "Silver rupee (100 rupees) for the first cake; another silver rupee (100) if you also bring the second cake",
+    "oneLine": "Gotter wants a taste of royal cooking - make the castle's Fruitcake or Monster Cake and bring it to him.",
+    "how": "Both recipes are on bookshelves in Hyrule Castle's Library. Fruitcake = two different fruits (e.g. Apple + Wildberry) + Tabantha Wheat + Cane Sugar; Monster Cake = Monster Extract + Tabantha Wheat + Goat Butter + Cane Sugar. Cook one at any pot and hand it to Gotter; bring the other cake too for a second reward."
+   },
+   {
+    "id": "the-royal-guard-s-gear",
+    "name": "The Royal Guard's Gear",
+    "giver": "Parcy, at Riverside Stable",
+    "location": "Riverside Stable, Central Hyrule",
+    "reward": "Gold rupee (300 rupees)",
+    "oneLine": "Parcy wants to see real Royal Guard equipment - bring her any Royal Guard's weapon, bow, or shield from Hyrule Castle.",
+    "how": "Royal Guard's gear is scattered through Hyrule Castle - e.g. the Royal Guard's Bow on the armory weapon rack, the Sword behind a breakable wall near the Dining Hall, the Spear in the Dining Hall fireplace (Magnesis), the Shield in a hidden library room, the Claymore on a Moblin in the Guard's Chamber. Grab any one piece, return to Parcy, and show it to her for a gold rupee."
+   }
+  ]
+ },
+ {
+  "region": "Hyrule Ridge",
+  "quests": [
+   {
+    "id": "a-gift-for-the-great-fairy",
+    "name": "A Gift for the Great Fairy",
+    "giver": "Toren, a traveler at Tabantha Bridge Stable (Ridgeland side of Tabantha Bridge, NW Hyrule Ridge)",
+    "location": "Tabantha Bridge Stable; Great Fairy Kaysa's fountain on the Tabantha Frontier, west/northwest of the stable near Tabantha Tower",
+    "reward": "Awakens Great Fairy Kaysa (unlocks her armor-upgrade fountain); you keep any leftover rupees, but get no separate item reward",
+    "oneLine": "A traveler hands you his 500-rupee life savings and asks you to make the offering that wakes the Great Fairy for him.",
+    "how": "Talk to Toren at the stable to receive 500 rupees. Carry it to Kaysa's Great Fairy Fountain on the Tabantha Frontier (the Tabantha Tower's afternoon shadow points to it), pay the offering to wake her, then return to Toren to complete the quest. Note: 500 rupees only fully covers the offering if Kaysa is your first revived Great Fairy; otherwise the price is higher and you cover the rest."
+   },
+   {
+    "id": "leviathan-bones",
+    "name": "Leviathan Bones",
+    "giver": "Akrah (with fellow researchers Garshon and Onya) at Serenne Stable, at the foot of Ridgeland Tower in Hyrule Ridge",
+    "location": "Serenne Stable (start); the three Great Skeletons are in Gerudo Desert, Eldin, and Hebra",
+    "reward": "300 rupees",
+    "oneLine": "Researchers pay you to photograph all three giant 'Leviathan' skeletons scattered across Hyrule.",
+    "how": "Requires the Camera rune. Photograph the Gerudo Great Skeleton (far southwest Gerudo Desert), the Eldin Great Skeleton (north Eldin, near the East Deplian Badlands), and the Hebra Great Skeleton (northwest of Hebra, near the Hebra summit). Return to Serenne Stable and show each researcher the matching photo; Akrah then rewards you with 300 rupees."
+   }
+  ]
+ },
+ {
+  "region": "Tabantha",
+  "quests": [
+   {
+    "id": "the-spark-of-romance",
+    "name": "The Spark of Romance",
+    "giver": "Jogo, inside the inn (Swallow's Roost) at Rito Village",
+    "location": "Rito Village (inn)",
+    "reward": "Silver Rupee (100 Rupees); afterward Jogo will sell you Flint in bulk",
+    "oneLine": "Bring Jogo a piece of Flint so he can light a fire and bake apples for his wife.",
+    "how": "Get a piece of Flint (it drops from smashing the ore deposits/rocks scattered around Hyrule with a sturdy weapon) and hand it to Jogo. He uses it to light his cooking fire; he rewards you with a Silver Rupee, and from then on he'll sell you Flint."
+   },
+   {
+    "id": "the-apple-of-my-eye",
+    "name": "The Apple of My Eye",
+    "giver": "Juney, on the upper wooden platform of Rito Village (near the elder's house, where she prays)",
+    "location": "Rito Village",
+    "reward": "Silver Rupee (100 Rupees)",
+    "oneLine": "Cook and deliver a Baked Apple to Juney so she can keep up her offering.",
+    "how": "Make a Baked Apple by tossing a normal Apple onto/next to any open flame or lit cooking fire (don't use the pot) until it cooks, then pick it up and give it to Juney for a Silver Rupee. Handy tip: Jogo's newly-lit fire from The Spark of Romance is a convenient flame to bake the apple."
+   },
+   {
+    "id": "find-kheel",
+    "name": "Find Kheel",
+    "giver": "Amali, near Akh Va'quot Shrine at the base of Rito Village",
+    "location": "Rito Village / Warbler's Nest",
+    "reward": "Purple Rupee (50 Rupees)",
+    "oneLine": "Track down Amali's missing daughter Kheel, who has flown off to Warbler's Nest.",
+    "how": "Fly or climb west of Rito Village to Warbler's Nest (the cliff with the harp-shaped ring of stones), talk to Kheel there, then return to Amali to report she's safe and collect the Purple Rupee. Requires Divine Beast Vah Medoh to be calmed first. (Finding Kheel is also what later enables the Recital at Warbler's Nest shrine quest.)"
+   },
+   {
+    "id": "face-the-frost-talus",
+    "name": "Face the Frost Talus",
+    "giver": "Gesane, the Rito guard patrolling the entrance bridge to Rito Village (available after calming Divine Beast Vah Medoh)",
+    "location": "Rito Village / Coldsnap Hollow, Hebra Mountains",
+    "reward": "Silver Rupee (100 Rupees)",
+    "oneLine": "Defeat the Frost Talus in the snowy mountains, then report back to Gesane.",
+    "how": "Travel north into the Hebra Mountains to Coldsnap Hollow; the Frost Talus is in the northeast part of the hollow. Touching its icy body freezes you, so use Fire Arrows or a flame weapon to melt the ice, then smash the black ore deposit on its back (climb on or fire arrows at it). After it falls, return to Gesane for the Silver Rupee."
+   },
+   {
+    "id": "curry-for-what-ails-you",
+    "name": "Curry for What Ails You",
+    "giver": "Lester, by the cooking pot at Rito Stable (east of Rito Village toward Tabantha Bridge)",
+    "location": "Rito Stable",
+    "reward": "Purple Rupee (50 Rupees); afterward you can keep trading Goron Spice to him for Hylian Rice",
+    "oneLine": "Bring Lester some Goron Spice so he can finish his curry.",
+    "how": "Get 1 Goron Spice and give it to Lester. The reliable source is the Goron Gusto Shop in Goron City (Eldin region; bring Flamebreaker armor or fireproof elixirs for the heat); the local merchant Yammo who roams the Tabantha area also sells it as a rainy-day special. Lester gives a Purple Rupee, and afterward he'll trade you Hylian Rice for more Goron Spice."
+   },
+   {
+    "id": "stalhorse-pictured",
+    "name": "Stalhorse: Pictured!",
+    "giver": "Juannelle, at the back of Snowfield Stable (north Tabantha, near the foot of Tabantha Tower); requires the Camera rune",
+    "location": "Snowfield Stable / North Tabantha Snowfield",
+    "reward": "Silver Rupee (100 Rupees)",
+    "oneLine": "Take a photo of a Stalhorse for Juannelle, who doesn't believe such a creature exists.",
+    "how": "At night, go to the enemy skull base in North Tabantha Snowfield and find a Stalhorse ridden by a Stalkoblin. Open the Camera rune and snap a photo of the Stalhorse (you don't have to kill the rider). Return to Juannelle and show her the picture for the Silver Rupee. Note: Stalhorses only appear at night and vanish around dawn."
+   }
+  ]
+ },
+ {
+  "region": "Hebra",
+  "quests": []
+ },
+ {
+  "region": "Great Hyrule Forest",
+  "quests": [
+   {
+    "id": "the-korok-trials",
+    "name": "The Korok Trials",
+    "giver": "Chio, the Korok elder, on a stump near the base of the Great Deku Tree in Korok Forest",
+    "location": "Korok Forest (Great Hyrule Forest)",
+    "reward": "Three Big Hearty Truffles",
+    "oneLine": "Chio asks you to pass the forest's rites of passage by clearing three nearby shrine quests.",
+    "how": "Complete all three forest shrine quests Chio names: Trial of Second Sight (southwest), The Lost Pilgrimage (northwest), and The Test of Wood (east). You must finish the shrine QUESTS (revealing each shrine) — just completing the shrine puzzle does not count. Once all three are done, return to Chio for three Big Hearty Truffles."
+   },
+   {
+    "id": "riddles-of-hyrule",
+    "name": "Riddles of Hyrule",
+    "giver": "Walton, the Korok napping at the very top of the Great Deku Tree (wake him to start)",
+    "location": "Korok Forest (Great Hyrule Forest)",
+    "reward": "Diamond",
+    "oneLine": "Walton poses five riddles; answer each by dropping the described item on the leaf in front of him.",
+    "how": "Drop the matching item onto the leaf before Walton, one per riddle: 1) Apple, 2) Fortified Pumpkin (buy at the pumpkin patch near Kakariko), 3) Sunshroom, 4) Voltfin Trout (caught in Hebra), 5) Lynel Hoof (dropped by a slain Lynel). Solve all five to earn a Diamond."
+   },
+   {
+    "id": "legendary-rabbit-trial",
+    "name": "Legendary Rabbit Trial",
+    "giver": "Peeks, a Korok at the base of the Great Deku Tree in Korok Forest",
+    "location": "Korok Forest (Great Hyrule Forest)",
+    "reward": "Silver Rupee (100 Rupees)",
+    "oneLine": "Peeks asks you to bring back a photo of the elusive 'legendary rabbit' (a Blupee).",
+    "how": "Equip the Camera rune, then find a Blupee — a couple appear on the path from Kakariko Village up to Cotera's fairy fountain, or several on Satori Mountain when the Lord of the Mountain is present. Sneak close, photograph it, then show the picture to Peeks for a Silver Rupee (100 Rupees)."
+   },
+   {
+    "id": "a-freezing-rod",
+    "name": "A Freezing Rod",
+    "giver": "Kula, a Korok at the base of the Great Deku Tree in Korok Forest",
+    "location": "Korok Forest (Great Hyrule Forest)",
+    "reward": "100 Rupees for an Ice Rod, or 300 Rupees for a Blizzard Rod",
+    "oneLine": "Kula wants to see a rod that carries the power of ice.",
+    "how": "Get an ice rod by defeating an Ice Wizzrobe (drops an Ice Rod) or an ice-type Blizzrobe (drops a Blizzard Rod). Return to Korok Forest and show Kula the rod: an Ice Rod earns 100 Rupees, a Blizzard Rod earns 300 Rupees."
+   },
+   {
+    "id": "balloon-flight",
+    "name": "Balloon Flight",
+    "giver": "Shamae, a child at Woodland Stable",
+    "location": "Woodland Stable (Great Hyrule Forest)",
+    "reward": "Star Fragment",
+    "oneLine": "Shamae challenges you to make one of the nearby barrels float into the air.",
+    "how": "Get Octo Balloons by defeating Octoroks at nearby Pico Pond (they drop them). Attach two or more Octo Balloons to one of the barrels next to Shamae so it lifts off the ground, and she rewards you with a Star Fragment."
+   },
+   {
+    "id": "a-gift-from-the-monks",
+    "name": "A Gift from the Monks",
+    "giver": "The final shrine monk (the quest triggers from the last monk after you finish all 120 shrines)",
+    "location": "Forgotten Temple / Rona Kachta Shrine (Woodland Tower region, Great Hyrule Forest)",
+    "reward": "Armor of the Wild set (Cap, Tunic, and Trousers of the Wild)",
+    "oneLine": "After clearing all 120 shrines, the monks have left a hero's reward waiting to be claimed.",
+    "how": "Finish all 120 shrines, then fast-travel to Rona Kachta Shrine inside the Forgotten Temple. Look near/behind the shrine (below the Goddess Statue) for three treasure chests holding the Cap, Tunic, and Trousers of the Wild; open all three to complete the quest and earn the full Armor of the Wild set."
+   }
+  ]
+ },
+ {
+  "region": "Eldin",
+  "quests": [
+   {
+    "id": "fireproof-lizard-roundup",
+    "name": "Fireproof Lizard Roundup",
+    "giver": "Kima, a Goron at the Southern Mine (southwest of Goron City, on the path toward the Abandoned North Mine)",
+    "location": "Southern Mine / Eldin (Goron City area)",
+    "reward": "Flamebreaker Armor (the fireproof chest piece)",
+    "oneLine": "Catch and deliver 10 Fireproof Lizards to the Goron Kima to help his injured miners; he accepts them in batches.",
+    "how": "Find Fireproof Lizards skittering on the warm rocks and under stones around the Southern Mine and the Eldin paths (sneak up and grab them). Catch 10 total and hand them to Kima at the Southern Mine and he rewards you with the Flamebreaker Armor chest piece; afterward he pays 20 rupees for every 3 extra lizards you bring."
+   },
+   {
+    "id": "the-road-to-respect",
+    "name": "The Road to Respect",
+    "giver": "Fugo, an apprentice Goron in Goron City",
+    "location": "Goron City / Darunia Lake, Eldin",
+    "reward": "Silver Rupee (worth 100 rupees), plus the gems the Igneo Talus drops",
+    "oneLine": "Defeat the Igneo Talus at Darunia Lake that the apprentice Fugo couldn't beat, then report back to him to earn Boss Rohan's respect.",
+    "how": "Go to Darunia Lake (northeast of Goron City) and fight the Igneo Talus there. Cool its molten body with Ice Arrows (or a frost weapon) so you can touch it without burning, then climb on and smash the black-ore weak spot on its back. Return to Fugo in Goron City for a Silver Rupee (100 rupees)."
+   },
+   {
+    "id": "death-mountain-s-secret",
+    "name": "Death Mountain's Secret",
+    "giver": "Dugby, a Goron relaxing in the Goron Hot Springs (along the rail path south/southeast of Goron City); talk to him during the day",
+    "location": "Goron Hot Springs / cliffs toward the Bridge of Eldin, Eldin",
+    "reward": "Drillshaft (a Goron one-handed mining spear)",
+    "oneLine": "Decipher Dugby's gurgled directions and dig out the treasure he buried near the Bridge of Eldin.",
+    "how": "From the Goron Hot Springs, head east along the path to the overhanging cliffs and climb to the top of the middle cliff. Make for the tallest peak and wrap around to its east side, where a discolored, cracked rock wall hides the Drillshaft; bomb or smash it open, grab the weapon, then return to Dugby (who lets you keep it)."
+   },
+   {
+    "id": "the-jewel-trade",
+    "name": "The Jewel Trade",
+    "giver": "Ramella, a Gerudo gem collector touring Goron City (walking the city's paths)",
+    "location": "Goron City, Eldin",
+    "reward": "500 rupees (and she keeps buying gems afterward)",
+    "oneLine": "Bring the gem collector Ramella 10 pieces of Amber while she tours Goron City.",
+    "how": "Mine Amber from the black-ore deposits around the Eldin mountains (and elsewhere). Bring 10 Amber to Ramella as she walks around Goron City and she pays 500 rupees, more than a shop would. Afterward she stays and pays premium rates whenever you bring her 10 of a randomly chosen gem."
+   }
+  ]
+ },
+ {
+  "region": "Akkala",
+  "quests": [
+   {
+    "id": "a-parent-s-love",
+    "name": "A Parent's Love",
+    "giver": "Overheard from Ruli and her husband Hagie at the southernmost house in Tarrey Town; reward from Ruli",
+    "location": "Tarrey Town, Lake Akkala, Akkala",
+    "reward": "Gold Rupee (300 Rupees)",
+    "oneLine": "Eavesdrop on a worried mother in Tarrey Town and bake a Monster Cake for her sick daughter, who will only eat cake.",
+    "how": "Requires Tarrey Town built (finish 'From the Ground Up'). At night (about 9 PM–5 AM) stand at the open window of the southernmost house in Tarrey Town and listen to Ruli and Hagie worry about their sick daughter Hunnie — the hint is a 'monster' cake. Cook a Monster Cake from Monster Extract (buy from Kilton's Fang and Bone) + Tabantha Wheat + Cane Sugar + Goat Butter. Bring the cake to Ruli during the day (morning or noon) so she gives it to Hunnie, then talk to Ruli again the next day to collect the gold rupee."
+   },
+   {
+    "id": "a-shady-customer",
+    "name": "A Shady Customer",
+    "giver": "Hoz, a guard at East Akkala Stable",
+    "location": "East Akkala Stable / Skull Lake, Akkala",
+    "reward": "Silver Rupee (100 Rupees)",
+    "oneLine": "A stable guard asks you to photograph the suspicious nighttime merchant Kilton and bring back proof.",
+    "how": "Talk to Hoz at East Akkala Stable to start the quest. Go to Skull Lake (northwest of the stable) at night — Kilton's Fang and Bone shop only appears after dark; approach until Kilton spawns. Use the Camera rune to snap a picture of Kilton, then return to Hoz and show him the photo from your album for the silver rupee. (You need the Camera rune from the Hateno tech lab first.)"
+   },
+   {
+    "id": "hobbies-of-the-rich",
+    "name": "Hobbies of the Rich",
+    "giver": "Hagie, looking out over Torin Wetland in Tarrey Town",
+    "location": "Tarrey Town / Torin Wetland, Akkala",
+    "reward": "Silver Rupee (100) as an up-front down payment + a Red Rupee (20) on completion (120 total)",
+    "oneLine": "A wealthy Tarrey Town resident pays you to clear two Guardians out of the nearby Torin Wetland.",
+    "how": "Requires Tarrey Town built (finish 'From the Ground Up'). Talk to Hagie in Tarrey Town; he hands you 100 Rupees up front and asks you to destroy the two Guardian Stalkers in Torin Wetland (southwest of Tarrey Town). Kill both Guardian Stalkers — shoot the glowing eye with ancient/strong arrows or parry the laser, then finish them off — and return to Hagie for the red rupee."
+   },
+   {
+    "id": "little-sister-s-big-request",
+    "name": "Little Sister's Big Request",
+    "giver": "Jana at South Akkala Stable (her little sister Gleema receives the bugs)",
+    "location": "South Akkala Stable, Akkala",
+    "reward": "Silver Rupee (100 Rupees)",
+    "oneLine": "Jana is squeamish about dragonflies, so she asks you to deliver three darners to her bug-loving little sister Gleema for her birthday.",
+    "how": "Talk to Jana at South Akkala Stable to start it; she can't bring herself to touch the bugs, so she asks you to give them to Gleema directly. Catch three darners in the wild — a Warm Darner, a Cold Darner, and an Electric Darner (they flit around grass and water; sneak up and grab them) — and hand all three to Gleema. Then talk to Jana again to finish the quest and earn the silver rupee."
+   }
+  ]
+ },
+ {
+  "region": "Gerudo Desert",
+  "quests": [
+   {
+    "id": "the-search-for-barta",
+    "name": "The Search for Barta",
+    "giver": "Liana (Gerudo Town, at the Barracks)",
+    "location": "Gerudo Town & the Gerudo Great Skeleton (southwest desert, by Hawa Koth Shrine)",
+    "reward": "Silver Rupee (100 rupees); also counts toward The Thunder Helm",
+    "oneLine": "Find the missing Gerudo Barta, hiding at the Great Skeleton in the desert, and coax her home for Liana.",
+    "how": "This unlocks after you talk to Riju to start The Thunder Helm. Buy a Hearty Durian at Gerudo Town's market (Lorn's stand), then head southwest to the Gerudo Great Skeleton near Hawa Koth Shrine, where Barta is sheltering. Give her the Hearty Durian, then return to Liana for a Silver Rupee."
+   },
+   {
+    "id": "tools-of-the-trade",
+    "name": "Tools of the Trade",
+    "giver": "Isha (Starlight Memories jewelry shop, Gerudo Town)",
+    "location": "Gerudo Town",
+    "reward": "Your choice of one piece of jewelry: Ruby Circlet, Sapphire Circlet, or Topaz Earrings",
+    "oneLine": "Bring jeweler Isha 10 Flint so she can reopen her stand.",
+    "how": "Gather 10 Flint (mine the black ore deposits with a weapon, or buy some) and give them to Isha. The shop reopens; talk to her again to pick your reward jewelry."
+   },
+   {
+    "id": "medicinal-molduga",
+    "name": "Medicinal Molduga",
+    "giver": "Malena (Gerudo Town, near the Training Ground / by her sick husband Platt, roughly 6 AM-2 PM)",
+    "location": "Gerudo Town & the open Gerudo Desert (a Molduga, e.g. near Toruma Dunes or Tho Kayu Shrine)",
+    "reward": "Gold Rupee (300 rupees); also counts toward The Thunder Helm",
+    "oneLine": "Bring Malena Molduga Guts to make medicine for her ailing husband, Platt.",
+    "how": "Find a Molduga in the open sand and fight it from a rock it can't reach: toss a Remote Bomb to lure it up, detonate to stun it, then strike. It drops Molduga Guts; bring one to Malena for a Gold Rupee. (If you've already killed a Molduga and have the guts, just hand them over.)"
+   },
+   {
+    "id": "the-mystery-polluter",
+    "name": "The Mystery Polluter",
+    "giver": "Dalia (Gerudo Town, tending the garden plot in the north of town)",
+    "location": "Gerudo Town",
+    "reward": "Hydromelon; also counts toward The Thunder Helm",
+    "oneLine": "Find out who is dumping Hydromelon rinds into Dalia's water source and make them stop.",
+    "how": "Follow the trail of Hydromelon rinds up the wall beside the reservoir to find Calyban sitting up there. She'll stop polluting only if you bring her 10 Wildberries (gather them in the Gerudo Highlands snowfields). Then report back to Dalia for a Hydromelon."
+   },
+   {
+    "id": "the-secret-club-s-secret",
+    "name": "The Secret Club's Secret",
+    "giver": "Greta (The Noble Canteen, Gerudo Town)",
+    "location": "Gerudo Town",
+    "reward": "Access to the hidden Gerudo Secret Club shop (sells Desert Voe & Radiant armor); optional",
+    "oneLine": "Learn the password to the hidden members-only shop behind the armor shop.",
+    "how": "Eavesdrop on the patrons in The Noble Canteen to overhear the password 'GSC'. Go to the secret door at the back of the armor shop and give the password to enter the Secret Club. This quest is optional and is NOT required for the Thunder Helm."
+   },
+   {
+    "id": "the-thunder-helm",
+    "name": "The Thunder Helm",
+    "giver": "Riju (Gerudo Town throne room, via Buliara)",
+    "location": "Gerudo Town",
+    "reward": "Thunder Helm (grants full shock/lightning immunity; cannot be upgraded or dyed)",
+    "oneLine": "Earn Chief Riju's trust by solving the town's four problems, and she gives you the Thunder Helm.",
+    "how": "After clearing Divine Beast Vah Naboris, talk to Riju to start this quest, which unlocks and requires the four town favors: The Search for Barta, Tools of the Trade, Medicinal Molduga, and The Mystery Polluter. Complete all four, then return to Riju to receive the Thunder Helm. (The Secret Club's Secret is NOT required.)"
+   },
+   {
+    "id": "the-eighth-heroine",
+    "name": "The Eighth Heroine",
+    "giver": "Bozai (jogging outside Gerudo Town's gate)",
+    "location": "Gerudo Town & the Gerudo Highlands (Risoka Snowfield summit, northwest)",
+    "reward": "Sand Boots (kept; speed across sand)",
+    "oneLine": "Photograph the Statue of the Eighth Heroine in the snowy Gerudo Highlands for the smitten Bozai.",
+    "how": "You must be wearing the Gerudo (Vai) outfit for Bozai to talk to you; he lends you Snow Boots to help reach the cold summit. Climb northwest into the Gerudo Highlands (Risoka Snowfield), find the giant Eighth Heroine statue, photograph it with the Camera rune, and show Bozai. He gives you the Sand Boots."
+   },
+   {
+    "id": "the-forgotten-sword",
+    "name": "The Forgotten Sword",
+    "giver": "Bozai (outside Gerudo Town, after completing The Eighth Heroine)",
+    "location": "Gerudo Highlands (snowfield near the Eighth Heroine statue / Gerudo Summit)",
+    "reward": "Snow Boots (kept)",
+    "oneLine": "Find and photograph the Eighth Heroine's missing giant sword on the snowfield for Bozai.",
+    "how": "After The Eighth Heroine, talk to Bozai again to start this. The fallen sword is stuck in the snow on a cliff northeast of the heroine statue (toward Gerudo Summit); spot the hilt sticking out, photograph it, and report back to Bozai for his Snow Boots."
+   },
+   {
+    "id": "an-ice-guy",
+    "name": "An Ice Guy",
+    "giver": "Guy, a Rito traveler (Kara Kara Bazaar, at the water's edge of the oasis)",
+    "location": "Kara Kara Bazaar (oasis between Gerudo Canyon and Gerudo Town)",
+    "reward": "Purple Rupee (50 rupees)",
+    "oneLine": "A heat-stricken Rito at the oasis asks for a Chilly Elixir to cool off.",
+    "how": "Cook a Chilly Elixir: combine a cold-type critter (a Winterwing Butterfly or Cold Darner; Beedle nearby sells Cold Darners) with any monster part in a cooking pot. Hand the Chilly Elixir to Guy for a purple rupee."
+   },
+   {
+    "id": "missing-in-action",
+    "name": "Missing in Action",
+    "giver": "Sesami (Gerudo Canyon Stable)",
+    "location": "Gerudo Canyon / Koukot Plateau Path (the wooden walkways east of the stable)",
+    "reward": "Gold Rupee (300 rupees)",
+    "oneLine": "Rescue Sesami's four friends who were ambushed by monsters in Gerudo Canyon.",
+    "how": "Follow the Koukot Plateau Path's wooden walkways to find Oliff, Flaxel, Canolo, and Palme, each pinned by Bokoblins. Clear the monsters around each one and talk to them to send them home. Once all four are saved, return to Sesami for the gold rupee."
+   },
+   {
+    "id": "rushroom-rush",
+    "name": "Rushroom Rush!",
+    "giver": "Pirou (Gerudo Canyon Stable)",
+    "location": "Gerudo Canyon Stable",
+    "reward": "Diamond (in a chest behind the stable); afterward Pirou buys Rushroom bundles at double price",
+    "oneLine": "Bring the stable-keeper Pirou 55 Rushrooms for his mushroom business.",
+    "how": "Collect 55 Rushrooms (they grow on the tall spire in front of the stable and across the Gerudo Highlands and Hyrule Ridge cliffs). Give all 55 to Pirou; he tells you the reward Diamond is in a chest behind the stable. Afterward he buys 55-Rushroom bundles for double value."
+   },
+   {
+    "id": "good-sized-horse",
+    "name": "Good-Sized Horse",
+    "giver": "Zyle (Gerudo Canyon, stranded by the canyon road)",
+    "location": "Gerudo Canyon",
+    "reward": "Gold Rupee (300 rupees)",
+    "oneLine": "A stranded traveler wants to buy an ordinary-sized horse off you so he can move on.",
+    "how": "Bring Zyle a registered, normal-sized horse (not the Giant Horse, a Stalhorse, or other oversized breed; ordinary horses, the White Horse, and Epona all work). Hand it over for 300 rupees. Warning: the horse is gone for good and cannot be bought back."
+   }
+  ]
+ }
 ]

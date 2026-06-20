@@ -283,6 +283,23 @@ layout, `REGION_MAPS` = the per-region coords.
   **horses & stables** Tips card. Re-verified in-browser BotW + TotK (TotK coach now empty, no crash), 0 console
   errors. **Rule reinforced: any BotW-only feature (coach card, armor tiers, map beasts) must degrade when the
   active game lacks that dataset — TotK is the canary.**
+- **v12.11 (done):** **side quests completed + shrine quests cross-linked** (the "perfect BotW shell" the owner
+  wants every future game to inherit). (1) **Side quests 56 → 78** (the full base-game set, no DLC), per-region
+  author→verify Workflow (`build/gen-sidequests-workflow.mjs`, 28 agents → `build/merge-sidequests.mjs`); each
+  quest now has giver/location/reward/oneLine **+ a spoiler-gated `how` reveal** (StuckReveal, parity with shrine
+  solutions). Workflow excluded shrine quests + DLC; merge **deduped 10 cross-region boundary dups** (Rito quests
+  claimed by both Tabantha & Hebra → kept in Tabantha; Hebra legitimately ends with 0 logged side quests, and
+  `QuestsView` now hides empty region groups). 3 legacy names were corrected (Cucco Conundrum→Flown the Coop,
+  etc.). (2) **Shrine Quests** are now a first-class section in `QuestsView`, **derived from shrines.json** (all
+  **38**, was 8 in the tracker) — each mirrors its shrine's done-state and has a "Find shrine →" jump; the shrine
+  row's "· Quest: X ›" is now a tappable cross-link the other way (`focusShrineQuest`/`questFlash`). (3) **Shell
+  hardening:** side quests moved from **positional `sq_<ri>_<qi>` keys to stable `sq_<slug>` ids** (so future
+  expansion can't corrupt saved progress), with a **one-time name-based migration** (`SQ_LEGACY` snapshot +
+  `botw:sqmig` flag + an ALIAS map for the renamed pair). Verified in-browser: 78 quests, both cross-link
+  directions flash, migration mapped seeded checks (incl. alias) to slug keys, 0 console errors. **Gotcha banked:
+  `store.get`/`store.set` are ASYNC (return Promises) — a sync `if (store.get(k))` is always truthy; always
+  `await` inside an async IIFE in effects.** **Pattern: stable slug ids + a legacy-snapshot migration is the way
+  to expand any positional dataset without losing progress.**
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

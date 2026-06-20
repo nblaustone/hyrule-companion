@@ -5,6 +5,32 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.11: complete side quests + cross-link shrine quests (the "perfect shell")
+
+- **User's framing:** he'll play BotW for ~a year, so make BotW the GOLD-STANDARD shell every future Zelda game
+  copies. Two asks: complete the thin side-quest list, and cross-link all 38 shrine quests (only 8 were tracked).
+- **Side quests 56 → 78** via a per-region author→verify Workflow (28 agents, ~1.4M tok). Each quest gained a
+  giver/location/reward + a spoiler-gated `how` (StuckReveal — same pattern as shrine solutions, for shell
+  consistency). The merge **deduped 10 cross-region boundary duplicates** (parallel region agents both claim a
+  quest that sits on a border — e.g. Rito quests claimed by Tabantha AND Hebra). BotW quest names are unique, so
+  same-name = same quest → keep first. Hebra legitimately netted 0 logged side quests (its quests are all Rito =
+  Tabantha); QuestsView now hides empty groups.
+- **Shrine Quests = derived, not authored.** All 38 come straight from shrines.json (each hidden shrine names its
+  quest + already has the full `solution`). New QuestsView section: each mirrors the shrine's own checkbox (one
+  source of truth) + "Find shrine →"; the shrine row's "· Quest: X ›" links back (`focusShrineQuest`/`questFlash`,
+  mirroring the existing `focusShrine`/`shrineFlash`). Bidirectional, zero new sourced data.
+- **Shell-hardening = stable ids + migration.** Switched side quests from positional `sq_<ri>_<qi>` to stable
+  `sq_<slug>` ids so future expansion never corrupts saved checks. One-time migration: embed an `SQ_LEGACY`
+  snapshot (old names by position) → map old keys → new slug by name (+ an ALIAS map for the 3 corrected names),
+  guarded by a `botw:sqmig` flag. **This is now the template for growing ANY positional dataset.**
+- **Bug banked (cost ~5 verify cycles):** the migration silently never ran — `store.get`/`store.set` are **async**
+  (Promise-returning), so my synchronous `if (store.get(K("sqmig"))) return;` checked a truthy Promise and bailed
+  every time. Fix: `await` it inside an async IIFE in the effect. **Rule: store.get/set are async — never test
+  their return value synchronously.** (The load effect already awaited them; only my new effect didn't.)
+- Verified in-browser: 78 quests with 78 how-to reveals, both cross-link directions flash the target, and a
+  controlled migration test mapped 3 seeded legacy checks (incl. the Cucco→Flown-the-Coop alias) to slug keys.
+  0 console errors. Shipped v12.11.
+
 ## 2026-06-19 — v12.10: full audit + polish (assess → plan → intervene → re-evaluate)
 
 - **User asked for a whole-app assessment** (incl. "things that aren't there"), a fix plan, the fixes, then a
