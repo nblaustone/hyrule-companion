@@ -378,7 +378,27 @@ layout, `REGION_MAPS` = the per-region coords.
   upgrade/sell use). Merge dedupes by cat+name (the "special" agent re-listed dragon/ancient parts; the dedicated-
   category copy wins). Verified in-browser (Lynel Guts → "Monster Part · Sell 200 · tops out Barbarian/Radiant…",
   Diamond → "Gem · Sell 500 · mine Rare Ore Deposits", all 6 filters), 0 console errors.
-- **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
-  towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
-  **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3
-  (same `GAMES` slot-in) — the user's favorite, beaten many times, so each step is self-verifiable.
+- **v13 — TotK parity (IN PROGRESS):** bringing Tears of the Kingdom up to par with BotW. **Architecture:**
+  `assemble-totk.mjs` now folds OPTIONAL `knowledge/totk/*.json` overlays into `app-data.json` idempotently —
+  drop a dataset file and re-assemble; `guideSegs` rebuilds from which datasets populate. Each dataset has its
+  own **author→adversarial-verify** generator `build/gen-totk-*-workflow.mjs` (mirrors the BotW ones; emits a
+  `/tmp/totk-*-workflow.mjs` you run with the **Workflow** tool). All edits go to `knowledge/totk/*` sources,
+  never the built file.
+  - **v13.0 (DONE, pushed b46c732):** **Stuck hints** — 59 across all 9 chapters (`apply-totk-stuck.mjs` →
+    `walkthrough.json`); **Combat guides** — 7-card Basics primer + 20 marquee battle guides, Gleeoks/temple
+    bosses split out of the lumped rows (`knowledge/totk/battle.json`; assemble drops the `LUMPED` placeholders);
+    **Overview map** — hand-authored `knowledge/totk/map-nodes.json` (12 regions + sage-temple markers) → TotK
+    Status map renders. UI parametrized TotK-safe (Towers→Skyview, Fairies unlock-not-fee, Korok seed totals via
+    `data.maxSeeds/totalSeeds`). Build/transform/offline-check validated; **in-browser smoke test still TODO**
+    (was budget-cut — verify TotK Journey/Enemies/Status render, 0 console errors, before trusting).
+  - **Remaining (generators ready in `build/`, results → `knowledge/totk/*.json`, then re-assemble+inline+build):**
+    `gen-totk-shrine-solutions` (152; **resume `wf_ebb10104-cfd`** — only 2 done, ~150 to go),
+    `gen-totk-sidequests` (12 regions; **resume `wf_b88c49fe-9e7`**), `gen-totk-depth` (armor ★-tiers · economy ·
+    koroks · 15 Skyview Towers · 4 Great Fairies — NOT yet run), `gen-totk-compendium`, `gen-totk-cooking`,
+    `gen-totk-region-maps` (NOT yet run).
+  - **⚠ RATE-LIMIT RULE (learned the hard way):** running **3+ Workflows concurrently** (~360 agents) triggers
+    server-side **529 overload** and most agents fail (shrine-solutions came back 2/152). **Run ≤2 workflows at
+    a time**, and use `Workflow({scriptPath, resumeFromRunId})` to mop up failures — cached successes return
+    instantly, only failed agents re-run. Capture a finished workflow's data from its task **output file**
+    (`.result` key), write to `knowledge/totk/<name>.json`, then `assemble-totk → inline-data → build`.
+- **Beyond:** Ocarina of Time as game 3 (same `GAMES` slot-in) — the user's favorite, beaten many times.
