@@ -5,6 +5,28 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.14: materials + creatures compendium (rounded out to 410 entries)
+
+- **User: "do that! keep building"** — the materials/creatures extension I'd offered. Built it.
+- **Scoped to the real gap:** Cook already covers food + the edible/elixir critters AND monster/dragon parts (by
+  cooking effect). The genuine holes were **ores/gems and ancient parts** (no cooking use → absent everywhere)
+  and the **"what's this drop FOR"** framing (armor-upgrade set + sell value). So the materials workflow framed
+  everything by USES, not cooking effect. Monster/dragon parts intentionally appear in BOTH Cook and the
+  Compendium (different lens) — that's fine, not duplication-to-fix.
+- **Workflow:** 6 categories (monster parts/ores-gems/dragon parts/ancient parts/special/creatures), author→verify,
+  ~788k tok, no failures this time. Added 63 materials + 75 creatures → **410 total catalog entries**.
+- **Additive merge pattern (banked):** `merge-materials.mjs` loads the existing `compendium.json` (272 equipment),
+  drops only the cats present in the new input (material/creature), appends, dedupes by cat+name, re-sorts. So the
+  equipment build and the materials build don't clobber each other — re-running either is safe. The "special"
+  agent over-reached (re-listed dragon/ancient parts already in their own categories); dedup keeps the dedicated-
+  category copy because category order puts it first. **Lesson: when fanning a catalog across overlapping category
+  agents, always dedupe at merge by a stable key, and order categories so the authoritative one wins.**
+- UI: `CompendiumView` COLS += material/creature; badges made cat-aware (type + Sell N for materials, type for
+  creatures; power/durability/set stay for equipment). Global search "Items" lane spans them with sell value.
+- Verified in-browser: 6 filters (All 410 · Weapons 127 · Bows 26 · Shields 33 · Armor 86 · Materials 63 ·
+  Creatures 75); Lynel Guts → upgrade-set uses + Sell 200; Diamond → Gem + Sell 500 + mine spot. 0 console errors.
+  Shipped v12.14. The item catalog is now genuinely "everything."
+
 ## 2026-06-19 — v12.13: equipment Compendium (catalog, not a pouch)
 
 - **User:** the auto-pouch is frustrating — gear changes too fast to keep "tracked" — and lots of gear is just

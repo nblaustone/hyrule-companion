@@ -328,6 +328,18 @@ layout, `REGION_MAPS` = the per-region coords.
   that category (one-handed) dropped from the result; `resumeFromRunId` re-ran ONLY the failed agent (author
   cached) and recovered it. Resume is the fix for transient agent failures — don't re-run the whole workflow.**
   Materials/food remain covered by Cook + Economy; a materials/creatures compendium is the obvious next extension.
+- **v12.14 (done):** **materials + creatures compendium** — rounded out the catalog to **410 entries**. A second
+  deep-research author→verify Workflow (`build/gen-materials-workflow.mjs`, 6 categories: monster parts, ores &
+  gems, dragon parts, ancient parts, special, creatures → `build/merge-materials.mjs`, which **additively** merges
+  into the existing equipment `compendium.json`). Added **63 materials** (monster parts framed by their armor-
+  upgrade set + sell value, the previously-missing **ores/gems** and **ancient parts**, dragon parts, and Star
+  Fragment/Korok Seed/Spirit Orb) + **75 creatures** (what each yields/where). `CompendiumView` gained **Materials**
+  + **Creatures** filter columns and cat-aware badges (type, **Sell N**); the global search "Items" lane now spans
+  them too (with sell). Deliberately framed by USES (not cooking effect) so it complements Cook rather than
+  duplicating it — though monster/dragon parts intentionally live in BOTH (Cook = elixir effect; Compendium =
+  upgrade/sell use). Merge dedupes by cat+name (the "special" agent re-listed dragon/ancient parts; the dedicated-
+  category copy wins). Verified in-browser (Lynel Guts → "Monster Part · Sell 200 · tops out Barbarian/Radiant…",
+  Diamond → "Gem · Sell 500 · mine Rare Ore Deposits", all 6 filters), 0 console errors.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

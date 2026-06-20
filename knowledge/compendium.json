@@ -2609,5 +2609,1070 @@
   "effect": "Swim Speed Up; lets Link do a spin-attack while swimming. Zora Set bonus (★★ Lv2, full set) = Swim Dash Stamina Up.",
   "where": "In a metal chest at the bottom of Toto Lake (lift it with Magnesis), near Zora's Domain.",
   "set": "Zora Set"
+ },
+ {
+  "name": "Amber",
+  "cat": "material",
+  "type": "Gem",
+  "sell": 30,
+  "effect": "The most common gem and, by total quantity, one of the most-used armor-upgrade materials in the game. Used to buy and upgrade the Amber Earrings (pure extra defense, no element) at the Starlight Memories jewelry shop in Gerudo Town; otherwise a low-value sell item worth hoarding for upgrades. (Ramella in Goron City pays 500 rupees for 10 Amber as part of a side quest.)",
+  "where": "Smash any Ore Deposit, shatter snowballs, open overworld chests, or defeat Stone Taluses and Stone Pebblits."
+ },
+ {
+  "name": "Ancient Core",
+  "cat": "material",
+  "type": "Ancient Part",
+  "sell": 80,
+  "effect": "A rare energy crystal and one of the key materials for ancient equipment — each Ancient armor piece needs 3 to buy at the Akkala Ancient Tech Lab, plus more to upgrade the set at Great Fairies, and it's used to forge ancient weapons (Ancient Short Sword, Spear, Bladesaw). You also give Purah 3 Ancient Cores to upgrade your Stasis rune (it then freezes enemies) in 'Slated for Upgrades'. Worth a fair bit if sold, but far more useful kept.",
+  "where": "Mainly a battle drop: rare from Guardian Stalkers, Skywatchers, Turrets/Sentries, and from Guardian Scout III/IV in Moderate/Major Test-of-Strength shrines. No regular shop stocks it (Teli sells one only on rainy days, for 320 rupees)."
+ },
+ {
+  "name": "Ancient Gear",
+  "cat": "material",
+  "type": "Ancient Part",
+  "sell": 30,
+  "effect": "A mid-rank Guardian part used to buy/forge ancient gear at the Akkala Ancient Tech Lab (each Ancient armor piece needs 20 Ancient Gears) and to upgrade the Ancient set (Cuirass, Greaves, Helm) at Great Fairies. It counts as a Monster Part, so it can also be cooked into an elixir or used for Gray Dye — but save them for the armor.",
+  "where": "Dropped by Guardian Scouts II-IV (Test-of-Strength shrines) and by Decayed Guardians, Sentries, Turrets, Skywatchers, and Stalkers in the field. Often found searching Guardian ruins (Temple of Time, Fort Hateno). Teli sells them for 120 rupees."
+ },
+ {
+  "name": "Ancient Screw",
+  "cat": "material",
+  "type": "Ancient Part",
+  "sell": 12,
+  "effect": "The most common Guardian scrap. Used to buy/forge ancient gear at the Akkala Ancient Tech Lab (the Ancient set each takes 5 of Screw/Spring/Shaft) and to star-up the Ancient set (Cuirass, Greaves, Helm) at Great Fairies. You also give Purah 3 Ancient Screws to upgrade the Sheikah Sensor (Hateno Tech Lab side quest 'Slated for Upgrades'). Counts as a Monster Part, so it can be cooked into an elixir or used for Gray Dye in a pinch, but it's far more valuable for the armor/Sensor — don't sell or cook these early.",
+  "where": "Dropped by nearly every Guardian type — Guardian Scouts I-IV (Test-of-Strength shrines), Decayed Guardians, Sentries, Turrets, Skywatchers, and Stalkers. Also scavenged from Guardian Stalker ruins (e.g. around the Temple of Time and Fort Hateno). The wandering merchant Teli sells them for 48 rupees."
+ },
+ {
+  "name": "Ancient Shaft",
+  "cat": "material",
+  "type": "Ancient Part",
+  "sell": 40,
+  "effect": "A higher-value Guardian part used to buy/forge ancient weapons (Ancient Short Sword, Bladesaw, Spear) and arrows at the Akkala Ancient Tech Lab and to upgrade the Ancient set (Cuirass, Greaves, Helm) at Great Fairies. You also give Purah 3 Ancient Shafts to upgrade your Remote Bomb rune to Remote Bomb+ (Hateno Tech Lab side quest 'Slated for Upgrades'). Counts as a Monster Part (cook-able into an elixir), but it's worth more for the rune and gear.",
+  "where": "Dropped by Guardian Scouts II-IV (Moderate/Major Test-of-Strength shrines) and by Decayed Guardians, Sentries, Turrets, Skywatchers, and Stalkers. Also recovered from Guardian ruins (Temple of Time, Fort Hateno). Teli sells them only on rainy days (160 rupees)."
+ },
+ {
+  "name": "Ancient Spring",
+  "cat": "material",
+  "type": "Ancient Part",
+  "sell": 15,
+  "effect": "A Guardian part used to buy/forge ancient gear at the Akkala Ancient Tech Lab and to upgrade the Ancient armor set (Cuirass, Greaves, Helm) at Great Fairies. It counts as a Monster Part, so it CAN be cooked into an elixir (or used for Gray Dye) — but its real value is the armor and the Tech Lab, so hold onto them.",
+  "where": "Dropped by Guardian Scouts I-IV (Test-of-Strength shrines), plus Guardian Stalkers, Skywatchers, Sentries, Turrets, and Decayed Guardians out in the world. Common in the Guardian ruins around the Temple of Time and the field past Kakariko Bridge. Teli sells them for 60 rupees."
+ },
+ {
+  "name": "Bokoblin Fang",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 8,
+  "effect": "A common drop used to upgrade the Hylian set (Hood, Tunic, Trousers) at Great Fairies. Can also be cooked with a critter into an elixir, or sold for a few rupees.",
+  "where": "Dropped by every Bokoblin variant (more reliably from blue and stronger ones) at camps across Hyrule."
+ },
+ {
+  "name": "Bokoblin Guts",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 20,
+  "effect": "A more valuable Bokoblin drop and an armor-upgrade material for the Hylian, Radiant, and Soldier's sets at Great Fairies. Gives elixirs long duration, and is one of the parts ground into Monster Extract.",
+  "where": "Dropped mainly by stronger Bokoblins (blue, black, silver); also stocked at Kakariko's High Spirits Produce."
+ },
+ {
+  "name": "Bokoblin Horn",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 3,
+  "effect": "The most common monster drop in the game. Mainly used to upgrade the Hylian set (Hood, Tunic, Trousers) at Great Fairies; otherwise a low-value sell. Cooks with a critter into a basic (short-duration) elixir.",
+  "where": "Dropped by every Bokoblin variant (red/blue/black/silver/Stalkoblin) at camps all over Hyrule."
+ },
+ {
+  "name": "Chuchu Jelly",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 5,
+  "effect": "The basic gel from a Chuchu. Thrown it shatters, and fire/ice/shock transmutes it into colored jelly. Used to upgrade the Soldier's set at Great Fairies; a minimum-duration elixir base.",
+  "where": "Dropped by ordinary (blue) Chuchu found in grass, caves, and ruins everywhere."
+ },
+ {
+  "name": "Diamond",
+  "cat": "material",
+  "type": "Gem",
+  "sell": 500,
+  "effect": "The rarest and most valuable gem. Used to reforge several Champion weapons (the Boulder Breaker, Lightscale Trident, Great Eagle Bow, Scimitar of the Seven, and Daybreaker shield each need 1 Diamond plus other materials), and to buy and upgrade the Diamond Circlet (extra defense) at Starlight Memories. A top sell item otherwise.",
+  "where": "Smash Rare Ore Deposits (the black, sparkly deposits), open chests in hard-to-reach spots, or defeat Stone Taluses (especially Rare/Luminous Taluses). Also obtainable by trading Luminous Stones to Ledo in Zora's Domain."
+ },
+ {
+  "name": "Dinraal's Claw",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 180,
+  "effect": "A claw from the fire dragon Dinraal — a non-renewable upgrade material (Trousers of the Wild, Fierce Deity's Mask) at Great Fairies, a high-value sell, and a potent 30-min cooking ingredient.",
+  "where": "Shoot Dinraal's claw/hand (the red fire dragon) as it flies over the Eldin region."
+ },
+ {
+  "name": "Dinraal's Scale",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 150,
+  "effect": "A scale from the fire dragon Dinraal. A non-renewable upgrade material for the Trousers of the Wild and the Fierce Deity's Mask at Great Fairies; a high-value sell. Cooks into a powerful 30-min fire-resist/attack elixir.",
+  "where": "Shoot the body/flank of Dinraal (the red fire dragon) as it flies — it circles Eldin (e.g. over Tanagar Canyon) and rises near Hebra's Tabantha at dawn."
+ },
+ {
+  "name": "Electric Keese Wing",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 6,
+  "effect": "The wing of an Electric Keese — it won't shock you, since the charge isn't in the wing. Upgrades the climbing-speed Climber's set (Bandanna, Gear, Boots) at Great Fairies; cooks into a shock-resist elixir.",
+  "where": "Dropped by Electric Keese, found mostly around the Gerudo region."
+ },
+ {
+  "name": "Farosh's Claw",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 180,
+  "effect": "A claw from the lightning dragon Farosh — a non-renewable upgrade material (Cap of the Wild, Fierce Deity Boots) at Great Fairies, a high-value sell, and a 30-min shock-tied cooking ingredient.",
+  "where": "Shoot Farosh's claw/hand (the yellow-green lightning dragon) near Lake Hylia / Lanayru."
+ },
+ {
+  "name": "Farosh's Scale",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 150,
+  "effect": "A scale from the lightning dragon Farosh. A non-renewable upgrade material for the Cap of the Wild and Fierce Deity Boots at Great Fairies; a high-value sell and a 30-min shock-resist/attack elixir base.",
+  "where": "Shoot the body/flank of Farosh (the yellow-green lightning dragon) — it appears around Lake Hylia / the Bridge of Hylia and the Lanayru Wetlands, often at night."
+ },
+ {
+  "name": "Fire Keese Wing",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 6,
+  "effect": "The flaming wing of a Fire Keese. Upgrades the Climber's set and the cold-resisting Snowquill set at Great Fairies; cooks into a warming elixir. (The wing itself doesn't burn you.)",
+  "where": "Dropped by Fire Keese, common in hot areas like Eldin and Death Mountain."
+ },
+ {
+  "name": "Flint",
+  "cat": "material",
+  "type": "Mineral (ore)",
+  "sell": 5,
+  "effect": "A common mineral, not a true gem. Drop Flint with Wood and strike it with a metal weapon to start a campfire. It is also a heavily-used armor-upgrade material (needed at the Great Fairies to upgrade the Amber/Topaz/Opal Earrings and the Diamond/Ruby/Sapphire Circlets) and a reforge material for several Champion weapons (5 Flint each for the Boulder Breaker and Scimitar of the Seven). Bring 10 Flint to Isha in Gerudo Town to complete 'Tools of the Trade', which reopens the Starlight Memories jewelry shop. Jugo in Rito Village buys it in bulk for slightly more than shops.",
+  "where": "Smash Ore Deposits (the brown/spotted rocks), Luminous Ore Deposits, and Rare Ore Deposits; it can also drop from Stone Taluses and Stone Pebblits. Very common everywhere ore is mined."
+ },
+ {
+  "name": "Giant Ancient Core",
+  "cat": "material",
+  "type": "Ancient Part",
+  "sell": 200,
+  "effect": "The rarest, most valuable Guardian crystal. Used at the Akkala Ancient Tech Lab to buy the Ancient Bow and Ancient Shield (1 each) and required by Great Fairies for the top-tier (★4) upgrades of the Ancient set (Cuirass, Greaves, Helm). Sells for the most of any ancient part, but you'll want to keep them for the gear.",
+  "where": "A very low-chance drop from the strongest Guardians — Stalkers, Skywatchers, and Turrets (no merchant sells it). A few are fixed finds in chests: the Forgotten Temple, the northwest corner of Lomei Labyrinth Island, and atop Divine Beast Vah Medoh's beak, plus several shrine chests."
+ },
+ {
+  "name": "Hinox Guts",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 80,
+  "effect": "The valuable core drop from a Hinox, used to upgrade the Flamebreaker, Soldier's, and Fierce Deity sets at Great Fairies, or ground into Monster Extract. Gives elixirs long duration; better used than sold.",
+  "where": "Dropped by Hinox, Blue Hinox, and Black Hinox."
+ },
+ {
+  "name": "Hinox Toenail",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 20,
+  "effect": "A drop from sleeping giant Hinox, used to upgrade the Fierce Deity set (Mask, Armor, Boots) at Great Fairies. Also a valid elixir duration-base.",
+  "where": "Dropped by Hinox, Blue Hinox, and Black Hinox found napping across Hyrule (bridges, plateaus, forests)."
+ },
+ {
+  "name": "Hinox Tooth",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 35,
+  "effect": "A Hinox drop used to upgrade the Fierce Deity set (Mask, Armor, Boots) at Great Fairies. Can also be cooked with a critter into an elixir; best kept for the upgrade.",
+  "where": "Dropped by Hinox variants and also by Stalnox (the skeletal Hinox found in caves/ruins)."
+ },
+ {
+  "name": "Ice Keese Wing",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 6,
+  "effect": "The frosty wing of an Ice Keese. Upgrades the Climber's set and the heat-resisting Desert Voe set at Great Fairies; cooks into a cooling elixir.",
+  "where": "Dropped by Ice Keese, found in cold regions like Hebra and the Gerudo Highlands."
+ },
+ {
+  "name": "Icy Lizalfos Tail",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 35,
+  "effect": "The frigid tail of an Ice-Breath Lizalfos. Upgrades the heat-resisting Desert Voe set (Headband, Spaulder, Trousers) at Great Fairies, and cooks into a cooling (heat-resist) elixir.",
+  "where": "Dropped by Ice-Breath Lizalfos, found in cold regions like Hebra and the Gerudo Highlands."
+ },
+ {
+  "name": "Keese Eyeball",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 20,
+  "effect": "An eyeball drop used to upgrade the Soldier's set at Great Fairies. Fired from a bow, it gives arrows homing; in a pot with a critter it makes an elixir.",
+  "where": "Dropped by all Keese variants (regular, Fire, Ice, Electric)."
+ },
+ {
+  "name": "Keese Wing",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 2,
+  "effect": "A plentiful drop from the bat-like Keese, used to upgrade the climbing-speed Climber's set (Bandanna, Gear, Boots) at Great Fairies. Otherwise near-worthless to sell; a minimum-duration elixir base.",
+  "where": "Dropped by ordinary Keese, which swarm caves and ruins everywhere."
+ },
+ {
+  "name": "Korok Seed",
+  "cat": "material",
+  "type": "Special",
+  "effect": "The reward for solving one of Hyrule's 900 hidden Korok puzzles. Trade them to Hestu to expand your weapon, bow, and shield carrying pouches; 441 seeds maxes out all three (weapons +11, bows +8, shields +16). The remaining ~459 only count toward the all-900 reward, the purely cosmetic Hestu's Gift. Cannot be sold or cooked.",
+  "where": "Found by solving the 900 Korok puzzles all over Hyrule (lift-the-rock, complete-the-pattern, shoot-the-target, races, etc.). The hidden Korok pops out with its trademark \"Yahaha! You found me!\" and hands you the seed. Turn them in to Hestu (first met on the road south of Kakariko Village, later relocating toward Korok Forest)."
+ },
+ {
+  "name": "Lizalfos Horn",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 10,
+  "effect": "A common Lizalfos drop used for the FIRST tier of the Zora set (Armor, Greaves, Helm) at Great Fairies (3 per piece). Also a valid elixir duration-base.",
+  "where": "Dropped by every non-elemental Lizalfos variant (standard/blue/black/silver/Stalizalfos), common in wetlands and Lanayru."
+ },
+ {
+  "name": "Lizalfos Tail",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 28,
+  "effect": "The plain severed tail of a stronger Lizalfos, used for the top tiers of the Zora set (and the Soldier's set) at Great Fairies. Gives elixirs long duration — better kept than sold.",
+  "where": "Dropped by stronger non-elemental Lizalfos (blue, black, silver)."
+ },
+ {
+  "name": "Lizalfos Talon",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 15,
+  "effect": "A Lizalfos foot drop used for the SECOND tier of the Zora set (Armor, Greaves, Helm) at Great Fairies. Can also be cooked with a critter into an elixir.",
+  "where": "Dropped by all non-elemental Lizalfos variants."
+ },
+ {
+  "name": "Luminous Stone",
+  "cat": "material",
+  "type": "Gem",
+  "sell": 70,
+  "effect": "A glowing blue gem. Used to buy and upgrade the Radiant Set (Radiant Mask/Shirt/Tights) from the Gerudo Secret Club, which hides you from Stalfos/Stal-enemies. Ledo in Zora's Domain also trades Luminous Stones for Diamonds: the 'Luminous Stone Gathering' quest gives 2 Diamonds for the first 10, then 1 Diamond per 10 thereafter.",
+  "where": "Mine Luminous Ore Deposits, which glow bright blue at night (plentiful around Zora's Domain / Lanayru). Photograph one for the compendium so the Sheikah Sensor (once upgraded) can track more."
+ },
+ {
+  "name": "Lynel Guts",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 200,
+  "effect": "A rare, high-value Lynel drop and the standout upgrade material — it tops out the Barbarian, Radiant, Soldier's, and Fierce Deity sets (incl. the Fierce Deity Mask's ★4) at Great Fairies, and gives the longest-lasting elixirs/Monster Extract. Save these.",
+  "where": "Dropped (rarely) by any Lynel variant."
+ },
+ {
+  "name": "Lynel Hoof",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 50,
+  "effect": "A Lynel drop used to upgrade the Barbarian (tier 2) and Soldier's sets at Great Fairies. Worth keeping for upgrades over selling.",
+  "where": "Dropped by any Lynel variant."
+ },
+ {
+  "name": "Lynel Horn",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 40,
+  "effect": "A prized drop from the game's toughest field enemy, used to upgrade the attack-boosting Barbarian set (tiers 1-2) at Great Fairies. Sells well, but the upgrade is the point.",
+  "where": "Dropped by any Lynel (red/blue-maned/white-maned/silver), e.g. at Ploymus Mountain and on plateaus."
+ },
+ {
+  "name": "Moblin Fang",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 12,
+  "effect": "A Moblin drop used to upgrade the Flamebreaker set (Helm, Armor, Boots) at Great Fairies. Can also be cooked with a critter into an elixir.",
+  "where": "Dropped by all Moblin variants across Hyrule."
+ },
+ {
+  "name": "Moblin Guts",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 25,
+  "effect": "A higher-value Moblin drop used to upgrade the Flamebreaker, Radiant, Soldier's, and Barbarian sets at Great Fairies. Gives elixirs long duration; can be ground into Monster Extract.",
+  "where": "Dropped by stronger Moblins (blue, black, silver)."
+ },
+ {
+  "name": "Moblin Horn",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 5,
+  "effect": "A common drop from Moblins, used to upgrade the Flamebreaker set (Helm, Armor, Boots) at Great Fairies. Otherwise a low-value sell or basic elixir base.",
+  "where": "Dropped by all Moblin variants (red/blue/black/silver/Stalmoblin), often guarding larger camps."
+ },
+ {
+  "name": "Molduga Fin",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 30,
+  "effect": "A drop from the desert sand-whale Molduga, used to upgrade the Sand Boots at Great Fairies. Can also be cooked with a critter into an elixir.",
+  "where": "Dropped by the four Molduga that swim through the sand of the Gerudo Desert."
+ },
+ {
+  "name": "Molduga Guts",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 110,
+  "effect": "The high-value core drop from a Molduga, used to upgrade the Radiant set and the Sand Boots at Great Fairies, or ground into Monster Extract. Gives elixirs long duration — better used than sold.",
+  "where": "Dropped by the four Molduga in the Gerudo Desert (Toruma Dunes, South Lomei Labyrinth area, etc.)."
+ },
+ {
+  "name": "Naydra's Claw",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 180,
+  "effect": "A claw from the ice dragon Naydra — a non-renewable upgrade material (Snow Boots, Tunic of the Wild, Fierce Deity Armor) at Great Fairies, a high-value sell, and a 30-min cold-tied cooking ingredient.",
+  "where": "Shoot Naydra's claw/hand (the blue ice dragon) over the Lanayru region."
+ },
+ {
+  "name": "Naydra's Scale",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 150,
+  "effect": "A scale from the ice dragon Naydra. A non-renewable upgrade material for the Snow Boots, Tunic of the Wild, and Fierce Deity Armor at Great Fairies; a high-value sell and a 30-min cold-resist/attack elixir base.",
+  "where": "Shoot the body/flank of Naydra (the blue ice dragon) — it circles the Lanayru region near Mount Lanayru, often around dawn (Lanayru Road - East Gate)."
+ },
+ {
+  "name": "Octo Balloon",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 5,
+  "effect": "A balloon with strong lift — attach it to crates, chests, or weapons to make them float (a popular puzzle/transport trick). Also upgrades the Snow Boots at Great Fairies, and can be used in elixirs.",
+  "where": "Dropped by all Octorok variants (Water, Forest, Rock, Snow, Treasure)."
+ },
+ {
+  "name": "Octorok Eyeball",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 25,
+  "effect": "The most valuable Octorok part, used to upgrade the Snow Boots at Great Fairies. Like the Keese Eyeball it gives fired arrows homing, and works in elixirs.",
+  "where": "Dropped by all Octorok variants (Water, Forest, Rock, Snow, Treasure)."
+ },
+ {
+  "name": "Octorok Tentacle",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 10,
+  "effect": "A tentacle drop used to upgrade the Snow Boots at Great Fairies. Too acidic for regular food, but it still works in elixirs when cooked with a critter.",
+  "where": "Dropped by all Octorok variants (Water, Forest, Rock, Snow, Treasure)."
+ },
+ {
+  "name": "Opal",
+  "cat": "material",
+  "type": "Gem",
+  "sell": 60,
+  "effect": "A pale blue-white gem. Used to buy and upgrade the Opal Earrings, which grant Swim Speed Up, at Starlight Memories in Gerudo Town; otherwise a mid-value sell item. One of the more common gems. (In BotW gems are NOT used to craft elemental weapons.)",
+  "where": "Smash Ore Deposits (common), open chests, or defeat Stone Taluses and Stone Pebblits."
+ },
+ {
+  "name": "Red Chuchu Jelly",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 10,
+  "effect": "Fiery jelly that bursts into flame when struck or thrown (a free fire source). Upgrades the cold-resisting Snowquill set (Headdress, Tunic, Trousers) at Great Fairies; cooks into a warming elixir.",
+  "where": "Dropped by Fire Chuchu (hot regions like Eldin), or made by hitting plain Chuchu Jelly with fire."
+ },
+ {
+  "name": "Red Lizalfos Tail",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 35,
+  "effect": "The fiery tail of a Fire-Breath Lizalfos. Upgrades the cold-resisting Snowquill set (Headdress, Tunic, Trousers) at Great Fairies, and cooks into a warming (cold-resist) elixir.",
+  "where": "Dropped by Fire-Breath Lizalfos, common in the hot Eldin region."
+ },
+ {
+  "name": "Rock Salt",
+  "cat": "material",
+  "type": "Mineral (ore)",
+  "sell": 2,
+  "effect": "A pinkish mineral, not a true gem. It has no stat effect of its own but, when added to a dish or elixir, it can be used to season many salt-grilled recipes (and on its own makes Dubious Food). A near-worthless sell item, so keep it for cooking.",
+  "where": "Smash Ore Deposits (which sometimes yield it) or buy it from general/item shops."
+ },
+ {
+  "name": "Ruby",
+  "cat": "material",
+  "type": "Gem",
+  "sell": 210,
+  "effect": "A red gem. Used to buy and upgrade the Ruby Circlet, which grants Cold Resistance (keeps you warm in cold regions), at Starlight Memories in Gerudo Town. The Ruby Circlet is one of the three accessories you can choose as the reward for the 'Tools of the Trade' quest. Otherwise a high-value sell item. (Not used to craft any weapon in BotW.)",
+  "where": "Smash Ore Deposits and Rare Ore Deposits, open chests, or defeat Stone Taluses and Stone Pebblits."
+ },
+ {
+  "name": "Sapphire",
+  "cat": "material",
+  "type": "Gem",
+  "sell": 260,
+  "effect": "A blue gem. Used to buy and upgrade the Sapphire Circlet, which grants Heat Resistance (keeps you cool in hot regions like the Gerudo Desert), at Starlight Memories in Gerudo Town. The Sapphire Circlet is one of the three accessories you can choose as the reward for the 'Tools of the Trade' quest. Otherwise a high-value sell item. (Dayfah in the Gerudo desert oasis buys Sapphires for 650 rupees.)",
+  "where": "Smash Ore Deposits and Rare Ore Deposits, open chests, or defeat Stone Taluses and Stone Pebblits."
+ },
+ {
+  "name": "Shard of Dinraal's Fang",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 250,
+  "effect": "A fang shard from the fire dragon Dinraal — a rare armor-upgrade material at Great Fairies and a high-value sell. Cooks into a potent 30-minute fire/attack dish.",
+  "where": "Shoot Dinraal's mouth (the red fire dragon) as it flies over the Eldin region."
+ },
+ {
+  "name": "Shard of Dinraal's Horn",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 300,
+  "effect": "The rarest Dinraal part. In any dish/elixir it extends the effect to a full 30 minutes; it also tops out the Barbarian Helm, Champion's Tunic, Trousers of the Wild, and Fierce Deity's Mask at Great Fairies. One of the most valuable monster sells in the game.",
+  "where": "Shoot Dinraal's horn (the red fire dragon) as it flies over the Eldin region."
+ },
+ {
+  "name": "Shard of Farosh's Fang",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 250,
+  "effect": "A fang shard from the lightning dragon Farosh — a rare armor-upgrade material at Great Fairies and a high-value sell. Cooks into a potent 30-minute shock/attack dish.",
+  "where": "Shoot Farosh's mouth (the yellow-green lightning dragon) near Lake Hylia / Lanayru."
+ },
+ {
+  "name": "Shard of Farosh's Horn",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 300,
+  "effect": "A horn shard from the lightning dragon Farosh. Extends a cooked dish or elixir's effect to 30 minutes and serves as a top-tier armor-upgrade material at Great Fairies. One of the most valuable monster sells in the game.",
+  "where": "Shoot Farosh's horn (the yellow-green lightning dragon) near Lake Hylia / Lanayru."
+ },
+ {
+  "name": "Shard of Naydra's Fang",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 250,
+  "effect": "A fang shard from the ice dragon Naydra — a rare armor-upgrade material at Great Fairies and a high-value sell. Cooks into a potent 30-minute cold/attack dish.",
+  "where": "Shoot Naydra's mouth (the blue ice dragon) over the Lanayru region."
+ },
+ {
+  "name": "Shard of Naydra's Horn",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 300,
+  "effect": "A horn shard from the ice dragon Naydra. Extends a cooked dish or elixir's effect to 30 minutes and is a top-tier armor-upgrade material at Great Fairies. Among the most valuable monster sells in the game.",
+  "where": "Shoot Naydra's horn (the blue ice dragon) over the Lanayru region."
+ },
+ {
+  "name": "Spirit Orb",
+  "cat": "material",
+  "type": "Special",
+  "effect": "A sacred orb given for clearing a Shrine. Bring four to any Goddess Statue to trade for one Heart Container (more max health) OR one Stamina Vessel (more stamina). Cannot be sold.",
+  "where": "Earned from the Sheikah Monk at the end of each of the 120 Shrines. Cash four in at a Goddess Statue (the first is in the Temple of Time on the Great Plateau; others sit in towns and near Great Fairy areas)."
+ },
+ {
+  "name": "Star Fragment",
+  "cat": "material",
+  "type": "Rare material",
+  "sell": 300,
+  "effect": "A rare, glittering material from a fallen star. Its main use is end-game armor upgrades: a Star Fragment is needed for the ★4 (final) tier of many sets at the Great Fairy Fountains, including the Ancient, Wild (Hero), and amiibo sets, the Diamond/Ruby/Sapphire Circlets and Topaz Earrings, and the Divine (Vah) Helms. Cannot be bought. Also a guaranteed critical-cook ingredient and a high-value sell item.",
+  "where": "At night, watch for a shooting star and note where its light lands, then travel there and grab the glowing fragment before it fades. They fall most often after dark (roughly 9pm-midnight); standing on a high point makes them easier to spot."
+ },
+ {
+  "name": "Topaz",
+  "cat": "material",
+  "type": "Gem",
+  "sell": 180,
+  "effect": "A yellow gem. Used to buy and upgrade the Topaz Earrings, which grant Shock (electricity) Resistance, at Starlight Memories in Gerudo Town. The Topaz Earrings are also one of the three accessories you can choose as the reward for the 'Tools of the Trade' quest. Otherwise a valuable sell item. (Not used to craft any weapon in BotW.)",
+  "where": "Smash Ore Deposits (and the rarer Rare Ore Deposits), open chests, or defeat Stone Taluses and Stone Pebblits."
+ },
+ {
+  "name": "White Chuchu Jelly",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 10,
+  "effect": "Freezing jelly that bursts into ice/cold when struck or thrown. Upgrades the heat-resisting Desert Voe set (Headband, Spaulder, Trousers) at Great Fairies; cooks into a cooling elixir.",
+  "where": "Dropped by Ice Chuchu (cold regions), or made by freezing plain Chuchu Jelly (e.g. drop a blue Chuchu in cold water)."
+ },
+ {
+  "name": "Wood",
+  "cat": "material",
+  "type": "Special",
+  "sell": 2,
+  "effect": "A plain bundle of wood. Drop it with a piece of Flint and strike the flint with a metal weapon to start a campfire (pass time / cook). Also a quest/building material (Tarrey Town's 'From the Ground Up') and a few NPCs ask for it. Low sell value.",
+  "where": "Chop trees anywhere (axe, fire, or a Remote Bomb to fell several) and pick up the logs they leave; plentiful around Rito Stable, Satori Mountain, and Kakariko Village."
+ },
+ {
+  "name": "Yellow Chuchu Jelly",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 10,
+  "effect": "Electrified jelly that discharges a shock when struck or thrown. Upgrades the shock-resisting Rubber set (Helm, Armor, Tights) at Great Fairies; cooks into a shock-resist elixir.",
+  "where": "Dropped by Electric Chuchu, or made by hitting plain Chuchu Jelly with electricity."
+ },
+ {
+  "name": "Yellow Lizalfos Tail",
+  "cat": "material",
+  "type": "Monster Part",
+  "sell": 35,
+  "effect": "The electrified tail of an Electric Lizalfos. Upgrades the shock-resisting Rubber set (Helm, Armor, Tights) at Great Fairies, and cooks into a shock-resist elixir.",
+  "where": "Dropped by Electric Lizalfos, found in wet/desert areas like the Gerudo region."
+ },
+ {
+  "name": "Armored Carp",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 6,
+  "effect": "A hardy carp; cooked it grants a temporary defense-up (Tough).",
+  "where": "Rivers and lakes - Lanayru, Hyrule Field, Akkala fresh water."
+ },
+ {
+  "name": "Armored Porgy",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 6,
+  "effect": "A saltwater fish; cooked it grants a temporary defense-up (Tough).",
+  "where": "Coastal salt water - Necluda Sea, Lanayru Sea, Faron coastlines."
+ },
+ {
+  "name": "Bladed Rhino Beetle",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 4,
+  "effect": "A horned beetle; cooked with a monster part it makes a Mighty Elixir for a temporary attack-up boost.",
+  "where": "On trees in West Necluda and East Necluda."
+ },
+ {
+  "name": "Blue-Winged Heron",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A wading heron; shooting it down yields Raw Bird Drumstick / Raw Bird Thigh (Cook-tab food).",
+  "where": "Wetlands and riverbanks - Hyrule Ridge and Faron Grasslands."
+ },
+ {
+  "name": "Blupee",
+  "cat": "creature",
+  "type": "Special",
+  "effect": "A shy, glowing blue rabbit-like spirit. Cannot be tamed or eaten - shoot it with arrows before it teleports away and it drops rupees (more hits = more rupees).",
+  "where": "Appears at night in forests, hills, and especially on Satori Mountain. Hit it fast before it flees."
+ },
+ {
+  "name": "Bright-Chested Duck",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A wild duck; shooting it down yields Raw Bird Drumstick / Raw Bird Thigh (Cook-tab food).",
+  "where": "Near water - Hyrule Ridge and Hyrule Field."
+ },
+ {
+  "name": "Bright-Eyed Crab",
+  "cat": "creature",
+  "type": "Crustacean",
+  "sell": 5,
+  "effect": "A freshwater crab; cooked it restores stamina (Energizing).",
+  "where": "Freshwater shores - Lanayru Great Spring, Eldin Canyon, around Ne'ez Yohma Shrine in Zora's Domain."
+ },
+ {
+  "name": "Bushy-Tailed Squirrel",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A small forest squirrel; harmless critter with no huntable material drop.",
+  "where": "Wooded areas - Hyrule Field and Hyrule Ridge."
+ },
+ {
+  "name": "Chillfin Trout",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 6,
+  "effect": "An icy trout; cooked it grants cold resistance (Chilly). Attracted by Chillshrooms.",
+  "where": "Cold water - Hebra Mountains, Tabantha Frontier, Mount Lanayru."
+ },
+ {
+  "name": "Cold Darner",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "A dragonfly that thrives in heat; cooked with a monster part it makes a Chilly Elixir for heat resistance.",
+  "where": "Cold zones - Tabantha Frontier and Hyrule Ridge. Also sold by Beedle."
+ },
+ {
+  "name": "Cold-Footed Wolf",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A snow wolf that hunts in packs and attacks Link; killing it yields Raw Prime Meat or Raw Gourmet Meat (Cook-tab food).",
+  "where": "Hebra Mountains and Gerudo Highlands."
+ },
+ {
+  "name": "Common Sparrow",
+  "cat": "creature",
+  "type": "Bird",
+  "sell": 3,
+  "effect": "A small songbird; shooting it down yields a Chickaloo Tree Nut (a Cook-tab food). Rare color variants (Red/Blue/Golden/Rainbow/Sand Sparrow) are the same compendium creature.",
+  "where": "Fields and trees - Hyrule Field and Hyrule Ridge."
+ },
+ {
+  "name": "Cucco",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A village chicken. Don't attack it - hitting it repeatedly summons a swarm of vengeful Cuccos. Not a material; produces Bird Eggs in pens.",
+  "where": "Villages and farms - Kakariko, Hateno, and stables across Necluda."
+ },
+ {
+  "name": "Dog",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A friendly domesticated dog (Hylian Retriever). Not a material - feed it 3 pieces of meat (or fruit) until happy and it leads you to a nearby buried treasure chest (dig/Magnesis it up).",
+  "where": "Hangs around stables and villages across Hyrule (e.g. Hateno, Tarrey Town, various stables)."
+ },
+ {
+  "name": "Eldin Ostrich",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A large flightless bird of the volcano region; shooting it down yields Raw Bird Drumstick / Raw Whole Bird (Cook-tab food).",
+  "where": "Eldin Canyon and the Eldin Mountains."
+ },
+ {
+  "name": "Electric Darner",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "A storm dragonfly; cooked with a monster part it makes an Electro Elixir for shock resistance.",
+  "where": "Appears in rain/thunderstorms - Hyrule Ridge, Gerudo Desert, near Tabantha Bridge Stable."
+ },
+ {
+  "name": "Energetic Rhino Beetle",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 30,
+  "effect": "A prized beetle; cooked with a monster part it makes an Energizing Elixir that restores stamina.",
+  "where": "On trees/pillars - Akkala Highlands (South Akkala Stable), West Necluda, Kakariko Village."
+ },
+ {
+  "name": "Fairy",
+  "cat": "creature",
+  "type": "Special",
+  "sell": 2,
+  "effect": "A tiny healing sprite. Carried in your pouch it auto-revives Link with 5 hearts when he falls (or heal manually); also cooks into restorative dishes.",
+  "where": "Sneak-grab in tall grass and around Great Fairy Fountains/the Great Deku Tree, mostly at night. Only spawns while you hold 2 or fewer."
+ },
+ {
+  "name": "Fireproof Lizard",
+  "cat": "creature",
+  "type": "Reptile",
+  "sell": 5,
+  "effect": "A flame-resistant lizard; cooked with a monster part it makes a Fireproof Elixir for fire protection.",
+  "where": "On rocks in the heat - Eldin Canyon and Death Mountain. Sneak to grab."
+ },
+ {
+  "name": "Giant Horse",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A huge, immensely strong stallion (the 'Lord of the Mountain'-scale beast resembling Ganon's horse): 5-star strength, 2-star speed, and NO stamina at all - a heavy, powerful but slow mount once tamed and registered.",
+  "where": "Taobab Grassland in the Faron region (south of the Great Plateau). Needs 2+ full stamina wheels to soothe."
+ },
+ {
+  "name": "Grassland Fox",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A small wild fox; hunting it yields Raw Meat (a Cook-tab food). Very alert - needs stealth.",
+  "where": "Hyrule Field and Lanayru Great Spring."
+ },
+ {
+  "name": "Great-Horned Rhinoceros",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A massive horned rhino; hunting it yields Raw Prime Meat or Raw Gourmet Meat (Cook-tab food).",
+  "where": "Hebra Mountains and Gerudo Highlands."
+ },
+ {
+  "name": "Grizzlemaw Bear",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A large mountain bear; killing it yields Raw Prime Meat or Raw Gourmet Meat (Cook-tab food). Dangerous up close.",
+  "where": "Hebra Mountains and Gerudo Highlands."
+ },
+ {
+  "name": "Hateno Cow",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A domesticated cow; livestock with no notable huntable drop.",
+  "where": "Pastures of East Necluda (Hateno) and Faron Grasslands."
+ },
+ {
+  "name": "Hearty Bass",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 8,
+  "effect": "A large bass; cooked it grants a Hearty effect (full heal + temporary bonus hearts).",
+  "where": "Lakes and ponds - common around Hateno/East Necluda and other fresh water."
+ },
+ {
+  "name": "Hearty Blueshell Snail",
+  "cat": "creature",
+  "type": "Mollusk",
+  "sell": 6,
+  "effect": "A beach snail; cooked it grants a Hearty effect (full heal + bonus hearts).",
+  "where": "Sandy beaches in numbers - Lanayru Sea and Necluda Sea coasts."
+ },
+ {
+  "name": "Hearty Lizard",
+  "cat": "creature",
+  "type": "Reptile",
+  "sell": 20,
+  "effect": "A plump lizard; cooked with a monster part it makes a Hearty Elixir that fully heals and adds temporary bonus hearts.",
+  "where": "Rocky/desert ground - Gerudo Desert and the Necluda coast. Uncommon."
+ },
+ {
+  "name": "Hearty Salmon",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 8,
+  "effect": "A big salmon; cooked it grants a Hearty effect (full heal + bonus hearts) - a top early healing fish.",
+  "where": "Cold rivers/lakes - Tabantha, Hebra, and Zora's Domain area waters."
+ },
+ {
+  "name": "Highland Sheep",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A domesticated sheep; livestock with no notable huntable drop.",
+  "where": "East Necluda and Akkala Highlands farms."
+ },
+ {
+  "name": "Hightail Lizard",
+  "cat": "creature",
+  "type": "Reptile",
+  "sell": 2,
+  "effect": "A fast-darting lizard; cooked with a monster part it makes a Hasty Elixir for movement speed.",
+  "where": "On the ground/rocks - West Necluda and East Necluda. Sneak to grab."
+ },
+ {
+  "name": "Honeyvore Bear",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A brown bear; killing it yields Raw Prime Meat, or Raw Gourmet Meat from larger ones (Cook-tab food). It can also be tamed and ridden (but not registered).",
+  "where": "Akkala Highlands and Tabantha Frontier forests."
+ },
+ {
+  "name": "Horse",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "The standard wild horse and your main mount. Sneak up, mount, soothe it to tame, then register it at any stable.",
+  "where": "Roaming grasslands - Hyrule Field, Faron Grasslands, Lanayru. Approach crouched from behind."
+ },
+ {
+  "name": "Hot-Footed Frog",
+  "cat": "creature",
+  "type": "Amphibian",
+  "sell": 2,
+  "effect": "A quick little frog; cooked with a monster part it makes a Hasty Elixir that boosts movement speed.",
+  "where": "Near water/wet grass - Lanayru Great Spring and Hyrule Ridge. Sneak to grab."
+ },
+ {
+  "name": "Hyrule Bass",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 3,
+  "effect": "The most common fish; cooked it just restores hearts (a neutral cooking base). Caught by hand, with a shock/ice attack, or bomb.",
+  "where": "Calm fresh water almost everywhere - ponds, rivers, lakes across Hyrule."
+ },
+ {
+  "name": "Ironshell Crab",
+  "cat": "creature",
+  "type": "Crustacean",
+  "sell": 5,
+  "effect": "A hard-shelled crab; cooked it grants a temporary defense-up (Tough).",
+  "where": "Coastlines - Puffer Beach in the Faron Sea and beaches around Necluda."
+ },
+ {
+  "name": "Islander Hawk",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A bird of prey; shooting it down yields Raw Bird Drumstick (a Cook-tab food).",
+  "where": "Open skies over Hyrule Field and Hyrule Ridge."
+ },
+ {
+  "name": "Lord of the Mountain",
+  "cat": "creature",
+  "type": "Special",
+  "effect": "Satori - a rare, glowing blue-green spirit mount with a horse body and twin Blupee faces. Top mount stats (max speed/strength, infinite stamina), but it vanishes once you dismount and cannot be registered.",
+  "where": "Atop Satori Mountain (south Hyrule Ridge). Spawns on a night the peak glows green, surrounded by Blupees."
+ },
+ {
+  "name": "Maraudo Wolf",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A pack-hunting wolf that will attack you; killing it yields Raw Prime Meat or Raw Gourmet Meat (Cook-tab food).",
+  "where": "Tabantha Frontier and Great Hyrule Forest."
+ },
+ {
+  "name": "Mighty Carp",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 6,
+  "effect": "A carp; cooked it grants a temporary attack-up (Mighty).",
+  "where": "Rivers and lakes - common in Lanayru and Akkala fresh water."
+ },
+ {
+  "name": "Mighty Porgy",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 6,
+  "effect": "A saltwater fish; cooked it grants a temporary attack-up (Mighty).",
+  "where": "Coastal salt water - Necluda Sea, Lanayru Sea, Faron coastlines."
+ },
+ {
+  "name": "Mountain Buck",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A male deer; hunting it yields Raw Prime Meat (a Cook-tab food).",
+  "where": "Hyrule Field and Lanayru Great Spring. Skittish - use stealth and a bow."
+ },
+ {
+  "name": "Mountain Crow",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A black crow; shooting it down yields Raw Bird Drumstick (a Cook-tab food).",
+  "where": "Highlands - Hyrule Ridge and Great Hyrule Forest."
+ },
+ {
+  "name": "Mountain Doe",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A female deer; hunting it yields Raw Prime Meat (a Cook-tab food).",
+  "where": "Hyrule Field and Lanayru Great Spring."
+ },
+ {
+  "name": "Mountain Goat",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A wild goat; hunting it yields Raw Meat (a Cook-tab food).",
+  "where": "Highlands - Hyrule Ridge and Great Hyrule Forest."
+ },
+ {
+  "name": "Pink Heron",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A pink wading bird; shooting it down yields Raw Bird Drumstick / Raw Bird Thigh (Cook-tab food).",
+  "where": "Marshes and water's edge - Hyrule Ridge and Hyrule Field."
+ },
+ {
+  "name": "Razorclaw Crab",
+  "cat": "creature",
+  "type": "Crustacean",
+  "sell": 5,
+  "effect": "A shore crab; cooked it grants a temporary attack-up (Mighty).",
+  "where": "Beaches and rivers across Hyrule, common in Necluda; grab them off the shore."
+ },
+ {
+  "name": "Red-Tusked Boar",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A larger northern boar; hunting it yields Raw Prime Meat (a Cook-tab food).",
+  "where": "Akkala Highlands and Deep Akkala forests."
+ },
+ {
+  "name": "Restless Cricket",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "A jumpy field cricket; cooked with a monster part it makes a Hasty Elixir that boosts movement speed.",
+  "where": "Hides under tall grass - Great Plateau, Hyrule Field, East Necluda. Cut grass to flush it out."
+ },
+ {
+  "name": "Rugged Rhino Beetle",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 4,
+  "effect": "A tough-shelled beetle; cooked with a monster part it makes a Tough Elixir for a temporary defense boost.",
+  "where": "On trees in Hyrule Field and Faron Grasslands."
+ },
+ {
+  "name": "Sand Seal",
+  "cat": "creature",
+  "type": "Special",
+  "effect": "A desert seal used as a mount - harpoon-and-shield-surf behind one to skim across the dunes far faster than walking. Cannot be killed for materials.",
+  "where": "Wild seals roam the Gerudo Desert; sneak-grab one. Trained (red) ones rent from Gerudo Town for 20 rupees (with a shield)."
+ },
+ {
+  "name": "Sand Seal (wild) / Donkey note",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "Donkey - a domesticated pack animal kept at stables and farms. Not huntable for materials; flavor livestock (no notable drop).",
+  "where": "Around stables and settlements (e.g. Highland Stable, Lurelin and other farms)."
+ },
+ {
+  "name": "Sanke Carp",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 15,
+  "effect": "A decorative koi-like carp; no combat effect when cooked (used in dye/quest and as a cooking base). Restores hearts.",
+  "where": "Ornamental ponds and fountains - Hyrule Castle moat, Zora's Domain, town pools."
+ },
+ {
+  "name": "Seagull",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A coastal gull; shooting it down yields Raw Bird Drumstick (a Cook-tab food).",
+  "where": "Over the Necluda Sea and Akkala Sea."
+ },
+ {
+  "name": "Sizzlefin Trout",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 6,
+  "effect": "A warm-blooded trout; cooked it grants heat resistance (Spicy).",
+  "where": "Warm water - Eldin Canyon streams and Goron-region pools."
+ },
+ {
+  "name": "Smotherwing Butterfly",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "A heat-resistant butterfly; cooked with a monster part it makes a Fireproof Elixir (the main non-armor source of fire protection).",
+  "where": "Scorching volcanic ground - Eldin Canyon and Death Mountain, often by lava's edge. Beedle also sells them."
+ },
+ {
+  "name": "Sneaky River Snail",
+  "cat": "creature",
+  "type": "Mollusk",
+  "sell": 4,
+  "effect": "A river snail; cooked it boosts stealth (Sneaky). Whack it off the shore to collect.",
+  "where": "Freshwater shores - West Necluda, Lanayru Great Spring, around Zora's Domain."
+ },
+ {
+  "name": "Snowcoat Fox",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A white northern fox; hunting it yields Raw Prime Meat or Raw Gourmet Meat (Cook-tab food).",
+  "where": "Hebra Mountains and Tabantha Frontier snowfields."
+ },
+ {
+  "name": "Stalhorse",
+  "cat": "creature",
+  "type": "Special",
+  "effect": "An undead skeleton horse ridden by Stalkoblins. Can be mounted as a temporary mount but crumbles at sunrise (dies by ~5 AM) and cannot be registered at a stable.",
+  "where": "Appears only at night - Hebra Mountains and Akkala Highlands. Defeat the Stalkoblin riding it, then hop on."
+ },
+ {
+  "name": "Staminoka Bass",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 8,
+  "effect": "A long-lived bass; cooked it restores stamina (an Energizing effect).",
+  "where": "Fresh water statewide; larger schools in Telta Lake, Gerudo Canyon, Squabble River."
+ },
+ {
+  "name": "Star Fragment",
+  "cat": "creature",
+  "type": "Special",
+  "sell": 300,
+  "effect": "A glowing shard of a fallen star - a rare crafting material required for the top (4-star) tier of several armor upgrades. (Not wildlife; a falling-star pickup.)",
+  "where": "Falls from the night sky as a shooting star; track where it lands and grab it before it vanishes at dawn."
+ },
+ {
+  "name": "Stealthfin Trout",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 8,
+  "effect": "A rare trout; cooked it boosts stealth (Sneaky).",
+  "where": "Waters around the Lost Woods / Great Hyrule Forest; Octoroks there can drop them."
+ },
+ {
+  "name": "Summerwing Butterfly",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "A warmth-loving butterfly. Cook it with a monster part for a Spicy Elixir that grants cold resistance.",
+  "where": "Warm/temperate areas - Great Hyrule Forest, Eldin foothills, the Great Plateau."
+ },
+ {
+  "name": "Sunset Firefly",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "A glowing nocturnal firefly; cooked with a monster part it makes a Sneaky Elixir that boosts stealth.",
+  "where": "Near water at night - West Necluda and Great Hyrule Forest. Sneak to catch."
+ },
+ {
+  "name": "Tabantha Moose",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A big antlered moose; hunting it yields Raw Prime Meat or Raw Gourmet Meat - a reliable gourmet-meat source (Cook-tab food).",
+  "where": "Hebra Mountains and Gerudo Highlands."
+ },
+ {
+  "name": "Thunderwing Butterfly",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "Appears in storms; cooked with a monster part it makes an Electro Elixir for shock resistance.",
+  "where": "Storm-prone areas - Hyrule Ridge, Gerudo Highlands, Faron during thunderstorms."
+ },
+ {
+  "name": "Tireless Frog",
+  "cat": "creature",
+  "type": "Amphibian",
+  "sell": 20,
+  "effect": "A rare endurance frog; cooked with a monster part it makes an Enduring Elixir that grants bonus (yellow) stamina. Often surfaces in the rain.",
+  "where": "Near water - Lanayru Great Spring and Hyrule Ridge. Uncommon."
+ },
+ {
+  "name": "Voltfin Trout",
+  "cat": "creature",
+  "type": "Fish",
+  "sell": 6,
+  "effect": "An electric trout; cooked it grants shock resistance (Electro).",
+  "where": "Hyrule Ridge and Tabantha Frontier waters; also dropped by Forest Octoroks near Thundra Plateau."
+ },
+ {
+  "name": "Warm Darner",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "A dragonfly that thrives in cold; cooked with a monster part it makes a Spicy Elixir for cold resistance.",
+  "where": "Warmer zones - Akkala Highlands and Hyrule Field. Also sold by Beedle."
+ },
+ {
+  "name": "Wasteland Coyote",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A desert canine; killing it yields Raw Prime Meat (a Cook-tab food).",
+  "where": "Gerudo Desert and Gerudo Highlands."
+ },
+ {
+  "name": "Water Buffalo",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A large wetland bovine; hunting it yields Raw Prime Meat, or Raw Gourmet Meat from the biggest ones (Cook-tab food).",
+  "where": "Lanayru Wetlands and Akkala Highlands."
+ },
+ {
+  "name": "White Goat",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A white wild goat; hunting it yields Raw Meat (a Cook-tab food).",
+  "where": "West Necluda and Eldin Canyon."
+ },
+ {
+  "name": "White Horse",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A pure-white royal horse descended from Princess Zelda's mount - high stats and the Royal Saddle & Bridle reward after registering it.",
+  "where": "Roams Safula Hill (Sanidin Park Ruins) in Hyrule Ridge, past Manhala Bridge north of Outskirt Stable. Tied to the 'Royal White Stallion' side quest."
+ },
+ {
+  "name": "Winterwing Butterfly",
+  "cat": "creature",
+  "type": "Insect",
+  "sell": 2,
+  "effect": "A cold-loving butterfly with frost-tipped wings. Cooked with a monster part it brews a Chilly Elixir for heat resistance.",
+  "where": "Cold areas - Hyrule Ridge, Tabantha Frontier, Hebra. Sneak up and grab it."
+ },
+ {
+  "name": "Wood Pigeon",
+  "cat": "creature",
+  "type": "Bird",
+  "effect": "A plump forest pigeon; shooting it down yields Raw Bird Drumstick / Raw Whole Bird (Cook-tab food). Rare variants (Rainbow/White/Hotfeather Pigeon) are the same compendium creature.",
+  "where": "Wooded areas - Great Hyrule Forest and Hyrule Ridge."
+ },
+ {
+  "name": "Woodland Boar",
+  "cat": "creature",
+  "type": "Animal",
+  "effect": "A common wild boar; hunting it yields Raw Meat (a Cook-tab food).",
+  "where": "Forests and fields - Hyrule Field and Lanayru Great Spring. Sneak-shoot or it bolts."
  }
 ]
