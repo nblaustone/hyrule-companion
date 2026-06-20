@@ -17403,8 +17403,7 @@ const TOTK = {
     "title": "What to bring to a hard fight",
     "body": "Cook one defense-up or attack-up meal, bring a couple of strong Fused weapons and a sturdy shield to parry, and carry a bow with a stack of arrows plus a few you can Fuse an element onto. If you're heading into the Depths, pack Brightbloom Seeds for light. That's it."
    }
-  ],
-  "notes": "Adversarial verify done against Game8, ScreenRant/RankedBoost, GameRant, PowerPyx, Zelda Dungeon, Kiranico, Fextralife. Corrections made to the original dataset: (1) Stalnox drop \"Ancient Bone\" was wrong/invented; real drops are Stalnox Horn + Hinox Tooth. (2) Like Like listed \"Sticky Frog\" as a drop, which is invented (Sticky Frog is a critter caught near water, not a monster drop); corrected to Opal + chest gear, with Ice Like Stone/Rock Like Stone from variants. (3) Frox was missing its \"Frox Fang\" drop and listed vague \"gems\"; corrected to Frox Fang/Fingernail/Guts + Zonaite/Large Zonaite/Crystallized Charge. (4) Boss Bokoblin drop \"Bokoblin Horn (high tier)\" corrected to the real materials Boss Bokoblin Horn + Boss Bokoblin Guts. (5) Construct drop \"Zonaite\" corrected to \"Zonai Charge\" (the standard Construct drop). (6) Lynel \"Lynel Horn\" corrected to the real horn names Lynel Saber Horn / Mace Horn. (7) Phantom Ganon drop expanded to include the Gloom weapon (Sword/Club/Spear) it was wielding, alongside the always-dropped Demon King's Bow and Dark Clump. (8) Aerocuda tactic edited (Keese Eyeball-fused arrow homes in). (9) Gibdo tactic refined: they harden/revive and are broken by any element (fire/electric/ice), not specifically a fused Gibdo Bone. (10) Hinox drops expanded (Tooth also drops). (11) Stone Talus renamed to Luminous/Rare variants with accurate gem list. (12) The grouped \"Seized/Marbled bosses\" entry renamed to the actual four temple bosses. Verified-accurate as written (no change): Bokoblin, Moblin, Lizalfos, Horriblin, Molduga, all Gleeok elemental counters, Flux Construct weak-block, Frox eye/ore cycle, Demon Dragon (4 back weak spots, Master Sword 10x dmg, Light Dragon lifts you between hits), Gloom Hands light/Bomb-arrow tactic. Tiers kept as: common, mini-boss (field bosses), boss (region/major), construct (Zonai automata), gloom (gloom-type). Lower confidence: exact full drop tables are representative not exhaustive (higher-tier color variants add Guts and extra gems/Zonaite). All step/tactic/drop strings kept under 170 chars, plain text."
+  ]
  },
  "COOKING": {
   "rules": [
@@ -17564,8 +17563,7 @@ const TOTK = {
     "where": "Circles the entire map at the far edges and a very high altitude; needs Sky islands/towers to reach. (Tied to the main story; spoiler-light here.)",
     "parts": "Scale, Claw, Fang, Horn (shard), Spike. Parts make powerful light/holy fuses and its Horn maxes elixir timers like the others."
    }
-  ],
-  "notes": "CORRECTIONS MADE (web-verified vs Game8, Zelda Dungeon, Gamer Rant, June 2026): (1) Removed 'Hearty Durian' from Hearty ingredients — it does NOT exist in TotK (it was a BotW item, cut from this game). Replaced with Big Hearty Truffle, a real TotK Hearty item. (2) Fixed Chilly 'does' line: removed 'Death Mountain foothills' as a Chilly use, since Death Mountain's extreme heat requires the Fireproof effect, not heat resistance — leaving this could send a first-timer to Death Mountain with the wrong dish and get them burned. (3) Corrected Dinraal's Depths entry to the proper in-game name 'Drenan Highlands Chasm' (was 'Drenan Highland Chasm') and clarified exit as 'East Akkala Plains Chasm'. Everything else verified ACCURATE: all effect/critter/elixir mappings (Energetic Rhino Beetle=Energizing, Tireless Frog=Enduring, Warm/Cold/Electric Darner, Hightail Lizard, Bladed/Rugged Rhino Beetle, Sunset Firefly, Deep Firefly=Bright Elixir, Fireproof Lizard/Smotherwing Butterfly, Sticky Lizard/Frog); Spicy=cold resist and Chilly=heat resist (correctly assigned, not swapped); the cooking rules (two effects cancel to a plain heal, same-prefix stacking, lit pot required, critter+monster part for elixirs, monster part sets duration, Dragon Horn shard = 30-min max for all four dragons including Light); Sundelion/Sun Pumpkin=Sunny gloom cure (Sundelion ~3 hearts each, Sun Pumpkin ~1); Brightcap/Glowing Cave Fish=Bright; Muddle Bud/Dazzlefruit being throw/Fuse not cooking; all four dragon routes and farming towers (Mount Lanayru, Ulri Mountain, Thyphlo Ruins, Popla Foothills towers all real). Lower confidence remains on the exact 'best' single critter per effect since many share an effect — listed ones are confirmed correct, just not guaranteed the absolute optimum. All steps kept under 170 chars, plain text, real in-game proper names. Light Dragon kept deliberately spoiler-aware."
+  ]
  },
  "RECIPES": [
   {
@@ -17695,7 +17693,1263 @@ const TOTK = {
   "Up to 5 ingredients per dish. Adding more of the same effect food gives more hearts/duration up to the cap.",
   "Hearty-effect dishes fully heal and add temporary yellow (bonus) hearts; they ignore the normal heart count."
  ],
- "COOK_INGREDIENTS": [],
+ "COOK_INGREDIENTS": [
+  {
+   "name": "Hearty Radish",
+   "role": "effect",
+   "cat": "veg",
+   "effect": "Hearty",
+   "potency": 1,
+   "hearts": 0,
+   "bonus": "hearty:+4",
+   "sell": 8,
+   "where": "Common in West Necluda and around Hateno; in grass and on hillsides."
+  },
+  {
+   "name": "Big Hearty Radish",
+   "role": "effect",
+   "cat": "veg",
+   "effect": "Hearty",
+   "potency": 1,
+   "hearts": 0,
+   "bonus": "hearty:+5",
+   "sell": 16,
+   "where": "Rarer cousin of the Hearty Radish; West/East Necluda hills and Hyrule Field edges."
+  },
+  {
+   "name": "Hearty Truffle",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Hearty",
+   "potency": 1,
+   "hearts": 0,
+   "bonus": "hearty:+1",
+   "sell": 12,
+   "where": "Under trees and on rock ledges in forests (Hyrule Ridge, Faron, Eldin caves)."
+  },
+  {
+   "name": "Big Hearty Truffle",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Hearty",
+   "potency": 1,
+   "hearts": 0,
+   "bonus": "hearty:+4",
+   "sell": 28,
+   "where": "Rare; usually inside caves and on shaded cliff ledges across Hyrule."
+  },
+  {
+   "name": "Hearty Bass",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Hearty",
+   "potency": 1,
+   "hearts": 0,
+   "bonus": "hearty:+2",
+   "sell": 12,
+   "where": "Swims in sky-island ponds (West Hebra, Tabantha, Necluda Sky Archipelagos) and some lakes."
+  },
+  {
+   "name": "Hearty Salmon",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Hearty",
+   "potency": 1,
+   "hearts": 0,
+   "bonus": "hearty:+4",
+   "sell": 20,
+   "where": "Cold waters: Lake Kilsie in the Hebra Mountains, and Hyrule Castle docks."
+  },
+  {
+   "name": "Endura Carrot",
+   "role": "effect",
+   "cat": "veg",
+   "effect": "Enduring",
+   "potency": 3,
+   "hearts": 1,
+   "sell": 24,
+   "where": "Rare; grows in East Necluda and Hyrule Ridge — look for the orange root with green tops."
+  },
+  {
+   "name": "Endura Shroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Enduring",
+   "potency": 2,
+   "hearts": 0.5,
+   "sell": 18,
+   "where": "Caves and dim forest floors in Faron and the Deku Tree / Korok Forest area."
+  },
+  {
+   "name": "Stamella Shroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Energizing",
+   "potency": 1,
+   "hearts": 0.5,
+   "sell": 4,
+   "where": "Very common; shaded forest floors across Hyrule (Hyrule Field, Necluda, Faron)."
+  },
+  {
+   "name": "Stambulb",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Energizing",
+   "potency": 1,
+   "hearts": 0.5,
+   "sell": 6,
+   "where": "A glowing bulb that grows on the sky islands (Great Sky Island and most floating islands)."
+  },
+  {
+   "name": "Staminoka Bass",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Energizing",
+   "potency": 2,
+   "hearts": 0.5,
+   "sell": 8,
+   "where": "Mountain lakes and ponds (Hyrule Ridge, Lanayru, the highlands)."
+  },
+  {
+   "name": "Courser Bee Honey",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Energizing",
+   "potency": 2,
+   "hearts": 1,
+   "sell": 3,
+   "where": "Beehives hanging from trees in forests; shoot them down (Hyrule Field, Faron, Akkala)."
+  },
+  {
+   "name": "Spicy Pepper",
+   "role": "effect",
+   "cat": "veg",
+   "effect": "Spicy",
+   "potency": 1,
+   "hearts": 0.5,
+   "timeSec": 50,
+   "sell": 2,
+   "where": "Very common in temperate grasslands and forests across Hyrule."
+  },
+  {
+   "name": "Sunshroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Spicy",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 60,
+   "sell": 3,
+   "where": "Warm regions — Eldin foothills and Death Mountain's cooler edges, plus some caves."
+  },
+  {
+   "name": "Warm Safflina",
+   "role": "effect",
+   "cat": "herb",
+   "effect": "Spicy",
+   "potency": 2,
+   "hearts": 0,
+   "timeSec": 70,
+   "sell": 4,
+   "where": "Gerudo Desert and Gerudo Highlands; a red-tinged herb on the sands."
+  },
+  {
+   "name": "Sizzlefin Trout",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Spicy",
+   "potency": 3,
+   "hearts": 0.5,
+   "timeSec": 90,
+   "sell": 8,
+   "where": "Cold-region waters — Hebra and Gerudo Highlands lakes and rivers."
+  },
+  {
+   "name": "Hydromelon",
+   "role": "effect",
+   "cat": "fruit",
+   "effect": "Chilly",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 70,
+   "sell": 8,
+   "where": "Gerudo Desert oases and around Gerudo Town; a pale green melon."
+  },
+  {
+   "name": "Chillshroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Chilly",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 60,
+   "sell": 3,
+   "where": "Cold regions — Hebra, Gerudo Highlands, Mount Lanayru slopes; also caves."
+  },
+  {
+   "name": "Cool Safflina",
+   "role": "effect",
+   "cat": "herb",
+   "effect": "Chilly",
+   "potency": 2,
+   "hearts": 0,
+   "timeSec": 70,
+   "sell": 4,
+   "where": "Gerudo Desert and Gerudo Highlands; a blue-tinged herb on the sands."
+  },
+  {
+   "name": "Chillfin Trout",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Chilly",
+   "potency": 3,
+   "hearts": 0.5,
+   "timeSec": 90,
+   "sell": 8,
+   "where": "Hot-region waters — Eldin and Gerudo Desert pools; the cold-blue fish."
+  },
+  {
+   "name": "Voltfruit",
+   "role": "effect",
+   "cat": "fruit",
+   "effect": "Electro",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 70,
+   "sell": 8,
+   "where": "Gerudo Desert around oases and on cactus-like plants near Gerudo Town."
+  },
+  {
+   "name": "Zapshroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Electro",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 60,
+   "sell": 3,
+   "where": "Gerudo Desert and Wasteland, and some Hyrule caves; a yellow-capped mushroom."
+  },
+  {
+   "name": "Electric Safflina",
+   "role": "effect",
+   "cat": "herb",
+   "effect": "Electro",
+   "potency": 2,
+   "hearts": 0,
+   "timeSec": 70,
+   "sell": 4,
+   "where": "Gerudo Desert and Gerudo Highlands; a yellow-tinged herb on the sands."
+  },
+  {
+   "name": "Voltfin Trout",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Electro",
+   "potency": 3,
+   "hearts": 0.5,
+   "timeSec": 90,
+   "sell": 8,
+   "where": "Lakes and rivers in Lanayru and Faron; the electric-yellow fish."
+  },
+  {
+   "name": "Mighty Bananas",
+   "role": "effect",
+   "cat": "fruit",
+   "effect": "Mighty",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 50,
+   "sell": 8,
+   "where": "Faron jungle and other warm forests; grow in bunches on palms."
+  },
+  {
+   "name": "Razorshroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Mighty",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 60,
+   "sell": 3,
+   "where": "Forests across Hyrule (Hyrule Ridge, Akkala, Faron) and some caves."
+  },
+  {
+   "name": "Mighty Thistle",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Mighty",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 50,
+   "sell": 3,
+   "where": "Hyrule Field, Eldin and Akkala hillsides; a spiky purple-flowered weed."
+  },
+  {
+   "name": "Mighty Carp",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Mighty",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 50,
+   "sell": 6,
+   "where": "Lakes and rivers across central Hyrule and Necluda."
+  },
+  {
+   "name": "Mighty Porgy",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Mighty",
+   "potency": 3,
+   "hearts": 0.5,
+   "timeSec": 90,
+   "sell": 15,
+   "where": "Coastal waters of Lurelin Village and the southern Necluda sea."
+  },
+  {
+   "name": "Ironshroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Tough",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 60,
+   "sell": 3,
+   "where": "Rocky areas and caves in Eldin, Akkala and Hyrule Ridge."
+  },
+  {
+   "name": "Fortified Pumpkin",
+   "role": "effect",
+   "cat": "veg",
+   "effect": "Tough",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 50,
+   "sell": 8,
+   "where": "Grown in fields near Kakariko Village and some stables; a knobbly green gourd."
+  },
+  {
+   "name": "Armoranth",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Tough",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 50,
+   "sell": 3,
+   "where": "Hyrule Ridge, Akkala Highlands and northeastern Hyrule grasslands; a tall red-tipped plant."
+  },
+  {
+   "name": "Armored Carp",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Tough",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 50,
+   "sell": 6,
+   "where": "Rivers and lakes around Zora's Domain (Lanayru) and central Hyrule."
+  },
+  {
+   "name": "Armored Porgy",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Tough",
+   "potency": 3,
+   "hearts": 0.5,
+   "timeSec": 90,
+   "sell": 15,
+   "where": "Coastal waters near Lurelin Village and the southern Necluda sea."
+  },
+  {
+   "name": "Fleet-Lotus Seeds",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Hasty",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 60,
+   "sell": 4,
+   "where": "Floating lotus plants in ponds and wetlands (Lanayru, Faron, Wetlands)."
+  },
+  {
+   "name": "Rushroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Hasty",
+   "potency": 1,
+   "hearts": 0.5,
+   "timeSec": 30,
+   "sell": 3,
+   "where": "On cliff faces and rocky walls (Lanayru cliffs, Hyrule Ridge); a small green shroom."
+  },
+  {
+   "name": "Swift Carrot",
+   "role": "effect",
+   "cat": "veg",
+   "effect": "Hasty",
+   "potency": 1,
+   "hearts": 0.5,
+   "timeSec": 50,
+   "sell": 4,
+   "where": "Common in Necluda and near Kakariko/Hateno; the long pale root."
+  },
+  {
+   "name": "Swift Violet",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Hasty",
+   "potency": 2,
+   "hearts": 0,
+   "timeSec": 70,
+   "sell": 10,
+   "where": "Glowing purple flowers on shaded cliff ledges (Hyrule Ridge, Lanayru, Faron)."
+  },
+  {
+   "name": "Silent Shroom",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Sneaky",
+   "potency": 1,
+   "hearts": 0.5,
+   "timeSec": 60,
+   "sell": 4,
+   "where": "Shaded forest floors at night (Hyrule Field, Necluda, Faron); a glowing blue cap."
+  },
+  {
+   "name": "Silent Princess",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Sneaky",
+   "potency": 3,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 10,
+   "where": "Rare blue-white wildflower in remote meadows (Korok Forest fringe, Satori-area, Faron)."
+  },
+  {
+   "name": "Blue Nightshade",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Sneaky",
+   "potency": 2,
+   "hearts": 0,
+   "timeSec": 70,
+   "sell": 4,
+   "where": "Shaded forest patches and cliff bases (Hyrule Ridge, Lanayru, Faron)."
+  },
+  {
+   "name": "Stealthfin Trout",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Sneaky",
+   "potency": 3,
+   "hearts": 0.5,
+   "timeSec": 90,
+   "sell": 8,
+   "where": "Lakes and rivers at night (Lanayru, Faron); the fish that glows faintly blue."
+  },
+  {
+   "name": "Brightcap",
+   "role": "effect",
+   "cat": "mushroom",
+   "effect": "Bright",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 120,
+   "sell": 4,
+   "where": "Throughout the Depths; a luminous mushroom growing on roots and walls."
+  },
+  {
+   "name": "Glowing Cave Fish",
+   "role": "effect",
+   "cat": "fish",
+   "effect": "Bright",
+   "potency": 2,
+   "hearts": 0.5,
+   "timeSec": 120,
+   "sell": 6,
+   "where": "Caves and well waters across the surface; the small fish that glows in the dark."
+  },
+  {
+   "name": "Sun Pumpkin",
+   "role": "effect",
+   "cat": "veg",
+   "effect": "Sunny",
+   "potency": 1,
+   "hearts": 0.5,
+   "timeSec": 0,
+   "sell": 8,
+   "where": "Grown at Kakariko Village's pumpkin patch and some Depths bloom spots; heals 1 gloom heart each."
+  },
+  {
+   "name": "Sundelion",
+   "role": "effect",
+   "cat": "plant",
+   "effect": "Sunny",
+   "potency": 3,
+   "hearts": 0,
+   "timeSec": 0,
+   "sell": 3,
+   "where": "Sky islands — a white bloom on the floating land; heals up to 3 gloom hearts each."
+  },
+  {
+   "name": "Apple",
+   "role": "neutral",
+   "cat": "fruit",
+   "hearts": 0.5,
+   "sell": 3,
+   "where": "On and under trees almost everywhere in Hyrule — Hyrule Field, forests, around the surface in general."
+  },
+  {
+   "name": "Palm Fruit",
+   "role": "neutral",
+   "cat": "fruit",
+   "hearts": 2,
+   "sell": 4,
+   "where": "On palm trees in warm/coastal areas — Lurelin Village, the Faron and Necluda coasts, Akkala beaches."
+  },
+  {
+   "name": "Wildberry",
+   "role": "neutral",
+   "cat": "fruit",
+   "hearts": 1,
+   "sell": 3,
+   "where": "On bushes in cold, snowy regions — Hebra, Tabantha, the Gerudo Highlands."
+  },
+  {
+   "name": "Hylian Tomato",
+   "role": "neutral",
+   "cat": "fruit",
+   "hearts": 1,
+   "sell": 4,
+   "where": "On bushes from cold to warm areas — around Hyrule Field and West Necluda; sold at general stores."
+  },
+  {
+   "name": "Hyrule Herb",
+   "role": "neutral",
+   "cat": "plant",
+   "hearts": 1,
+   "sell": 3,
+   "where": "Sprouts in grassy fields throughout Hyrule, often near Hyrule Field and the central plains."
+  },
+  {
+   "name": "Hyrule Bass",
+   "role": "neutral",
+   "cat": "fish",
+   "hearts": 2,
+   "sell": 6,
+   "where": "In ponds and rivers across Hyrule Field and West Necluda; easy to scoop in shallows."
+  },
+  {
+   "name": "Sanke Carp",
+   "role": "neutral",
+   "cat": "fish",
+   "hearts": 2,
+   "sell": 20,
+   "where": "In lakes and rivers, notably around Lake Hylia and the Lanayru wetlands; throw bait/fruit to lure them."
+  },
+  {
+   "name": "Ancient Arowana",
+   "role": "neutral",
+   "cat": "fish",
+   "hearts": 2,
+   "sell": 6,
+   "where": "In the rivers and waters of Tabantha and the Hebra region (cold north)."
+  },
+  {
+   "name": "Raw Meat",
+   "role": "neutral",
+   "cat": "meat",
+   "hearts": 2,
+   "sell": 8,
+   "where": "Dropped by small animals — boars, mountain goats, foxes. Plentiful across the surface plains."
+  },
+  {
+   "name": "Raw Prime Meat",
+   "role": "neutral",
+   "cat": "meat",
+   "hearts": 3,
+   "sell": 15,
+   "where": "Dropped by medium-sized animals — buck deer, large boars, wolves, bears."
+  },
+  {
+   "name": "Raw Gourmet Meat",
+   "role": "neutral",
+   "cat": "meat",
+   "hearts": 6,
+   "sell": 35,
+   "where": "Dropped by large animals — Water Buffalo, Tabantha Moose, cows/bears (Hebra, Tabantha)."
+  },
+  {
+   "name": "Raw Bird Drumstick",
+   "role": "neutral",
+   "cat": "meat",
+   "hearts": 2,
+   "sell": 8,
+   "where": "Dropped by small birds — pigeons, crows, ducks, herons, seagulls — when killed."
+  },
+  {
+   "name": "Raw Bird Thigh",
+   "role": "neutral",
+   "cat": "meat",
+   "hearts": 3,
+   "sell": 15,
+   "where": "Dropped by medium birds such as the Eldin Ostrich and Blue-Winged Heron."
+  },
+  {
+   "name": "Raw Whole Bird",
+   "role": "neutral",
+   "cat": "meat",
+   "hearts": 6,
+   "sell": 35,
+   "where": "Dropped by large birds — the Mountain Buzzard, Eldin Ostrich, White Pigeon and similar large fowl."
+  },
+  {
+   "name": "Bird Egg",
+   "role": "neutral",
+   "cat": "egg",
+   "hearts": 1,
+   "sell": 3,
+   "where": "In nests in trees, on cliffs, and around stables/villages; from chicken coops at Hateno and Lurelin."
+  },
+  {
+   "name": "Fresh Milk",
+   "role": "neutral",
+   "cat": "dairy",
+   "hearts": 1,
+   "sell": 3,
+   "where": "Bought from general stores (Hateno, Kakariko, Rito) and from ranchers near stables."
+  },
+  {
+   "name": "Goat Butter",
+   "role": "neutral",
+   "cat": "dairy",
+   "hearts": 0,
+   "sell": 3,
+   "where": "Bought from general stores (Hateno, Kakariko, Rito); used to enrich dishes, cakes and stews."
+  },
+  {
+   "name": "Hylian Rice",
+   "role": "neutral",
+   "cat": "grain",
+   "hearts": 1,
+   "sell": 3,
+   "where": "Cut from tall grass near Hateno and across Hyrule; sold at the Hateno General Store."
+  },
+  {
+   "name": "Tabantha Wheat",
+   "role": "neutral",
+   "cat": "grain",
+   "hearts": 1,
+   "sell": 3,
+   "where": "Cut from grass in the Tabantha Frontier; sold at Rito Village and Gerudo Town general stores."
+  },
+  {
+   "name": "Cane Sugar",
+   "role": "neutral",
+   "cat": "seasoning",
+   "hearts": 0,
+   "sell": 3,
+   "where": "Bought from general stores (Goron City, Gerudo Town, Rito); used to make sweets and cakes."
+  },
+  {
+   "name": "Rock Salt",
+   "role": "neutral",
+   "cat": "seasoning",
+   "hearts": 0,
+   "sell": 2,
+   "where": "Mined from rock-salt deposits in caves and on mountainsides (common in Eldin/Death Mountain caves)."
+  },
+  {
+   "name": "Acorn",
+   "role": "neutral",
+   "cat": "plant",
+   "hearts": 0.5,
+   "sell": 8,
+   "where": "Found at the base of trees and dropped by squirrels in forests across Hyrule; very common."
+  },
+  {
+   "name": "Hightail Lizard",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Hasty",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 60,
+   "sell": 2,
+   "bonus": "Speed Up (movement/run/swim/climb). Pair with a monster part to brew a Hasty Elixir.",
+   "where": "Common on grasslands across Hyrule Field, West Necluda and the Sahasra Slope; scurries fast, sneak or shoot it."
+  },
+  {
+   "name": "Hot-Footed Frog",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Hasty",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 60,
+   "sell": 2,
+   "bonus": "Speed Up. Brews a Hasty Elixir with any monster part. 1-4 frogs + 1 monster part.",
+   "where": "Near water in Lanayru Great Spring and East Necluda; also sold by Beedle at some stables."
+  },
+  {
+   "name": "Tireless Frog",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Enduring",
+   "potency": 2,
+   "hearts": 0,
+   "timeSec": 60,
+   "sell": 3,
+   "bonus": "Enduring effect: overfills the stamina wheel with extra (yellow) stamina.",
+   "where": "Near ponds in Lanayru Great Spring and Hyrule Ridge during rain; in wells in eastern Hyrule; sold by Beedle at several stables."
+  },
+  {
+   "name": "Energetic Rhino Beetle",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Energizing",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 40,
+   "sell": 3,
+   "bonus": "Energizing effect: instantly restores part of the stamina wheel. More potent than the Restless Cricket.",
+   "where": "On trees at night/early morning in Faron, Akkala Highlands (near South Akkala Stable) and West Necluda; also from Beedle at stables."
+  },
+  {
+   "name": "Restless Cricket",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Energizing",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 40,
+   "sell": 2,
+   "bonus": "Energizing effect: restores stamina. Weaker than the Energetic Rhino Beetle (easier to catch, so less potent).",
+   "where": "Hops in grassy meadows of Hyrule Field on trees or in freshly cut grass; cut grass to flush them out."
+  },
+  {
+   "name": "Warm Darner",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Spicy",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 2,
+   "bonus": "Spicy Elixir = COLD resistance (warms you). Interchangeable with the Summerwing Butterfly.",
+   "where": "Flies over warm grasslands in Hyrule Field, Faron and Necluda; near water and meadows. Also sold at Akkala/Hyrule Field stables."
+  },
+  {
+   "name": "Summerwing Butterfly",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Spicy",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 2,
+   "bonus": "Spicy Elixir = COLD resistance (warms you). Interchangeable with the Warm Darner.",
+   "where": "Eldin Canyon, Gerudo Highlands, Tabantha Bridge Stable, Kara Kara Bazaar, Snowfield Stable; bought from Beedle for ~10 rupees."
+  },
+  {
+   "name": "Cold Darner",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Chilly",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 2,
+   "bonus": "Chilly Elixir = HEAT resistance (cools you). Interchangeable with the Winterwing Butterfly.",
+   "where": "Flutters in cool, often forested or highland areas; common around Hyrule Ridge and northern fields."
+  },
+  {
+   "name": "Winterwing Butterfly",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Chilly",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 2,
+   "bonus": "Chilly Elixir = HEAT resistance (cools you). Interchangeable with the Cold Darner.",
+   "where": "Cold regions: Hebra Mountains, Tabantha Frontier and the Gerudo Highlands snowfields."
+  },
+  {
+   "name": "Electric Darner",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Electro",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 2,
+   "bonus": "Electro Elixir = shock resistance. Interchangeable with the Thunderwing Butterfly.",
+   "where": "Near water and humid grasslands in Lanayru Great Spring and Faron; often by rivers."
+  },
+  {
+   "name": "Thunderwing Butterfly",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Electro",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 2,
+   "bonus": "Electro Elixir = shock resistance. Interchangeable with the Electric Darner.",
+   "where": "Gerudo Desert and Gerudo Highlands, especially where thunderstorms roll through."
+  },
+  {
+   "name": "Fireproof Lizard",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Fireproof",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 3,
+   "bonus": "Fireproof Elixir = flame guard (won't burn in extreme heat / Eldin). Pair with a monster part.",
+   "where": "Death Mountain, Eldin Canyon and Eldin Mountains; along the Goronbi River and in most Eldin caves."
+  },
+  {
+   "name": "Smotherwing Butterfly",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Fireproof",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 90,
+   "sell": 3,
+   "bonus": "Fireproof Elixir = flame guard. Interchangeable with the Fireproof Lizard.",
+   "where": "Death Mountain and Eldin Canyon, fluttering around the hottest volcanic areas."
+  },
+  {
+   "name": "Bladed Rhino Beetle",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Mighty",
+   "potency": 2,
+   "hearts": 0,
+   "timeSec": 50,
+   "sell": 3,
+   "bonus": "Mighty Elixir = Attack Up. With strong monster parts (e.g. Lynel Guts) reaches Mighty++.",
+   "where": "On trees in Hyrule Field and West Necluda, and around Faron's woods; shake or hit the tree to drop it."
+  },
+  {
+   "name": "Rugged Rhino Beetle",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Tough",
+   "potency": 2,
+   "hearts": 0,
+   "timeSec": 50,
+   "sell": 3,
+   "bonus": "Tough Elixir = Defense Up. With strong monster parts (e.g. Hinox Guts) reaches Tough++.",
+   "where": "On trees in Eldin Canyon and the Akkala Highlands; found on tree trunks in warmer wooded areas."
+  },
+  {
+   "name": "Sunset Firefly",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Sneaky",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 120,
+   "sell": 2,
+   "bonus": "Sneaky Elixir = Stealth Up (quieter, enemies notice you less). Also used to make Sneaky dishes.",
+   "where": "Appears at night in grassy fields and forests (Hyrule Field, Necluda); crouch and approach slowly or it flees."
+  },
+  {
+   "name": "Deep Firefly",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Bright",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 120,
+   "sell": 3,
+   "bonus": "Bright Elixir = Glow (Link emanates light in dark caves / the Depths). Striking it destroys it - sneak-catch only.",
+   "where": "Caves and the Depths, especially around the Great Hyrule Forest and underground hollows; glows in the dark."
+  },
+  {
+   "name": "Hearty Lizard",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Hearty",
+   "potency": 3,
+   "hearts": 0,
+   "timeSec": 0,
+   "sell": 3,
+   "bonus": "hearty:+4 - Hearty Elixir = full heal + temporary (yellow) hearts; no timer, the extra hearts persist until lost. One lizard grants ~4 bonus hearts.",
+   "where": "Gerudo Highlands and East Necluda; clings to logs and rocks. Beedle sells them at some stables for ~100 rupees."
+  },
+  {
+   "name": "Sticky Lizard",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Sticky",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 120,
+   "sell": 2,
+   "bonus": "Sticky Elixir = SLIP RESISTANCE (climb in rain without sliding). NOTE: Slip Resistance is not one of the simulator's modeled effects, so the pot tool won't predict a tier for it - it's informational here.",
+   "where": "Clings to cave walls and rock faces throughout Hyrule, often near water in Lanayru and the Zora region."
+  },
+  {
+   "name": "Sticky Frog",
+   "role": "critter",
+   "cat": "critter",
+   "effect": "Sticky",
+   "potency": 1,
+   "hearts": 0,
+   "timeSec": 120,
+   "sell": 2,
+   "bonus": "Sticky Elixir = SLIP RESISTANCE (climb in rain). Interchangeable with the Sticky Lizard. NOTE: not one of the simulator's modeled effects.",
+   "where": "Poolside after rainfall and in caves near water in West Necluda and Lanayru Great Spring; on wet rock."
+  },
+  {
+   "name": "Fairy",
+   "role": "special",
+   "cat": "critter",
+   "potency": 1,
+   "hearts": 5,
+   "timeSec": 0,
+   "sell": 2,
+   "bonus": "Carry one and it AUTO-REVIVES Link on death (consumes the fairy). Restores 5 hearts if used raw; cook with a monster part for a Fairy Tonic (no stat effect, just healing). Sneak-catch or grab while gliding - it flees once it notices you.",
+   "where": "Floats near circular ponds on the Sky Islands and in some surface caves; easiest to farm from Great Fairy Fountains' sky-island ponds."
+  },
+  {
+   "name": "Bokoblin Horn",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 40,
+   "sell": 3,
+   "where": "Dropped by Bokoblins everywhere across Hyrule's surface, Sky, and Depths. The most common monster part.",
+   "bonus": "Adds +0:40 to elixir duration. No effect of its own — pair with a critter to set the elixir's effect."
+  },
+  {
+   "name": "Bokoblin Fang",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 110,
+   "sell": 8,
+   "where": "Dropped by Blue and Black Bokoblins (tougher color tiers). Common once you reach mid-game enemy camps.",
+   "bonus": "Adds +1:50 to elixir duration — over twice a horn's. A reliable mid-tier duration part."
+  },
+  {
+   "name": "Bokoblin Guts",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 160,
+   "sell": 20,
+   "where": "Dropped by Silver Bokoblins (and rarely Black). Late-game, high-tier enemies.",
+   "bonus": "Adds +2:40 to elixir duration and a 30% critical-cook chance. A long-duration, high-value part."
+  },
+  {
+   "name": "Moblin Horn",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 40,
+   "sell": 5,
+   "where": "Dropped by Moblins on the surface, in the Sky, and in the Depths.",
+   "bonus": "Adds +0:40 to elixir duration. Functions like a Bokoblin Horn — short-duration base part."
+  },
+  {
+   "name": "Moblin Fang",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 110,
+   "sell": 12,
+   "where": "Dropped by Blue and Black Moblins. Found at larger monster camps.",
+   "bonus": "Adds +1:50 to elixir duration — a solid mid-tier choice."
+  },
+  {
+   "name": "Moblin Guts",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 160,
+   "sell": 20,
+   "where": "Dropped by Silver Moblins (rarely Black). Late-game enemies.",
+   "bonus": "Adds +2:40 to elixir duration plus a 30% crit-cook chance. High-tier, long-lasting."
+  },
+  {
+   "name": "Lizalfos Horn",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 40,
+   "sell": 8,
+   "where": "Dropped by Lizalfos in wetlands, deserts, the Sky, and the Depths.",
+   "bonus": "Adds +0:40 to elixir duration. A cheap, very common base part."
+  },
+  {
+   "name": "Lizalfos Talon",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 110,
+   "sell": 15,
+   "where": "Dropped by Blue, Black, and elemental Lizalfos.",
+   "bonus": "Adds +1:50 to elixir duration. The Lizalfos mid-tier duration part."
+  },
+  {
+   "name": "Lizalfos Tail",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 160,
+   "sell": 18,
+   "where": "Dropped by Lizalfos (rare ~25% drop), and from tougher color tiers. Farm in the Lanayru Wetlands.",
+   "bonus": "Adds +2:40 to elixir duration and a 30% critical-cook chance — high-tier, easy to farm."
+  },
+  {
+   "name": "Lynel Saber Horn",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 40,
+   "sell": 40,
+   "where": "Dropped by Lynels (Coliseum, Hebra, the Depths). Every Lynel drops one when defeated.",
+   "bonus": "Adds +0:40 to elixir duration, but worth a lot when sold (40 rupees; more for higher-maned tiers)."
+  },
+  {
+   "name": "Lynel Mace Horn",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 40,
+   "sell": 40,
+   "where": "Dropped by Lynels alongside the Saber Horn. Both horn types drop from a single Lynel kill.",
+   "bonus": "Adds +0:40 to elixir duration. Like the Saber Horn, it's better sold (40 rupees) than cooked."
+  },
+  {
+   "name": "Lynel Guts",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 160,
+   "sell": 200,
+   "where": "Dropped only by Lynels — one of the rarest, most valuable monster parts in the game.",
+   "bonus": "Adds +2:40 to elixir duration plus a 30% crit-cook chance, and sells for 200 rupees. Best when sold, not cooked."
+  },
+  {
+   "name": "Hinox Tooth",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 110,
+   "sell": 35,
+   "where": "Dropped by Hinox (surface, Sky, and Depths). Knock one out and loot its body.",
+   "bonus": "Adds +1:50 to elixir duration — a strong mid-tier part."
+  },
+  {
+   "name": "Hinox Guts",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 160,
+   "sell": 80,
+   "where": "Dropped by tougher Hinox (Blue, Black). One of the better long-duration parts.",
+   "bonus": "Adds +2:40 to elixir duration and a 30% crit-cook chance. High value, long-lasting."
+  },
+  {
+   "name": "Keese Eyeball",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 80,
+   "sell": 2,
+   "where": "Dropped by Keese (and elemental Keese — Fire/Ice/Electric). Abundant in caves and at night.",
+   "bonus": "Adds +1:20 to elixir duration. Cheap and plentiful — good filler when you don't need long duration."
+  },
+  {
+   "name": "Chuchu Jelly",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 40,
+   "sell": 2,
+   "where": "Dropped by Chuchus everywhere. The most abundant monster ingredient in the game.",
+   "bonus": "Adds +0:40 to elixir duration. Endless supply makes it the go-to throwaway duration part."
+  },
+  {
+   "name": "Aerocuda Eyeball",
+   "role": "monster",
+   "cat": "monster",
+   "hearts": 0,
+   "timeSec": 80,
+   "sell": 4,
+   "where": "Dropped by Aerocudas — the flying eye-creatures common in the Sky and over surface ruins.",
+   "bonus": "Adds +1:20 to elixir duration. A common low-tier part, slightly better duration than a horn."
+  },
+  {
+   "name": "Dinraal's Scale",
+   "role": "dragon",
+   "cat": "dragon",
+   "hearts": 0,
+   "potency": 0,
+   "timeSec": 90,
+   "sell": 150,
+   "where": "Shoot Dinraal's body (torso/tail). Dinraal, the fire dragon, circles the northern sky — rises from the East Akkala Plains Chasm / Eldin region and loops the Eldin Mountains, Akkala, and Tabantha sky. One part drops per real-world ~10 min, then its body glows again.",
+   "effect": "",
+   "bonus": "Guarantees a Critical Success and adds about 1:30 to the dish's effect duration. (Carries no effect of its own — it boosts whatever critter you cook it with. On weapon fusion it also adds a minor fire effect.)"
+  },
+  {
+   "name": "Shard of Dinraal's Horn",
+   "role": "dragon",
+   "cat": "dragon",
+   "hearts": 0,
+   "potency": 0,
+   "timeSec": 1800,
+   "sell": 300,
+   "where": "Shoot the tip of Dinraal's horn — the rarest, hardest part to hit. Dinraal rises from Eldin/Akkala and flies the northern sky. One part per real-world ~10 min.",
+   "effect": "",
+   "bonus": "Guarantees a Critical Success and maxes the dish to 30:00 — the longest cooking duration in the game. One horn shard takes any timed dish to ~30 minutes."
+  },
+  {
+   "name": "Naydra's Scale",
+   "role": "dragon",
+   "cat": "dragon",
+   "hearts": 0,
+   "potency": 0,
+   "timeSec": 90,
+   "sell": 150,
+   "where": "Shoot Naydra's body (torso/tail). Naydra, the ice dragon, rises from the Naydra Snowfield Chasm by the Mount Lanayru Skyview Tower and circles the Lanayru / eastern sky. One part per real-world ~10 min.",
+   "effect": "",
+   "bonus": "Guarantees a Critical Success and adds about 1:30 to the dish's effect duration. (No effect of its own. On weapon fusion it also adds a minor ice effect.)"
+  },
+  {
+   "name": "Shard of Naydra's Horn",
+   "role": "dragon",
+   "cat": "dragon",
+   "hearts": 0,
+   "potency": 0,
+   "timeSec": 1800,
+   "sell": 300,
+   "where": "Shoot the tip of Naydra's horn (rare drop). Naydra flies the Lanayru / Mount Lanayru / eastern sky. One part per real-world ~10 min.",
+   "effect": "",
+   "bonus": "Guarantees a Critical Success and maxes the dish to 30:00 — the maximum cooking duration. One horn shard takes any timed dish to ~30 minutes."
+  },
+  {
+   "name": "Farosh's Scale",
+   "role": "dragon",
+   "cat": "dragon",
+   "hearts": 0,
+   "potency": 0,
+   "timeSec": 90,
+   "sell": 150,
+   "where": "Shoot Farosh's body (torso/tail). Farosh, the lightning dragon, rises from the East Gerudo Chasm and circles the southwest — Gerudo Canyon, Faron Grasslands, and toward Lake Hylia. One part per real-world ~10 min.",
+   "effect": "",
+   "bonus": "Guarantees a Critical Success and adds about 1:30 to the dish's effect duration. (No effect of its own. On weapon fusion it also adds a minor shock effect.)"
+  },
+  {
+   "name": "Shard of Farosh's Horn",
+   "role": "dragon",
+   "cat": "dragon",
+   "hearts": 0,
+   "potency": 0,
+   "timeSec": 1800,
+   "sell": 300,
+   "where": "Shoot the tip of Farosh's horn (rare drop). Farosh flies the Gerudo / Faron / Lake Hylia southwestern sky. One part per real-world ~10 min.",
+   "effect": "",
+   "bonus": "Guarantees a Critical Success and maxes the dish to 30:00 — the maximum cooking duration. One horn shard takes any timed dish to ~30 minutes."
+  },
+  {
+   "name": "Light Dragon's Scale",
+   "role": "dragon",
+   "cat": "dragon",
+   "hearts": 0,
+   "potency": 0,
+   "timeSec": 90,
+   "sell": 150,
+   "where": "Shoot the Light Dragon's body (torso/tail). The Light Dragon flies one wide fixed loop around all of Hyrule and is the only dragon that never enters the Depths/chasms; reach it via the sky islands or a Skyview Tower launch. One part per real-world ~10 min.",
+   "effect": "",
+   "bonus": "Guarantees a Critical Success and adds about 1:30 to the dish's effect duration. (No effect of its own. On weapon fusion Light Dragon parts add a healing/recovery effect instead of an element.)"
+  },
+  {
+   "name": "Shard of Light Dragon's Horn",
+   "role": "dragon",
+   "cat": "dragon",
+   "hearts": 0,
+   "potency": 0,
+   "timeSec": 1800,
+   "sell": 300,
+   "where": "Shoot the tip of the Light Dragon's horn (rare drop). The Light Dragon flies a continuous loop across the whole map. One part per real-world ~10 min.",
+   "effect": "",
+   "bonus": "Guarantees a Critical Success and maxes the dish to 30:00 — the maximum cooking duration. One horn shard takes any timed dish to ~30 minutes."
+  },
+  {
+   "name": "Star Fragment",
+   "role": "special",
+   "cat": "special",
+   "hearts": 0,
+   "sell": 200,
+   "where": "Catch or pick up where a shooting star lands at night; one falls nightly and vanishes by ~5 AM.",
+   "bonus": "crit-chance"
+  },
+  {
+   "name": "Monster Extract",
+   "role": "special",
+   "cat": "special",
+   "hearts": 0,
+   "sell": 12,
+   "where": "Buy for 50 rupees at the Tarrey Town General Store (also stocked by some monster-camp/merchant pots)."
+  },
+  {
+   "name": "Dragon Horn Shard",
+   "role": "special",
+   "cat": "special",
+   "hearts": 0,
+   "sell": 150,
+   "where": "Shoot the horn tip of Dinraal, Naydra, Farosh, or the Light Dragon (one horn shard per dragon per Blood Moon).",
+   "bonus": "crit"
+  },
+  {
+   "name": "Dragon Scale",
+   "role": "special",
+   "cat": "special",
+   "hearts": 0,
+   "sell": 100,
+   "where": "Strike a dragon's body/tail (Dinraal/Naydra/Farosh/Light Dragon) to knock off a scale (~10-min part cooldown).",
+   "bonus": "crit"
+  },
+  {
+   "name": "Dragon Claw",
+   "role": "special",
+   "cat": "special",
+   "hearts": 0,
+   "sell": 100,
+   "where": "Hit a dragon's feet/claws (Dinraal/Naydra/Farosh/Light Dragon; ~10-min part cooldown).",
+   "bonus": "crit"
+  },
+  {
+   "name": "Dragon Fang",
+   "role": "special",
+   "cat": "special",
+   "hearts": 0,
+   "sell": 100,
+   "where": "Hit a dragon's mouth/jaw (Dinraal/Naydra/Farosh/Light Dragon; ~10-min part cooldown).",
+   "bonus": "crit"
+  },
+  {
+   "name": "Golden Apple",
+   "role": "special",
+   "cat": "special",
+   "hearts": 1.5,
+   "sell": 8,
+   "where": "Rare golden apples on apple trees around Hyrule (e.g. the orchard by Sonapan Shrine on Satori Mountain, Hyrule Field, Mido Swamp near the Lost Woods).",
+   "bonus": "crit"
+  }
+ ],
  "WORLD": {
   "systems": [
    {
@@ -17784,8 +19038,7 @@ const TOTK = {
     "location": "Near Snowfield Stable in the South Tabantha Snowfield (cold region; pack warm gear).",
     "cost": "Free to unlock (final Stable Trotters performance); upgrades cost materials plus rupees"
    }
-  ],
-  "notes": "Web-verified against Nintendo Life, Game8, GameWith, ZeldaDungeon, Fextralife. CORRECTIONS to the source dataset: (1) The heart/stamina swap is done at the HORNED STATUE (also nicknamed the Cursed Statue), hidden in the Emergency Shelter bunker beneath Lookout Landing, unlocked via the \"Who Goes There?!\" quest. It is NOT a Goddess Statue and NOT a Bargainer/\"Statue of the Dead\" (those are the separate Poe-trading statues). (2) The swap is NOT free: you sell an essence for 100 rupees and rebuy the other type for 120, a net 20 rupees per swap. The source's own note that recommended dropping the Horned Statue reference was backwards and has been reversed. (3) Korok seed total corrected from 1000 to 900 (giving all to Hestu fully maxes pouches; the famous \"1000th\" is a meme/extra, but the real count is 900). (4) Softened \"press A\" sage-activation wording since activation differs per sage (Tulin gust on glide, Yunobo charge on aim+attack, etc.); walking up + prompt is the secondary cue. Confirmed accurate as given: 152 shrines, 120 Lightroots (names spelled backwards under Surface shrines), 15 Skyview Towers, 7 Bargainer Statues (1 Surface + 6 Depths), 20 Sage's Wills (some guarded by King Gleeoks), 4 Sage's Wills per upgrade at ~1.3x, 4 Lights of Blessing per vessel, 3 Zonaite per Crystallized Charge at a Forge Construct, 100 charges per Energy Cell at the Crystal Refinery, 4 Great Fairies (Tera, Cotera, Kaysa, Mija) unlocked via the Stable Trotters troupe led by conductor Mastro, Tera awakened first. Medium-high confidence on stable pairings; Tera-first ordering is firm. Note: Korok total of 900 is well documented but some count the bonus, so if your app already standardized on 900 keep it."
+  ]
  },
  "ECONOMY": null,
  "COMPENDIUM": [],

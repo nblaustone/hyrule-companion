@@ -83,6 +83,7 @@ const CHAMPIONS = REGIONS.filter((r) => r.champion).map((r) => {
 
 // derive RECIPES (effect cards) + COOK_RULES from TotK cooking so the Cook tab + search work
 const COOKING = globals.cooking || { rules: [], effects: [], recipes: [], dragons: [] };
+delete COOKING.notes; // strip verification meta (CookReference renders cooking.notes)
 const tone = (e) => { const s = e.toLowerCase(); if (/spicy|cold/.test(s)) return "warm"; if (/chilly|heat/.test(s)) return "cool"; if (/fireproof|flame/.test(s)) return "fire"; if (/electro|shock/.test(s)) return "volt"; if (/hearty|gloom/.test(s)) return "heart"; if (/energiz|endur|stamina/.test(s)) return "stam"; if (/mighty|attack/.test(s)) return "atk"; if (/tough|defen/.test(s)) return "def"; if (/hasty|speed/.test(s)) return "speed"; if (/sneak|stealth/.test(s)) return "sneak"; if (/bright|glow/.test(s)) return "volt"; if (/sticky|slip/.test(s)) return "def"; return "warm"; };
 const RECIPES = (COOKING.effects || []).map((e) => ({ eff: e.effect, tone: tone(e.effect), does: e.does, key: e.ingredients, recipe: e.elixir || "Cook the ingredients in a pot.", now: false }));
 const COOK_RULES = COOKING.rules || [];
@@ -125,7 +126,8 @@ if (BAT) {
 }
 const BESTIARY = { enemies: ENEMIES };
 if (basics.length) BESTIARY.basics = basics;
-if (globals.bestiary && globals.bestiary.notes) BESTIARY.notes = globals.bestiary.notes;
+// NB: globals.bestiary.notes is agent verification meta ("Adversarial verify done…") — NEVER surface it
+// (EnemiesView renders data.notes as its lede). Same for COOKING.notes / WORLD.notes below. (honesty-meta rule)
 
 // optional standalone overlays
 // stable slug ids for side quests (must match qSlug() in HyruleCompanion.jsx — progress keys depend on it)
@@ -166,7 +168,7 @@ const out = {
   ARMOR: { sets: ARMOR_SETS },
   BESTIARY,
   COOKING, RECIPES, COOK_RULES, COOK_INGREDIENTS,
-  WORLD: globals.world || { upgrades: [], systems: [], fairies: [] },
+  WORLD: (() => { const w = { ...(globals.world || { upgrades: [], systems: [], fairies: [] }) }; delete w.notes; return w; })(),
   ECONOMY, COMPENDIUM,
   RUNES, STATUS_RUNES, CHAMPIONS,
   CATS: [
