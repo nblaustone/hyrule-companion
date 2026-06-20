@@ -310,9 +310,10 @@ layout, `REGION_MAPS` = the per-region coords.
   Implementation: each search hit carries a `detail` string (armor composes a multi-line recipe; `.srch-detail`
   uses `white-space:pre-line`); an `open` state drives the accordion; reused chevrons + a cyan answer panel.
   Verified in-browser (Waterblight → full fight plan inline; Kaya Wan/Snowquill/Tarrey/spicy all expand), 0
-  console errors. The user picked ONLY this from a 4-option menu (deferred: panic buttons, search-as-home,
-  recent/nearby chips) — so those remain easy future adds. **Principle: content we already have is only as good
-  as the taps to reach it; the magnifier is now the "help me now" button.**
+  console errors. The user picked ONLY this from a 4-option menu and then **explicitly declined the other three**
+  (panic buttons, search-as-home, recent/nearby chips) as "not genuinely useful" — do NOT re-propose them;
+  answer-first search + the Status coach already cover the moment-of-need. **Principle: content we already have is
+  only as good as the taps to reach it; the magnifier is now the "help me now" button.**
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3
