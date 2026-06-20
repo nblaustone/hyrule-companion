@@ -28,13 +28,15 @@
 3. **The repo is the memory.** Decisions live in `journal/decisions/`, not in chat. Supersede with a new ADR;
    never rewrite history.
 
-## The games (multi-game as of v8)
-Two games now live behind a **game picker** (Status tab): **Breath of the Wild** and **Tears of the Kingdom**.
-`GAMES = { botw, totk }` (built by `inline-data.mjs`); the `HyruleCompanion` wrapper owns the active game and
-remounts `<HyruleGame key={game}>`, which shadows the data globals with `GAMES[game]` and namespaces storage
-(`botw:*` / `totk:*`). Per-game `terms`/`guideSegs`/`postRegionId` adapt labels + surfaces; missing datasets
-degrade gracefully (TotK v1 has no maps/fairies/towers/quests/koroks). OoT etc. would slot in the same way.
-See ADR 0005. TotK data: `knowledge/totk/` (assembled by `build/assemble-totk.mjs`).
+## The games (multi-game as of v8; three games as of v14)
+Three games now live behind a **game picker** (Status tab): **Breath of the Wild**, **Tears of the Kingdom**,
+and **Ocarina of Time** (game 3, started v14). `GAMES = { botw, totk, oot }` (built by `inline-data.mjs` — each
+of TOTK/OOT is read wholesale from `knowledge/<game>/app-data.json`); the `HyruleCompanion` wrapper owns the
+active game (`hyrule:game`) and remounts `<HyruleGame key={game}>`, which shadows the data globals with
+`GAMES[game]` and namespaces storage (`botw:*` / `totk:*` / `oot:*`). Per-game `terms`/`guideSegs`/`postRegionId`
+adapt labels + surfaces; **missing datasets degrade gracefully** (OoT v1 has no shrines/cooking/maps/armor/…, like
+TotK v1 — TotK/OoT are the canaries for "does this feature degrade?"). See ADR 0005. Data: `knowledge/totk/`
+(`build/assemble-totk.mjs`) and `knowledge/oot/` (`build/assemble-oot.mjs`).
 
 ## Layout
 ```
@@ -378,27 +380,47 @@ layout, `REGION_MAPS` = the per-region coords.
   upgrade/sell use). Merge dedupes by cat+name (the "special" agent re-listed dragon/ancient parts; the dedicated-
   category copy wins). Verified in-browser (Lynel Guts → "Monster Part · Sell 200 · tops out Barbarian/Radiant…",
   Diamond → "Gem · Sell 500 · mine Rare Ore Deposits", all 6 filters), 0 console errors.
-- **v13 — TotK parity (IN PROGRESS):** bringing Tears of the Kingdom up to par with BotW. **Architecture:**
-  `assemble-totk.mjs` now folds OPTIONAL `knowledge/totk/*.json` overlays into `app-data.json` idempotently —
-  drop a dataset file and re-assemble; `guideSegs` rebuilds from which datasets populate. Each dataset has its
-  own **author→adversarial-verify** generator `build/gen-totk-*-workflow.mjs` (mirrors the BotW ones; emits a
-  `/tmp/totk-*-workflow.mjs` you run with the **Workflow** tool). All edits go to `knowledge/totk/*` sources,
-  never the built file.
-  - **v13.0 (DONE, pushed b46c732):** **Stuck hints** — 59 across all 9 chapters (`apply-totk-stuck.mjs` →
-    `walkthrough.json`); **Combat guides** — 7-card Basics primer + 20 marquee battle guides, Gleeoks/temple
-    bosses split out of the lumped rows (`knowledge/totk/battle.json`; assemble drops the `LUMPED` placeholders);
-    **Overview map** — hand-authored `knowledge/totk/map-nodes.json` (12 regions + sage-temple markers) → TotK
-    Status map renders. UI parametrized TotK-safe (Towers→Skyview, Fairies unlock-not-fee, Korok seed totals via
-    `data.maxSeeds/totalSeeds`). Build/transform/offline-check validated; **in-browser smoke test still TODO**
-    (was budget-cut — verify TotK Journey/Enemies/Status render, 0 console errors, before trusting).
-  - **Remaining (generators ready in `build/`, results → `knowledge/totk/*.json`, then re-assemble+inline+build):**
-    `gen-totk-shrine-solutions` (152; **resume `wf_ebb10104-cfd`** — only 2 done, ~150 to go),
-    `gen-totk-sidequests` (12 regions; **resume `wf_b88c49fe-9e7`**), `gen-totk-depth` (armor ★-tiers · economy ·
-    koroks · 15 Skyview Towers · 4 Great Fairies — NOT yet run), `gen-totk-compendium`, `gen-totk-cooking`,
-    `gen-totk-region-maps` (NOT yet run).
-  - **⚠ RATE-LIMIT RULE (learned the hard way):** running **3+ Workflows concurrently** (~360 agents) triggers
-    server-side **529 overload** and most agents fail (shrine-solutions came back 2/152). **Run ≤2 workflows at
-    a time**, and use `Workflow({scriptPath, resumeFromRunId})` to mop up failures — cached successes return
-    instantly, only failed agents re-run. Capture a finished workflow's data from its task **output file**
-    (`.result` key), write to `knowledge/totk/<name>.json`, then `assemble-totk → inline-data → build`.
-- **Beyond:** Ocarina of Time as game 3 (same `GAMES` slot-in) — the user's favorite, beaten many times.
+- **v13 — TotK parity (Guide tab COMPLETE; two content gaps left):** brought Tears of the Kingdom up to par
+  with BotW. **Architecture:** `assemble-totk.mjs` folds OPTIONAL `knowledge/totk/*.json` overlays into
+  `app-data.json` idempotently — drop a dataset file and re-assemble; `guideSegs` rebuilds from which datasets
+  populate. Each dataset has its own **author→adversarial-verify** generator `build/gen-totk-*-workflow.mjs`
+  (mirrors the BotW ones; emits `/tmp/totk-*-workflow.mjs` to run with the **Workflow** tool). All edits go to
+  `knowledge/totk/*` sources, never the built file. Capture a finished workflow's data from its task **output
+  file** (`.result` key), write to `knowledge/totk/<name>.json`, then `assemble-totk → inline-data → build`.
+  - **v13.0** (b46c732): **Stuck hints** — 59 across all 9 chapters (`apply-totk-stuck.mjs` → `walkthrough.json`);
+    **Combat guides** — 7-card Basics primer + 20 marquee battle guides, Gleeoks/temple bosses split out of the
+    lumped rows (`battle.json`; assemble drops the `LUMPED` placeholders); **Overview map** — hand-authored
+    `map-nodes.json` (12 regions + sage-temple markers). UI parametrized TotK-safe (Towers→Skyview, Fairies
+    unlock-not-fee, Korok seed totals via `data.maxSeeds/totalSeeds`).
+  - **v13.1** (8ba87ea): **Side quests** — 173 Side Quests + Side Adventures across 12 regions (`side-quests.json`;
+    assemble stamps stable `sq_<slug>` ids). Guide→Quests now appears for TotK.
+  - **v13.2** (49e792b): **Interactive cooking** — 121-ingredient `cooking-ingredients.json` flips the Cook tab to
+    the pot simulator (engine verified on TotK data: Hearty Radish+Salmon → +8 bonus). **Also fixed a meta-leak
+    regression I introduced in v13.0:** assemble was passing `globals.bestiary.notes` (agent verification meta)
+    into `BESTIARY.notes`, which `EnemiesView` renders as its lede → "Adversarial verify done…" showed in the UI.
+    Now stripped (also `COOKING.notes`/`WORLD.notes`); Korok notes kept (real caveat). **Rule: TotK app-data is
+    inlined WHOLESALE (no `noNotes()` like BotW) — strip any `notes`/verification meta in assemble-totk before it
+    reaches a render site.** Caught only by an in-browser screenshot → always visually verify.
+  - **v13.3** (9908d4a): **Depth bundle** (`gen-totk-depth`, 44 agents → 5 overlays): armor ★1–4 tiers+farm
+    (16/17 sets), 15 Skyview Towers, 4 Great Fairies (Tera/Cotera/Kaysa/Mija, troupe-unlock), Koroks (19 types +
+    verified 1000 seeds/421-to-max), Money (10 earners/16 farms/8 tips). **TotK Guide tab is now at FULL parity:
+    Abilities · Tips · Armor · Fairies · Towers · Quests · Enemies · Koroks · Money · World · Settings.** All
+    v13.0–13.3 verified in-browser (0 console errors, 0 meta leaks).
+  - **TotK remaining (2 gaps, generators staged in `build/`, run ≤2 at a time):** **shrine solutions** (152 — the
+    Stuck-reveal/search centerpiece; `gen-totk-shrine-solutions`, **resume `wf_ebb10104-cfd`**, ~150 left);
+    **compendium** (`gen-totk-compendium`, Items-tab catalog, not yet run); **region maps** (`gen-totk-region-maps`,
+    per-region schematics, not yet run). User paused here (budget) to start OoT.
+  - **⚠ RATE-LIMIT RULE (learned the hard way):** **3+ Workflows concurrently** (~360 agents) triggers server-side
+    **529 overload** — shrine-solutions came back 2/152. **Run ≤2 workflows at a time**; `resumeFromRunId` mops up
+    failures (cached successes return instantly). Heavy runs are ~1.5–2M tokens each.
+- **v14 — Ocarina of Time as game 3 (STARTED):** **v14.0** (801506f) scaffolded OoT into the `GAMES` picker
+  (now **BotW · TotK · OoT**). `build/assemble-oot.mjs`: `knowledge/oot/{walkthrough,globals}.json` →
+  `app-data.json` (same bundle shape; derives STATUS_RUNES, wires the 3 Spiritual Stones/CHAMPIONS to their grant
+  steps; every absent dataset defaults empty & degrades — TotK was the canary). `inline-data.mjs` wires
+  `oot: OOT`. globals.json = OoT identity (terms: Heart Containers/Items & Songs/Spiritual Stones/Dungeon; items
+  reference; roadmap; tips; guideSegs Items·Tips·Settings). walkthrough.json = hand-authored opening (Kokiri
+  Forest + Inside the Great Deku Tree → Queen Gohma → Kokiri's Emerald + Fairy Ocarina, with Stuck hints). Status
+  "Shrines" panel gated to `shrineStats.total > 0`. Verified in-browser, 0 console errors. **Next:** a walkthrough
+  Workflow to author the remaining chapters (Hyrule Field/Zelda → Dodongo's Cavern → Jabu-Jabu → Master Sword →
+  Forest/Fire/Water/Shadow/Spirit Temples → Ganon's Castle); then OoT items/songs reference, enemies, Heart
+  Pieces/Gold Skulltulas/Biggoron trade. OoT is the owner's favorite (beaten many times) → self-verifiable.
