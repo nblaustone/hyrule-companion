@@ -1,0 +1,1622 @@
+{
+ "regions": [
+  {
+   "region": "Lookout Landing & Central Hyrule",
+   "quests": [
+    {
+     "name": "Today's Menu",
+     "kind": "Side Quest",
+     "giver": "Burmano (the cook, inside the Emergency Shelter at Lookout Landing)",
+     "location": "Lookout Landing (Emergency Shelter)",
+     "reward": "Fruit and Mushroom Mix (a cooked dish)",
+     "oneLine": "The shelter's cook is one ingredient short of finishing his dish and asks you to bring it.",
+     "how": "Talk to Burmano in the Emergency Shelter and he asks for an Apple. Hand over an Apple from your materials (shake any apple tree if you have none) and he gives you a Fruit and Mushroom Mix, completing the quest."
+    },
+    {
+     "name": "The Incomplete Stable",
+     "kind": "Side Quest",
+     "giver": "Karson / Lester (Hudson Construction crew at the unfinished stable just inside the south gate of Lookout Landing)",
+     "location": "Lookout Landing (south entrance)",
+     "reward": "Builds the Lookout Landing mini-stable (board/register horses there) + 1 Pony Point",
+     "oneLine": "The half-built stable at Lookout Landing is missing a roof plank you can put in place.",
+     "how": "Available after you clear one Regional Phenomena (one temple). Grab the loose wooden plank lying near the horses with Ultrahand, rotate it to fit the gap in the stable roof and set it in place to seal the hole, then talk to Karson/Lester to finish."
+    },
+    {
+     "name": "Spotting Spot",
+     "kind": "Side Quest",
+     "giver": "Lester (at the now-finished Lookout Landing mini-stable, south side)",
+     "location": "Lookout Landing (south) / Passeri Greenbelt just southwest",
+     "reward": "Purple Rupee (50), a Swift Carrot, and you keep the horse Spot",
+     "oneLine": "Lester wants you to catch a particular spotted horse roaming the fields nearby.",
+     "how": "Complete The Incomplete Stable first. Go a short way southwest to the wild horses near Passeri Greenbelt and find Spot — a beige horse with grey spots and a black mane and tail. Sneak up behind it, mount it, soothe it with the L-stick to tame it, then ride it back and register it with Lester while mounted."
+    },
+    {
+     "name": "Village Attacked by Pirates",
+     "kind": "Side Quest",
+     "giver": "Garini (with Mubs, at the Lookout Landing General Store)",
+     "location": "Lookout Landing (resolves at Lurelin Village)",
+     "reward": "Mighty Salt-Grilled Crab",
+     "oneLine": "A worried merchant has heard his home village of Lurelin is being raided by pirates and wants it made safe.",
+     "how": "Talk to Garini or Mubs at the Lookout Landing General Store to start it. Travel to Lurelin Village in southeast Hyrule and clear out the monster pirates occupying it (the Lurelin 'Ruffian-Infested Village' liberation), then return to Garini at Lookout Landing to report the villagers are safe and collect the crab."
+    },
+    {
+     "name": "A Deal With the Statue",
+     "kind": "Side Adventure",
+     "giver": "The Horned Statue (in the Royal Hidden Passage, reached through the Emergency Shelter under Lookout Landing)",
+     "location": "Lookout Landing (Royal Hidden Passage)",
+     "reward": "Unlocks the Horned Statue trade — sell a Heart or Stamina vessel for 100 rupees and buy either back for 120, so you can freely swap hearts for stamina (and back)",
+     "oneLine": "A statue offers to take a heart and let you re-spec your hearts and stamina vessels.",
+     "how": "Available after you clear one temple. Reach the Horned Statue at the end of the Royal Hidden Passage (the same cave as Who Goes There?). Talk to it — it takes one Heart Container and returns it on the second chat, then opens its swap-shop so you can trade hearts and stamina back and forth for rupees."
+    },
+    {
+     "name": "WANTED: Stone Talus",
+     "kind": "Side Quest",
+     "giver": "Gralens (Monster-Control Crew, inside the Emergency Shelter at Lookout Landing)",
+     "location": "Lookout Landing (Emergency Shelter); target in Akkala",
+     "reward": "100 rupees; clearing all three big-monster WANTED bounties adds 300 more rupees",
+     "oneLine": "Gralens posts a bounty on a large Stone Talus and marks it on your map.",
+     "how": "Available after you finish two 'Bring Peace to...!' raids. Talk to Gralens, choose 'How about big monsters?' then pick Stone Talus to mark it (Akkala). Ascend or climb onto the Talus, run to the ore deposit on its back, and Fuse a heavy rock or hammer to your weapon to smash the deposit until it dies. Return to Gralens for the reward."
+    },
+    {
+     "name": "WANTED: Hinox",
+     "kind": "Side Quest",
+     "giver": "Gralens (Monster-Control Crew, inside the Emergency Shelter at Lookout Landing)",
+     "location": "Lookout Landing (Emergency Shelter); target out in the field",
+     "reward": "100 rupees; clearing all three big-monster WANTED bounties adds 300 more rupees",
+     "oneLine": "Gralens posts a bounty on a sleeping Hinox and marks its location.",
+     "how": "From Gralens' 'big monsters' menu pick Hinox to mark it. Travel there and hit the Hinox in its single eye to stun it — shoot the eye with an arrow or land a strong fused blow — then pile on damage to the downed body. Repeat until it falls and report back to Gralens."
+    },
+    {
+     "name": "WANTED: Molduga",
+     "kind": "Side Quest",
+     "giver": "Gralens (Monster-Control Crew, inside the Emergency Shelter at Lookout Landing)",
+     "location": "Lookout Landing (Emergency Shelter); target in the Gerudo Desert",
+     "reward": "100 rupees; clearing all three big-monster WANTED bounties adds 300 more rupees",
+     "oneLine": "Gralens posts a bounty on a Molduga that swims through the desert sand.",
+     "how": "From Gralens' 'big monsters' menu pick Molduga to mark it (Gerudo Desert). Stand on a rock so it can't reach you, then drop or shoot a Bomb Flower (Fuse one to an arrow) onto the sand near it; the blast flips it onto its back, so strike it with strong fused melee hits. Repeat and return to Gralens."
+    },
+    {
+     "name": "Unknown Sky Giant",
+     "kind": "Side Quest",
+     "giver": "Gralens (Monster-Control Crew, inside the Emergency Shelter at Lookout Landing)",
+     "location": "Lookout Landing (Emergency Shelter); target is a Flux Construct in the sky",
+     "reward": "100 rupees; clearing all three 'Unknown' unusual-monster bounties also yields a Diamond",
+     "oneLine": "Gralens relays sightings of a giant block-creature in the sky and marks it for you to slay.",
+     "how": "After clearing all three big-monster WANTED bounties, ask Gralens about 'unusual monsters' and pick the sky giant to mark a Flux Construct (near the Wind Temple region). Pull a glowing block off it with Ultrahand to expose the core, then Ascend or climb to the core and smash it until the Construct collapses. Report to Gralens."
+    },
+    {
+     "name": "Unknown Three-Headed Monster",
+     "kind": "Side Quest",
+     "giver": "Gralens (Monster-Control Crew, inside the Emergency Shelter at Lookout Landing)",
+     "location": "Lookout Landing (Emergency Shelter); target is a Gleeok at the Bridge of Hylia",
+     "reward": "100 rupees; clearing all three 'Unknown' unusual-monster bounties also yields a Diamond",
+     "oneLine": "Reports of a fire-breathing three-headed dragon send Gralens' bounty to a Gleeok.",
+     "how": "From Gralens' 'unusual monsters' options pick the three-headed monster to mark a Flame Gleeok at the Bridge of Hylia. Shoot each of its three heads to stun them; when all heads are down the Gleeok crashes, so use a high vantage and Bullet Time (jump then draw the bow) plus fused arrows to finish it. Return to Gralens."
+    },
+    {
+     "name": "Unknown Huge Silhouette",
+     "kind": "Side Quest",
+     "giver": "Gralens (Monster-Control Crew, inside the Emergency Shelter at Lookout Landing)",
+     "location": "Lookout Landing (Emergency Shelter); target is a Frox in the Depths",
+     "reward": "100 rupees; clearing all three 'Unknown' unusual-monster bounties also yields a Diamond",
+     "oneLine": "Gralens marks a huge silhouette lurking below — a Frox in the Depths.",
+     "how": "From Gralens' 'unusual monsters' options pick the huge silhouette to mark a Frox in the Depths. Toss a bomb or Brightbloom Seed into its mouth when it tries to inhale you (or shoot the glowing bulbs on its back), then climb onto its back while it's stunned and pummel the bulbs. Repeat until it dies and report to Gralens."
+    },
+    {
+     "name": "Bring Peace to Hyrule Field!",
+     "kind": "Side Adventure",
+     "giver": "Hoz (Monster-Control Crew captain, on horseback in Hyrule Field just southwest of the Hyrule Field Chasm, south of Lookout Landing)",
+     "location": "Hyrule Field, south of Lookout Landing",
+     "reward": "100 rupees; starts the next 'Bring Peace to...!' regional quest",
+     "oneLine": "Hoz's squad is about to storm a monster camp on Hyrule Field and asks you to join the raid.",
+     "how": "Find Hoz mounted near the Hyrule Field Chasm and agree to help. Ride to the nearby monster camp, talk to Hoz to begin the assault, then clear every monster (Bokoblins and a Moblin). Wiping out the camp completes it and Hoz moves on to Fort Hateno for the next region's raid."
+    },
+    {
+     "name": "Hestu's Concern",
+     "kind": "Side Adventure",
+     "giver": "Hestu (the giant Korok, at Lindor's Brow just northwest of Lookout Landing)",
+     "location": "Lindor's Brow / outskirts of Lookout Landing",
+     "reward": "Unlocks Hestu so you can trade Korok Seeds to expand weapon/bow/shield pouch slots",
+     "oneLine": "Hestu is too frightened of some nearby 'trees' to do his job until you deal with them.",
+     "how": "Go to Hestu at Lindor's Brow; the 'trees' he fears are Evermean monsters. Attack the suspicious trees to make them spring to life and defeat them (a few solid hits each). With them gone Hestu relaxes and will start upgrading your equipment-pouch slots in exchange for Korok Seeds. (If you've already cleared a temple, Hestu instead waits inside Lookout Landing.)"
+    },
+    {
+     "name": "Who Goes There?",
+     "kind": "Side Adventure",
+     "giver": "Jerrin (inside the Emergency Shelter at Lookout Landing)",
+     "location": "Lookout Landing (Emergency Shelter / Royal Hidden Passage)",
+     "reward": "20 Rupees",
+     "oneLine": "Jerrin heard a creepy voice through a hole in the shelter wall and wants you to check it out.",
+     "how": "Talk to Jerrin, then go into the Royal Hidden Passage behind the hole. Follow the tunnel and break the rocks blocking the way with a Bomb Flower or a fused hammer/heavy weapon; the voice turns out to be the Horned Statue (talking to it also begins the separate 'A Deal With the Statue'). Return to Jerrin to reassure her and finish."
+    },
+    {
+     "name": "Messages from an Ancient Era",
+     "kind": "Side Adventure",
+     "giver": "Wortsworth (the scholar studying a fallen tablet at Lookout Landing)",
+     "location": "Lookout Landing (Wortsworth later relocates to Kakariko Village)",
+     "reward": "100 rupees per translated tablet, plus the Zonai Survey Team Fabric (horse caparison) on completion",
+     "oneLine": "A scholar wants you to photograph ancient stone tablets across Hyrule so he can translate them.",
+     "how": "Available after you clear a temple, when a tablet falls at Lookout Landing. Talk to Wortsworth (he then moves to Kakariko Village). Travel to each Ring Ruin / ancient tablet he marks, use the Purah Pad camera to photograph the carved text clearly, and bring the pictures back; each readable photo pays out and the full set rewards the Zonai Survey Team Fabric."
+    },
+    {
+     "name": "Hateno Village Research Lab",
+     "kind": "Side Adventure",
+     "giver": "Robbie (at the Lookout Landing research room) — he then has you meet him at the Hateno Ancient Tech Lab",
+     "location": "Lookout Landing (resolves at the Hateno Ancient Tech Lab in East Necluda)",
+     "reward": "Shrine Sensor (Purah Pad upgrade); opens Robbie's follow-up Purah Pad quests (Travel Medallion, Sensor +, Hero's Path)",
+     "oneLine": "Robbie asks you to come to his Hateno lab so he can upgrade your Purah Pad.",
+     "how": "Available after the main quest 'A Mystery in the Depths' and gaining Autobuild. Speak with Robbie at Lookout Landing, travel to the Hateno Ancient Tech Lab east of Hateno Village, and he installs the Shrine Sensor. Walk the lab with it until it pings the nearby hidden shrine, find that shrine, then return to Robbie to finish."
+    }
+   ]
+  },
+  {
+   "region": "Necluda (Hateno Village, Dueling Peaks)",
+   "quests": [
+    {
+     "name": "A New Champion's Tunic",
+     "kind": "Side Quest",
+     "giver": "Reading Zelda's Diary in Zelda's Secret Well, behind Link's old house in Hateno Village",
+     "location": "Hateno Village (East Necluda); completed at Hyrule Castle Sanctum",
+     "reward": "Champion's Leathers",
+     "oneLine": "Zelda's diary reveals she ordered a new tunic for Link, hidden in the castle throne room.",
+     "how": "Read Zelda's Diary down the well behind her old Hateno house to start the quest, then go to the Sanctum (throne room) atop Hyrule Castle. Light the two torches flanking the throne (Flint, a Fire Fruit, or a fused fire item/arrow). The statue behind the throne slides aside, revealing a chest with the Champion's Leathers."
+    },
+    {
+     "name": "Dantz's Prize Cows",
+     "kind": "Side Quest",
+     "giver": "Dantz, at Hateno Pasture (east edge of Hateno Village, on the path to the lab)",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "Fresh Milk (repeatable: 3 Acorns = 1 bottle)",
+     "oneLine": "A rancher trades you Fresh Milk for acorns to feed his cows.",
+     "how": "Bring Dantz 3 Acorns. Get them by chopping the trees behind the pasture or by shooting the bushy-tailed squirrels in the nearby woods, then hand them over. He gives a bottle of Fresh Milk, and you can repeat the trade any time."
+    },
+    {
+     "name": "A Bottled Cry for Help",
+     "kind": "Side Quest",
+     "giver": "A message bottle washed up on Hateno Beach (southeast coast, East Necluda)",
+     "location": "Hateno Beach / Mapla Point Cave (East Necluda)",
+     "reward": "100 Rupees",
+     "oneLine": "A bottled letter says a fisherman is trapped in a sea cave and needs rescuing.",
+     "how": "Read the bottle on the beach, then make your way to Mapla Point Cave to the southeast. Inside, use Ultrahand to pull away the boulder damming the path so Chumin can escape; talk to him for 100 Rupees."
+    },
+    {
+     "name": "Manny's Beloved",
+     "kind": "Side Quest",
+     "giver": "Manny, outside the house next to Cece's shop in Hateno Village",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "Rushroom x10",
+     "oneLine": "Manny wants to know what Ivee, the general-store girl, likes so he can win her over.",
+     "how": "Talk to Manny, then ask Ivee (in front of the General Store) what she likes; she asks for 10 Hot-Footed Frogs. Catch them around water near Hateno (the well up the hill behind the store is reliable), give them to Manny, and he rewards you with 10 Rushrooms."
+    },
+    {
+     "name": "Photographing a Chuchu",
+     "kind": "Side Quest",
+     "giver": "Sayge, at the Kochi Dye Shop in Hateno Village",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "Chuchu Fabric (paraglider fabric)",
+     "oneLine": "The dye-shop owner wants a Compendium photo of an ordinary Chuchu for paraglider inspiration.",
+     "how": "You need the camera (from 'A Mystery in the Depths') and must have changed the paraglider design once so Sayge will offer this. Photograph a regular (not elemental) Chuchu, then show Sayge the picture to receive the Chuchu Fabric."
+    },
+    {
+     "name": "Teach Me a Lesson",
+     "kind": "Side Quest",
+     "giver": "Symin, inside the Hateno Village school (daytime)",
+     "location": "Hateno Village (East Necluda); a photo is taken in Kakariko Village",
+     "reward": "Rupees (and the school field opens up, leading to 'Uma's Garden')",
+     "oneLine": "The teacher needs Compendium photos of historical sites to teach the kids about the past.",
+     "how": "Talk to Symin by day and accept his photo requests (including the mural in Kakariko Village). Take the pictures with your camera and show him. Completing the chain frees the school's field, which starts 'Uma's Garden'."
+    },
+    {
+     "name": "Uma's Garden",
+     "kind": "Side Quest",
+     "giver": "Uma, at the field beside the Hateno Village school",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "A grown crop of whatever produce you provided",
+     "oneLine": "An old woman will grow a vegetable for you if you give her a sample to plant.",
+     "how": "Finish 'Teach Me a Lesson' first to open the field. Give Uma one sample of a growable crop (Sun Pumpkin, Swift Carrot, Hylian Tomato, etc.). Leave and come back later (about an in-game day) to harvest the grown crop and complete the quest."
+    },
+    {
+     "name": "A Letter to Koyin",
+     "kind": "Side Adventure",
+     "giver": "Koyin, at Hateno Pasture in Hateno Village",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "Hateno Cheese (used to start 'A New Signature Food')",
+     "oneLine": "Koyin asks you to fish a dropped message bottle out of the pasture pond.",
+     "how": "A Message Bottle floats in the pasture pond. Chop nearby trees, Ultrahand the logs into a raft to reach it (or build out to it), grab the bottle, and bring it to Koyin. Talk to her again at the ranch house and she thanks you with Hateno Cheese."
+    },
+    {
+     "name": "A New Signature Food",
+     "kind": "Side Adventure",
+     "giver": "Reede, in Hateno Village",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "100 Rupees; counts toward 'The Mayoral Election'",
+     "oneLine": "Reede wants to recreate his grandfather's signature dish and needs an ingredient.",
+     "how": "Get Hateno Cheese first by completing 'A Letter to Koyin'. Bring that Hateno Cheese to Reede; he uses it for his recipe and rewards you with 100 Rupees. This is one of the four prerequisites for 'The Mayoral Election'."
+    },
+    {
+     "name": "Team Cece or Team Reede?",
+     "kind": "Side Adventure",
+     "giver": "Cece, at her hat shop in Hateno Village",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "Progress toward 'The Mayoral Election'",
+     "oneLine": "Mayoral candidate Cece asks you to sway the village's undecided voters.",
+     "how": "Cece gives you mushrooms to hand out to the last undecided villagers around Hateno to win them over. Deliver them all (talk to each holdout) to finish her campaign errand. One of the four prerequisites for 'The Mayoral Election'."
+    },
+    {
+     "name": "Cece's Secret",
+     "kind": "Side Adventure",
+     "giver": "Sophie (Cece's sister), in Hateno Village",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "10 Ironshrooms; progress toward 'The Mayoral Election'",
+     "oneLine": "Find out the secret the hat-loving mayoral candidate Cece is hiding.",
+     "how": "At night, follow/peek at Cece to catch her secretly eating carrots, despite campaigning against farming. Report the secret to complete the quest for 10 Ironshrooms. One of the four prerequisites for 'The Mayoral Election'."
+    },
+    {
+     "name": "Reede's Secret",
+     "kind": "Side Adventure",
+     "giver": "Clavia (Reede's wife), in Hateno Village",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "10 Hylian Tomatoes; progress toward 'The Mayoral Election'",
+     "oneLine": "Uncover what mayoral candidate Reede keeps hidden in his locked shed.",
+     "how": "Drop down the nearby Hateno well, follow the underground cave until you are beneath the shed, then use Ascend to pop up inside the locked shed. Read Reede's Diary to learn his secret; report back for 10 Hylian Tomatoes. One of the four prerequisites for 'The Mayoral Election'."
+    },
+    {
+     "name": "The Mayoral Election",
+     "kind": "Side Adventure",
+     "giver": "Sophie, in Hateno Village (daytime, not raining)",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "Cece Hat",
+     "oneLine": "Resolve Hateno's mayoral race between Reede and the hat-maker Cece.",
+     "how": "First complete the four prep quests in any order: 'Team Cece or Team Reede?', 'Cece's Secret', 'Reede's Secret', and 'A New Signature Food'. Then talk to Sophie during the day (when it isn't raining) to hold the election; Cece wins and gives you the Cece Hat."
+    },
+    {
+     "name": "Homegrown in Hateno",
+     "kind": "Side Quest",
+     "giver": "Reede, near the Hateno Village entrance",
+     "location": "Hateno Village (East Necluda)",
+     "reward": "5 Sun Pumpkins",
+     "oneLine": "Defend Hateno's restored vegetable field from waves of monsters overnight.",
+     "how": "Available after 'The Mayoral Election'. Talk to Reede, then guard the field overnight: smash the heads of the Stalkoblins so they can't reassemble, beat the Stalmoblin that appears around 3 a.m., then clear the final archer/Stalmoblin wave (bomb-fused arrows help, or simply survive to 5 a.m. when they vanish). Reede rewards you with 5 Sun Pumpkins."
+    },
+    {
+     "name": "Hateno Village Research Lab",
+     "kind": "Side Adventure",
+     "giver": "Robbie, at the Hateno Ancient Tech Lab (hill east of Hateno Village)",
+     "location": "Hateno Ancient Tech Lab (East Necluda)",
+     "reward": "The Sensor function for the Purah Pad",
+     "oneLine": "Help Robbie get his shrine Sensor working again.",
+     "how": "After helping Robbie at Lookout Landing (he relocates to the lab), talk to him at the Hateno Ancient Tech Lab to get the Sensor, then follow his directions until it pings a nearby Shrine of Light; head to the cave below the lab's hill to find and activate that shrine, then report back."
+    },
+    {
+     "name": "Presenting: Sensor +!",
+     "kind": "Side Adventure",
+     "giver": "Robbie, at the Hateno Ancient Tech Lab",
+     "location": "Hateno Ancient Tech Lab (East Necluda)",
+     "reward": "Sensor + upgrade (track any Compendium creature or material)",
+     "oneLine": "Robbie upgrades the Sensor to detect anything in your Hyrule Compendium.",
+     "how": "After 'Hateno Village Research Lab' and with the camera (from 'A Mystery in the Depths'), talk to Robbie again at the lab. He upgrades the Purah Pad to Sensor +, letting you set it to ping any registered material or creature."
+    },
+    {
+     "name": "Presenting: Hero's Path Mode!",
+     "kind": "Side Adventure",
+     "giver": "Robbie, at the Hateno Ancient Tech Lab",
+     "location": "Hateno Ancient Tech Lab (East Necluda)",
+     "reward": "Hero's Path Mode for the map",
+     "oneLine": "Robbie adds a map feature that traces the path you've traveled.",
+     "how": "Visit at least 15 shrine locations, then talk to Robbie at the lab. He unlocks Hero's Path Mode, which overlays your last ~256 hours of travel on the map."
+    },
+    {
+     "name": "Presenting: The Travel Medallion!",
+     "kind": "Side Adventure",
+     "giver": "Robbie, at the Hateno Ancient Tech Lab",
+     "location": "Hateno Ancient Tech Lab (East Necluda); prototype retrieved at Akkala Ancient Tech Lab",
+     "reward": "Travel Medallion (set one custom fast-travel point)",
+     "oneLine": "Build a custom fast-travel point after fetching a prototype for Robbie.",
+     "how": "Robbie sends you to the Yiga-occupied Akkala Ancient Tech Lab. Defeat the Yiga guards at the door, go inside, and open the chest for the Travel Medallion Prototype. Bring it back to Robbie at Hateno; he upgrades the Purah Pad to register the Travel Medallion."
+    },
+    {
+     "name": "Filling Out the Compendium",
+     "kind": "Side Adventure",
+     "giver": "Robbie, at the Hateno Ancient Tech Lab",
+     "location": "Hateno Ancient Tech Lab (East Necluda)",
+     "reward": "Froggy paraglider fabric",
+     "oneLine": "Robbie wants help completing the Hyrule Compendium.",
+     "how": "Available after you have the camera. Register enough Compendium entries (or simply buy missing photos from Robbie for 100 Rupees each) to reach the threshold; Robbie then gives you a paraglider fabric you can equip at Sayge's Kochi Dye Shop."
+    },
+    {
+     "name": "Bring Peace to Necluda",
+     "kind": "Side Adventure",
+     "giver": "Hoz, with his monster-control crew near Fort Hateno (West Necluda, east of Dueling Peaks Stable before the bridge)",
+     "location": "West Necluda (near Fort Hateno / Dueling Peaks)",
+     "reward": "100 Rupees",
+     "oneLine": "A soldier asks you to help clear the monsters threatening Hyrule Field.",
+     "how": "Talk to Hoz, then follow him to the attack site and help his crew wipe out every monster there (fused weapons and bomb arrows clear it fast). Return to Hoz and he rewards you with 100 Rupees."
+    },
+    {
+     "name": "A Picture for Dueling Peaks Stable",
+     "kind": "Side Quest",
+     "giver": "Tasseren, at Dueling Peaks Stable (examine the empty picture frame)",
+     "location": "Dueling Peaks Stable (West Necluda)",
+     "reward": "Pony Point + Hasty Apple Pie",
+     "oneLine": "The stable owner wants a photo of Hyrule's most beautiful sunrise to hang on his wall.",
+     "how": "Examine the empty frame and Tasseren asks for a shot of the sunrise from Tuft Mountain (just west of Lurelin). Climb Tuft Mountain and photograph the sunrise between about 4 a.m. and 6 a.m., then show it to Tasseren for a Pony Point and Hasty Apple Pie."
+    },
+    {
+     "name": "Serenade to Cotera",
+     "kind": "Side Adventure",
+     "giver": "Cotera, at her Great Fairy Fountain near Dueling Peaks Stable",
+     "location": "Dueling Peaks Stable area (West Necluda)",
+     "reward": "Unlocks Great Fairy Cotera (armor upgrades)",
+     "oneLine": "Wake Great Fairy Cotera by reuniting the traveling musical troupe at her fountain.",
+     "how": "Cotera will only awaken for the full band. Bring the missing drummer back by completing 'Honey, Bee Mine' (give Beetz his Courser Bee Honey), then use Ultrahand to ferry the whole troupe across to Cotera's fountain so she awakens and offers armor upgrades."
+    },
+    {
+     "name": "Honey, Bee Mine",
+     "kind": "Side Adventure",
+     "giver": "Beetz, southwest of Kakariko Village near Bonooru's Stand",
+     "location": "West Necluda / Dueling Peaks area (drummer of the Dueling Peaks Stable troupe)",
+     "reward": "100 Rupees; the drummer rejoins the troupe (advances 'Serenade to Cotera')",
+     "oneLine": "The troupe's drummer Beetz wants Courser Bee Honey before he'll rejoin the band.",
+     "how": "Bring Beetz 3 Courser Bee Honey. Harvest it from hanging beehives in the forests (the woods by the Depths entrance near Kakariko are closest) by shooting the hives, or get it as the reward from 'The Hornist's Dramatic Escape'. Give it to Beetz for 100 Rupees; he heads back to Dueling Peaks Stable, feeding into 'Serenade to Cotera'."
+    }
+   ]
+  },
+  {
+   "region": "Lanayru (Zora's Domain & the Wetlands)",
+   "quests": [
+    {
+     "name": "Mired in Muck",
+     "kind": "Side Quest",
+     "giver": "Bazz, stuck in gloom-sludge in front of the Upland Zorana Skyview Tower (Ternio Trail), west of Zora's Domain",
+     "location": "Upland Zorana / Zora's Domain area",
+     "reward": "Zora Spear",
+     "oneLine": "The Zora guard captain Bazz is trapped in gloom-sludge and needs water to wash himself free.",
+     "how": "Pick a Splash Fruit from the little trees right next to Bazz and either throw it at the sludge on him or Fuse it to an arrow (hold ZR, press up on the D-pad) and shoot — the burst of water washes the muck away. Have a free weapon slot, then talk to him for the Zora Spear."
+    },
+    {
+     "name": "A Token of Friendship",
+     "kind": "Side Quest",
+     "giver": "Yona, by the Goddess Statue in Zora's Domain (after the Water Temple)",
+     "location": "Zora's Domain / Ancient Zora Waterworks",
+     "reward": "Zora Greaves",
+     "oneLine": "Yona reveals the Zora had a gift of legwear waiting for Link, hidden away in the old waterworks.",
+     "how": "Dive into the whirlpool in East Reservoir Lake (east of Zora's Domain) to drop into the drained Ancient Zora Waterworks. Drop through the hole into the large chamber (a Luminous Stone Talus is here, optional) and look behind the waterfall on the far side for the chest holding the Zora Greaves."
+    },
+    {
+     "name": "The Never-Ending Lecture",
+     "kind": "Side Quest",
+     "giver": "Chroma (being lectured by Khira) in the throne room of Zora's Domain (after Sidon of the Zora)",
+     "location": "Zora's Domain / Floating Scales Island",
+     "reward": "Zora Helm",
+     "oneLine": "Overhearing a lecture about a lost Zora Helm sends Link to a fish-shaped sky island to recover it.",
+     "how": "Reach Floating Scales Island in the sky east of the Water Temple (climb Ploymus Mountain and swim up the waterfall in Zora Armor, or fly from a nearby Skyview Tower). Enter the tunnel/grotto on the northeast side of the fish's tail and open the chest inside for the Zora Helm."
+    },
+    {
+     "name": "A Wife Wafted Away",
+     "kind": "Side Quest",
+     "giver": "Fronk, near the southwest entrance of Zora's Domain (after Sidon of the Zora)",
+     "location": "Zora's Domain / Wellspring Island",
+     "reward": "Hearty Fish Skewer",
+     "oneLine": "Fronk is worried his wife Mei went off fishing somewhere dangerous and asks Link to find her.",
+     "how": "Track the quest to Wellspring Island, where Mei is fishing beside a small pool (around 3668, 0567, 1251) — reach it via the waterfall near Shatterback Point or from Igoshon Shrine at the Water Temple. Talk to her to send her home, then return to Fronk in Zora's Domain for the Hearty Fish Skewer."
+    },
+    {
+     "name": "The Moonlit Princess",
+     "kind": "Side Quest",
+     "giver": "Seggin, on the bridge leading west out of Zora's Domain (after clean water is restored)",
+     "location": "Zora's Domain / Mipha Court",
+     "reward": "Zora Sword",
+     "oneLine": "Seggin wants a photo of Mipha's statue holding the Lightscale Trident in the moonlight on a clear night.",
+     "how": "Sleep at the inn until clear weather and a normal (non-Blood) moon around midnight, then go to Mipha Court and use the Camera to photograph Mipha's statue with the moon behind it — a confirmation mark means it counts. Show the picture to Seggin for the Zora Sword."
+    },
+    {
+     "name": "A Crabulous Deal",
+     "kind": "Side Quest",
+     "giver": "Cleff at the General Store in Zora's Domain (after the sludge is cleared)",
+     "location": "Zora's Domain",
+     "reward": "Sapphire (then repeatable item trades, e.g. Opal, for more crabs)",
+     "oneLine": "Cleff has become obsessed with Bright-Eyed Crabs and rewards you for bringing him a batch.",
+     "how": "Collect Bright-Eyed Crabs around Zora's Domain — on the rocks at the base of the support pillars, in the central lower pool, and near the General Store. Photograph one for the Sensor+ to track more, then bring Cleff 10 Bright-Eyed Crabs to receive a Sapphire."
+    },
+    {
+     "name": "Glory of the Zora",
+     "kind": "Side Quest",
+     "giver": "Dento, inside the General Store in Zora's Domain (after Sidon of the Zora)",
+     "location": "Zora's Domain",
+     "reward": "Lightscale Trident (re-craftable)",
+     "oneLine": "Master craftsman Dento offers to forge the Lightscale Trident if you bring the materials.",
+     "how": "Gather 1 Zora Spear (chest southwest of Ralis Pond, or dropped by Like Likes), 3 Diamonds, and 5 Flint, then give them all to Dento and he forges the Lightscale Trident. He'll remake it anytime you bring the same materials again."
+    },
+    {
+     "name": "Secret Treasure under the Great Fish",
+     "kind": "Side Quest",
+     "giver": "Sidon, atop the highest platform of Zora's Domain next to King Dorephan (after Sidon of the Zora)",
+     "location": "Zora's Domain / Cave Under Zora's Domain",
+     "reward": "Vah Ruta Divine Helm",
+     "oneLine": "Sidon shares a riddle pointing to a hidden treasure beneath two waterfalls under the Domain.",
+     "how": "From the long bridge out of Zora's Domain, dive into the marked waterfall and dash (A) to enter the Cave Under Zora's Domain — do NOT wear Zora Armor or you'll swim back up the falls. Pass through the second waterfall inside to reach the chest holding the Vah Ruta Divine Helm."
+    },
+    {
+     "name": "The Fort at Ja'Abu Ridge",
+     "kind": "Side Quest",
+     "giver": "Gaddison, at the east bridge/entrance of Zora's Domain (after Sidon of the Zora)",
+     "location": "Ja'Abu Ridge, southeast of Zora's Domain",
+     "reward": "100 Rupees",
+     "oneLine": "Gaddison asks Link to clear the monsters that have seized the fort at Ja'Abu Ridge.",
+     "how": "Head to Ja'Abu Ridge Fort and snipe the watchtower Bokoblin with a bow before it sounds the horn, then wipe out the rest of the Bokoblins and the Boss Bokoblin. Return to Gaddison on the bridge for 100 Rupees."
+    },
+    {
+     "name": "True Treasure",
+     "kind": "Side Quest",
+     "giver": "Kodah, inside the inn in Zora's Domain (after Sidon of the Zora)",
+     "location": "Zora's Domain / Tarm Point cave",
+     "reward": "Opal x2 (and the cave's Yomizuk blessing shrine becomes reachable)",
+     "oneLine": "Kodah sends Link to a cave at Tarm Point where a stranded Zora is searching for treasure.",
+     "how": "Go to the Tarm Point cave and talk to Sasan, who can't swim. Help him raft across the cavern to Finley on the far island — use the rising/falling water level and Ultrahand-built platforms to clear the path so the two reunite, earning Opal x2."
+    },
+    {
+     "name": "The Blue Stone",
+     "kind": "Side Quest",
+     "giver": "Ledo, at the end of the walkway at East Reservoir Lake (after Sidon of the Zora)",
+     "location": "East Reservoir Lake, east of Zora's Domain",
+     "reward": "Zora Fabric (paraglider fabric)",
+     "oneLine": "Stonemason Ledo wants a large luminous (blue) stone brought back from a cavern across the reservoir.",
+     "how": "Build a raft with Ultrahand (a plank, two Fans, and a Steering Stick) and cross to the Reservoir Lakefront Cavern. Ultrahand a large luminous stone onto your raft, ferry it back to Ledo, and he gives you the Zora Fabric (take it to the Kochi Dye Shop in Hateno to restyle your paraglider)."
+    },
+    {
+     "name": "An Uninvited Guest",
+     "kind": "Side Quest",
+     "giver": "Ami, a child around the side of Wetland Stable",
+     "location": "Wetland Stable (Lanayru Wetlands)",
+     "reward": "2 Pony Points",
+     "oneLine": "A frightened child can't sleep because monsters near the stable are scaring him.",
+     "how": "Head into the woods behind the stable to the monster camp (a Moblin with Lizalfos). A handy trick is to drop into the stable's well and pop out the nearby South Well right beside the camp for a sneakstrike. Defeat the monsters, then report back to Ami for 2 Pony Points."
+    },
+    {
+     "name": "The Ultimate Dish",
+     "kind": "Side Quest",
+     "giver": "Moza, inside the Rikoka Hills Well (southern edge of the Lanayru Wetlands)",
+     "location": "Rikoka Hills Well (Lanayru Wetlands)",
+     "reward": "Monster Stew (which she keeps upgrading)",
+     "oneLine": "Moza, obsessed with the 'ultimate dish,' wants you to bring her a failed dish to experiment on.",
+     "how": "Make a failed dish at any cooking pot — add a mineral for Rock-Hard Food or a monster part for Dubious Food — then bring it down the well to Moza. Pay her a few Rupees and she 'perfects' it into a Monster Stew that restores extra hearts."
+    },
+    {
+     "name": "A Picture for Wetland Stable",
+     "kind": "Side Quest",
+     "giver": "Lawdon — interact with the empty picture frame on the wall inside Wetland Stable",
+     "location": "Wetland Stable (Lanayru Wetlands)",
+     "reward": "1 Pony Point (plus the standard stable-picture bonus item if it's your last frame)",
+     "oneLine": "The stable owner wants a photo of the Ring Ruins to hang in his empty frame.",
+     "how": "Travel toward Kakariko Village and use the Camera to photograph the large ring-shaped Ring Ruins (above Lantern Lake) so the whole ring and its label are in shot. Return and interact with the frame again to show Lawdon the photo for the reward."
+    },
+    {
+     "name": "Goddess Statue of Wisdom",
+     "kind": "Side Quest",
+     "giver": "The Goddess Statue at the Spring of Wisdom, atop Mount Lanayru",
+     "location": "Spring of Wisdom, Mount Lanayru",
+     "reward": "Sapphire",
+     "oneLine": "The statue can no longer sense its Mother Goddess Statue and asks Link to investigate, then bring a dragon's claw.",
+     "how": "With Lv.2 Cold Resistance, climb Mount Lanayru and pray at the statue. First go check the toppled Mother Goddess Statue in the Forgotten Temple and report back; the statue then asks for one of Naydra's Claws. Find the dragon Naydra (around Mount Lanayru / Naydra Snowfield Chasm), shoot a claw off and grab it, then offer it at the spring for a Sapphire."
+    }
+   ]
+  },
+  {
+   "region": "Eldin (Goron City & Death Mountain)",
+   "quests": [
+    {
+     "name": "Amber Dealer",
+     "kind": "Side Quest",
+     "giver": "Ramella, standing in front of the ore shop in central Goron City",
+     "location": "Goron City",
+     "reward": "200 Rupees + she then buys your ore in 10-piece bulk",
+     "oneLine": "A traveling merchant wants ten pieces of Amber and will start buying your ore in bulk.",
+     "how": "Mine Amber from the black ore deposits all over Death Mountain and Eldin until you have 10. Talk to Ramella and sell the 10 Amber; she pays 200 Rupees, then afterward buys your other ores ten at a time (she picks which ore, and it changes daily)."
+    },
+    {
+     "name": "Simmerstone Springs",
+     "kind": "Side Quest",
+     "giver": "Kima, on the raised bridge behind the Goron City inn",
+     "location": "Goron City / Gorko Tunnel",
+     "reward": "Silver Rupee (100)",
+     "oneLine": "A Goron is hunting for a legendary hot spring and wants you to find it.",
+     "how": "Talk to Kima, then head into Gorko Tunnel (northwest, behind the city) and follow it to the hidden hot spring inside. Report back to Kima at the bridge to finish; he hands over a Silver Rupee and starts boiling eggs in it."
+    },
+    {
+     "name": "The Ancient City Gorondia",
+     "kind": "Side Quest",
+     "giver": "Dugby, across the rail tracks near YunoboCo HQ in Goron City",
+     "location": "Goron City (mine-cart tracks)",
+     "reward": "Zonai Charge + Large Zonai Charge",
+     "oneLine": "An obsessed Goron historian needs a ride across the broken mine-cart tracks to chase a legend.",
+     "how": "Grab a nearby mine cart and a Fan with Ultrahand, attach the Fan to the cart and set it on the rails. Ask Dugby to board, then strike/activate the Fan to push the cart across (Part 1). For Part 2, follow Dugby despite his protest, build another fan-cart, clear any rocks blocking the rails with Ultrahand, and ride him to the destination."
+    },
+    {
+     "name": "The Hidden Treasure at Lizard Lakes",
+     "kind": "Side Quest",
+     "giver": "Bludo, in the central plaza of Goron City (after Yunobo of Goron City)",
+     "location": "Goron City / Lizard's Burrow (between the two lizard-shaped lakes)",
+     "reward": "Vah Rudania Divine Helm",
+     "oneLine": "Bludo points you to a treasure hidden in a cave between the lizard-shaped lakes.",
+     "how": "Talk to Bludo, then travel to Lizard's Burrow, the cave set between the two lizard-shaped lakes. Blow up or smash the rubble blocking the entrance (Yunobo's charge or a bomb works), go inside, and open the treasure chest to claim the Vah Rudania Divine Helm (fire resistance)."
+    },
+    {
+     "name": "Moon-Gazing Gorons",
+     "kind": "Side Quest",
+     "giver": "Tray (with Volcon) near the Goron City inn entrance (after Yunobo of Goron City)",
+     "location": "Goron City / Lake Ferona Cave",
+     "reward": "Silver Rupee (100)",
+     "oneLine": "Gorons want a photo of a mysterious circle of light that only appears at midday in a lakeside cave.",
+     "how": "Go to Lake Ferona (south of Goron City, by Eldin Canyon Skyview Tower) and enter the cave on the lake's west side. The ring of light only forms around noon, so make a campfire from wood + flint and 'wait until midday', then photograph the circular light with your Camera. Show the picture to Tray and Volcon back in Goron City."
+    },
+    {
+     "name": "Soul of the Gorons",
+     "kind": "Side Quest",
+     "giver": "Fugo, in the building north of the Goron City general store (after Yunobo of Goron City)",
+     "location": "Goron City",
+     "reward": "Boulder Breaker (and he will re-forge it if it breaks)",
+     "oneLine": "The new smith needs rare materials to forge the legendary Goron weapon, the Boulder Breaker.",
+     "how": "Bring Fugo 1 Cobble Crusher (chest from Like Likes in Eldin, or held by a Depths shadow soldier), 3 Diamonds (Goron City shop, or rare ore deposits), and 5 Flint (any ore deposit). Hand them over to receive the Boulder Breaker; return to him later to have it re-forged if it breaks."
+    },
+    {
+     "name": "The Abandoned Laborer",
+     "kind": "Side Quest",
+     "giver": "Mota, stranded inside the Death Mountain West Tunnel",
+     "location": "Death Mountain West Tunnel",
+     "reward": "Large Zonai Charge",
+     "oneLine": "A worker is trapped on the far side of a broken track inside a scorching tunnel and needs a way out.",
+     "how": "Wear Fireproof armor or drink a Fireproof Elixir first. Enter the tunnel, glide down to Mota across the broken railing, and clear the rubble hiding the Zonai Rockets (don't use Bomb Flowers in the heat). Ultrahand the Rockets onto a mine cart, have Mota board, strike it to launch him across, and lead him outside."
+    },
+    {
+     "name": "Meat for Meat",
+     "kind": "Side Quest",
+     "giver": "Mezer, at the Bedrock Bistro by Goronbi Lake (after the Fire Temple)",
+     "location": "Bedrock Bistro",
+     "reward": "Large Zonai Charge",
+     "oneLine": "The bistro needs a Marbled Rock Roast to cook with and trades you a Zonai charge for one.",
+     "how": "After the Fire Temple frees the Gorons, visit the Bedrock Bistro and talk to Mezer. Fetch one Marbled Rock Roast from the West or East Restaurant Cave nearby and bring it back to Mezer; he trades you a Large Zonai Charge (and this opens Rock Roast or Dust)."
+    },
+    {
+     "name": "Rock Roast or Dust",
+     "kind": "Side Quest",
+     "giver": "Cooke, at the Bedrock Bistro counter (after Meat for Meat)",
+     "location": "Bedrock Bistro",
+     "reward": "Seared Gourmet Steak",
+     "oneLine": "The chef needs another Marbled Rock Roast to keep cooking.",
+     "how": "Talk to Cooke at the counter, then return to one of the Restaurant Caves for a Marbled Rock Roast. The east cave requires riding a mine cart over the lava to reach it. Bring the roast back to Cooke for a Seared Gourmet Steak (he keeps trading one per roast)."
+    },
+    {
+     "name": "Cash In on Ripened Flint",
+     "kind": "Side Quest",
+     "giver": "Gomo, sitting beside the Bedrock Bistro (after Meat for Meat)",
+     "location": "Bedrock Bistro",
+     "reward": "1,000 Rupees",
+     "oneLine": "A Goron gambles that if you hand him enough Flint, one piece will be rare 'Ripened Flint'.",
+     "how": "Talk to Gomo and give him a batch of Flint (he asks for 20, 50, or 100 at once). If any piece in the batch turns out to be Ripened Flint, he pays 1,000 Rupees; otherwise the Flint is consumed, so gather more from ore deposits and try again (50+ at a time improves the odds)."
+    },
+    {
+     "name": "Mine-Cart Land: Open For Business!",
+     "kind": "Side Quest",
+     "giver": "Bayge, at the Southern Mine (north of Timawak Shrine)",
+     "location": "Southern Mine",
+     "reward": "Red Rupee (20)",
+     "oneLine": "A target-shooting mine-cart minigame: pop the balloons as you ride.",
+     "how": "Talk to Bayge, put the mine cart on the tracks and ride it; aim your bow and shoot the balloon targets along the route. Hit enough to clear it (a multi-shot or quick-draw bow helps), then collect the Red Rupee."
+    },
+    {
+     "name": "Mine-Cart Land: Quickshot Course",
+     "kind": "Side Quest",
+     "giver": "Heehl, at the Southern Mine (unlocks after Open For Business!)",
+     "location": "Southern Mine",
+     "reward": "Purple Rupee (50)",
+     "oneLine": "A faster mine-cart shooting course with more balloons to pop.",
+     "how": "After clearing Open For Business!, talk to Heehl and ride the faster cart. You have about 80 seconds and need to pop 7 targets. Use a multi-shot or quick-draw bow and lead the balloons; finish to earn a Purple Rupee."
+    },
+    {
+     "name": "Mine-Cart Land: Death Mountain",
+     "kind": "Side Quest",
+     "giver": "Kabetta, at the Southern Mine (unlocks after Quickshot Course)",
+     "location": "Southern Mine / Death Mountain (course above Sitsum Shrine)",
+     "reward": "Goron Fabric",
+     "oneLine": "The hardest mine-cart shooting course, looping all the way around Death Mountain.",
+     "how": "After Quickshot Course, take Kabetta's run; the course is on the west side of Death Mountain (above Sitsum Shrine). The cart moves fast around the mountain and you must pop 8 balloon targets in under two minutes. Clear it to earn Goron Fabric for your paraglider."
+    },
+    {
+     "name": "A Picture for Woodland Stable",
+     "kind": "Side Quest",
+     "giver": "Kish, at Woodland Stable (examine the empty picture frame)",
+     "location": "Woodland Stable",
+     "reward": "1 Pony Point + Hasty Vegetable Curry",
+     "oneLine": "The stable wants a photo of a Goron relaxing in a hot spring to fill its display frame.",
+     "how": "Examine the empty frame so Kish calls you over, then go to the Goron Hot Springs near Goron City and photograph a Goron soaking in the spring with your Camera. Bring the picture back to Kish at Woodland Stable."
+    },
+    {
+     "name": "A Picture for Foothill Stable",
+     "kind": "Side Quest",
+     "giver": "Ozunda, at Foothill Stable",
+     "location": "Foothill Stable / Goron City",
+     "reward": "1 Pony Point + Fireproof Elixir",
+     "oneLine": "The stable wants a photo of the Daruk statue that watches over Goron City.",
+     "how": "Talk to Ozunda, then travel to Goron City and photograph the large statue of Daruk overlooking the city with your Camera. Return and show Ozunda the picture on your Purah Pad."
+    },
+    {
+     "name": "Hebra's Colossal Fossil",
+     "kind": "Side Quest",
+     "giver": "Loone, at the Eldin Great Skeleton (after Eldin's Colossal Fossil)",
+     "location": "Eldin Great Skeleton (northern Eldin)",
+     "reward": "Purple Rupee (50)",
+     "oneLine": "Fossil-lover Loone needs the giant skeleton's missing fin bone and spine restored.",
+     "how": "Talk to Loone, who says the great skeleton is missing its fin bone and a vertebra. Blast the rubble to free the long fin bone and Ultrahand it onto the empty fin socket; melt the ice block freeing the large spine bone and place it into the empty tail slot. Loone rewards you with a Purple Rupee (despite the name, this quest is in Eldin)."
+    },
+    {
+     "name": "Misko's Cave of Chests",
+     "kind": "Side Quest",
+     "giver": "Domidak & Prissen, outside Cephla Lake Cave",
+     "location": "Cephla Lake Cave (western Eldin Canyon)",
+     "reward": "Ember Trousers",
+     "oneLine": "A cave full of buried chests where only one holds Misko's real treasure.",
+     "how": "Enter Cephla Lake Cave and dig through the many buried chests; most hold only 1 Rupee, but one contains the Ember Trousers. Grab it to complete the quest (afterward Domidak & Prissen sell you the manuscript clues for 100 Rupees each)."
+    },
+    {
+     "name": "Misko's Treasure: Heroines Manuscript",
+     "kind": "Side Quest",
+     "giver": "Domidak (buy the manuscript for 100 Rupees outside Cephla Lake Cave)",
+     "location": "Starts at Cephla Lake Cave (Eldin); treasure in Gerudo Highlands (Statue of the Eighth Heroine)",
+     "reward": "Tingle's Hood",
+     "oneLine": "A manuscript clue points to a hidden chest near the Statue of the Eighth Heroine.",
+     "how": "Buy the Heroines Manuscript from Domidak. Travel to the Statue of the Eighth Heroine at Hemaar's Descent (Gerudo Highlands) and use the Zonai mirrors to reflect sunlight onto the mechanism, opening the cave. Defeat the Gibdos inside, then open the chest in the statue's head for Tingle's Hood."
+    },
+    {
+     "name": "Misko's Treasure: Pirate Manuscript",
+     "kind": "Side Quest",
+     "giver": "Domidak (buy the manuscript for 100 Rupees outside Cephla Lake Cave)",
+     "location": "Starts at Cephla Lake Cave (Eldin); treasure at Cape Cales Cliffbase Cave (Necluda coast)",
+     "reward": "Tingle's Tights",
+     "oneLine": "A bought manuscript clue leads to a hidden chest holding a piece of Tingle's outfit.",
+     "how": "Buy the Pirate Manuscript from Domidak and follow its clue to Cape Cales Cliffbase Cave on the southeast coast. Clear the obstacles inside and open the chest to claim Tingle's Tights."
+    },
+    {
+     "name": "Misko's Treasure: Twins Manuscript",
+     "kind": "Side Quest",
+     "giver": "Domidak (buy the manuscript for 100 Rupees outside Cephla Lake Cave)",
+     "location": "Starts at Cephla Lake Cave (Eldin); treasure in a cave per the manuscript clue",
+     "reward": "Tingle's Shirt",
+     "oneLine": "A third bought manuscript clue leads to a hidden chest with another piece of Tingle's outfit.",
+     "how": "Buy the Twins Manuscript from Domidak and follow its riddle to the indicated cave, deal with the enemies/puzzle inside, and open the chest to claim Tingle's Shirt (completing the Tingle set across the three manuscripts)."
+    },
+    {
+     "name": "Misko's Treasure: The Fierce Deity",
+     "kind": "Side Quest",
+     "giver": "Misko's message bottle, found at Cephla Lake Cave (after Misko's Cave of Chests)",
+     "location": "Starts at Cephla Lake Cave (Eldin); armor pieces across Akkala & Hyrule Field",
+     "reward": "Complete Fierce Deity armor set + Fierce Deity Sword",
+     "oneLine": "A message sends you to collect the three Fierce Deity armor pieces, which unlock the legendary sword.",
+     "how": "Examine Misko's message bottle at Cephla Lake Cave to start the quest. Collect the Fierce Deity Armor (Akkala Citadel Ruins hidden cave), Fierce Deity Mask (Skull Lake Cave, Deep Akkala), and Fierce Deity Boots (Ancient Tree Stump Cave near Mount Daphnes, Hyrule Field). Return to Cephla Lake Cave wearing the full set; the hidden path opens to reveal the Fierce Deity Sword."
+    },
+    {
+     "name": "Misko's Treasure of Awakening",
+     "kind": "Side Quest",
+     "giver": "Misko's stone-slab message, revealed in Goronbi River Cave",
+     "location": "Starts at Goronbi River Cave (Eldin); treasure at the Ancient Columns (Tabantha Frontier)",
+     "reward": "Tunic of Awakening (the quest continues to the rest of the Awakening set)",
+     "oneLine": "A riddle on a stone slab sends you to ruined columns on the Tabantha Frontier for hidden armor.",
+     "how": "Grab the Ember Shirt from the chest in Goronbi River Cave (southwest of Goron City) to reveal the hidden stone slab and read Misko's message, starting the quest. Solve the riddle by going to the Ancient Columns in Tabantha Frontier (Rayne Highlands area), open the Ancient Columns Cave, and open the chest for the Tunic of Awakening."
+    },
+    {
+     "name": "Bring Peace to Eldin!",
+     "kind": "Side Adventure",
+     "giver": "Toren and the Monster-Control Crew, at the campfire between Lake Darman and Death Caldera",
+     "location": "Eldin Canyon (Lake Darman Monster Den)",
+     "reward": "100 Rupees + monster-part drops (and starts Bring Peace to Akkala!)",
+     "oneLine": "Help the Monster-Control Crew clear out a monster den in Eldin.",
+     "how": "Talk to Toren at the Eldin campfire, then follow the crew to the Lake Darman Monster Den. Go inside and wipe out every monster alongside the crew. Speak to Toren afterward for 100 Rupees (plus enemy drops); he then heads to Akkala, beginning Bring Peace to Akkala!"
+    }
+   ]
+  },
+  {
+   "region": "Akkala (Tarrey Town & the northeast)",
+   "quests": [
+    {
+     "name": "Mattison's Independence",
+     "kind": "Side Adventure",
+     "giver": "Hudson & Rhondson, in their house behind the Goddess Statue in Tarrey Town",
+     "location": "Tarrey Town, Akkala",
+     "reward": "200 Rupees (and unlocks the Home on Arrange + A Monstrous Collection quests, plus buying Link's House land)",
+     "oneLine": "Help Hudson and Rhondson's Gerudo daughter Mattison prepare to leave for Gerudo Town on her coming-of-age journey.",
+     "how": "Talk to Hudson outside, then find Mattison upstairs and answer her Gerudo-language quiz ('Vaba'). Follow her to the construction site, throw a Puffshroom (from the Depths) to blind the worker watching the railcar so Mattison can slip aboard, then gather and hand 10 Sundelions (from the Sky Islands) to Hudson to send her off."
+    },
+    {
+     "name": "A Monstrous Collection",
+     "kind": "Side Adventure",
+     "giver": "Kilton, on the north edge of Tarrey Town (appears after Mattison's Independence)",
+     "location": "Tarrey Town, Akkala (sculptures scattered across Hyrule)",
+     "reward": "Across the five parts: Monster Extract, Sneaky Monster Soup, Monster Bridle, Monster Saddle, and a Diamond",
+     "oneLine": "A five-part hunt (I-V) for Kilton's hidden monster sculptures (Bokoblin, Horriblin, Battle Talus, Frox, King Gleeok).",
+     "how": "Kilton marks each sculpture's rough area; track down all five hidden monster statues in order and report back at each stage for that part's prize. Use the camera/Sensor and climb or Ascend to reach high or buried ones (the King Gleeok statue is the hardest to find)."
+    },
+    {
+     "name": "Bring Peace to Akkala!",
+     "kind": "Side Adventure",
+     "giver": "Toren and his Monster-Control Crew, near Akkala Span (east of Cephla Lake)",
+     "location": "Akkala Span, southern Akkala",
+     "reward": "Silver Rupee (100 Rupees)",
+     "oneLine": "Join the Monster-Control Crew to clear the monster horde infesting Akkala Span bridge.",
+     "how": "Talk to Toren by the span, then fight alongside his squad to wipe out every monster on the bridge. Pick enemies off with a bow from range so big foes can't knock you off the edge, then report to Toren. (Unlocks only after Bring Peace to Eldin!)"
+    },
+    {
+     "name": "Robbie's Research",
+     "kind": "Side Quest",
+     "giver": "Robbie, inside the Akkala Ancient Tech Lab in northeast Akkala",
+     "location": "Akkala Ancient Tech Lab, North Akkala",
+     "reward": "The Sensor+ upgrade (marks materials/enemies on the map)",
+     "oneLine": "Robbie wants combat data on the Zonai Constructs and asks for Ancient Gear from them.",
+     "how": "Talk to Robbie at the Akkala Ancient Tech Lab, then hunt Constructs (in the Eldin region or on the Sky Islands) and Fuse/collect their Ancient parts. Bring the requested Construct materials back to Robbie to unlock the Sensor+."
+    },
+    {
+     "name": "Little Sister's Meal Prep",
+     "kind": "Side Quest",
+     "giver": "Kleea, a young Gerudo girl inside the Hudson Construction house in Tarrey Town (daytime)",
+     "location": "Tarrey Town, Akkala",
+     "reward": "A cooked dish (and a small amount of Rupees)",
+     "oneLine": "A little girl in Tarrey Town wants to cook a meal for her family and needs ingredients gathered.",
+     "how": "Find Kleea in the Tarrey Town house during the day and note the ingredients she asks for (Hylian Tomato, Rock Salt, raw meat, etc.). Gather or buy the items, hand them over, and she cooks the dish for you."
+    },
+    {
+     "name": "Home on Arrange",
+     "kind": "Side Quest",
+     "giver": "Rhondson, in Tarrey Town (after completing Mattison's Independence)",
+     "location": "Tarrey Town, Akkala (build plot near Rasitakiwak Shrine)",
+     "reward": "Hudson Construction Fabric (paraglider fabric)",
+     "oneLine": "Buy and build your own customizable house, Link's House, on the plot of land near Tarrey Town.",
+     "how": "Talk to Rhondson to buy the discounted plot (1,500 Rupees) by Rasitakiwak Shrine. Use Ultrahand to set the two free starter rooms inside the roped-off foundation and fuse them together; Rhondson then awards the Hudson Construction Fabric."
+    },
+    {
+     "name": "Secrets Within",
+     "kind": "Side Quest",
+     "giver": "Pulcho, by a Zonai device dispenser on the shoreline west of Tarrey Town (below Ulri Mountain Skyview Tower / the Hudson Construction Site)",
+     "location": "West of Tarrey Town, Akkala",
+     "reward": "Sundelion",
+     "oneLine": "A worker is curious what's really inside the Zonai device dispenser.",
+     "how": "Talk to Pulcho, then feed the dispenser a Zonai Charge (from the Materials menu) so it spits out devices. Show Pulcho the result and he hands over a Sundelion (and reveals two more dispenser locations)."
+    },
+    {
+     "name": "Master the Vehicle Prototype",
+     "kind": "Side Quest",
+     "giver": "Fernison, at the Hudson Construction Site west of Tarrey Town",
+     "location": "Hudson Construction Site, Akkala",
+     "reward": "Silver Rupee (100 Rupees) and a Sleepover Ticket (unlocks The Tarrey Town Race is On!)",
+     "oneLine": "Test-drive a prototype Zonai vehicle through a timed light-gate course.",
+     "how": "Talk to Fernison, then Ultrahand-attach the provided Steering Stick to the prototype car. Drive through all the light gates within the time limit without letting go of the stick (releasing it fails the run)."
+    },
+    {
+     "name": "The Tarrey Town Race is On!",
+     "kind": "Side Quest",
+     "giver": "Fernison, at the Hudson Construction Site (after Master the Vehicle Prototype)",
+     "location": "Hudson Construction Site, Akkala",
+     "reward": "3 Zonai Charges (unlocks the repeatable Beginner/Expert race courses)",
+     "oneLine": "Build your own Zonai vehicle and beat the construction-site race course against the clock.",
+     "how": "Use Ultrahand to assemble a car from the parts on the table - attach the prepared Steering Stick, then pick wheels (small = faster but twitchy; big = slower but stable; a mix balances it). Finish the full course within the 2:00 limit to win."
+    },
+    {
+     "name": "Strongest in the World",
+     "kind": "Side Quest",
+     "giver": "Chabi, behind East Akkala Stable",
+     "location": "East Akkala Stable, Akkala",
+     "reward": "Rupees scaling with the horn's tier (up to a Gold Rupee, 300, for a Silver/White-Maned Lynel horn)",
+     "oneLine": "A Goron smith wants to see the world's strongest weapon - bring a weapon fused with a Lynel Horn.",
+     "how": "Hunt a Lynel (nearest is in North Akkala Valley, west of the stable) for its horn, then Fuse the Lynel Horn onto a weapon. Show the fused weapon to Chabi; the better the horn, the bigger the rupee reward."
+    },
+    {
+     "name": "The Gathering Pirates",
+     "kind": "Side Quest",
+     "giver": "Aya, holding a broom near East Akkala Stable (after starting a Regional Phenomena)",
+     "location": "East Akkala Stable / North Akkala Beach, Akkala",
+     "reward": "2 Pony Points and an Endura Carrot (plus a Blue Hinox Hammer in the unlocked chest)",
+     "oneLine": "Investigate the monster ships menacing the stable off North Akkala Beach.",
+     "how": "Talk to Aya, then head to the three pirate ships off North Akkala Beach. Paraglide down onto a crow's nest for a safe vantage and pick off the Moblins, Bokoblins and Aerocudas with arrows; clearing them unlocks a chest (Blue Hinox Hammer). Report back to Aya."
+    },
+    {
+     "name": "Eldin's Colossal Fossil",
+     "kind": "Side Quest",
+     "giver": "Loone, just outside East Akkala Stable (on the path toward the Tech Lab)",
+     "location": "East Akkala Stable, Akkala (fossil in northern Eldin)",
+     "reward": "Purple Rupee (50 Rupees)",
+     "oneLine": "Help fossil-fan Loone restore the missing 'eye' of the Eldin Great Skeleton.",
+     "how": "Talk to Loone and pick the 'Ancient things?' option to mark the fossil (in the East Deplian Badlands by Mayak Shrine, north of Death Mountain). Break the rocks around the spherical 'eye' stone, then Ultrahand it into the carved socket on the skeleton's head and rotate it to seat it. Report to Loone."
+    },
+    {
+     "name": "Goddess Statue of Power",
+     "kind": "Side Quest",
+     "giver": "Goddess Statue at the Spring of Power, northeast Akkala (northwest of Sinatanika Shrine)",
+     "location": "Spring of Power, Akkala",
+     "reward": "Ruby",
+     "oneLine": "The Spring of Power's Goddess Statue asks for an offering of Dinraal's claw.",
+     "how": "Speak to the statue to learn it wants Dinraal's Claw. Find the dragon Dinraal circling the Eldin region (around Death Mountain), shoot one of its claws to collect the material, then drop it in the Spring of Power's water; the statue rewards you with a Ruby."
+    },
+    {
+     "name": "One-Hit Wonder!",
+     "kind": "Side Quest",
+     "giver": "Parcy, at South Akkala Stable",
+     "location": "South Akkala Stable, Akkala",
+     "reward": "Keep the gems that drop (Ruby, Sapphire, Topaz)",
+     "oneLine": "A woman challenges you to smash a stubborn rare ore deposit in a single hit.",
+     "how": "Talk to Parcy, then break the Rare Ore Deposit in one strike using a blunt/Demolisher weapon (e.g. a Boulder Breaker or a hammer) or a Fused Bomb Flower. Collect the gems that burst out as your reward."
+    },
+    {
+     "name": "A Picture for South Akkala Stable",
+     "kind": "Side Quest",
+     "giver": "Dmitri, by the empty frame inside South Akkala Stable (needs the Camera + one Regional Phenomena)",
+     "location": "South Akkala Stable, Akkala",
+     "reward": "1 Pony Point and a Prime Meat Stew",
+     "oneLine": "The stable owner wants a painting of Tarrey Town's Unity Bell for his empty frame.",
+     "how": "Examine the empty frame to start, then go to Tarrey Town and photograph the Unity Bell above the central Goddess Statue with the Camera. Return and show Dmitri the picture."
+    },
+    {
+     "name": "A Picture for East Akkala Stable",
+     "kind": "Side Quest",
+     "giver": "Rudi, by the empty frame inside East Akkala Stable (needs the Camera + one Regional Phenomena)",
+     "location": "East Akkala Stable, Akkala (subject at Octorok Lake)",
+     "reward": "1 Pony Point and a Meat and Rice Bowl",
+     "oneLine": "The stable owner wants a photo of Octorok Lake when it takes its octorok shape.",
+     "how": "Examine the empty frame to start, then go to Octorok Lake (southwest of the stable) during rain - the risen water makes the lake look like an octorok. Photograph it from a high vantage (a hill to the north, or a Zonai balloon) so the caption reads 'Octorok-shaped Octorok Lake', then show Rudi."
+    },
+    {
+     "name": "The Lomei Labyrinth Island Prophecy",
+     "kind": "Side Quest",
+     "giver": "Zonai terminal/prophecy inside Lomei Labyrinth Island, far northeast in the Akkala Sea",
+     "location": "Lomei Labyrinth Island, Akkala Sea",
+     "reward": "Evil Spirit Armor (full set across the linked labyrinths)",
+     "oneLine": "Solve the three linked Lomei labyrinths (surface, sky, and Depths) to claim the Evil Spirit Armor set.",
+     "how": "Navigate the surface maze to its center and the Igashuk Shrine, read the labyrinth terminal to start the prophecy, then follow it down to the matching labyrinth in the Depths (toss Brightbloom Seeds for light). Defeat the Flux Construct III there - Ultrahand-yank its glowing weak cube and strike it - then claim the armor from the chamber that rises."
+    }
+   ]
+  },
+  {
+   "region": "Hebra (Rito-adjacent north)",
+   "quests": [
+    {
+     "name": "Molli the Fletcher's Quest",
+     "kind": "Side Quest",
+     "giver": "Molli, in Rito Village",
+     "location": "Rito Village (Tabantha Frontier)",
+     "reward": "Arrow x10",
+     "oneLine": "A young Rito fletcher wants a piece of fruit and trades you arrows for it.",
+     "how": "Listen to the children finish the Song of the Stormwind Ark, follow Molli home and talk to her. Hand her one Ice Fruit (grows on bushes in the snowy Hebra/Tabantha hills) or one White Chuchu Jelly and she gives you 10 arrows."
+    },
+    {
+     "name": "Genli's Home Cooking",
+     "kind": "Side Quest",
+     "giver": "Genli, at the merchant's shop in Rito Village (after the Tulin of Rito Village main quest)",
+     "location": "Rito Village (Tabantha Frontier)",
+     "reward": "Biting Simmered Fruit (a cooked dish)",
+     "oneLine": "A Rito cook wants a specific fish to perfect her new recipe.",
+     "how": "Talk to Genli, who asks for one Staminoka Bass. Catch one in the ponds on the islands near Rito Village (cross the bridge and look in the pond), then hand it over for the dish."
+    },
+    {
+     "name": "Fish for Fletching",
+     "kind": "Side Quest",
+     "giver": "Bedoli, in Rito Village (after the Tulin of Rito Village main quest)",
+     "location": "Rito Village (Tabantha Frontier)",
+     "reward": "Arrow x10 (and unlocks ongoing arrow trades)",
+     "oneLine": "A worried Rito needs cave fish to get through the food shortage.",
+     "how": "Speak to Bedoli, who asks for 3 Glowing Cave Fish. Find them swimming in any cave or well with standing water (use a Brightbloom Seed for light), then deliver all three to get 10 arrows."
+    },
+    {
+     "name": "Legacy of the Rito",
+     "kind": "Side Quest",
+     "giver": "Teba, at his house at the top of Rito Village (after the Tulin of Rito Village main quest)",
+     "location": "Rito Village (Tabantha Frontier)",
+     "reward": "Great Eagle Bow",
+     "oneLine": "Teba wants to recreate the legendary Rito bow and needs materials and a base bow.",
+     "how": "Bring Teba a Swallow Bow (grab one from the hut near the Flight Range / Dronoc's Pass north of the village), 5 bundles of Wood (chop trees, then hit the fallen logs), and 3 Diamonds (mine ore deposits or buy at Goron City). Hand them over for the Great Eagle Bow."
+    },
+    {
+     "name": "The Rito Rope Bridge",
+     "kind": "Side Quest",
+     "giver": "Gesane (with Juannelle), beside the broken bridge at the entrance to Rito Village (after clearing the Wind Temple)",
+     "location": "Rito Village approach (Tabantha Frontier)",
+     "reward": "100 Rupees (Silver Rupee)",
+     "oneLine": "The bridge into Rito Village is broken and needs a carpenter and lumber to repair.",
+     "how": "Talk to Gesane and Juannelle, then go to Lookout Landing and tell the carpenter Karson (the name ends in '-son') about the Rito Rope Bridge. Meet him at the ruined bridge with 20 Wood; he rebuilds it, then report back to Gesane."
+    },
+    {
+     "name": "Kaneli's Flight Training",
+     "kind": "Side Quest",
+     "giver": "Kaneli, at the Flight Range southwest of Rito Village (after Tulin of Rito Village)",
+     "location": "Flight Range (Tabantha Frontier / Hebra)",
+     "reward": "50 Rupees (Purple Rupee); unlocks the advanced flight course",
+     "oneLine": "A timed paragliding challenge to fly through rings at the Flight Range.",
+     "how": "Talk to Kaneli, then dive off the range and open your paraglider to pass through at least 15 of the 20 rings within the 30-second limit, tilting to line up the rings. Clearing it earns the rupees and opens the harder advanced course."
+    },
+    {
+     "name": "Treasure of the Secret Springs",
+     "kind": "Side Quest",
+     "giver": "Tulin, in Rito Village (after the Tulin of Rito Village main quest)",
+     "location": "North Biron Snowshelf Cave, Hebra Mountains",
+     "reward": "Vah Medoh Divine Helm (armor)",
+     "oneLine": "Tulin shares an old Rito legend of treasure hidden where three springs meet.",
+     "how": "Go to North Biron Snowshelf Cave at the center of the three Secret Hot Springs (Sturnida, Goflam, Sherfin) and melt the ice to get in. Inside the tall room, smash the three correct cracked spring walls to flood it; the rising water moves the owl statue aside and reveals the chest with the helm."
+    },
+    {
+     "name": "Crossing the Cold Pool",
+     "kind": "Side Quest",
+     "giver": "Verla, at the entrance of Talonto Peak Cave, Hebra Mountains",
+     "location": "Talonto Peak Cave (Hebra Mountains)",
+     "reward": "50 Rupees (Purple Rupee)",
+     "oneLine": "A Rito needs chillshrooms that are stranded across a freezing pool inside a cave.",
+     "how": "Verla asks for 10 Chillshrooms growing across a cold-water pool. Grab the wooden planks near Verla, use Ultrahand to build a raft or bridge, and float across to pick the chillshrooms (don't swim the icy water), then hand him 10."
+    },
+    {
+     "name": "Cave Mushrooms That Glow",
+     "kind": "Side Quest",
+     "giver": "Nat (with Meghyn), outside Brightcap Cave, Tabantha Frontier",
+     "location": "Brightcap Cave (Tabantha Frontier)",
+     "reward": "Spicy Tomato Mushroom Stew (a cooked dish)",
+     "oneLine": "Two traveling sisters are collecting the glowing mushrooms found in caves.",
+     "how": "Talk to Nat and Meghyn, then gather 10 Brightcaps, the glowing mushrooms that grow on the walls and floor inside Brightcap Cave (and similar caves). Hand Nat 10 Brightcaps for the dish."
+    },
+    {
+     "name": "Open the Door",
+     "kind": "Side Quest",
+     "giver": "Jogo and Yammo (heard from inside a cabin), Tabantha Village Ruins, Tabantha Frontier",
+     "location": "Tabantha Village Ruins (Tabantha Frontier)",
+     "reward": "Spicy Elixir; unlocks shield-surfing lessons",
+     "oneLine": "Two villagers refuse to open their door until the monsters outside are gone.",
+     "how": "Approach the cabin with smoke from its chimney; the pair won't open up while monsters are near. Defeat the Bokoblins camped beside the house, then knock again. Yammo opens the door, gives you a Spicy Elixir, and teaches you to shield surf."
+    },
+    {
+     "name": "Supply-Eyeing Fliers",
+     "kind": "Side Quest",
+     "giver": "Huck, guarding supplies on a hill in the Tabantha Frontier (near Tabantha Village Ruins)",
+     "location": "Tabantha Frontier (near Tabantha Village Ruins)",
+     "reward": "50 Rupees (Purple Rupee)",
+     "oneLine": "Aerocudas are circling overhead, eyeing a Rito's stockpile of supplies.",
+     "how": "Three Aerocudas hover above. Shoot each one out of the sky with arrows (fuse a Keese Eyeball for homing if you struggle to hit them). Bring down all three to finish."
+    },
+    {
+     "name": "The Blocked Cave",
+     "kind": "Side Quest",
+     "giver": "Mazli, at a cave entrance near Rospro Pass, Tabantha Frontier",
+     "location": "Rospro Pass area (Tabantha Frontier)",
+     "reward": "20 Rupees (Red Rupee)",
+     "oneLine": "Rockfall has sealed a supply cave that a Rito needs reopened.",
+     "how": "Talk to Mazli, then clear the rock blockage sealing the cave, smash it with a hammer or a rock/Bomb Flower-fused weapon or arrow. Once it's cleared, speak to Mazli for the reward."
+    },
+    {
+     "name": "A Picture for Tabantha Bridge Stable",
+     "kind": "Side Quest",
+     "giver": "Dabi, via the empty picture frame at Tabantha Bridge Stable, Tabantha Frontier",
+     "location": "Tabantha Bridge Stable (Tabantha Frontier)",
+     "reward": "Pony Point + Hasty Elixir",
+     "oneLine": "The stable wants a scenic photo for its empty wall frame.",
+     "how": "Examine the empty frame to get the request, then go to the Ancient Columns (west, by Tanagar Canyon) and photograph them at sunrise (sleep at a fire to set the time). Return and interact with the frame to give Dabi the picture."
+    },
+    {
+     "name": "A Picture for Snowfield Stable",
+     "kind": "Side Quest",
+     "giver": "Varke, via the empty picture frame at Snowfield Stable, Hebra Mountains",
+     "location": "Snowfield Stable (Hebra Mountains)",
+     "reward": "Pony Point + Spicy Meat Stew",
+     "oneLine": "The stable wants a photo of the giant bird shape seen in the Hebra sky.",
+     "how": "Examine the empty frame to get the request for the 'giant bird with wings stretched wide.' From the cedar tree on Talonto Peak, aim the camera at the bird-shaped Biron Snowshelf illusion until the screen flags it, snap the photo, then return and use the frame to hand Varke the picture."
+    },
+    {
+     "name": "The Captured Tent",
+     "kind": "Side Quest",
+     "giver": "Nat (with Meghyn), at Snowfield Stable, Hebra Mountains",
+     "location": "Mount Drena Foothill Cave (Hebra Mountains)",
+     "reward": "Spicy Steamed Mushroom (a cooked dish)",
+     "oneLine": "Monsters chased the sisters out of the cave camp they had set up near the stable.",
+     "how": "Talk to Nat and Meghyn, then head to Mount Drena Foothill Cave. Defeat all the monsters inside, several Bokoblins and a Moblin gathered around the fire, to reclaim the camp and finish."
+    },
+    {
+     "name": "Who Finds the Haven",
+     "kind": "Side Quest",
+     "giver": "Nat (with Meghyn), at Snowfield Stable, Hebra Mountains (after The Captured Tent)",
+     "location": "Sturnida Springs Cave (Hebra Mountains)",
+     "reward": "None (keep the mushrooms in the haven)",
+     "oneLine": "The sisters search for a rumored hidden 'haven' full of mushrooms.",
+     "how": "After The Captured Tent, talk to the sisters again, then travel to Sturnida Springs Cave (near Rospro Pass Skyview Tower). Crawl through the small tunnel to the end to discover the glowing hidden room packed with mushrooms; reaching it completes the quest."
+    },
+    {
+     "name": "The Duchess Who Disappeared",
+     "kind": "Side Quest",
+     "giver": "Russ, at Selmie's Spot, Hebra Mountains (after Tulin of Rito Village)",
+     "location": "Hebra Mountains (Selmie's Spot / East Biron Snowshelf Cave)",
+     "reward": "Strong Zonaite Shield; unlocks Selmie's shield-surf lessons",
+     "oneLine": "The famous shield-surf teacher Selmie has vanished and her partner Russ is worried.",
+     "how": "Talk to Russ, then find Fin by the fire near the Hebra tundra to learn she's in East Biron Snowshelf Cave. Inside, smash the rock walls to find Selmie at a campfire and clear her exit, then fast-travel back to Selmie's Spot and talk to her to get the shield."
+    },
+    {
+     "name": "The North Lomei Prophecy",
+     "kind": "Side Quest",
+     "giver": "A mysterious owl's voice at the terminal in North Lomei Labyrinth, Tabantha Snowfield",
+     "location": "North Lomei Labyrinth (Tabantha Snowfield: surface + sky + Depths)",
+     "reward": "Evil Spirit Greaves (armor)",
+     "oneLine": "An owl's prophecy challenges you to conquer all three layers of the northern labyrinth.",
+     "how": "Reach the terminal at the heart of the surface maze (near Mayaotaki Shrine) to start it. Activate the ring at the maze center, then in the sky-island maze light the four ring terminals (and a fifth on top), then dive straight down through the sky and surface mazes into the Depths labyrinth and beat the Flux Construct III for the greaves."
+    },
+    {
+     "name": "Hebra's Colossal Fossil",
+     "kind": "Side Quest",
+     "giver": "Loone, by the campfire at the Hebra Great Skeleton, Hebra Mountains (after Eldin's Colossal Fossil)",
+     "location": "Hebra Great Skeleton (Hebra Mountains)",
+     "reward": "50 Rupees (Purple Rupee)",
+     "oneLine": "Fossil-hunter Loone needs help restoring the giant skeleton's missing bones.",
+     "how": "Loone says the skeleton is missing its fin bone and a vertebra. Free the fin bone from the rubble nearby and melt the giant ice block to free the spine, then use Ultrahand to lift each bone back into its slot on the skeleton and report to Loone."
+    },
+    {
+     "name": "The Hornist's Dramatic Escape",
+     "kind": "Side Adventure",
+     "giver": "Eustus, stuck in a hole near Piper Ridge, Tabantha Frontier",
+     "location": "Piper Ridge (Tabantha Frontier)",
+     "reward": "Courser Bee Honey x3 (and leads into Serenade to Mija)",
+     "oneLine": "A horn player from a traveling music troupe has fallen into a pit and can't climb out.",
+     "how": "Find Eustus calling from the hole near Piper Ridge. His wagon is stuck down there too, so use Ultrahand (plus a balloon or fan) to turn the wagon into a lift/flying machine, get him in, and float him out. Rescuing him gives the honey and points you to troupe leader Mastro at Snowfield Stable."
+    },
+    {
+     "name": "Serenade to Mija",
+     "kind": "Side Adventure",
+     "giver": "Mastro, the troupe leader at Snowfield Stable, Hebra Mountains (after The Hornist's Dramatic Escape and Serenade to a Great Fairy)",
+     "location": "Snowfield Stable / Great Fairy Mija's Fountain (Hebra Mountains)",
+     "reward": "100 Rupees; unlocks Great Fairy Mija's Fountain (armor upgrades)",
+     "oneLine": "Help the musical troupe reunite and play to awaken the Great Fairy Mija.",
+     "how": "After rescuing Eustus, talk to Mastro at Snowfield Stable, then escort/lead the Stable Trotters to Mija's nearby fountain (defeat any ambushers and clear the path). Their performance wakes Mija, opening the fountain for armor upgrades, and Mastro pays you 100 rupees."
+    },
+    {
+     "name": "Zelda's Golden Horse",
+     "kind": "Side Adventure",
+     "giver": "Harlow, at Snowfield Stable, Hebra Mountains (after starting Potential Princess Sightings with Penn)",
+     "location": "North Tabantha Snowfield (Hebra Mountains)",
+     "reward": "The Golden Horse + Royal Saddle + Royal Bridle + an Energizing Elixir + rupees",
+     "oneLine": "Track down and tame the legendary golden horse Princess Zelda once rode.",
+     "how": "Talk to Harlow (with Penn) at Snowfield Stable, then head north into the North Tabantha Snowfield where the golden horse roams. Sneak up behind it, mount it, and rapidly press the soothe button to hold on until it calms; ride it back to Harlow to register it and claim the royal gear."
+    },
+    {
+     "name": "Bring Peace to Hebra!",
+     "kind": "Side Adventure",
+     "giver": "Flaxel, at the Monster-Control Crew camp in the South Tabantha Snowfield (after Bring Peace to Faron!)",
+     "location": "South Tabantha Snowfield (Hebra Mountains)",
+     "reward": "Rupees (and, as the final Bring-Peace quest, the Monster Control Crew Fabric)",
+     "oneLine": "The Monster-Control Crew needs help clearing a monster stronghold in the snowfield.",
+     "how": "Talk to Flaxel near the snowfield enemy base, then wipe out the monsters holding the stronghold, including a Boss Bokoblin (use Ultrahand to clear any spike-ball blocking the way in). Clearing them out completes the quest."
+    }
+   ]
+  },
+  {
+   "region": "Tabantha (Rito Village)",
+   "quests": [
+    {
+     "name": "Molli the Fletcher's Quest",
+     "kind": "Side Quest",
+     "giver": "Molli, a young Rito on a platform near the main staircase / in her home in Rito Village",
+     "location": "Rito Village, Tabantha Frontier",
+     "reward": "10 Arrows (repeatable)",
+     "oneLine": "A little Rito fletcher wants a cold ingredient to keep working, in exchange for arrows.",
+     "how": "Listen to Molli's song, then find her at her home in Rito Village and hand over an Ice Fruit (a White Chuchu Jelly also works). Ice Fruit grows on the cold mountains/caves around the village. She gives 10 arrows, and you can keep trading for more."
+    },
+    {
+     "name": "Genli's Home Cooking",
+     "kind": "Side Quest",
+     "giver": "Genli, a small Rito child in the Rito Village general store",
+     "location": "Rito Village, Tabantha Frontier",
+     "reward": "Biting Simmered Fruit (a cold-resist dish)",
+     "oneLine": "A young Rito in the shop wants a Staminoka Bass to cook with.",
+     "how": "Talk to Genli, then catch a Staminoka Bass in the pond just east of Rito Village (sneak up and grab it, or stun it with an arrow / a thrown weapon, then collect it). Bring the fish back to Genli to receive a Biting Simmered Fruit."
+    },
+    {
+     "name": "Fish for Fletching",
+     "kind": "Side Quest",
+     "giver": "Bedoli, a female Rito by the crates on the southwest plateau of Rito Village (after Tulin of Rito Village)",
+     "location": "Rito Village, Tabantha Frontier",
+     "reward": "10 Arrows (repeatable)",
+     "oneLine": "A Rito needs glowing cave fish to make fletching for arrows.",
+     "how": "After finishing the Tulin of Rito Village main quest, speak to Bedoli, then head to West Totori Cave (just southeast of the village) and catch three Glowing Cave Fish. Sneak up and grab them or shoot them with a plain arrow (don't fuse a Bomb Flower, or you'll cook them). Hand the three fish to Bedoli for 10 arrows."
+    },
+    {
+     "name": "Legacy of the Rito",
+     "kind": "Side Quest",
+     "giver": "Teba, at his house at the top of Rito Village (after Tulin of Rito Village / the Wind Temple)",
+     "location": "Rito Village, Tabantha Frontier",
+     "reward": "Great Eagle Bow (28x3 damage, fires 3 arrows at once)",
+     "oneLine": "Teba will forge Link a Great Eagle Bow if you supply the materials.",
+     "how": "After the Wind Temple, talk to Teba and bring him a Swallow Bow, 5 bundles of Wood (chop trees and hit the fallen logs), and 3 Diamonds (mine glittering Rare Ore Deposits in caves or the Depths). Hand them over and Teba crafts the Great Eagle Bow."
+    },
+    {
+     "name": "Treasure of the Secret Springs",
+     "kind": "Side Quest",
+     "giver": "Tulin, in Rito Village (after Tulin of Rito Village)",
+     "location": "Rito Village / Hebra Mountains, Tabantha Frontier",
+     "reward": "Vah Medoh Divine Helm (armor, cold resistance)",
+     "oneLine": "Solve the riddle about three secret hot springs to wake a sleeping treasure.",
+     "how": "The riddle points to the spot at the center of Sturnida, Goflam's, and Sherfin's Secret Hot Springs: North Biron Snowshelf Cave in the Hebra mountains. Melt the big ice block at the entrance with a fire weapon/Fire Fruit, then inside break the three cracked walls so each hot spring floods the chamber and raises the water; an owl statue shifts aside, revealing a chest with the Vah Medoh Divine Helm."
+    },
+    {
+     "name": "The Rito Rope Bridge",
+     "kind": "Side Quest",
+     "giver": "Gesane (with Juannelle) at the Rito Village entrance after Tulin of Rito Village",
+     "location": "Rito Village & Tabantha Bridge, Tabantha Frontier",
+     "reward": "Silver Rupee (100 Rupees), plus the repaired bridge to Rito Village",
+     "oneLine": "Help the Rito and a Hudson Construction carpenter rebuild the storm-damaged rope bridge to the village.",
+     "how": "Talk to Gesane and Juannelle, then travel to Lookout Landing and recruit the carpenter Karson (Hudson Construction). He returns and asks for 20 bundles of Wood — chop down trees and slice the fallen logs to gather it. Deliver the 20 Wood to Karson and he and Gesane repair the Rito Rope Bridge; Gesane pays you a Silver Rupee."
+    },
+    {
+     "name": "Crossing the Cold Pool",
+     "kind": "Side Quest",
+     "giver": "Verla, inside Talonto Peak Cave",
+     "location": "Talonto Peak, north of Rito Village, Tabantha Frontier",
+     "reward": "50 Rupees",
+     "oneLine": "A traveler is stranded by a freezing pond and needs Chillshrooms from the far side.",
+     "how": "Verla wants 10 Chillshrooms, but they sit across a frigid pool. Use Ultrahand to join the loose wooden planks just outside the cave into a long bridge/raft, lay it on the water, cross to the far side, and gather 10 Chillshrooms. Bring them back to Verla for 50 Rupees."
+    },
+    {
+     "name": "Cave Mushrooms That Glow",
+     "kind": "Side Quest",
+     "giver": "Meghyn and Nat (two sisters) at the entrance of Brightcap Cave",
+     "location": "Brightcap Cave, Tabantha Frontier",
+     "reward": "Spicy Tomato Mushroom Stew (a cold-resist dish)",
+     "oneLine": "Two sisters ask for ten glowing cave mushrooms.",
+     "how": "Enter Brightcap Cave and collect 10 Brightcaps — the glowing mushrooms cling to the walls and floor throughout the cave. Return the 10 Brightcaps to Meghyn and Nat at the entrance to receive the Spicy Tomato Mushroom Stew dish."
+    },
+    {
+     "name": "The Blocked Cave",
+     "kind": "Side Quest",
+     "giver": "Mazli, outside Rospro Pass Cave",
+     "location": "Rospro Pass, northeast of Rito Village, Tabantha Frontier",
+     "reward": "Red Rupee (20 Rupees)",
+     "oneLine": "A Rito wants the boulders sealing a cave entrance cleared away.",
+     "how": "The entrance to Rospro Pass Cave is blocked by rocks. Break them with a Bomb Flower-fused arrow or a Rock/heavy-fused (hammer-type) melee weapon — there are two blockages, so it takes a couple of hits. Once the cave is open, talk to Mazli for a Red Rupee."
+    },
+    {
+     "name": "Kaneli's Flight Training",
+     "kind": "Side Quest",
+     "giver": "Kaneli, in the hut at the Flight Range (northwest of Rito Village)",
+     "location": "Flight Range, north of Rito Village, Tabantha Frontier",
+     "reward": "Purple Rupee (50 Rupees); unlocks an Advanced Course",
+     "oneLine": "The former elder Kaneli runs a paraglider ring-flying course.",
+     "how": "Talk to Kaneli to start the course, then paraglide through at least 15 rings within the time limit, staying inside the range. Pump the paraglider open to rise and close it to dive so you swoop through each ring; clearing 15 finishes the test for a Purple Rupee (and an optional Advanced Course)."
+    },
+    {
+     "name": "Open the Door",
+     "kind": "Side Quest",
+     "giver": "Jogo and Yammo, hiding in a house in the Tabantha Village Ruins",
+     "location": "Tabantha Village Ruins, Tabantha Frontier",
+     "reward": "Spicy Elixir; they teach Link shield surfing",
+     "oneLine": "Two travelers won't leave their house until the monsters camped outside are gone.",
+     "how": "The pair refuse to open up because Bokoblins are camped right outside. Clear out the three Bokoblins in the area (sneakstrikes or fused weapons make quick work of them), then talk to them again — Jogo and Yammo come out, give a Spicy Elixir, and show you how to shield surf."
+    },
+    {
+     "name": "Supply-Eyeing Fliers",
+     "kind": "Side Quest",
+     "giver": "Huck, a Rito guarding crates in the Tabantha Village Ruins / Tabantha Hills",
+     "location": "Tabantha Village Ruins, Tabantha Frontier",
+     "reward": "Purple Rupee (50 Rupees)",
+     "oneLine": "A Rito is pinned guarding supplies from three circling Aerocudas.",
+     "how": "Three Aerocudas are circling Huck's supplies. Shoot all three down — fusing an eyeball (Keese/Aerocuda) to your arrows makes them home in, or toss a Hylian Pine Cone into the nearby campfire to make an updraft, ride it up with your paraglider, and pick them off with your bow. Talk to Huck after the third falls for a Purple Rupee."
+    },
+    {
+     "name": "The Mother Goddess Statue",
+     "kind": "Side Quest",
+     "giver": "The Mother Goddess Statue at the Forgotten Temple (by Mayausiy Shrine, Tanagar Canyon)",
+     "location": "Forgotten Temple, Tanagar Canyon, Tabantha Frontier",
+     "reward": "White Sword of the Sky",
+     "oneLine": "Awaken the toppled Mother Goddess Statue by feeding the three smaller statues Dragon Claws.",
+     "how": "Visit the Mother Goddess Statue first, then complete the three regional Goddess Statue quests — each small statue (Courage/Power/Wisdom) asks for a Dragon Claw, shot off Dinraal, Naydra, or Farosh while gliding near them. With all three claws delivered, return to the Mother Goddess Statue in the Forgotten Temple for the White Sword of the Sky."
+    },
+    {
+     "name": "The Hornist's Dramatic Escape",
+     "kind": "Side Adventure",
+     "giver": "Eustus, a horn-playing musician fallen into a hole near Piper Ridge (road toward Rito Village)",
+     "location": "Piper Ridge area, Tabantha Frontier",
+     "reward": "Courser Bee Honey x3",
+     "oneLine": "A wandering musician and his cart are stuck at the bottom of a pit.",
+     "how": "Eustus and his wagon have fallen into a hole. Use Ultrahand to build a flying rig: attach two Flame Emitters to the cart, put two Hot-Air Balloons above them so the heat lifts the cart, and add a Fan on the back. Climb aboard and hit the fan — the balloons float it up while the fan pushes it forward out of the pit. Eustus rewards you with 3 Courser Bee Honey."
+    }
+   ]
+  },
+  {
+   "region": "Hyrule Ridge (Hyrule Field west, stables)",
+   "quests": [
+    {
+     "name": "Horse-Drawn Dreams",
+     "kind": "Side Quest",
+     "giver": "Zumi, beside her broken wagon outside New Serenne Stable",
+     "location": "New Serenne Stable, Hyrule Ridge",
+     "reward": "100 rupees (Silver Rupee)",
+     "oneLine": "Repair a wagon-dreamer's broken cart and bring her a tamed horse so she can finally take to the road.",
+     "how": "Talk to Zumi, then use Ultrahand to reattach the two wheels (leaning on the nearby boxes) and the wooden bucket to her broken wagon. Then cross the road and climb the hill, crouch to sneak up on a wild horse, mount and soothe it to tame it, and ride it back to Zumi to hand it over."
+    },
+    {
+     "name": "The Horse Guard's Request",
+     "kind": "Side Quest",
+     "giver": "Toffa, near the horses at Outskirt Stable",
+     "location": "Outskirt Stable, Hyrule Ridge",
+     "reward": "150 rupees total (50 + 100) and 2 Pony Points (one per animal)",
+     "oneLine": "A horse-loving stable hand wants to see a skeleton horse, then a tamed wild forest animal.",
+     "how": "First wait until night (sleep in a bed or sit at a fire), go north to the Sanidin Park Ruins, sneak up on a Stalhorse (skeleton horse), mount it and ride it back to Toffa before daybreak (it crumbles in daylight). Then catch a non-horse forest animal such as a deer in the woods near the stable by crouching to sneak up, mounting and soothing it, and bring it back to Toffa."
+    },
+    {
+     "name": "Where Are the Wells?",
+     "kind": "Side Quest",
+     "giver": "Fera, found down inside the Tabantha Bridge Stable Well",
+     "location": "Tabantha Bridge Stable Well, Hyrule Ridge",
+     "reward": "10 rupees per new well reported (580 for all 58); finding all wells earns the 'All's Well' key item",
+     "oneLine": "A well enthusiast wants every well in Hyrule located, paying you per discovery.",
+     "how": "Drop into the Tabantha Bridge Stable Well and talk to Fera; she then relocates to the Lookout Landing Well. As you climb down into wells across Hyrule (most are near stables, towns and old ruins), return to Fera at Lookout Landing to report them — she pays 10 rupees each and tells you how many remain. Find all 58 to fully complete it."
+    },
+    {
+     "name": "A Picture for Tabantha Bridge Stable",
+     "kind": "Side Quest",
+     "giver": "Dabi at Tabantha Bridge Stable (examine the empty picture frame to summon him)",
+     "location": "Tabantha Bridge Stable, Hyrule Ridge",
+     "reward": "1 Pony Point and a Hasty Elixir",
+     "oneLine": "An artist wants a photo of the Ancient Columns at sunrise to fill an empty frame, but monsters scare him off.",
+     "how": "Check the empty picture frame at the stable to start, then cross the Tabantha Great Bridge to the Ancient Columns and use the Camera (Purah Pad) between 4am and 6am to photograph them at sunrise (sleep or wait at a fire to reach dawn). Return and show the picture to Dabi, who paints a copy for the frame."
+    },
+    {
+     "name": "A Picture for Outskirt Stable",
+     "kind": "Side Quest",
+     "giver": "Embry at Outskirt Stable (examine the empty picture frame to start)",
+     "location": "Outskirt Stable, Hyrule Ridge",
+     "reward": "1 Pony Point and an Egg Tart",
+     "oneLine": "The stable keeper wants a photo of the cherry blossom tree atop Satori Mountain to fill an empty frame.",
+     "how": "Examine the empty picture frame to begin, then travel to the top of Satori Mountain and use the Camera (Purah Pad) to photograph the lone cherry blossom tree (the whole tree just needs to be in frame). Return and show Embry the picture, and he paints a copy for the frame."
+    },
+    {
+     "name": "A Picture for New Serenne Stable",
+     "kind": "Side Quest",
+     "giver": "Sprinn at New Serenne Stable (examine the empty picture frame to start)",
+     "location": "New Serenne Stable, Hyrule Ridge",
+     "reward": "1 Pony Point and a Bright-Eyed Crab dish (Bright Tomato Mushroom Stew)",
+     "oneLine": "The stable clerk wants an overhead photo of the nearby geoglyph to fill an empty frame.",
+     "how": "Examine the empty picture frame to begin, then build a flying rig with Ultrahand (a Zonai balloon on a platform, or a balloon plus an upward Flame Emitter you strike to ascend) and rise above the geoglyph near Sinakawak Shrine to photograph it from overhead with the Camera. Return and show Sprinn the picture to complete it."
+    },
+    {
+     "name": "Hestu's Concerns",
+     "kind": "Side Adventure",
+     "giver": "Hestu, southeast of Lindor's Brow Skyview Tower (northwest of New Serenne Stable)",
+     "location": "Lindor's Brow, Hyrule Ridge",
+     "reward": "Unlocks Hestu's pouch (weapon/bow/shield) expansions for Korok Seeds",
+     "oneLine": "Hestu is too scared of nearby 'trees' to do business — deal with them so he can expand your pouch.",
+     "how": "Find Hestu at Lindor's Brow; he is frightened of the surrounding trees, which are actually Evermean monsters. Defeat the Evermeans (fire works well, or chop them with a sharp weapon) to calm Hestu, after which he stays and trades Korok Seeds for inventory-slot upgrades. (If you finish a temple/Regional Phenomenon before meeting him, Hestu instead relocates to Lookout Landing.)"
+    }
+   ]
+  },
+  {
+   "region": "Gerudo (Gerudo Town & the desert)",
+   "quests": [
+    {
+     "name": "The Heroines' Secret",
+     "kind": "Side Quest",
+     "giver": "Rotana, the Gerudo archaeologist, in the Gerudo Shelter beneath Gerudo Town",
+     "location": "Gerudo Town (the underground Shelter)",
+     "reward": "A mysterious orb (used in The Mysterious Eighth)",
+     "oneLine": "Photograph four hidden stelae about the seven Gerudo heroines for Rotana.",
+     "how": "Use the Purah Pad camera to photograph all four stelae in the Shelter: behind Rotana's room (clear the rubble first), by the stairs in the mural room, in the classroom (visit late evening/early morning, not during 11AM-3PM school hours), and in the jail (get yourself arrested by removing your top or wearing the Yiga Mask). Bring the pictures back to Rotana."
+    },
+    {
+     "name": "The Mysterious Eighth",
+     "kind": "Side Quest",
+     "giver": "Rotana in the Gerudo Shelter, after The Heroines' Secret",
+     "location": "Gerudo Town / North Gerudo Ruins",
+     "reward": "A Diamond",
+     "oneLine": "Gather eight patterned orbs to unlock a hidden chamber proving an eighth Gerudo heroine existed.",
+     "how": "Collect the eight orbs (from The Heroines' Secret, Dalia's Game, Lost in the Dunes, plus ones hidden in dorm bunk beds and supply boxes around the Shelter/town), then use Ultrahand to set each orb on a statue's hands to open the secret room. Ultrahand the giant orb out to the North Gerudo Ruins, work through the Gerudo Sanctuary (beat the Gibdos and clear obstacles), read the stone tablet, and report back to Rotana."
+    },
+    {
+     "name": "Dalia's Game",
+     "kind": "Side Quest",
+     "giver": "Dalia, near the main entrance inside Gerudo Town",
+     "location": "Gerudo Town",
+     "reward": "An orb (one of the eight for The Mysterious Eighth)",
+     "oneLine": "Win Dalia's little hide-and-seek/guessing game to earn an orb.",
+     "how": "Talk to Dalia by the main gate and play her game to win, which hands you one of the patterned orbs needed for The Mysterious Eighth."
+    },
+    {
+     "name": "The Missing Owner",
+     "kind": "Side Quest",
+     "giver": "Cara, the jewelry-shop worker (in the Gerudo Shelter, or out front of the Jewelry Shop once town is restored)",
+     "location": "Gerudo Town / Toruma Dunes",
+     "reward": "A Diamond (save it for Pride of the Gerudo)",
+     "oneLine": "Track down the missing jewelry-shop owner Isha, stranded out in the desert.",
+     "how": "Head west to Toruma Dunes and look for the plume of smoke; crouch (L) to stay undetected by the Molduga, then rescue Isha on the rock formation. Beat the Molduga (toss a Brightbloom Seed or bomb on the sand to make it surface, hit it with bombs/arrows, then melee its belly while it's stunned), then meet Isha and Cara back at the shop for your Diamond."
+    },
+    {
+     "name": "Pride of the Gerudo",
+     "kind": "Side Quest",
+     "giver": "Isha at the Jewelry Shop in Gerudo Town, after The Missing Owner",
+     "location": "Gerudo Town",
+     "reward": "Scimitar of the Seven and Daybreaker shield",
+     "oneLine": "Bring Isha rare materials so she can forge the legendary Gerudo blade and shield.",
+     "how": "Gather and give Isha four Diamonds, ten Flint, a Gerudo Scimitar, and a Gerudo Shield; she then crafts and hands you the Scimitar of the Seven and the Daybreaker."
+    },
+    {
+     "name": "Treasure of the Gerudo Desert",
+     "kind": "Side Quest",
+     "giver": "Riju in the throne room, after completing the Riju of Gerudo Town main quest",
+     "location": "Gerudo Town / West Gerudo Underground Ruins (West Barrens)",
+     "reward": "Vah Naboris Divine Helm",
+     "oneLine": "Solve Riju's riddle about the desert's sword-pointing warrior statues to find buried treasure.",
+     "how": "Travel northwest to the West Barrens, find the large bone ruins with a cracked patch of ground, and blow it open with a Bomb Flower to drop into the West Gerudo Underground Ruins. Follow the direction the Warrior Statues' swords point, clear the boulders blocking the way, and open the chest at the end for the Vah Naboris Divine Helm."
+    },
+    {
+     "name": "To the Ruins!",
+     "kind": "Side Quest",
+     "giver": "Pokki, at the Sand-Seal Rental Shop in Gerudo Town (after Riju of Gerudo Town)",
+     "location": "Gerudo Town / East Gerudo Ruins",
+     "reward": "A Silver Rupee (100 rupees)",
+     "oneLine": "Give Pokki a smooth sand-seal sleigh ride out to the East Gerudo Ruins.",
+     "how": "Rent a Sleigh Seal from the sand-seal stall (she insists on the sleigh, not a plain seal), pick up Pokki, and drive carefully east to the East Gerudo Ruins, avoiding monster camps and sinkholes; sharp swerves or damage send you back to start over. Arrive intact for the Silver Rupee."
+    },
+    {
+     "name": "Lost in the Dunes",
+     "kind": "Side Quest",
+     "giver": "Benja at Kara Kara Bazaar",
+     "location": "Kara Kara Bazaar / Oasis Source cavern",
+     "reward": "A patterned orb (for The Mysterious Eighth)",
+     "oneLine": "Rescue the missing caravan merchant Ponthos from an underground cavern near the oasis.",
+     "how": "Drop into the Kara Kara Bazaar well and follow the water, or dive into the nearby sandpit, to reach the underground Oasis Source where Ponthos is trapped. Fuse a rock-breaking weapon (or use bombs) to smash the boulders blocking the tunnels, follow the water northeast back up to the bazaar, then talk to Benja and Ponthos to earn the orb."
+    },
+    {
+     "name": "Decorate with Passion",
+     "kind": "Side Quest",
+     "giver": "Boraa at Kara Kara Bazaar",
+     "location": "Kara Kara Bazaar",
+     "reward": "An Electric Keese Wing (decorative material)",
+     "oneLine": "Show Boraa a ruby-fused weapon so she can use the gem as a decoration.",
+     "how": "Fuse a Ruby onto any weapon (Fuse via the right d-pad ability) and show the ruby-tipped weapon to Boraa; she hands you an Electric Keese Wing in return."
+    },
+    {
+     "name": "The Iceless Icehouse",
+     "kind": "Side Quest",
+     "giver": "Anche at the Northern Icehouse",
+     "location": "Northern Icehouse (Gerudo Desert, north of Gerudo Town)",
+     "reward": "A Purple Rupee (50 rupees); repeatable daily",
+     "oneLine": "Make a fresh block of ice for Anche's empty icehouse using elemental tricks.",
+     "how": "Freeze the puddle in the middle of the room (throw an Ice Fruit or White Chuchu Jelly into it, or hit it with a Sapphire-fused weapon) to form a big ice block, then shave it down with a single Fire Fruit / Ruby-fused weapon / torch to the right size. Use Ultrahand to set the ice into the storage beside Anche and talk to her for the reward."
+    },
+    {
+     "name": "Gleeok Guts",
+     "kind": "Side Quest",
+     "giver": "Malena at the Gerudo Canyon Stable area / Gerudo Desert Gateway (south of the Gerudo Canyon Well)",
+     "location": "Gerudo Canyon / Gerudo Desert (Flame Gleeok near Spectacle Rock)",
+     "reward": "300 rupees (a Gold Rupee)",
+     "oneLine": "Fetch Flame Gleeok guts for Malena to cure her ailing husband.",
+     "how": "Travel to the Flame Gleeok southwest of the Gerudo Canyon Skyview Tower (near Spectacle Rock); shoot each of its three heads with arrows until it crashes down, then melee its body. Hand the Gleeok Guts to Malena for the 300-rupee reward."
+    },
+    {
+     "name": "Cold-Endurance Contest!",
+     "kind": "Side Quest",
+     "giver": "Rahdo, at the summit of Mount Granajh in Gerudo Canyon (southeast of the Gerudo Canyon Skyview Tower)",
+     "location": "Mount Granajh, Gerudo Canyon",
+     "reward": "100 rupees (the combined 50-rupee pot)",
+     "oneLine": "Outlast an old man through the freezing desert night with cold resistance.",
+     "how": "Pay Rahdo 50 rupees to start, then survive the cold longer than he does by eating a cold-resistance dish or fusing a Ruby (or Fire Fruit) to your weapon for warmth; do not use a campfire. Last until morning to win the pot."
+    },
+    {
+     "name": "Heat-Endurance Contest!",
+     "kind": "Side Quest",
+     "giver": "Rahdo, at the summit of Mount Granajh in Gerudo Canyon, after Cold-Endurance Contest!",
+     "location": "Mount Granajh, Gerudo Canyon",
+     "reward": "300 rupees (a Gold Rupee, the combined 150-rupee pot)",
+     "oneLine": "Outlast the old man through the scorching desert day after stripping off your gear.",
+     "how": "Pay Rahdo 150 rupees to start; you must strip to your undergarments (no heat-resist armor allowed), so keep your body temperature down by fusing a Sapphire (or Ice Fruit) to your weapon/shield while standing the heat. Outlast him to win the pot."
+    },
+    {
+     "name": "Piaffe, Packed Away",
+     "kind": "Side Quest",
+     "giver": "Piaffe, stuck behind crates inside Gerudo Canyon Stable",
+     "location": "Gerudo Canyon Stable",
+     "reward": "A Pony Point",
+     "oneLine": "Free Piaffe by clearing all the wooden crates burying his stable counter.",
+     "how": "Destroy every wooden crate around Piaffe; the fastest way is to set one on fire (a Fire Fruit, flame weapon, or torch) and let the flames spread to the rest. Once they're all gone you earn a Pony Point."
+    },
+    {
+     "name": "A Picture for the Closed Stable I",
+     "kind": "Side Quest",
+     "giver": "Piaffe at Gerudo Canyon Stable, after Piaffe, Packed Away",
+     "location": "Gerudo Canyon Stable (photo taken from the East Gerudo Sky Archipelago)",
+     "reward": "A Pony Point and Chilly Mushroom Risotto",
+     "oneLine": "Take an aerial photo of Spectacle Rock to fill the first of Piaffe's empty frames.",
+     "how": "Examine the empty frames to start it, then launch from the Gerudo Canyon Skyview Tower and use a rocket or fanplane to reach the East Gerudo Sky Archipelago; photograph the 'smiling' Spectacle Rock from above and show the picture to Piaffe."
+    },
+    {
+     "name": "A Picture for the Closed Stable II",
+     "kind": "Side Quest",
+     "giver": "Piaffe at Gerudo Canyon Stable, after A Picture for the Closed Stable I",
+     "location": "Gerudo Canyon Stable (photo taken in the Gerudo Highlands)",
+     "reward": "A Pony Point and Spicy Mushroom Risotto",
+     "oneLine": "Photograph the giant sword in the Gerudo Highlands to fill Piaffe's second frame.",
+     "how": "Launch from the Gerudo Highlands Skyview Tower and glide to the giant sword landmark near Gerudo Summit (watch for the Frost Gleeok); photograph it and show the picture to Piaffe."
+    },
+    {
+     "name": "Infiltrating the Yiga Clan",
+     "kind": "Side Adventure",
+     "giver": "Mimos, outside the Yiga Clan Hideout in Karusa Valley (Gerudo Highlands, north-northwest of Gerudo Town)",
+     "location": "Yiga Clan Hideout, Karusa Valley (Gerudo Highlands)",
+     "reward": "Access to the Yiga Clan Hideout",
+     "oneLine": "Disguise yourself as a Yiga member to be let into their hideout.",
+     "how": "Collect and equip the full Yiga Armor set (head, top, and tights — found on Yiga members and in their stations), then approach and interact with the hideout's gate; the guard lets you in once you're wearing the complete disguise."
+    },
+    {
+     "name": "The Yiga Clan Exam",
+     "kind": "Side Adventure",
+     "giver": "The Yiga Blademaster at the Yiga Blademaster Station, after Infiltrating the Yiga Clan",
+     "location": "Yiga Blademaster Station, Gerudo region (Gerudo Canyon / behind a waterfall)",
+     "reward": "A Ruby and a Pristine Eightfold Longblade (also opens access to Suariwak Shrine)",
+     "oneLine": "Pass the Yiga's initiation by leaving banana offerings at their hidden frog statues.",
+     "how": "Wear the Yiga disguise, talk to the Blademaster to get five bunches of Mighty Bananas and the five frog-statue locations pinned on your map, then visit each frog statue (marked with the upside-down Yiga eye) and place a Mighty Banana on its offering plate. Return to the Blademaster to claim the Ruby and Pristine Eightfold Longblade."
+    }
+   ]
+  },
+  {
+   "region": "Faron (Lurelin Village & the southern coast)",
+   "quests": [
+    {
+     "name": "Ruffian-Infested Village",
+     "kind": "Side Adventure",
+     "giver": "Rozel, hiding on the bluff at the entrance overlooking Lurelin Village (near Sifumim Shrine)",
+     "location": "Lurelin Village, southern Faron coast",
+     "reward": "Frees the village and unlocks the Lurelin Village Restoration Project (Rozel has nothing to give until the town is rebuilt)",
+     "oneLine": "Monster-force pirates have seized Lurelin Village; clear every enemy occupying it to retake the town.",
+     "how": "Talk to Rozel to start, then sweep the whole village, beach, pirate ship and well, killing all the invaders (Bokoblins, Lizalfos, Moblins and a Boss Bokoblin on the ship). Fuse a strong horn or rock to a sturdy weapon for damage; since these enemies can't swim, you can knock the big ones into the sea to drown them. Clear every enemy marker to finish."
+    },
+    {
+     "name": "Lurelin Village Restoration Project",
+     "kind": "Side Adventure",
+     "giver": "Bolson, with Hudson's crew in the plaza of the cleared Lurelin Village",
+     "location": "Lurelin Village, southern Faron coast",
+     "reward": "Rebuilds the village; the inn (free bed), restaurant (one free meal a day) and shops reopen, plus a free play at the Lucky Treasure Shop minigame",
+     "oneLine": "After the pirates are gone, help Bolson's crew rebuild Lurelin's wrecked buildings.",
+     "how": "Available after Ruffian-Infested Village; talk to Bolson, who needs 15 Logs and 20 Hylian Rice. Knock down regular trees (not the village palms) for logs and Ultrahand them to him, and cut grass around Faron for Hylian Rice, then keep talking to Bolson as each of the five buildings is restored until the project completes."
+    },
+    {
+     "name": "Lurelin Resort Project",
+     "kind": "Side Quest",
+     "giver": "Bolson, in the rebuilt Lurelin Village",
+     "location": "Lurelin Village, southern Faron coast",
+     "reward": "Unlocks the Lurelin Water Rally (a free water-racing attraction)",
+     "oneLine": "Help Bolson dream up a new tourist attraction for the rebuilt village — a water rally — and recruit racers for it.",
+     "how": "After the Restoration Project, talk to Bolson and suggest hosting a Water Rally. Travel to the Hudson Construction Site near Tarrey Town and recruit the two Gerudo racers there (fix their boat with Ultrahand, then beat their course), then return to Bolson in Lurelin to open the Water Rally."
+    },
+    {
+     "name": "A Way to Trade, Washed Away",
+     "kind": "Side Quest",
+     "giver": "Garini, by the general store in Lurelin Village",
+     "location": "Lurelin Village / Tenoko Island, off the southern coast",
+     "reward": "Star Fragment; reopens Garini's General Store (free stock)",
+     "oneLine": "Garini's trading boat drifted out to sea in the pirate attack — retrieve a boat from Tenoko Island.",
+     "how": "Talk to Garini, then head out to Tenoko Island where a boat has washed ashore. Ultrahand a Zonai steering stick plus a fan and battery onto the stranded boat, sail it back to the pier at Lurelin, and report to Garini."
+    },
+    {
+     "name": "Rattled Ralera",
+     "kind": "Side Quest",
+     "giver": "Ralera, in the rebuilt Lurelin Village",
+     "location": "Lurelin Village, southern Faron coast",
+     "reward": "Lurelin Village Fabric (paraglider fabric; redeem at Sayge's dye shop in Hateno)",
+     "oneLine": "An anxious villager wants a spicy seafood dish to inspire a new village flag.",
+     "how": "Available after the village is restored; cook a Seafood Curry from a Porgy (e.g. Mighty/Armored Porgy), Hylian Rice and Goron Spice in a pot, then give it to Ralera. She'll be overwhelmed by the spice, so cool her down with a gust of wind (a Korok frond fused to a weapon, a Zonai fan, or Tulin's gust), which inspires her flag and earns the Lurelin Village Fabric."
+    },
+    {
+     "name": "Dad's Blue Shirt",
+     "kind": "Side Quest",
+     "giver": "Zuta, on the beach in Lurelin Village",
+     "location": "Lurelin Village, southern Faron coast",
+     "reward": "Island Lobster Shirt (light armor with Level 1 Heat Resistance)",
+     "oneLine": "A boy wants his dad's blue shirt back from an iron chest sunk in the bay.",
+     "how": "Available after rebuilding Lurelin; talk to Zuta, who points to an iron chest sunk in the shallows of the bay. Float a raft out (Ultrahand a plank onto a couple of logs, or use any floating platform) and use Ultrahand to drag the submerged iron chest up out of the water, then open it for the Island Lobster Shirt. Report back to Zuta to finish (you keep the shirt)."
+    },
+    {
+     "name": "Ousting the Giants",
+     "kind": "Side Quest",
+     "giver": "Kampo, at Lakeside Stable",
+     "location": "Lakeside Stable, southwestern Faron (near Lake Floria)",
+     "reward": "Mighty Fried Bananas; the three cleared caves become safe to mine",
+     "oneLine": "Three Hinox brothers are terrorizing the lakes around Lakeside Stable — hunt down all three.",
+     "how": "Talk to Kampo at Lakeside Stable to place three map pins, then clear each Hinox in its cave: a Blue Hinox in Corta Lake Cave, a regular Hinox in Rodai Lakefront Tunnel, and a Black Hinox in Calora Lake Cave. Shoot each one's eye to stagger it and pile on melee damage while it's down, then return to Kampo for the reward."
+    },
+    {
+     "name": "Bring Peace to Faron",
+     "kind": "Side Adventure",
+     "giver": "Flaxel (Monster Control Crew), beside the beached pirate ship down the Menoat River",
+     "location": "Northern Faron grasslands (Menoat River)",
+     "reward": "Silver Rupee (100 rupees); unlocks the Bring Peace to Hebra side adventure",
+     "oneLine": "Help a Monster Control Crew squad storm a beached pirate ship after their bridge collapses.",
+     "how": "Talk to Flaxel by the wrecked bridge, then use Ultrahand to grab the fallen bridge section and rejoin its two halves so the crew can cross. Board the pirate ship and defeat the monsters on deck, then report back to Flaxel for the Silver Rupee."
+    },
+    {
+     "name": "Goddess Statue of Courage",
+     "kind": "Side Quest",
+     "giver": "The Goddess Statue at the Spring of Courage (its request is voiced via the toppled statue behind Mayausiy Shrine at the Forgotten Temple)",
+     "location": "Spring of Courage, Faron",
+     "reward": "Topaz",
+     "oneLine": "Pray at the Spring of Courage statue, which asks for a piece of the dragon Farosh.",
+     "how": "Pray at the Goddess Statue at the Spring of Courage to begin; the toppled statue at the Forgotten Temple asks for one of Farosh's Claws. Find the electric dragon Farosh as it flies over the Faron area (it commonly rises near the Hills of Baumer Chasm around 1 PM), shoot one of its front feet to drop a Farosh's Claw, then drop the claw into the spring water in front of the statue for a Topaz."
+    },
+    {
+     "name": "The Flute Player's Plan",
+     "kind": "Side Adventure",
+     "giver": "Pyper, up a tree just north of Highland Stable",
+     "location": "Highland Stable, Faron",
+     "reward": "Big Hearty Truffle",
+     "oneLine": "A young flute player wants sunset fireflies to make a glowing tree and reunite the Stable Trotters band.",
+     "how": "Talk to Pyper in the tree north of Highland Stable; he asks for 10 Sunset Fireflies. Catch them at night in the grass nearby (sneak up slowly or wear stealth gear) or buy them from Beedle, then give the 10 to Pyper. Afterward find the bandmate Haite at the stable at night to finish and receive a Big Hearty Truffle."
+    },
+    {
+     "name": "A Picture for Lakeside Stable",
+     "kind": "Side Quest",
+     "giver": "Anly, by the empty picture frame inside Lakeside Stable",
+     "location": "Lakeside Stable, southwestern Faron (near Lake Floria)",
+     "reward": "Tough Tomato Seafood Soup + 1 Pony Point",
+     "oneLine": "The stable wants a photo of Floria Falls on a clear day to fill an empty frame.",
+     "how": "Talk to Anly to start (you need the camera from the Purah Pad / Hyrule Compendium). Wait for clear weather, travel up to Floria Falls, frame the waterfall and snap a photo, then return to Anly and show it from the photo album for a Tough Tomato Seafood Soup and a Pony Point."
+    },
+    {
+     "name": "A Picture for Highland Stable",
+     "kind": "Side Quest",
+     "giver": "Padok, by the empty picture frame inside Highland Stable",
+     "location": "Highland Stable, Faron",
+     "reward": "Energizing Honey Crepe + 1 Pony Point",
+     "oneLine": "The stable wants proof the rumored Giant White Stallion is real — a photo of it.",
+     "how": "Talk to Padok to start (camera required). Ride south to find the Giant White Stallion roaming near Ibara Butte (south of Horse God Bridge); you don't need to tame it — just get close enough to photograph it, then return to Padok and show the photo for an Energizing Honey Crepe and a Pony Point."
+    }
+   ]
+  },
+  {
+   "region": "The Sky Islands",
+   "quests": [
+    {
+     "name": "Legend of the Great Sky Island",
+     "kind": "Side Adventure",
+     "giver": "Steward Construct, on the roof of the Temple of Time at the top of the Great Sky Island",
+     "location": "Great Sky Island (Sky)",
+     "reward": "Zonai Fabric (a paraglider fabric you apply at Kochi's Dye Shop in Hateno Village)",
+     "oneLine": "A timed challenge to light three large bonfires across the Great Sky Island and get back to the Temple of Time roof before time runs out, all without ever touching the ground.",
+     "how": "You must have completed the Restoring the Zora Armor side adventure first, since the Zora Armor is required. Talk to the Steward Construct on the Temple of Time roof to set the time to 7am, raise the waterfall islands, and start the roughly 12-in-game-hour timer; then glide between the three fire pits, riding the Zora Armor's waterfall-swim to refill stamina so you can stay airborne. Light each pit with any fire source (a fire arrow, Fire Fruit, or a Fused flame weapon) — falling into water is fine, but touching solid ground fails the run — then return to the Steward Construct before time expires."
+    },
+    {
+     "name": "Messages from an Ancient Era",
+     "kind": "Side Adventure",
+     "giver": "Wortsworth (first found at Lookout Landing examining a fallen stone tablet, then directs you to meet him at the Zonai Survey Team base in Kakariko Village); appears after some early main-quest progress",
+     "location": "Sky islands across all of Hyrule (giver is at Lookout Landing, then Kakariko Village, on the Surface)",
+     "reward": "Zonai Survey Team Fabric, plus 100 rupees per tablet (1,200 rupees total)",
+     "oneLine": "Help the archaeologist Wortsworth decipher ancient Zonai writing by photographing 12 engraved stone tablets perched on small flower-shaped sky islands floating high above Hyrule.",
+     "how": "Speak to Wortsworth at Lookout Landing, then meet him again at the Zonai Survey Team base in Kakariko Village to take the task. Reveal as much of the sky map as you can, then fly up to each of the 12 flower-shaped floating islands (a Zonai hover-bike or wing makes the long sky crossings easier; bring stamina food) and use the Purah Pad camera to photograph each tablet. The tablets can be done in any order — once all 12 are photographed, return to Wortsworth in Kakariko Village to turn them in."
+    }
+   ]
+  },
+  {
+   "region": "The Depths",
+   "quests": [
+    {
+     "name": "Ancient Blades Below",
+     "kind": "Side Quest",
+     "giver": "A Mining Construct standing in the Spirit Temple (the giant statue temple in the Faron Grasslands Depths)",
+     "location": "Spirit Temple, Faron Grasslands Depths (The Depths)",
+     "reward": "An Ancient Blade (a Fuse material that turns an arrow into an Ancient Arrow); repeatable, one Ancient Blade per 50 Zonaite",
+     "oneLine": "A Mining Construct deep in the Spirit Temple offers to forge you Ancient Blades in exchange for raw Zonaite.",
+     "how": "Finish the 'Guidance from Ages Past' main quest first, then talk to the Mining Construct in the Spirit Temple. Hand it 50 Zonaite (mine Zonaite ore deposits and the abandoned mines, or fight Depths enemies for it) to receive an Ancient Blade, and you can repeat the trade for another blade every 50 Zonaite."
+    },
+    {
+     "name": "A Call from the Depths",
+     "kind": "Side Adventure",
+     "giver": "A voice speaking through the Goddess Statue at the Temple of Time Ruins on the Great Plateau (reached after you destroy the boulders plugging a leak south of Hyrule Field Skyview Tower); it sends you to the eyeless Bargainer Statue in the Great Abandoned Central Mine in The Depths",
+     "location": "Bargainer Statue in the Great Abandoned Central Mine (The Depths); the four Eye Stones are gathered from chasms around the Great Plateau",
+     "reward": "Your choice of a Heart Container or Stamina Vessel, and it opens Poe trading at that Bargainer Statue (Poes buy the Tunic of the Depths and other gloom-resistant gear)",
+     "oneLine": "A statue robbed of its four eyes asks you to recover its missing Eye Stones from the chasms above and restore them on its body in the Depths.",
+     "how": "Collect four Eye Stones from chasms around the Great Plateau, freeing each one (melt the ice, smash the rock, or Ultrahand the stone out of the pond), then drop each into its nearby chasm and descend after it. Use Ultrahand to build a cart or flying rig on the Depths rails to ferry the Eye Stones to the Bargainer Statue in the Great Abandoned Central Mine, lighting the way with Lightroots, then place all four eyes to finish it and claim your vessel."
+    },
+    {
+     "name": "Master Kohga of the Yiga Clan",
+     "kind": "Side Adventure",
+     "giver": "Begins automatically after you defeat Master Kohga in the Great Abandoned Central Mine during the 'A Mystery in the Depths' main quest; you then chase him through the other abandoned mines",
+     "location": "The Depths — Abandoned Gerudo Mine, Abandoned Lanayru Mine, and Abandoned Hebra Mine",
+     "reward": "A Huge Crystallized Charge at each mine (and a Diamond at the last) plus three Zonai Schema Stones from the Steward Constructs: Hovercraft, Bolt Boat, and Rocket Platform",
+     "oneLine": "Hunt the disgraced Yiga leader Master Kohga across the Depths' abandoned mines as he pilots ever-bigger Zonai war machines.",
+     "how": "After the main-quest fight, follow Kohga's trail of Yiga statues to the Abandoned Gerudo Mine, then the Abandoned Lanayru Mine, then the Abandoned Hebra Mine, fighting him in a tougher Zonai contraption each time. Use Recall to fling his own bombs and rocks back at him, or Ultrahand-fuse a heavy boulder to a weapon to smash his machine; after each win grab the loot and the Hovercraft, Bolt Boat, and Rocket Platform schema stones from the nearby Steward Construct. Beating him at the Abandoned Hebra Mine ends the adventure."
+    }
+   ]
+  }
+ ],
+ "total": 173
+}
