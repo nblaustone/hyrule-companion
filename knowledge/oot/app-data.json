@@ -219,6 +219,2027 @@
      ]
     }
    ]
+  },
+  {
+   "id": "oot_castle",
+   "name": "Hyrule Field & the Castle",
+   "sub": "Main Quest — to Princess Zelda",
+   "kind": "region",
+   "tagline": "A forest boy crosses the wide world for the first time, learns his friend's song, and slips into the castle to hear a princess's warning about a man who would seize the Triforce.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "oot_castle_s_field",
+     "name": "Out Into Hyrule Field",
+     "sub": "Cross the world for the first time",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_castle_field_1",
+       "k": "step",
+       "t": "Cross the long bridge out of Kokiri Forest and step into Hyrule Field — a huge open grassland. The castle is roughly north; just keep heading that way across the field toward the tall walls you can see in the distance."
+      },
+      {
+       "id": "oot_castle_field_2",
+       "k": "tip",
+       "t": "A big white owl, Kaepora Gaebora, swoops down to give you advice. He talks a long time and asks if you understood at the end — read his last question carefully before you answer.",
+       "stuck": "When the owl asks if you got all that, the cursor often starts on the answer that makes him repeat the whole speech. Read the prompt and pick the 'Yes' option to skip the replay."
+      },
+      {
+       "id": "oot_castle_field_3",
+       "k": "warn",
+       "t": "If night falls in the open field, skeletal Stalchildren claw up out of the ground and attack in waves. They're weak — a couple of sword slashes each — but they keep coming until dawn, so reach a town gate or just survive until morning.",
+       "stuck": "Stalchildren only spawn in the open field at night, never near a gate, ranch, or inside town. Make for the drawbridge — the castle-town gate is open by day and the drawbridge raises at night, so cross before sunset if you can."
+      }
+     ]
+    },
+    {
+     "id": "oot_castle_s_market",
+     "name": "Castle Town & the Market",
+     "sub": "The bustling heart of Hyrule",
+     "reward": "Weird Egg (optional)",
+     "steps": [
+      {
+       "id": "oot_castle_market_1",
+       "k": "step",
+       "t": "Cross the drawbridge into Castle Town and walk up into the Market — a lively square with shops, a Bombchu bowling alley, a treasure-chest game, and townsfolk. The path up to Hyrule Castle leaves from the back of town."
+      },
+      {
+       "id": "oot_castle_market_2",
+       "k": "optional",
+       "t": "Find Malon standing in the Market, fretting about her father. Talk to her and she hands you the Weird Egg to keep safe. It hatches overnight into a Cucco — you'll use that later to wake her sleeping dad, Talon.",
+       "items": [
+        {
+         "name": "Weird Egg",
+         "cat": "item",
+         "note": "Hatches into a Cucco after a night passes. Carry it toward the castle — the Cucco's crow wakes Talon, who is asleep in the way."
+        }
+       ]
+      },
+      {
+       "id": "oot_castle_market_3",
+       "k": "tip",
+       "t": "Explore if you like — there are minigames and Rupees here — but the main quest is up the road behind the Market toward the castle gate. Let a night pass (the egg hatches into a Cucco) before you reach Talon, if you took the egg."
+      }
+     ]
+    },
+    {
+     "id": "oot_castle_s_saria",
+     "name": "The Lost Woods Detour: Saria's Song",
+     "sub": "Optional, but learn it now",
+     "reward": "Saria's Song",
+     "steps": [
+      {
+       "id": "oot_castle_saria_1",
+       "k": "tip",
+       "t": "Back in Kokiri Forest, the Lost Woods entrance (the log tunnel past the shop, behind where Mido stood) leads toward the Sacred Forest Meadow. Saria has gone there and will teach you her song — a heartfelt detour you can do now or later."
+      },
+      {
+       "id": "oot_castle_saria_2",
+       "k": "step",
+       "t": "The Lost Woods is a maze of similar clearings, each with several tunnels. Pick the exit where the background music is LOUDEST — that's the way deeper in. A wrong tunnel dumps you back at the start, so follow the swelling music clearing by clearing.",
+       "stuck": "Listen, don't guess: the correct tunnel always plays the music the clearest and loudest. Some guides note the route reads roughly left, right, left, right, left, right from the entrance — but treat that as a backup; the louder-music rule works even if you lose count or count differently."
+      },
+      {
+       "id": "oot_castle_saria_3",
+       "k": "step",
+       "t": "At the meadow you reach a hedge maze patrolled by big, spear-wielding Moblins. Sneak or rush past them up to the staircase at the back, where Saria sits on a tree stump waiting for you.",
+       "stuck": "The Moblins hit hard and knock you back down the maze. Hug the walls, wait for a guard to turn, then dash through the gaps — you don't have to kill them, just reach the stairs."
+      },
+      {
+       "id": "oot_castle_saria_4",
+       "k": "reward",
+       "t": "Talk to Saria on the stump. She teaches you Saria's Song so you can always reach her, no matter how far apart you are.",
+       "items": [
+        {
+         "name": "Saria's Song",
+         "cat": "song",
+         "note": "Play it any time to talk to Saria for a hint about where to go next. It also pleases certain creatures and is needed for a few things later in the game."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oot_castle_s_sneak",
+     "name": "Sneaking Into the Castle",
+     "sub": "Past the guards to the garden",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_castle_sneak_1",
+       "k": "step",
+       "t": "Take the road behind the Market up to Hyrule Castle. Guards turn you away at the front gate, so you slip in the side: climb the vines on the hill, then make your way along the moat using the ledges and a few crates."
+      },
+      {
+       "id": "oot_castle_sneak_2",
+       "k": "step",
+       "t": "Inside the grounds, soldiers patrol fixed routes. Wait behind crates and bushes, watch a guard's path, and move only when his back is turned. If a guard spots you, you're sent back to the castle gate — but you can simply walk in and try again.",
+       "stuck": "Each guard walks a short loop. Crouch behind the boxes, let him pace away, then dash to the next bit of cover. You can also use the milk crates floating in the moat to drift past the open stretches."
+      },
+      {
+       "id": "oot_castle_sneak_3",
+       "k": "step",
+       "t": "In the inner area you find Talon — Malon's father — fast asleep and in the way. If you let a night pass, your Weird Egg has hatched into a Cucco; set it down near him and its crowing jolts him awake so he leaves.",
+       "items": [
+        {
+         "name": "Cucco",
+         "cat": "material",
+         "note": "Hatched from the Weird Egg. Its crow wakes the sleeping Talon so you can reach Princess Zelda."
+        }
+       ],
+       "stuck": "No Cucco? You only get one by taking the Weird Egg from Malon and letting a night pass. If you skipped it, you can still slip past Talon — but waking him with the Cucco is the clean, intended way."
+      }
+     ]
+    },
+    {
+     "id": "oot_castle_s_zelda",
+     "name": "Princess Zelda & the Lullaby",
+     "sub": "The warning, and the road ahead",
+     "reward": "Zelda's Lullaby",
+     "steps": [
+      {
+       "id": "oot_castle_zelda_1",
+       "k": "step",
+       "t": "Crawl through the last gap into the castle's inner courtyard. A girl in a white dress is peering through a window — this is Princess Zelda. Talk to her to begin the most important conversation of the game so far."
+      },
+      {
+       "id": "oot_castle_zelda_2",
+       "k": "step",
+       "t": "Zelda explains everything: a man named Ganondorf, king of the desert Gerudo, knelt before her father the King but secretly seeks the Triforce — a sacred relic that grants its holder's wish. She had a prophetic dream of dark clouds over Hyrule and a boy from the forest, and that boy is you."
+      },
+      {
+       "id": "oot_castle_zelda_3",
+       "k": "step",
+       "t": "She has you peek through the window into the throne room, where Ganondorf himself is bowing to the King. He turns and glares straight at you — your first sight of the game's villain. The plan: gather the three Spiritual Stones (you already hold the Kokiri's Emerald) so you can open the Door of Time before he does.",
+       "stuck": "Step up to the window and use first-person view (the look control) to spot Ganondorf inside. If he isn't there yet, talk to Zelda again to trigger the scene."
+      },
+      {
+       "id": "oot_castle_zelda_4",
+       "k": "reward",
+       "t": "As you leave, Zelda's attendant Impa — a Sheikah — stops you. She teaches you Zelda's Lullaby, the royal family's secret melody, then escorts you out of the castle and tells you to head for Death Mountain by way of Kakariko Village.",
+       "items": [
+        {
+         "name": "Zelda's Lullaby",
+         "cat": "song",
+         "note": "The royal family's song. Play it on Triforce crests and royal symbols to open paths and solve puzzles all game — one of your most-used melodies."
+        }
+       ]
+      },
+      {
+       "id": "oot_castle_zelda_5",
+       "k": "step",
+       "t": "Impa leaves you near Kakariko Village, at the foot of Death Mountain on the east side of Hyrule Field. Your next goal is the Goron city up the mountain and the Spiritual Stone they guard. Head into Kakariko to begin."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_dodongo",
+   "name": "Death Mountain & Dodongo's Cavern",
+   "sub": "Goron City · Dodongo's Cavern · King Dodongo",
+   "kind": "beast",
+   "tagline": "Climb a smoking mountain to a city of stone-eating Gorons, wake their grieving chief with a song, and bomb a skull-faced dragon back to sleep.",
+   "champion": "Goron's Ruby",
+   "sections": [
+    {
+     "id": "oot_dodongo_s_trail",
+     "name": "Up Death Mountain",
+     "sub": "Through Kakariko to the trail",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_dodongo_trail_1",
+       "k": "step",
+       "t": "From Kakariko Village, head up the hill to the gate at the top. The guard won't let you climb Death Mountain without royal permission, so show him Zelda's Letter and he opens the gate.",
+       "items": [
+        {
+         "name": "Zelda's Letter",
+         "cat": "key",
+         "note": "Princess Zelda's note of permission. Showing it to the Death Mountain gate guard lets you onto the trail."
+        }
+       ]
+      },
+      {
+       "id": "oot_dodongo_trail_2",
+       "k": "tip",
+       "t": "The guard suggests a proper shield before you climb. The wooden Deku Shield catches fire on this volcanic mountain, so a metal Hylian Shield (from the Bazaar in Castle Town Market) is far safer up here."
+      },
+      {
+       "id": "oot_dodongo_trail_3",
+       "k": "step",
+       "t": "Climb the winding Death Mountain Trail. Tektites — one-eyed bouncing creatures — leap at you, and every so often a Goron comes rolling down the path. Sidestep the rolling Goron and pick off Tektites with your sword.",
+       "stuck": "A rolling Goron will flatten you if you stand in the lane. Hug the inner or outer wall and let it roll past, then keep climbing. Z-target Tektites and slash them between their hops."
+      },
+      {
+       "id": "oot_dodongo_trail_4",
+       "k": "tip",
+       "t": "Bushy red Bomb Flowers grow along the trail. You can't lift them yet, but later in this chapter you'll be able to pluck them and throw them at red boulders blocking some side paths."
+      },
+      {
+       "id": "oot_dodongo_trail_5",
+       "k": "optional",
+       "t": "There's a Piece of Heart in this area guarded by a Bomb Flower you can't move yet. Note where it is, then come back once you have the Goron's Bracelet to clear the flower out of the way.",
+       "items": [
+        {
+         "name": "Piece of Heart",
+         "cat": "key",
+         "note": "Collect four Pieces of Heart to earn one full Heart Container."
+        }
+       ],
+       "stuck": "Don't fight for it now — the Goron's Bracelet (later in this chapter) lets you pick up the Bomb Flower blocking the ledge. Return afterward and the Piece of Heart is an easy grab."
+      }
+     ]
+    },
+    {
+     "id": "oot_dodongo_s_city",
+     "name": "Goron City & Saria's Song",
+     "sub": "Wake the grieving chief",
+     "reward": "Goron's Bracelet",
+     "steps": [
+      {
+       "id": "oot_dodongo_city_1",
+       "k": "step",
+       "t": "Enter Goron City — a spiraling stone town built into the mountain. Walk the ramps down to the very bottom level, where the Goron chief Darunia has shut himself behind a big door, too depressed to come out."
+      },
+      {
+       "id": "oot_dodongo_city_2",
+       "k": "step",
+       "t": "Stand in front of Darunia's door and play Saria's Song on your Ocarina. The cheerful tune lifts his mood and the door opens.",
+       "items": [
+        {
+         "name": "Saria's Song",
+         "cat": "song",
+         "note": "A cheerful Ocarina tune. Played for Darunia it opens his door; later it lets you call Saria for hints."
+        }
+       ],
+       "stuck": "Saria's Song is the melody Saria teaches you in the Sacred Forest Meadow at the end of the Lost Woods. If the door won't open, you haven't learned it yet — go meet Saria first, then come back and play it here."
+      },
+      {
+       "id": "oot_dodongo_city_3",
+       "k": "step",
+       "t": "Inside, Darunia is so moved he dances — then thanks you and hands you the Goron's Bracelet. Now you can pluck up Bomb Flowers and other heavy objects with your bare hands.",
+       "items": [
+        {
+         "name": "Goron's Bracelet",
+         "cat": "item",
+         "note": "Lets you pluck and throw Bomb Flowers and lift heavy things. Your portable source of bombs until you find the Bomb Bag."
+        }
+       ]
+      },
+      {
+       "id": "oot_dodongo_city_4",
+       "k": "tip",
+       "t": "Darunia tells you a monster, King Dodongo, has overrun Dodongo's Cavern and cut off the Gorons' food supply of rocks. Clearing the cavern is what will earn you the Spiritual Stone of Fire."
+      },
+      {
+       "id": "oot_dodongo_city_5",
+       "k": "step",
+       "t": "A large rock blocks the entrance to Dodongo's Cavern, on a ledge in Goron City. With your new bracelet, pluck a nearby Bomb Flower, set it down by the rock, and step back — the blast clears the way in.",
+       "stuck": "Dodongo's Cavern is on a ledge partway down Goron City, sealed by a big boulder. Grab a Bomb Flower with the Goron's Bracelet, drop it right against the rock, and back away — it explodes after a couple of seconds and breaks through."
+      }
+     ]
+    },
+    {
+     "id": "oot_dodongo_s_cavern",
+     "name": "Into Dodongo's Cavern",
+     "sub": "The Bomb Bag & the skull door",
+     "reward": "Bomb Bag",
+     "steps": [
+      {
+       "id": "oot_dodongo_cavern_1",
+       "k": "step",
+       "t": "Step inside. Until you have a real bomb supply, keep feeding from Bomb Flowers growing in the rooms. Work through the early chambers, blasting cracked walls and the red Dodongo lizards."
+      },
+      {
+       "id": "oot_dodongo_cavern_2",
+       "k": "loot",
+       "t": "Reach the chest holding the Bomb Bag — now you can carry and plant your own Bombs (it starts holding 20).",
+       "items": [
+        {
+         "name": "Bomb Bag",
+         "cat": "item",
+         "note": "Holds your Bombs — starts at 20. Set it to a C-button to plant bombs anytime."
+        },
+        {
+         "name": "Bombs",
+         "cat": "item",
+         "note": "Round black bombs with a short fuse. Throw or drop them to break walls, hit switches, and feed King Dodongo."
+        }
+       ],
+       "stuck": "The Bomb Bag is the prize that lets you stop relying on Bomb Flowers. Once you have it, set Bombs to a C-button so you can drop one anytime."
+      },
+      {
+       "id": "oot_dodongo_cavern_3",
+       "k": "step",
+       "t": "Make your way to the bridge overlooking the huge stone Dodongo skull. Its two eye sockets are unlit, and its closed mouth is the door to the boss."
+      },
+      {
+       "id": "oot_dodongo_cavern_4",
+       "k": "step",
+       "t": "From the bridge, drop a Bomb into each of the skull's eye sockets. Each blast lights that eye with fire. Light both eyes and the skull's mouth grinds open, revealing the boss door.",
+       "stuck": "Stand over each eye on the bridge and drop (don't throw) a Bomb so it falls straight into the socket and explodes there. Do the left eye, then the right — both must be lit for the mouth to open."
+      },
+      {
+       "id": "oot_dodongo_cavern_5",
+       "k": "tip",
+       "t": "Beyond the mouth you'll meet Fire Keese (flaming bats) before the boss room. Watch them — a touch sets a wooden Deku Shield alight, so a metal shield is safer here."
+      }
+     ]
+    },
+    {
+     "id": "oot_dodongo_s_boss",
+     "name": "King Dodongo",
+     "sub": "Boss — the lava lizard",
+     "reward": "Goron's Ruby",
+     "steps": [
+      {
+       "id": "oot_dodongo_boss_1",
+       "k": "step",
+       "t": "Enter the boss room and the lava-dwelling King Dodongo rises. Watch his head: he rears back and sucks in a big breath of air, getting ready to spew a wall of flame."
+      },
+      {
+       "id": "oot_dodongo_boss_2",
+       "k": "step",
+       "t": "The instant he inhales, throw a Bomb straight into his open mouth. It detonates inside, he chokes and collapses stunned. Run in and slash him with your sword — jump slashes (target + A) hurt the most.",
+       "stuck": "Stand in front of him and toss the Bomb the moment his mouth gapes open to inhale — just before he'd breathe fire. If you're slow he exhales flame instead; back off and wait for the next inhale."
+      },
+      {
+       "id": "oot_dodongo_boss_3",
+       "k": "warn",
+       "t": "When he's not inhaling he curls into a ball and rolls around the arena, and he can shove you toward the lava. Keep to the edge or hop onto the raised lip around the lava pit until he uncurls, then resume."
+      },
+      {
+       "id": "oot_dodongo_boss_4",
+       "k": "step",
+       "t": "Repeat the cycle — Bomb in the mouth as he inhales, then jump-slash — about three times. After enough hits he thrashes, sinks into the lava, and turns to stone."
+      },
+      {
+       "id": "oot_dodongo_boss_5",
+       "k": "reward",
+       "t": "Step into the blue light for your Heart Container. Outside, Darunia greets you as a Sworn Brother and entrusts you with the Goron's Ruby — the Spiritual Stone of Fire, the second of three.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your life bar — every boss drops one."
+        },
+        {
+         "name": "Goron's Ruby",
+         "cat": "key",
+         "note": "The Spiritual Stone of Fire. The second of three stones you need to open the Door of Time."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_jabu",
+   "name": "Zora's Domain & Jabu-Jabu's Belly",
+   "sub": "Main Quest — Dungeon 3",
+   "kind": "beast",
+   "tagline": "A river of song opens the Zoras' home, a giant fish-god swallows you whole, and a missing princess rides on your shoulders toward the last Spiritual Stone.",
+   "champion": "Zora's Sapphire",
+   "sections": [
+    {
+     "id": "oot_jabu_s_river",
+     "name": "Up Zora's River",
+     "sub": "Sing the waterfall open",
+     "reward": "Entry to Zora's Domain",
+     "steps": [
+      {
+       "id": "oot_jabu_river_1",
+       "k": "step",
+       "t": "From Hyrule Field, head to the northeast and bomb the boulders blocking the mouth of Zora's River. Follow the winding river upstream, hopping the rocks and ledges, until you reach the tall waterfall at the very end.",
+       "stuck": "No bombs? You need Bombs or Bomb Flowers from the Dodongo's Cavern era. Pick a Bomb Flower growing nearby, carry it to the cracked boulder, and set it down to blow the rocks open."
+      },
+      {
+       "id": "oot_jabu_river_2",
+       "k": "step",
+       "t": "At the top of the waterfall, go to the ledge facing the falls and look for a tile on the ground with the Royal Family's writing on it. Stand on it, pull out your ocarina, and play Zelda's Lullaby. The waterfall parts to reveal the entrance.",
+       "stuck": "Zelda's Lullaby is the song Impa taught you outside Hyrule Castle. Stand directly on the marked tile facing the waterfall, then play it; the curtain of water splits open."
+      },
+      {
+       "id": "oot_jabu_river_3",
+       "k": "step",
+       "t": "Jump into the opened passageway behind the waterfall to enter Zora's Domain, the watery home of the Zora people."
+      }
+     ]
+    },
+    {
+     "id": "oot_jabu_s_domain",
+     "name": "Zora's Domain & the Missing Princess",
+     "sub": "King Zora, Ruto's Letter, and a bottle",
+     "reward": "Empty Bottle",
+     "steps": [
+      {
+       "id": "oot_jabu_domain_1",
+       "k": "step",
+       "t": "Climb up to King Zora, the huge ruler in the red cape at the top of the Domain. He's slumped and worried because his daughter, Princess Ruto, has gone missing."
+      },
+      {
+       "id": "oot_jabu_domain_2",
+       "k": "loot",
+       "t": "Find Ruto's Letter, sealed in a bottle, by diving in Lake Hylia (reached through the underwater tunnel in Zora's Domain). Show it to King Zora — he reads that Ruto is inside Lord Jabu-Jabu, then lets you keep the now-empty Bottle.",
+       "items": [
+        {
+         "name": "Bottle",
+         "cat": "item",
+         "note": "An empty glass bottle — your first. Use it to scoop fish, bugs, fairies, and potions. Set it to a C button to use it."
+        }
+       ],
+       "stuck": "Swim through the underwater opening across from the waterfall in Zora's Domain to surface in Lake Hylia, then dive to the bottle bubbling in the water. Back at the Domain, stand in front of King Zora and use the bottle on him to show the letter; he slowly scoots aside and the bottle is yours, empty."
+      },
+      {
+       "id": "oot_jabu_domain_3",
+       "k": "step",
+       "t": "With Ruto's whereabouts known, King Zora shifts aside, opening the path up to Zora's Fountain where Lord Jabu-Jabu, the Zoras' guardian deity, floats in the water."
+      }
+     ]
+    },
+    {
+     "id": "oot_jabu_s_swallow",
+     "name": "Swallowed Whole",
+     "sub": "Catch a fish, feed the god",
+     "reward": "Entry to Jabu-Jabu's Belly",
+     "steps": [
+      {
+       "id": "oot_jabu_swallow_1",
+       "k": "step",
+       "t": "Back in Zora's Domain, go to the shallow water near the Zora shop on the lower level. Equip the empty Bottle and swing it at a fish to scoop one up.",
+       "stuck": "Stand right at the water's edge where the fish swim, face one, and press the C button with the Bottle assigned. Link dunks the bottle and traps a live fish inside — you'll see it on the C button icon."
+      },
+      {
+       "id": "oot_jabu_swallow_2",
+       "k": "step",
+       "t": "Carry the fish up to Zora's Fountain and stand right in front of Lord Jabu-Jabu's open mouth. Use the Bottle to drop the fish in front of him — he inhales the fish, and you with it, swallowing you into his belly.",
+       "stuck": "Stand close, directly facing his mouth, and release the fish (press the bottle's C button). If you're too far the fish lands in the water and he ignores it — get right up to his lips and try again."
+      }
+     ]
+    },
+    {
+     "id": "oot_jabu_s_belly",
+     "name": "Inside the Belly",
+     "sub": "Carry Ruto, find the Boomerang",
+     "reward": "Boomerang",
+     "steps": [
+      {
+       "id": "oot_jabu_belly_1",
+       "k": "step",
+       "t": "The walls here are living flesh. Push through the early rooms, slashing Octoroks (deflect their rocks with your shield) and popping the bubble-like Shaboms. Stun a floating Biri jellyfish with a Deku Nut to get past it.",
+       "stuck": "Shaboms (the bouncing bubbles) and the electric Biri jellyfish hurt to touch. Throw a Deku Nut (set it to a C button) to burst Shaboms in a cluster and to briefly stun a Biri so you can run by or slash it."
+      },
+      {
+       "id": "oot_jabu_belly_2",
+       "k": "step",
+       "t": "Find Princess Ruto. She tumbles down a hole — drop after her and pick her up. From now on you'll carry her to reach switches and cross water she can't.",
+       "stuck": "Press A near Ruto to lift her; press A again to throw her. To set her down gently (e.g. on a switch) walk close and release. When carrying her through a door, walk straight into the door so you don't fling her by accident."
+      },
+      {
+       "id": "oot_jabu_belly_3",
+       "k": "step",
+       "t": "Use Ruto's weight to hold down floor switches and place her on platforms to raise water levels, then swim across with her. Watch out for the electric Tailpasarans, which shock you on contact.",
+       "stuck": "Some switches only stay pressed while something heavy sits on them — set Ruto down on the switch, do what the open door lets you do, then come back and pick her up. Tailpasarans can be cut down at their small glowing head once you have the Boomerang."
+      },
+      {
+       "id": "oot_jabu_belly_4",
+       "k": "loot",
+       "t": "Work through the room of Stingers (spiky enemies that pop up from the moving floor platforms). When it's cleared, a chest appears holding the Boomerang — the item you need for the rest of the dungeon and the boss.",
+       "items": [
+        {
+         "name": "Boomerang",
+         "cat": "item",
+         "note": "Throw it with a C button to hit distant switches, stun enemies, sever cords/tentacles, and grab items. It flies out and curves back to your hand."
+        }
+       ]
+      },
+      {
+       "id": "oot_jabu_belly_5",
+       "k": "step",
+       "t": "With the Boomerang you can stun and pop the room's enemies, snip Tailpasaran heads, and hit far-off switches. Use it to defeat the Big Octo — a spinning octopus mini-boss — by hitting the glowing spot on its back, then take the path it was guarding.",
+       "stuck": "The Big Octo whirls around the room with its weak spot on its rear. Run behind it, stun it with the Boomerang, and keep circling. A few hits to the back spot finish it."
+      }
+     ]
+    },
+    {
+     "id": "oot_jabu_s_barinade",
+     "name": "Barinade",
+     "sub": "Boss — the parasite",
+     "reward": "Zora's Sapphire",
+     "steps": [
+      {
+       "id": "oot_jabu_barinade_1",
+       "k": "step",
+       "t": "Enter the boss room. Barinade is a parasite anemone tethered to the ceiling by writhing, electric jellyfish. Z-target it and start circling so its swinging tentacles never catch you."
+      },
+      {
+       "id": "oot_jabu_barinade_2",
+       "k": "step",
+       "t": "Throw the Boomerang to cut the tentacle-cords connecting Barinade to the ceiling. Sever all of them so the boss drops free and starts spinning around the room.",
+       "stuck": "Keep moving in a circle and aim the Boomerang at each glowing tether where it meets the ceiling. One throw cuts one cord; do this for every connection until Barinade detaches and floats loose."
+      },
+      {
+       "id": "oot_jabu_barinade_3",
+       "k": "step",
+       "t": "Now Barinade spins and releases a ring of electric Biri jellyfish. Clear the Biris (the Boomerang or a Deku Nut handles them), then hit Barinade itself with the Boomerang to stun it.",
+       "stuck": "Don't touch the spinning jellyfish — they shock you. Knock them out first, then land a Boomerang throw on Barinade's body. When it freezes up and stops spinning, that's your opening."
+      },
+      {
+       "id": "oot_jabu_barinade_4",
+       "k": "step",
+       "t": "While Barinade is stunned, rush in and slash the exposed core with your sword. Back off, repeat the cycle — stun with the Boomerang, then sword the core — until it bursts.",
+       "stuck": "Each stun gives you only a moment. Run straight in and strike the core, then retreat before it spins back up. Deku Sticks deal extra damage to the core if you've got them. A few cycles ends it."
+      },
+      {
+       "id": "oot_jabu_barinade_5",
+       "k": "reward",
+       "t": "Barinade destroyed, step into the blue light for your Heart Container. A grateful (and suddenly affectionate) Princess Ruto hands you the Zora's Sapphire — the Spiritual Stone of Water, the last of the three.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your life bar — every boss drops one."
+        },
+        {
+         "name": "Zora's Sapphire",
+         "cat": "key",
+         "note": "The Water Spiritual Stone, given by Princess Ruto. With all three Spiritual Stones you can open the Door of Time in the Temple of Time."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_master",
+   "name": "The Door of Time & the Master Sword",
+   "sub": "Main Quest — the 7-year leap",
+   "kind": "region",
+   "tagline": "Three stones, one song, and a sword pulled too soon — Link sleeps seven years and wakes a man into a kingdom already lost.",
+   "champion": "Light Medallion",
+   "sections": [
+    {
+     "id": "oot_master_s_flee",
+     "name": "Zelda's Flight",
+     "sub": "The Ocarina of Time and the Song of Time",
+     "reward": "Ocarina of Time + Song of Time",
+     "steps": [
+      {
+       "id": "oot_master_flee_1",
+       "k": "tip",
+       "t": "You should now hold all three Spiritual Stones — Kokiri's Emerald, Goron's Ruby, and Zora's Sapphire. Head back toward Hyrule Castle Town; the moment you reach the drawbridge a story scene takes over."
+      },
+      {
+       "id": "oot_master_flee_2",
+       "k": "step",
+       "t": "At the drawbridge, Princess Zelda gallops past on a white horse with her guardian Impa, fleeing Hyrule Castle. As they pass, Zelda throws something into the moat — and Ganondorf rides out hunting her."
+      },
+      {
+       "id": "oot_master_flee_3",
+       "k": "warn",
+       "t": "Ganondorf stops and demands you tell him which way the princess fled, then blasts you with dark magic when you refuse. This is scripted — you can't lose here. He rides off and you're left alone."
+      },
+      {
+       "id": "oot_master_flee_4",
+       "k": "loot",
+       "t": "Walk into the moat where Zelda threw it and pick up the Ocarina of Time, the royal family's treasure. In a vision Zelda teaches you the Song of Time so you can use it.",
+       "items": [
+        {
+         "name": "Ocarina of Time",
+         "cat": "song",
+         "note": "The royal family's ocarina — it replaces your Fairy Ocarina and plays every song. Press the ocarina button, then the note buttons to play."
+        },
+        {
+         "name": "Song of Time",
+         "cat": "song",
+         "note": "The key to the Door of Time. Also makes blue Time Blocks appear or vanish in puzzles later. Notes: C-right, A, C-down — played twice (C-right, A, C-down, C-right, A, C-down)."
+        }
+       ],
+       "stuck": "The Ocarina is sitting in the shallow water of the moat right where Zelda's horse crossed the drawbridge — just step into the water and grab it. The Song of Time is taught automatically in the cutscene that follows; you don't have to find it."
+      }
+     ]
+    },
+    {
+     "id": "oot_master_s_door",
+     "name": "The Door of Time",
+     "sub": "The altar in the Temple of Time",
+     "reward": "Door of Time opened",
+     "steps": [
+      {
+       "id": "oot_master_door_1",
+       "k": "step",
+       "t": "Go to the Temple of Time — the grey stone building in the northwest corner of Hyrule Castle Town's market. Step inside; the big sealed door at the back of the main hall is the Door of Time."
+      },
+      {
+       "id": "oot_master_door_2",
+       "k": "step",
+       "t": "Walk to the stone altar in front of the Door of Time and stand on the red carpet. The three empty sockets above the altar are for your Spiritual Stones — get into place to set them."
+      },
+      {
+       "id": "oot_master_door_3",
+       "k": "step",
+       "t": "From the carpet, play the Song of Time. Your three Spiritual Stones float up into the altar and the Door of Time grinds open, revealing the chamber beyond.",
+       "stuck": "Stand on the red carpet directly in front of the altar, pull out the Ocarina of Time, and play the Song of Time (C-right, A, C-down — then again: C-right, A, C-down). The stones place themselves and the door opens. You don't place the stones by hand."
+      }
+     ]
+    },
+    {
+     "id": "oot_master_s_sword",
+     "name": "The Master Sword",
+     "sub": "The Pedestal of Time — and the seven-year leap",
+     "reward": "Master Sword + the leap to adult Link",
+     "steps": [
+      {
+       "id": "oot_master_sword_1",
+       "k": "step",
+       "t": "Walk through the opened Door of Time into the inner chamber. A sword stands in a stone pedestal beneath a shaft of light — this is the Master Sword in the Pedestal of Time. Step up and draw it."
+      },
+      {
+       "id": "oot_master_sword_2",
+       "k": "reward",
+       "t": "Pulling the Master Sword seals you away. Because you were too young to wield it, your spirit sleeps for seven years while Ganondorf seizes the Sacred Realm. You awaken as an adult, the blade now yours.",
+       "items": [
+        {
+         "name": "Master Sword",
+         "cat": "sword",
+         "note": "The legendary blade that is evil's bane. Far stronger than the Kokiri Sword, and the only weapon that can truly harm Ganon. It's now your main sword as an adult."
+        }
+       ],
+       "stuck": "There's no trick and no warning — drawing the sword is the point of no return into the adult era. You can return to being a child later by replacing the Master Sword in the same pedestal. Make sure you're ready before pulling it."
+      }
+     ]
+    },
+    {
+     "id": "oot_master_s_sages",
+     "name": "The Chamber of Sages",
+     "sub": "Rauru, Sage of Light",
+     "reward": "Light Medallion",
+     "steps": [
+      {
+       "id": "oot_master_sages_1",
+       "k": "step",
+       "t": "You wake in a glowing round chamber afloat in light — the Chamber of Sages. An old man named Rauru greets you and explains that seven years have passed and Ganondorf now rules Hyrule."
+      },
+      {
+       "id": "oot_master_sages_2",
+       "k": "tip",
+       "t": "Rauru tells you he is the Sage of Light. Six Sages' combined power can seal Ganondorf away — Rauru is the only one awakened, so the other five Sages are still missing, and awakening them is your quest as an adult."
+      },
+      {
+       "id": "oot_master_sages_3",
+       "k": "reward",
+       "t": "Rauru grants you the Light Medallion, his own Sage's power, to start you on the path. Gathering the medallions of all six Sages is what will let you face Ganon.",
+       "items": [
+        {
+         "name": "Light Medallion",
+         "cat": "key",
+         "note": "Rauru's Sage power, the first medallion you receive. Each Sage you awaken adds another; together they're the key to sealing Ganondorf."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oot_master_s_prelude",
+     "name": "Sheik and the Prelude of Light",
+     "sub": "Your first warp song",
+     "reward": "Prelude of Light",
+     "steps": [
+      {
+       "id": "oot_master_prelude_1",
+       "k": "step",
+       "t": "You return to the Temple of Time's main hall, now seven years older. A mysterious figure wrapped in white — Sheik — appears and speaks of the Sages and the trials ahead."
+      },
+      {
+       "id": "oot_master_prelude_2",
+       "k": "loot",
+       "t": "Sheik plays a melody on a harp and teaches you the Prelude of Light, your first warp song. Play it anywhere and a blue light whisks you straight back to the Temple of Time.",
+       "items": [
+        {
+         "name": "Prelude of Light",
+         "cat": "song",
+         "note": "Warp song — plays you instantly to the Temple of Time from anywhere. Your hub for fast travel as an adult. Notes: C-up, C-right, C-up, C-right, C-down, C-up."
+        }
+       ],
+       "stuck": "The Prelude of Light is taught automatically in this scene — you just play along on the Ocarina of Time when prompted. Afterward, to warp: pull out the ocarina and play it (C-up, C-right, C-up, C-right, C-down, C-up). Sheik will teach more warp songs as you reach each temple."
+      },
+      {
+       "id": "oot_master_prelude_3",
+       "k": "tip",
+       "t": "Sheik points you toward your first adult goal: the Forest Temple, deep in the Sacred Forest Meadow past Kokiri Forest. From here, the hunt for the six Sages begins."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_forest",
+   "name": "Forest Temple",
+   "sub": "Main Quest — Adult Dungeon 1",
+   "kind": "beast",
+   "tagline": "A haunted ruin twists in the deep woods — chase down four ghostly sisters, claim the bow, and out-duel a hollow shadow of Ganon to wake the first Sage.",
+   "champion": "Forest Medallion",
+   "sections": [
+    {
+     "id": "oot_forest_s_hookshot",
+     "name": "The Gravedigging Race",
+     "sub": "Win the Hookshot from Dampé",
+     "reward": "Hookshot",
+     "steps": [
+      {
+       "id": "oot_forest_hookshot_1",
+       "k": "tip",
+       "t": "You're an adult now and you need a way to reach high ledges. The answer is the Hookshot, and it's hidden in the Kakariko Village graveyard — won from the ghost of Dampé the gravekeeper."
+      },
+      {
+       "id": "oot_forest_hookshot_2",
+       "k": "step",
+       "t": "Go to the graveyard in Kakariko Village at night. Find Dampé's spirit — the flame hovering at the back of the graveyard — and speak to it to start the Heart-Pounding Gravedigging Tour.",
+       "stuck": "Dampé's ghost only appears at night, so play Sun's Song if you need to make it nightfall. Head to the very back of the graveyard and look for the lone flame/spirit hovering there — talk to it to begin the race."
+      },
+      {
+       "id": "oot_forest_hookshot_3",
+       "k": "step",
+       "t": "Chase Dampé through the underground tunnel. He drops flames behind him — keep right on his heels through every turn so you don't fall behind, and don't stop to fight the bats and skulls.",
+       "stuck": "Roll with A around corners to keep speed and cut the gaps. If you lose sight of him the door at the end seals; just talk to him again to retry. Stay close and you'll catch him in the final chamber."
+      },
+      {
+       "id": "oot_forest_hookshot_4",
+       "k": "loot",
+       "t": "Catch Dampé in the final room and he hands over his treasure — the Hookshot. Fire it at the wooden target to ride back up and out of the tomb.",
+       "items": [
+        {
+         "name": "Hookshot",
+         "cat": "item",
+         "note": "Fire it at wooden targets, treasure chests, signs, and certain ledges — it yanks you to them or drags them to you. You'll upgrade it to the Longshot later."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oot_forest_s_meadow",
+     "name": "Into the Lost Woods",
+     "sub": "Learn the Minuet of Forest",
+     "reward": "Minuet of Forest",
+     "steps": [
+      {
+       "id": "oot_forest_meadow_1",
+       "k": "step",
+       "t": "From Kokiri Forest, enter the Lost Woods and follow the path toward the Sacred Forest Meadow. Take the openings the music gets louder through — wrong turns spit you back to the start.",
+       "stuck": "Listen to Saria's tune: the correct exit is the one where the ocarina music grows louder. From the Kokiri Forest entrance the route through the hollow logs is Right, Left, Right, Left, then straight on to the maze and meadow."
+      },
+      {
+       "id": "oot_forest_meadow_2",
+       "k": "step",
+       "t": "At the entrance to the meadow's hedge maze, a Wolfos — a fanged wolf-beast — pounces. Z-target it, wait for it to lunge, then sidestep and slash its back or tail. Beating it opens the gate into the maze.",
+       "stuck": "When the Wolfos rears up to swipe, hold your shield and circle so you end up behind it, then strike its unguarded back. A few good slashes drops it and the gate ahead unlocks."
+      },
+      {
+       "id": "oot_forest_meadow_3",
+       "k": "step",
+       "t": "Wind through the hedge maze to the staircase, where a Club Moblin (a big pig-like guard with a huge club) blocks the path. Slip behind it to avoid its swings — or snipe it — then climb to the altar at the top.",
+       "stuck": "The Moblin guards the narrow path at the end of the maze. Circle around behind it and slash its back, or hit it from range; once it falls the way up to the altar is clear."
+      },
+      {
+       "id": "oot_forest_meadow_4",
+       "k": "step",
+       "t": "At the altar Sheik is waiting. Sheik speaks of the Sages, then teaches you the warp song for this temple — the Minuet of Forest. Play it back to lock it in.",
+       "items": [
+        {
+         "name": "Minuet of Forest",
+         "cat": "song",
+         "note": "Play it to warp instantly to the Sacred Forest Meadow — the green warp pad outside the Forest Temple. Your first warp song."
+        }
+       ]
+      },
+      {
+       "id": "oot_forest_meadow_5",
+       "k": "step",
+       "t": "Use the Hookshot to grab the branch or vine above the altar and pull yourself up to the temple entrance. Step inside the Forest Temple.",
+       "stuck": "Aim the Hookshot at the tree branch or the high vine overhanging the altar; it pulls you up to the ledge with the temple doorway. From there, walk in."
+      }
+     ]
+    },
+    {
+     "id": "oot_forest_s_bow",
+     "name": "The Twisted Halls",
+     "sub": "Claim the Fairy Bow",
+     "reward": "Fairy Bow",
+     "steps": [
+      {
+       "id": "oot_forest_bow_1",
+       "k": "step",
+       "t": "You arrive in a central room with an elevator well in the middle — but the elevator is dead and sunk. Explore the wings; your first goal is the Fairy Bow, down in the Stalfos 'Bow Room' below.",
+       "stuck": "Work your way to the room with a deep pit guarded by a Stalfos — going down the stairs from the courtyards. That's where the bow is sealed."
+      },
+      {
+       "id": "oot_forest_bow_2",
+       "k": "step",
+       "t": "In the Bow Room a Stalfos — a skeletal swordsman — clatters to life over a deep pit. Block its strikes with your shield, then counter when it pauses. Once it falls, a platform drops to fill the pit and two more Stalfos appear at once.",
+       "stuck": "Stalfos guard, so wait for one to attack and miss, then slash. A jump-attack (target + press forward) staggers them. For the final two, focus one down fast — if you're too slow the other recovers."
+      },
+      {
+       "id": "oot_forest_bow_3",
+       "k": "loot",
+       "t": "With every Stalfos beaten, a large chest appears — claim the Fairy Bow. Now you can shoot arrows at distant switches, eye-targets, and enemies.",
+       "items": [
+        {
+         "name": "Fairy Bow",
+         "cat": "bow",
+         "note": "Hold to draw and aim arrows. Buy arrow bundles from shops; you'll need it to flip the eye-switches, fight the Poes, and beat the boss. Later it powers the elemental arrow spells."
+        }
+       ]
+      },
+      {
+       "id": "oot_forest_bow_4",
+       "k": "tip",
+       "t": "With the bow in hand you can shoot the gold/silver eye-switches above doorways to untwist the temple's spinning corridors. The temple is built around four wings haunted by the four Poe Sisters — beat them to relight the elevator."
+      }
+     ]
+    },
+    {
+     "id": "oot_forest_s_poes",
+     "name": "The Four Poe Sisters",
+     "sub": "Relight the elevator's torches",
+     "reward": "The central elevator rises",
+     "steps": [
+      {
+       "id": "oot_forest_poes_1",
+       "k": "step",
+       "t": "Four ghost sisters — Joelle, Beth, Amy, and Meg — stole the fire from the four torches that power the central elevator, scattering it to their wings. Explore the wings, using arrows on the eye-switches to straighten the twisted halls, and hunt them down. Grab the Map and Compass chests out here too.",
+       "stuck": "Shoot a gold/silver eye-switch above a twisted-hallway entrance with an arrow to straighten the corridor so you can walk it. The map and compass help you track which wings you've cleared."
+      },
+      {
+       "id": "oot_forest_poes_2",
+       "k": "step",
+       "t": "Joelle and Beth are the straightforward sisters — each turns invisible and drifts around her room. Watch the flicker; when the Poe shimmers back into view, Z-target fast and slash before she vanishes again.",
+       "stuck": "Keep the camera moving and strike the instant she reappears — her lantern flame gives away her position. A couple of hits each and she falls, relighting her torch on the elevator."
+      },
+      {
+       "id": "oot_forest_poes_3",
+       "k": "step",
+       "t": "Amy and Meg are trickier. Amy's room is a torch puzzle — light its torches in the order her paintings show before she'll appear. Meg splits into copies that circle you; only one is real, and which one changes after each hit.",
+       "stuck": "For Amy, study the paintings and light the wall torches in the order they indicate. For Meg's copies, watch which one breaks formation or moves differently when they shuffle — that's the real one. Hit her, dodge the volley, repeat."
+      },
+      {
+       "id": "oot_forest_poes_4",
+       "k": "step",
+       "t": "Beating each sister relights one of the four colored torches ringing the central elevator well. With all four burning again, the elevator platform powers back up and rises into place.",
+       "stuck": "If a torch is still dark, you've missed a sister — check the map for an unexplored wing. All four torches must burn at once before the elevator will run."
+      },
+      {
+       "id": "oot_forest_poes_5",
+       "k": "step",
+       "t": "Before the boss, grab the Boss Key: from the block-puzzle room, shoot the silver eye-switch above the door to untwist that corridor, walk down it, and drop to the ornate wall chest to claim the key. Then ride the risen central elevator down to the basement boss door.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Won by shooting the silver eye-switch to untwist the corridor near the block-puzzle room, then dropping to the wall chest. Opens the Forest Temple's boss door."
+        }
+       ],
+       "stuck": "The Boss Key is NOT by the elevator — it's reached by straightening the twisted hall near the red/green block room with an arrow to the silver eye, then jumping down to the blue-and-gold chest. The Big Key opens the boss door at the bottom of the elevator."
+      }
+     ]
+    },
+    {
+     "id": "oot_forest_s_boss",
+     "name": "Phantom Ganon",
+     "sub": "Boss — the false king",
+     "reward": "Forest Medallion",
+     "steps": [
+      {
+       "id": "oot_forest_boss_1",
+       "k": "step",
+       "t": "Beyond the boss door, a shadow of Ganon on horseback materializes. In the first phase he and his phantom doubles gallop between the paintings hung around the room. Only one is real.",
+       "stuck": "Watch the paintings. The fakes only ride along inside the pictures; the REAL Phantom Ganon is the one who actually charges OUT of a painting (a small purple portal opens in front of him) into the room toward you. Ignore the decoys."
+      },
+      {
+       "id": "oot_forest_boss_2",
+       "k": "step",
+       "t": "The moment the real Phantom Ganon bursts out of his painting, draw the Fairy Bow and shoot him with an arrow. The hit knocks him off the horse so you can rush in and slash him.",
+       "stuck": "Stay near the center so you can watch all the paintings. Nock an arrow and track the one charging out, then fire as he leaves the frame. After three good arrow-knockdowns (each followed by sword hits) he abandons the horse for good."
+      },
+      {
+       "id": "oot_forest_boss_3",
+       "k": "step",
+       "t": "Phase two: Phantom Ganon floats up and hurls a slow ball of energy at you. This is a tennis match — strike it with your sword the instant it reaches you to bat it straight back at him.",
+       "stuck": "Z-target him and watch the ball. Swing your sword right as it arrives to return it; he'll smack it back, you return it again, faster each time. Don't try to dodge it — knock it back. An arrow can also return it."
+      },
+      {
+       "id": "oot_forest_boss_4",
+       "k": "step",
+       "t": "Keep the rally going — after about four or five volleys he mistimes it and the ball finally strikes Phantom Ganon. He crashes to the floor, stunned. Sprint in and pound him with sword slashes, then back off before he rises.",
+       "stuck": "If the ball hits YOU, the rally resets, so stay patient and only swing when it's close. Each time he's knocked down, get as many sword hits as you can. A few full cycles ends him."
+      },
+      {
+       "id": "oot_forest_boss_5",
+       "k": "reward",
+       "t": "Phantom Ganon is destroyed — the real Ganondorf, furious from afar, banishes his own failed puppet to the void. Step into the blue light to claim your Heart Container, then warp to the Chamber of Sages.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your life bar — every dungeon boss drops one."
+        }
+       ]
+      },
+      {
+       "id": "oot_forest_boss_6",
+       "k": "reward",
+       "t": "In the Chamber of Sages, your childhood friend Saria appears as the awakened Sage of Forest. She entrusts you with the Forest Medallion — the first of the Sages' powers — and the Forest Temple is cleansed.",
+       "items": [
+        {
+         "name": "Forest Medallion",
+         "cat": "key",
+         "note": "Saria's gift as the Sage of Forest. One of the medallions you gather to gain the power to stand against Ganondorf."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_fire",
+   "name": "Fire Temple",
+   "sub": "Main Quest — Adult Dungeon 2",
+   "kind": "beast",
+   "tagline": "A flame dragon is eating the Gorons one by one. Borrow their fireproof tunic, take up a hammer that breaks stone, and put the beast back in its hole.",
+   "champion": "Fire Medallion",
+   "sections": [
+    {
+     "id": "oot_fire_s_crater",
+     "name": "The Burning Crater",
+     "sub": "Death Mountain Crater and the Bolero of Fire",
+     "reward": "Bolero of Fire",
+     "steps": [
+      {
+       "id": "oot_fire_crater_1",
+       "k": "step",
+       "t": "From Goron City, head into Darunia's room at the top and pull the statue out from the wall to open the hidden passage. With the Goron Tunic equipped, go through it to reach Death Mountain Crater — the molten heart of the mountain. Darunia, the Goron leader and your sworn brother, has gone ahead to face the monster taking his people.",
+       "stuck": "Darunia's room is the big door at the top of Goron City (you opened it earlier as a child with Zelda's Lullaby). Inside, push/pull the statue away from the back wall to reveal the tunnel down into the Crater. You must have the Goron Tunic on before you step through, or the heat starts draining your hearts at once."
+      },
+      {
+       "id": "oot_fire_crater_2",
+       "k": "warn",
+       "t": "The Crater and the temple are blisteringly hot. Without heat protection your hearts drain steadily the whole time you stand there, so get the Goron Tunic before you settle in to explore."
+      },
+      {
+       "id": "oot_fire_crater_3",
+       "k": "step",
+       "t": "In the Crater, use the Hookshot to cross the broken bridge over the lava to the small platform. Sheik is waiting there and teaches you the Bolero of Fire — a warp song that instantly returns you to this spot whenever you play it.",
+       "items": [
+        {
+         "name": "Bolero of Fire",
+         "cat": "song",
+         "note": "A warp song taught by Sheik. Play it anywhere to teleport back to Death Mountain Crater, right beside the Fire Temple entrance."
+        }
+       ],
+       "stuck": "Stand between the two posts at the broken bridge and aim the Hookshot at the wooden post across the gap to pull yourself over. Sheik appears on the far platform and teaches the song."
+      }
+     ]
+    },
+    {
+     "id": "oot_fire_s_tunic",
+     "name": "Borrowed Armor",
+     "sub": "Get the Goron Tunic so the heat can't touch you",
+     "reward": "Goron Tunic",
+     "steps": [
+      {
+       "id": "oot_fire_tunic_1",
+       "k": "loot",
+       "t": "You need the Goron Tunic to survive the Crater and the temple's heat. The free way: in Goron City, stop the lone Goron rolling around the lower floors and talk to him — he gives you a spare Goron Tunic. (He is the Goron named after you.)",
+       "items": [
+        {
+         "name": "Goron Tunic",
+         "cat": "item",
+         "note": "Red fireproof tunic. Equip it from the menu to walk through Death Mountain Crater and the Fire Temple without your hearts burning away."
+        }
+       ],
+       "stuck": "To stop the rolling Goron, stand on the fence across from a Bomb Flower on his path, and detonate the Bomb Flower (shoot it or hit it) just as he rolls past so the blast knocks him out of his roll. Then talk to him and ask about the dragon and the Gorons, and he hands over the tunic. Can't catch him? Just buy one instead — see the next step."
+      },
+      {
+       "id": "oot_fire_tunic_2",
+       "k": "optional",
+       "t": "Alternatively, buy a Goron Tunic from the Goron Shop in Goron City for 200 Rupees. Either tunic does the same job — once you own one, equip it and the heat stops hurting you."
+      },
+      {
+       "id": "oot_fire_tunic_3",
+       "k": "step",
+       "t": "With the Goron Tunic equipped, return to Death Mountain Crater (play the Bolero of Fire) and step through the entrance into the Fire Temple."
+      }
+     ]
+    },
+    {
+     "id": "oot_fire_s_gorons",
+     "name": "Free the Gorons",
+     "sub": "The first half of the temple",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_fire_gorons_1",
+       "k": "step",
+       "t": "Inside, you find Darunia's people locked in barred cells all over the temple — the dragon has been caging the Gorons. Each one you free thanks you and often gives a hint, a heart, or Bombs, and many cells hold a chest with a Small Key. Work through the rooms freeing as many as you can.",
+       "stuck": "Most cell doors open with a switch nearby or by bombing a cracked wall. You don't have to rescue every single Goron to finish the dungeon, but the freed ones hand out useful supplies and their chests often hold the keys you need."
+      },
+      {
+       "id": "oot_fire_gorons_2",
+       "k": "tip",
+       "t": "Bombs and Bomb Flowers are your main tools here: blast cracked walls, weak floors, and obstacles you can't otherwise reach. If you run low, freed Gorons and the wall plants restock you."
+      },
+      {
+       "id": "oot_fire_gorons_3",
+       "k": "step",
+       "t": "Pick up the dungeon map, compass, and the Small Keys along the way, using them on the locked doors to push deeper toward the temple's far side.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Opens one locked door in the Fire Temple. You collect several as you explore; each is used up when a locked door opens."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oot_fire_s_hammer",
+     "name": "The Megaton Hammer",
+     "sub": "The temple's great weapon",
+     "reward": "Megaton Hammer",
+     "steps": [
+      {
+       "id": "oot_fire_hammer_1",
+       "k": "loot",
+       "t": "Deep in the temple, past a stretch of flame jets and a Flare Dancer fire enemy, open the big chest to claim the Megaton Hammer — a giant mallet that smashes stone.",
+       "items": [
+        {
+         "name": "Megaton Hammer",
+         "cat": "item",
+         "note": "A massive hammer. Pound the floor with it, or hold the control stick to swing left or right. It flattens rusted switches and gray stone that nothing else can break — and it's what you use to knock the boss out of its hole."
+        }
+       ],
+       "stuck": "To beat the Flare Dancer, strike the small flame body that hops out of the fire ring (Bombs work well), then chase it down before it rebuilds itself. The Megaton Hammer is in the chest past it."
+      },
+      {
+       "id": "oot_fire_hammer_2",
+       "k": "step",
+       "t": "The Megaton Hammer opens the rest of the temple: pound the rusty switches and the gray totem-like pillars that were blocking you. Smash your way through to find the Boss Key, then climb to the locked boss door.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "The ornate key that unlocks Volvagia's chamber in the Fire Temple."
+        }
+       ],
+       "stuck": "Look for rusted-over switches and gray stone blocks/totems you couldn't affect before — one good hammer swing handles them. A pounded floor switch usually drops a gate or moves a platform toward the Boss Key chest."
+      }
+     ]
+    },
+    {
+     "id": "oot_fire_s_volvagia",
+     "name": "Volvagia",
+     "sub": "Boss — the Subterranean Lava Dragon",
+     "reward": "Fire Medallion",
+     "steps": [
+      {
+       "id": "oot_fire_volvagia_1",
+       "k": "step",
+       "t": "Through the boss door is a large platform with nine round lava holes. Step toward the center to start the fight — Volvagia, a long fire dragon, screeches in and the battle begins."
+      },
+      {
+       "id": "oot_fire_volvagia_2",
+       "k": "step",
+       "t": "Watch the holes: fire spouts from one of them, and Volvagia's head pokes up from the last hole the fire came out of. The instant the head appears, run over and smash it with the Megaton Hammer to knock the dragon flat — then hit it again with your sword or the hammer before it recovers and dives.",
+       "stuck": "The fire spout is your tell — it marks where the head is about to surface, so move toward that hole. Only the hammer brings the head down from a hole, so swing fast; if you wait too long it lashes out at you. Once it's stunned on the ground, get your sword hits in before it retreats."
+      },
+      {
+       "id": "oot_fire_volvagia_3",
+       "k": "warn",
+       "t": "Sometimes Volvagia flies around the room instead of hiding. It breathes fire as it circles — keep moving and dodge it (a well-aimed arrow can tag it in the air, but it's tricky). If it soars straight up, watch the floor for shadows and run away from them: boulders crash down wherever a shadow appears. When it returns to the holes, hammer it again."
+      },
+      {
+       "id": "oot_fire_volvagia_4",
+       "k": "reward",
+       "t": "After enough hammer-and-slash rounds Volvagia bursts apart in flame. Step into the blue light for your Heart Container. Then you wake in the Sage's Chamber: Darunia has become the Sage of Fire, and your sworn brother entrusts you with the Fire Medallion before sending you on.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your life bar — every boss leaves one behind."
+        },
+        {
+         "name": "Fire Medallion",
+         "cat": "key",
+         "note": "Darunia's power as Sage of Fire. One of the medallions you gather to break Ganondorf's hold over Hyrule."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_water",
+   "name": "Water Temple",
+   "sub": "Main Quest — Adult Dungeon 3",
+   "kind": "beast",
+   "tagline": "The most feared dungeon in Hyrule: drain and flood it level by level with a lullaby, face your own shadow, and drag a water-blob's heart out of the deep.",
+   "champion": "Water Medallion",
+   "sections": [
+    {
+     "id": "oot_water_s_leadup",
+     "name": "The Road to Lake Hylia",
+     "sub": "Iron Boots, the Zora Tunic, and the song that opens the way",
+     "reward": "Iron Boots + Serenade of Water",
+     "steps": [
+      {
+       "id": "oot_water_leadup_1",
+       "k": "step",
+       "t": "Head to Zora's Fountain, frozen solid in the adult era. Where Lord Jabu-Jabu once floated, a wall of ice now seals the entrance to the Ice Cavern. Slip past and go inside.",
+       "stuck": "Zora's Fountain sits behind Zora's Domain, reached up Zora's River (northeast of Hyrule Field). Everything is iced over as an adult; cross the slick floor and look for the Ice Cavern's frozen doorway near where Jabu-Jabu used to be."
+      },
+      {
+       "id": "oot_water_leadup_2",
+       "k": "loot",
+       "t": "Work through the Ice Cavern's frozen rooms. At the end you fight a White Wolfos — beat it, then open the chest to claim the Iron Boots, which let you sink and walk along the bottom underwater.",
+       "items": [
+        {
+         "name": "Iron Boots",
+         "cat": "item",
+         "note": "Equip them to sink and walk on the floor underwater (you can't swim while wearing them). Swap them on and off constantly in the Water Temple."
+        }
+       ],
+       "stuck": "The White Wolfos turns invisible and circles you; lock on with Z, wait for it to lunge, then counter. The Iron Boots are heavy gear — equip them from the menu to sink; un-equip to float and swim normally."
+      },
+      {
+       "id": "oot_water_leadup_3",
+       "k": "step",
+       "t": "As you leave with the Iron Boots, Sheik appears and teaches you the Serenade of Water — the warp song that carries you straight to Lake Hylia, where the Water Temple waits.",
+       "items": [
+        {
+         "name": "Serenade of Water",
+         "cat": "song",
+         "note": "A warp song. Play it on the Ocarina anytime to teleport to Lake Hylia."
+        }
+       ]
+      },
+      {
+       "id": "oot_water_leadup_4",
+       "k": "step",
+       "t": "Scoop some Blue Fire from a jar in the Ice Cavern and bring it back to King Zora, frozen on his throne. Thawing him out earns you the Zora Tunic, which lets you breathe underwater for as long as you like.",
+       "items": [
+        {
+         "name": "Zora Tunic",
+         "cat": "item",
+         "note": "Wear it and you can breathe underwater indefinitely — essential for the flooded Water Temple. Swap back to the Kokiri Tunic on dry land if you like."
+        }
+       ],
+       "stuck": "Scoop the Blue Fire into an empty Bottle, then pour it on the red ice encasing King Zora. He hands the Zora Tunic over for free. Without it you'll drown in the Water Temple's deep rooms, so don't skip it."
+      },
+      {
+       "id": "oot_water_leadup_5",
+       "k": "tip",
+       "t": "Lake Hylia is mysteriously drained — its water sits far below normal. The little island with the temple is now reachable, but you'll have to go down into the water to find the door."
+      }
+     ]
+    },
+    {
+     "id": "oot_water_s_enter",
+     "name": "Into the Drained Lake",
+     "sub": "Sink to the entrance and learn the temple's one big trick",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_water_enter_1",
+       "k": "step",
+       "t": "At the lowered lake, enter the water by the island and equip the Iron Boots to sink to the temple door. A locking bar holds it shut — fire the Hookshot at that bar to pull it free and open the way into the Water Temple.",
+       "items": [
+        {
+         "name": "Dungeon Map",
+         "cat": "key",
+         "note": "Picked up inside — shows the temple's stacked floors. The Water Temple is built as a tall central tower, so the map is worth a glance."
+        }
+       ],
+       "stuck": "Sink with the Iron Boots until you're level with the entrance, aim the Hookshot at the bar latching the door, and fire — it yanks the bar out and the door opens. Un-equip the boots to float back up if you drift off."
+      },
+      {
+       "id": "oot_water_enter_2",
+       "k": "tip",
+       "t": "This is the dungeon's whole heart: a central tower you flood and drain to three different heights. Three Triforce tablets — one low, one middle, one high — each set the water to their own level when you play a certain song on them."
+      },
+      {
+       "id": "oot_water_enter_3",
+       "k": "step",
+       "t": "Step up to a Triforce tablet on the wall and play Zelda's Lullaby to set the water level. The lowest tablet drains the temple, the middle one fills it partway, and the highest fills it to the top.",
+       "stuck": "Each marking has a Triforce on it; stand beside it and play Zelda's Lullaby (the song Impa taught you). The water snaps to that tablet's height. If you ever feel stuck, change the water level — almost every locked-feeling room just needs a different level."
+      },
+      {
+       "id": "oot_water_enter_4",
+       "k": "tip",
+       "t": "Get into a rhythm with your gear: Zora Tunic on so you can breathe, Iron Boots ON to sink and cross underwater floors, boots OFF to swim and float up. You'll toggle the boots dozens of times — it's normal."
+      }
+     ]
+    },
+    {
+     "id": "oot_water_s_explore",
+     "name": "Working the Water Levels",
+     "sub": "Three heights, small keys, and the long climb",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_water_explore_1",
+       "k": "step",
+       "t": "Use the three levels to open up the tower. Lower the water to reach the basement rooms and underwater floors; raise it to swim up to high ledges and doors you couldn't climb to before.",
+       "stuck": "A reliable loop: drain to the lowest level and clear what you can on the bottom, then raise a level and clear the middle ring, then raise to the top. Each new height unlocks doors that were sealed by water above or below them."
+      },
+      {
+       "id": "oot_water_explore_2",
+       "k": "loot",
+       "t": "Collect the Small Keys scattered through the rooms as you go — the Water Temple has many locked doors, and you'll need keys to keep moving toward the deeper chambers.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Opens one locked door in this temple only. The Water Temple is gated by several of them — grab every one."
+        }
+       ],
+       "stuck": "If you run out of doors to open, you've likely missed a key behind a current, under the water at a lower level, or up high you can only reach when it's flooded. Re-sweep each level with the water set differently before assuming you're stuck."
+      },
+      {
+       "id": "oot_water_explore_3",
+       "k": "loot",
+       "t": "Somewhere along the way, claim the Compass and the Boss Key from their chests. The Boss Key opens the final door to Morpha once you've found your way back to it.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Unlocks the Water Temple's boss door. You can only fight Morpha once you hold this."
+        }
+       ]
+      },
+      {
+       "id": "oot_water_explore_4",
+       "k": "tip",
+       "t": "When you reach a quiet room with a single dead tree and what looks like open sky and water stretching out — that's not really outside. It's the room where the temple's nastiest fight happens. Steady yourself."
+      }
+     ]
+    },
+    {
+     "id": "oot_water_s_darklink",
+     "name": "Dark Link & the Longshot",
+     "sub": "Beat your own shadow, then double your reach",
+     "reward": "Longshot",
+     "steps": [
+      {
+       "id": "oot_water_darklink_1",
+       "k": "step",
+       "t": "In the misty 'outside' room, a shadow by the lone tree rises into Dark Link — a copy of you that mirrors your moves and blocks your normal sword swings. Lock on and don't panic."
+      },
+      {
+       "id": "oot_water_darklink_2",
+       "k": "step",
+       "t": "Break his mirroring with attacks he can't read. The easiest win is the Megaton Hammer or Din's Fire — both ignore his guard and he has no answer to them. If you're using the sword, jab him with quick neutral slashes, not big thrusts.",
+       "stuck": "Cheapest wins: swing the Megaton Hammer WITHOUT Z-targeting (he can't counter it), or burn him with Din's Fire — it always connects. With the Master Sword, do NOT thrust or stab — he reads thrusts and counterattacks every time. Instead stay close and use quick neutral slashes, turning fast each time he's hit. Deku Nuts can stun him for a free combo."
+      },
+      {
+       "id": "oot_water_darklink_3",
+       "k": "loot",
+       "t": "With Dark Link gone the room turns back into a normal temple chamber. Open the big chest to get the Longshot — the Hookshot's upgrade, with twice the reach.",
+       "items": [
+        {
+         "name": "Longshot",
+         "cat": "item",
+         "note": "Upgraded Hookshot — same controls, double the range. Grabs distant targets/chests and pulls you (or them) toward you."
+        }
+       ],
+       "stuck": "The Longshot works exactly like the Hookshot but its chain extends about twice as far, so it grabs targets and pulls you across gaps that were just out of range before. It's also the only way to beat the boss — don't leave without it."
+      }
+     ]
+    },
+    {
+     "id": "oot_water_s_morpha",
+     "name": "Morpha & the Sage of Water",
+     "sub": "Boss — the water blob, and Ruto's awakening",
+     "reward": "Water Medallion",
+     "steps": [
+      {
+       "id": "oot_water_morpha_1",
+       "k": "step",
+       "t": "Use the Boss Key on the boss door and drop into the arena: a wide pool. Morpha is a creature of living water — a glowing red nucleus that hides inside a towering water tentacle."
+      },
+      {
+       "id": "oot_water_morpha_2",
+       "k": "step",
+       "t": "Wait for the red nucleus to rise in a tentacle, then fire the Longshot at it to yank it out onto solid ground, and slash it with your sword before it slips back into the pool. Repeat the grab-and-slash until it dies.",
+       "stuck": "The nucleus is only grabbable when it surfaces in a tentacle latched on land — Longshot it the moment you see it. A safe trick: back into a corner of the room, keep Longshotting it toward you so it can't dive away, then slash it against the wall. The water arms can't easily swat you in a corner."
+      },
+      {
+       "id": "oot_water_morpha_3",
+       "k": "reward",
+       "t": "Morpha bursts apart and the stolen water rushes back to fill Lake Hylia. Step into the blue light for your Heart Container, then take the warp out. Princess Ruto awakens as the Sage of Water and grants you the Water Medallion.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your life bar — every boss drops one."
+        },
+        {
+         "name": "Water Medallion",
+         "cat": "key",
+         "note": "The Sage of Water's gift from Ruto. One more Medallion toward the power to challenge Ganondorf."
+        }
+       ],
+       "stuck": "In the Chamber of Sages, Ruto reveals she was the Sage of Water all along — the Zora princess you helped inside Jabu-Jabu as a child. Her medallion adds the power of water to your fight against Ganondorf."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_shadow",
+   "name": "Shadow Temple",
+   "sub": "Main Quest — Adult Dungeon 4",
+   "kind": "beast",
+   "tagline": "The house of the dead — drain a haunted well for the Lens of Truth, then walk a temple of unseen blades and ferry across an underworld river to face the phantom Bongo Bongo.",
+   "champion": "Shadow Medallion",
+   "sections": [
+    {
+     "id": "oot_shadow_s_lens",
+     "name": "The Eye That Sees Truth",
+     "sub": "Get the Lens of Truth as a child",
+     "reward": "Lens of Truth",
+     "steps": [
+      {
+       "id": "oot_shadow_lens_1",
+       "k": "tip",
+       "t": "The Shadow Temple is built on lies — invisible floors, hidden walls, and unseen enemies. Before you can survive it you need the Lens of Truth, and you collect that as a CHILD in the Bottom of the Well under Kakariko Village. Warp to the Temple of Time (Prelude of Light) and place the Master Sword back in its pedestal to become Link the boy again."
+      },
+      {
+       "id": "oot_shadow_lens_2",
+       "k": "step",
+       "t": "Drain the well. As a child, go into the Kakariko windmill, stand near the windmill man (Guru-Guru), and play the Song of Storms — the windmill spins up and the water level in the village well drops, opening the way down.",
+       "stuck": "You learn the Song of Storms as ADULT Link: walk up to the angry windmill man with your ocarina out and he teaches it (A, Down, Up, A, Down, Up). Then warp to the past, become a child, and play it in the windmill to drain the well."
+      },
+      {
+       "id": "oot_shadow_lens_3",
+       "k": "step",
+       "t": "Drop into the Bottom of the Well. It's a grim maze of ReDeads, Gibdos, and Like Likes. Keep your shield up and play the Sun's Song to freeze the undead so you can slip past them or strike them safely.",
+       "stuck": "ReDeads and Gibdos shriek to paralyze you, then grab on and bite. Play the Sun's Song to instantly freeze every undead nearby, then walk up and slash, or just run past while they're frozen."
+      },
+      {
+       "id": "oot_shadow_lens_4",
+       "k": "step",
+       "t": "Deep in the well lurks Dead Hand — a horror that grabs you with its buried hands, then leans in with its long-necked head to bite. Let a hand grab you, mash free, and when the head stretches down, slash it. A few hits kill it and open the way to the prize.",
+       "stuck": "Walk into the white hands on purpose so one grabs you; wiggle the stick and tap buttons to break loose. The instant Dead Hand's head stretches down, hit it with your sword. Let a hand grab you again to make the head reappear, and repeat about three times."
+      },
+      {
+       "id": "oot_shadow_lens_5",
+       "k": "loot",
+       "t": "Open the chest to claim the Lens of Truth. Hold it (it drains your magic while active) to reveal invisible platforms, fake walls, and hidden enemies — exactly what the Shadow Temple is made of.",
+       "items": [
+        {
+         "name": "Lens of Truth",
+         "cat": "item",
+         "note": "Reveals what's hidden — invisible floors, false walls, ghostly enemies. Burns magic while held, so tap it on and off. It is mandatory for the Shadow Temple and its boss."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oot_shadow_s_nocturne",
+     "name": "The Nocturne of Shadow",
+     "sub": "Kakariko burns — Sheik's song",
+     "reward": "Nocturne of Shadow + warp to the temple",
+     "steps": [
+      {
+       "id": "oot_shadow_noct_1",
+       "k": "step",
+       "t": "Return to adult Link and go to Kakariko Village. With the Water Temple cleared, you'll find the village in chaos — a vengeful spirit has been loosed and fire fills the air. Make your way toward the graveyard at the back of the village.",
+       "stuck": "Trigger the scene by entering Kakariko as an adult after finishing the Water Temple. Head for the open area where the commotion is; Sheik appears there once the scene plays out."
+      },
+      {
+       "id": "oot_shadow_noct_2",
+       "k": "step",
+       "t": "Sheik appears and teaches you the Nocturne of Shadow — the warp song that carries you to the Kakariko Graveyard, right by the Shadow Temple's entrance.",
+       "items": [
+        {
+         "name": "Nocturne of Shadow",
+         "cat": "song",
+         "note": "Sheik's warp song to the Shadow Temple (Left, Right, Right, A, Left, Right, Down). Play it anywhere to teleport to the graveyard ledge at the temple entrance."
+        }
+       ]
+      },
+      {
+       "id": "oot_shadow_noct_3",
+       "k": "warn",
+       "t": "Before you go in, stock up: plenty of bombs and arrows, and keep your magic topped up for the Lens of Truth. You'll find the Hover Boots inside the temple — you need them to cross several of its gaps."
+      },
+      {
+       "id": "oot_shadow_noct_4",
+       "k": "loot",
+       "t": "Early in the temple you fight a second Dead Hand; defeating it makes a chest appear with the Hover Boots — the Shadow Temple's main item. They let you skim across thin air and pits for a couple of seconds, long enough to cross to the next ledge.",
+       "items": [
+        {
+         "name": "Hover Boots",
+         "cat": "item",
+         "note": "Boots that let you float across gaps and walk on air briefly. Equip them as your boots in the menu when you reach a pit too wide to jump."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oot_shadow_s_truth",
+     "name": "A Temple of Lies",
+     "sub": "The first half — walls that aren't there",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_shadow_truth_1",
+       "k": "step",
+       "t": "Inside, almost nothing is what it looks like. Keep the Lens of Truth on at junctions: many 'dead-end' walls are illusions you can walk straight through, and some floors over pits are invisible bridges.",
+       "stuck": "When a path seems to end, tap the Lens of Truth on and watch the wall flicker — a false wall shimmers and you can walk through it. Conserve magic by toggling the Lens off while you walk a path you already know."
+      },
+      {
+       "id": "oot_shadow_truth_2",
+       "k": "step",
+       "t": "You reach a spinning stone statue (the 'Truth Spinner') in the middle of a room. Use the Lens of Truth to spot the real skull, then hit the switch to rotate the statue until it points at the true door, and go through.",
+       "stuck": "With the Lens on, the fake skulls vanish and only the true one remains. Strike to rotate the statue and line its pointing hand up with the door under the real skull, then walk through."
+      },
+      {
+       "id": "oot_shadow_truth_3",
+       "k": "warn",
+       "t": "This is the house of the dead. ReDeads and Gibdos freeze you with their scream, Floormasters split into three crawling hands when hurt, and a Wallmaster can drop from the ceiling to drag you back to the entrance. Keep moving and keep your shield ready.",
+       "stuck": "Play the Sun's Song to freeze ReDeads and Gibdos on sight. For a Floormaster, kill all three split-off hands fast before they merge back. If a Wallmaster's shadow grows under you, side-hop out of it before it lands."
+      },
+      {
+       "id": "oot_shadow_truth_4",
+       "k": "step",
+       "t": "Use bombs to blow open cracked walls and reveal hidden rooms, and the Hover Boots to cross the gaps the Lens shows are real pits. Work toward the big room with the rotating spiked obstacles and the underground river."
+      }
+     ]
+    },
+    {
+     "id": "oot_shadow_s_ferry",
+     "name": "The Ferry of the Dead",
+     "sub": "The second half — across the river",
+     "reward": "Boss Key",
+     "steps": [
+      {
+       "id": "oot_shadow_ferry_1",
+       "k": "step",
+       "t": "You reach a black underground river with a great stone ferry shaped like a leering skull, moored at the dock. Step aboard, stand on the Triforce mark, and play Zelda's Lullaby to bring the boat to life — it carries you down the river toward the boss.",
+       "stuck": "Get onto the deck, stand on the Triforce symbol, and play Zelda's Lullaby (Left, Up, Right, Left, Up, Right). The skull boat starts moving on its own down the channel."
+      },
+      {
+       "id": "oot_shadow_ferry_2",
+       "k": "warn",
+       "t": "As the ferry sails, fight off the enemies that appear on deck and watch the walls — if the boat is dragged off course it sinks and you restart the ride. When it stops at the far landing, get off quickly."
+      },
+      {
+       "id": "oot_shadow_ferry_3",
+       "k": "step",
+       "t": "Past the river, work through the spike-walled chamber that closes in and the invisible platforms over the pit. Use the Lens of Truth constantly here and the Hover Boots to reach the Boss Key, then the boss door.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the Shadow Temple's boss door. The big ornate key — unlocks the way to Bongo Bongo."
+        }
+       ],
+       "stuck": "In the crushing room you can burn the spiky wooden walls with Din's Fire to clear them; with the Lens on, the safe gaps and hidden switches become visible. Grab the Boss Key from its big chest before crossing to the final door."
+      }
+     ]
+    },
+    {
+     "id": "oot_shadow_s_bongo",
+     "name": "Bongo Bongo",
+     "sub": "Boss — the phantom of the drum",
+     "reward": "Shadow Medallion",
+     "steps": [
+      {
+       "id": "oot_shadow_bongo_1",
+       "k": "step",
+       "t": "You drop onto a giant drum in the dark and Bongo Bongo rises — a sealed phantom you cannot even see normally. Turn the Lens of Truth ON immediately: now you can see its two huge floating hands and the single great eye between them.",
+       "stuck": "Keep the Lens of Truth held throughout the fight (watch your magic — bring a potion or two). Without it the boss and its hands are completely invisible and you'll be flattened. Equip the Hover Boots so a hit can't knock you off the drum."
+      },
+      {
+       "id": "oot_shadow_bongo_2",
+       "k": "step",
+       "t": "The two hands try to grab or slap you, pounding the drum so you stumble. Shoot each hand with an arrow (a Hookshot/Longshot works too) to make it recoil — knock out both hands and the boss's eye is left exposed and floats in close.",
+       "stuck": "Fire an arrow at a hand as it rears back to strike; one good hit per hand staggers it. When the drum tilts, run uphill to keep your footing. With both hands down, the eye drifts forward defenseless."
+      },
+      {
+       "id": "oot_shadow_bongo_3",
+       "k": "step",
+       "t": "Shoot the giant eye with an arrow to stun the whole creature — it drops onto the drum. Sprint in and slash the eye with your sword as fast as you can, landing a flurry of hits before it recovers and rises again.",
+       "stuck": "Sequence: stun both hands, then arrow the eye, then sword the eye. It speeds up as its health drops, so keep the Lens on and stay centered on the drum. Repeat the cycle until it dies."
+      },
+      {
+       "id": "oot_shadow_bongo_4",
+       "k": "reward",
+       "t": "Bongo Bongo bursts apart. Step into the blue light to take your Heart Container, then Impa appears in the Chamber of Sages — awakened as the Sage of Shadow, she grants you the Shadow Medallion.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your life bar — every boss drops one."
+        },
+        {
+         "name": "Shadow Medallion",
+         "cat": "key",
+         "note": "Impa's power as the Sage of Shadow. The fifth medallion — only the Spirit Temple's remains before you can face Ganon."
+        }
+       ]
+      },
+      {
+       "id": "oot_shadow_bongo_5",
+       "k": "tip",
+       "t": "Back at the Temple of Time, Sheik meets you again and points you toward the last awakened sage. One temple remains — the Spirit Temple in the desert — before the road to Ganondorf's tower opens."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_spirit",
+   "name": "Spirit Temple",
+   "sub": "Main Quest — Adult Dungeon 5",
+   "kind": "beast",
+   "tagline": "Out in the burning desert, a temple split across time hides Nabooru and the witch sisters who raised Ganondorf.",
+   "champion": "Spirit Medallion",
+   "sections": [
+    {
+     "id": "oot_spirit_s_fortress",
+     "name": "Gerudo Valley & Fortress",
+     "sub": "Free the carpenters, earn the card",
+     "reward": "Gerudo Membership Card",
+     "steps": [
+      {
+       "id": "oot_spirit_fortress_1",
+       "k": "step",
+       "t": "Ride west out of Hyrule Field into Gerudo Valley. The bridge across the gorge is broken, so use the Longshot on the far post (or ride Epona and jump the gap) to reach the Gerudo's Fortress on the other side.",
+       "stuck": "Aim the Longshot at the wooden post on the far side of the broken bridge to pull yourself across. If you don't have the Longshot yet, gallop Epona at full speed and she'll leap the gorge."
+      },
+      {
+       "id": "oot_spirit_fortress_2",
+       "k": "warn",
+       "t": "The fortress is patrolled by Gerudo guards. If one spots you, she throws you in jail and takes your weapons. Stay behind cover, climb to the upper walkways, and sneak past or stun them — you can fight back, but avoiding them is easier."
+      },
+      {
+       "id": "oot_spirit_fortress_3",
+       "k": "step",
+       "t": "Four Hylian carpenters are locked in cells around the fortress. Reach each cell — some need the Longshot to a target above the door — and defeat the lone guard inside to free that carpenter. You can free the four in any order.",
+       "stuck": "Each occupied cell has a Gerudo guard you must beat in a quick sword duel before the carpenter walks free. The hardest cells sit high up; Longshot the wooden targets or chests above the doorways to climb to them."
+      },
+      {
+       "id": "oot_spirit_fortress_4",
+       "k": "reward",
+       "t": "With all four carpenters freed, the Gerudo are impressed and recognize you as one of their own. Speak to the guard who greets you to receive the Gerudo Membership Card.",
+       "items": [
+        {
+         "name": "Gerudo's Card",
+         "cat": "key",
+         "note": "Proves you're a friend of the Gerudo. It opens the gate to the Horseback Archery range and lets you pass into the Haunted Wasteland."
+        }
+       ]
+      },
+      {
+       "id": "oot_spirit_fortress_5",
+       "k": "optional",
+       "t": "With the card, you can ride Epona into the Horseback Archery minigame near the fortress. Score well to win a Piece of Heart and a bigger Quiver — handy, but not required to continue.",
+       "items": [
+        {
+         "name": "Piece of Heart",
+         "cat": "key",
+         "note": "Four pieces make one full Heart Container. This one is a reward for a high archery score."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oot_spirit_s_wasteland",
+     "name": "The Haunted Wasteland",
+     "sub": "Cross the desert to the Colossus",
+     "reward": "Requiem of Spirit",
+     "steps": [
+      {
+       "id": "oot_spirit_wasteland_1",
+       "k": "step",
+       "t": "Past the gate, a fast river of sand blocks the way. Throw down a wooden plank or use the Longshot on the far crate to cross, then enter the open Haunted Wasteland beyond.",
+       "stuck": "At the sand river, Longshot the wooden crate on the far bank to zip across. After that, you cross on foot — but a sandstorm hides the way forward."
+      },
+      {
+       "id": "oot_spirit_wasteland_2",
+       "k": "step",
+       "t": "Equip the Lens of Truth and start walking. Look for a line of flag poles in the sand — head from one banner to the next, keeping each pole behind you, until the flags run out.",
+       "stuck": "The flags are easy to miss in the storm. Stand at each pole, look ahead until you spot the next banner, then walk straight to it. Don't wander off the line or you'll loop back to the start."
+      },
+      {
+       "id": "oot_spirit_wasteland_3",
+       "k": "step",
+       "t": "Where the flags end, keep the Lens of Truth on to reveal a glowing Poe — a Phantom Guide. Follow the ghost as it floats across the dunes; it leads you straight to the edge of the Desert Colossus.",
+       "stuck": "The Phantom Guide is invisible without the Lens of Truth, so keep the Lens active (watch your magic meter) and chase the ghost. If you lose it, return to the last flag and try again."
+      },
+      {
+       "id": "oot_spirit_wasteland_4",
+       "k": "reward",
+       "t": "At the Desert Colossus, Sheik is waiting before the great stone temple. Sheik teaches adult Link the Requiem of Spirit, then vanishes — now you can warp straight here any time.",
+       "items": [
+        {
+         "name": "Requiem of Spirit",
+         "cat": "song",
+         "note": "A warp song that teleports you to the Desert Colossus, right outside the Spirit Temple. Saves the whole wasteland trek on later visits, and lets young Link warp here for the child half."
+        }
+       ]
+      },
+      {
+       "id": "oot_spirit_wasteland_5",
+       "k": "optional",
+       "t": "Before going in, bomb the cracked wall near the temple and play Zelda's Lullaby to summon a Great Fairy. She gives you Nayru's Love — a magic shield that protects you and blocks damage, very handy inside.",
+       "items": [
+        {
+         "name": "Nayru's Love",
+         "cat": "item",
+         "note": "A protective barrier cast with magic. While it's up you take no damage and can't be knocked back — great for the Iron Knuckles and the boss."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oot_spirit_s_child",
+     "name": "Child Half — Silver Gauntlets",
+     "sub": "Return as young Link",
+     "reward": "Silver Gauntlets",
+     "steps": [
+      {
+       "id": "oot_spirit_child_1",
+       "k": "tip",
+       "t": "The Spirit Temple is split across time. Some of it can only be done as young Link, and the rest as adult Link. You'll start here as a child to fetch the gauntlets, then return grown up to finish it."
+      },
+      {
+       "id": "oot_spirit_child_2",
+       "k": "step",
+       "t": "Travel back in time (pull or replace the Master Sword to become young Link), then warp here with the Requiem of Spirit as a child. Enter the temple and work through the child-sized passages, lighting torches and beating Stalfos and Beamos.",
+       "stuck": "Many doors need lit torches. Carry a Deku Stick flame from torch to torch to open the way."
+      },
+      {
+       "id": "oot_spirit_child_3",
+       "k": "step",
+       "t": "Solve the child puzzles to reach a room with a huge silver block. You can't shift it yet — open the chest guarded nearby to claim the Silver Gauntlets.",
+       "stuck": "The Silver Gauntlets chest sits behind a switch-and-block puzzle. Defeat the room's enemies and step on the floor switch (or shoot the eye) to drop the bars, then open the chest."
+      },
+      {
+       "id": "oot_spirit_child_4",
+       "k": "loot",
+       "t": "Take the Silver Gauntlets. With them on, you can grab and lift heavy silver blocks that were immovable before.",
+       "items": [
+        {
+         "name": "Silver Gauntlets",
+         "cat": "item",
+         "note": "Power gloves that let you lift silver blocks. You need them — as both child and adult — to clear the Spirit Temple's heavy obstacles."
+        }
+       ]
+      },
+      {
+       "id": "oot_spirit_child_5",
+       "k": "step",
+       "t": "Use the new strength to push the big silver block, opening the path back out. Leave the temple, then pull the Master Sword to grow up and return as adult Link for the second half.",
+       "stuck": "Stand against the silver block and hold A to grab it, then push. It slides into a gap and reveals the way onward (and the link to the adult sections)."
+      }
+     ]
+    },
+    {
+     "id": "oot_spirit_s_adult",
+     "name": "Adult Half — Mirror Shield",
+     "sub": "Nabooru, the Iron Knuckles",
+     "reward": "Mirror Shield",
+     "steps": [
+      {
+       "id": "oot_spirit_adult_1",
+       "k": "step",
+       "t": "Return as adult Link with the Silver Gauntlets. Lift the silver blocks to open the grown-up half of the temple and push deeper, solving sun-and-mirror puzzles by aiming sunlight at the statues' faces.",
+       "stuck": "Several rooms need you to bounce sunlight onto a sun-face emblem. Stand in a beam and angle your shield (later the Mirror Shield) so the light strikes the carved sun, opening the door."
+      },
+      {
+       "id": "oot_spirit_adult_2",
+       "k": "step",
+       "t": "You meet Nabooru, the lone Gerudo who opposes Ganondorf. She agrees to help — but the witches Koume and Kotake ambush and brainwash her, dragging her away. Press on to the next chamber.",
+       "stuck": "This is a cutscene, not a fight. After it, continue through the door the witches leave behind to reach the first Iron Knuckle."
+      },
+      {
+       "id": "oot_spirit_adult_3",
+       "k": "step",
+       "t": "An Iron Knuckle — a giant armored knight with a huge axe — guards the way. Wait for it to swing, dodge with a backflip or sidehop, then slash. Each hit knocks off armor and speeds it up; keep your distance and counter.",
+       "stuck": "Never trade blows head-on — its axe takes off whole hearts. Hop sideways the instant it raises the axe, then dash in for one or two slashes before it recovers. A jump-attack between swings does big damage."
+      },
+      {
+       "id": "oot_spirit_adult_4",
+       "k": "loot",
+       "t": "Beyond the Iron Knuckle, open the chest to claim the Mirror Shield. Its polished face reflects light — and enemy magic — letting you solve the remaining sun puzzles and survive the boss.",
+       "items": [
+        {
+         "name": "Mirror Shield",
+         "cat": "shield",
+         "note": "A shield with a mirrored front. Aim it to redirect sunbeams onto sun-faces, and use it to absorb and bounce back the witches' fire and ice blasts."
+        }
+       ]
+      },
+      {
+       "id": "oot_spirit_adult_5",
+       "k": "step",
+       "t": "Use the Mirror Shield to steer light through the final rooms and reach the temple's summit, where the boss awaits. The brainwashed Nabooru, now an Iron Knuckle, blocks the door — beat her the same way to free her mind before moving on.",
+       "stuck": "Fight Nabooru's Iron Knuckle exactly like the last one: dodge the axe, slash in the gaps. When her armor shatters she returns to normal and is whisked away by the witches — then the real boss begins."
+      }
+     ]
+    },
+    {
+     "id": "oot_spirit_s_twinrova",
+     "name": "Twinrova & the Sage",
+     "sub": "Boss — the witch sisters",
+     "reward": "Spirit Medallion",
+     "steps": [
+      {
+       "id": "oot_spirit_twinrova_1",
+       "k": "step",
+       "t": "Koume and Kotake reveal themselves and split apart — Koume hurls fire, Kotake hurls ice. Raise the Mirror Shield to face each blast: it absorbs the energy. They take turns flying around the round arena.",
+       "stuck": "Lock on with Z and keep the Mirror Shield up toward whichever witch is charging. Absorbing a blast doesn't hurt them yet — you're collecting energy for the next phase."
+      },
+      {
+       "id": "oot_spirit_twinrova_2",
+       "k": "step",
+       "t": "After a while the sisters merge into Twinrova, a single witch who casts alternating fire and ice. With the Mirror Shield, absorb one blast of an element — then absorb two more of that SAME element to charge the shield fully.",
+       "stuck": "Watch the orb on the shield: each blast of one element fills it more. If you absorb the wrong element it cancels out, so wait and only catch matching colors — red after red, or blue after blue — three in a row."
+      },
+      {
+       "id": "oot_spirit_twinrova_3",
+       "k": "step",
+       "t": "Once the shield holds three blasts of one element, it glows and fires that charged energy back at Twinrova, stunning her. Rush in and slash with your sword while she's helpless.",
+       "stuck": "The shield auto-releases when it's full — aim it at Twinrova so the reflected blast hits her. She drops to the floor stunned; sprint over and get as many sword hits in as you can before she rises."
+      },
+      {
+       "id": "oot_spirit_twinrova_4",
+       "k": "step",
+       "t": "Repeat the cycle — absorb three of one element, reflect it, then attack — until Twinrova falls. She switches which element she favors, so stay patient and only collect matching blasts.",
+       "stuck": "If she keeps alternating colors, just hold the shield and ignore the off-element shots until three of the same kind come; absorbing a mismatched blast empties your charge."
+      },
+      {
+       "id": "oot_spirit_twinrova_5",
+       "k": "reward",
+       "t": "Twinrova defeated, step into the blue light to take your Heart Container. Inside the temple's light, Nabooru awakens as the Sage of Spirit and grants you the Spirit Medallion.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your life bar — every boss leaves one behind."
+        },
+        {
+         "name": "Spirit Medallion",
+         "cat": "key",
+         "note": "Nabooru's gift as the Sage of Spirit. Its power joins the others you'll need to break into Ganon's Castle."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_ganon",
+   "name": "Ganon's Castle",
+   "sub": "Main Quest — the final battle",
+   "kind": "beast",
+   "tagline": "Six sages raise a bridge of rainbow, six trials fall to your Light Arrows, and the boy who slept seven years finally answers the desert king.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "oot_ganon_s_bridge",
+     "name": "The Rainbow Bridge",
+     "sub": "Light Arrows, then cross to the castle",
+     "reward": "Light Arrows + the way in",
+     "steps": [
+      {
+       "id": "oot_ganon_bridge_1",
+       "k": "step",
+       "t": "With all six Sages awakened, return to the Temple of Time. Sheik is waiting — and at last reveals the truth: she is Princess Zelda. She entrusts you with the Light Arrows, but the moment her disguise falls she is found and captured by Ganondorf's magic.",
+       "items": [
+        {
+         "name": "Light Arrows",
+         "cat": "bow",
+         "note": "Holy arrows of light — the one weapon that pierces Ganondorf. They cost magic per shot; equip them to a C button and fire with your bow. They stun Ganondorf and Ganon and dispel the six trial barriers."
+        }
+       ],
+       "stuck": "If Sheik isn't at the Temple of Time, you haven't awakened all six Sages yet — finish the Forest, Fire, Water, Shadow, and Spirit Temples (the Light Sage, Rauru, was awakened when you first drew the Master Sword) and come back."
+      },
+      {
+       "id": "oot_ganon_bridge_2",
+       "k": "step",
+       "t": "Ride out to the ruins of Hyrule Castle and walk to the edge of the broken grounds. The six Sages answer together and raise a glowing rainbow bridge across the void. Cross it to reach Ganon's Castle."
+      },
+      {
+       "id": "oot_ganon_bridge_3",
+       "k": "tip",
+       "t": "Before the trials, stock up: carry plenty of arrows, Deku Nuts, fairies in bottles, and a Red Potion or two. You'll want full magic for Light Arrows and the Lens of Truth, and the climb ahead has no shop."
+      }
+     ]
+    },
+    {
+     "id": "oot_ganon_s_trials_a",
+     "name": "Three Trials & the Golden Gauntlets",
+     "sub": "Shadow, Fire, Light — the chain that unlocks the rest",
+     "reward": "Golden Gauntlets",
+     "steps": [
+      {
+       "id": "oot_ganon_trials_a_1",
+       "k": "tip",
+       "t": "The central chamber branches into six elemental trials, one per Sage. Each mirrors that Sage's temple — reach the end, slash the jars, and fire a Light Arrow at the golden orb there; that Sage then dispels her piece of the barrier. You can do them in any order, but start with Shadow — it hides the gauntlets the Light Trial needs."
+      },
+      {
+       "id": "oot_ganon_trials_a_2",
+       "k": "loot",
+       "t": "Shadow Trial: hold up the Lens of Truth to reveal the invisible platforms and path across, work your way to the far chest for the Golden Gauntlets, then Light-Arrow the orb to free the Shadow Sage, Impa.",
+       "items": [
+        {
+         "name": "Golden Gauntlets",
+         "cat": "item",
+         "note": "The strongest power gloves — they let you lift the giant black pillars blocking the Fire and Light trials. Equip them in the menu."
+        }
+       ],
+       "stuck": "The back half of this room is invisible — keep the Lens of Truth held (it drains magic) to see the platforms and the chest. Use the Longshot to cross gaps you can't reach."
+      },
+      {
+       "id": "oot_ganon_trials_a_3",
+       "k": "step",
+       "t": "Fire Trial: wear the Goron Tunic so the heat doesn't hurt you, then use the Hover Boots to keep the central platform from sinking as you cross the lava. Lift the huge pillar with the Golden Gauntlets, gather the Silver Rupees to open the way, then Light-Arrow the orb to free the Fire Sage, Darunia.",
+       "stuck": "No Goron Tunic means the heat ticks away your hearts — equip it before stepping in. Keep the Hover Boots on so the sinking platform holds you up, and don't pause between hops."
+      },
+      {
+       "id": "oot_ganon_trials_a_4",
+       "k": "step",
+       "t": "Light Trial: lift the black pillar at the entrance with the Golden Gauntlets to get in, then use the Lens of Truth to reveal the invisible path and the hidden Silver Rupees. Collect them, take the correctly marked exit, then Light-Arrow the orb to free the Light Sage.",
+       "stuck": "Much of this trial is invisible — keep the Lens of Truth up to find the path and the Silver Rupees. Of the exits, take the one the Lens shows as real; the false ones loop you back."
+      }
+     ]
+    },
+    {
+     "id": "oot_ganon_s_trials_b",
+     "name": "The Last Trials & the Great Fairy",
+     "sub": "Forest, Water, Spirit — and the final upgrade",
+     "reward": "Double Defense (½ damage)",
+     "steps": [
+      {
+       "id": "oot_ganon_trials_b_1",
+       "k": "step",
+       "t": "Forest Trial: play the Song of Time to drop a block onto the floor switch, opening the way forward, then work the trial to its end and fire a Light Arrow at the orb to free the Forest Sage, Saria."
+      },
+      {
+       "id": "oot_ganon_trials_b_2",
+       "k": "step",
+       "t": "Water Trial: scoop Blue Fire into a bottle and use it to melt the red ice blocking the path, collect the Silver Rupees, then Light-Arrow the orb to free the Water Sage, Ruto.",
+       "stuck": "Only Blue Fire melts the red ice — catch it from the source in an empty bottle, then pour it on the ice walls. Gather all the Silver Rupees to open the door before you can reach the orb."
+      },
+      {
+       "id": "oot_ganon_trials_b_3",
+       "k": "step",
+       "t": "Spirit Trial: bomb the Beamos, use the Longshot to reach a Silver Rupee suspended in mid-air, and play the Sun's Song if you want a healing fairy. Collect what's needed, then Light-Arrow the orb to free the Spirit Sage, Nabooru."
+      },
+      {
+       "id": "oot_ganon_trials_b_4",
+       "k": "loot",
+       "t": "Optional but worth it: step back outside and use the Golden Gauntlets to lift the giant gray pillar near the entrance. In the cave behind it, play Zelda's Lullaby to summon the last Great Fairy — she blesses you so all damage you take is halved.",
+       "items": [
+        {
+         "name": "Double Defense",
+         "cat": "key",
+         "note": "The final Great Fairy's blessing — enemy attacks now deal half damage. Your hearts flash to show it's active."
+        }
+       ],
+       "stuck": "Only the Golden Gauntlets can move that pillar, so make this trip after the Shadow Trial. Step into the fountain and play Zelda's Lullaby to call the Great Fairy."
+      },
+      {
+       "id": "oot_ganon_trials_b_5",
+       "k": "step",
+       "t": "With all six orbs destroyed, the barrier sealing the center of the castle vanishes. Head into the heart of the tower — faint organ music drifts down from above, growing louder as you climb."
+      }
+     ]
+    },
+    {
+     "id": "oot_ganon_s_tower",
+     "name": "The Climb & Ganondorf",
+     "sub": "Up the tower to the organ hall",
+     "reward": "Boss Key + Ganondorf defeated",
+     "steps": [
+      {
+       "id": "oot_ganon_tower_1",
+       "k": "step",
+       "t": "Climb the tower. First a room with two Stalfos (a one-minute fight) — beating both makes a chest appear with the Boss Key. Next, a room with a Beamos and two Dinalfos. Then a pair of Iron Knuckles guards the final staircase.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the door to Ganondorf's organ hall at the top of the tower."
+        }
+       ],
+       "stuck": "Iron Knuckles hit like a truck but move slowly. Wait for the heavy axe swing, sidestep or backflip, then dart in for a slash or two and retreat. You can wake one at a time to fight them one by one."
+      },
+      {
+       "id": "oot_ganon_tower_2",
+       "k": "step",
+       "t": "At the top, Ganondorf himself sits at the great organ, Zelda still sealed in his crystal. He rises to fight on a platform high above the ruined castle."
+      },
+      {
+       "id": "oot_ganon_tower_3",
+       "k": "step",
+       "t": "Ganondorf opens with Dead Man's Volley — he hurls a ball of energy you must swat back with your sword. Rally it back and forth, faster each time, until your return overwhelms him and he's left stunned in the air.",
+       "stuck": "It's a tennis match: time a sword swing as the orb reaches you to send it back faster. He'll speed up — eventually your return is too quick for him and the orb blasts him, leaving him stunned. A spin attack can also bat it back."
+      },
+      {
+       "id": "oot_ganon_tower_4",
+       "k": "step",
+       "t": "The instant he's stunned, fire a Light Arrow to bring him crashing down, then jump across and slash him with the Master Sword. Repeat the volley-then-arrow pattern until he falls.",
+       "stuck": "If he charges a large orb overhead that splits into many, you can't return it — either dodge the spray or shoot him with a Light Arrow during the wind-up. He's only open to your sword right after a Light Arrow knocks him down."
+      },
+      {
+       "id": "oot_ganon_tower_5",
+       "k": "step",
+       "t": "Beaten, Ganondorf collapses — but in a last fit of hatred he sets the castle to crumble around you. Zelda's barrier shatters and she is freed. Now you both have to get out."
+      }
+     ]
+    },
+    {
+     "id": "oot_ganon_s_escape",
+     "name": "Escape with Zelda",
+     "sub": "Three minutes before the tower falls",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_ganon_escape_1",
+       "k": "step",
+       "t": "The tower is collapsing — you have three minutes. Follow Zelda down through the crumbling halls, watching for falling rocks as you run."
+      },
+      {
+       "id": "oot_ganon_escape_2",
+       "k": "step",
+       "t": "Partway down, Zelda is trapped in a ring of fire and two Stalfos drop in to block you. Beat them and the flames fall, freeing her so you can keep moving.",
+       "stuck": "Don't panic over the timer — it's generous if you fight fast. Use Z-targeting and jump attacks to drop the two Stalfos; the fire around Zelda vanishes the moment both are dead, then sprint for the exit."
+      },
+      {
+       "id": "oot_ganon_escape_3",
+       "k": "step",
+       "t": "Burst out onto the field as the castle finishes collapsing behind you. You think it's over — until the rubble erupts and Ganondorf rises one last time."
+      }
+     ]
+    },
+    {
+     "id": "oot_ganon_s_ganon",
+     "name": "Ganon",
+     "sub": "Final boss — the beast of the boar",
+     "reward": "Peace returns to Hyrule",
+     "steps": [
+      {
+       "id": "oot_ganon_ganon_1",
+       "k": "step",
+       "t": "Drawing on the Triforce of Power, Ganondorf transforms into Ganon — a towering boar wielding two great swords. With one blow he knocks the Master Sword from your hand, hurling it beyond a ring of fire."
+      },
+      {
+       "id": "oot_ganon_ganon_2",
+       "k": "step",
+       "t": "Ganon's weak point is the glowing tail behind him. Strike him between the eyes with a Light Arrow to stun him and drop the tail into reach, then roll between his legs to get behind him and hit the tail with the Biggoron's Sword or Megaton Hammer.",
+       "stuck": "A Light Arrow to the face freezes him for a moment — that's your window to roll under or around to the tail. The Master Sword is locked behind fire for now, so any weapon works in this phase; the Biggoron's Sword or Megaton Hammer hit hardest. Low on arrows? As he winds up to attack, roll under his legs and strike the tail anyway."
+      },
+      {
+       "id": "oot_ganon_ganon_3",
+       "k": "step",
+       "t": "After enough hits to the tail, Ganon reels and the ring of fire briefly drops. Zelda calls out — dash through the gap and grab the Master Sword back into your hand.",
+       "stuck": "When the flames fall, don't attack — run straight for the gleaming Master Sword and grab it before the fire returns. Only the Master Sword can land the finishing blow."
+      },
+      {
+       "id": "oot_ganon_ganon_4",
+       "k": "step",
+       "t": "With the Master Sword back, repeat the pattern — Light Arrow to stun, roll behind, and carve his tail. This time you must use the Master Sword for the final hits; the Biggoron's Sword can't finish him."
+      },
+      {
+       "id": "oot_ganon_ganon_5",
+       "k": "reward",
+       "t": "When Ganon finally drops, Zelda uses her power as a Sage to hold him fast. Walk up and drive the Master Sword home for the finishing blow — and the six Sages seal the King of Evil away in the Sacred Realm."
+      },
+      {
+       "id": "oot_ganon_ganon_6",
+       "k": "step",
+       "t": "Peace returns to Hyrule. Zelda thanks you, then plays the Ocarina of Time to send you back to your stolen childhood — so you can live the years Ganondorf took. Roll credits. You did it."
+      }
+     ]
+    }
+   ]
   }
  ],
  "SHRINES": [],
@@ -334,13 +2355,49 @@
    "name": "Goron's Ruby",
    "from": "Dodongo's Cavern",
    "note": "The Fire Spiritual Stone — Darunia gives it once you clear the Gorons' cavern of Dodongos.",
-   "step": null
+   "step": "oot_dodongo_boss_5"
   },
   {
    "name": "Zora's Sapphire",
    "from": "Inside Jabu-Jabu's Belly",
    "note": "The Water Spiritual Stone — Princess Ruto hands it to you after Barinade is defeated.",
-   "step": null
+   "step": "oot_jabu_barinade_5"
+  },
+  {
+   "name": "Light Medallion",
+   "from": "Temple of Time",
+   "note": "Rauru, the Sage of Light, grants it when you awaken as an adult in the Chamber of Sages.",
+   "step": "oot_master_sages_3"
+  },
+  {
+   "name": "Forest Medallion",
+   "from": "Forest Temple",
+   "note": "Saria becomes the Sage of Forest after you defeat Phantom Ganon.",
+   "step": "oot_forest_boss_6"
+  },
+  {
+   "name": "Fire Medallion",
+   "from": "Fire Temple",
+   "note": "Darunia becomes the Sage of Fire after Volvagia is slain.",
+   "step": "oot_fire_volvagia_4"
+  },
+  {
+   "name": "Water Medallion",
+   "from": "Water Temple",
+   "note": "Ruto becomes the Sage of Water after Morpha falls.",
+   "step": "oot_water_morpha_3"
+  },
+  {
+   "name": "Shadow Medallion",
+   "from": "Shadow Temple",
+   "note": "Impa becomes the Sage of Shadow after Bongo Bongo is beaten.",
+   "step": "oot_shadow_bongo_4"
+  },
+  {
+   "name": "Spirit Medallion",
+   "from": "Spirit Temple",
+   "note": "Nabooru becomes the Sage of Spirit after Twinrova is defeated.",
+   "step": "oot_spirit_twinrova_5"
   }
  ],
  "CATS": [
@@ -434,7 +2491,7 @@
   "orbs": "Heart Containers",
   "orbWord": "hearts",
   "runesLabel": "Items & Songs",
-  "championsLabel": "Spiritual Stones",
+  "championsLabel": "Stones & Medallions",
   "regionBanner": "Dungeon"
  },
  "guideSegs": [

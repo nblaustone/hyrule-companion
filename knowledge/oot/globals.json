@@ -4,7 +4,7 @@
   "orbs": "Heart Containers",
   "orbWord": "hearts",
   "runesLabel": "Items & Songs",
-  "championsLabel": "Spiritual Stones",
+  "championsLabel": "Stones & Medallions",
   "regionBanner": "Dungeon"
  },
  "guideSegs": [["runes", "Items"], ["tips", "Tips"], ["settings", "Settings"]],
@@ -29,7 +29,13 @@
  "CHAMPIONS": [
   { "name": "Kokiri's Emerald", "from": "Inside the Great Deku Tree", "note": "The Forest's Spiritual Stone — the Great Deku Tree entrusts it to you after Queen Gohma falls." },
   { "name": "Goron's Ruby", "from": "Dodongo's Cavern", "note": "The Fire Spiritual Stone — Darunia gives it once you clear the Gorons' cavern of Dodongos." },
-  { "name": "Zora's Sapphire", "from": "Inside Jabu-Jabu's Belly", "note": "The Water Spiritual Stone — Princess Ruto hands it to you after Barinade is defeated." }
+  { "name": "Zora's Sapphire", "from": "Inside Jabu-Jabu's Belly", "note": "The Water Spiritual Stone — Princess Ruto hands it to you after Barinade is defeated." },
+  { "name": "Light Medallion", "from": "Temple of Time", "note": "Rauru, the Sage of Light, grants it when you awaken as an adult in the Chamber of Sages." },
+  { "name": "Forest Medallion", "from": "Forest Temple", "note": "Saria becomes the Sage of Forest after you defeat Phantom Ganon." },
+  { "name": "Fire Medallion", "from": "Fire Temple", "note": "Darunia becomes the Sage of Fire after Volvagia is slain." },
+  { "name": "Water Medallion", "from": "Water Temple", "note": "Ruto becomes the Sage of Water after Morpha falls." },
+  { "name": "Shadow Medallion", "from": "Shadow Temple", "note": "Impa becomes the Sage of Shadow after Bongo Bongo is beaten." },
+  { "name": "Spirit Medallion", "from": "Spirit Temple", "note": "Nabooru becomes the Sage of Spirit after Twinrova is defeated." }
  ],
  "ROADMAP": [
   { "id": "heartpieces", "name": "Pieces of Heart", "sub": "Four = one Heart Container", "note": "36 scattered across Hyrule in minigames, chests, and hidden corners. Every four you collect add a full heart.", "reward": "More hearts" },
