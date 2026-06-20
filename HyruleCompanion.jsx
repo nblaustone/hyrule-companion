@@ -262,7 +262,7 @@ const MEMORIES = {
       { id: "m3", k: "tip", stuck: "Pikango is the painter loitering at Kakariko Village (and other stables). After you photograph the Great Fairy Cotera for him, talk to him holding a memory photo and pick it on the map; he points you to that spot.", t: "Finish 'Find the Fairy Fountain' (photograph Cotera for Pikango) so Pikango will hint at locations. Show him the nearest photo at a stable and he names the place." },
       { id: "m4", k: "warn", t: "Heads up: many memories sit deep in dangerous, far-off regions (Hyrule Castle, Gerudo, Akkala, Tabantha) well beyond where you are now. Treat this as a long-haul quest you chip away at — start with the easy, nearby ones." },
     ]},
-    { id: "m_list", name: "All 12 Memory Locations", sub: "Album order · tap to track", steps: [
+    { id: "m_list", name: "All 13 Memory Locations", sub: "12 Captured Memories + Impa's 13th · tap to track", steps: [
       { id: "m_l1", k: "optional", stuck: "Warp to Central Tower and paraglide NORTH into Hyrule Field toward the castle; the glow sits in the semi-circular ruins where Hyrule Castle fills the photo's background. Guardians roam this field, so watch for their beams.", t: "#1 Sacred Ground Ruins — Central Hyrule, the semi-circular stone ruins in open Hyrule Field south of Hyrule Castle (paraglide north from Central Tower; Guardians roam the field)." },
       { id: "m_l2", k: "optional", t: "#2 Lake Kolomo — Central Hyrule, the forest on the west shore (near Riverside Stable)." },
       { id: "m_l3", k: "optional", t: "#3 Ancient Columns — Tabantha (Piper Ridge), the row of broken pillars near Tena Ko'sah Shrine (paraglide from Tabantha Tower toward Piper Ridge)." },
@@ -364,6 +364,7 @@ const TIPS = [
   { id: "weapons", name: "Weapons break — that's the system", items: ["Every weapon has durability and will shatter. Save your best gear for tough enemies and bosses.", "When a weapon is about to break, throw it (R) at an enemy for big bonus damage, then swap.", "Pick up everything dropped — you'll always be cycling through fresh weapons.", "Farm arrows: block an archer's shots with a wooden shield and the arrows stick to it."] },
   { id: "survival", name: "Survival basics", items: ["There are no hearts in grass or pots — you heal by eating, mostly cooked food. Always forage.", "Cold zones drain hearts (Spicy food or the Warm Doublet fix it); deserts are hot, Death Mountain burns.", "Smash black, sparkling ore deposits — ideally with a hammer weapon — for gems and flint.", "Save often before risky climbs and fights so you can retry."] },
   { id: "explore", name: "Exploring Hyrule", items: ["See a tower? Climb it. Towers reveal the map and give a high glide-off point.", "Shrines give Spirit Orbs (4 = one heart or stamina upgrade) and become fast-travel points.", "Glide from heights to cross huge distances fast — but mind your stamina wheel.", "Korok seeds (900 of them) trade in to expand your inventory slots."] },
+  { id: "horses", name: "Horses & stables", items: ["Tame a wild horse: crouch-sneak up behind it, press A to mount, then mash L to soothe it as it bucks. Calmer spotted horses are easier than strong solid-colored ones.", "Register your horse at any Stable (20 rupees) to keep it, name it, and re-summon it later — lost it? A stable can call it back.", "Whistle (D-pad down) to call your horse when you're near a road. Its bond grows as you ride and soothe it; a bonded horse comes from farther and steers itself along roads.", "Horses can't climb or follow you into shrines and caves, but they're the fastest way across open country. Stables also have beds to heal and pass time."] },
 ];
 const COOK_RULES = [
   "One effect at a time. You can't combine two buffs in a dish — a Hearty + Spicy mix keeps only one. Cook each effect separately.",
@@ -613,7 +614,7 @@ function GamePicker({ games, game, setGame }) {
    storage loads cleanly. G shadows the data globals with the active game's data (ADR 0005). */
 function HyruleGame({ game, setGame, games }) {
   const G = games[game];
-  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms, guideSegs, postRegionId } = G;
+  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms, guideSegs, postRegionId } = G;
   const K = (s) => game + ":" + s; // storage key namespace per game (botw:* preserves existing data)
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState({});
@@ -725,9 +726,9 @@ function HyruleGame({ game, setGame, games }) {
   const resetAll = useCallback(() => { setProgress({}); setKoroks(0); setNotes({}); setArmorTier({}); setRecipes([]); setConfirmReset(false); }, []);
   // export/import the whole save as a portable code (offline backup, ADR 0002)
   const exportSave = useCallback(() => {
-    const blob = { v: 7, progress, koroks, notes, armorTier, recipes };
+    const blob = { v: 8, progress, koroks, notes, armorTier, recipes, shrinePin, shrineRecents };
     try { return btoa(unescape(encodeURIComponent(JSON.stringify(blob)))); } catch (e) { return JSON.stringify(blob); }
-  }, [progress, koroks, notes, armorTier, recipes]);
+  }, [progress, koroks, notes, armorTier, recipes, shrinePin, shrineRecents]);
   const importSave = useCallback((code) => {
     try {
       const raw = code.trim().startsWith("{") ? code : decodeURIComponent(escape(atob(code.trim())));
@@ -738,6 +739,8 @@ function HyruleGame({ game, setGame, games }) {
         if (b.notes && typeof b.notes === "object") setNotes(b.notes);
         if (b.armorTier && typeof b.armorTier === "object") setArmorTier(b.armorTier);
         if (Array.isArray(b.recipes)) setRecipes(b.recipes);
+        if (typeof b.shrinePin === "string" || b.shrinePin === null) setShrinePin(b.shrinePin);
+        if (Array.isArray(b.shrineRecents)) setShrineRecents(b.shrineRecents);
         return true;
       }
     } catch (e) {}
@@ -770,13 +773,15 @@ function HyruleGame({ game, setGame, games }) {
       }
     return { byCat, invTotal, invDone, orbsDone };
   }, [progress]);
-  const upgrades = Math.floor(inventory.orbsDone / 4);
 
   const shrineStats = useMemo(() => {
     let done = 0, total = 0;
     for (const g of SHRINES) g.shrines.forEach((_, i) => { total++; if (progress["shr_" + g.regionKey + "_" + i]) done++; });
     return { done, total };
   }, [progress, SHRINES]);
+  // Spirit Orbs = shrines cleared (1 shrine = 1 orb), so the Status orb panel + coach agree with the Shrines
+  // meter. (Was driven off walkthrough-item orbs, which only counted the ~12 shrines named in the walkthrough.)
+  const upgrades = Math.floor(shrineStats.done / 4);
 
   const extraStats = useMemo(() => {
     let mem = 0, memTotal = 0, sq = 0, sqTotal = 0, gf = 0, arm = 0;
@@ -817,22 +822,23 @@ function HyruleGame({ game, setGame, games }) {
   // v12.9: "What's next?" coach — a short, prioritized list of the best things to do given your progress.
   // Pure logic over existing state; deliberately capped so it informs without overwhelming. Each card jumps.
   const nextUp = useMemo(() => {
+    // Deliberately does NOT repeat the main-quest "Resume" (the hero + topbar pin already own that) — these are
+    // the *other* worthwhile things to do. Every card guards against the active game lacking that dataset (TotK).
     const cards = [];
-    if (resumeTarget) cards.push({ key: "mq", glyph: "pin", color: "var(--orange)", title: "Continue the main quest", detail: resumeTarget.regionName + " · " + resumeTarget.secName, go: () => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId) });
     if (shrinePin) {
       const m = String(shrinePin).match(/^shr_(.+)_(\d+)$/);
       const g = m && SHRINES.find((x) => x.regionKey === m[1]);
       if (g) { const left = g.shrines.filter((_, j) => !progress["shr_" + m[1] + "_" + j]).length; if (left > 0) cards.push({ key: "pin", glyph: "shrine", color: "var(--cyan)", title: left + " shrine" + (left > 1 ? "s" : "") + " left in " + g.regionName, detail: "You pinned a shrine here — clear the rest nearby", go: () => setTab("shrines") }); }
     }
-    if (upgrades >= 1 && inventory.orbsDone % 4 === 0) cards.push({ key: "orb", glyph: "orb", color: "var(--cyan)", title: "A vessel is ready to claim", detail: "You have a full set of 4 Spirit Orbs — pray at a Goddess Statue for a heart or stamina", go: () => setTab("shrines") });
-    if (extraStats.memTotal > 0 && extraStats.mem < extraStats.memTotal) cards.push({ key: "mem", glyph: "camera", color: "var(--heart)", title: "Recover your next memory", detail: extraStats.mem + "/" + extraStats.memTotal + " found — show photos to Pikango for hints", go: () => openRegion("memories") });
+    if (upgrades >= 1 && shrineStats.done % 4 === 0) cards.push({ key: "orb", glyph: "orb", color: "var(--cyan)", title: "Spend your Spirit Orbs", detail: "Every 4 orbs trade for a heart or stamina vessel at a Goddess Statue — don't let them pile up", go: () => setTab("shrines") });
+    if ((extraStats.mem > 0 || resumeIdx >= 1) && extraStats.memTotal > 0 && extraStats.mem < extraStats.memTotal) cards.push({ key: "mem", glyph: "camera", color: "var(--heart)", title: "Recover your next memory", detail: extraStats.mem + "/" + extraStats.memTotal + " found — show photos to Pikango for hints", go: () => openRegion("memories") });
     if (extraStats.gf < extraStats.gfTotal) cards.push({ key: "gf", glyph: "fairy", color: "var(--heart)", title: "Unlock a Great Fairy", detail: extraStats.gf + "/" + extraStats.gfTotal + " found — each one raises every armor upgrade", go: () => { setTab("guide"); setGuideSub("fairies"); } });
     const prio = { beginner: 0, mid: 1, late: 2 };
-    const chase = ARMOR.sets.map((s, i) => ({ s, i })).filter(({ i }) => !progress["arm_" + i]).sort((a, b) => (prio[a.s.priority] ?? 3) - (prio[b.s.priority] ?? 3))[0];
+    const chase = ARMOR.sets.map((s, i) => ({ s, i })).filter(({ s, i }) => !progress["arm_" + i] && prio[s.priority] !== undefined).sort((a, b) => prio[a.s.priority] - prio[b.s.priority])[0];
     if (chase) cards.push({ key: "arm", glyph: "armor", color: "var(--gold)", title: "Armor worth chasing: " + chase.s.name, detail: (chase.s.bonus || "").split(".")[0], go: () => { setTab("guide"); setGuideSub("armor"); } });
-    if (koroks < 441) cards.push({ key: "kor", glyph: "leaf", color: "var(--moss)", title: "Bigger pouches from Hestu", detail: koroks + " Korok seeds — trade them to expand weapon/bow/shield slots", go: () => { setTab("guide"); setGuideSub("koroks"); } });
+    if (KOROKS && koroks < 441) cards.push({ key: "kor", glyph: "leaf", color: "var(--moss)", title: "Bigger pouches from Hestu", detail: koroks + " Korok seeds — trade them to expand weapon/bow/shield slots", go: () => { setTab("guide"); setGuideSub("koroks"); } });
     return cards.slice(0, 4);
-  }, [resumeTarget, shrinePin, upgrades, inventory, extraStats, koroks, progress, SHRINES, ARMOR]);
+  }, [shrinePin, upgrades, shrineStats, extraStats, resumeIdx, koroks, progress, SHRINES, ARMOR, KOROKS]);
 
   const jumpTo = useCallback((regionId, secId) => {
     setTab("journey"); setRegion(regionId); setOpenSections((o) => ({ ...o, [secId]: true }));
@@ -957,8 +963,8 @@ function HyruleGame({ game, setGame, games }) {
               <div className="orb-row">
                 <div className="orb-big"><Glyph name="orb" size={28} /></div>
                 <div className="orb-meta">
-                  <div className="orb-count">{inventory.orbsDone}<span className="dim"> {terms.orbWord}</span></div>
-                  <div className="orb-sub">{upgrades >= 1 ? `${upgrades} upgrade${upgrades > 1 ? "s" : ""} earned (4 ${terms.orbWord} each) — pray at a Goddess Statue` : `${4 - (inventory.orbsDone % 4)} more for your next upgrade`}</div>
+                  <div className="orb-count">{shrineStats.done}<span className="dim"> {terms.orbWord}</span></div>
+                  <div className="orb-sub">{upgrades >= 1 ? `${upgrades} upgrade${upgrades > 1 ? "s" : ""} earned (4 ${terms.orbWord} each) — pray at a Goddess Statue` : `${4 - (shrineStats.done % 4)} more for your next upgrade`}</div>
                 </div>
               </div>
             </div>
@@ -1494,7 +1500,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
   const [revealed, setRevealed] = useState(() => new Set());
   const reveal = (id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; });
   const q = query.trim().toLowerCase();
-  const pct = Math.round((stats.done / 120) * 100);
+  const pct = stats.total ? Math.round((stats.done / stats.total) * 100) : 0;
   const upgrades = Math.floor(stats.done / 4);
   const shrineById = useMemo(() => {
     const m = {};
@@ -1514,10 +1520,10 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
   return (
     <div className="ref">
       <h2 className="ref-title">Shrines</h2>
-      <p className="ref-lede">All 120 shrines, grouped by region. Tick each as you clear it — every shrine is a Spirit Orb, and four orbs trade for a heart or stamina vessel at a Goddess Statue.</p>
+      <p className="ref-lede">All {stats.total} shrines, grouped by region. Tick each as you clear it — every shrine is a Spirit Orb, and four orbs trade for a heart or stamina vessel at a Goddess Statue.</p>
       <div className="panel shrine-meter">
         <div className="shrine-meter-top">
-          <div className="shrine-meter-num"><span className="hero-num">{stats.done}</span><span className="hero-num-l">/ 120 shrines</span></div>
+          <div className="shrine-meter-num"><span className="hero-num">{stats.done}</span><span className="hero-num-l">/ {stats.total} shrines</span></div>
           <div className="shrine-orbs"><span className="orbico"><Glyph name="orb" size={16} /></span>{stats.done} orbs · {upgrades} upgrade{upgrades === 1 ? "" : "s"}</div>
         </div>
         <div className="reg-bar shrine-bar"><span className="reg-fill" style={{ width: pct + "%", background: pct === 100 ? "var(--cyan)" : "var(--orange)" }} /></div>
@@ -1578,7 +1584,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                         </div>
                         <span className="step-text"><span className="shrine-num">{i + 1}</span><b className="shrine-name">{sh.name}</b>{spoiler && !revealed.has(id) ? <button className="spoiler-hint" onClick={() => reveal(id)}>— tap to reveal hint</button> : <> — {sh.oneLine}</>}</span>
                         <span className="shrine-loc"><Glyph name="tower" size={11} /> {sh.location}{sh.shrineQuest ? <span className="shrine-q"> · Quest: {sh.shrineQuest}</span> : null}</span>
-                        {sh.solution && <StuckReveal text={sh.solution} />}
+                        {sh.solution && (!spoiler || revealed.has(id)) && <StuckReveal text={sh.solution} />}
                         <NoteAffordance id={id} notes={notes} setNote={setNote} open={noteOpen} setOpen={setNoteOpen} />
                       </div>
                     </li>
@@ -1611,16 +1617,15 @@ function ArmorView({ data, progress, toggleStep, armorTier, setTier }) {
         <div className={"rune-card" + (have ? " card-done" : "")} key={i}>
           <div className="rune-icon" style={{ color: have ? "var(--orange)" : "var(--ink-line)" }}><Glyph name="armor" size={28} /></div>
           <div className="rune-cbody">
-            <div className="rune-top"><span className="rune-name">{a.name}</span>{a.priority && <span className="prio-pill" style={{ color: tone(a.priority), borderColor: tone(a.priority) }}>{a.priority}</span>}</div>
+            <div className="rune-top"><span className="rune-name">{a.name}</span>{["beginner", "mid", "late"].includes(a.priority) && <span className="prio-pill" style={{ color: tone(a.priority), borderColor: tone(a.priority) }}>{a.priority}</span>}</div>
             <p className="rune-what"><b>Effect:</b> {a.bonus}</p>
             <p className="ref-line"><b>Where:</b> {a.where}</p>
             <p className="ref-line"><b>Pieces:</b> {a.pieces}{!tiers.length && a.upgrade ? <> · <b>Upgrade:</b> {a.upgrade}</> : null}</p>
-            {a.farm && <p className="ref-line"><b>Materials:</b> {a.farm}</p>}
             <div className="armor-track">
               <button className={"track-box" + (have ? " track-box-on" : "")} onClick={() => toggleStep("arm_" + i)}>{have ? "✓ Owned" : "Own it"}</button>
-              {have && (
+              {have && tiers.length > 0 && (
                 <div className="tier-step">
-                  <span className="tier-stars">{[1, 2, 3, 4].map((k) => <span key={k} className={"star" + (k <= tier ? " star-on" : "")} onClick={() => setTier(i, tier === k ? k - 1 : k)}>★</span>)}</span>
+                  <span className="tier-stars">{[1, 2, 3, 4].map((k) => <button key={k} className={"star" + (k <= tier ? " star-on" : "")} onClick={() => setTier(i, tier === k ? k - 1 : k)} aria-label={"Set upgrade to " + k + " star"}>★</button>)}</span>
                   <span className="tier-label">{tier === 0 ? "base" : "★" + tier}</span>
                 </div>
               )}
@@ -1636,6 +1641,7 @@ function ArmorView({ data, progress, toggleStep, armorTier, setTier }) {
                     </div>
                   </div>
             )}
+            {a.farm && <StuckReveal text={a.farm} label="Where to farm these" openLabel="Hide farming" />}
             {a.note && <p className="armor-note">{a.note}</p>}
           </div>
         </div>);
@@ -1763,7 +1769,7 @@ function KorokSolver({ types }) {
     <>
       <div className="inv-head" style={{ marginTop: 6 }}><span className="inv-head-l"><span className="inv-glyph" style={{ color: "var(--moss)" }}><Glyph name="leaf" size={18} /></span>Korok puzzle solver</span><span className="inv-count">{list.length}</span></div>
       <input className="search-input" placeholder="What do you see? rock, flower, balloon, pinwheel…" value={q} onChange={(e) => setQ(e.target.value)} />
-      {cats.length > 2 && <div className="goal-grid korok-cats">{cats.map((c) => <button key={c} className={"goal-chip" + (cat === c ? " goal-on" : "")} onClick={() => setCat(c)}>{c === "all" ? "All" : c}</button>)}</div>}
+      {cats.length > 2 && <div className="goal-grid korok-cats">{cats.map((c) => <button key={c} className={"goal-chip" + (cat === c ? " goal-on" : "")} onClick={() => setCat(c)}>{c === "all" ? "All" : c.charAt(0).toUpperCase() + c.slice(1)}</button>)}</div>}
       {view.map((p, i) => (
         <div className="korok-row" key={i}>
           <div className="korok-type">{p.type}{p.category && <span className="korok-cat">{p.category}</span>}</div>
@@ -1776,6 +1782,7 @@ function KorokSolver({ types }) {
   );
 }
 function KoroksView({ data, koroks, setKoroks }) {
+  if (!data) return <p className="ref-lede">No Korok guide for this game yet.</p>;
   const pct = Math.min(100, Math.round((koroks / 441) * 100));
   return (
     <>
@@ -2511,9 +2518,13 @@ function StyleBlock() {
 .track-box-on{color:var(--cyan);background:rgba(95,214,226,0.1);border-color:rgba(95,214,226,0.5);}
 .armor-track{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap;}
 .tier-step{display:flex;align-items:center;gap:8px;}
-.tier-stars{display:flex;gap:3px;}
-.star{font-size:18px;color:var(--ink-line);cursor:pointer;line-height:1;}
+.tier-stars{display:flex;gap:2px;}
+.star{font-size:20px;color:var(--ink-line);cursor:pointer;line-height:1;background:none;border:0;padding:5px 4px;min-width:30px;min-height:30px;display:inline-flex;align-items:center;justify-content:center;}
 .star-on{color:var(--gold);}
+/* v12.10 audit polish: visible keyboard focus on the interactive controls added since v12.7 */
+.nextup-row:focus-visible,.cb-head:focus-visible,.track-box:focus-visible,.star:focus-visible,.goal-chip:focus-visible,.stuck-btn:focus-visible,.shrine-chip:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:8px;}
+/* overflow cue so the off-screen guide segments (Enemies/Koroks/Money/World) read as scrollable */
+.seg-scroll{-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent);}
 .tier-label{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;color:var(--parch-dim);}
 .quest-card{display:flex;gap:10px;align-items:flex-start;}
 .box-sm{width:20px;height:20px;border-radius:6px;margin-top:2px;}
@@ -4692,6 +4703,7 @@ const ARMOR = {
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Chuchu Jelly",
@@ -4705,6 +4717,7 @@ const ARMOR = {
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Keese Eyeball",
@@ -4718,6 +4731,7 @@ const ARMOR = {
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Lizalfos Tail",
@@ -4731,6 +4745,7 @@ const ARMOR = {
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Lynel Hoof",
@@ -4755,6 +4770,7 @@ const ARMOR = {
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Keese Wing",
@@ -4768,6 +4784,7 @@ const ARMOR = {
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Electric Keese Wing",
@@ -4781,6 +4798,7 @@ const ARMOR = {
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Ice Keese Wing",
@@ -4794,6 +4812,7 @@ const ARMOR = {
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Fire Keese Wing",
@@ -4818,6 +4837,7 @@ const ARMOR = {
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Blue Nightshade",
@@ -4827,6 +4847,7 @@ const ARMOR = {
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Blue Nightshade",
@@ -4840,6 +4861,7 @@ const ARMOR = {
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Silent Shroom",
@@ -4853,6 +4875,7 @@ const ARMOR = {
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Stealthfin Trout",
@@ -5080,6 +5103,7 @@ const ARMOR = {
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Lizalfos Horn",
@@ -5089,6 +5113,7 @@ const ARMOR = {
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Hyrule Bass",
@@ -5102,6 +5127,7 @@ const ARMOR = {
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Hearty Bass",
@@ -5115,6 +5141,7 @@ const ARMOR = {
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Lizalfos Tail",
@@ -5139,6 +5166,7 @@ const ARMOR = {
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Yellow Chuchu Jelly",
@@ -5148,6 +5176,7 @@ const ARMOR = {
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Yellow Chuchu Jelly",
@@ -5161,6 +5190,7 @@ const ARMOR = {
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Zapshroom",
@@ -5174,6 +5204,7 @@ const ARMOR = {
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Yellow Lizalfos Tail",
@@ -5198,6 +5229,7 @@ const ARMOR = {
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Luminous Stone",
@@ -5211,6 +5243,7 @@ const ARMOR = {
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Luminous Stone",
@@ -5224,6 +5257,7 @@ const ARMOR = {
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Luminous Stone",
@@ -5237,6 +5271,7 @@ const ARMOR = {
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Luminous Stone",
@@ -5261,6 +5296,7 @@ const ARMOR = {
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Lynel Horn",
@@ -5270,6 +5306,7 @@ const ARMOR = {
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Lynel Horn",
@@ -5283,6 +5320,7 @@ const ARMOR = {
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Lynel Hoof",
@@ -5296,6 +5334,7 @@ const ARMOR = {
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Lynel Guts",
@@ -8426,7 +8465,7 @@ const ECONOMY = {
   },
   {
    "method": "Gut Check Rock challenges",
-   "detail": "At Gut Check Rock in the Gerudo Highlands, the Super Gut Check Challenge costs 100 rupees to enter and you keep 300 collected on the climb (net +200) plus an Endura Shroom. A handy one-time-ish payout once you can reach the top."
+   "detail": "At Gut Check Rock in northeastern Eldin (north of Death Mountain), the Super Gut Check Challenge costs 100 rupees to enter and you keep 300 collected on the climb (net +200) plus an Endura Shroom. A handy one-time-ish payout once you can reach the top."
   },
   {
    "method": "Snowball Bowling at Pondo's Lodge",

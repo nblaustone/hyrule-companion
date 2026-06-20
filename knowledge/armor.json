@@ -132,6 +132,7 @@
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Chuchu Jelly",
@@ -145,6 +146,7 @@
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Keese Eyeball",
@@ -158,6 +160,7 @@
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Lizalfos Tail",
@@ -171,6 +174,7 @@
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Lynel Hoof",
@@ -195,6 +199,7 @@
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Keese Wing",
@@ -208,6 +213,7 @@
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Electric Keese Wing",
@@ -221,6 +227,7 @@
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Ice Keese Wing",
@@ -234,6 +241,7 @@
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Fire Keese Wing",
@@ -258,6 +266,7 @@
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Blue Nightshade",
@@ -267,6 +276,7 @@
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Blue Nightshade",
@@ -280,6 +290,7 @@
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Silent Shroom",
@@ -293,6 +304,7 @@
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Stealthfin Trout",
@@ -520,6 +532,7 @@
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Lizalfos Horn",
@@ -529,6 +542,7 @@
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Hyrule Bass",
@@ -542,6 +556,7 @@
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Hearty Bass",
@@ -555,6 +570,7 @@
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Lizalfos Tail",
@@ -579,6 +595,7 @@
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Yellow Chuchu Jelly",
@@ -588,6 +605,7 @@
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Yellow Chuchu Jelly",
@@ -601,6 +619,7 @@
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Zapshroom",
@@ -614,6 +633,7 @@
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Yellow Lizalfos Tail",
@@ -638,6 +658,7 @@
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Luminous Stone",
@@ -651,6 +672,7 @@
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Luminous Stone",
@@ -664,6 +686,7 @@
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Luminous Stone",
@@ -677,6 +700,7 @@
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Luminous Stone",
@@ -701,6 +725,7 @@
    "tiers": [
     {
      "star": 1,
+     "rupees": 30,
      "materials": [
       {
        "item": "Lynel Horn",
@@ -710,6 +735,7 @@
     },
     {
      "star": 2,
+     "rupees": 150,
      "materials": [
       {
        "item": "Lynel Horn",
@@ -723,6 +749,7 @@
     },
     {
      "star": 3,
+     "rupees": 600,
      "materials": [
       {
        "item": "Lynel Hoof",
@@ -736,6 +763,7 @@
     },
     {
      "star": 4,
+     "rupees": 1500,
      "materials": [
       {
        "item": "Lynel Guts",

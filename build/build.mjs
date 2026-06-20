@@ -157,7 +157,10 @@ window.__APP_VERSION__=${JSON.stringify(version)};
     var u=document.createElement('button'); u.textContent='Update';
     u.style.cssText='background:#5fd6e2;color:#091317;border:none;border-radius:9px;padding:6px 14px;font:700 12px Rajdhani,sans-serif;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;';
     u.onclick=function(){ if(reg.waiting) reg.waiting.postMessage('skipWaiting'); };
-    b.appendChild(u); document.body.appendChild(b);
+    var l=document.createElement('button'); l.textContent='Later'; l.setAttribute('aria-label','Dismiss update notice');
+    l.style.cssText='background:transparent;color:#8aa3a8;border:none;padding:6px 4px;font:600 12px Rajdhani,sans-serif;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;';
+    l.onclick=function(){ b.remove(); };
+    b.appendChild(u); b.appendChild(l); document.body.appendChild(b);
   }
   navigator.serviceWorker.register('./sw.js').then(function(reg){
     if(reg.waiting && navigator.serviceWorker.controller) banner(reg);

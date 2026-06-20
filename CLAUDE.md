@@ -264,6 +264,25 @@ layout, `REGION_MAPS` = the per-region coords.
   on a fresh port/origin (or unregister SW + clear caches) or you'll "verify" the old bundle. Also: the preview
   tool's own python server can wedge (macOS local-network permission gate); a plain `python3 -m http.server` on a
   new port + `window.location.href` works around it.
+- **v12.10 (done):** **full audit + polish pass** — a 6-dimension verified-review Workflow (bugs/core/data/UX/
+  a11y/gaps, 46 agents, each finding adversarially re-checked → 36 real, 4 false positives) then fixed. Headline:
+  the **coach's Korok card white-screened TotK** (KOROKS is null there, and TotK has no koroks segment to escape
+  via) — now guarded (`KOROKS && …`) + `KoroksView` early-returns on null. Other real fixes: Shrines meter
+  hardcoded `/120` → dynamic `stats.total` (TotK has 152); **Spirit Orbs now = `shrineStats.done`** everywhere
+  (was walkthrough-item orbs, capped ~12, disagreeing with the shrine total); economy.json **Gut Check Rock** was
+  mislabeled Gerudo Highlands → **northeastern Eldin** (our own shrines.json contradicted it); spoiler-free mode
+  now actually **hides shrine solutions** (the reveal ignored it, contradicting the Settings copy); `MAP_BEASTS`
+  read from the active game. Polish: dropped the coach's redundant "Continue main quest" card (the Resume hero
+  owns that); gated the armor-chase card + the prio-pill to BotW's `{beginner,mid,late}` vocab (TotK was
+  recommending the *starter rags* and rendering sentence-long pills); the **armor star-stepper only shows for
+  upgradeable sets** (was dead UI on non-upgradeable + all TotK sets); long `farm` prose collapsed into a
+  `StuckReveal`; memory card gated to after the Plateau; SW banner got a **"Later"**. Nits: stars are real
+  `<button>`s w/ 30px tap targets + `:focus-visible` outlines; Korok chips Capitalized; memory denominator 12→13;
+  **backup blob v8** now carries `shrinePin`/`shrineRecents`. Data: backfilled the standard **30/150/600/1500**
+  upgrade rupees on the 7 ordinary sets that omitted them (Champion's Tunic + Ancient left off, honesty); added a
+  **horses & stables** Tips card. Re-verified in-browser BotW + TotK (TotK coach now empty, no crash), 0 console
+  errors. **Rule reinforced: any BotW-only feature (coach card, armor tiers, map beasts) must degrade when the
+  active game lacks that dataset — TotK is the canary.**
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3

@@ -5,6 +5,35 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.10: full audit + polish (assess → plan → intervene → re-evaluate)
+
+- **User asked for a whole-app assessment** (incl. "things that aren't there"), a fix plan, the fixes, then a
+  re-evaluation. Ran it as: deterministic pre-scan → 6-dimension verified-review Workflow → synthesize → fix →
+  re-verify in-browser.
+- **The Workflow design that worked:** `pipeline(DIMENSIONS, review, rev => parallel(findings.map(verify)))` —
+  one reviewer per dimension (bugs-newcode, bugs-core, data-integrity, ux-polish, a11y-robust, gaps), then EACH
+  finding adversarially re-checked by an independent skeptic that re-reads the cited code. 46 agents → 36 real /
+  4 false positives. The verify stage paid off: it killed a confidently-wrong "armor qty is 3× undercounted"
+  claim (the verifier web-checked and found the stored set-totals were right) and a fabricated "CLAUDE.md says no
+  DLC" finding. **Pattern banked: a holistic audit = dimension-reviewers + per-finding adversarial verify; never
+  trust a single reviewer's severity.**
+- **TotK was the canary.** 7 of the 13 "bugs" were the SAME root: BotW-only features not degrading when the
+  active game lacks the dataset. The real crash: the coach's Korok card had no `KOROKS &&` guard, and TotK has
+  `KOROKS:null` AND no koroks guide-segment — so tapping it white-screened the whole tree with no in-app escape.
+  Also surfaced: armor-chase recommending TotK's *starter rags* (priority-vocab mismatch silently `?? 3`-collapsed
+  the sort), sentence-long prio-pills, a dead 4-star stepper on tier-less sets, shrines meter hardcoded `/120`.
+  **Rule: every per-game feature needs a "what if this dataset is absent?" guard; test by switching to TotK.**
+- **The audit caught a real FACT error my own data already refuted:** economy.json placed "Gut Check Rock" in the
+  Gerudo Highlands; our verified shrines.json (Gorae Torr) puts it in northeastern Eldin. The author agent had
+  conflated it with the Mount Nabooru Goron heat challenge (Joloo Nah). Lesson: cross-check new content against
+  the *already-verified* datasets, not just the web.
+- **Honesty-law alignment fix:** Settings promised "hide shrine solutions" but the `StuckReveal` ignored spoiler
+  mode — gated it on the same `revealed`/`spoiler` state as the one-line hint. And the orb count had two sources
+  of truth (walkthrough-item orbs ~12 vs the 120-shrine total); unified on `shrineStats.done` (1 shrine = 1 orb).
+- Backfilled the standard 30/150/600/1500 armor upgrade rupees on the 7 ordinary sets that omitted them (left
+  Champion's Tunic + Ancient off — unconfirmed/non-standard). Re-verified BotW + TotK in-browser, 0 console
+  errors. ~20 fixes shipped as v12.10; no new workflow data needed beyond the one audit run.
+
 ## 2026-06-19 — v12.9: playthrough-depth bundle (armor upgrades · coach · korok solver · economy)
 
 - **User: "do all of those!"** — built the four remaining brainstorm ideas in one pass. Mix of sourced-data
