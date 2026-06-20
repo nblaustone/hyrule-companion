@@ -45,7 +45,8 @@
          "cat": "armor",
          "note": "Your starting trousers; equip them right away for a little defense."
         }
-       ]
+       ],
+       "stuck": "From the terminal, drop into the water and dive (hold the jump button while falling) through each pool. The Archaic Legwear chest sits on the rubble ledge right where you surface after the last, longest dive."
       },
       {
        "id": "t_sky_awaken_04",
@@ -89,13 +90,15 @@
        "id": "t_sky_ukouh_02",
        "k": "step",
        "t": "Use Ultrahand to grab the boards and lay them across the gap to make a bridge, then cross.",
-       "items": []
+       "items": [],
+       "stuck": "Hold the Ultrahand button to grab a board, drag it over the gap, and rotate it flat (hold R and tap the D-pad) before releasing so it lands as a walkway. One long board spans the first gap."
       },
       {
        "id": "t_sky_ukouh_03",
        "k": "step",
        "t": "Attach a hook to the moving rail platform, then ride it across the next gap. Glue boards together if you need a wider deck.",
-       "items": []
+       "items": [],
+       "stuck": "Grab the loose hook with Ultrahand and stick it onto the top of the wooden platform sitting on the rail, so it hangs from the line like a ski lift. Climb on the board and it slides you across."
       },
       {
        "id": "t_sky_ukouh_04",
@@ -145,7 +148,8 @@
        "id": "t_sky_inisa_03",
        "k": "step",
        "t": "Fuse a rock to your stick to smash the cracked wall, and fuse an item to your shield where the puzzle asks.",
-       "items": []
+       "items": [],
+       "stuck": "Hold the Fuse button, aim at a loose rock on the ground, and confirm to stick it onto your sword or stick; the heavy rock-hammer smashes the cracked wall in one swing."
       },
       {
        "id": "t_sky_inisa_04",
@@ -157,7 +161,8 @@
          "cat": "material",
          "note": "Fuse to arrows for a fire shot that bursts into flame on impact."
         }
-       ]
+       ],
+       "stuck": "Draw your bow, hold the Fuse button while aiming, pick the Fire Fruit from the menu, and shoot the dry leaves on the wall ahead; the fire burns them away and drops the chest down to you."
       },
       {
        "id": "t_sky_inisa_05",
@@ -175,7 +180,8 @@
          "cat": "armor",
          "note": "Your starting shirt, found in Pondside Cave near In-isa Shrine."
         }
-       ]
+       ],
+       "stuck": "The cave mouth is a low slit in the rock just southeast of In-isa; crouch and walk in. A few Keese swarm you in the dark, but the Archaic Tunic chest sits past them down a tunnel near the back."
       }
      ]
     },
@@ -201,7 +207,8 @@
          "cat": "material",
          "note": "Cook into a dish for temporary cold resistance."
         }
-       ]
+       ],
+       "stuck": "Spicy Peppers grow at the foot of the hill near the friendly Construct's cooking pot. Drop a few into the pot and cook to get a Spicy dish that grants Cold Resistance for several minutes."
       },
       {
        "id": "t_sky_gutanbac_03",
@@ -231,7 +238,8 @@
        "id": "t_sky_gutanbac_05",
        "k": "step",
        "t": "Use Ascend to rise through the platforms instead of climbing, then finish at the altar for another Light of Blessing.",
-       "items": []
+       "items": [],
+       "stuck": "Stand under the platform you want to reach, hold the Ascend button, and a green dome appears when a solid surface is overhead; press to swim straight up through it. Use it twice to climb the shrine's tiers."
       },
       {
        "id": "t_sky_gutanbac_06",
@@ -269,7 +277,8 @@
        "id": "t_sky_tot_03",
        "k": "step",
        "t": "Two giant cogs turn on either side of the hall. Use Recall on one to reverse it, hop on, and ride it up to the central ledge.",
-       "items": []
+       "items": [],
+       "stuck": "Stand near a cog, hold the Recall button, and aim at the spinning gear; it rewinds and turns the opposite way. Hop onto a tooth as it carries you upward to the central ledge, then step off at the top."
       },
       {
        "id": "t_sky_tot_04",
@@ -301,7 +310,8 @@
        "id": "t_sky_nachoyah_02",
        "k": "step",
        "t": "Enter Nachoyah, which tests Recall. Reverse the moving parts so the path lines up and you can reach the altar.",
-       "items": []
+       "items": [],
+       "stuck": "Ride a wooden platform that falls down the waterfall, then Recall it to float back up the falls. At the gate, Recall the swinging clock hand so it lines back up with the other and the path locks open."
       },
       {
        "id": "t_sky_nachoyah_03",
@@ -351,7 +361,8 @@
        "id": "t_sky_dive_03",
        "k": "tip",
        "t": "While skydiving, tilt forward to fall faster and spread out to slow down. You splash into water below, so aim for the lake to land safely.",
-       "items": []
+       "items": [],
+       "stuck": "Hold the left stick forward to angle head-down and fall fast; pull back and spread out to slow down and steer. You have no paraglider yet, so line yourself up over a lake or pond and you splash down unharmed."
       },
       {
        "id": "t_sky_dive_04",
@@ -447,7 +458,8 @@
       {
        "id": "t_lookout_castle_s2",
        "k": "step",
-       "t": "Head to the First Gatehouse in the Hyrule Castle Town Ruins and speak with Captain Hoz, who is watching the castle and the figure resembling Zelda."
+       "t": "Head to the First Gatehouse in the Hyrule Castle Town Ruins and speak with Captain Hoz, who is watching the castle and the figure resembling Zelda.",
+       "stuck": "Head north through the Castle Town Ruins; at the big closed gate, pull it open with Ultrahand. Hoz is atop the gatehouse, so climb to a stone ledge inside and Ascend up through the ceiling to reach him."
       },
       {
        "id": "t_lookout_castle_s3",
@@ -487,7 +499,8 @@
          "cat": "key",
          "note": "Glide after tower launches or any fall. Press the jump button mid-air to deploy; gliding drains stamina."
         }
-       ]
+       ],
+       "stuck": "Press X (the jump button) once while you're falling to pop the Paraglider open. Glide distance is limited by your green stamina wheel, so aim for the nearest ground."
       },
       {
        "id": "t_lookout_tower_s3",
@@ -550,7 +563,8 @@
          "cat": "ability",
          "note": "Purah Pad feature. Open the ability menu and pick the camera to take photos and register Compendium entries."
         }
-       ]
+       ],
+       "stuck": "The chasm is the wide gloom-ringed pit in Hyrule Field just south of the camp. Jump in and free-fall to the bottom, then follow the glow to Robbie's little camp on the Depths floor."
       },
       {
        "id": "t_lookout_camera_loot",
@@ -562,7 +576,8 @@
          "cat": "key",
          "note": "In-game catalog. Snap photos to fill entries for monsters, materials, weapons, and creatures; handy for tracking locations."
         }
-       ]
+       ],
+       "stuck": "Open the camera with L and aim at the statue with the raised arm until a label with an exclamation mark pops up, then press A to snap it. That confirms the right target before you head back to Josha."
       },
       {
        "id": "t_lookout_camera_tip",
@@ -616,12 +631,14 @@
       {
        "id": "t_wind_tulin_1",
        "k": "step",
-       "t": "Follow the snowy trail north into Hebra. The blizzard blocks the open slopes, so take the cave route that climbs up through the mountain."
+       "t": "Follow the snowy trail north into Hebra. The blizzard blocks the open slopes, so take the cave route that climbs up through the mountain.",
+       "stuck": "Climb the mountain path past the Hebra Trailhead hut (northeast of Rospro Pass Tower, near Sahirow Shrine) to the Hebra South Summit Cave. The open slopes are blizzard-blocked, so the cave is the only way up."
       },
       {
        "id": "t_wind_tulin_2",
        "k": "tip",
-       "t": "In the cave, light the campfire and drop a Hylian Pine Cone on it to make an updraft, then glide up through the shaft to keep climbing."
+       "t": "In the cave, light the campfire and drop a Hylian Pine Cone on it to make an updraft, then glide up through the shaft to keep climbing.",
+       "stuck": "Light the unlit campfire (toss a Fire Fruit, or shoot a fire arrow at it), then drop a Hylian Pine Cone on the flames. That spawns an updraft column - open your paraglider inside it to rise up the shaft."
       },
       {
        "id": "t_wind_tulin_3",
@@ -655,7 +672,8 @@
       {
        "id": "t_wind_climb_2",
        "k": "step",
-       "t": "Alternate Tulin's Gust to cross gaps horizontally and Ascend to rise up through the undersides of the higher platforms."
+       "t": "Alternate Tulin's Gust to cross gaps horizontally and Ascend to rise up through the undersides of the higher platforms.",
+       "stuck": "Tulin glides alongside you now - point his Gust and pulse it to fling across wide horizontal gaps. To go up, stand under a higher platform and Ascend straight through its underside."
       },
       {
        "id": "t_wind_climb_3",
@@ -670,7 +688,8 @@
       {
        "id": "t_wind_climb_5",
        "k": "step",
-       "t": "Climb to the top of the chain, then skydive into the eye of the giant tornado to drop onto the Stormwind Ark - the Wind Temple."
+       "t": "Climb to the top of the chain, then skydive into the eye of the giant tornado to drop onto the Stormwind Ark - the Wind Temple.",
+       "stuck": "Climb to the top of the chain, then dive straight down into the center of the swirling storm. You free-fall through the hole in the clouds and land on the deck of the Stormwind Ark."
       }
      ]
     },
@@ -688,17 +707,20 @@
       {
        "id": "t_wind_locks_2",
        "k": "tip",
-       "t": "Every lock works the same way: get a fan or windmill spinning, then hit it with Tulin's Gust. You can tackle the five in any order."
+       "t": "Every lock works the same way: get a fan or windmill spinning, then hit it with Tulin's Gust. You can tackle the five in any order.",
+       "stuck": "For every lock: get its fan or windmill turning, then aim Tulin's Gust so it blows through the blades. The device spins up and the lock lights. You can do the five in any order."
       },
       {
        "id": "t_wind_locks_3",
        "k": "step",
-       "t": "One lock sits behind a broken lever: grab a fallen icicle with Ultrahand, attach it to the lever to free it, then aim a Gust at the fan."
+       "t": "One lock sits behind a broken lever: grab a fallen icicle with Ultrahand, attach it to the lever to free it, then aim a Gust at the fan.",
+       "stuck": "Grab a loose icicle with Ultrahand and attach it to the broken lever handle to make the lever whole again. Use the lever to open the gate, then hit the fan with Tulin's Gust."
       },
       {
        "id": "t_wind_locks_4",
        "k": "step",
-       "t": "Another lock uses rotating gears - line up a slab or icicle piece with Ultrahand, use Recall on a turning wheel if needed, then Gust the fan."
+       "t": "Another lock uses rotating gears - line up a slab or icicle piece with Ultrahand, use Recall on a turning wheel if needed, then Gust the fan.",
+       "stuck": "Ultrahand a slab or icicle to bridge the gap between the gears; if a wheel is already spinning, use Recall to send it back into position. Once the fan is reachable, hit it with Tulin's Gust."
       },
       {
        "id": "t_wind_locks_5",
@@ -748,7 +770,8 @@
          "cat": "material",
          "note": "Fuse to an arrow so the shot homes in on Colgera's weak cores."
         }
-       ]
+       ],
+       "stuck": "Pull the bow while falling to trigger slow-motion, then shoot the three icy bulges on its underbelly. Fuse a Keese Eyeball for homing arrows, or fire/a Fire Fruit to crack each core in fewer hits."
       },
       {
        "id": "t_wind_colgera_3",
@@ -758,7 +781,8 @@
       {
        "id": "t_wind_colgera_4",
        "k": "warn",
-       "t": "In phase two Colgera summons rows of tornadoes that sweep the arena - glide through the safe gaps while you keep diving on the cores."
+       "t": "In phase two Colgera summons rows of tornadoes that sweep the arena - glide through the safe gaps while you keep diving on the cores.",
+       "stuck": "Don't fly straight into the spinning tornado rows - they form a moving wall. Wait for a gap to open, glide through it, then drop back under Colgera to keep hitting the three cores."
       },
       {
        "id": "t_wind_colgera_5",
@@ -859,7 +883,8 @@
       {
        "id": "t_fire_s_arrive_step3",
        "k": "step",
-       "t": "Boss Yunobo is up at YunoboCo HQ, north of the city. Goron kids guard a hot cave nearby where he waits in a strange mask; make your way in."
+       "t": "Boss Yunobo is up at YunoboCo HQ, north of the city. Goron kids guard a hot cave nearby where he waits in a strange mask; make your way in.",
+       "stuck": "Heat resistance: buy Flamebreaker Armor (the chest piece is ~700 rupees at YunoboCo HQ) and equip it before going down, or carry Fireproof Elixirs / Fireproof-Lizard dishes. One piece is enough to survive the descent."
       }
      ]
     },
@@ -876,7 +901,8 @@
       {
        "id": "t_fire_s_yunobo_step2",
        "k": "step",
-       "t": "Dodge sideways so he rolls past and slams into a wall; he's stunned briefly. Run in and attack the mask before he recovers."
+       "t": "Dodge sideways so he rolls past and slams into a wall; he's stunned briefly. Run in and attack the mask before he recovers.",
+       "stuck": "No audio tell before he launches, so lock on and strafe sideways the instant he revs. He only takes damage right after smacking a wall; rush in and hit the mask during that brief stun, then back off before he re-curls."
       },
       {
        "id": "t_fire_s_yunobo_warn1",
@@ -927,7 +953,8 @@
       {
        "id": "t_fire_s_descent_step3",
        "k": "step",
-       "t": "At the peak, the dragon-like boss Moragia rises from the crater. Board the nearby Zonai fan-glider with a cart and steering stick to fight it."
+       "t": "At the peak, the dragon-like boss Moragia rises from the crater. Board the nearby Zonai fan-glider with a cart and steering stick to fight it.",
+       "stuck": "Don't build from scratch: a pre-made fan-plane with a steering stick sits on the platform. Ultrahand it so the nose points off the crater edge, hop on, grab the control stick to fly. Yunobo rides along automatically."
       },
       {
        "id": "t_fire_s_descent_step4",
@@ -939,7 +966,8 @@
          "cat": "ability",
          "note": "Aim from the glider and launch Yunobo at a head; each one downed cuts Moragia's health by a third."
         }
-       ]
+       ],
+       "stuck": "Aim with the camera and fire Yunobo's Charge at a head; each of the three heads dies in one hit. Bank side to side to dodge the lava-rock streams, and circle back if the angle's bad rather than tanking fireballs."
       },
       {
        "id": "t_fire_s_descent_warn1",
@@ -1000,7 +1028,8 @@
          "cat": "ability",
          "note": "Swim up through any solid ceiling; great for skipping back up after a lower-floor gong."
         }
-       ]
+       ],
+       "stuck": "For the 5F gong, a metal block drops down a shaft; use Recall on it to ride it back up to the gong's level. Use Ascend through low ceilings to skip climbing whole floors."
       },
       {
        "id": "t_fire_s_temple_tip2",
@@ -1035,7 +1064,8 @@
       {
        "id": "t_fire_s_boss_step1",
        "k": "step",
-       "t": "Phase 1: Gohma stands on marbled-rock legs. Fire Yunobo's charge at a leg to shatter it; break enough and it collapses, exposing its eye."
+       "t": "Phase 1: Gohma stands on marbled-rock legs. Fire Yunobo's charge at a leg to shatter it; break enough and it collapses, exposing its eye.",
+       "stuck": "Fire Yunobo's Charge at a leg to crack it; break TWO legs and Gohma topples, exposing the glowing eye. Stand where you have a clean line to a leg so Yunobo doesn't fizzle on the way over."
       },
       {
        "id": "t_fire_s_boss_step2",
@@ -1050,7 +1080,8 @@
       {
        "id": "t_fire_s_boss_step3",
        "k": "step",
-       "t": "Phase 2: below half health it climbs onto the ceiling. Center the camera on the leg farthest from you and fire Yunobo to knock it down."
+       "t": "Phase 2: below half health it climbs onto the ceiling. Center the camera on the leg farthest from you and fire Yunobo to knock it down.",
+       "stuck": "On the ceiling, lock the camera on the leg FARTHEST from you (near legs are too steep for Yunobo's Charge to reach), fire to drop Gohma, then climb on and pound the eye. Repeat the far-leg shot each time."
       },
       {
        "id": "t_fire_s_boss_tip1",
@@ -1189,7 +1220,8 @@
       {
        "id": "t_water_s2_q2",
        "k": "step",
-       "t": "Get airborne to reach it: glide from a high point, or ride a falling sky-island chunk up using Recall."
+       "t": "Get airborne to reach it: glide from a high point, or ride a falling sky-island chunk up using Recall.",
+       "stuck": "Easiest way: watch where a sky-rock chunk crashes down nearby, climb on top of it, then use Recall. Time rewinds and the rock carries you back up; jump off at the peak and glide to the island."
       },
       {
        "id": "t_water_s2_q3",
@@ -1199,7 +1231,8 @@
       {
        "id": "t_water_s2_q4",
        "k": "step",
-       "t": "Fuse a King's Scale to an arrow and fire it through the center of the teardrop. Jump first to slow time and steady your aim in midair."
+       "t": "Fuse a King's Scale to an arrow and fire it through the center of the teardrop. Jump first to slow time and steady your aim in midair.",
+       "stuck": "Hold ZR to aim the bow, press up on the d-pad and pick King's Scale to fuse it on the arrow, then fire through the dead center of the teardrop. Aim from the peak looking southwest so the rocks line up into the shape."
       },
       {
        "id": "t_water_s2_q5",
@@ -1276,7 +1309,8 @@
       {
        "id": "t_water_s4_q5",
        "k": "step",
-       "t": "For the fast-spinning box atop the tall tower, leap off, aim your bow in midair to slow time, and shoot the switch inside to drain the room."
+       "t": "For the fast-spinning box atop the tall tower, leap off, aim your bow in midair to slow time, and shoot the switch inside to drain the room.",
+       "stuck": "Climb the tower (use Hover Stones if needed), then jump off and hold ZR midair for bullet time to shoot the switch inside the spinning box. If sludge covers it, hit it first with a Splash Fruit or Chuchu Jelly arrow."
       },
       {
        "id": "t_water_s4_q6",
@@ -1326,7 +1360,8 @@
       {
        "id": "t_water_s5_q5",
        "k": "step",
-       "t": "Catch the Octorok on cleared ground, stun it with a water hit, then close in and finish it with heavy attacks."
+       "t": "Catch the Octorok on cleared ground, stun it with a water hit, then close in and finish it with heavy attacks.",
+       "stuck": "Once washed, the exposed Octorok darts off to dive into fresh sludge, so chase it onto clean floor and unload your strongest melee at once. Staying in Sidon's bubble lets you wash and hit while shielded from its muck."
       },
       {
        "id": "t_water_s5_q6",
@@ -1405,7 +1440,8 @@
       {
        "id": "t_lightning_s_arrival_st2",
        "k": "tip",
-       "t": "To navigate the shroud, climb high and paraglide, or pop a Zonai Rocket to rise above the haze where the map reads clearly again."
+       "t": "To navigate the shroud, climb high and paraglide, or pop a Zonai Rocket to rise above the haze where the map reads clearly again.",
+       "stuck": "The shroud kills your map. Stick to the road, and when you see a swirling air vortex jump in and open your paraglider to ride it above the haze; from up high the map re-syncs so you can spot Gerudo Town."
       },
       {
        "id": "t_lightning_s_arrival_st3",
@@ -1439,7 +1475,8 @@
          "cat": "ability",
          "note": "Stand in Riju's electric field, aim an arrow, and release to call down a lightning bolt on the target."
         }
-       ]
+       ],
+       "stuck": "Riju walks behind you and casts a glowing electric field at your crosshair. Aim your bow so the target sits inside that ring, then release the arrow to drop the lightning bolt exactly there."
       },
       {
        "id": "t_lightning_s_riju_st2",
@@ -1488,7 +1525,8 @@
          "cat": "ability",
          "note": "Zap the gloom cocoon over the door, then fire an arrow to break it and open the temple."
         }
-       ]
+       ],
+       "stuck": "First hit the purple gloom on the doors with Riju's lightning, then loose one arrow into it to burst it. Inside, swing the Korok Frond to clear sand off the floor switch, then stand on it to open the way."
       },
       {
        "id": "t_lightning_s_temple_st4",
@@ -1530,7 +1568,8 @@
          "cat": "ability",
          "note": "Grab and rotate mirror panels to aim light beams at the receptors that open the way to each battery."
         }
-       ]
+       ],
+       "stuck": "Use Ultrahand to pull a mirror panel out of the sand, carry it into the room's light beam, then rotate it so the reflected beam lands on the receptor and locks in to power the battery's door."
       },
       {
        "id": "t_lightning_s_interior_st4",
@@ -1552,7 +1591,8 @@
          "cat": "ability",
          "note": "Reverse moving platforms or wheels to line up a light beam."
         }
-       ]
+       ],
+       "stuck": "Ascend (jump menu, point up at a ceiling) to pop through floors instead of hunting for stairs. If a wheel or platform is spinning the wrong way mid-puzzle, give it a nudge then trigger Recall to send it back."
       },
       {
        "id": "t_lightning_s_interior_st6",
@@ -1595,7 +1635,8 @@
       {
        "id": "t_lightning_s_boss_st5",
        "k": "step",
-       "t": "At about half health she enters phase two and summons Gibdos from the nests around the arena. Blast the nests with Riju's lightning, then resume the loop."
+       "t": "At about half health she enters phase two and summons Gibdos from the nests around the arena. Blast the nests with Riju's lightning, then resume the loop.",
+       "stuck": "In phase two, sprint around the arena blasting every glowing Gibdo hive with Riju's lightning. Clearing a hive drops a pillar of light that strips nearby Gibdos' armor and freezes them, then return to the Queen."
       },
       {
        "id": "t_lightning_s_boss_st6",
@@ -1680,7 +1721,8 @@
        "id": "t_spirit_s1_2",
        "k": "step",
        "t": "Travel to Dragonhead Island in the sky, the large stone dragon-head ruin floating above the Faron region. Use a tower launch or skydive in.",
-       "items": []
+       "items": [],
+       "stuck": "Easiest route: from Popla Foothills Skyview Tower, skydive into Thunderhead Isles and ride the chain to its end, then press A to dive down onto Dragonhead Island itself."
       },
       {
        "id": "t_spirit_s1_3",
@@ -1698,13 +1740,15 @@
          "cat": "ability",
          "note": "Attach the mask to your build so its light guides you."
         }
-       ]
+       ],
+       "stuck": "Make wings or a few fans plus a steering stick, then Ultrahand the mask onto the very front so the green beam shines forward. If the beam points sideways, the nose is aimed wrong, so re-grab and rotate the mask."
       },
       {
        "id": "t_spirit_s1_5",
        "k": "step",
        "t": "Follow the green beam down to the surface. It leads to a large stone owl statue with a pedestal out front, near Tobio's Hollow Chasm.",
-       "items": []
+       "items": [],
+       "stuck": "From the island, build your flying machine and just follow the green beam down. It lands at an owl statue on the surface near Tobio's Hollow Chasm, with a pedestal out front where the mask goes."
       },
       {
        "id": "t_spirit_s1_6",
@@ -1735,7 +1779,8 @@
          "cat": "ability",
          "note": "Rotate and seat the mask into the head socket."
         }
-       ]
+       ],
+       "stuck": "Grab the mask with Ultrahand and rotate it (hold R, then use the D-pad) until its outline lights up in the head slot, then release. It only locks in one orientation, and goes in before the limbs."
       },
       {
        "id": "t_spirit_s2_3",
@@ -1832,7 +1877,8 @@
        "id": "t_spirit_s4_2",
        "k": "step",
        "t": "Phase 1: guard its telegraphed punches, then counter. Stun it with the Shock Emitter, walk in, and land spiked-ball hits to shove it into the wire fence.",
-       "items": []
+       "items": [],
+       "stuck": "Fire the Shock Emitter or a Zonai Cannon from range to stun it, then rush in and swing the spiked ball; a few hits knock it into the electric fence ringing the arena, where the real damage is done."
       },
       {
        "id": "t_spirit_s4_3",
@@ -1844,7 +1890,8 @@
        "id": "t_spirit_s4_4",
        "k": "step",
        "t": "Phase 2: it grows extra arms and fuses a Rocket to fly, firing Cannons. Hit it with a Cannon shot to slam it back down, then resume your combos.",
-       "items": []
+       "items": [],
+       "stuck": "When it bolts a rocket on and lifts off firing cannons, hit it with one Cannon blast to slam it back to the ground, then go back to stun-and-spiked-ball to knock it into the fence."
       },
       {
        "id": "t_spirit_s4_5",
@@ -1912,7 +1959,8 @@
        "id": "t_castle_s1_st1",
        "k": "step",
        "t": "Find the first geoglyph by New Serenne Stable in Hyrule Ridge, then head to the Forgotten Temple northwest of there to begin The Dragon's Tears.",
-       "items": []
+       "items": [],
+       "stuck": "Impa stands across the road from New Serenne Stable beside a broken hot-air balloon. Use Ultrahand to refit the burner basket, drop flint and wood under it to light it, and ride it up to reach the first geoglyph."
       },
       {
        "id": "t_castle_s1_st2",
@@ -1930,7 +1978,8 @@
        "id": "t_castle_s1_st3",
        "k": "step",
        "t": "Touch the Dragon's Tear in the first geoglyph, the King Rauru drawing by New Serenne Stable, to watch its memory cutscene.",
-       "items": []
+       "items": [],
+       "stuck": "Float up over the Rauru drawing first to spot it, then drop in. The real tear is the one solid white teardrop (the rest are hollow); it sits near the top, in the figure's left eye. Touch it to play the memory."
       },
       {
        "id": "t_castle_s1_st4",
@@ -1942,7 +1991,8 @@
        "id": "t_castle_s1_st5",
        "k": "tip",
        "t": "Activate Skyview Towers first. From the air you can spot the huge ground drawings and pin each geoglyph on your Purah Pad map.",
-       "items": []
+       "items": [],
+       "stuck": "Map each glyph from the sky: glide off a Skyview Tower or use the Purah Pad's scope to pin the spot, then dive with the paraglider. Recall a fallen object or build a Zonai flier if you overshoot."
       },
       {
        "id": "t_castle_s1_st6",
@@ -1980,7 +2030,8 @@
          "cat": "key",
          "note": "The eternal dragon that circles Hyrule; the final tear reveals its true identity."
         }
-       ]
+       ],
+       "stuck": "Rist Peninsula is the spiral-shaped beach in far eastern Akkala. There's no geoglyph here; the tear sits in the open near Gemimik Shrine. Fast-travel or launch from the Ulri Mountain Skyview Tower and glide in."
       },
       {
        "id": "t_castle_s2_st3",
@@ -2042,7 +2093,8 @@
        "id": "t_castle_s3_st5",
        "k": "step",
        "t": "Defeat every Phantom Ganon to win. Summon your sages to keep the copies busy so you can fight them one at a time.",
-       "items": []
+       "items": [],
+       "stuck": "Dodge a Phantom Ganon's swing and counter on the Flurry Rush prompt for fast damage. Summon Tulin/Yunobo/etc. so the sages tie up the copies, and use Riju's lightning to zap several at once. Two waves total."
       },
       {
        "id": "t_castle_s3_st6",
@@ -2080,7 +2132,8 @@
          "cat": "key",
          "note": "Crawling gloom arms; fire and bomb flowers work well, and a Phantom Ganon appears once they fall."
         }
-       ]
+       ],
+       "stuck": "Enter the Depths via the nearest chasm, travel under Korok Forest, then Ascend up through a ceiling near Korok Grove to surface inside the Deku Tree. Beat the Gloom Spawn and Phantom Ganon there to lift the fog."
       },
       {
        "id": "t_castle_s4_st3",
@@ -2118,7 +2171,8 @@
        "id": "t_castle_s5_st2",
        "k": "step",
        "t": "Track the Light Dragon along her slow circuit. Launch from a Skyview Tower or sky island and glide down onto her back.",
-       "items": []
+       "items": [],
+       "stuck": "There's an updraft all around the dragon: open your paraglider near her body for a free full stamina refill, even mid-flight. Glide along her broad back toward the head; eat stamina meals here if you need more."
       },
       {
        "id": "t_castle_s5_st3",
@@ -2142,7 +2196,8 @@
          "cat": "weapon",
          "note": "Legendary sword; never breaks, recharges after use, and doubles its power against Ganondorf and Phantom Ganon."
         }
-       ]
+       ],
+       "stuck": "At the head, hold the interact button to pull; keep holding as your stamina slowly drains, no mashing. If your wheel empties before it comes free, reopen your paraglider in the dragon's updraft to refill, then retry."
       },
       {
        "id": "t_castle_s5_st5",
@@ -2302,7 +2357,8 @@
       {
        "id": "t_depths_s2_step_chasm",
        "k": "step",
-       "t": "Travel to Hyrule Castle and dive into the Hyrule Castle Chasm. Paraglide down into the dark and land safely in the Depths below."
+       "t": "Travel to Hyrule Castle and dive into the Hyrule Castle Chasm. Paraglide down into the dark and land safely in the Depths below.",
+       "stuck": "The Hyrule Castle Chasm is the dark hole just north of Lookout Landing, under the castle. Fast-travel to Serutabomac Shrine on the castle's northeast side and jump off that cliff into the opening to drop straight in."
       },
       {
        "id": "t_depths_s2_loot_lightroot",
@@ -2350,7 +2406,8 @@
       {
        "id": "t_depths_s3_step_gibdo",
        "k": "step",
-       "t": "Stun Gibdos with a Dazzlefruit blast, a Splash Fruit, or any elemental hit to break their armor, then strike while they are exposed."
+       "t": "Stun Gibdos with a Dazzlefruit blast, a Splash Fruit, or any elemental hit to break their armor, then strike while they are exposed.",
+       "stuck": "Plain swings and arrows do only 1 damage to Gibdos. Hit one with fire, ice, or shock (a Ruby/Topaz-fused weapon, a Splash/Ice/Fire Fruit arrow, or Riju's lightning) to crack its armor, then they take normal damage."
       },
       {
        "id": "t_depths_s3_warn_gloom",
@@ -2446,7 +2503,8 @@
       {
        "id": "t_depths_s6_step_blisters",
        "k": "step",
-       "t": "Glide and run along the dragon, slashing the clusters of glowing demonic eyes set in the Gloom on its back and limbs until they are destroyed."
+       "t": "Glide and run along the dragon, slashing the clusters of glowing demonic eyes set in the Gloom on its back and limbs until they are destroyed.",
+       "stuck": "The weak points are the four red blistered eye-clusters bulging from the Gloom on the dragon's back. Run or glide up to each and slash it with the Master Sword until it pops; clear all four to expose the head."
       },
       {
        "id": "t_depths_s6_step_head",
@@ -2456,7 +2514,8 @@
       {
        "id": "t_depths_s6_tip_dive",
        "k": "tip",
-       "t": "Dive-attack the eyes and the head stone for big damage, or fire arrows mid-dive, then glide back up as the dragon recovers. Repeat the cycle."
+       "t": "Dive-attack the eyes and the head stone for big damage, or fire arrows mid-dive, then glide back up as the dragon recovers. Repeat the cycle.",
+       "stuck": "Dive straight down onto a weak point and slash it, or fire arrows on the way down. If you fall off, the Light Dragon swoops under to carry you back up, so you can dive again and again without fear."
       },
       {
        "id": "t_depths_s6_reward_win",
@@ -3831,94 +3890,175 @@
    {
     "name": "Gloom Hands (Gloom Spawn)",
     "tier": "gloom",
-    "tactic": "Crawling gloom arms that drain max hearts. Get high ground and rain Bomb Flower arrows into the cluster; bright light (Brightbloom seeds) also weakens them.",
-    "drops": "Dark Clump"
+    "tactic": "Crawling gloom arms that drain max hearts and regrow if split up. Get on high ground they can't climb and rain Bomb Flower / Fire Fruit arrows into the whole cluster at once; after they die, Phantom Ganon spawns.",
+    "drops": "Dark Clump",
+    "battle": "Bring a strong bow with a big stack of arrows and fuse explosives to them — Bomb Flowers or Fire Fruit hit the whole cluster of arms at once — and pack a meal that restores gloom-damaged hearts (a Sundelion/\"sunny\" dish) or a Dark Clump warding dish, or wear Depths armor, to blunt the gloom. The fight opens with five gloom-soaked arms crawling at you, each with its own health bar; do NOT fight them on the ground, because touching them drains your max hearts, and don't pick them off one at a time — kill them together or the survivors regrow. Get up high right away: a boulder, a fallen log, or a quick Ultrahand platform works, since the hands can't climb steep verticals (they can still scramble up slopes). Stay elevated, keep your distance, and rain explosive arrows into the bunched-up cluster. If you're struggling, freeze each arm with an Ice Fruit and smash it while frozen, or simply wait them out from somewhere they can't reach. After the hands die, Phantom Ganon spawns as a second phase (sometimes more than one) — circle him and block or parry his swings; every hit you land shrinks his gloom pool until he falls. They drop Dark Clumps, which cook into warding dishes that protect against gloom."
    },
    {
     "name": "Phantom Ganon",
     "tier": "boss",
-    "tactic": "Spawns after clearing Gloom Hands. Wear gloom-resist gear; flurry-rush his lunges with a strong fast weapon, then punish. Repeat through his phases.",
-    "drops": "Demon King's Bow, a Gloom weapon (Sword/Club/Spear), Dark Clump"
+    "tactic": "Spawns after you clear the Gloom Hands. Wear the Depths (gloom-resist) set and pack a Sundelion dish; dodge his telegraphed swing/charge for a flurry rush (or perfect-guard), punish, then step out of the heart-draining gloom pool. Avoid the spin attack — it cuts through blocks.",
+    "drops": "Demon King's Bow, a Gloom weapon (Sword/Club/Spear), Dark Clump",
+    "battle": "Gloom resistance wins half this fight: wear the Depths armor set (the \"gloomy\" gear, gloom-attack resistance) and bring a Sundelion dish (e.g. Sunny meat/mushrooms) to heal back any max-hearts the gloom locks away. Carry a strong Fused melee weapon (the Master Sword is ideal here — it does extra damage to Ganon — or a Lynel horn on a good base), a shield, and a bow with plenty of arrows. He only spawns after you clear the Gloom Hands, so handle those first: fuse bombs or explosives to your arrows, and if it gets ugly, climb onto high ground the hands can't reach and pelt them safely. Once Phantom Ganon appears, don't hug him — the gloom pool at his feet drains hearts. Wait for his telegraphed swing or charge, then backflip or side-hop at the last instant for a flurry rush, or raise your shield for a perfect guard; land a couple of hits and step back out of the pool. His spin attack cuts through blocks, so dodge that one. The pool shrinks every hit you land, so it doubles as a progress bar. If you're overwhelmed, just flee and he'll vanish. He always drops the Demon King's Bow — its damage scales with your max hearts — plus a Gloom Sword, Club, or Spear matching the one he wielded, and Dark Clumps."
    },
    {
     "name": "Boss Bokoblin",
     "tier": "mini-boss",
-    "tactic": "Huge Bokoblin that leads camps and charges. Sidestep the rush for a flurry rush, hit the head, and use a heavy Fuse (Silver Bokoblin Horn, rocks).",
-    "drops": "Boss Bokoblin Horn, Boss Bokoblin Guts"
+    "tactic": "Huge Bokoblin that leads camps and hurls rocks and minions. Sneakstrike or dodge its overhead for a flurry rush, hit the head, and use a heavy two-hander Fused with a rock or Boss Bokoblin Horn.",
+    "drops": "Boss Bokoblin Horn, Boss Bokoblin Guts",
+    "battle": "A Boss Bokoblin is a big, tanky brute that leads camps, so bring a two-handed weapon (a claymore Fused with a sturdy rock or a Boss Bokoblin Horn hits hard, and its heavy final swing knocks the brute back), a bow with arrows, and a meal that boosts attack or defense; a good shield lets you parry, and a stealth armor set sets up a huge opening. Open from stealth if you can: creep up and sneakstrike for a roughly 8x hit that can stagger or nearly drop it before the camp reacts, and taking the boss out first often scatters the smaller Bokoblins. In a straight fight, swing your two-hander to stagger and interrupt it, then bait its big overhead and dodge at the last instant for a flurry rush and a string of free hits; raise your shield to parry instead if dodging is tricky. It likes to hurl rocks, barrels, and even its own minions at you, so sidestep them or use Recall to fling the thrown object right back into its face. If it is wearing you down, hang back and pelt it with arrows, lob bomb-fused arrows, or let Tulin's gust and your companions chip it while you stay out of reach. The base Boss Bokoblin drops a Boss Bokoblin Horn (a solid attack-Fuse material) and a Boss Bokoblin Fang; the tougher blue, black, and silver versions also drop the rarer Boss Bokoblin Guts."
    },
    {
     "name": "Hinox",
     "tier": "mini-boss",
-    "tactic": "One-eyed giant; sleeps with weapons stuck in it. Shoot the eye to stagger, then melee. Loot the weapons off its necklace before finishing.",
-    "drops": "Hinox Horn, Hinox Guts, Hinox Toenail, Hinox Tooth"
+    "tactic": "One-eyed giant; sleeps with weapons on its necklace — climb on and grab them first. Shoot the eye to topple it, rush in and melee, then back off before it rises.",
+    "drops": "Hinox Horn, Hinox Guts, Hinox Toenail, Hinox Tooth",
+    "battle": "Bring a strong Fused one-handed weapon (a heavy monster horn or sturdy rock on a one-hander hits hard and lets you swing fast between knockdowns), a spare bow or two with plenty of arrows for the eye, and a meal that boosts attack or defense; no element is needed for a plain Hinox. They usually lie sleeping out in the open with weapons hung on their necklace, so sneak up first, climb onto the belly, and lift those weapons off for free loot before it wakes. The fight is all about its one giant eye: hit the eye with an arrow and the Hinox topples backward, stunned for a few seconds, so sprint in and mash attacks on its face or feet while it can't fight back, then back off before it rises. Keep a sprint's distance, shoot the eye, rush in, retreat — repeat that loop. Its slow turn buys you time, but don't dawdle right underneath or it'll butt-slam you. At low health it covers the eye with its hand, so shoot faster than it can guard, or wait for the hand to drop. Two extras: a falling/leaping shot (drop from height, not a standing jump) slows time to aim the eye; and some Hinox wear leg armor — burn off wood with a fire arrow, blast metal with a shock arrow. Easy mode for a struggling player: just keep your distance and chain eye-shots — every stun is a free combo and it never gets to swing. It drops great Fuse fodder: Hinox Horn, Hinox Guts, Hinox Toenail, and Hinox Tooth, plus the weapons off its necklace."
    },
    {
     "name": "Stalnox",
     "tier": "mini-boss",
-    "tactic": "Skeletal Hinox in caves/Depths. Shoot the eye to make the head pop off, grab the loose head with Ultrahand or smash it before the body reassembles.",
-    "drops": "Stalnox Horn, Hinox Tooth"
+    "tactic": "Skeletal Hinox in caves/the Depths. Shoot its single eye to stagger it for melee; at low health (or with a Bomb Arrow) the eye pops out — smash the loose eyeball or Ultrahand-fling it far from the bones before the body reassembles.",
+    "drops": "Stalnox Horn, Hinox Tooth",
+    "battle": "Bring a long-reach Fused weapon (a heavy rock or horn on a spear or claymore — the Stalnox is slow, so reach beats speed), a bow with a big stack of arrows, and ideally a few Bomb Arrows. A defense-up or attack-up meal helps; if this Stalnox is in the Depths, pack a Gloom-resistant dish and some Sundelion food to heal gloom hearts, and toss Brightbloom Seeds to light the area first. It rises from a pile of bones into a one-eyed skeleton (on the surface only at night, 9PM–5AM; underground it's already active), so open by shooting an arrow straight into its single eye — that staggers it and drops it to the ground. While it's down, run in and pound the body with melee. When it stands, shoot the eye again and repeat; once its health is low an eye-shot pops the eye clean out (a Bomb Arrow knocks it loose instantly, no matter its health) and the body collapses into bones. The detached eyeball bounces around with its own health bar — chase it down and smash it before the skeleton reassembles. Cheese it: there's no time-stop in this game, but jump off a ledge and aim mid-air to trigger slow-motion for the eye shots, and once the eye drops you can grab it with Ultrahand and fling it far from the bones — dragged off and kept away, the Stalnox can't rebuild and is finished. Its drops are excellent fuse material — the Stalnox Horn is a heavy-hitter (about +29 attack fused), plus a Hinox Tooth."
    },
    {
     "name": "Stone Talus (incl. Luminous / Rare)",
     "tier": "mini-boss",
-    "tactic": "Rock golem with an ore weak spot on its back. Climb up and hammer the black ore, or Ascend through it to reach the top. Luminous/Rare variants drop gems.",
-    "drops": "Flint, Amber, Luminous Stone; gems like Topaz/Diamond/Ruby/Sapphire on rare types"
+    "tactic": "Rock golem with an ore weak spot on its back. Run underneath and Ascend straight up onto its top, then hammer the black ore with a blunt/mining weapon. Luminous/Rare variants drop gems.",
+    "drops": "Flint, Amber, Luminous Stone; gems like Topaz/Diamond/Ruby/Sapphire on rare types",
+    "battle": "Bring your heaviest blunt weapon — a rock or boulder Fused onto a sturdy handle (the same kind of hammer you'd use to mine ore) chews through its stone armor far better than a sword, and a meal that boosts attack helps you finish before it shakes you off. A bow with a few arrows is handy for chipping the weak spot from the ground if you can't climb. The fight starts when this \"rock\" suddenly stands up; the glowing dark ore deposit on its back is the only weak spot — nothing else does damage. The clean opening is to run right underneath it and use Ascend to phase straight up through its body onto its top, then hammer the ore. Expect about two combos before it tries to buck you off — when it does, just drop down, Ascend up again, and repeat until the ore breaks. It'll also chuck its rock arm at you; the easy, kid-friendly fallback is to use Recall on the thrown rock so it flies right back — that deals no damage but knocks the Talus flat for a few seconds, so you can climb up and wail on it while it's down. Standard ones drop Flint and Amber; the Luminous variant also gives Luminous Stone, and a Rare Talus rains gems — Topaz, Opal, Ruby, Sapphire, even Diamond — making it well worth hunting."
    },
    {
     "name": "Frox",
     "tier": "boss",
-    "tactic": "Giant Depths frog-toad. Shoot its eye (Dazzle Fruit or Keese-eye arrow) to topple it, climb on and smash the glowing Zonaite ore on its back. Repeat.",
-    "drops": "Frox Fang, Frox Fingernail, Frox Guts, Zonaite, Large Zonaite, Crystallized Charge"
+    "tactic": "Giant Depths frog-toad. Stun its single eye (arrow, Dazzle Fruit, or a Bomb Flower in its mouth) to topple it, climb on from behind and smash the glowing Zonaite ore on its back with a two-handed weapon. Re-stun and repeat.",
+    "drops": "Frox Fang, Frox Fingernail, Frox Guts, Zonaite, Large Zonaite, Crystallized Charge",
+    "battle": "Froxes live in the pitch-dark Depths, so first toss Brightbloom Seeds to light the area, eat a hearty meal for extra hearts, and ideally a defense- or attack-up dish (bring Depths armor and Sundelion food if Gloom is around). The real essentials: a heavy two-handed weapon (a Fused rock or boss horn on a claymore smashes the ore fastest), a bow with arrows, and a few Dazzle Fruit or Bomb Flowers. The fight opens with the Frox lunging and trying to suck you in with its huge mouth, so keep your distance. To topple it, hit its single big eye: shoot it with an arrow, fuse or throw a Dazzle Fruit (the bright flash blinds and stuns it harder), or shoot a Bomb Flower into its open mouth so it blows up inside. Once it slumps, climb onto its back (easiest from behind, near its tail) and hammer the glowing Zonaite ore deposits with your two-handed weapon. You usually can't break them all in one go; when it wakes it throws you off, so paraglide, draw your bow for slow-motion, and arrow the eye again to drop it and remount. Repeat until every ore chunk is gone. Easy fallback: stay back and re-stun the eye before each climb so it never gets a turn. Drops are great fuse and Zonai fodder: Frox Fang, Frox Fingernail, Frox Guts, plus Zonaite, Large Zonaite, and Crystallized Charge."
    },
    {
     "name": "Flux Construct",
     "tier": "boss",
-    "tactic": "Floating cube golem; hit or Ultrahand-pull the glowing block to break it apart. In ball form dodge its body-slam, then strike the weak block. I/II/III scale up.",
-    "drops": "Flux Construct Core, Zonaite, Large Zonaite"
+    "tactic": "Blocky cube golem — find the green block with the glowing red eye and Ultrahand-pull it (or shoot it) to collapse the body, then pound the weak spot. In platform form, Recall a fallen cube or Ascend up to it. I/II/III scale up and hide the block more.",
+    "drops": "Flux Construct Core, Zonaite, Large Zonaite",
+    "battle": "Bring a sturdy fused melee weapon (a rock or boulder fused to a claymore hits hard), a bow with a good stack of arrows, and a meal that boosts attack or defense to soak the big slams; no element is required for this fight. It opens as a tall, blocky golem — find the one cube that's green with a glowing red eye, that's its only weak spot. Core loop: shoot the eye with an arrow to stagger it (this stuns it for several seconds), then rush in and pound that block with melee; or, even better, aim Ultrahand at the glowing block and yank it straight off, which collapses the whole body so you can wail on the exposed weak spot while it's down. When it shifts into a floating-platform form and scatters cubes, use Recall on a fallen cube to ride it back up to the body, or use Ascend to pop up underneath it; in its rolling cube form, wait for the eye to rotate toward you, then pull or shoot it. The tougher II and III hide and reposition the glowing block — a leaping midair bow shot triggers slow-motion to line it up. Easy fallback: stay back and let Ultrahand do the work — keep ripping blocks off until it crumbles, then grab and rip the glowing core away and finish it on the ground; the slams only hurt if you're standing right under it. Its prize is the Flux Construct Core — a powerful fuse material you must attach to a weapon or shield on the spot (it can't be carried in your inventory) — plus a pile of Zonai Charges (Large Zonai Charges from a III) and Zonai devices."
    },
    {
     "name": "Molduga",
     "tier": "boss",
-    "tactic": "Sand shark in Gerudo dunes. Drop a Bomb Flower (or use a fused bomb) to lure it up, hit the bomb to flip it onto land, then wail on it while it's beached.",
-    "drops": "Molduga Fin, Molduga Jaw, Molduga Guts"
-   },
-   {
-    "name": "Gleeok (Fire / Frost / Thunder)",
-    "tier": "boss",
-    "tactic": "Multi-headed dragon. Shoot each head to stun, then in its air phase use an elemental-counter arrow (e.g. Frost for Fire) and finish heads fast.",
-    "drops": "Fire/Frost/Thunder Gleeok Horn, Wing, Guts"
+    "tactic": "Sand shark in the Gerudo dunes. Stand on a rock off the sand, throw an item or fire an arrow to lure it up, then hit it mid-air with a Bomb-Flower-fused arrow to stun and drop it — sprint in and pound its head while it's beached.",
+    "drops": "Molduga Fin, Molduga Jaw, Molduga Guts",
+    "battle": "A Molduga lives in the Gerudo Desert, so bring heat resistance first — Desert Voe armor or a chilly/heat-resist dish (it turns cold at night, so a warming dish helps then too) — plus a bow with at least a dozen arrows, a stack of Bomb Flowers (buy them from Fyson in Tarrey Town) to Fuse on, and a sturdy melee weapon; a hearty or defense-up meal cushions its tail swipe. The fight opens with the shark hidden under the sand — you can't hit it down there, and standing on open sand is dangerous, so first climb onto a rock or pillar in the arena and stay off the sand. It hunts by sound and bait, so from safety toss an item or fire an arrow into the dunes; a \"?\"/\"!\" appears over its mound and it leaps up to eat, exposing its body. The core loop: when it jumps, hit it with a Bomb-Flower-fused arrow — the blast stuns it and drops it onto the sand — then sprint in and pound its head, where its weak eyes are, until it starts to recover; back off before the spinning tail swipe and burrow. Retreat to high ground and repeat the lure-bomb-beat cycle. If it's overwhelming you or your kid, just camp on the rock and play slow — lure, bomb-arrow, a few head hits, retreat, heal, repeat; patience beats it even with weaker gear. Its drops — Molduga Fin, Molduga Jaw, and Molduga Guts — are excellent, high-value Fuse materials worth the trouble."
    },
    {
     "name": "King Gleeok",
     "tier": "boss",
-    "tactic": "Toughest Gleeok, all three elements. Bring lots of arrows and a fast bow; stun all three heads, then in the aerial storm phase hit heads with bomb/elemental arrows.",
-    "drops": "King Gleeok Horn, Wing, Guts"
+    "tactic": "Toughest Gleeok — three heads, three elements. Bring a multi-shot Lynel bow, lots of arrows, and Keese-eyeball homing arrows; shoot every head's eye in mid-air bullet-time to crash it down and melee the heads, then chase it in the aerial storm with updrafts/Recall.",
+    "drops": "King Gleeok Horn, Wing, Guts",
+    "battle": "Bring a multi-shot bow (a Lynel or Savage Lynel bow that fires 3 or 5 arrows at once) and a big stack of arrows, plus Keese Eyeballs to Fuse to them — eyeball arrows home in and can tag the three heads quickly. Carry a hard-hitting melee weapon for when it lands (something with a strong monster part or a Lynel horn Fused on), an attack- or defense-boosting meal, and a fairy or two for emergencies; if you're fighting the Depths version, eat Sunny food or wear gloom-resistant gear. Each head channels its own element (fire, frost, thunder) and its eye is the weak spot — matching the opposite element helps, but homing eyeball arrows work on all three. The opening: as it rears up, jump or use a Zonai spring to get height, pull your bow in mid-air so time slows, and shoot each head's eye — every head has its own bar, and they regenerate if you're slow. Tulin's gust pushes you farther across the air for a better angle. Knock all three heads down and King Gleeok crashes to the ground stunned — sprint in and wail on the heads with your melee weapon, then repeat. When it's low it flies high and unleashes all three elements at once in a storm; ride the updraft from its thunderstrikes with your paraglider, use Recall on a thrown ice spike to ride it back up, or pop a Rocket, to get one more slow-motion volley off. The safe, kid-friendly route is patience: stay near cover, only pop out to fire homing eyeball arrows, and never melee until all three heads are down. Its drops — the Gleeok Flame, Frost, and Thunder Horns plus the Gleeok Wing and Guts — are top-tier fuse materials worth the fight."
    },
    {
     "name": "Lynel",
     "tier": "mini-boss",
-    "tactic": "Brutal centaur. Shoot the face to stun, mount it for free hits, and flurry-rush its charge. Fuse a Lynel horn for a devastating weapon. Save before trying.",
-    "drops": "Lynel Saber Horn or Mace Horn, Lynel Hoof, Lynel Guts, Lynel weapons"
-   },
-   {
-    "name": "Temple bosses (Colgera, Marbled Gohma, Mucktorok, Queen Gibdo)",
-    "tier": "boss",
-    "tactic": "Each temple boss is solved by its dungeon gimmick plus your sage's power: Colgera (Wind), Marbled Gohma (Fire), Mucktorok (Water), Queen Gibdo (Lightning).",
-    "drops": "Heart Container, sage's vow"
+    "tactic": "Brutal centaur. Shoot the face to stun, mount it for free hits, and flurry-rush its charge. Fuse a Lynel horn for a devastating weapon. Bring backup weapons and food first.",
+    "drops": "Lynel Saber Horn or Mace Horn, Lynel Hoof, Lynel Guts, Lynel weapons",
+    "battle": "Lynels are Tears of the Kingdom's true skill check, but very beatable once you commit. Bring several strong weapons (a Lynel Saber Horn, a heavy rock, or a sturdy Construct part Fused to a one-handed sword hits hard and lets you land the most blows in a flurry), a bow with plenty of arrows, a 30+ guard shield, and a meal that boosts attack or defense plus a stack of healing food — a weapon or two will break before it dies. Open with a face shot from stealth or range: an arrow to its head makes the Lynel reel for a couple seconds, so sprint behind it and hit the on-screen mount prompt to climb on its back and mash attack for free hits (no durability lost, though it drains your stamina) until it bucks you off. On the ground, bait its charge and side-hop at the last instant for a flurry rush, or raise your shield as it swings for a perfect guard, which briefly stuns it; stay right on top of it so it can't use its fireball or three-to-five-shot arrow volleys, and re-stun and remount when you can. The easy fallback: keep the sage Tulin active for bonus headshots, throw Puffshrooms to blind it in smoke while you reposition, and play patient defense, dodging for flurries instead of trading hits. A defeated Lynel always drops both its Saber Horn and Mace Horn, plus hooves, guts, and its weapon, bow, and shield — some of the best Fuse materials in the game."
    },
    {
     "name": "Demon King Ganondorf",
     "tier": "boss",
-    "tactic": "Final humanoid fight; he mirrors your moves and inflicts gloom. Use gloom-resist food, flurry-rush his combos, and call all five sages to swarm him.",
-    "drops": null
+    "tactic": "Three-phase finale: flurry-rush his combos with all five sages, survive the one-on-one where he dodges back, then skydive onto the Demon Dragon. Pack Sunny dishes (Sundelions) to heal gloom.",
+    "drops": null,
+    "battle": "Bring your strongest Fused melee weapons (a Silver Lynel horn or a heavy blade on a claymore hits hard), a sturdy shield, and the Master Sword if you have it (it deals bonus damage to gloom). Most important: cook several Sunny dishes with Sundelions (found on Sky Islands), because his attacks inflict gloom that locks away your hearts and only Sunny meals heal it back — also pack an attack-up or defense-up dish and plenty of hearts. Have all five sages recruited first. The fight opens against waves of gloom-infused monsters while your sages fight beside you. Then comes the duel: the core loop is flurry rush — wait for his lunging thrust, dodge it at the last instant (or backflip his wide sweep), press Y to flurry, then trigger your sages' vows to pile on extra damage; repeat. Next he releases phantom clones — let the sages tie up the copies while you focus the real one. After that he absorbs the clones and knocks your sages out, going one-on-one: now he perfect-dodges your strikes and even your flurries, so bait a dodge and punish his counter to land hits, and watch for the gloom projectiles he fires before attacks (a good bow helps, since he can't dodge arrows). Beat him and he swallows his Secret Stone to become the Demon Dragon — a final aerial phase: skydive from Zelda's Light Dragon onto its back and smash the glowing weak points until Zelda ends it. The safe play for a struggling player: keep your distance, only flurry his obvious thrust, eat a Sunny dish the moment gloom eats your hearts, and never get greedy. He drops no materials — the reward is the story's end."
    },
    {
     "name": "Demon Dragon",
     "tier": "boss",
-    "tactic": "Final form, fought in free-fall. Dive onto its back and hit the four glowing weak spots with the Master Sword (10x dmg); the Light Dragon lifts you between each.",
-    "drops": null
+    "tactic": "Final form, fought in free-fall. Dive onto its back and hit the four glowing weak spots with the Master Sword (only it damages them, 10x dmg); the Light Dragon catches you between each, then finish the Secret Stone on its head.",
+    "drops": null,
+    "battle": "This last fight is more spectacle than danger, so don't panic — you can't fall to your death here, because Zelda's Light Dragon always swoops in to catch you. The one must-have is the Master Sword: the Demon Dragon's black scales repel every other weapon, and only the Master Sword damages its glowing weak spots, hitting them for huge bonus damage (no element is needed). It helps to have your paraglider and a few hearts of buffer (a hearty or sunny meal) in case its Gloom breath or projectiles graze you. The fight opens with you riding the Light Dragon high above the Demon Dragon; dive off and aim for one of the glowing eye-like weak spots on its back. The core loop is simple: free-fall onto a weak spot and slash it with the Master Sword until it bursts, then glide toward the Light Dragon's head — it homes in, catches you, lifts you back up for the next one, and even heals any Gloom you've taken. Clear all four back weak spots that way. If diving onto them is fiddly, you can also shoot arrows at the spots on the way down — easy for a kid to manage. Once the back is done, the Secret Stone on its head glows; glide down, strike it with the Master Sword, then hit the final-blow prompt to finish the Demon Dragon and the game. There are no drops — the reward is the ending."
+   },
+   {
+    "name": "Fire Gleeok",
+    "tier": "boss",
+    "tactic": "Three fire heads; arrow each one (ice-fused does the most) to stagger and ground it, then melee — ride its fireball updraft for a slow-mo aerial volley.",
+    "drops": "Gleeok Flame Horn, Wing, Guts",
+    "battle": "The Flame Gleeok is one of TotK's scariest sky bosses, but it's weak to ice, so the fight melts fast once you come prepared. Its lair runs dangerously hot, so first eat a heat-resistance meal (or wear a Desert Voe piece) — then add a defense-up or hearty dish and pack ~40 arrows. Bring a strong melee weapon for the downed phase and a multi-shot bow, and fuse arrows with an icy material — Ice Fruit or White Chuchu Jelly; adding a Keese Eyeball makes arrows home in on the heads so you barely have to aim. The whole fight is about its three heads: land an arrow on each (knock all three out before they regenerate) to stagger it and bring it crashing down, then sprint in and unload melee on the grounded heads before it lifts off. Repeat. When it's low it floats up and drops a giant fireball — guard or dodge the blast, then ride the updraft its flames leave behind with your paraglider (Vow of Tulin's gust pushes you higher). Draw your bow in mid-air to trigger slow-motion, and pop all three heads at once. It drops the Gleeok Wing, the rare Gleeok Guts, and the Gleeok Flame Horn — a +30 flaming fuse material."
+   },
+   {
+    "name": "Frost Gleeok",
+    "tier": "boss",
+    "tactic": "Three ice heads, weak to fire: stun all three eyes with fire/homing arrows to drop it, then melee.",
+    "drops": "Frost Gleeok Horn, Wing, Guts",
+    "battle": "Bring FIRE and cold gear first. Fuse arrows with Fire Fruit (or a Fire-Breath Lizalfos Horn) so each hit does bonus damage to this frost monster, and pack a multishot bow plus a big stack of arrows. Wear cold-resistant armor (an upgraded Snowquill set) so its icy breath doesn't freeze you, and eat an attack-up or defense-up meal before you start. Opening: its three heads breathe ice, so don't charge in. Stay at range and shoot each head in the eye — fusing a Keese Eyeball to an arrow makes the shot home in, so you can tag the eyes from the ground. Core loop: stun all three heads and the whole beast crashes down; sprint in and unload your strongest weapon before it recovers, then back off and repeat. To hit all three heads in one draw, jump off your horse mid-gallop, or leap from a high ledge (Ascend up something first) to trigger slow-motion bullet-time aiming; Tulin's gust can give you extra glide height. When it drops to about a third health it flies up and rains giant icicles — climb onto one stuck in the ground and use Recall to ride it skyward, back into eye range. Easy fallback: a multishot bow plus homing Keese-eyeball arrows lets you spam the eyes from safety. Defeating it drops a Gleeok Frost Horn and Gleeok Wing — top-tier fuse materials (a Gleeok Frost Horn adds +30 attack and an ice burst) — and sometimes Gleeok Guts."
+   },
+   {
+    "name": "Thunder Gleeok",
+    "tier": "boss",
+    "tactic": "Three shock heads, no elemental weakness; avoid metal gear, disable all three heads at once to stun it.",
+    "drops": "Thunder Gleeok Horn, Wing, Guts",
+    "battle": "Bring a multishot bow and lots of arrows (this fight is mostly archery), wooden or Zonaite weapons rather than metal ones — its storm calls lightning down onto metal gear — plus shock resistance (a meal/elixir or the Rubber armor set) and an attack- or defense-up dish. Unlike the Flame and Frost Gleeoks it has no elemental weakness, so don't rely on an element — the goal is to knock out its three shock-spitting heads. Fusing Keese Eyeballs onto your arrows makes them home in on those heads, and Tulin's gust helps you get airborne and close distance. Open by climbing or using Ascend to reach high ground, then glide off and draw your bow in mid-air — slow-mo lets you disable all three heads in one volley, which stuns the Gleeok and drops it. While it's down, sprint in and wail on the heads with your strongest melee weapon until it recovers, then back off and headshot it again. Around two-thirds health it flies up and rains thunderbolts, but each strike leaves a tall wind updraft you can ride with the paraglider to keep firing into the heads and bring it back down. If you're struggling, just spam Keese-Eyeball-fused arrows at the heads from a distance and ride the updrafts between volleys — no melee risk. Its drops — the Gleeok Thunder Horn, Gleeok Wing, and Gleeok Guts — are among the best fuse and elixir materials in the game."
+   },
+   {
+    "name": "Colgera",
+    "tier": "boss",
+    "tactic": "Wind Temple boss fought while skydiving — fire-fuse your arrows and shoot its three ice-covered weak segments.",
+    "drops": "Heart Container, Tulin's Vow",
+    "battle": "This is a skydiving boss, so the gear that matters most is a sturdy bow (pack a backup bow too) and a big stack of arrows. Wear cold-resistance armor or eat a spicy/warm dish for the freezing Hebra air, and bring hearty or attack-up food to top off hearts. Fire is the key: fuse a Fire Fruit or Red Chuchu Jelly to your arrows to crack Colgera's ice fast. The fight opens with you diving off the temple into open air; aim at the three rounded, ice-covered segments along its head, body, and tail. Each weak point takes two hits — one to break the icy shell, one to pop the exposed core — and with fire-fused arrows that's about two arrows per segment (around three without fire). Destroying all three ends phase one. Don't panic about stamina: opening your paraglider to glide refills it, so dive to aim, then glide to recover and line up the next shot. Get below or behind it and shoot the segments as you fall; when it flings its ice spikes it briefly exposes the weak points, so punish that. In phase two it regrows the segments and adds slow-moving tornadoes — keep your distance to weave between them, and when it vanishes into a bubble it reappears from below for a pincer strike, so use Tulin's gust to reposition out of the way, then resume hitting the three weak spots. The patient, kid-friendly approach works fine: keep gliding to refill stamina, never run dry on arrows, and chip one segment at a time from a safe distance. Beating it grants a Heart Container and the Vow of Tulin, the Sage of Wind, whose gust ability you'll lean on constantly afterward."
+   },
+   {
+    "name": "Marbled Gohma",
+    "tier": "boss",
+    "tactic": "Fire Temple boss; charge Yunobo at its legs to knock it down, then climb up and smash the eye.",
+    "drops": "Heart Container, Yunobo's Vow",
+    "battle": "Wear Flamebreaker armor (or sip a Fireproof Elixir) for the Fire Temple heat, bring your strongest Fused melee weapon — a rock or heavy material on a claymore lands big eye hits — and pack an attack-up or defense-up cooked meal. The real key is Yunobo: you fight this alongside the young Goron, so aim and fire his rolling charge at Marbled Gohma. Phase one is the floor phase — its body is wrapped in marbled rock you can't dent, so blast two of its legs with Yunobo's charge and the whole thing collapses, exposing its big eye. Climb up (or use Ascend) and wail on the eye with your strong weapon, or shoot it with arrows, until it recovers, then repeat. When it spits or drops explosive marbled rocks, move out of the blast — or pop them with Yunobo. At about half health it clings to the ceiling: aim Yunobo up the room's curved grey walls so he rolls across the ceiling and slams the boss — a single good hit crumbles all its legs and drops it, then climb and hit the eye again. Its nasty move here is a ring of explosive boulders dropped around you; smash one with Yunobo, or use Recall to lift one and slip through the gap, then run clear before they blow. If the climbing is too fiddly for a kid, lean on Yunobo for the legs and only commit to the eye when it's flat on the ground. Win and you get a Heart Container plus the Vow of Yunobo, Sage of Fire — the ability to call his charge anywhere from then on."
+   },
+   {
+    "name": "Mucktorok",
+    "tier": "boss",
+    "tactic": "Water Temple boss; strip the sludge shark with water (Sidon's shield or Splash-Fruit arrows), then flip and pound the octopus inside.",
+    "drops": "Heart Container, Sidon's Vow",
+    "battle": "Bring Splash Fruit and Chuchu Jelly to fuse onto your arrows (water strips the sludge off the boss), a strong fused melee weapon for the punish windows, and plenty of arrows; a spear is handy here for landing quick multi-hits while it's exposed. Eat an attack-up or defense-up dish, and keep Sidon summoned the whole fight, since his water shield washes off sludge and blocks its muddy attacks. The fight opens with the Mucktorok charging around the arena disguised in a shark-shaped sludge suit, ramming you or firing a sludge beam; you can't hurt the suit, so hit it with water to strip it. The core loop: splash it with Sidon's water shield (one hit) or a water-fused arrow (about two hits) to knock off the sludge and expose the little octopus inside, fire an arrow to flip it over, then rush in and unload with melee before it re-coats. Below half health it floods the floor with sludge puddles that slow you and dives in to flee, so shoot it with a water arrow the instant it jumps out. The kid-friendly cheese: this arena has low gravity, so jump to trigger slow-motion, calmly land water-fused arrows on it, and lean on Sidon's shield to clear sludge for free. Winning earns a Heart Container and the Vow of Sidon, Sage of Water, his water ability."
+   },
+   {
+    "name": "Queen Gibdo",
+    "tier": "boss",
+    "tactic": "Lightning Temple boss; hit her with Riju's lightning (or fire/cold) to turn her white, then strike — destroy the Gibdo hives in phase 2.",
+    "drops": "Heart Container, Riju's Vow",
+    "battle": "Queen Gibdo is the Lightning Temple boss, and the fight is built around Riju's lightning, so step onto the boss-room warp pad with her in your party. Bring a bow and plenty of arrows, a strong melee weapon (a one-handed weapon or spear fused with a hard-hitting material for the close-up windows), and a defense-up or hearty meal, since her attacks hit hard. She is weak to shock, fire, and cold; a lightning or fire hit turns her white and vulnerable. To activate Riju's power, stay near her, draw your bow to call up the lightning target, and fire an arrow into it to call down a strike. Land that hit to turn her white, then sprint in and unload your strongest melee combo; a follow-up lightning hit while she's white knocks her down for free damage, so back off and repeat. Dodge her sand tornadoes by dashing to the side, and when she fires the tracking sand beam just hold ZL to block it. Around half health she starts a diving attack and summons Gibdo from hives around the arena — destroy the hives (Riju's lightning or explosive-fused arrows) and stand in the pillars of light, which make wandering Gibdo immobile and destroy them. If you're struggling, lean on Riju: re-aim a fresh lightning strike for every stun and chip her down safely from range. Beating her grants a Heart Container and Riju's Vow, her lightning sage ability."
    }
-  ]
+  ],
+  "basics": [
+   {
+    "title": "Fuse makes your weapons",
+    "body": "The weapons you find are weak and decayed, so on their own they barely scratch anything. Press the Fuse ability (the green hand) to stick a monster horn, a rock, or a gem onto a weapon to massively boost its damage, or onto a shield or arrow to add an effect. A Lynel or Gleeok horn or a heavy rock turns a flimsy stick into a real weapon, and this is the single most important habit in combat."
+   },
+   {
+    "title": "Flurry Rush",
+    "body": "Hold up your guard (ZL) and dodge at the very last second to trigger slow-motion, then mash Y for a free combo. Hop sideways to dodge an overhead or charging swing or a thrust, and backflip (pull back) to dodge a horizontal sideways swing."
+   },
+   {
+    "title": "Perfect Guard (Parry)",
+    "body": "Hold up your shield with ZL, then press A right as a blow lands to deflect it instead of just blocking. It's great against chargers and against projectiles you can knock back at the enemy."
+   },
+   {
+    "title": "Sneakstrike & weak points",
+    "body": "Crouch and sneak up on an enemy that hasn't noticed you (watch the noise meter) for a big bonus hit before the fight even starts. A bow shot to the head or eye staggers most enemies, and aiming your bow while falling through the air (off a ledge or your paraglider, not a standing jump) slows time so you can line up that shot."
+   },
+   {
+    "title": "Elements: fire, ice, shock, water",
+    "body": "Fire burns enemies and creates an updraft you can paraglide up, frost freezes a foe so the next hit shatters them, and shock makes enemies drop their gear and is deadly to anyone holding metal. Water and Splash Fruit wash off sludge and put out fire, so Fuse the element that exploits a foe's weakness. Never carry a metal weapon or shield in a thunderstorm or near a Thunder Gleeok, or lightning will hit you."
+   },
+   {
+    "title": "Weapons break — that's normal",
+    "body": "Every weapon wears out and breaks, so don't hoard your best one; carry several and use them. When a fused weapon is almost gone, throw it for a burst of damage, then Fuse a fresh one from the endless monster parts you keep picking up."
+   },
+   {
+    "title": "What to bring to a hard fight",
+    "body": "Cook one defense-up or attack-up meal, bring a couple of strong Fused weapons and a sturdy shield to parry, and carry a bow with a stack of arrows plus a few you can Fuse an element onto. If you're heading into the Depths, pack Brightbloom Seeds for light. That's it."
+   }
+  ],
+  "notes": "Adversarial verify done against Game8, ScreenRant/RankedBoost, GameRant, PowerPyx, Zelda Dungeon, Kiranico, Fextralife. Corrections made to the original dataset: (1) Stalnox drop \"Ancient Bone\" was wrong/invented; real drops are Stalnox Horn + Hinox Tooth. (2) Like Like listed \"Sticky Frog\" as a drop, which is invented (Sticky Frog is a critter caught near water, not a monster drop); corrected to Opal + chest gear, with Ice Like Stone/Rock Like Stone from variants. (3) Frox was missing its \"Frox Fang\" drop and listed vague \"gems\"; corrected to Frox Fang/Fingernail/Guts + Zonaite/Large Zonaite/Crystallized Charge. (4) Boss Bokoblin drop \"Bokoblin Horn (high tier)\" corrected to the real materials Boss Bokoblin Horn + Boss Bokoblin Guts. (5) Construct drop \"Zonaite\" corrected to \"Zonai Charge\" (the standard Construct drop). (6) Lynel \"Lynel Horn\" corrected to the real horn names Lynel Saber Horn / Mace Horn. (7) Phantom Ganon drop expanded to include the Gloom weapon (Sword/Club/Spear) it was wielding, alongside the always-dropped Demon King's Bow and Dark Clump. (8) Aerocuda tactic edited (Keese Eyeball-fused arrow homes in). (9) Gibdo tactic refined: they harden/revive and are broken by any element (fire/electric/ice), not specifically a fused Gibdo Bone. (10) Hinox drops expanded (Tooth also drops). (11) Stone Talus renamed to Luminous/Rare variants with accurate gem list. (12) The grouped \"Seized/Marbled bosses\" entry renamed to the actual four temple bosses. Verified-accurate as written (no change): Bokoblin, Moblin, Lizalfos, Horriblin, Molduga, all Gleeok elemental counters, Flux Construct weak-block, Frox eye/ore cycle, Demon Dragon (4 back weak spots, Master Sword 10x dmg, Light Dragon lifts you between hits), Gloom Hands light/Bomb-arrow tactic. Tiers kept as: common, mini-boss (field bosses), boss (region/major), construct (Zonai automata), gloom (gloom-type). Lower confidence: exact full drop tables are representative not exhaustive (higher-tier color variants add Guts and extra gems/Zonaite). All step/tactic/drop strings kept under 170 chars, plain text."
  },
  "COOKING": {
   "rules": [
@@ -4209,6 +4349,7 @@
   "Up to 5 ingredients per dish. Adding more of the same effect food gives more hearts/duration up to the cap.",
   "Hearty-effect dishes fully heal and add temporary yellow (bonus) hearts; they ignore the normal heart count."
  ],
+ "COOK_INGREDIENTS": [],
  "WORLD": {
   "systems": [
    {
@@ -4300,6 +4441,8 @@
   ],
   "notes": "Web-verified against Nintendo Life, Game8, GameWith, ZeldaDungeon, Fextralife. CORRECTIONS to the source dataset: (1) The heart/stamina swap is done at the HORNED STATUE (also nicknamed the Cursed Statue), hidden in the Emergency Shelter bunker beneath Lookout Landing, unlocked via the \"Who Goes There?!\" quest. It is NOT a Goddess Statue and NOT a Bargainer/\"Statue of the Dead\" (those are the separate Poe-trading statues). (2) The swap is NOT free: you sell an essence for 100 rupees and rebuy the other type for 120, a net 20 rupees per swap. The source's own note that recommended dropping the Horned Statue reference was backwards and has been reversed. (3) Korok seed total corrected from 1000 to 900 (giving all to Hestu fully maxes pouches; the famous \"1000th\" is a meme/extra, but the real count is 900). (4) Softened \"press A\" sage-activation wording since activation differs per sage (Tulin gust on glide, Yunobo charge on aim+attack, etc.); walking up + prompt is the secondary cue. Confirmed accurate as given: 152 shrines, 120 Lightroots (names spelled backwards under Surface shrines), 15 Skyview Towers, 7 Bargainer Statues (1 Surface + 6 Depths), 20 Sage's Wills (some guarded by King Gleeoks), 4 Sage's Wills per upgrade at ~1.3x, 4 Lights of Blessing per vessel, 3 Zonaite per Crystallized Charge at a Forge Construct, 100 charges per Energy Cell at the Crystal Refinery, 4 Great Fairies (Tera, Cotera, Kaysa, Mija) unlocked via the Stable Trotters troupe led by conductor Mastro, Tera awakened first. Medium-high confidence on stable pairings; Tera-first ordering is firm. Note: Korok total of 900 is well documented but some count the bonus, so if your app already standardized on 900 keep it."
  },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
  "RUNES": [
   {
    "id": "ultrahand",
@@ -4533,7 +4676,89 @@
  "GREAT_FAIRIES": [],
  "SIDE_QUESTS": [],
  "REGION_MAPS": {},
- "MAP_NODES": {},
+ "MAP_NODES": {
+  "great_sky_island": {
+   "x": 120,
+   "y": 26,
+   "l": "Sky Start"
+  },
+  "sky": {
+   "x": 250,
+   "y": 26,
+   "l": "Sky Isles"
+  },
+  "hebra": {
+   "x": 58,
+   "y": 60,
+   "l": "Hebra"
+  },
+  "tabantha": {
+   "x": 66,
+   "y": 120,
+   "l": "Tabantha"
+  },
+  "ridgeland": {
+   "x": 110,
+   "y": 180,
+   "l": "Ridge"
+  },
+  "gerudo": {
+   "x": 60,
+   "y": 288,
+   "l": "Gerudo"
+  },
+  "central": {
+   "x": 182,
+   "y": 182,
+   "l": "Central"
+  },
+  "faron": {
+   "x": 206,
+   "y": 346,
+   "l": "Faron"
+  },
+  "eldin": {
+   "x": 250,
+   "y": 92,
+   "l": "Eldin"
+  },
+  "akkala": {
+   "x": 302,
+   "y": 66,
+   "l": "Akkala"
+  },
+  "lanayru": {
+   "x": 298,
+   "y": 168,
+   "l": "Lanayru"
+  },
+  "necluda": {
+   "x": 270,
+   "y": 282,
+   "l": "Necluda"
+  }
+ },
  "KOROKS": null,
- "MAP_BEASTS": []
+ "MAP_BEASTS": [
+  {
+   "x": 80,
+   "y": 96,
+   "n": "Wind"
+  },
+  {
+   "x": 258,
+   "y": 76,
+   "n": "Fire"
+  },
+  {
+   "x": 300,
+   "y": 142,
+   "n": "Water"
+  },
+  {
+   "x": 62,
+   "y": 264,
+   "n": "Lightning"
+  }
+ ]
 }

@@ -1,0 +1,23 @@
+{
+ "_note": "TotK overview-map layout for HyruleMap (viewBox 340x384, same Hyrule surface as BotW). Keys are TotK shrine regionKeys; the two sky groups sit in the sky band above the landmass. MAP_BEASTS = faint markers for the four sage temples/regions.",
+ "MAP_NODES": {
+  "great_sky_island": { "x": 120, "y": 26, "l": "Sky Start" },
+  "sky": { "x": 250, "y": 26, "l": "Sky Isles" },
+  "hebra": { "x": 58, "y": 60, "l": "Hebra" },
+  "tabantha": { "x": 66, "y": 120, "l": "Tabantha" },
+  "ridgeland": { "x": 110, "y": 180, "l": "Ridge" },
+  "gerudo": { "x": 60, "y": 288, "l": "Gerudo" },
+  "central": { "x": 182, "y": 182, "l": "Central" },
+  "faron": { "x": 206, "y": 346, "l": "Faron" },
+  "eldin": { "x": 250, "y": 92, "l": "Eldin" },
+  "akkala": { "x": 302, "y": 66, "l": "Akkala" },
+  "lanayru": { "x": 298, "y": 168, "l": "Lanayru" },
+  "necluda": { "x": 270, "y": 282, "l": "Necluda" }
+ },
+ "MAP_BEASTS": [
+  { "x": 80, "y": 96, "n": "Wind" },
+  { "x": 258, "y": 76, "n": "Fire" },
+  { "x": 300, "y": 142, "n": "Water" },
+  { "x": 62, "y": 264, "n": "Lightning" }
+ ]
+}

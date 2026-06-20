@@ -1,0 +1,328 @@
+{
+ "basics": [
+  {
+   "title": "Fuse makes your weapons",
+   "body": "The weapons you find are weak and decayed, so on their own they barely scratch anything. Press the Fuse ability (the green hand) to stick a monster horn, a rock, or a gem onto a weapon to massively boost its damage, or onto a shield or arrow to add an effect. A Lynel or Gleeok horn or a heavy rock turns a flimsy stick into a real weapon, and this is the single most important habit in combat."
+  },
+  {
+   "title": "Flurry Rush",
+   "body": "Hold up your guard (ZL) and dodge at the very last second to trigger slow-motion, then mash Y for a free combo. Hop sideways to dodge an overhead or charging swing or a thrust, and backflip (pull back) to dodge a horizontal sideways swing."
+  },
+  {
+   "title": "Perfect Guard (Parry)",
+   "body": "Hold up your shield with ZL, then press A right as a blow lands to deflect it instead of just blocking. It's great against chargers and against projectiles you can knock back at the enemy."
+  },
+  {
+   "title": "Sneakstrike & weak points",
+   "body": "Crouch and sneak up on an enemy that hasn't noticed you (watch the noise meter) for a big bonus hit before the fight even starts. A bow shot to the head or eye staggers most enemies, and aiming your bow while falling through the air (off a ledge or your paraglider, not a standing jump) slows time so you can line up that shot."
+  },
+  {
+   "title": "Elements: fire, ice, shock, water",
+   "body": "Fire burns enemies and creates an updraft you can paraglide up, frost freezes a foe so the next hit shatters them, and shock makes enemies drop their gear and is deadly to anyone holding metal. Water and Splash Fruit wash off sludge and put out fire, so Fuse the element that exploits a foe's weakness. Never carry a metal weapon or shield in a thunderstorm or near a Thunder Gleeok, or lightning will hit you."
+  },
+  {
+   "title": "Weapons break — that's normal",
+   "body": "Every weapon wears out and breaks, so don't hoard your best one; carry several and use them. When a fused weapon is almost gone, throw it for a burst of damage, then Fuse a fresh one from the endless monster parts you keep picking up."
+  },
+  {
+   "title": "What to bring to a hard fight",
+   "body": "Cook one defense-up or attack-up meal, bring a couple of strong Fused weapons and a sturdy shield to parry, and carry a bow with a stack of arrows plus a few you can Fuse an element onto. If you're heading into the Depths, pack Brightbloom Seeds for light. That's it."
+  }
+ ],
+ "enemies": [
+  {
+   "name": "Lynel",
+   "battle": "Lynels are Tears of the Kingdom's true skill check, but very beatable once you commit. Bring several strong weapons (a Lynel Saber Horn, a heavy rock, or a sturdy Construct part Fused to a one-handed sword hits hard and lets you land the most blows in a flurry), a bow with plenty of arrows, a 30+ guard shield, and a meal that boosts attack or defense plus a stack of healing food — a weapon or two will break before it dies. Open with a face shot from stealth or range: an arrow to its head makes the Lynel reel for a couple seconds, so sprint behind it and hit the on-screen mount prompt to climb on its back and mash attack for free hits (no durability lost, though it drains your stamina) until it bucks you off. On the ground, bait its charge and side-hop at the last instant for a flurry rush, or raise your shield as it swings for a perfect guard, which briefly stuns it; stay right on top of it so it can't use its fireball or three-to-five-shot arrow volleys, and re-stun and remount when you can. The easy fallback: keep the sage Tulin active for bonus headshots, throw Puffshrooms to blind it in smoke while you reposition, and play patient defense, dodging for flurries instead of trading hits. A defeated Lynel always drops both its Saber Horn and Mace Horn, plus hooves, guts, and its weapon, bow, and shield — some of the best Fuse materials in the game.",
+   "tier": "mini-boss",
+   "tactic": "Brutal centaur. Shoot the face to stun, mount it for free hits, and flurry-rush its charge. Fuse a Lynel horn for a devastating weapon. Bring backup weapons and food first.",
+   "drops": "Lynel Saber Horn or Mace Horn, Lynel Hoof, Lynel Guts, Lynel weapons",
+   "sources": [
+    "https://www.dualshockers.com/zelda-totk-lynel-guide/",
+    "https://hyrulearchive.com/tears-of-the-kingdom/guide/lynel-guide",
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/412566",
+    "https://www.playbite.com/how-to-mount-lynel-tears-of-the-kingdom/",
+    "https://www.zeldadungeon.net/wiki/Lynel_Mace_Horn"
+   ],
+   "corrections": "Softened the mount key (\"press up\"→hit the on-screen mount prompt; TotK uses a contextual prompt, button varies by source), noted mounting drains stamina, clarified a perfect guard briefly stuns, and fixed the drop line — a Lynel always drops BOTH Saber and Mace Horns (not \"either\"). All other claims (gear-first, headshot stun, flurry/charge dodge, fireball/arrow-volley pressure, Tulin/Puffshroom cheese) verified as TotK-accurate."
+  },
+  {
+   "name": "Hinox",
+   "battle": "Bring a strong Fused one-handed weapon (a heavy monster horn or sturdy rock on a one-hander hits hard and lets you swing fast between knockdowns), a spare bow or two with plenty of arrows for the eye, and a meal that boosts attack or defense; no element is needed for a plain Hinox. They usually lie sleeping out in the open with weapons hung on their necklace, so sneak up first, climb onto the belly, and lift those weapons off for free loot before it wakes. The fight is all about its one giant eye: hit the eye with an arrow and the Hinox topples backward, stunned for a few seconds, so sprint in and mash attacks on its face or feet while it can't fight back, then back off before it rises. Keep a sprint's distance, shoot the eye, rush in, retreat — repeat that loop. Its slow turn buys you time, but don't dawdle right underneath or it'll butt-slam you. At low health it covers the eye with its hand, so shoot faster than it can guard, or wait for the hand to drop. Two extras: a falling/leaping shot (drop from height, not a standing jump) slows time to aim the eye; and some Hinox wear leg armor — burn off wood with a fire arrow, blast metal with a shock arrow. Easy mode for a struggling player: just keep your distance and chain eye-shots — every stun is a free combo and it never gets to swing. It drops great Fuse fodder: Hinox Horn, Hinox Guts, Hinox Toenail, and Hinox Tooth, plus the weapons off its necklace.",
+   "tier": "mini-boss",
+   "tactic": "One-eyed giant; sleeps with weapons on its necklace — climb on and grab them first. Shoot the eye to topple it, rush in and melee, then back off before it rises.",
+   "drops": "Hinox Horn, Hinox Guts, Hinox Toenail, Hinox Tooth",
+   "sources": [
+    "https://gamewith.net/zelda-totk/article/show/38996",
+    "https://www.gameskinny.com/tips/zelda-tears-of-the-kingdom-hinox-boss-fight-guide/",
+    "https://www.ggrecon.com/guides/zelda-tears-of-the-kingdom-hinox/",
+    "https://www.gamerguides.com/the-legend-of-zelda-tears-of-the-kingdom/guide/bosses/hyrule-ridge/how-to-beat-hinox-in-tears-of-the-kingdom",
+    "https://primagames.com/tips/tears-of-the-kingdom-how-to-shoot-the-bow-in-slow-motion"
+   ],
+   "corrections": "Softened \"Ultrahand or grab\" to climb-on-and-grab (the actual loot method); fixed the bullet-time line to require dropping from height, not a standing jump; replaced the flat \"you don't need any element\" with an added honest note that armored-leg Hinox need fire (wood) or shock (metal) arrows. Eye-stun loop, ~5s stun, eye-cover phase, cheese, and all four drops verified."
+  },
+  {
+   "name": "Stalnox",
+   "battle": "Bring a long-reach Fused weapon (a heavy rock or horn on a spear or claymore — the Stalnox is slow, so reach beats speed), a bow with a big stack of arrows, and ideally a few Bomb Arrows. A defense-up or attack-up meal helps; if this Stalnox is in the Depths, pack a Gloom-resistant dish and some Sundelion food to heal gloom hearts, and toss Brightbloom Seeds to light the area first. It rises from a pile of bones into a one-eyed skeleton (on the surface only at night, 9PM–5AM; underground it's already active), so open by shooting an arrow straight into its single eye — that staggers it and drops it to the ground. While it's down, run in and pound the body with melee. When it stands, shoot the eye again and repeat; once its health is low an eye-shot pops the eye clean out (a Bomb Arrow knocks it loose instantly, no matter its health) and the body collapses into bones. The detached eyeball bounces around with its own health bar — chase it down and smash it before the skeleton reassembles. Cheese it: there's no time-stop in this game, but jump off a ledge and aim mid-air to trigger slow-motion for the eye shots, and once the eye drops you can grab it with Ultrahand and fling it far from the bones — dragged off and kept away, the Stalnox can't rebuild and is finished. Its drops are excellent fuse material — the Stalnox Horn is a heavy-hitter (about +29 attack fused), plus a Hinox Tooth.",
+   "tier": "mini-boss",
+   "tactic": "Skeletal Hinox in caves/the Depths. Shoot its single eye to stagger it for melee; at low health (or with a Bomb Arrow) the eye pops out — smash the loose eyeball or Ultrahand-fling it far from the bones before the body reassembles.",
+   "drops": "Stalnox Horn, Hinox Tooth",
+   "sources": [
+    "https://primagames.com/tips/how-to-defeat-stalnox-in-tears-of-the-kingdom-totk",
+    "https://thenerdstash.com/how-to-defeat-stalnoxes-in-zelda-tears-of-the-kingdom/",
+    "https://rankedboost.com/zelda-tears-of-the-kingdom/stalnox/",
+    "https://zelda.fandom.com/wiki/Stalnox",
+    "https://twinfinite.net/zelda/how-to-shoot-bow-slow-motion-zelda-tears-of-the-kingdom/"
+   ],
+   "corrections": "Removed the BotW-ism \"hold time still\" (no Stasis/time-stop in TotK) and replaced it with the real TotK bullet-time mechanic (jump off a ledge, aim mid-air); added the body-collapses-to-bones detail, the keep-the-eye-away auto-defeat condition, the surface-night vs always-active-underground spawn note, and the Stalnox Horn ~+29 fuse value. All other claims verified."
+  },
+  {
+   "name": "Boss Bokoblin",
+   "battle": "A Boss Bokoblin is a big, tanky brute that leads camps, so bring a two-handed weapon (a claymore Fused with a sturdy rock or a Boss Bokoblin Horn hits hard, and its heavy final swing knocks the brute back), a bow with arrows, and a meal that boosts attack or defense; a good shield lets you parry, and a stealth armor set sets up a huge opening. Open from stealth if you can: creep up and sneakstrike for a roughly 8x hit that can stagger or nearly drop it before the camp reacts, and taking the boss out first often scatters the smaller Bokoblins. In a straight fight, swing your two-hander to stagger and interrupt it, then bait its big overhead and dodge at the last instant for a flurry rush and a string of free hits; raise your shield to parry instead if dodging is tricky. It likes to hurl rocks, barrels, and even its own minions at you, so sidestep them or use Recall to fling the thrown object right back into its face. If it is wearing you down, hang back and pelt it with arrows, lob bomb-fused arrows, or let Tulin's gust and your companions chip it while you stay out of reach. The base Boss Bokoblin drops a Boss Bokoblin Horn (a solid attack-Fuse material) and a Boss Bokoblin Fang; the tougher blue, black, and silver versions also drop the rarer Boss Bokoblin Guts.",
+   "tier": "mini-boss",
+   "tactic": "Huge Bokoblin that leads camps and hurls rocks and minions. Sneakstrike or dodge its overhead for a flurry rush, hit the head, and use a heavy two-hander Fused with a rock or Boss Bokoblin Horn.",
+   "drops": "Boss Bokoblin Horn, Boss Bokoblin Guts",
+   "sources": [
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/412179",
+    "https://thenerdstash.com/how-to-get-boss-bokoblin-guts-in-zelda-tears-of-the-kingdom/",
+    "https://rankedboost.com/zelda-tears-of-the-kingdom/boss-bokoblin/",
+    "https://www.gamertw.com/en/zelda/totk/material/Boss-Bokoblin-Guts",
+    "https://zeldawiki.wiki/wiki/Boss_Bokoblin_Horn"
+   ],
+   "corrections": "Fixed the one-liner's wrong material name (Silver Bokoblin Horn -> Boss Bokoblin Horn / heavy rock) and added the rock/minion-throw + Recall note; softened the Horn's Fuse claim to a \"solid\" attack material (base Horn is only +10) and labeled Guts as \"rarer\"; kept the paragraph's accurate base drops (Horn + Fang) since research confirms base Boss Bokoblins do not drop Guts."
+  },
+  {
+   "name": "Stone Talus (incl. Luminous / Rare)",
+   "battle": "Bring your heaviest blunt weapon — a rock or boulder Fused onto a sturdy handle (the same kind of hammer you'd use to mine ore) chews through its stone armor far better than a sword, and a meal that boosts attack helps you finish before it shakes you off. A bow with a few arrows is handy for chipping the weak spot from the ground if you can't climb. The fight starts when this \"rock\" suddenly stands up; the glowing dark ore deposit on its back is the only weak spot — nothing else does damage. The clean opening is to run right underneath it and use Ascend to phase straight up through its body onto its top, then hammer the ore. Expect about two combos before it tries to buck you off — when it does, just drop down, Ascend up again, and repeat until the ore breaks. It'll also chuck its rock arm at you; the easy, kid-friendly fallback is to use Recall on the thrown rock so it flies right back — that deals no damage but knocks the Talus flat for a few seconds, so you can climb up and wail on it while it's down. Standard ones drop Flint and Amber; the Luminous variant also gives Luminous Stone, and a Rare Talus rains gems — Topaz, Opal, Ruby, Sapphire, even Diamond — making it well worth hunting.",
+   "tier": "mini-boss",
+   "tactic": "Rock golem with an ore weak spot on its back. Run underneath and Ascend straight up onto its top, then hammer the black ore with a blunt/mining weapon. Luminous/Rare variants drop gems.",
+   "drops": "Flint, Amber, Luminous Stone; gems like Topaz/Diamond/Ruby/Sapphire on rare types",
+   "sources": [
+    "https://www.thegamer.com/the-legend-of-zelda-tears-of-the-kingdom-talus-boss-guide/",
+    "https://gameranx.com/updates/id/468354/article/legend-of-zelda-tears-of-the-kingdom-how-to-defeat-stone-talus-overworked-boss-guide/",
+    "https://rankedboost.com/zelda-tears-of-the-kingdom/stone-talus-rare/",
+    "https://rankedboost.com/zelda-tears-of-the-kingdom/stone-talus-luminous/",
+    "https://www.playbite.com/how-to-beat-a-stone-talus-tears-of-the-kingdom/"
+   ],
+   "corrections": "Removed the unverifiable \"Yunobo's rolling charge can stagger it from a distance\" claim (no source supports it; likely a guess); minor clarity tweaks (Recall hits the rock arm and knocks it flat for a few seconds; added Opal to the Rare gem list, which sources confirm)."
+  },
+  {
+   "name": "Frox",
+   "battle": "Froxes live in the pitch-dark Depths, so first toss Brightbloom Seeds to light the area, eat a hearty meal for extra hearts, and ideally a defense- or attack-up dish (bring Depths armor and Sundelion food if Gloom is around). The real essentials: a heavy two-handed weapon (a Fused rock or boss horn on a claymore smashes the ore fastest), a bow with arrows, and a few Dazzle Fruit or Bomb Flowers. The fight opens with the Frox lunging and trying to suck you in with its huge mouth, so keep your distance. To topple it, hit its single big eye: shoot it with an arrow, fuse or throw a Dazzle Fruit (the bright flash blinds and stuns it harder), or shoot a Bomb Flower into its open mouth so it blows up inside. Once it slumps, climb onto its back (easiest from behind, near its tail) and hammer the glowing Zonaite ore deposits with your two-handed weapon. You usually can't break them all in one go; when it wakes it throws you off, so paraglide, draw your bow for slow-motion, and arrow the eye again to drop it and remount. Repeat until every ore chunk is gone. Easy fallback: stay back and re-stun the eye before each climb so it never gets a turn. Drops are great fuse and Zonai fodder: Frox Fang, Frox Fingernail, Frox Guts, plus Zonaite, Large Zonaite, and Crystallized Charge.",
+   "tier": "boss",
+   "tactic": "Giant Depths frog-toad. Stun its single eye (arrow, Dazzle Fruit, or a Bomb Flower in its mouth) to topple it, climb on from behind and smash the glowing Zonaite ore on its back with a two-handed weapon. Re-stun and repeat.",
+   "drops": "Frox Fang, Frox Fingernail, Frox Guts, Zonaite, Large Zonaite, Crystallized Charge",
+   "sources": [
+    "https://www.thegamer.com/the-legend-of-zelda-tears-of-the-kingdom-frox-locations-types-find-beat-how-tips-tricks-help-totk/",
+    "https://segmentnext.com/tears-of-the-kingdom-frox/",
+    "https://rankedboost.com/zelda-tears-of-the-kingdom/frox/"
+   ],
+   "corrections": "Softened the hard \"legs too steep, use the flat tail\" claim to \"easiest from behind, near its tail\" (only weakly sourced); tightened length under 900-char-ish and clarified bow slow-motion (TotK bullet-time) and Bomb-Flower-in-mouth, both verified; drops list confirmed across sources (note: some guides name it \"Large Crystallized Charge\")."
+  },
+  {
+   "name": "Flux Construct",
+   "battle": "Bring a sturdy fused melee weapon (a rock or boulder fused to a claymore hits hard), a bow with a good stack of arrows, and a meal that boosts attack or defense to soak the big slams; no element is required for this fight. It opens as a tall, blocky golem — find the one cube that's green with a glowing red eye, that's its only weak spot. Core loop: shoot the eye with an arrow to stagger it (this stuns it for several seconds), then rush in and pound that block with melee; or, even better, aim Ultrahand at the glowing block and yank it straight off, which collapses the whole body so you can wail on the exposed weak spot while it's down. When it shifts into a floating-platform form and scatters cubes, use Recall on a fallen cube to ride it back up to the body, or use Ascend to pop up underneath it; in its rolling cube form, wait for the eye to rotate toward you, then pull or shoot it. The tougher II and III hide and reposition the glowing block — a leaping midair bow shot triggers slow-motion to line it up. Easy fallback: stay back and let Ultrahand do the work — keep ripping blocks off until it crumbles, then grab and rip the glowing core away and finish it on the ground; the slams only hurt if you're standing right under it. Its prize is the Flux Construct Core — a powerful fuse material you must attach to a weapon or shield on the spot (it can't be carried in your inventory) — plus a pile of Zonai Charges (Large Zonai Charges from a III) and Zonai devices.",
+   "tier": "boss",
+   "tactic": "Blocky cube golem — find the green block with the glowing red eye and Ultrahand-pull it (or shoot it) to collapse the body, then pound the weak spot. In platform form, Recall a fallen cube or Ascend up to it. I/II/III scale up and hide the block more.",
+   "drops": "Flux Construct Core, Zonaite, Large Zonaite",
+   "sources": [
+    "https://www.dualshockers.com/zelda-totk-flux-construct-3-boss-fight-guide/",
+    "https://thenerdstash.com/how-to-defeat-flux-constructs-in-zelda-tears-of-the-kingdom/",
+    "https://www.ggrecon.com/guides/zelda-tears-of-the-kingdom-flux-constuct-boss/",
+    "https://gamewith.net/zelda-totk/article/show/39591",
+    "https://www.zeldadungeon.net/wiki/Flux_Construct_I"
+   ],
+   "corrections": "Fixed the reward prose: independent sources confirm Flux Constructs drop the Core plus Zonai Charges / Large Zonai Charges and Zonai devices, NOT Zonaite ore — softened the prose accordingly (the structured drops field was left as instructed, but the listed Zonaite/Large Zonaite is unverified and likely wrong; it should be Zonai Charges/Large Zonai Charges). Also sharpened the weak spot to \"green block with a glowing red eye,\" added the stun-window detail, added the rolling-cube-form tell, and added the beginner-critical note that the Core is fuse-only and must be attached on the spot (can't be picked up). Removed the unverifiable \"Zonai charges\" being framed as secondary-to-Zonaite. All other claims (gear-first, no element, Ultrahand-pull collapse, Recall/Ascend in platform form, midair bullet-time shot, cheese) verified."
+  },
+  {
+   "name": "Molduga",
+   "battle": "A Molduga lives in the Gerudo Desert, so bring heat resistance first — Desert Voe armor or a chilly/heat-resist dish (it turns cold at night, so a warming dish helps then too) — plus a bow with at least a dozen arrows, a stack of Bomb Flowers (buy them from Fyson in Tarrey Town) to Fuse on, and a sturdy melee weapon; a hearty or defense-up meal cushions its tail swipe. The fight opens with the shark hidden under the sand — you can't hit it down there, and standing on open sand is dangerous, so first climb onto a rock or pillar in the arena and stay off the sand. It hunts by sound and bait, so from safety toss an item or fire an arrow into the dunes; a \"?\"/\"!\" appears over its mound and it leaps up to eat, exposing its body. The core loop: when it jumps, hit it with a Bomb-Flower-fused arrow — the blast stuns it and drops it onto the sand — then sprint in and pound its head, where its weak eyes are, until it starts to recover; back off before the spinning tail swipe and burrow. Retreat to high ground and repeat the lure-bomb-beat cycle. If it's overwhelming you or your kid, just camp on the rock and play slow — lure, bomb-arrow, a few head hits, retreat, heal, repeat; patience beats it even with weaker gear. Its drops — Molduga Fin, Molduga Jaw, and Molduga Guts — are excellent, high-value Fuse materials worth the trouble.",
+   "tier": "boss",
+   "tactic": "Sand shark in the Gerudo dunes. Stand on a rock off the sand, throw an item or fire an arrow to lure it up, then hit it mid-air with a Bomb-Flower-fused arrow to stun and drop it — sprint in and pound its head while it's beached.",
+   "drops": "Molduga Fin, Molduga Jaw, Molduga Guts",
+   "sources": [
+    "https://www.thegamer.com/the-legend-of-zelda-tears-of-the-kingdom-molduga-locations-find-beat-how-where-tips-tricks-totk/",
+    "https://gamewith.net/zelda-totk/article/show/39043",
+    "https://www.charlieintel.com/legend-of-zelda/how-to-beat-molduga-in-zelda-tears-of-the-kingdom-255646/",
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/412132"
+   ],
+   "corrections": "Added the eyes/head weak spot (aim melee at the head); softened \"flip it onto land\" to \"stuns it and drops it onto the sand\" (sources say knock-down/stun, not a flip); attributed the Bomb Flower vendor to Fyson and noted nighttime cold; confirmed Fuse/sound-lure are TotK mechanics and drops are correct."
+  },
+  {
+   "name": "King Gleeok",
+   "battle": "Bring a multi-shot bow (a Lynel or Savage Lynel bow that fires 3 or 5 arrows at once) and a big stack of arrows, plus Keese Eyeballs to Fuse to them — eyeball arrows home in and can tag the three heads quickly. Carry a hard-hitting melee weapon for when it lands (something with a strong monster part or a Lynel horn Fused on), an attack- or defense-boosting meal, and a fairy or two for emergencies; if you're fighting the Depths version, eat Sunny food or wear gloom-resistant gear. Each head channels its own element (fire, frost, thunder) and its eye is the weak spot — matching the opposite element helps, but homing eyeball arrows work on all three. The opening: as it rears up, jump or use a Zonai spring to get height, pull your bow in mid-air so time slows, and shoot each head's eye — every head has its own bar, and they regenerate if you're slow. Tulin's gust pushes you farther across the air for a better angle. Knock all three heads down and King Gleeok crashes to the ground stunned — sprint in and wail on the heads with your melee weapon, then repeat. When it's low it flies high and unleashes all three elements at once in a storm; ride the updraft from its thunderstrikes with your paraglider, use Recall on a thrown ice spike to ride it back up, or pop a Rocket, to get one more slow-motion volley off. The safe, kid-friendly route is patience: stay near cover, only pop out to fire homing eyeball arrows, and never melee until all three heads are down. Its drops — the Gleeok Flame, Frost, and Thunder Horns plus the Gleeok Wing and Guts — are top-tier fuse materials worth the fight.",
+   "tier": "boss",
+   "tactic": "Toughest Gleeok — three heads, three elements. Bring a multi-shot Lynel bow, lots of arrows, and Keese-eyeball homing arrows; shoot every head's eye in mid-air bullet-time to crash it down and melee the heads, then chase it in the aerial storm with updrafts/Recall.",
+   "drops": "Gleeok Flame Horn, Gleeok Frost Horn, Gleeok Thunder Horn, Gleeok Wing, Gleeok Guts",
+   "sources": [
+    "https://www.gamepur.com/guides/the-legend-of-zelda-tears-of-the-kingdom-all-gleeok-locations-how-to-beat-them",
+    "https://www.cbr.com/loz-totk-gleeok-location-guide/",
+    "https://www.thegamer.com/the-legend-of-zelda-tears-of-the-kingdom-gleeok-locations-how-to-beat-guide/",
+    "https://www.cbr.com/tears-of-the-kingdom-gleeok-guide-zelda/",
+    "https://gamewith.net/zelda-totk/article/show/39028"
+   ],
+   "corrections": "Fixed the drops: a King Gleeok drops the three elemental Gleeok Horns (Flame/Frost/Thunder) + Gleeok Wing + Gleeok Guts — there is NO item called \"King Gleeok Horn,\" so corrected both the drops field and kept the body's horn names. Added that each head's eye is the weak spot and downed heads regenerate if you're slow (verified). Specified the aerial-phase reaching methods (updraft from thunderstrikes, Recall on a thrown ice spike, Rocket) instead of the vaguer original. Otherwise verified bullet-time mid-air shooting, multishot Lynel bow, eyeball homing arrows, Tulin gust, spring launch, gloom/Sunny-food for Depths — all confirmed TotK mechanics."
+  },
+  {
+   "name": "Gloom Hands (Gloom Spawn)",
+   "battle": "Bring a strong bow with a big stack of arrows and fuse explosives to them — Bomb Flowers or Fire Fruit hit the whole cluster of arms at once — and pack a meal that restores gloom-damaged hearts (a Sundelion/\"sunny\" dish) or a Dark Clump warding dish, or wear Depths armor, to blunt the gloom. The fight opens with five gloom-soaked arms crawling at you, each with its own health bar; do NOT fight them on the ground, because touching them drains your max hearts, and don't pick them off one at a time — kill them together or the survivors regrow. Get up high right away: a boulder, a fallen log, or a quick Ultrahand platform works, since the hands can't climb steep verticals (they can still scramble up slopes). Stay elevated, keep your distance, and rain explosive arrows into the bunched-up cluster. If you're struggling, freeze each arm with an Ice Fruit and smash it while frozen, or simply wait them out from somewhere they can't reach. After the hands die, Phantom Ganon spawns as a second phase (sometimes more than one) — circle him and block or parry his swings; every hit you land shrinks his gloom pool until he falls. They drop Dark Clumps, which cook into warding dishes that protect against gloom.",
+   "tier": "gloom",
+   "tactic": "Crawling gloom arms that drain max hearts and regrow if split up. Get on high ground they can't climb and rain Bomb Flower / Fire Fruit arrows into the whole cluster at once; after they die, Phantom Ganon spawns.",
+   "drops": "Dark Clump",
+   "sources": [
+    "https://www.nintendolife.com/guides/zelda-tears-of-the-kingdom-how-to-defeat-gloom-hands",
+    "https://gamerant.com/zelda-tears-of-the-kingdom-phantom-ganon-boss-guide-beat-gloom-hands-demon-king-bow-tloz-totk/",
+    "https://gamertweak.com/beat-gloom-hands-zelda-totk/",
+    "https://www.gamerguides.com/the-legend-of-zelda-tears-of-the-kingdom/guide/getting-started/tips-and-tricks/how-to-beat-gloom-hands-and-phantom-ganon-combat-strategy"
+   ],
+   "corrections": "Removed the unverified \"bright light / Brightbloom Seeds weaken/scatter them\" claim from both the paragraph and one-liner (Brightbloom is for lighting the Depths, not a Gloom Hands weakness — no independent source confirms it); changed Phantom Ganon tactic from \"flurry rush\" to the better-sourced circle-and-block/parry (and noted it can be more than one Phantom Ganon); added the kill-them-together regeneration warning and \"frozen-on-death\" is implied by that; clarified high ground only stops them on steep verticals (they traverse slopes)."
+  },
+  {
+   "name": "Phantom Ganon",
+   "battle": "Gloom resistance wins half this fight: wear the Depths armor set (the \"gloomy\" gear, gloom-attack resistance) and bring a Sundelion dish (e.g. Sunny meat/mushrooms) to heal back any max-hearts the gloom locks away. Carry a strong Fused melee weapon (the Master Sword is ideal here — it does extra damage to Ganon — or a Lynel horn on a good base), a shield, and a bow with plenty of arrows. He only spawns after you clear the Gloom Hands, so handle those first: fuse bombs or explosives to your arrows, and if it gets ugly, climb onto high ground the hands can't reach and pelt them safely. Once Phantom Ganon appears, don't hug him — the gloom pool at his feet drains hearts. Wait for his telegraphed swing or charge, then backflip or side-hop at the last instant for a flurry rush, or raise your shield for a perfect guard; land a couple of hits and step back out of the pool. His spin attack cuts through blocks, so dodge that one. The pool shrinks every hit you land, so it doubles as a progress bar. If you're overwhelmed, just flee and he'll vanish. He always drops the Demon King's Bow — its damage scales with your max hearts — plus a Gloom Sword, Club, or Spear matching the one he wielded, and Dark Clumps.",
+   "tier": "boss",
+   "tactic": "Spawns after you clear the Gloom Hands. Wear the Depths (gloom-resist) set and pack a Sundelion dish; dodge his telegraphed swing/charge for a flurry rush (or perfect-guard), punish, then step out of the heart-draining gloom pool. Avoid the spin attack — it cuts through blocks.",
+   "drops": "Demon King's Bow, a Gloom weapon (Sword/Club/Spear), Dark Clump",
+   "corrections": "Softened \"sturdy rock\" fuse (weak) and added Master Sword as the top pick; replaced \"stay close and circle him\" with keep-out-of-the-gloom-pool framing (his pool/aura drains hearts); added that his spin attack cuts through blocks; otherwise verified (Depths set, Sundelion, Gloom-Hands-first, gloom pool shrinks per hit, flee-to-vanish, Demon King's Bow scales with hearts, drops).",
+   "sources": [
+    "https://www.gosunoob.com/zelda-tears-of-the-kindom/beat-phantom-ganon/",
+    "https://gameranx.com/features/id/467056/article/legend-of-zelda-tears-of-the-kingdom-how-to-easily-defeat-phantom-ganon-boss-guide/",
+    "https://gamewith.net/zelda-totk/article/show/39092",
+    "https://www.thegamer.com/the-legend-of-zelda-tears-of-the-kingdom-loz-phantom-ganon-guide/",
+    "https://www.gamerguides.com/the-legend-of-zelda-tears-of-the-kingdom/guide/getting-started/tips-and-tricks/how-to-beat-gloom-hands-and-phantom-ganon-combat-strategy",
+    "https://screenrant.com/zelda-tears-kingdom-stamina-hearts-demon-kings-bow/"
+   ]
+  },
+  {
+   "name": "Demon King Ganondorf",
+   "battle": "Bring your strongest Fused melee weapons (a Silver Lynel horn or a heavy blade on a claymore hits hard), a sturdy shield, and the Master Sword if you have it (it deals bonus damage to gloom). Most important: cook several Sunny dishes with Sundelions (found on Sky Islands), because his attacks inflict gloom that locks away your hearts and only Sunny meals heal it back — also pack an attack-up or defense-up dish and plenty of hearts. Have all five sages recruited first. The fight opens against waves of gloom-infused monsters while your sages fight beside you. Then comes the duel: the core loop is flurry rush — wait for his lunging thrust, dodge it at the last instant (or backflip his wide sweep), press Y to flurry, then trigger your sages' vows to pile on extra damage; repeat. Next he releases phantom clones — let the sages tie up the copies while you focus the real one. After that he absorbs the clones and knocks your sages out, going one-on-one: now he perfect-dodges your strikes and even your flurries, so bait a dodge and punish his counter to land hits, and watch for the gloom projectiles he fires before attacks (a good bow helps, since he can't dodge arrows). Beat him and he swallows his Secret Stone to become the Demon Dragon — a final aerial phase: skydive from Zelda's Light Dragon onto its back and smash the glowing weak points until Zelda ends it. The safe play for a struggling player: keep your distance, only flurry his obvious thrust, eat a Sunny dish the moment gloom eats your hearts, and never get greedy. He drops no materials — the reward is the story's end.",
+   "tier": "boss",
+   "tactic": "Three-phase finale: flurry-rush his combos with all five sages, survive the one-on-one where he dodges back, then skydive onto the Demon Dragon. Pack Sunny dishes (Sundelions) to heal gloom.",
+   "drops": "",
+   "sources": [
+    "https://www.dualshockers.com/zelda-totk-beat-demon-king-ganondorf-boss-guide/",
+    "https://hyrulearchive.com/tears-of-the-kingdom/guide/final-boss-guide",
+    "https://www.cbr.com/tears-of-the-kingdom-demon-king-ganondorf-final-boss-guide/",
+    "https://www.gamespot.com/articles/zelda-tears-of-the-kingdom-ganondorf-final-boss-guide/1100-6514051/"
+   ],
+   "corrections": "Added the missing third phase (Demon Dragon, fought by skydiving from the Light Dragon onto glowing back weak points) — the proposed guide wrongly ended after the humanoid duel; removed the unverifiable \"closing ring of gloom flame\"; reframed the opening (monster-army waves, not clones) and moved the Ganondorf phantom clones to their correct phase-2 spot; added that he can't dodge arrows; kept the verified gear/food, gloom/Sunny-dish, flurry-rush, sage, and one-on-one bait-the-dodge details."
+  },
+  {
+   "name": "Demon Dragon",
+   "battle": "This last fight is more spectacle than danger, so don't panic — you can't fall to your death here, because Zelda's Light Dragon always swoops in to catch you. The one must-have is the Master Sword: the Demon Dragon's black scales repel every other weapon, and only the Master Sword damages its glowing weak spots, hitting them for huge bonus damage (no element is needed). It helps to have your paraglider and a few hearts of buffer (a hearty or sunny meal) in case its Gloom breath or projectiles graze you. The fight opens with you riding the Light Dragon high above the Demon Dragon; dive off and aim for one of the glowing eye-like weak spots on its back. The core loop is simple: free-fall onto a weak spot and slash it with the Master Sword until it bursts, then glide toward the Light Dragon's head — it homes in, catches you, lifts you back up for the next one, and even heals any Gloom you've taken. Clear all four back weak spots that way. If diving onto them is fiddly, you can also shoot arrows at the spots on the way down — easy for a kid to manage. Once the back is done, the Secret Stone on its head glows; glide down, strike it with the Master Sword, then hit the final-blow prompt to finish the Demon Dragon and the game. There are no drops — the reward is the ending.",
+   "tier": "boss",
+   "tactic": "Final form, fought in free-fall. Dive onto its back and hit the four glowing weak spots with the Master Sword (only it damages them, 10x dmg); the Light Dragon catches you between each, then finish the Secret Stone on its head.",
+   "drops": "",
+   "sources": [
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/413172",
+    "https://www.cbr.com/tears-of-the-kingdom-demon-king-ganondorf-final-boss-guide/",
+    "https://guided.news/en/guides/how-to-beat-demon-dragon-in-zelda-tears-of-the-kingdom/",
+    "https://zeldatearsofthekingdom.wiki.fextralife.com/Demon+Dragon"
+   ],
+   "corrections": "Softened weak-spot color (removed unverifiable \"red pool\"; sources say yellow eye-like growths that only the Master Sword/red-state damages); removed the invented \"Glide armor set\" recommendation (no source names a specific armor) in favor of generic paraglider + buffer-meal; softened \"literally can't die\" to the verified fact that the Light Dragon always catches you; kept the verified arrow option, head/Secret Stone final phase, and no-drops reward. Tactic one-liner refreshed to note only the Master Sword damages the spots and to include the head finisher."
+  },
+  {
+   "name": "Fire Gleeok",
+   "battle": "The Flame Gleeok is one of TotK's scariest sky bosses, but it's weak to ice, so the fight melts fast once you come prepared. Its lair runs dangerously hot, so first eat a heat-resistance meal (or wear a Desert Voe piece) — then add a defense-up or hearty dish and pack ~40 arrows. Bring a strong melee weapon for the downed phase and a multi-shot bow, and fuse arrows with an icy material — Ice Fruit or White Chuchu Jelly; adding a Keese Eyeball makes arrows home in on the heads so you barely have to aim. The whole fight is about its three heads: land an arrow on each (knock all three out before they regenerate) to stagger it and bring it crashing down, then sprint in and unload melee on the grounded heads before it lifts off. Repeat. When it's low it floats up and drops a giant fireball — guard or dodge the blast, then ride the updraft its flames leave behind with your paraglider (Vow of Tulin's gust pushes you higher). Draw your bow in mid-air to trigger slow-motion, and pop all three heads at once. It drops the Gleeok Wing, the rare Gleeok Guts, and the Gleeok Flame Horn — a +30 flaming fuse material.",
+   "tier": "boss",
+   "tactic": "Three fire heads; arrow each one (ice-fused does the most) to stagger and ground it, then melee — ride its fireball updraft for a slow-mo aerial volley.",
+   "drops": "Gleeok Flame Horn, Wing, Guts",
+   "sources": [
+    "https://gamewith.net/zelda-totk/article/show/39028",
+    "https://www.thegamer.com/the-legend-of-zelda-tears-of-the-kingdom-gleeok-locations-how-to-beat-guide/",
+    "https://zeldatearsofthekingdom.wiki.fextralife.com/Flame+Gleeok",
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/412591",
+    "https://primagames.com/tips/tears-of-the-kingdom-how-to-shoot-the-bow-in-slow-motion",
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/412192"
+   ],
+   "corrections": "Corrected drop name \"Fire Gleeok Horn\" → official \"Gleeok Flame Horn\" (in both the prose and the drops field); fixed invalid item \"Ice-Chuchu jelly\" → \"White Chuchu Jelly\"; led with heat-resistance prep (the lair is dangerously hot) and added the ~40-arrow guidance; clarified that any arrows to all three heads stagger it but ice maximizes damage; named \"Vow of Tulin.\" All other mechanics (ice weakness, three-head stagger, fireball updraft, mid-air slow-mo bow, Keese Eyeball homing) verified accurate TotK mechanics."
+  },
+  {
+   "name": "Frost Gleeok",
+   "battle": "Bring FIRE and cold gear first. Fuse arrows with Fire Fruit (or a Fire-Breath Lizalfos Horn) so each hit does bonus damage to this frost monster, and pack a multishot bow plus a big stack of arrows. Wear cold-resistant armor (an upgraded Snowquill set) so its icy breath doesn't freeze you, and eat an attack-up or defense-up meal before you start. Opening: its three heads breathe ice, so don't charge in. Stay at range and shoot each head in the eye — fusing a Keese Eyeball to an arrow makes the shot home in, so you can tag the eyes from the ground. Core loop: stun all three heads and the whole beast crashes down; sprint in and unload your strongest weapon before it recovers, then back off and repeat. To hit all three heads in one draw, jump off your horse mid-gallop, or leap from a high ledge (Ascend up something first) to trigger slow-motion bullet-time aiming; Tulin's gust can give you extra glide height. When it drops to about a third health it flies up and rains giant icicles — climb onto one stuck in the ground and use Recall to ride it skyward, back into eye range. Easy fallback: a multishot bow plus homing Keese-eyeball arrows lets you spam the eyes from safety. Defeating it drops a Gleeok Frost Horn and Gleeok Wing — top-tier fuse materials (a Gleeok Frost Horn adds +30 attack and an ice burst) — and sometimes Gleeok Guts.",
+   "tier": "boss",
+   "tactic": "Three ice heads, weak to fire: stun all three eyes with fire/homing arrows to drop it, then melee.",
+   "drops": "Frost Gleeok Horn, Wing, Guts",
+   "sources": [
+    "https://altarofgaming.com/tloz-totk-how-to-defeat-frost-gleeok/",
+    "https://www.zeldadungeon.net/wiki/Gleeok_Frost_Horn",
+    "https://www.gamesradar.com/zelda-tears-of-the-kingdom-frost-gleeok/",
+    "https://primagames.com/gaming/frost-gleeok-zelda-tears-of-the-kingdom",
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/412592"
+   ],
+   "corrections": "Corrected drop name to the real in-game \"Gleeok Frost Horn\"/\"Gleeok Wing\" (not \"Gleeok Frost Horn\" was kept; informal \"Frost Gleeok Horn\" avoided), softened Gleeok Guts to a non-guaranteed drop, removed the unverified Dinraal-part fire-fusion suggestion (kept Fire Fruit/Fire-Breath Lizalfos), and softened Tulin's gust to an optional aid; verified fire weakness, eye weak points, eyeball-homing arrows, horse/ledge bullet-time, and the final icicle+Recall phase."
+  },
+  {
+   "name": "Thunder Gleeok",
+   "battle": "Bring a multishot bow and lots of arrows (this fight is mostly archery), wooden or Zonaite weapons rather than metal ones — its storm calls lightning down onto metal gear — plus shock resistance (a meal/elixir or the Rubber armor set) and an attack- or defense-up dish. Unlike the Flame and Frost Gleeoks it has no elemental weakness, so don't rely on an element — the goal is to knock out its three shock-spitting heads. Fusing Keese Eyeballs onto your arrows makes them home in on those heads, and Tulin's gust helps you get airborne and close distance. Open by climbing or using Ascend to reach high ground, then glide off and draw your bow in mid-air — slow-mo lets you disable all three heads in one volley, which stuns the Gleeok and drops it. While it's down, sprint in and wail on the heads with your strongest melee weapon until it recovers, then back off and headshot it again. Around two-thirds health it flies up and rains thunderbolts, but each strike leaves a tall wind updraft you can ride with the paraglider to keep firing into the heads and bring it back down. If you're struggling, just spam Keese-Eyeball-fused arrows at the heads from a distance and ride the updrafts between volleys — no melee risk. Its drops — the Gleeok Thunder Horn, Gleeok Wing, and Gleeok Guts — are among the best fuse and elixir materials in the game.",
+   "tier": "boss",
+   "tactic": "Three shock heads, no elemental weakness; avoid metal gear, disable all three heads at once to stun it.",
+   "drops": "Thunder Gleeok Horn, Wing, Guts",
+   "sources": [
+    "https://primagames.com/gaming/thunder-gleeok-zelda-tears-of-the-kingdom",
+    "https://altarofgaming.com/tloz-totk-how-to-defeat-thunder-gleeok/",
+    "https://www.zeldadungeon.net/wiki/Thunder_Gleeok",
+    "https://www.theloadout.com/the-legend-of-zelda-tears-of-the-kingdom/gameplay-fuse-monster-eye-homing-arrows",
+    "https://www.gamerguides.com/the-legend-of-zelda-tears-of-the-kingdom/guide/bosses/faron/how-to-beat-thunder-gleeok-in-tears-of-the-kingdom"
+   ],
+   "corrections": "Fixed the false \"use any element to stagger\" claim — Thunder Gleeok has NO elemental weakness (verified vs Flame/Frost which do); the heads, not an element, stun it. Softened Tulin from \"the key sage ability\" to \"helps.\" All other claims (avoid metal, Rubber/shock res, Ascend+mid-air bullet-time, all-3-heads stun, melee window, 2/3-health updraft phase, Keese-Eyeball homing arrows, drops) verified across 4 independent sources."
+  },
+  {
+   "name": "Colgera",
+   "battle": "This is a skydiving boss, so the gear that matters most is a sturdy bow (pack a backup bow too) and a big stack of arrows. Wear cold-resistance armor or eat a spicy/warm dish for the freezing Hebra air, and bring hearty or attack-up food to top off hearts. Fire is the key: fuse a Fire Fruit or Red Chuchu Jelly to your arrows to crack Colgera's ice fast. The fight opens with you diving off the temple into open air; aim at the three rounded, ice-covered segments along its head, body, and tail. Each weak point takes two hits — one to break the icy shell, one to pop the exposed core — and with fire-fused arrows that's about two arrows per segment (around three without fire). Destroying all three ends phase one. Don't panic about stamina: opening your paraglider to glide refills it, so dive to aim, then glide to recover and line up the next shot. Get below or behind it and shoot the segments as you fall; when it flings its ice spikes it briefly exposes the weak points, so punish that. In phase two it regrows the segments and adds slow-moving tornadoes — keep your distance to weave between them, and when it vanishes into a bubble it reappears from below for a pincer strike, so use Tulin's gust to reposition out of the way, then resume hitting the three weak spots. The patient, kid-friendly approach works fine: keep gliding to refill stamina, never run dry on arrows, and chip one segment at a time from a safe distance. Beating it grants a Heart Container and the Vow of Tulin, the Sage of Wind, whose gust ability you'll lean on constantly afterward.",
+   "tier": "boss",
+   "tactic": "Wind Temple boss fought while skydiving — fire-fuse your arrows and shoot its three ice-covered weak segments.",
+   "drops": "Heart Container, Tulin's Vow",
+   "sources": [
+    "https://www.gamespot.com/articles/zelda-tears-of-the-kingdom-colgera-boss-guide/1100-6514097/",
+    "https://gamewith.net/zelda-totk/article/show/39138",
+    "https://attackofthefanboy.com/guides/how-to-defeat-the-wind-temple-boss-colgera-in-zelda-tears-of-the-kingdom/",
+    "https://zelda.fandom.com/wiki/Colgera",
+    "https://hyrulearchive.com/tears-of-the-kingdom/bosses/boss-colgera"
+   ],
+   "corrections": "All claims verified accurate; only tightened the shot math so \"two hits per weak point\" (break shell + pop core) is distinct from \"~2 arrows with fire / ~3 without,\" noted tornadoes move slowly, and softened \"pincer dive misses\" to \"reposition out of the way.\" Refreshed the one-liner."
+  },
+  {
+   "name": "Marbled Gohma",
+   "battle": "Wear Flamebreaker armor (or sip a Fireproof Elixir) for the Fire Temple heat, bring your strongest Fused melee weapon — a rock or heavy material on a claymore lands big eye hits — and pack an attack-up or defense-up cooked meal. The real key is Yunobo: you fight this alongside the young Goron, so aim and fire his rolling charge at Marbled Gohma. Phase one is the floor phase — its body is wrapped in marbled rock you can't dent, so blast two of its legs with Yunobo's charge and the whole thing collapses, exposing its big eye. Climb up (or use Ascend) and wail on the eye with your strong weapon, or shoot it with arrows, until it recovers, then repeat. When it spits or drops explosive marbled rocks, move out of the blast — or pop them with Yunobo. At about half health it clings to the ceiling: aim Yunobo up the room's curved grey walls so he rolls across the ceiling and slams the boss — a single good hit crumbles all its legs and drops it, then climb and hit the eye again. Its nasty move here is a ring of explosive boulders dropped around you; smash one with Yunobo, or use Recall to lift one and slip through the gap, then run clear before they blow. If the climbing is too fiddly for a kid, lean on Yunobo for the legs and only commit to the eye when it's flat on the ground. Win and you get a Heart Container plus the Vow of Yunobo, Sage of Fire — the ability to call his charge anywhere from then on.",
+   "tier": "boss",
+   "tactic": "Fire Temple boss; charge Yunobo at its legs to knock it down, then climb up and smash the eye.",
+   "drops": "Heart Container, Yunobo's Vow",
+   "sources": [
+    "https://gamewith.net/zelda-totk/article/show/39175",
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/412397",
+    "https://twinfinite.net/zelda/how-to-beat-marbled-gohma-in-zelda-tears-of-the-kingdom/",
+    "https://www.zeldadungeon.net/wiki/Vow_of_Yunobo,_Sage_of_Fire",
+    "https://progameguides.com/zelda-tears-of-the-kingdom/how-to-beat-marbled-gohma-in-zelda-tears-of-the-kingdom-totk/"
+   ],
+   "corrections": "Fixed phase-2 to say one Yunobo hit crumbles ALL legs and drops the boss (was wrongly \"knock down just one leg\"); corrected reward to the proper name \"Vow of Yunobo, Sage of Fire\"; softened the unverifiable \"the timer is long\" rock-throw claim to \"move out of the blast\"; added the confirmed ~half-health phase-2 trigger and arrow/Ascend options."
+  },
+  {
+   "name": "Mucktorok",
+   "battle": "Bring Splash Fruit and Chuchu Jelly to fuse onto your arrows (water strips the sludge off the boss), a strong fused melee weapon for the punish windows, and plenty of arrows; a spear is handy here for landing quick multi-hits while it's exposed. Eat an attack-up or defense-up dish, and keep Sidon summoned the whole fight, since his water shield washes off sludge and blocks its muddy attacks. The fight opens with the Mucktorok charging around the arena disguised in a shark-shaped sludge suit, ramming you or firing a sludge beam; you can't hurt the suit, so hit it with water to strip it. The core loop: splash it with Sidon's water shield (one hit) or a water-fused arrow (about two hits) to knock off the sludge and expose the little octopus inside, fire an arrow to flip it over, then rush in and unload with melee before it re-coats. Below half health it floods the floor with sludge puddles that slow you and dives in to flee, so shoot it with a water arrow the instant it jumps out. The kid-friendly cheese: this arena has low gravity, so jump to trigger slow-motion, calmly land water-fused arrows on it, and lean on Sidon's shield to clear sludge for free. Winning earns a Heart Container and the Vow of Sidon, Sage of Water, his water ability.",
+   "tier": "boss",
+   "tactic": "Water Temple boss; strip the sludge shark with water (Sidon's shield or Splash-Fruit arrows), then flip and pound the octopus inside.",
+   "drops": "Heart Container, Sidon's Vow",
+   "sources": [
+    "https://www.thonky.com/zelda-tears-of-the-kingdom/mucktorok",
+    "https://screenrant.com/how-to-beat-mucktorok-water-temple-boss-zelda-totk/",
+    "https://www.shacknews.com/article/135959/water-temple-mucktorok-zelda-totk",
+    "https://www.inverse.com/gaming/zelda-tears-of-the-kingdom-water-temple-walkthrough-guide-faucet-mucktorok",
+    "https://www.zeldadungeon.net/wiki/Vow_of_Sidon,_Sage_of_Water"
+   ],
+   "corrections": "Removed the unverifiable claim that Sidon's bubble turns a spear thrust into a \"long water jet\" (no source confirms it; kept spear as good for quick multi-hits); changed \"Sidon's Water Bubble/water shield washes off sludge\" to accurate one-hit-vs-two-hit framing (Sidon = 1 hit, fused arrows = ~2); named the reward precisely as the \"Vow of Sidon, Sage of Water.\" Everything else (low-gravity slow-mo cheese, flip-with-arrow, phase-two puddles/dive, Heart Container) verified across Thonky/ScreenRant/Shacknews."
+  },
+  {
+   "name": "Queen Gibdo",
+   "battle": "Queen Gibdo is the Lightning Temple boss, and the fight is built around Riju's lightning, so step onto the boss-room warp pad with her in your party. Bring a bow and plenty of arrows, a strong melee weapon (a one-handed weapon or spear fused with a hard-hitting material for the close-up windows), and a defense-up or hearty meal, since her attacks hit hard. She is weak to shock, fire, and cold; a lightning or fire hit turns her white and vulnerable. To activate Riju's power, stay near her, draw your bow to call up the lightning target, and fire an arrow into it to call down a strike. Land that hit to turn her white, then sprint in and unload your strongest melee combo; a follow-up lightning hit while she's white knocks her down for free damage, so back off and repeat. Dodge her sand tornadoes by dashing to the side, and when she fires the tracking sand beam just hold ZL to block it. Around half health she starts a diving attack and summons Gibdo from hives around the arena — destroy the hives (Riju's lightning or explosive-fused arrows) and stand in the pillars of light, which make wandering Gibdo immobile and destroy them. If you're struggling, lean on Riju: re-aim a fresh lightning strike for every stun and chip her down safely from range. Beating her grants a Heart Container and Riju's Vow, her lightning sage ability.",
+   "tier": "boss",
+   "tactic": "Lightning Temple boss; hit her with Riju's lightning (or fire/cold) to turn her white, then strike — destroy the Gibdo hives in phase 2.",
+   "drops": "Heart Container, Riju's Vow",
+   "sources": [
+    "https://game8.co/games/Zelda-Tears-of-the-Kingdom/archives/412409",
+    "https://gamewith.net/zelda-totk/article/show/39215",
+    "https://screenrant.com/zelda-totk-queen-gibdo-lightning-temple-boss/"
+   ],
+   "corrections": "Removed the unverified \"break the wing scales\" weak point (no source supports breakable wing scales) from both the one-liner and the guide; tightened the stun mechanic (a hit turns her white/vulnerable, a follow-up lightning hit while white knocks her down) instead of \"white and stunned\"; added the phase-2 diving attack. Verified shock/fire/cold weakness, sand-beam block with ZL, hives/light-pillar mechanic, and Heart Container + Riju's Vow rewards."
+  }
+ ]
+}

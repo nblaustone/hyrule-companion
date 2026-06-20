@@ -1,12 +1,26 @@
 #!/usr/bin/env node
 /* Assemble the verified TotK research (knowledge/totk/{walkthrough,globals,shrines-deduped}.json + the
    8 web-verified missing shrines) into ONE app-ready bundle knowledge/totk/app-data.json shaped exactly like
-   the BotW data the components expect. Refuses to write unless shrines reconcile to 152. */
+   the BotW data the components expect. Refuses to write unless shrines reconcile to 152.
+
+   v13 (TotK parity): also folds in OPTIONAL overlay files produced by the build/gen-totk-*-workflow.mjs
+   author→verify workflows. Each overlay is read if present and degrades gracefully if absent, so re-running
+   this script is idempotent and never wipes authored depth:
+     shrine-solutions.json  → sets each shrine's spoiler-gated `solution`
+     battle.json            → BESTIARY.basics + per-enemy `battle` (merges/extends the enemy list)
+     side-quests.json       → SIDE_QUESTS  ·  towers.json → TOWERS  ·  great-fairies.json → GREAT_FAIRIES
+     koroks.json            → KOROKS       ·  economy.json → ECONOMY
+     armor-tiers.json       → ARMOR.sets[].tiers + .farm (matched by set name)
+     compendium.json        → COMPENDIUM   ·  cooking-ingredients.json → COOK_INGREDIENTS
+     region-maps.json       → REGION_MAPS  ·  map-nodes.json → { MAP_NODES, MAP_BEASTS }
+   guideSegs is rebuilt from which datasets ended up non-empty, in the BotW canonical order. */
 import fs from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 const T = join(dirname(fileURLToPath(import.meta.url)), "..", "knowledge", "totk");
 const J = (f) => JSON.parse(fs.readFileSync(join(T, f), "utf8"));
+const opt = (f) => { try { return J(f); } catch { return null; } }; // optional overlay → null if absent
+const norm = (s) => String(s).replace(/\s+/g, " ").trim();
 const walkthrough = J("walkthrough.json");
 const globals = J("globals.json");
 const ded = J("shrines-deduped.json");
@@ -30,8 +44,24 @@ for (const m of MISSING) (buckets[m.regionKey] = buckets[m.regionKey] || []).pus
 const SHRINES = ORDER.filter((k) => buckets[k]).map((k) => ({ regionKey: k, regionName: REGION_NAME[k] || k, shrines: buckets[k] }));
 const shrineTotal = SHRINES.reduce((n, g) => n + g.shrines.length, 0);
 
-// --- map walkthrough -> REGIONS (kind temple -> beast so the banner styles it) ---
+// overlay: spoiler-gated shrine solutions (matched by name, region-key when given)
+const SOL = opt("shrine-solutions.json");
+let solApplied = 0;
+if (SOL) {
+  const sols = SOL.solutions || SOL;
+  const byKey = new Map(), byName = new Map();
+  for (const g of SHRINES) for (const s of g.shrines) { byKey.set(g.regionKey + "|" + s.name, s); byName.set(s.name, s); }
+  for (const r of sols) {
+    if (!r || !r.name || !r.solution || !norm(r.solution)) continue;
+    const sh = byKey.get((r.regionKey || "") + "|" + r.name) || byName.get(r.name);
+    if (sh) { sh.solution = norm(r.solution); solApplied++; }
+  }
+}
+
+// --- map walkthrough -> REGIONS (kind temple -> beast so the banner styles it). steps keep any `stuck`. ---
 const REGIONS = walkthrough.map((r) => ({ ...r, kind: r.kind === "temple" ? "beast" : r.kind, champion: r.champion || null }));
+let stuckCount = 0;
+for (const r of REGIONS) for (const sec of r.sections || []) for (const st of sec.steps || []) if (st.stuck) stuckCount++;
 
 // --- find the step id that grants each named item (for STATUS_RUNES / CHAMPIONS wiring) ---
 function stepGranting(nameRe) {
@@ -57,13 +87,87 @@ const tone = (e) => { const s = e.toLowerCase(); if (/spicy|cold/.test(s)) retur
 const RECIPES = (COOKING.effects || []).map((e) => ({ eff: e.effect, tone: tone(e.effect), does: e.does, key: e.ingredients, recipe: e.elixir || "Cook the ingredients in a pot.", now: false }));
 const COOK_RULES = COOKING.rules || [];
 
+// overlay: ARMOR — base sets from globals, with tiers/farm spliced in by set name
+const ARMOR_SETS = (globals.armor && globals.armor.sets) || [];
+const ARMTIERS = opt("armor-tiers.json");
+let armApplied = 0;
+if (ARMTIERS) {
+  const rows = ARMTIERS.sets || ARMTIERS;
+  const byName = new Map(ARMOR_SETS.map((s) => [s.name, s]));
+  for (const r of rows) {
+    if (!r || !r.name) continue;
+    const set = byName.get(r.name);
+    if (!set) continue;
+    if (r.tiers) set.tiers = r.tiers;
+    if (r.farm) set.farm = norm(r.farm);
+    armApplied++;
+  }
+}
+
+// overlay: BESTIARY — base enemies from globals, with `battle` spliced in (and marquee enemies appended)
+// the lumped placeholder rows get split into individual bosses by the battle workflow → drop them once the
+// split guides exist (parity with BotW splitting the four Blights).
+const LUMPED = ["Temple bosses (Colgera, Marbled Gohma, Mucktorok, Queen Gibdo)", "Gleeok (Fire / Frost / Thunder)"];
+let ENEMIES = (globals.bestiary && globals.bestiary.enemies) || [];
+const BAT = opt("battle.json");
+let basics = [], batApplied = 0;
+if (BAT) {
+  basics = BAT.basics || [];
+  ENEMIES = ENEMIES.filter((e) => !LUMPED.includes(e.name)); // remove placeholders before re-adding splits
+  const byName = new Map(ENEMIES.map((e) => [e.name, e]));
+  for (const e of BAT.enemies || []) {
+    if (!e || !e.name || !e.battle) continue;
+    const cur = byName.get(e.name);
+    if (cur) { cur.battle = norm(e.battle); if (e.tactic) cur.tactic = norm(e.tactic); }
+    else { const ne = { name: e.name, tier: e.tier || "", tactic: norm(e.tactic || ""), drops: e.drops || "", battle: norm(e.battle) }; ENEMIES.push(ne); byName.set(e.name, ne); }
+    batApplied++;
+  }
+}
+const BESTIARY = { enemies: ENEMIES };
+if (basics.length) BESTIARY.basics = basics;
+if (globals.bestiary && globals.bestiary.notes) BESTIARY.notes = globals.bestiary.notes;
+
+// optional standalone overlays
+// stable slug ids for side quests (must match qSlug() in HyruleCompanion.jsx — progress keys depend on it)
+const qSlug = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "q";
+const SIDE_QUESTS = (() => {
+  const d = opt("side-quests.json"); if (!d) return [];
+  const regions = d.regions || d;
+  const seen = new Set();
+  return regions.map((g) => ({ region: g.region, quests: (g.quests || []).map((q) => {
+    let id = q.id || qSlug(q.name); while (seen.has(id)) id += "-2"; seen.add(id);
+    return { id, ...q };
+  }) }));
+})();
+const TOWERS = (() => { const d = opt("towers.json"); return d ? (d.towers || d) : []; })();
+const GREAT_FAIRIES = (() => { const d = opt("great-fairies.json"); return d ? (d.fairies || d) : []; })();
+const KOROKS = (() => { const d = opt("koroks.json"); return d || null; })();
+const ECONOMY = (() => { const d = opt("economy.json"); return d || null; })();
+const COMPENDIUM = (() => { const d = opt("compendium.json"); return d ? (d.items || d) : []; })();
+const COOK_INGREDIENTS = (() => { const d = opt("cooking-ingredients.json"); return d ? (d.ingredients || d) : []; })();
+const REGION_MAPS = (() => { const d = opt("region-maps.json"); return d || {}; })();
+const MAPN = opt("map-nodes.json");
+const MAP_NODES = MAPN ? (MAPN.MAP_NODES || MAPN.nodes || {}) : {};
+const MAP_BEASTS = MAPN ? (MAPN.MAP_BEASTS || MAPN.beasts || []) : [];
+
+// guideSegs: rebuilt in the BotW canonical order from whatever ended up populated
+const guideSegs = [["runes", "Abilities"], ["tips", "Tips"], ["armor", "Armor"]];
+if (GREAT_FAIRIES.length) guideSegs.push(["fairies", "Fairies"]);
+if (TOWERS.length) guideSegs.push(["towers", "Towers"]);
+if (SIDE_QUESTS.length) guideSegs.push(["quests", "Quests"]);
+guideSegs.push(["enemies", "Enemies"]);
+if (KOROKS) guideSegs.push(["koroks", "Koroks"]);
+if (ECONOMY) guideSegs.push(["economy", "Money"]);
+guideSegs.push(["world", "World"], ["settings", "Settings"]);
+
 const out = {
   id: "totk", label: "Tears of the Kingdom", short: "TotK",
   REGIONS, SHRINES,
-  ARMOR: { sets: (globals.armor && globals.armor.sets) || [] },
-  BESTIARY: { enemies: (globals.bestiary && globals.bestiary.enemies) || [] },
-  COOKING, RECIPES, COOK_RULES,
+  ARMOR: { sets: ARMOR_SETS },
+  BESTIARY,
+  COOKING, RECIPES, COOK_RULES, COOK_INGREDIENTS,
   WORLD: globals.world || { upgrades: [], systems: [], fairies: [] },
+  ECONOMY, COMPENDIUM,
   RUNES, STATUS_RUNES, CHAMPIONS,
   CATS: [
     { id: "ability", name: "Abilities", glyph: "stasis" }, { id: "weapon", name: "Weapons", glyph: "sword" },
@@ -83,16 +187,18 @@ const out = {
     { id: "depths", name: "Surviving the Depths", items: ["The Depths are pitch black and full of Gloom that caps your hearts. Carry Brightbloom Seeds (throw or fuse to arrows) and light Lightroots.", "Cure gloom-damaged (cracked) hearts with Sundelion dishes or by warping to the Surface.", "Every Lightroot sits directly under a Surface shrine — a handy way to find shrines."] },
   ],
   terms: { orbs: "Lights of Blessing", orbWord: "lights", runesLabel: "Abilities", championsLabel: "Sage Vows", regionBanner: "Temple" },
-  guideSegs: [["runes", "Abilities"], ["tips", "Tips"], ["armor", "Armor"], ["enemies", "Enemies"], ["world", "World"], ["settings", "Settings"]],
+  guideSegs,
   postRegionId: "t_depths",
-  // datasets TotK v1 doesn't have yet — kept empty so the UI degrades gracefully
-  TOWERS: [], GREAT_FAIRIES: [], SIDE_QUESTS: [], REGION_MAPS: {}, MAP_NODES: {}, KOROKS: null, MAP_BEASTS: [],
+  // datasets fed by overlays above (empty/null → UI degrades gracefully)
+  TOWERS, GREAT_FAIRIES, SIDE_QUESTS, REGION_MAPS, MAP_NODES, KOROKS, MAP_BEASTS,
 };
 fs.writeFileSync(join(T, "shrines.json"), JSON.stringify(SHRINES, null, 1));
 console.log("shrines per region:", SHRINES.map((g) => g.regionName + ":" + g.shrines.length).join("  "));
 console.log("TOTAL shrines:", shrineTotal, "| abilities:", RUNES.length, "| status-runes wired:", STATUS_RUNES.length, "| sage vows:", CHAMPIONS.length, "| armor:", out.ARMOR.sets.length, "| enemies:", out.BESTIARY.enemies.length);
-console.log("STATUS_RUNES:", STATUS_RUNES.map((r) => r.name + "→" + r.step).join(", "));
-console.log("CHAMPIONS:", CHAMPIONS.map((c) => c.name + "→" + c.step).join(", "));
+console.log("overlays → solutions:", solApplied, "| stuck:", stuckCount, "| battle:", batApplied, "(basics " + basics.length + ")", "| armor-tiers:", armApplied,
+  "| sidequests:", SIDE_QUESTS.length, "| towers:", TOWERS.length, "| fairies:", GREAT_FAIRIES.length, "| koroks:", KOROKS ? "yes" : "no",
+  "| economy:", ECONOMY ? "yes" : "no", "| compendium:", COMPENDIUM.length, "| cook-ing:", COOK_INGREDIENTS.length, "| region-maps:", Object.keys(REGION_MAPS).length, "| map-nodes:", Object.keys(MAP_NODES).length);
+console.log("guideSegs:", guideSegs.map((s) => s[1]).join(" · "));
 if (shrineTotal !== 152) { console.error("✗ shrines != 152 (" + shrineTotal + ")"); process.exit(1); }
 fs.writeFileSync(join(T, "app-data.json"), JSON.stringify(out, null, 1));
 console.log("\n✓ wrote knowledge/totk/app-data.json + shrines.json (152 reconciled)");

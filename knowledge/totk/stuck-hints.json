@@ -1,0 +1,286 @@
+{
+ "regions": [
+  {
+   "regionId": "t_sky",
+   "hints": [
+    {
+     "stepId": "t_sky_awaken_03",
+     "stuck": "From the terminal, drop into the water and dive (hold the jump button while falling) through each pool. The Archaic Legwear chest sits on the rubble ledge right where you surface after the last, longest dive."
+    },
+    {
+     "stepId": "t_sky_ukouh_02",
+     "stuck": "Hold the Ultrahand button to grab a board, drag it over the gap, and rotate it flat (hold R and tap the D-pad) before releasing so it lands as a walkway. One long board spans the first gap."
+    },
+    {
+     "stepId": "t_sky_ukouh_03",
+     "stuck": "Grab the loose hook with Ultrahand and stick it onto the top of the wooden platform sitting on the rail, so it hangs from the line like a ski lift. Climb on the board and it slides you across."
+    },
+    {
+     "stepId": "t_sky_inisa_03",
+     "stuck": "Hold the Fuse button, aim at a loose rock on the ground, and confirm to stick it onto your sword or stick; the heavy rock-hammer smashes the cracked wall in one swing."
+    },
+    {
+     "stepId": "t_sky_inisa_04",
+     "stuck": "Draw your bow, hold the Fuse button while aiming, pick the Fire Fruit from the menu, and shoot the dry leaves on the wall ahead; the fire burns them away and drops the chest down to you."
+    },
+    {
+     "stepId": "t_sky_inisa_06",
+     "stuck": "The cave mouth is a low slit in the rock just southeast of In-isa; crouch and walk in. A few Keese swarm you in the dark, but the Archaic Tunic chest sits past them down a tunnel near the back."
+    },
+    {
+     "stepId": "t_sky_gutanbac_02",
+     "stuck": "Spicy Peppers grow at the foot of the hill near the friendly Construct's cooking pot. Drop a few into the pot and cook to get a Spicy dish that grants Cold Resistance for several minutes."
+    },
+    {
+     "stepId": "t_sky_gutanbac_05",
+     "stuck": "Stand under the platform you want to reach, hold the Ascend button, and a green dome appears when a solid surface is overhead; press to swim straight up through it. Use it twice to climb the shrine's tiers."
+    },
+    {
+     "stepId": "t_sky_tot_03",
+     "stuck": "Stand near a cog, hold the Recall button, and aim at the spinning gear; it rewinds and turns the opposite way. Hop onto a tooth as it carries you upward to the central ledge, then step off at the top."
+    },
+    {
+     "stepId": "t_sky_nachoyah_02",
+     "stuck": "Ride a wooden platform that falls down the waterfall, then Recall it to float back up the falls. At the gate, Recall the swinging clock hand so it lines back up with the other and the path locks open."
+    },
+    {
+     "stepId": "t_sky_dive_03",
+     "stuck": "Hold the left stick forward to angle head-down and fall fast; pull back and spread out to slow down and steer. You have no paraglider yet, so line yourself up over a lake or pond and you splash down unharmed."
+    }
+   ]
+  },
+  {
+   "regionId": "t_lookout",
+   "hints": [
+    {
+     "stepId": "t_lookout_castle_s2",
+     "stuck": "Head north through the Castle Town Ruins; at the big closed gate, pull it open with Ultrahand. Hoz is atop the gatehouse, so climb to a stone ledge inside and Ascend up through the ceiling to reach him."
+    },
+    {
+     "stepId": "t_lookout_tower_loot",
+     "stuck": "Press X (the jump button) once while you're falling to pop the Paraglider open. Glide distance is limited by your green stamina wheel, so aim for the nearest ground."
+    },
+    {
+     "stepId": "t_lookout_camera_s2",
+     "stuck": "The chasm is the wide gloom-ringed pit in Hyrule Field just south of the camp. Jump in and free-fall to the bottom, then follow the glow to Robbie's little camp on the Depths floor."
+    },
+    {
+     "stepId": "t_lookout_camera_loot",
+     "stuck": "Open the camera with L and aim at the statue with the raised arm until a label with an exclamation mark pops up, then press A to snap it. That confirms the right target before you head back to Josha."
+    }
+   ]
+  },
+  {
+   "regionId": "t_wind",
+   "hints": [
+    {
+     "stepId": "t_wind_tulin_1",
+     "stuck": "Climb the mountain path past the Hebra Trailhead hut (northeast of Rospro Pass Tower, near Sahirow Shrine) to the Hebra South Summit Cave. The open slopes are blizzard-blocked, so the cave is the only way up."
+    },
+    {
+     "stepId": "t_wind_tulin_2",
+     "stuck": "Light the unlit campfire (toss a Fire Fruit, or shoot a fire arrow at it), then drop a Hylian Pine Cone on the flames. That spawns an updraft column - open your paraglider inside it to rise up the shaft."
+    },
+    {
+     "stepId": "t_wind_climb_2",
+     "stuck": "Tulin glides alongside you now - point his Gust and pulse it to fling across wide horizontal gaps. To go up, stand under a higher platform and Ascend straight through its underside."
+    },
+    {
+     "stepId": "t_wind_climb_5",
+     "stuck": "Climb to the top of the chain, then dive straight down into the center of the swirling storm. You free-fall through the hole in the clouds and land on the deck of the Stormwind Ark."
+    },
+    {
+     "stepId": "t_wind_locks_2",
+     "stuck": "For every lock: get its fan or windmill turning, then aim Tulin's Gust so it blows through the blades. The device spins up and the lock lights. You can do the five in any order."
+    },
+    {
+     "stepId": "t_wind_locks_3",
+     "stuck": "Grab a loose icicle with Ultrahand and attach it to the broken lever handle to make the lever whole again. Use the lever to open the gate, then hit the fan with Tulin's Gust."
+    },
+    {
+     "stepId": "t_wind_locks_4",
+     "stuck": "Ultrahand a slab or icicle to bridge the gap between the gears; if a wheel is already spinning, use Recall to send it back into position. Once the fan is reachable, hit it with Tulin's Gust."
+    },
+    {
+     "stepId": "t_wind_colgera_2",
+     "stuck": "Pull the bow while falling to trigger slow-motion, then shoot the three icy bulges on its underbelly. Fuse a Keese Eyeball for homing arrows, or fire/a Fire Fruit to crack each core in fewer hits."
+    },
+    {
+     "stepId": "t_wind_colgera_4",
+     "stuck": "Don't fly straight into the spinning tornado rows - they form a moving wall. Wait for a gap to open, glide through it, then drop back under Colgera to keep hitting the three cores."
+    }
+   ]
+  },
+  {
+   "regionId": "t_fire",
+   "hints": [
+    {
+     "stepId": "t_fire_s_arrive_step3",
+     "stuck": "Heat resistance: buy Flamebreaker Armor (the chest piece is ~700 rupees at YunoboCo HQ) and equip it before going down, or carry Fireproof Elixirs / Fireproof-Lizard dishes. One piece is enough to survive the descent."
+    },
+    {
+     "stepId": "t_fire_s_yunobo_step2",
+     "stuck": "No audio tell before he launches, so lock on and strafe sideways the instant he revs. He only takes damage right after smacking a wall; rush in and hit the mask during that brief stun, then back off before he re-curls."
+    },
+    {
+     "stepId": "t_fire_s_descent_step3",
+     "stuck": "Don't build from scratch: a pre-made fan-plane with a steering stick sits on the platform. Ultrahand it so the nose points off the crater edge, hop on, grab the control stick to fly. Yunobo rides along automatically."
+    },
+    {
+     "stepId": "t_fire_s_descent_step4",
+     "stuck": "Aim with the camera and fire Yunobo's Charge at a head; each of the three heads dies in one hit. Bank side to side to dodge the lava-rock streams, and circle back if the angle's bad rather than tanking fireballs."
+    },
+    {
+     "stepId": "t_fire_s_temple_step3",
+     "stuck": "For the 5F gong, a metal block drops down a shaft; use Recall on it to ride it back up to the gong's level. Use Ascend through low ceilings to skip climbing whole floors."
+    },
+    {
+     "stepId": "t_fire_s_boss_step1",
+     "stuck": "Fire Yunobo's Charge at a leg to crack it; break TWO legs and Gohma topples, exposing the glowing eye. Stand where you have a clean line to a leg so Yunobo doesn't fizzle on the way over."
+    },
+    {
+     "stepId": "t_fire_s_boss_step3",
+     "stuck": "On the ceiling, lock the camera on the leg FARTHEST from you (near legs are too steep for Yunobo's Charge to reach), fire to drop Gohma, then climb on and pound the eye. Repeat the far-leg shot each time."
+    }
+   ]
+  },
+  {
+   "regionId": "t_water",
+   "hints": [
+    {
+     "stepId": "t_water_s2_q2",
+     "stuck": "Easiest way: watch where a sky-rock chunk crashes down nearby, climb on top of it, then use Recall. Time rewinds and the rock carries you back up; jump off at the peak and glide to the island."
+    },
+    {
+     "stepId": "t_water_s2_q4",
+     "stuck": "Hold ZR to aim the bow, press up on the d-pad and pick King's Scale to fuse it on the arrow, then fire through the dead center of the teardrop. Aim from the peak looking southwest so the rocks line up into the shape."
+    },
+    {
+     "stepId": "t_water_s4_q5",
+     "stuck": "Climb the tower (use Hover Stones if needed), then jump off and hold ZR midair for bullet time to shoot the switch inside the spinning box. If sludge covers it, hit it first with a Splash Fruit or Chuchu Jelly arrow."
+    },
+    {
+     "stepId": "t_water_s5_q5",
+     "stuck": "Once washed, the exposed Octorok darts off to dive into fresh sludge, so chase it onto clean floor and unload your strongest melee at once. Staying in Sidon's bubble lets you wash and hit while shielded from its muck."
+    }
+   ]
+  },
+  {
+   "regionId": "t_lightning",
+   "hints": [
+    {
+     "stepId": "t_lightning_s_arrival_st2",
+     "stuck": "The shroud kills your map. Stick to the road, and when you see a swirling air vortex jump in and open your paraglider to ride it above the haze; from up high the map re-syncs so you can spot Gerudo Town."
+    },
+    {
+     "stepId": "t_lightning_s_riju_st1",
+     "stuck": "Riju walks behind you and casts a glowing electric field at your crosshair. Aim your bow so the target sits inside that ring, then release the arrow to drop the lightning bolt exactly there."
+    },
+    {
+     "stepId": "t_lightning_s_temple_st3",
+     "stuck": "First hit the purple gloom on the doors with Riju's lightning, then loose one arrow into it to burst it. Inside, swing the Korok Frond to clear sand off the floor switch, then stand on it to open the way."
+    },
+    {
+     "stepId": "t_lightning_s_interior_st3",
+     "stuck": "Use Ultrahand to pull a mirror panel out of the sand, carry it into the room's light beam, then rotate it so the reflected beam lands on the receptor and locks in to power the battery's door."
+    },
+    {
+     "stepId": "t_lightning_s_interior_st5",
+     "stuck": "Ascend (jump menu, point up at a ceiling) to pop through floors instead of hunting for stairs. If a wheel or platform is spinning the wrong way mid-puzzle, give it a nudge then trigger Recall to send it back."
+    },
+    {
+     "stepId": "t_lightning_s_boss_st5",
+     "stuck": "In phase two, sprint around the arena blasting every glowing Gibdo hive with Riju's lightning. Clearing a hive drops a pillar of light that strips nearby Gibdos' armor and freezes them, then return to the Queen."
+    }
+   ]
+  },
+  {
+   "regionId": "t_spirit",
+   "hints": [
+    {
+     "stepId": "t_spirit_s1_2",
+     "stuck": "Easiest route: from Popla Foothills Skyview Tower, skydive into Thunderhead Isles and ride the chain to its end, then press A to dive down onto Dragonhead Island itself."
+    },
+    {
+     "stepId": "t_spirit_s1_4",
+     "stuck": "Make wings or a few fans plus a steering stick, then Ultrahand the mask onto the very front so the green beam shines forward. If the beam points sideways, the nose is aimed wrong, so re-grab and rotate the mask."
+    },
+    {
+     "stepId": "t_spirit_s1_5",
+     "stuck": "From the island, build your flying machine and just follow the green beam down. It lands at an owl statue on the surface near Tobio's Hollow Chasm, with a pedestal out front where the mask goes."
+    },
+    {
+     "stepId": "t_spirit_s2_2",
+     "stuck": "Grab the mask with Ultrahand and rotate it (hold R, then use the D-pad) until its outline lights up in the head slot, then release. It only locks in one orientation, and goes in before the limbs."
+    },
+    {
+     "stepId": "t_spirit_s4_2",
+     "stuck": "Fire the Shock Emitter or a Zonai Cannon from range to stun it, then rush in and swing the spiked ball; a few hits knock it into the electric fence ringing the arena, where the real damage is done."
+    },
+    {
+     "stepId": "t_spirit_s4_4",
+     "stuck": "When it bolts a rocket on and lifts off firing cannons, hit it with one Cannon blast to slam it back to the ground, then go back to stun-and-spiked-ball to knock it into the fence."
+    }
+   ]
+  },
+  {
+   "regionId": "t_castle",
+   "hints": [
+    {
+     "stepId": "t_castle_s1_st1",
+     "stuck": "Impa stands across the road from New Serenne Stable beside a broken hot-air balloon. Use Ultrahand to refit the burner basket, drop flint and wood under it to light it, and ride it up to reach the first geoglyph."
+    },
+    {
+     "stepId": "t_castle_s1_st3",
+     "stuck": "Float up over the Rauru drawing first to spot it, then drop in. The real tear is the one solid white teardrop (the rest are hollow); it sits near the top, in the figure's left eye. Touch it to play the memory."
+    },
+    {
+     "stepId": "t_castle_s1_st5",
+     "stuck": "Map each glyph from the sky: glide off a Skyview Tower or use the Purah Pad's scope to pin the spot, then dive with the paraglider. Recall a fallen object or build a Zonai flier if you overshoot."
+    },
+    {
+     "stepId": "t_castle_s2_st2",
+     "stuck": "Rist Peninsula is the spiral-shaped beach in far eastern Akkala. There's no geoglyph here; the tear sits in the open near Gemimik Shrine. Fast-travel or launch from the Ulri Mountain Skyview Tower and glide in."
+    },
+    {
+     "stepId": "t_castle_s3_st5",
+     "stuck": "Dodge a Phantom Ganon's swing and counter on the Flurry Rush prompt for fast damage. Summon Tulin/Yunobo/etc. so the sages tie up the copies, and use Riju's lightning to zap several at once. Two waves total."
+    },
+    {
+     "stepId": "t_castle_s4_st2",
+     "stuck": "Enter the Depths via the nearest chasm, travel under Korok Forest, then Ascend up through a ceiling near Korok Grove to surface inside the Deku Tree. Beat the Gloom Spawn and Phantom Ganon there to lift the fog."
+    },
+    {
+     "stepId": "t_castle_s5_st2",
+     "stuck": "There's an updraft all around the dragon: open your paraglider near her body for a free full stamina refill, even mid-flight. Glide along her broad back toward the head; eat stamina meals here if you need more."
+    },
+    {
+     "stepId": "t_castle_s5_st4",
+     "stuck": "At the head, hold the interact button to pull; keep holding as your stamina slowly drains, no mashing. If your wheel empties before it comes free, reopen your paraglider in the dragon's updraft to refill, then retry."
+    }
+   ]
+  },
+  {
+   "regionId": "t_depths",
+   "hints": [
+    {
+     "stepId": "t_depths_s2_step_chasm",
+     "stuck": "The Hyrule Castle Chasm is the dark hole just north of Lookout Landing, under the castle. Fast-travel to Serutabomac Shrine on the castle's northeast side and jump off that cliff into the opening to drop straight in."
+    },
+    {
+     "stepId": "t_depths_s3_step_gibdo",
+     "stuck": "Plain swings and arrows do only 1 damage to Gibdos. Hit one with fire, ice, or shock (a Ruby/Topaz-fused weapon, a Splash/Ice/Fire Fruit arrow, or Riju's lightning) to crack its armor, then they take normal damage."
+    },
+    {
+     "stepId": "t_depths_s6_step_blisters",
+     "stuck": "The weak points are the four red blistered eye-clusters bulging from the Gloom on the dragon's back. Run or glide up to each and slash it with the Master Sword until it pops; clear all four to expose the head."
+    },
+    {
+     "stepId": "t_depths_s6_tip_dive",
+     "stuck": "Dive straight down onto a weak point and slash it, or fire arrows on the way down. If you fall off, the Light Dragon swoops under to carry you back up, so you can dive again and again without fear."
+    }
+   ]
+  }
+ ],
+ "total": 59
+}
