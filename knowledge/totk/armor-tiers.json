@@ -1,0 +1,1157 @@
+{
+ "sets": [
+  {
+   "name": "Archaic / Well-Worn",
+   "tiers": [],
+   "farm": "No farming needed: this set has no upgrade recipes at all, so there are no materials to gather before visiting a Great Fairy."
+  },
+  {
+   "name": "Hylian Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Bokoblin Horn",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Blue Bokoblin Horn",
+       "qty": 15
+      },
+      {
+       "item": "Bokoblin Fang",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Black Bokoblin Horn",
+       "qty": 15
+      },
+      {
+       "item": "Bokoblin Guts",
+       "qty": 9
+      },
+      {
+       "item": "Amber",
+       "qty": 60
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Silver Bokoblin Horn",
+       "qty": 15
+      },
+      {
+       "item": "Bokoblin Guts",
+       "qty": 15
+      },
+      {
+       "item": "Amber",
+       "qty": 90
+      }
+     ]
+    }
+   ],
+   "farm": "Bokoblin Horns (and the Blue/Black/Silver-tier horns) plus Bokoblin Fangs and Guts drop from Bokoblins all over Hyrule — kill the stronger color-tier Bokoblins (blue/black/silver) for the higher-tier horns, and stronger Bokoblins are the ones that drop Fangs and Guts. Amber is mined from the black ore-rock chunks in caves and on cliffsides across the surface and the Depths."
+  },
+  {
+   "name": "Climbing Gear (Climber's Set)",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Keese Wing",
+       "qty": 9
+      },
+      {
+       "item": "Rushroom",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Electric Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Hightail Lizard",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Hot-Footed Frog",
+       "qty": 30
+      },
+      {
+       "item": "Ice Keese Wing",
+       "qty": 24
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Swift Violet",
+       "qty": 60
+      },
+      {
+       "item": "Fire Keese Wing",
+       "qty": 30
+      }
+     ]
+    }
+   ],
+   "farm": "Swift Violets are the ★4 bottleneck (60 needed): they grow on cliff faces and around caves/ruins, only appear at night, and glow a faint purple — sweep canyon walls and cave mouths after dark (the Gerudo/Faron cliffs and chasm walls are dense with them). The Keese Wing variants drop from the matching elemental Keese (Electric/Ice/Fire Keese) found in caves, the Depths, and swarming at night; Hightail Lizards and Hot-Footed Frogs are caught on the ground in temperate Hyrule fields and forests (sneak up or use a quick weapon)."
+  },
+  {
+   "name": "Glide Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Keese Wing",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Aerocuda Eyeball",
+       "qty": 18
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Aerocuda Wing",
+       "qty": 18
+      },
+      {
+       "item": "Aerocuda Eyeball",
+       "qty": 24
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Aerocuda Wing",
+       "qty": 30
+      },
+      {
+       "item": "Gibdo Wing",
+       "qty": 24
+      },
+      {
+       "item": "Gleeok Wing",
+       "qty": 36
+      }
+     ]
+    }
+   ],
+   "farm": "Keese Wings drop from Keese (caves and at night); Aerocuda Eyeballs and Aerocuda Wings come from Aerocuda (flying enemies common over the surface and in the Sky); Gibdo Wings drop from Gibdo in the Gerudo Desert during/after the sandstorm (and in the Lightning Temple); Gleeok Wings come from any Gleeok type (Fire/Frost/Thunder, plus the King Gleeok) found across Hyrule."
+  },
+  {
+   "name": "Zonaite Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Soldier Construct Horn",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Soldier Construct II Horn",
+       "qty": 15
+      },
+      {
+       "item": "Captain Construct I Horn",
+       "qty": 15
+      },
+      {
+       "item": "Zonaite",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Soldier Construct III Horn",
+       "qty": 15
+      },
+      {
+       "item": "Captain Construct II Horn",
+       "qty": 15
+      },
+      {
+       "item": "Large Zonaite",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Soldier Construct IV Horn",
+       "qty": 15
+      },
+      {
+       "item": "Captain Construct III Horn",
+       "qty": 15
+      },
+      {
+       "item": "Large Zonaite",
+       "qty": 30
+      }
+     ]
+    }
+   ],
+   "farm": "Construct Horns come from Soldier/Captain Constructs (higher Roman-numeral tiers spawn as you progress; the Depths colosseums and Sky Island camps are good farms), while Zonaite and Large Zonaite are mined from ore deposits and dropped by Constructs across the Depths."
+  },
+  {
+   "name": "Charged Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Shock Fruit",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Thunderwing Butterfly",
+       "qty": 9
+      },
+      {
+       "item": "Electric Lizalfos Horn",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Large Zonai Charge",
+       "qty": 9
+      },
+      {
+       "item": "Shock Like Stone",
+       "qty": 15
+      },
+      {
+       "item": "Electric Darner",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Voltfin Trout",
+       "qty": 30
+      },
+      {
+       "item": "Large Zonai Charge",
+       "qty": 15
+      },
+      {
+       "item": "Gleeok Thunder Horn",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "Gleeok Thunder Horns (★4) drop only from Thunder Gleeoks — multi-headed sky/depths bosses (e.g. the South Lanayru Sky Archipelago and other Gleeok perches); each kill yields one horn, so the 15 needed is the real grind. Large Zonai Charges come from Large Zonai Charge crystals harvested in the Depths (mine the glowing Zonaite/charge deposits) or by recharging at a Forge Construct. Shock Fruit grows on bushes/trees in warm regions, Electric Lizalfos Horns drop from Electric (yellow) Lizalfos, Voltfin Trout are caught in Lanayru/Faron lakes and rivers, and Electric Darners + Thunderwing Butterflies are insects found near electric flora across Faron/Lanayru."
+  },
+  {
+   "name": "Froggy Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Sticky Lizard",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Sticky Lizard",
+       "qty": 15
+      },
+      {
+       "item": "Horriblin Horn",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Blue Horriblin Horn",
+       "qty": 15
+      },
+      {
+       "item": "Sticky Frog",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Opal",
+       "qty": 30
+      },
+      {
+       "item": "Black Horriblin Horn",
+       "qty": 15
+      },
+      {
+       "item": "Horriblin Guts",
+       "qty": 30
+      }
+     ]
+    }
+   ],
+   "farm": "Sticky Lizards and Sticky Frogs are caught near water across Hyrule (Sticky Frogs especially in caves and around ponds). Horriblin Horns/Guts drop from common (red) Horriblins, Blue Horriblin Horns from Blue Horriblins, and Black Horriblin Horns from the tougher Black Horriblins — Horriblins live in caves and the Depths, with the harder color variants showing up in late-game caves and the Depths. Opals are mined from ore deposits (and the Depths) and are common around and under water."
+  },
+  {
+   "name": "Rubber Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Yellow Chuchu Jelly",
+       "qty": 9
+      },
+      {
+       "item": "Electric Lizalfos Horn",
+       "qty": 3
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Yellow Chuchu Jelly",
+       "qty": 24
+      },
+      {
+       "item": "Voltfruit",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Zapshroom",
+       "qty": 15
+      },
+      {
+       "item": "Electric Safflina",
+       "qty": 24
+      },
+      {
+       "item": "Electric Lizalfos Tail",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Topaz",
+       "qty": 15
+      },
+      {
+       "item": "Electric Lizalfos Horn",
+       "qty": 15
+      },
+      {
+       "item": "Electric Lizalfos Tail",
+       "qty": 24
+      }
+     ]
+    }
+   ],
+   "farm": "Yellow Chuchu Jelly drops from Electric Chuchus (or make it by hitting any Chuchu Jelly with a Shock Fruit); Electric Lizalfos Horns/Tails come from Electric Lizalfos in Gerudo/Lanayru; Voltfruit grows in the Gerudo Desert and Zapshrooms/Electric Safflina in Faron and Hyrule's warm regions; Topaz is mined from ore deposits in caves and on cliffs."
+  },
+  {
+   "name": "Desert Voe Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "White Chuchu Jelly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "White Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Cool Safflina",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Ice Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Ice-Breath Lizalfos Tail",
+       "qty": 9
+      },
+      {
+       "item": "Chillshroom",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Ice-Breath Lizalfos Horn",
+       "qty": 15
+      },
+      {
+       "item": "Ice-Breath Lizalfos Tail",
+       "qty": 30
+      },
+      {
+       "item": "Sapphire",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "All three pieces share one recipe, so quantities below are set-totals (3x per-piece). White Chuchu Jelly drops from White Chuchus (cold regions like Hebra/Gerudo Highlands and Hyrule Field). Cool Safflina grows on cold ground in the Gerudo Highlands and Hebra. Chillshrooms grow on cold peaks (Hebra, Mount Lanayru, Gerudo Highlands). Ice Keese Wings come from Ice Keese in caves/cold areas. Ice-Breath Lizalfos Tails and Horns drop from blue Ice-Breath Lizalfos in the snowy north (Hebra, Gerudo Highlands). Sapphires are mined from ore deposits (especially the Depths and northern mountains) and can drop from Ice-Breath Lizalfos."
+  },
+  {
+   "name": "Snowquill Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Red Chuchu Jelly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Red Chuchu Jelly",
+       "qty": 15
+      },
+      {
+       "item": "Warm Safflina",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Sunshroom",
+       "qty": 15
+      },
+      {
+       "item": "Fire Keese Wing",
+       "qty": 15
+      },
+      {
+       "item": "Fire-Breath Lizalfos Tail",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Ruby",
+       "qty": 15
+      },
+      {
+       "item": "Fire-Breath Lizalfos Horn",
+       "qty": 15
+      },
+      {
+       "item": "Fire-Breath Lizalfos Tail",
+       "qty": 30
+      }
+     ]
+    }
+   ],
+   "farm": "Red Chuchu Jelly drops from red Chuchus (and from any Chuchu Jelly left near a flame); Warm Safflina grows in the warm Gerudo Desert near Kara Kara Bazaar; Sunshrooms grow on Death Mountain / Eldin's hot slopes; Fire Keese Wings come from Fire Keese and Fire-Breath Lizalfos Tails/Horns from red (fire) Lizalfos in hot Eldin/Gerudo regions; Rubies are mined from ore deposits and rare ore deposits (common in Eldin caves and mountains)."
+  },
+  {
+   "name": "Flamebreaker Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Moblin Horn",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Moblin Fang",
+       "qty": 15
+      },
+      {
+       "item": "Fireproof Lizard",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Blue Moblin Horn",
+       "qty": 15
+      },
+      {
+       "item": "Flint",
+       "qty": 45
+      },
+      {
+       "item": "Smotherwing Butterfly",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Black Moblin Horn",
+       "qty": 15
+      },
+      {
+       "item": "Flint",
+       "qty": 90
+      },
+      {
+       "item": "Smotherwing Butterfly",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "Moblin parts (Horn/Fang) drop from Moblins of the matching color tier — ordinary Moblins for ★1–2, Blue Moblins for the ★3 Blue Moblin Horn, Black Moblins for the ★4 Black Moblin Horn. Fireproof Lizards and Smotherwing Butterflies are caught around the Eldin/Death Mountain region (Fireproof Lizards swarm the cliffs by Goron City and the Southern Mine); Flint comes from mining ore deposits or smashing the right rocks."
+  },
+  {
+   "name": "Zora Set (Zora Armor)",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Lizalfos Horn",
+       "qty": 9
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Hyrule Bass",
+       "qty": 15
+      },
+      {
+       "item": "Lizalfos Talon",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Hearty Bass",
+       "qty": 9
+      },
+      {
+       "item": "Lizalfos Tail",
+       "qty": 9
+      },
+      {
+       "item": "Blue Lizalfos Horn",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Opal",
+       "qty": 60
+      },
+      {
+       "item": "Black Lizalfos Horn",
+       "qty": 15
+      },
+      {
+       "item": "Blue Lizalfos Tail",
+       "qty": 15
+      }
+     ]
+    }
+   ],
+   "farm": "Lizalfos parts come from the four Lizalfos color tiers — basic (green) Lizalfos drop Horns/Talons/Tails; Blue Lizalfos (tougher regions: Hebra, Eldin, the Depths) drop Blue Lizalfos Horn/Tail; Black Lizalfos (high-level areas and the Depths) drop Black Lizalfos Horn. Hyrule Bass and Hearty Bass are caught in lakes and rivers (Hearty Bass favors quiet ponds/inlets). Opals are mined from ore deposits in caves and the Depths, or bought from the mining shops near Goron City."
+  },
+  {
+   "name": "Champion's Leathers",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 10,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      },
+      {
+       "item": "Light Dragon's Scale",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 50,
+     "materials": [
+      {
+       "item": "Sundelion",
+       "qty": 10
+      },
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      },
+      {
+       "item": "Light Dragon's Talon",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 200,
+     "materials": [
+      {
+       "item": "Sundelion",
+       "qty": 15
+      },
+      {
+       "item": "Silent Princess",
+       "qty": 5
+      },
+      {
+       "item": "Shard of Light Dragon's Fang",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 500,
+     "materials": [
+      {
+       "item": "Sundelion",
+       "qty": 20
+      },
+      {
+       "item": "Silent Princess",
+       "qty": 10
+      },
+      {
+       "item": "Light Dragon's Horn",
+       "qty": 2
+      }
+     ]
+    }
+   ],
+   "farm": "Light Dragon parts (Scale/Talon/Shard of Fang/Horn) come from the Light Dragon as it endlessly circles Hyrule's skies — land on its back and strike its scales for the common Scale, and its horns/claws/fangs for the rarer parts; each spot respawns about 10 minutes (in-game) after you harvest it. Silent Princess grows wild on the surface (a pond at Piper Ridge south of Rito Village yields ~7 at once) and on Sky Islands; Sundelions are gathered up on the Sky Islands."
+  },
+  {
+   "name": "Miner's Set (glow set)",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Brightbloom Seed",
+       "qty": 30
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Brightbloom Seed",
+       "qty": 60
+      },
+      {
+       "item": "Brightcap",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Giant Brightbloom Seed",
+       "qty": 45
+      },
+      {
+       "item": "Deep Firefly",
+       "qty": 30
+      },
+      {
+       "item": "Glowing Cave Fish",
+       "qty": 15
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Giant Brightbloom Seed",
+       "qty": 60
+      },
+      {
+       "item": "Large Zonaite",
+       "qty": 30
+      },
+      {
+       "item": "Diamond",
+       "qty": 9
+      }
+     ]
+    }
+   ],
+   "farm": "Brightbloom Seeds and Brightcaps come from the Depths (toss/shoot Brightbloom Seeds to light your way, or harvest the glowing Brightcap mushrooms on cave/Depths walls); Giant Brightbloom Seeds drop from large glowing roots and bigger Depths flora; Deep Fireflies and Glowing Cave Fish are caught in caves and the Depths; Large Zonaite is mined from Zonaite ore deposits/chunks in the Depths; Diamonds come from Rare Ore Deposits, Luminous Stone veins, or gem traders. ★3-4 are Depths-heavy."
+  },
+  {
+   "name": "Tunic of the Wild (Of the Wild Set)",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Acorn",
+       "qty": 30
+      },
+      {
+       "item": "Farosh's Scale",
+       "qty": 2
+      },
+      {
+       "item": "Naydra's Scale",
+       "qty": 2
+      },
+      {
+       "item": "Dinraal's Scale",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Courser Bee Honey",
+       "qty": 15
+      },
+      {
+       "item": "Farosh's Claw",
+       "qty": 2
+      },
+      {
+       "item": "Naydra's Claw",
+       "qty": 2
+      },
+      {
+       "item": "Dinraal's Claw",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Energetic Rhino Beetle",
+       "qty": 9
+      },
+      {
+       "item": "Shard of Farosh's Spike",
+       "qty": 5
+      },
+      {
+       "item": "Shard of Naydra's Spike",
+       "qty": 5
+      },
+      {
+       "item": "Shard of Dinraal's Spike",
+       "qty": 5
+      },
+      {
+       "item": "Shard of Farosh's Fang",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Naydra's Fang",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Dinraal's Fang",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Star Fragment",
+       "qty": 9
+      },
+      {
+       "item": "Farosh's Horn",
+       "qty": 2
+      },
+      {
+       "item": "Naydra's Horn",
+       "qty": 2
+      },
+      {
+       "item": "Dinraal's Horn",
+       "qty": 2
+      },
+      {
+       "item": "Shard of Farosh's Spike",
+       "qty": 10
+      },
+      {
+       "item": "Shard of Naydra's Spike",
+       "qty": 10
+      },
+      {
+       "item": "Shard of Dinraal's Spike",
+       "qty": 10
+      }
+     ]
+    }
+   ],
+   "farm": "Acorns drop from trees (cut one down or hit it) and Courser Bee Honey comes from beehives (shoot a hive down, then grab the honey); Energetic Rhino Beetles cling to tree trunks at night, especially around Eldin/Akkala; Star Fragments fall from the night sky (wait past 9pm on high ground, then run to the glow). Dragon parts come from the three roaming dragons — Farosh (Faron/Lake Hylia area), Naydra (Lanayru/Mount Lanayru), and Dinraal (Eldin/Tabantha sky) — shoot a Scale/Claw/Spike-shard/Fang-shard/Horn off each with arrows; the part you knock off regrows after about 10 in-game minutes, and Horns (the ★4 part) require hitting the dragon's actual horn."
+  },
+  {
+   "name": "Tunic of Memories",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 10,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      },
+      {
+       "item": "Light Dragon's Scale",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 50,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 3
+      },
+      {
+       "item": "Light Dragon's Talon",
+       "qty": 1
+      },
+      {
+       "item": "Farosh's Horn",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 200,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 5
+      },
+      {
+       "item": "Shard of Light Dragon's Fang",
+       "qty": 1
+      },
+      {
+       "item": "Naydra's Horn",
+       "qty": 2
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 500,
+     "materials": [
+      {
+       "item": "Silent Princess",
+       "qty": 10
+      },
+      {
+       "item": "Light Dragon's Horn",
+       "qty": 1
+      },
+      {
+       "item": "Dinraal's Horn",
+       "qty": 2
+      }
+     ]
+    }
+   ],
+   "farm": "Silent Princess is a rare flower foraged on hilltops/cliffs across Hyrule (Satori Mountain and some Sky Islands are reliable spots). Light Dragon parts come from shooting the Light Dragon as it circles Hyrule's sky — its body/spikes give Scales, claws give the Talon, fangs give Shards of its Fang, and its head gives the Horn. Farosh's/Naydra's/Dinraal's Horns each drop from shooting the head of that elemental dragon."
+  },
+  {
+   "name": "Fierce Deity Set",
+   "tiers": [
+    {
+     "star": 1,
+     "rupees": 30,
+     "materials": [
+      {
+       "item": "Hinox Toenail",
+       "qty": 15
+      },
+      {
+       "item": "Dinraal's Scale",
+       "qty": 1
+      },
+      {
+       "item": "Naydra's Scale",
+       "qty": 1
+      },
+      {
+       "item": "Farosh's Scale",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "star": 2,
+     "rupees": 150,
+     "materials": [
+      {
+       "item": "Hinox Tooth",
+       "qty": 15
+      },
+      {
+       "item": "Dinraal's Claw",
+       "qty": 1
+      },
+      {
+       "item": "Naydra's Claw",
+       "qty": 1
+      },
+      {
+       "item": "Farosh's Claw",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "star": 3,
+     "rupees": 600,
+     "materials": [
+      {
+       "item": "Hinox Guts",
+       "qty": 6
+      },
+      {
+       "item": "Shard of Dinraal's Fang",
+       "qty": 1
+      },
+      {
+       "item": "Shard of Naydra's Fang",
+       "qty": 1
+      },
+      {
+       "item": "Shard of Farosh's Fang",
+       "qty": 1
+      }
+     ]
+    },
+    {
+     "star": 4,
+     "rupees": 1500,
+     "materials": [
+      {
+       "item": "Lynel Guts",
+       "qty": 6
+      },
+      {
+       "item": "Dinraal's Horn",
+       "qty": 1
+      },
+      {
+       "item": "Naydra's Horn",
+       "qty": 1
+      },
+      {
+       "item": "Farosh's Horn",
+       "qty": 1
+      }
+     ]
+    }
+   ],
+   "farm": "Each of the 3 pieces is tied to a different dragon: Mask = Dinraal (fire; flies NE Hyrule out of Eldin / Akkala, Mask found at Skull Lake), Armor = Naydra (ice; Lanayru / Mount Lanayru, found near Akkala Citadel Ruins), Boots = Farosh (electric; Faron / Lake Hylia, found at the Ancient Tree Stump on Mount Daphnes). Shoot a body part as the dragon flies its slow daily route to drop scales (frequent), then claws/fang-shards (rarer), then a Horn (drops only once per ~10 in-game minutes per dragon — sleep at a fire to reset). Hinox parts come from the three Hinox types; Lynel Guts from any Lynel."
+  }
+ ]
+}

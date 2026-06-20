@@ -1,0 +1,94 @@
+{
+ "towers": [
+  {
+   "name": "Lookout Landing Skyview Tower",
+   "region": "Central Hyrule",
+   "location": "Inside Lookout Landing, the hub settlement just north of Hyrule Castle (approx. -0293, 0137, 0025). You can't miss it — it's the first tower of the game.",
+   "climbTip": "No puzzle: you receive it as part of the main story after the tutorial, once you reach Lookout Landing and speak to Captain Hoz; from then on every activation launches Link skyward to skydive off."
+  },
+  {
+   "name": "Hyrule Field Skyview Tower",
+   "region": "South Hyrule / Hyrule Field",
+   "location": "South of Lookout Landing in central Hyrule Field (approx. -0753, -1019, 0064).",
+   "climbTip": "It sits inside a Bokoblin encampment, so clear (or sneak/Bokoblin-Mask past) the Bokoblins and Boss Bokoblin guarding it before you can reach the terminal and get flung into the sky."
+  },
+  {
+   "name": "Lindor's Brow Skyview Tower",
+   "region": "Hyrule Ridge",
+   "location": "North of New Serenne Stable / northwest of Lookout Landing, marooned on a raised rock in the middle of a pond (approx. -1901, 1245, 0297).",
+   "climbTip": "The tower is stranded on a rock in water, so Ultrahand a long bridge from the nearby planks/building materials to cross over, then hit the terminal to soar off. (A campfire updraft and paraglide also works.)"
+  },
+  {
+   "name": "Rospro Pass Skyview Tower",
+   "region": "Hebra Mountains",
+   "location": "In the cold Hebra region to the northwest (approx. -3686, 2342, 0233); bring cold resistance.",
+   "climbTip": "The entrance is choked by thorns — throw Fire Fruit (or a fire arrow) to burn them away, then enter and activate the terminal to launch skyward."
+  },
+  {
+   "name": "Pikida Stonegrove Skyview Tower",
+   "region": "East Hebra",
+   "location": "Northwest of Snowfield Stable in the snowy Hebra highlands (approx. -2318, 3066, 0443).",
+   "climbTip": "No puzzle, but it's a brutal cold-and-altitude trek — pack two levels of cold resistance (warm clothes/food, e.g. Snowquill set) to survive the climb, then activate the terminal to glide off."
+  },
+  {
+   "name": "Thyphlo Ruins Skyview Tower",
+   "region": "Great Hyrule Forest",
+   "location": "In the pitch-dark Thyphlo Ruins north of the Great Hyrule Forest (approx. 0343, 3133, 0180).",
+   "climbTip": "A platform blocks the top — Ascend up inside, then Ultrahand a Zonai rocket (or fan) onto the platform to shift it clear, drop down the shaft to the terminal and shoot into the sky."
+  },
+  {
+   "name": "Eldin Canyon Skyview Tower",
+   "region": "Eldin",
+   "location": "In the volcanic Eldin region to the east, near Death Mountain (approx. 1637, 1190, 0225); bring heat/flame resistance.",
+   "climbTip": "Fallen sky-rocks have jammed the door, so you must enter from the open top — wait for a large rock to fall nearby, stand on it and use Recall to ride it skyward, then paraglide into the tower's top and drop to the terminal to launch off."
+  },
+  {
+   "name": "Ulri Mountain Skyview Tower",
+   "region": "Akkala",
+   "location": "In the eastern Akkala highlands on Ulri Mountain, northwest of Tarrey Town (approx. 3493, 2019, 0188).",
+   "climbTip": "The tower's terminal has been stolen by an Aerocuda circling behind it — shoot the flying monster down with an arrow, retrieve the terminal (by hand or Ultrahand), and bring it back to the engineer (Sawson) to reinstall it before the tower will activate and fling you skyward."
+  },
+  {
+   "name": "Upland Zorana Skyview Tower",
+   "region": "Lanayru",
+   "location": "West of Zora's Domain in the Upland Zorana area, south of Foothill Stable (approx. 2858, 0582, 0379).",
+   "climbTip": "Mud-like sludge seals the door — throw a Splash Fruit (or any water / blue Chuchu Jelly) to wash the muck off, then enter and activate the terminal to glide away."
+  },
+  {
+   "name": "Mount Lanayru Skyview Tower",
+   "region": "East Lanayru",
+   "location": "High up Mount Lanayru in the far southeast, north of Hateno Village and far east of Kakariko (approx. 3846, -1307, 0539).",
+   "climbTip": "No puzzle — the only obstacle is the freezing remote peak, so bring warm dishes/clothing and make the long climb up the mountain to the terminal to launch into the sky."
+  },
+  {
+   "name": "Rabella Wetlands Skyview Tower",
+   "region": "South Necluda",
+   "location": "In the rainy Rabella Wetlands of southeast Necluda (approx. 2419, -2755, 0222).",
+   "climbTip": "Thorns block it but the constant rain won't let them burn — Ultrahand a roof/board over the thorns to keep them dry, then set them alight and activate the terminal to soar off."
+  },
+  {
+   "name": "Sahasra Slope Skyview Tower",
+   "region": "West Necluda",
+   "location": "On Sahasra Slope in West Necluda, north of the Dueling Peaks area (approx. 1344, -1176, 0166).",
+   "climbTip": "The door can't be opened from outside — drop into the cave beneath the tower, smash the rock walls (hammer/bombs) to reach the flat spot under the floor, Ascend straight up into the interior, then remove the sticks blocking the doors and talk to Billson, who repairs the terminal."
+  },
+  {
+   "name": "Popla Foothills Skyview Tower",
+   "region": "Necluda",
+   "location": "In the Popla Foothills of central-south Necluda (approx. 0602, -2127, 0098).",
+   "climbTip": "The tower has lost power — enter the cave below and free the worker trapped inside to restore it, then Ascend up into the tower and activate the terminal to launch skyward."
+  },
+  {
+   "name": "Gerudo Canyon Skyview Tower",
+   "region": "Gerudo Desert",
+   "location": "At the mouth of Gerudo Canyon in the southwest desert (approx. -2432, -2182, 0307).",
+   "climbTip": "The technician (Sawson) is stuck on a lift below — Ultrahand metal crates onto the hook on the rope opposite the door so their weight acts as a counterweight and hauls his lift up; he then repairs the tower so you can activate it and glide off."
+  },
+  {
+   "name": "Gerudo Highlands Skyview Tower",
+   "region": "North Gerudo / Gerudo Highlands",
+   "location": "In the snowy Gerudo Highlands in the far southwest (approx. -3959, -1313, 0422); bring cold resistance.",
+   "climbTip": "The way in is buried in snow — find the cave behind/beneath the tower, follow it underneath, then Ascend up through the bottom into the entrance to reach the terminal and shoot into the sky."
+  }
+ ]
+}

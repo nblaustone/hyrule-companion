@@ -1,0 +1,28 @@
+{
+ "fairies": [
+  {
+   "name": "Great Fairy Tera",
+   "region": "Eldin Canyon / near Great Hyrule Forest",
+   "location": "Closed fountain near the Military Training Camp, northwest of Woodland Stable (south of the Lost Woods); coordinates 0920, 1361, 0093.",
+   "cost": "No rupee fee. Unlock via the 'Serenade to a Great Fairy' side adventure. Prerequisite: have started 'Potential Princess Sightings' from Traysi/Penn at the Lucky Clover Gazette. Repair the Stable Trotters' wagon (Breezer) and tow the band up to the fountain with a horse + Towing Harness. Tera wants to hear the VIOLIN (played by Violynne). Tera is the FIRST fairy — clearing her quest unlocks the rest of the Serenade chain (Serenade to Mija → Serenade to Kaysa) plus Serenade to Cotera."
+  },
+  {
+   "name": "Great Fairy Cotera",
+   "region": "Necluda (Dueling Peaks)",
+   "location": "Closed fountain south of Dueling Peaks Stable, across the river past Little Twin Bridge; coordinates 1766, -2172, 0013.",
+   "cost": "No rupee fee. Unlock via 'Serenade to Cotera': bring the Stable Trotters to perform here. Cotera wants the DRUM, so you must first recover the drummer Beetz — found playing his drums northeast of Dueling Peaks Stable — by completing his 'Honey, Bee Mine' side adventure (give Beetz 3 Courser Bee Honey). Once the band with the drummer performs at this fountain it opens. (Requires Tera's 'Serenade to a Great Fairy' first.)"
+  },
+  {
+   "name": "Great Fairy Kaysa",
+   "region": "Hyrule Field (Central Hyrule)",
+   "location": "Closed fountain atop a steep hill west/northwest of Outskirt Stable in Hyrule Field; coordinates -1555, -1237, 0085.",
+   "cost": "No rupee fee. Unlock via 'Serenade to Kaysa' (available after completing 'Serenade to Mija'): bring the Stable Trotters to perform here. Kaysa wants the FLUTE, so you must first recover the flutist Pyper — found atop a tree near Highland Stable — by completing 'The Flute Player's Plan' side adventure. Once the band with the flute player performs at this fountain it opens."
+  },
+  {
+   "name": "Great Fairy Mija",
+   "region": "Tabantha Tundra / Hebra (South Tabantha Snowfield)",
+   "location": "Closed fountain northeast of Snowfield Stable (near Orochium Shrine); coordinates -1461, 2995, 0305.",
+   "cost": "No rupee fee. Unlock via 'Serenade to Mija' (available after completing Tera's 'Serenade to a Great Fairy'): bring the Stable Trotters to perform here. Mija wants the HORN, so you must first recover the hornist Eustus — stuck in a hole near Piper Ridge — by completing 'The Hornist's Dramatic Escape' side adventure. Once the band with the horn player performs at this fountain it opens."
+  }
+ ]
+}

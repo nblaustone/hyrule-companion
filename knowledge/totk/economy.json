@@ -1,0 +1,136 @@
+{
+ "rupees": [
+  {
+   "method": "Sell gems (diamonds, sapphires, rubies) mined from ore deposits",
+   "detail": "Smash the black sparkly ore deposits in caves and especially the Depths (a Rock-fused hammer or any heavy weapon breaks them) and sell the gems: Diamond ~500, Sapphire ~260, Ruby ~110, Topaz ~80, Amber ~30 each, making this one of the most lucrative beginner earners."
+  },
+  {
+   "method": "Sell gems at Goron City (Ramella) for the best price",
+   "detail": "Ramella's shop in Goron City buys gems for slightly more than anyone else (selling 10 Diamonds at once nets ~5,500 rupees, ~550 each), so stockpile gems and offload them there rather than at the first merchant you pass."
+  },
+  {
+   "method": "Hunt Stone/Battle Taluses for bulk gems and diamonds",
+   "detail": "Stone and Battle Taluses (and the elemental Igneo/Frost variants) drop a pile of common ore plus a chance at gems — including Diamonds (~500) — when you break the ore on their body; they respawn every Blood Moon, so a circuit of known ones is repeatable income."
+  },
+  {
+   "method": "Cook and sell Meat Skewers (one of the best food-flips in the game)",
+   "detail": "Five Raw Gourmet Meat cooked into one Meat Skewer sells for ~315 rupees; hunt large animals or the Honeyvore Bear east of the Thyphlo Ruins Skyview Tower (the Bokoblin Mask lets you walk up unnoticed) for a near-endless, early-and-late-game money loop."
+  },
+  {
+   "method": "Sell high-value cooked dishes and elixirs in bulk",
+   "detail": "Cooking with 5 ingredients sells for far more than the raw parts, and dumping spare monster parts plus a Monster Extract into the pot makes elixirs worth a few dozen rupees and up each, turning junk drops into rupees."
+  },
+  {
+   "method": "Sell extra monster parts and materials you don't need",
+   "detail": "Bokoblin horns, fangs, guts and similar drops sell for a few to a couple dozen rupees each, so dumping a full inventory of leftover monster parts on a merchant is a fast, low-effort early cash injection (cheaper than gems but plentiful)."
+  },
+  {
+   "method": "Feed Luminous Stones to the Dondons to get rare gems",
+   "detail": "At the Dondons north of Lakeside Stable in Bronas Forest (south Faron, by Lake Floria), feed each one up to ~5 Luminous Stones, wait ~15 minutes, and collect what they excrete (Flint, Opal, Sapphire, Ruby, and even Diamonds) for far more value than selling the raw stones — more stones at once raises the odds of high-value gems."
+  },
+  {
+   "method": "Shoot Blupees for free rupees",
+   "detail": "Blupees are glowing blue rabbit-like creatures (often near caves, mostly at night); hit one to make it drop rupees — repeated melee hits yield more than a single arrow, so chase it down before it flees for easy no-cost cash while exploring."
+  },
+  {
+   "method": "Shoot dragons for parts and farm Bubbul Gems for trade goods",
+   "detail": "Arrowing the scales/claws/fangs/horns off the roaming dragons (Dinraal, Farosh, Naydra, the Light Dragon) yields high-value parts, and Bubbul Gems from cave Bubbulfrogs trade to Koltin (at night) for monster masks and rare monster parts you can sell or use rather than for direct rupees."
+  },
+  {
+   "method": "Repeatable minigames and clearing enemy camps",
+   "detail": "Small payouts add up: minigames and side activities (e.g. shooting/racing challenges and toy hunts) and looting/clearing enemy camps for sellable drops are repeatable, and enemy camps respawn after each Blood Moon."
+  }
+ ],
+ "farming": [
+  {
+   "item": "Star Fragment",
+   "where": "Any wide-open area at night; warp between two spots: launch from Gerudo Canyon Skyview Tower, then warp to a sky island like Mayam Shrine.",
+   "tip": "Falls only at night and vanishes at 5:00 AM; you can collect only ONE per night. Launch from a tower or dive from a sky island, glide to the light trail and grab it mid-air. Then warp to a DIFFERENT location and rest to night again — staying in the same spot won't respawn one."
+  },
+  {
+   "item": "Zonaite & Large Zonaite",
+   "where": "The Depths — mine Zonaite Deposits everywhere; the Great Abandoned Central Mine (reached via the Great Plateau North Chasm) is a dense, easy early spot.",
+   "tip": "Break deposits with a hammer/Cobble Crusher; deposits respawn each Blood Moon. Large Zonaite drops from mini-bosses (Frox especially) and bigger deposits. Bring gloom protection (Sundelion dishes / armor). Construct enemies also drop Zonaite + Zonai Charges; a Forge Construct in any Abandoned Mine trades 1 Zonai Charge per 2 Zonaite (and 1 Large Charge per Large Zonaite)."
+  },
+  {
+   "item": "Lynel parts (horn, hoof, guts)",
+   "where": "Floating Coliseum in the Depths — five Lynels back-to-back (ending in Silver Lynels); or a single red-maned Lynel in West Hyrule Plains for an easy kill.",
+   "tip": "Reach the Coliseum via the Great Plateau North Chasm for the highest-density Lynel run. Guts drop reliably from Silver Lynels (guaranteed), often from White, and rarely from Blue — Red Lynels never drop them. Drop a Puffshroom for a smokescreen, then hit a stunned Lynel freely. All Lynels respawn on the Blood Moon."
+  },
+  {
+   "item": "Bokoblin parts (horn, fang, guts)",
+   "where": "Bokoblin camps across Hyrule Field, Lanayru, and late-game Eldin; the Depths have higher-tier variants.",
+   "tip": "Guts ONLY drop from Blue, Black, Silver, or Stalkoblin-tier Bokoblins — red ones never drop guts. Farm black/silver camps for consistent guts. Everything respawns each Blood Moon."
+  },
+  {
+   "item": "Moblin parts (horn, fang, guts)",
+   "where": "Encampments around Hyrule; e.g. Deep Akkala near Kimayat Shrine has a camp next to healing hot springs.",
+   "tip": "Kill Blue (and higher) Moblins for guts; red Moblins don't reliably drop them. Nearby hot springs let you heal between fights. Respawns on the Blood Moon."
+  },
+  {
+   "item": "Lizalfos parts & elemental tails",
+   "where": "Lanayru Wetlands and Lanayru Great Spring for common Lizalfos; Black Lizalfos in Gerudo Desert / East Necluda; Fire-Breath Lizalfos in Eldin.",
+   "tip": "Elemental Lizalfos tails (Fire/Ice/Electric-Breath) are key fuse and armor-upgrade mats. Higher color tiers = better drops; Blood Moon respawn."
+  },
+  {
+   "item": "Horriblin parts (horn, claw, guts)",
+   "where": "Hyrule caves and the Gerudo Desert Depths — Black Horriblins spawn here.",
+   "tip": "Black Horriblin horns are strong fuse material. Horriblins cling to cave ceilings — knock them down with arrows first. Blood Moon respawn."
+  },
+  {
+   "item": "Gleeok parts (Wings, Guts, elemental Horns)",
+   "where": "Fixed Gleeok spots across the surface (Eldin, Lake Hylia, Gerudo Highlands, Hebra, Hyrule Field, Faron, Hyrule Ridge) plus the Gleeok Den in the Depths.",
+   "tip": "Every Gleeok drops Wings + Guts; the element (Fire/Frost/Thunder Horns) matches the Gleeok type. King Gleeoks can drop ANY of the three horn types, so a King is the most flexible farm. Keese-eyeball arrows home in on the heads; Gleeoks respawn each Blood Moon."
+  },
+  {
+   "item": "Elemental critters (Summerwing Butterfly, Cool/Warm Safflina, Sunset Firefly, etc.)",
+   "where": "Summerwing Butterflies: Eldin Canyon, Gerudo Highlands, near Tabantha/Kara Kara areas. Warm Safflina: Eldin & Gerudo Desert. Cool Safflina: Hebra/Tabantha cliffsides & Gerudo Summit.",
+   "tip": "These cook into elixirs and feed armor upgrades (heat/cold resistance sets). Approach insects slowly or they flee — sneak (Stealth set) or freeze the area. They regrow after a few in-game days."
+  },
+  {
+   "item": "Gems via Rare Ore Deposits (Diamond, Ruby, Sapphire, Topaz)",
+   "where": "Rare (gold-veined) Ore Deposits in the Depths and on cliffs; Eldin/Death Mountain caves (Ruby), Tabantha/Hebra caves (Sapphire), Gerudo Desert caves (Topaz). Diamonds come from Rare Deposits anywhere.",
+   "tip": "Plain black deposits give common ore + element gems; the gold-flecked RARE deposits are the ones that can drop Diamonds. Use a Cobble Crusher / hammer-fused weapon to break them fast. Ore deposits respawn each Blood Moon. Elemental Taluses (Igneo→Ruby, Frost→Sapphire) also drop gems."
+  },
+  {
+   "item": "Dinraal (Fire Dragon) parts",
+   "where": "Flies along the north of Hyrule, EAST-to-WEST: emerges from the East Akkala Plains Chasm (northeast) and travels the coast to the Drenan Highlands Chasm (northwest, near Tabantha/Eldin).",
+   "tip": "Shoot a Scale (body), Claw (foot), Fang (mouth), or Horn (head) with arrows — Horn is rarest/most valuable. Each part you shoot off respawns after ~10 minutes of REAL-time gameplay (no Blood Moon needed), so you can ride/board the dragon and keep harvesting. Touching it grants a Fire aura. Wait on a sky island or chasm along its path."
+  },
+  {
+   "item": "Naydra (Frost Dragon) parts",
+   "where": "Loops around the Necluda/Mount Lanayru area between the Naydra Snowfield Chasm and the East Hill Chasm (above Kakariko).",
+   "tip": "The Mount Lanayru Skyview Tower is a reliable launch point to intercept Naydra as it climbs; the Dueling Peaks crossing is another easy intercept (no cold gear needed). Shoot the part you need — each respawns after ~10 minutes of real-time play, so you can keep harvesting from the same dragon."
+  },
+  {
+   "item": "Farosh (Lightning Dragon) parts",
+   "where": "Travels from the East Gerudo Chasm across Gerudo and Lake Hylia (passing near the Gerudo Canyon Skyview Tower) before diving into the Hills of Baumer Chasm.",
+   "tip": "Launch from Gerudo Canyon Skyview Tower and glide onto its path; shoot the part you want. Parts respawn after ~10 minutes of real-time gameplay. Farosh discharges electricity — don't ride it or touch it with a metal weapon equipped."
+  },
+  {
+   "item": "Light Dragon parts",
+   "where": "Circles very high over all of Hyrule's sky islands on a fixed loop and never enters the Depths.",
+   "tip": "Skydive onto its back, walk along it, and shoot/pull off parts (its scales/claws/fangs/horns/spikes are top-tier). Like the other dragons, each part respawns after ~10 minutes of real-time play. Note: there is no story event that makes it fly lower — it stays at sky-island altitude, so reach it by diving from a sky island above its path."
+  },
+  {
+   "item": "Brightbloom & Giant Brightbloom Seeds",
+   "where": "Giant: caves with Brightbloom clusters (e.g. near Woodland Stable) yield several Giants per trip. Regular: the large cave below the Great Sky Island starting area and most surface caves.",
+   "tip": "Throw regular seeds to light the Depths; Giant seeds light a huge radius and permanently reveal areas/Lightroots. Set Sensor+ to a seed to track nearby ones. Both regrow after a few in-game days."
+  },
+  {
+   "item": "Sundelion & Hearty ingredients",
+   "where": "Sundelion: sunny spots on the sky islands (e.g. South Eldin Sky Archipelago, North Necluda Sky Archipelago). Big Hearty Radish: North Necluda Sky islands, plus sky-island and surface spots.",
+   "tip": "Sundelion is THE gloom-recovery ingredient (cooks the dish that heals gloom-damaged hearts) — essential before deep Depths runs. Big Hearty Radish gives the most bonus (full-heart) yellow hearts. Both regrow after a few in-game days."
+  }
+ ],
+ "tips": [
+  "DO hoard Poes and spend them at the Bargainer Statues in the Depths — those shops take Poes, not rupees, for their exclusive Depths gear (the Dark Set / Hero of the Depths set), lanterns, and materials.",
+  "DON'T sell monster, Lynel, Gleeok, or dragon parts blindly — many are required armor-upgrade materials at the Great Fairy fountains, so check the recipe before cashing them in.",
+  "DO cook before you sell — dishes fetch noticeably more rupees than the raw ingredients and only cost a few seconds at a pot.",
+  "DON'T sell Star Fragments — they're rare and needed to upgrade several armor sets (and to fuse for light), so they're worth far more kept than the rupees you'd get.",
+  "DON'T sell Zonaite — convert it into Zonai/Crystallized Charges (3 Zonaite makes 1 Crystallized Charge) to upgrade your battery, which you'll need for vehicles and combat.",
+  "DO treat the Hylian Shield as reusable — it's recoverable from Hyrule Castle, rebuyable from Cece in Hateno for 3,000 rupees, or repairable by feeding it to a Rock Octorok, so use it instead of hoarding it.",
+  "DO buy arrows in bulk when you have spare rupees (e.g. from the shop at Lookout Landing) so you're never caught without ammo.",
+  "DON'T expect to pay a rupee fee to wake the Great Fairies — you unlock each fountain by reuniting the Stable Trotters music troupe and escorting the musicians to play at the fountain, not by spending money."
+ ]
+}

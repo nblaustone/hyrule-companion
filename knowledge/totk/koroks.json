@@ -1,0 +1,130 @@
+{
+ "what": "Koroks are tiny hidden forest spirits scattered across Hyrule (Surface, Sky, and Depths); each one you uncover by solving a small environmental puzzle hands you a Korok Seed, which you trade to Hestu to permanently expand your weapon, bow, and shield pouches so you can carry more gear.",
+ "hestu": "You first meet Hestu on the Surface just northeast of New Serenne Stable (between the stable and the Lindor's Brow Skyview Tower in West Necluda) — talking to him starts the \"Hestu's Concerns\" quest. After you clear your FIRST temple he relocates to Lookout Landing (he stands near the general store / central plaza, with no upgrade limit there), and once you reach the Korok Forest deep in the Lost Woods he settles there permanently.",
+ "totalSeeds": 1000,
+ "maxSeeds": 421,
+ "puzzleTypes": [
+  {
+   "type": "Lone rock",
+   "see": "A single small rock sitting by itself somewhere odd — on a stump, a ledge, a rooftop, the tip of a pillar, or surrounded by water.",
+   "do": "Walk up and lift the rock (Ultrahand, or just grab and throw it) to reveal the Korok hiding underneath.",
+   "category": "rocks"
+  },
+  {
+   "type": "Hidden/covered rock",
+   "see": "A suspicious pile of leaves or a lump of ice, often glinting or out of place.",
+   "do": "Burn the leaf pile (a fire arrow or any flame) or melt the ice, then lift the rock that was underneath.",
+   "category": "rocks"
+  },
+  {
+   "type": "Complete the rock pattern",
+   "see": "A circle, line, or swirl of stones with one stone obviously missing — a clear gap in the shape.",
+   "do": "Find the matching loose rock nearby and use Ultrahand to set it into the empty spot, completing the pattern.",
+   "category": "rocks"
+  },
+  {
+   "type": "Rock in the ring (pedestal)",
+   "see": "A small tree-like tripod or stone holder with a hollow center, with a loose boulder sitting close by.",
+   "do": "Use Ultrahand to lift the matching boulder and nestle it snugly into the cradle so it sits centered.",
+   "category": "place"
+  },
+  {
+   "type": "Matching rock/statue pairs",
+   "see": "Two rock or statue formations that are almost identical, but one is missing a piece the other has.",
+   "do": "Use Ultrahand to move a stone/piece so both arrangements match each other exactly.",
+   "category": "place"
+  },
+  {
+   "type": "Flower trail",
+   "see": "A single faintly glowing yellow flower, usually in a high or scenic spot, that vanishes when you get near.",
+   "do": "Touch it, then chase it as it reappears a little further on, in sequence; keep following until the flower turns white, and the Korok pops out when you reach that last one.",
+   "category": "race"
+  },
+  {
+   "type": "Dandelion catch",
+   "see": "A large glowing dandelion / white flower puff standing on its own.",
+   "do": "Slash the dandelion so the fluff launches into the air, then catch/touch the floating seed before it lands.",
+   "category": "race"
+  },
+  {
+   "type": "Stump race (timer)",
+   "see": "A tree stump with a leaf pattern carved on top; stepping on it spawns a glowing target ring a short distance away with a countdown.",
+   "do": "Stand on the stump to start it, then sprint, glide, or use Zonai devices to reach the target ring before the timer runs out. Speed-up food helps.",
+   "category": "race"
+  },
+  {
+   "type": "Stump-to-stump (don't touch ground)",
+   "see": "You step on a leaf stump and a target appears above a SECOND stump nearby — no timer, but touching the ground resets it.",
+   "do": "Get from the first stump to the second without ever touching the ground — paraglide, climb, or build a path with Ultrahand/Zonai.",
+   "category": "race"
+  },
+  {
+   "type": "Ceiling stump (Ascend)",
+   "see": "A leaf-marked tree stump set into a ceiling, cliff overhang, or the underside of a platform, just out of reach above you.",
+   "do": "Stand directly beneath it and use Ascend to rise up through the stump.",
+   "category": "build"
+  },
+  {
+   "type": "Dive for the orb (sky/high)",
+   "see": "A stump on a Sky Island or high ledge that, when you stand on it, shoots a glowing orb out into open air.",
+   "do": "Step on the stump, then immediately leap off and dive to catch the orb in midair before it falls.",
+   "category": "dive"
+  },
+  {
+   "type": "Dive through the water lilies",
+   "see": "A ring of lily pads or flowers arranged in a circle on a pond, with a high point above it.",
+   "do": "Climb to the high spot and dive straight down into the center of the ring of lilies.",
+   "category": "dive"
+  },
+  {
+   "type": "Shoot the acorn/jar",
+   "see": "An acorn-shaped jar or hollow log hanging from a branch or structure, with an acorn visible inside.",
+   "do": "Shoot the acorn with an arrow from your bow.",
+   "category": "shoot"
+  },
+  {
+   "type": "Shoot the balloons",
+   "see": "You step on a stump and wooden-and-leaf balloons rise into the air around you.",
+   "do": "Stay on the platform and pop every balloon with arrows (bullet-time mid-air shots help) — don't step off.",
+   "category": "shoot"
+  },
+  {
+   "type": "Pinwheel + targets",
+   "see": "A pinwheel windmill with several glowing target rings appearing around it when you approach.",
+   "do": "Stand near the pinwheel and shoot down all the targets with arrows before they vanish, without straying too far.",
+   "category": "shoot"
+  },
+  {
+   "type": "Carry the Korok buddy",
+   "see": "A lone Korok wearing a big backpack with a '!' over its head, looking stuck — its friend is somewhere in the distance (often marked by a green smoke signal).",
+   "do": "Get the backpack Korok to its friend any way you can — carry it, or build a cart / raft / vehicle with Ultrahand and Zonai parts and haul it there. Reuniting them pays 2 seeds.",
+   "category": "carry"
+  },
+  {
+   "type": "Ultrahand build/repair",
+   "see": "A broken structure with an obvious gap — a roof with a missing piece, a cart needing a wheel, or loose blocks beside an incomplete shape.",
+   "do": "Use Ultrahand to grab the nearby loose piece and slot it into the gap so the structure is whole again.",
+   "category": "build"
+  },
+  {
+   "type": "Pull the cork/plug",
+   "see": "A wooden cork or plug stuck into a log, pond, or hole, usually chained or wedged in tight.",
+   "do": "Use Ultrahand to yank the cork out, or fling a heavy boulder/rocket at it to pop it free.",
+   "category": "build"
+  },
+  {
+   "type": "Offer the fruit",
+   "see": "A small statue, altar, or bowl with an empty offering plate (a carving sometimes hints what it wants).",
+   "do": "Drop the right fruit into the bowl — usually an apple, but some want a specific item like a Mighty Banana.",
+   "category": "offering"
+  }
+ ],
+ "hotspots": [
+  "Great Sky Island (the tutorial sky area, ~17–19 Koroks) — gentle intro puzzles: lift-the-rock, an Ultrahand block-fit, a dive-for-the-orb stump, and balloon shots that teach the patterns before you reach the Surface.",
+  "Lookout Landing and the surrounding Hyrule Field — once you land, the open field around the central hub is dotted with lift-the-rock, complete-the-circle, and flower-trail Koroks within easy walking distance.",
+  "New Serenne Stable / Lindor's Brow area (West Necluda) — right where you first meet Hestu, so you can trade as you go; nearby stumps and rocks make it a natural early farming spot.",
+  "Any Stable — stables almost always have a Korok at or near them (commonly a hidden rock or a 'carry me to my friend' buddy), so checking each stable you pass is reliable.",
+  "Roadsides and bridges everywhere — Koroks love road edges, the ends of bridges, and lone landmarks (a single tree, a rock arch); scanning these as you travel turns up flower trails, rock circles, and carry buddies constantly."
+ ],
+ "notes": "Sources agree there are 1,000 Korok Seeds total in the base game but only ~800 puzzle LOCATIONS — the difference is the carry-the-buddy reunions, which each pay 2 seeds. You only need 421 seeds to fully max every slot via Hestu (153 weapon, 160 shield, 108 bow), so the remaining ~579 are purely completionist (the reward for all 1,000 is Hestu's Gift, a famous gag trophy). Verified-but-omitted: a few guides also list a 'follow the sparkles/wisps' chase and a 'red signpost arrows converge' puzzle; both are real in TotK but were left out here to keep the 19 types clean (the sparkle-chase plays like the flower-trail; the signposts point to a hidden Korok). Puzzle counts vary by guide (~9 'main' families up to ~19 when every variant is split); the 19 here are each independently confirmed. Several types — Ultrahand build/repair, cork-pull, rock-in-ring via Ultrahand, the carry-buddy vehicle build, ceiling-stump Ascend — are TotK-signature and were not in BotW. Solutions are open-ended in TotK, so the 'do' steps describe the intended/easiest route, not the only one."
+}

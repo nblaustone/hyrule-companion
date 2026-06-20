@@ -3705,7 +3705,9 @@
     "where": "Starting gear on the Great Sky Island; from chests and the Steward Construct as you begin the game.",
     "bonus": "No set bonus; just basic starter defense to get you off the tutorial island.",
     "upgrade": "Not upgradable at Great Fairies; starter clothing you replace fast.",
-    "priority": "Have it by default"
+    "priority": "Have it by default",
+    "tiers": [],
+    "farm": "No farming needed: this set has no upgrade recipes at all, so there are no materials to gather before visiting a Great Fairy."
    },
    {
     "name": "Hylian Set",
@@ -3713,7 +3715,70 @@
     "where": "Buy from Hateno Village's Ventest Clothing Boutique and other early shops.",
     "bonus": "No set bonus, but cheap, balanced all-purpose defense for the early game.",
     "upgrade": "Upgrade theme: common monster parts like Bokoblin Horns plus Hylian plants.",
-    "priority": "Solid early default"
+    "priority": "Solid early default",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Bokoblin Horn",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Blue Bokoblin Horn",
+        "qty": 15
+       },
+       {
+        "item": "Bokoblin Fang",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Black Bokoblin Horn",
+        "qty": 15
+       },
+       {
+        "item": "Bokoblin Guts",
+        "qty": 9
+       },
+       {
+        "item": "Amber",
+        "qty": 60
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Silver Bokoblin Horn",
+        "qty": 15
+       },
+       {
+        "item": "Bokoblin Guts",
+        "qty": 15
+       },
+       {
+        "item": "Amber",
+        "qty": 90
+       }
+      ]
+     }
+    ],
+    "farm": "Bokoblin Horns (and the Blue/Black/Silver-tier horns) plus Bokoblin Fangs and Guts drop from Bokoblins all over Hyrule — kill the stronger color-tier Bokoblins (blue/black/silver) for the higher-tier horns, and stronger Bokoblins are the ones that drop Fangs and Guts. Amber is mined from the black ore-rock chunks in caves and on cliffsides across the surface and the Depths."
    },
    {
     "name": "Climbing Gear (Climber's Set)",
@@ -3721,7 +3786,66 @@
     "where": "Three separate chests in caves: North Hyrule Plain Cave, Ploymus Mountain Cave, and Upland Zorana Byroad.",
     "bonus": "Full set bonus Climbing Jump Stamina Up: halves the stamina used when jumping mid-climb. No per-piece speed boost.",
     "upgrade": "Upgrade theme: lizards and climbing critters like Lizalfos Tails.",
-    "priority": "Great early quality-of-life"
+    "priority": "Great early quality-of-life",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Keese Wing",
+        "qty": 9
+       },
+       {
+        "item": "Rushroom",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Electric Keese Wing",
+        "qty": 15
+       },
+       {
+        "item": "Hightail Lizard",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Hot-Footed Frog",
+        "qty": 30
+       },
+       {
+        "item": "Ice Keese Wing",
+        "qty": 24
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Swift Violet",
+        "qty": 60
+       },
+       {
+        "item": "Fire Keese Wing",
+        "qty": 30
+       }
+      ]
+     }
+    ],
+    "farm": "Swift Violets are the ★4 bottleneck (60 needed): they grow on cliff faces and around caves/ruins, only appear at night, and glow a faint purple — sweep canyon walls and cave mouths after dark (the Gerudo/Faron cliffs and chasm walls are dense with them). The Keese Wing variants drop from the matching elemental Keese (Electric/Ice/Fire Keese) found in caves, the Depths, and swarming at night; Hightail Lizards and Hot-Footed Frogs are caught on the ground in temperate Hyrule fields and forests (sneak up or use a quick weapon)."
    },
    {
     "name": "Glide Set",
@@ -3729,7 +3853,66 @@
     "where": "Complete the three Sky dive ring challenges on Courage, Bravery, and Valor Islands (one piece each).",
     "bonus": "Each piece boosts dive speed; full set upgraded to 2 stars gives Impact Proof - immunity to all fall damage.",
     "upgrade": "Upgrade theme: sky/flight critters and Zonai materials.",
-    "priority": "Fun and very useful for fliers"
+    "priority": "Fun and very useful for fliers",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Keese Wing",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Keese Wing",
+        "qty": 15
+       },
+       {
+        "item": "Aerocuda Eyeball",
+        "qty": 18
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Aerocuda Wing",
+        "qty": 18
+       },
+       {
+        "item": "Aerocuda Eyeball",
+        "qty": 24
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Aerocuda Wing",
+        "qty": 30
+       },
+       {
+        "item": "Gibdo Wing",
+        "qty": 24
+       },
+       {
+        "item": "Gleeok Wing",
+        "qty": 36
+       }
+      ]
+     }
+    ],
+    "farm": "Keese Wings drop from Keese (caves and at night); Aerocuda Eyeballs and Aerocuda Wings come from Aerocuda (flying enemies common over the surface and in the Sky); Gibdo Wings drop from Gibdo in the Gerudo Desert during/after the sandstorm (and in the Lightning Temple); Gleeok Wings come from any Gleeok type (Fire/Frost/Thunder, plus the King Gleeok) found across Hyrule."
    },
    {
     "name": "Zonaite Set",
@@ -3737,7 +3920,74 @@
     "where": "Three chests on the Sky Islands, in different areas of the sky.",
     "bonus": "Full set bonus Energy Recharge Up: doubles how fast your Zonai battery (energy cells) recharge.",
     "upgrade": "Upgrade theme: Zonaite ore and Zonai device/construct materials.",
-    "priority": "Best-in-slot for Zonai vehicle builders"
+    "priority": "Best-in-slot for Zonai vehicle builders",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Soldier Construct Horn",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Soldier Construct II Horn",
+        "qty": 15
+       },
+       {
+        "item": "Captain Construct I Horn",
+        "qty": 15
+       },
+       {
+        "item": "Zonaite",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Soldier Construct III Horn",
+        "qty": 15
+       },
+       {
+        "item": "Captain Construct II Horn",
+        "qty": 15
+       },
+       {
+        "item": "Large Zonaite",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Soldier Construct IV Horn",
+        "qty": 15
+       },
+       {
+        "item": "Captain Construct III Horn",
+        "qty": 15
+       },
+       {
+        "item": "Large Zonaite",
+        "qty": 30
+       }
+      ]
+     }
+    ],
+    "farm": "Construct Horns come from Soldier/Captain Constructs (higher Roman-numeral tiers spawn as you progress; the Depths colosseums and Sky Island camps are good farms), while Zonaite and Large Zonaite are mined from ore deposits and dropped by Constructs across the Depths."
    },
    {
     "name": "Charged Set",
@@ -3745,7 +3995,70 @@
     "where": "Three caves along the Dracozu River (marked by Tall Dragon Pillars) during the Secret of the Ring Ruins quest.",
     "bonus": "Full set bonus Stormy Weather Charge: charges weapon attacks faster while in stormy weather.",
     "upgrade": "Upgrade theme: electric monster parts (Electric Lizalfos, Electric Keese).",
-    "priority": "Niche, late-game"
+    "priority": "Niche, late-game",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Shock Fruit",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Thunderwing Butterfly",
+        "qty": 9
+       },
+       {
+        "item": "Electric Lizalfos Horn",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Large Zonai Charge",
+        "qty": 9
+       },
+       {
+        "item": "Shock Like Stone",
+        "qty": 15
+       },
+       {
+        "item": "Electric Darner",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Voltfin Trout",
+        "qty": 30
+       },
+       {
+        "item": "Large Zonai Charge",
+        "qty": 15
+       },
+       {
+        "item": "Gleeok Thunder Horn",
+        "qty": 15
+       }
+      ]
+     }
+    ],
+    "farm": "Gleeok Thunder Horns (★4) drop only from Thunder Gleeoks — multi-headed sky/depths bosses (e.g. the South Lanayru Sky Archipelago and other Gleeok perches); each kill yields one horn, so the 15 needed is the real grind. Large Zonai Charges come from Large Zonai Charge crystals harvested in the Depths (mine the glowing Zonaite/charge deposits) or by recharging at a Forge Construct. Shock Fruit grows on bushes/trees in warm regions, Electric Lizalfos Horns drop from Electric (yellow) Lizalfos, Voltfin Trout are caught in Lanayru/Faron lakes and rivers, and Electric Darners + Thunderwing Butterflies are insects found near electric flora across Faron/Lanayru."
    },
    {
     "name": "Froggy Set",
@@ -3753,7 +4066,66 @@
     "where": "Rewards from completing all of Penn's Lucky Clover Gazette side quests (12 stable jobs) for Traysi.",
     "bonus": "Slip Resistance per piece; full set greatly reduces slipping while climbing wet or icy surfaces.",
     "upgrade": "Upgrade theme: frogs like Hot-Footed Frog and Tireless Frog.",
-    "priority": "Huge for rainy climbing"
+    "priority": "Huge for rainy climbing",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Sticky Lizard",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Sticky Lizard",
+        "qty": 15
+       },
+       {
+        "item": "Horriblin Horn",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Blue Horriblin Horn",
+        "qty": 15
+       },
+       {
+        "item": "Sticky Frog",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Opal",
+        "qty": 30
+       },
+       {
+        "item": "Black Horriblin Horn",
+        "qty": 15
+       },
+       {
+        "item": "Horriblin Guts",
+        "qty": 30
+       }
+      ]
+     }
+    ],
+    "farm": "Sticky Lizards and Sticky Frogs are caught near water across Hyrule (Sticky Frogs especially in caves and around ponds). Horriblin Horns/Guts drop from common (red) Horriblins, Blue Horriblin Horns from Blue Horriblins, and Black Horriblin Horns from the tougher Black Horriblins — Horriblins live in caves and the Depths, with the harder color variants showing up in late-game caves and the Depths. Opals are mined from ore deposits (and the Depths) and are common around and under water."
    },
    {
     "name": "Rubber Set",
@@ -3761,7 +4133,74 @@
     "where": "Three chests in caves around Hyrule; the helm is an easy early grab before facing Gerudo storms.",
     "bonus": "Shock Resistance per piece; fully upgraded set bonus Unshockable negates electric/lightning shock damage.",
     "upgrade": "Upgrade theme: electric parts like Electric Lizalfos Tails.",
-    "priority": "Worth it before lightning zones"
+    "priority": "Worth it before lightning zones",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Yellow Chuchu Jelly",
+        "qty": 9
+       },
+       {
+        "item": "Electric Lizalfos Horn",
+        "qty": 3
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Yellow Chuchu Jelly",
+        "qty": 24
+       },
+       {
+        "item": "Voltfruit",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Zapshroom",
+        "qty": 15
+       },
+       {
+        "item": "Electric Safflina",
+        "qty": 24
+       },
+       {
+        "item": "Electric Lizalfos Tail",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Topaz",
+        "qty": 15
+       },
+       {
+        "item": "Electric Lizalfos Horn",
+        "qty": 15
+       },
+       {
+        "item": "Electric Lizalfos Tail",
+        "qty": 24
+       }
+      ]
+     }
+    ],
+    "farm": "Yellow Chuchu Jelly drops from Electric Chuchus (or make it by hitting any Chuchu Jelly with a Shock Fruit); Electric Lizalfos Horns/Tails come from Electric Lizalfos in Gerudo/Lanayru; Voltfruit grows in the Gerudo Desert and Zapshrooms/Electric Safflina in Faron and Hyrule's warm regions; Topaz is mined from ore deposits in caves and on cliffs."
    },
    {
     "name": "Desert Voe Set",
@@ -3769,7 +4208,70 @@
     "where": "Buy from the clothing shop in Gerudo Town once you reach the desert.",
     "bonus": "Heat Resistance per piece; fully upgraded set bonus adds Shock Damage Resist, ideal for the Gerudo region.",
     "upgrade": "Upgrade theme: desert critters and Electric Safflina.",
-    "priority": "Needed for hot Gerudo daytime"
+    "priority": "Needed for hot Gerudo daytime",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "White Chuchu Jelly",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "White Chuchu Jelly",
+        "qty": 15
+       },
+       {
+        "item": "Cool Safflina",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Ice Keese Wing",
+        "qty": 15
+       },
+       {
+        "item": "Ice-Breath Lizalfos Tail",
+        "qty": 9
+       },
+       {
+        "item": "Chillshroom",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Ice-Breath Lizalfos Horn",
+        "qty": 15
+       },
+       {
+        "item": "Ice-Breath Lizalfos Tail",
+        "qty": 30
+       },
+       {
+        "item": "Sapphire",
+        "qty": 15
+       }
+      ]
+     }
+    ],
+    "farm": "All three pieces share one recipe, so quantities below are set-totals (3x per-piece). White Chuchu Jelly drops from White Chuchus (cold regions like Hebra/Gerudo Highlands and Hyrule Field). Cool Safflina grows on cold ground in the Gerudo Highlands and Hebra. Chillshrooms grow on cold peaks (Hebra, Mount Lanayru, Gerudo Highlands). Ice Keese Wings come from Ice Keese in caves/cold areas. Ice-Breath Lizalfos Tails and Horns drop from blue Ice-Breath Lizalfos in the snowy north (Hebra, Gerudo Highlands). Sapphires are mined from ore deposits (especially the Depths and northern mountains) and can drop from Ice-Breath Lizalfos."
    },
    {
     "name": "Snowquill Set",
@@ -3777,7 +4279,70 @@
     "where": "Buy from the Rito Village shop (Brazen Beak) in the snowy Hebra/Tabantha region.",
     "bonus": "Cold Resistance per piece; fully upgraded set bonus Unfreezable keeps you from freezing in blizzards.",
     "upgrade": "Upgrade theme: cold-region critters (Cold Darner, Winterwing Butterfly).",
-    "priority": "Essential for Rito/Hebra cold"
+    "priority": "Essential for Rito/Hebra cold",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Red Chuchu Jelly",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Red Chuchu Jelly",
+        "qty": 15
+       },
+       {
+        "item": "Warm Safflina",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Sunshroom",
+        "qty": 15
+       },
+       {
+        "item": "Fire Keese Wing",
+        "qty": 15
+       },
+       {
+        "item": "Fire-Breath Lizalfos Tail",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Ruby",
+        "qty": 15
+       },
+       {
+        "item": "Fire-Breath Lizalfos Horn",
+        "qty": 15
+       },
+       {
+        "item": "Fire-Breath Lizalfos Tail",
+        "qty": 30
+       }
+      ]
+     }
+    ],
+    "farm": "Red Chuchu Jelly drops from red Chuchus (and from any Chuchu Jelly left near a flame); Warm Safflina grows in the warm Gerudo Desert near Kara Kara Bazaar; Sunshrooms grow on Death Mountain / Eldin's hot slopes; Fire Keese Wings come from Fire Keese and Fire-Breath Lizalfos Tails/Horns from red (fire) Lizalfos in hot Eldin/Gerudo regions; Rubies are mined from ore deposits and rare ore deposits (common in Eldin caves and mountains)."
    },
    {
     "name": "Flamebreaker Set",
@@ -3785,7 +4350,70 @@
     "where": "Buy at the Goron armor shop in Goron City near Death Mountain.",
     "bonus": "Fire Resistance per piece; fully upgraded set bonus Fireproof stops flames from burning you.",
     "upgrade": "Upgrade theme: fire materials like Fireproof Lizards and Flint.",
-    "priority": "Required for Death Mountain/Depths lava"
+    "priority": "Required for Death Mountain/Depths lava",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Moblin Horn",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Moblin Fang",
+        "qty": 15
+       },
+       {
+        "item": "Fireproof Lizard",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Blue Moblin Horn",
+        "qty": 15
+       },
+       {
+        "item": "Flint",
+        "qty": 45
+       },
+       {
+        "item": "Smotherwing Butterfly",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Black Moblin Horn",
+        "qty": 15
+       },
+       {
+        "item": "Flint",
+        "qty": 90
+       },
+       {
+        "item": "Smotherwing Butterfly",
+        "qty": 15
+       }
+      ]
+     }
+    ],
+    "farm": "Moblin parts (Horn/Fang) drop from Moblins of the matching color tier — ordinary Moblins for ★1–2, Blue Moblins for the ★3 Blue Moblin Horn, Black Moblins for the ★4 Black Moblin Horn. Fireproof Lizards and Smotherwing Butterflies are caught around the Eldin/Death Mountain region (Fireproof Lizards swarm the cliffs by Goron City and the Southern Mine); Flint comes from mining ore deposits or smashing the right rocks."
    },
    {
     "name": "Zora Set (Zora Armor)",
@@ -3793,7 +4421,70 @@
     "where": "Zora Armor from Lady Yona during Sidon of the Zora (needs an ancient arowana; Dento points you to it). Helm and greaves found around the region.",
     "bonus": "Swim Speed Up per piece; full set lets you swim up waterfalls, very handy in Zora areas.",
     "upgrade": "Upgrade theme: fish and Zora-region materials.",
-    "priority": "Great for water traversal"
+    "priority": "Great for water traversal",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Lizalfos Horn",
+        "qty": 9
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Hyrule Bass",
+        "qty": 15
+       },
+       {
+        "item": "Lizalfos Talon",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Hearty Bass",
+        "qty": 9
+       },
+       {
+        "item": "Lizalfos Tail",
+        "qty": 9
+       },
+       {
+        "item": "Blue Lizalfos Horn",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Opal",
+        "qty": 60
+       },
+       {
+        "item": "Black Lizalfos Horn",
+        "qty": 15
+       },
+       {
+        "item": "Blue Lizalfos Tail",
+        "qty": 15
+       }
+      ]
+     }
+    ],
+    "farm": "Lizalfos parts come from the four Lizalfos color tiers — basic (green) Lizalfos drop Horns/Talons/Tails; Blue Lizalfos (tougher regions: Hebra, Eldin, the Depths) drop Blue Lizalfos Horn/Tail; Black Lizalfos (high-level areas and the Depths) drop Black Lizalfos Horn. Hyrule Bass and Hearty Bass are caught in lakes and rivers (Hearty Bass favors quiet ponds/inlets). Opals are mined from ore deposits in caves and the Depths, or bought from the mining shops near Goron City."
    },
    {
     "name": "Champion's Leathers",
@@ -3801,7 +4492,78 @@
     "where": "Hidden chest in the Sanctum (throne room) of Hyrule Castle; light the two torches behind the throne to open the tomb.",
     "bonus": "No set bonus (single piece), but strong scaling defense as you upgrade and a classic blue look.",
     "upgrade": "Upgrade theme: Star Fragments plus rarer monster parts at higher stars.",
-    "priority": "Reliable main-story staple"
+    "priority": "Reliable main-story staple",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 10,
+      "materials": [
+       {
+        "item": "Silent Princess",
+        "qty": 3
+       },
+       {
+        "item": "Light Dragon's Scale",
+        "qty": 2
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 50,
+      "materials": [
+       {
+        "item": "Sundelion",
+        "qty": 10
+       },
+       {
+        "item": "Silent Princess",
+        "qty": 3
+       },
+       {
+        "item": "Light Dragon's Talon",
+        "qty": 2
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 200,
+      "materials": [
+       {
+        "item": "Sundelion",
+        "qty": 15
+       },
+       {
+        "item": "Silent Princess",
+        "qty": 5
+       },
+       {
+        "item": "Shard of Light Dragon's Fang",
+        "qty": 2
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 500,
+      "materials": [
+       {
+        "item": "Sundelion",
+        "qty": 20
+       },
+       {
+        "item": "Silent Princess",
+        "qty": 10
+       },
+       {
+        "item": "Light Dragon's Horn",
+        "qty": 2
+       }
+      ]
+     }
+    ],
+    "farm": "Light Dragon parts (Scale/Talon/Shard of Fang/Horn) come from the Light Dragon as it endlessly circles Hyrule's skies — land on its back and strike its scales for the common Scale, and its horns/claws/fangs for the rarer parts; each spot respawns about 10 minutes (in-game) after you harvest it. Silent Princess grows wild on the surface (a pond at Piper Ridge south of Rito Village yields ~7 at once) and on Sky Islands; Sundelions are gathered up on the Sky Islands."
    },
    {
     "name": "Miner's Set (glow set)",
@@ -3809,7 +4571,70 @@
     "where": "Three chests in Depths mines: Abandoned Kara Kara, Daphnes Canyon, and Hylia Canyon mines.",
     "bonus": "Pieces glow to light the dark Depths; full upgraded set bonus Shining Steps leaves a glowing petal trail.",
     "upgrade": "Upgrade theme: Brightcaps and luminous Depths materials.",
-    "priority": "Best early light source for the Depths"
+    "priority": "Best early light source for the Depths",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Brightbloom Seed",
+        "qty": 30
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Brightbloom Seed",
+        "qty": 60
+       },
+       {
+        "item": "Brightcap",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Giant Brightbloom Seed",
+        "qty": 45
+       },
+       {
+        "item": "Deep Firefly",
+        "qty": 30
+       },
+       {
+        "item": "Glowing Cave Fish",
+        "qty": 15
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Giant Brightbloom Seed",
+        "qty": 60
+       },
+       {
+        "item": "Large Zonaite",
+        "qty": 30
+       },
+       {
+        "item": "Diamond",
+        "qty": 9
+       }
+      ]
+     }
+    ],
+    "farm": "Brightbloom Seeds and Brightcaps come from the Depths (toss/shoot Brightbloom Seeds to light your way, or harvest the glowing Brightcap mushrooms on cave/Depths walls); Giant Brightbloom Seeds drop from large glowing roots and bigger Depths flora; Deep Fireflies and Glowing Cave Fish are caught in caves and the Depths; Large Zonaite is mined from Zonaite ore deposits/chunks in the Depths; Diamonds come from Rare Ore Deposits, Luminous Stone veins, or gem traders. ★3-4 are Depths-heavy."
    },
    {
     "name": "Tunic of the Wild (Of the Wild Set)",
@@ -3817,7 +4642,122 @@
     "where": "Misko's Treasure side quests - three Dark Skeletons in the Depths (Hebra, Gerudo, Eldin). The Eldin piece needs fire protection. NOT an all-shrines reward like BotW.",
     "bonus": "Full set upgraded to 2 stars grants Attack Up. The classic green Champion look.",
     "upgrade": "Upgrade theme: Dragon Parts (scales, claws, horns, fangs).",
-    "priority": "Iconic late-game reward"
+    "priority": "Iconic late-game reward",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Acorn",
+        "qty": 30
+       },
+       {
+        "item": "Farosh's Scale",
+        "qty": 2
+       },
+       {
+        "item": "Naydra's Scale",
+        "qty": 2
+       },
+       {
+        "item": "Dinraal's Scale",
+        "qty": 2
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Courser Bee Honey",
+        "qty": 15
+       },
+       {
+        "item": "Farosh's Claw",
+        "qty": 2
+       },
+       {
+        "item": "Naydra's Claw",
+        "qty": 2
+       },
+       {
+        "item": "Dinraal's Claw",
+        "qty": 2
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Energetic Rhino Beetle",
+        "qty": 9
+       },
+       {
+        "item": "Shard of Farosh's Spike",
+        "qty": 5
+       },
+       {
+        "item": "Shard of Naydra's Spike",
+        "qty": 5
+       },
+       {
+        "item": "Shard of Dinraal's Spike",
+        "qty": 5
+       },
+       {
+        "item": "Shard of Farosh's Fang",
+        "qty": 2
+       },
+       {
+        "item": "Shard of Naydra's Fang",
+        "qty": 2
+       },
+       {
+        "item": "Shard of Dinraal's Fang",
+        "qty": 2
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Star Fragment",
+        "qty": 9
+       },
+       {
+        "item": "Farosh's Horn",
+        "qty": 2
+       },
+       {
+        "item": "Naydra's Horn",
+        "qty": 2
+       },
+       {
+        "item": "Dinraal's Horn",
+        "qty": 2
+       },
+       {
+        "item": "Shard of Farosh's Spike",
+        "qty": 10
+       },
+       {
+        "item": "Shard of Naydra's Spike",
+        "qty": 10
+       },
+       {
+        "item": "Shard of Dinraal's Spike",
+        "qty": 10
+       }
+      ]
+     }
+    ],
+    "farm": "Acorns drop from trees (cut one down or hit it) and Courser Bee Honey comes from beehives (shoot a hive down, then grab the honey); Energetic Rhino Beetles cling to tree trunks at night, especially around Eldin/Akkala; Star Fragments fall from the night sky (wait past 9pm on high ground, then run to the glow). Dragon parts come from the three roaming dragons — Farosh (Faron/Lake Hylia area), Naydra (Lanayru/Mount Lanayru), and Dinraal (Eldin/Tabantha sky) — shoot a Scale/Claw/Spike-shard/Fang-shard/Horn off each with arrows; the part you knock off regrows after about 10 in-game minutes, and Horns (the ★4 part) require hitting the dragon's actual horn."
    },
    {
     "name": "Tunic of Memories",
@@ -3825,7 +4765,78 @@
     "where": "Buy for 400 Poes from any Bargainer Statue after speaking to all of them and clearing A Call from the Depths.",
     "bonus": "No set bonus; a nostalgic outfit referencing Link's classic green tunic, mainly for the look.",
     "upgrade": "Upgrade theme: Depths/Gloom-adjacent materials at the Great Fairies.",
-    "priority": "Cosmetic, optional"
+    "priority": "Cosmetic, optional",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 10,
+      "materials": [
+       {
+        "item": "Silent Princess",
+        "qty": 3
+       },
+       {
+        "item": "Light Dragon's Scale",
+        "qty": 1
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 50,
+      "materials": [
+       {
+        "item": "Silent Princess",
+        "qty": 3
+       },
+       {
+        "item": "Light Dragon's Talon",
+        "qty": 1
+       },
+       {
+        "item": "Farosh's Horn",
+        "qty": 2
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 200,
+      "materials": [
+       {
+        "item": "Silent Princess",
+        "qty": 5
+       },
+       {
+        "item": "Shard of Light Dragon's Fang",
+        "qty": 1
+       },
+       {
+        "item": "Naydra's Horn",
+        "qty": 2
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 500,
+      "materials": [
+       {
+        "item": "Silent Princess",
+        "qty": 10
+       },
+       {
+        "item": "Light Dragon's Horn",
+        "qty": 1
+       },
+       {
+        "item": "Dinraal's Horn",
+        "qty": 2
+       }
+      ]
+     }
+    ],
+    "farm": "Silent Princess is a rare flower foraged on hilltops/cliffs across Hyrule (Satori Mountain and some Sky Islands are reliable spots). Light Dragon parts come from shooting the Light Dragon as it circles Hyrule's sky — its body/spikes give Scales, claws give the Talon, fangs give Shards of its Fang, and its head gives the Horn. Farosh's/Naydra's/Dinraal's Horns each drop from shooting the head of that elemental dragon."
    },
    {
     "name": "Fierce Deity Set",
@@ -3833,7 +4844,98 @@
     "where": "Three caves (Skull Lake Cave, Citadel Ruins Summit Cave, Ancient Tree Stump) without amiibo, or via the Majora's Mask Link amiibo.",
     "bonus": "Attack Up per piece; full set upgraded to 3 stars adds the Charge Atk. Stamina Up bonus. Strong offensive set.",
     "upgrade": "Upgrade theme: rare monster horns/guts at higher stars.",
-    "priority": "Powerful end-game offense"
+    "priority": "Powerful end-game offense",
+    "tiers": [
+     {
+      "star": 1,
+      "rupees": 30,
+      "materials": [
+       {
+        "item": "Hinox Toenail",
+        "qty": 15
+       },
+       {
+        "item": "Dinraal's Scale",
+        "qty": 1
+       },
+       {
+        "item": "Naydra's Scale",
+        "qty": 1
+       },
+       {
+        "item": "Farosh's Scale",
+        "qty": 1
+       }
+      ]
+     },
+     {
+      "star": 2,
+      "rupees": 150,
+      "materials": [
+       {
+        "item": "Hinox Tooth",
+        "qty": 15
+       },
+       {
+        "item": "Dinraal's Claw",
+        "qty": 1
+       },
+       {
+        "item": "Naydra's Claw",
+        "qty": 1
+       },
+       {
+        "item": "Farosh's Claw",
+        "qty": 1
+       }
+      ]
+     },
+     {
+      "star": 3,
+      "rupees": 600,
+      "materials": [
+       {
+        "item": "Hinox Guts",
+        "qty": 6
+       },
+       {
+        "item": "Shard of Dinraal's Fang",
+        "qty": 1
+       },
+       {
+        "item": "Shard of Naydra's Fang",
+        "qty": 1
+       },
+       {
+        "item": "Shard of Farosh's Fang",
+        "qty": 1
+       }
+      ]
+     },
+     {
+      "star": 4,
+      "rupees": 1500,
+      "materials": [
+       {
+        "item": "Lynel Guts",
+        "qty": 6
+       },
+       {
+        "item": "Dinraal's Horn",
+        "qty": 1
+       },
+       {
+        "item": "Naydra's Horn",
+        "qty": 1
+       },
+       {
+        "item": "Farosh's Horn",
+        "qty": 1
+       }
+      ]
+     }
+    ],
+    "farm": "Each of the 3 pieces is tied to a different dragon: Mask = Dinraal (fire; flies NE Hyrule out of Eldin / Akkala, Mask found at Skull Lake), Armor = Naydra (ice; Lanayru / Mount Lanayru, found near Akkala Citadel Ruins), Boots = Farosh (electric; Faron / Lake Hylia, found at the Ancient Tree Stump on Mount Daphnes). Shoot a body part as the dragon flies its slow daily route to drop scales (frequent), then claws/fang-shards (rarer), then a Horn (drops only once per ~10 in-game minutes per dragon — sleep at a fire to reset). Hinox parts come from the three Hinox types; Lynel Guts from any Lynel."
    }
   ]
  },
@@ -5694,7 +6796,142 @@
    }
   ]
  },
- "ECONOMY": null,
+ "ECONOMY": {
+  "rupees": [
+   {
+    "method": "Sell gems (diamonds, sapphires, rubies) mined from ore deposits",
+    "detail": "Smash the black sparkly ore deposits in caves and especially the Depths (a Rock-fused hammer or any heavy weapon breaks them) and sell the gems: Diamond ~500, Sapphire ~260, Ruby ~110, Topaz ~80, Amber ~30 each, making this one of the most lucrative beginner earners."
+   },
+   {
+    "method": "Sell gems at Goron City (Ramella) for the best price",
+    "detail": "Ramella's shop in Goron City buys gems for slightly more than anyone else (selling 10 Diamonds at once nets ~5,500 rupees, ~550 each), so stockpile gems and offload them there rather than at the first merchant you pass."
+   },
+   {
+    "method": "Hunt Stone/Battle Taluses for bulk gems and diamonds",
+    "detail": "Stone and Battle Taluses (and the elemental Igneo/Frost variants) drop a pile of common ore plus a chance at gems — including Diamonds (~500) — when you break the ore on their body; they respawn every Blood Moon, so a circuit of known ones is repeatable income."
+   },
+   {
+    "method": "Cook and sell Meat Skewers (one of the best food-flips in the game)",
+    "detail": "Five Raw Gourmet Meat cooked into one Meat Skewer sells for ~315 rupees; hunt large animals or the Honeyvore Bear east of the Thyphlo Ruins Skyview Tower (the Bokoblin Mask lets you walk up unnoticed) for a near-endless, early-and-late-game money loop."
+   },
+   {
+    "method": "Sell high-value cooked dishes and elixirs in bulk",
+    "detail": "Cooking with 5 ingredients sells for far more than the raw parts, and dumping spare monster parts plus a Monster Extract into the pot makes elixirs worth a few dozen rupees and up each, turning junk drops into rupees."
+   },
+   {
+    "method": "Sell extra monster parts and materials you don't need",
+    "detail": "Bokoblin horns, fangs, guts and similar drops sell for a few to a couple dozen rupees each, so dumping a full inventory of leftover monster parts on a merchant is a fast, low-effort early cash injection (cheaper than gems but plentiful)."
+   },
+   {
+    "method": "Feed Luminous Stones to the Dondons to get rare gems",
+    "detail": "At the Dondons north of Lakeside Stable in Bronas Forest (south Faron, by Lake Floria), feed each one up to ~5 Luminous Stones, wait ~15 minutes, and collect what they excrete (Flint, Opal, Sapphire, Ruby, and even Diamonds) for far more value than selling the raw stones — more stones at once raises the odds of high-value gems."
+   },
+   {
+    "method": "Shoot Blupees for free rupees",
+    "detail": "Blupees are glowing blue rabbit-like creatures (often near caves, mostly at night); hit one to make it drop rupees — repeated melee hits yield more than a single arrow, so chase it down before it flees for easy no-cost cash while exploring."
+   },
+   {
+    "method": "Shoot dragons for parts and farm Bubbul Gems for trade goods",
+    "detail": "Arrowing the scales/claws/fangs/horns off the roaming dragons (Dinraal, Farosh, Naydra, the Light Dragon) yields high-value parts, and Bubbul Gems from cave Bubbulfrogs trade to Koltin (at night) for monster masks and rare monster parts you can sell or use rather than for direct rupees."
+   },
+   {
+    "method": "Repeatable minigames and clearing enemy camps",
+    "detail": "Small payouts add up: minigames and side activities (e.g. shooting/racing challenges and toy hunts) and looting/clearing enemy camps for sellable drops are repeatable, and enemy camps respawn after each Blood Moon."
+   }
+  ],
+  "farming": [
+   {
+    "item": "Star Fragment",
+    "where": "Any wide-open area at night; warp between two spots: launch from Gerudo Canyon Skyview Tower, then warp to a sky island like Mayam Shrine.",
+    "tip": "Falls only at night and vanishes at 5:00 AM; you can collect only ONE per night. Launch from a tower or dive from a sky island, glide to the light trail and grab it mid-air. Then warp to a DIFFERENT location and rest to night again — staying in the same spot won't respawn one."
+   },
+   {
+    "item": "Zonaite & Large Zonaite",
+    "where": "The Depths — mine Zonaite Deposits everywhere; the Great Abandoned Central Mine (reached via the Great Plateau North Chasm) is a dense, easy early spot.",
+    "tip": "Break deposits with a hammer/Cobble Crusher; deposits respawn each Blood Moon. Large Zonaite drops from mini-bosses (Frox especially) and bigger deposits. Bring gloom protection (Sundelion dishes / armor). Construct enemies also drop Zonaite + Zonai Charges; a Forge Construct in any Abandoned Mine trades 1 Zonai Charge per 2 Zonaite (and 1 Large Charge per Large Zonaite)."
+   },
+   {
+    "item": "Lynel parts (horn, hoof, guts)",
+    "where": "Floating Coliseum in the Depths — five Lynels back-to-back (ending in Silver Lynels); or a single red-maned Lynel in West Hyrule Plains for an easy kill.",
+    "tip": "Reach the Coliseum via the Great Plateau North Chasm for the highest-density Lynel run. Guts drop reliably from Silver Lynels (guaranteed), often from White, and rarely from Blue — Red Lynels never drop them. Drop a Puffshroom for a smokescreen, then hit a stunned Lynel freely. All Lynels respawn on the Blood Moon."
+   },
+   {
+    "item": "Bokoblin parts (horn, fang, guts)",
+    "where": "Bokoblin camps across Hyrule Field, Lanayru, and late-game Eldin; the Depths have higher-tier variants.",
+    "tip": "Guts ONLY drop from Blue, Black, Silver, or Stalkoblin-tier Bokoblins — red ones never drop guts. Farm black/silver camps for consistent guts. Everything respawns each Blood Moon."
+   },
+   {
+    "item": "Moblin parts (horn, fang, guts)",
+    "where": "Encampments around Hyrule; e.g. Deep Akkala near Kimayat Shrine has a camp next to healing hot springs.",
+    "tip": "Kill Blue (and higher) Moblins for guts; red Moblins don't reliably drop them. Nearby hot springs let you heal between fights. Respawns on the Blood Moon."
+   },
+   {
+    "item": "Lizalfos parts & elemental tails",
+    "where": "Lanayru Wetlands and Lanayru Great Spring for common Lizalfos; Black Lizalfos in Gerudo Desert / East Necluda; Fire-Breath Lizalfos in Eldin.",
+    "tip": "Elemental Lizalfos tails (Fire/Ice/Electric-Breath) are key fuse and armor-upgrade mats. Higher color tiers = better drops; Blood Moon respawn."
+   },
+   {
+    "item": "Horriblin parts (horn, claw, guts)",
+    "where": "Hyrule caves and the Gerudo Desert Depths — Black Horriblins spawn here.",
+    "tip": "Black Horriblin horns are strong fuse material. Horriblins cling to cave ceilings — knock them down with arrows first. Blood Moon respawn."
+   },
+   {
+    "item": "Gleeok parts (Wings, Guts, elemental Horns)",
+    "where": "Fixed Gleeok spots across the surface (Eldin, Lake Hylia, Gerudo Highlands, Hebra, Hyrule Field, Faron, Hyrule Ridge) plus the Gleeok Den in the Depths.",
+    "tip": "Every Gleeok drops Wings + Guts; the element (Fire/Frost/Thunder Horns) matches the Gleeok type. King Gleeoks can drop ANY of the three horn types, so a King is the most flexible farm. Keese-eyeball arrows home in on the heads; Gleeoks respawn each Blood Moon."
+   },
+   {
+    "item": "Elemental critters (Summerwing Butterfly, Cool/Warm Safflina, Sunset Firefly, etc.)",
+    "where": "Summerwing Butterflies: Eldin Canyon, Gerudo Highlands, near Tabantha/Kara Kara areas. Warm Safflina: Eldin & Gerudo Desert. Cool Safflina: Hebra/Tabantha cliffsides & Gerudo Summit.",
+    "tip": "These cook into elixirs and feed armor upgrades (heat/cold resistance sets). Approach insects slowly or they flee — sneak (Stealth set) or freeze the area. They regrow after a few in-game days."
+   },
+   {
+    "item": "Gems via Rare Ore Deposits (Diamond, Ruby, Sapphire, Topaz)",
+    "where": "Rare (gold-veined) Ore Deposits in the Depths and on cliffs; Eldin/Death Mountain caves (Ruby), Tabantha/Hebra caves (Sapphire), Gerudo Desert caves (Topaz). Diamonds come from Rare Deposits anywhere.",
+    "tip": "Plain black deposits give common ore + element gems; the gold-flecked RARE deposits are the ones that can drop Diamonds. Use a Cobble Crusher / hammer-fused weapon to break them fast. Ore deposits respawn each Blood Moon. Elemental Taluses (Igneo→Ruby, Frost→Sapphire) also drop gems."
+   },
+   {
+    "item": "Dinraal (Fire Dragon) parts",
+    "where": "Flies along the north of Hyrule, EAST-to-WEST: emerges from the East Akkala Plains Chasm (northeast) and travels the coast to the Drenan Highlands Chasm (northwest, near Tabantha/Eldin).",
+    "tip": "Shoot a Scale (body), Claw (foot), Fang (mouth), or Horn (head) with arrows — Horn is rarest/most valuable. Each part you shoot off respawns after ~10 minutes of REAL-time gameplay (no Blood Moon needed), so you can ride/board the dragon and keep harvesting. Touching it grants a Fire aura. Wait on a sky island or chasm along its path."
+   },
+   {
+    "item": "Naydra (Frost Dragon) parts",
+    "where": "Loops around the Necluda/Mount Lanayru area between the Naydra Snowfield Chasm and the East Hill Chasm (above Kakariko).",
+    "tip": "The Mount Lanayru Skyview Tower is a reliable launch point to intercept Naydra as it climbs; the Dueling Peaks crossing is another easy intercept (no cold gear needed). Shoot the part you need — each respawns after ~10 minutes of real-time play, so you can keep harvesting from the same dragon."
+   },
+   {
+    "item": "Farosh (Lightning Dragon) parts",
+    "where": "Travels from the East Gerudo Chasm across Gerudo and Lake Hylia (passing near the Gerudo Canyon Skyview Tower) before diving into the Hills of Baumer Chasm.",
+    "tip": "Launch from Gerudo Canyon Skyview Tower and glide onto its path; shoot the part you want. Parts respawn after ~10 minutes of real-time gameplay. Farosh discharges electricity — don't ride it or touch it with a metal weapon equipped."
+   },
+   {
+    "item": "Light Dragon parts",
+    "where": "Circles very high over all of Hyrule's sky islands on a fixed loop and never enters the Depths.",
+    "tip": "Skydive onto its back, walk along it, and shoot/pull off parts (its scales/claws/fangs/horns/spikes are top-tier). Like the other dragons, each part respawns after ~10 minutes of real-time play. Note: there is no story event that makes it fly lower — it stays at sky-island altitude, so reach it by diving from a sky island above its path."
+   },
+   {
+    "item": "Brightbloom & Giant Brightbloom Seeds",
+    "where": "Giant: caves with Brightbloom clusters (e.g. near Woodland Stable) yield several Giants per trip. Regular: the large cave below the Great Sky Island starting area and most surface caves.",
+    "tip": "Throw regular seeds to light the Depths; Giant seeds light a huge radius and permanently reveal areas/Lightroots. Set Sensor+ to a seed to track nearby ones. Both regrow after a few in-game days."
+   },
+   {
+    "item": "Sundelion & Hearty ingredients",
+    "where": "Sundelion: sunny spots on the sky islands (e.g. South Eldin Sky Archipelago, North Necluda Sky Archipelago). Big Hearty Radish: North Necluda Sky islands, plus sky-island and surface spots.",
+    "tip": "Sundelion is THE gloom-recovery ingredient (cooks the dish that heals gloom-damaged hearts) — essential before deep Depths runs. Big Hearty Radish gives the most bonus (full-heart) yellow hearts. Both regrow after a few in-game days."
+   }
+  ],
+  "tips": [
+   "DO hoard Poes and spend them at the Bargainer Statues in the Depths — those shops take Poes, not rupees, for their exclusive Depths gear (the Dark Set / Hero of the Depths set), lanterns, and materials.",
+   "DON'T sell monster, Lynel, Gleeok, or dragon parts blindly — many are required armor-upgrade materials at the Great Fairy fountains, so check the recipe before cashing them in.",
+   "DO cook before you sell — dishes fetch noticeably more rupees than the raw ingredients and only cost a few seconds at a pot.",
+   "DON'T sell Star Fragments — they're rare and needed to upgrade several armor sets (and to fuse for light), so they're worth far more kept than the rupees you'd get.",
+   "DON'T sell Zonaite — convert it into Zonai/Crystallized Charges (3 Zonaite makes 1 Crystallized Charge) to upgrade your battery, which you'll need for vehicles and combat.",
+   "DO treat the Hylian Shield as reusable — it's recoverable from Hyrule Castle, rebuyable from Cece in Hateno for 3,000 rupees, or repairable by feeding it to a Rock Octorok, so use it instead of hoarding it.",
+   "DO buy arrows in bulk when you have spare rupees (e.g. from the shop at Lookout Landing) so you're never caught without ammo.",
+   "DON'T expect to pay a rupee fee to wake the Great Fairies — you unlock each fountain by reuniting the Stable Trotters music troupe and escorting the musicians to play at the fountain, not by spending money."
+  ]
+ },
  "COMPENDIUM": [],
  "RUNES": [
   {
@@ -5912,12 +7149,28 @@
    "Armor"
   ],
   [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "towers",
+   "Towers"
+  ],
+  [
    "quests",
    "Quests"
   ],
   [
    "enemies",
    "Enemies"
+  ],
+  [
+   "koroks",
+   "Koroks"
+  ],
+  [
+   "economy",
+   "Money"
   ],
   [
    "world",
@@ -5929,8 +7182,124 @@
   ]
  ],
  "postRegionId": "t_depths",
- "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "TOWERS": [
+  {
+   "name": "Lookout Landing Skyview Tower",
+   "region": "Central Hyrule",
+   "location": "Inside Lookout Landing, the hub settlement just north of Hyrule Castle (approx. -0293, 0137, 0025). You can't miss it — it's the first tower of the game.",
+   "climbTip": "No puzzle: you receive it as part of the main story after the tutorial, once you reach Lookout Landing and speak to Captain Hoz; from then on every activation launches Link skyward to skydive off."
+  },
+  {
+   "name": "Hyrule Field Skyview Tower",
+   "region": "South Hyrule / Hyrule Field",
+   "location": "South of Lookout Landing in central Hyrule Field (approx. -0753, -1019, 0064).",
+   "climbTip": "It sits inside a Bokoblin encampment, so clear (or sneak/Bokoblin-Mask past) the Bokoblins and Boss Bokoblin guarding it before you can reach the terminal and get flung into the sky."
+  },
+  {
+   "name": "Lindor's Brow Skyview Tower",
+   "region": "Hyrule Ridge",
+   "location": "North of New Serenne Stable / northwest of Lookout Landing, marooned on a raised rock in the middle of a pond (approx. -1901, 1245, 0297).",
+   "climbTip": "The tower is stranded on a rock in water, so Ultrahand a long bridge from the nearby planks/building materials to cross over, then hit the terminal to soar off. (A campfire updraft and paraglide also works.)"
+  },
+  {
+   "name": "Rospro Pass Skyview Tower",
+   "region": "Hebra Mountains",
+   "location": "In the cold Hebra region to the northwest (approx. -3686, 2342, 0233); bring cold resistance.",
+   "climbTip": "The entrance is choked by thorns — throw Fire Fruit (or a fire arrow) to burn them away, then enter and activate the terminal to launch skyward."
+  },
+  {
+   "name": "Pikida Stonegrove Skyview Tower",
+   "region": "East Hebra",
+   "location": "Northwest of Snowfield Stable in the snowy Hebra highlands (approx. -2318, 3066, 0443).",
+   "climbTip": "No puzzle, but it's a brutal cold-and-altitude trek — pack two levels of cold resistance (warm clothes/food, e.g. Snowquill set) to survive the climb, then activate the terminal to glide off."
+  },
+  {
+   "name": "Thyphlo Ruins Skyview Tower",
+   "region": "Great Hyrule Forest",
+   "location": "In the pitch-dark Thyphlo Ruins north of the Great Hyrule Forest (approx. 0343, 3133, 0180).",
+   "climbTip": "A platform blocks the top — Ascend up inside, then Ultrahand a Zonai rocket (or fan) onto the platform to shift it clear, drop down the shaft to the terminal and shoot into the sky."
+  },
+  {
+   "name": "Eldin Canyon Skyview Tower",
+   "region": "Eldin",
+   "location": "In the volcanic Eldin region to the east, near Death Mountain (approx. 1637, 1190, 0225); bring heat/flame resistance.",
+   "climbTip": "Fallen sky-rocks have jammed the door, so you must enter from the open top — wait for a large rock to fall nearby, stand on it and use Recall to ride it skyward, then paraglide into the tower's top and drop to the terminal to launch off."
+  },
+  {
+   "name": "Ulri Mountain Skyview Tower",
+   "region": "Akkala",
+   "location": "In the eastern Akkala highlands on Ulri Mountain, northwest of Tarrey Town (approx. 3493, 2019, 0188).",
+   "climbTip": "The tower's terminal has been stolen by an Aerocuda circling behind it — shoot the flying monster down with an arrow, retrieve the terminal (by hand or Ultrahand), and bring it back to the engineer (Sawson) to reinstall it before the tower will activate and fling you skyward."
+  },
+  {
+   "name": "Upland Zorana Skyview Tower",
+   "region": "Lanayru",
+   "location": "West of Zora's Domain in the Upland Zorana area, south of Foothill Stable (approx. 2858, 0582, 0379).",
+   "climbTip": "Mud-like sludge seals the door — throw a Splash Fruit (or any water / blue Chuchu Jelly) to wash the muck off, then enter and activate the terminal to glide away."
+  },
+  {
+   "name": "Mount Lanayru Skyview Tower",
+   "region": "East Lanayru",
+   "location": "High up Mount Lanayru in the far southeast, north of Hateno Village and far east of Kakariko (approx. 3846, -1307, 0539).",
+   "climbTip": "No puzzle — the only obstacle is the freezing remote peak, so bring warm dishes/clothing and make the long climb up the mountain to the terminal to launch into the sky."
+  },
+  {
+   "name": "Rabella Wetlands Skyview Tower",
+   "region": "South Necluda",
+   "location": "In the rainy Rabella Wetlands of southeast Necluda (approx. 2419, -2755, 0222).",
+   "climbTip": "Thorns block it but the constant rain won't let them burn — Ultrahand a roof/board over the thorns to keep them dry, then set them alight and activate the terminal to soar off."
+  },
+  {
+   "name": "Sahasra Slope Skyview Tower",
+   "region": "West Necluda",
+   "location": "On Sahasra Slope in West Necluda, north of the Dueling Peaks area (approx. 1344, -1176, 0166).",
+   "climbTip": "The door can't be opened from outside — drop into the cave beneath the tower, smash the rock walls (hammer/bombs) to reach the flat spot under the floor, Ascend straight up into the interior, then remove the sticks blocking the doors and talk to Billson, who repairs the terminal."
+  },
+  {
+   "name": "Popla Foothills Skyview Tower",
+   "region": "Necluda",
+   "location": "In the Popla Foothills of central-south Necluda (approx. 0602, -2127, 0098).",
+   "climbTip": "The tower has lost power — enter the cave below and free the worker trapped inside to restore it, then Ascend up into the tower and activate the terminal to launch skyward."
+  },
+  {
+   "name": "Gerudo Canyon Skyview Tower",
+   "region": "Gerudo Desert",
+   "location": "At the mouth of Gerudo Canyon in the southwest desert (approx. -2432, -2182, 0307).",
+   "climbTip": "The technician (Sawson) is stuck on a lift below — Ultrahand metal crates onto the hook on the rope opposite the door so their weight acts as a counterweight and hauls his lift up; he then repairs the tower so you can activate it and glide off."
+  },
+  {
+   "name": "Gerudo Highlands Skyview Tower",
+   "region": "North Gerudo / Gerudo Highlands",
+   "location": "In the snowy Gerudo Highlands in the far southwest (approx. -3959, -1313, 0422); bring cold resistance.",
+   "climbTip": "The way in is buried in snow — find the cave behind/beneath the tower, follow it underneath, then Ascend up through the bottom into the entrance to reach the terminal and shoot into the sky."
+  }
+ ],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Great Fairy Tera",
+   "region": "Eldin Canyon / near Great Hyrule Forest",
+   "location": "Closed fountain near the Military Training Camp, northwest of Woodland Stable (south of the Lost Woods); coordinates 0920, 1361, 0093.",
+   "cost": "No rupee fee. Unlock via the 'Serenade to a Great Fairy' side adventure. Prerequisite: have started 'Potential Princess Sightings' from Traysi/Penn at the Lucky Clover Gazette. Repair the Stable Trotters' wagon (Breezer) and tow the band up to the fountain with a horse + Towing Harness. Tera wants to hear the VIOLIN (played by Violynne). Tera is the FIRST fairy — clearing her quest unlocks the rest of the Serenade chain (Serenade to Mija → Serenade to Kaysa) plus Serenade to Cotera."
+  },
+  {
+   "name": "Great Fairy Cotera",
+   "region": "Necluda (Dueling Peaks)",
+   "location": "Closed fountain south of Dueling Peaks Stable, across the river past Little Twin Bridge; coordinates 1766, -2172, 0013.",
+   "cost": "No rupee fee. Unlock via 'Serenade to Cotera': bring the Stable Trotters to perform here. Cotera wants the DRUM, so you must first recover the drummer Beetz — found playing his drums northeast of Dueling Peaks Stable — by completing his 'Honey, Bee Mine' side adventure (give Beetz 3 Courser Bee Honey). Once the band with the drummer performs at this fountain it opens. (Requires Tera's 'Serenade to a Great Fairy' first.)"
+  },
+  {
+   "name": "Great Fairy Kaysa",
+   "region": "Hyrule Field (Central Hyrule)",
+   "location": "Closed fountain atop a steep hill west/northwest of Outskirt Stable in Hyrule Field; coordinates -1555, -1237, 0085.",
+   "cost": "No rupee fee. Unlock via 'Serenade to Kaysa' (available after completing 'Serenade to Mija'): bring the Stable Trotters to perform here. Kaysa wants the FLUTE, so you must first recover the flutist Pyper — found atop a tree near Highland Stable — by completing 'The Flute Player's Plan' side adventure. Once the band with the flute player performs at this fountain it opens."
+  },
+  {
+   "name": "Great Fairy Mija",
+   "region": "Tabantha Tundra / Hebra (South Tabantha Snowfield)",
+   "location": "Closed fountain northeast of Snowfield Stable (near Orochium Shrine); coordinates -1461, 2995, 0305.",
+   "cost": "No rupee fee. Unlock via 'Serenade to Mija' (available after completing Tera's 'Serenade to a Great Fairy'): bring the Stable Trotters to perform here. Mija wants the HORN, so you must first recover the hornist Eustus — stuck in a hole near Piper Ridge — by completing 'The Hornist's Dramatic Escape' side adventure. Once the band with the horn player performs at this fountain it opens."
+  }
+ ],
  "SIDE_QUESTS": [
   {
    "region": "Lookout Landing & Central Hyrule",
@@ -7786,7 +9155,136 @@
    "l": "Necluda"
   }
  },
- "KOROKS": null,
+ "KOROKS": {
+  "what": "Koroks are tiny hidden forest spirits scattered across Hyrule (Surface, Sky, and Depths); each one you uncover by solving a small environmental puzzle hands you a Korok Seed, which you trade to Hestu to permanently expand your weapon, bow, and shield pouches so you can carry more gear.",
+  "hestu": "You first meet Hestu on the Surface just northeast of New Serenne Stable (between the stable and the Lindor's Brow Skyview Tower in West Necluda) — talking to him starts the \"Hestu's Concerns\" quest. After you clear your FIRST temple he relocates to Lookout Landing (he stands near the general store / central plaza, with no upgrade limit there), and once you reach the Korok Forest deep in the Lost Woods he settles there permanently.",
+  "totalSeeds": 1000,
+  "maxSeeds": 421,
+  "puzzleTypes": [
+   {
+    "type": "Lone rock",
+    "see": "A single small rock sitting by itself somewhere odd — on a stump, a ledge, a rooftop, the tip of a pillar, or surrounded by water.",
+    "do": "Walk up and lift the rock (Ultrahand, or just grab and throw it) to reveal the Korok hiding underneath.",
+    "category": "rocks"
+   },
+   {
+    "type": "Hidden/covered rock",
+    "see": "A suspicious pile of leaves or a lump of ice, often glinting or out of place.",
+    "do": "Burn the leaf pile (a fire arrow or any flame) or melt the ice, then lift the rock that was underneath.",
+    "category": "rocks"
+   },
+   {
+    "type": "Complete the rock pattern",
+    "see": "A circle, line, or swirl of stones with one stone obviously missing — a clear gap in the shape.",
+    "do": "Find the matching loose rock nearby and use Ultrahand to set it into the empty spot, completing the pattern.",
+    "category": "rocks"
+   },
+   {
+    "type": "Rock in the ring (pedestal)",
+    "see": "A small tree-like tripod or stone holder with a hollow center, with a loose boulder sitting close by.",
+    "do": "Use Ultrahand to lift the matching boulder and nestle it snugly into the cradle so it sits centered.",
+    "category": "place"
+   },
+   {
+    "type": "Matching rock/statue pairs",
+    "see": "Two rock or statue formations that are almost identical, but one is missing a piece the other has.",
+    "do": "Use Ultrahand to move a stone/piece so both arrangements match each other exactly.",
+    "category": "place"
+   },
+   {
+    "type": "Flower trail",
+    "see": "A single faintly glowing yellow flower, usually in a high or scenic spot, that vanishes when you get near.",
+    "do": "Touch it, then chase it as it reappears a little further on, in sequence; keep following until the flower turns white, and the Korok pops out when you reach that last one.",
+    "category": "race"
+   },
+   {
+    "type": "Dandelion catch",
+    "see": "A large glowing dandelion / white flower puff standing on its own.",
+    "do": "Slash the dandelion so the fluff launches into the air, then catch/touch the floating seed before it lands.",
+    "category": "race"
+   },
+   {
+    "type": "Stump race (timer)",
+    "see": "A tree stump with a leaf pattern carved on top; stepping on it spawns a glowing target ring a short distance away with a countdown.",
+    "do": "Stand on the stump to start it, then sprint, glide, or use Zonai devices to reach the target ring before the timer runs out. Speed-up food helps.",
+    "category": "race"
+   },
+   {
+    "type": "Stump-to-stump (don't touch ground)",
+    "see": "You step on a leaf stump and a target appears above a SECOND stump nearby — no timer, but touching the ground resets it.",
+    "do": "Get from the first stump to the second without ever touching the ground — paraglide, climb, or build a path with Ultrahand/Zonai.",
+    "category": "race"
+   },
+   {
+    "type": "Ceiling stump (Ascend)",
+    "see": "A leaf-marked tree stump set into a ceiling, cliff overhang, or the underside of a platform, just out of reach above you.",
+    "do": "Stand directly beneath it and use Ascend to rise up through the stump.",
+    "category": "build"
+   },
+   {
+    "type": "Dive for the orb (sky/high)",
+    "see": "A stump on a Sky Island or high ledge that, when you stand on it, shoots a glowing orb out into open air.",
+    "do": "Step on the stump, then immediately leap off and dive to catch the orb in midair before it falls.",
+    "category": "dive"
+   },
+   {
+    "type": "Dive through the water lilies",
+    "see": "A ring of lily pads or flowers arranged in a circle on a pond, with a high point above it.",
+    "do": "Climb to the high spot and dive straight down into the center of the ring of lilies.",
+    "category": "dive"
+   },
+   {
+    "type": "Shoot the acorn/jar",
+    "see": "An acorn-shaped jar or hollow log hanging from a branch or structure, with an acorn visible inside.",
+    "do": "Shoot the acorn with an arrow from your bow.",
+    "category": "shoot"
+   },
+   {
+    "type": "Shoot the balloons",
+    "see": "You step on a stump and wooden-and-leaf balloons rise into the air around you.",
+    "do": "Stay on the platform and pop every balloon with arrows (bullet-time mid-air shots help) — don't step off.",
+    "category": "shoot"
+   },
+   {
+    "type": "Pinwheel + targets",
+    "see": "A pinwheel windmill with several glowing target rings appearing around it when you approach.",
+    "do": "Stand near the pinwheel and shoot down all the targets with arrows before they vanish, without straying too far.",
+    "category": "shoot"
+   },
+   {
+    "type": "Carry the Korok buddy",
+    "see": "A lone Korok wearing a big backpack with a '!' over its head, looking stuck — its friend is somewhere in the distance (often marked by a green smoke signal).",
+    "do": "Get the backpack Korok to its friend any way you can — carry it, or build a cart / raft / vehicle with Ultrahand and Zonai parts and haul it there. Reuniting them pays 2 seeds.",
+    "category": "carry"
+   },
+   {
+    "type": "Ultrahand build/repair",
+    "see": "A broken structure with an obvious gap — a roof with a missing piece, a cart needing a wheel, or loose blocks beside an incomplete shape.",
+    "do": "Use Ultrahand to grab the nearby loose piece and slot it into the gap so the structure is whole again.",
+    "category": "build"
+   },
+   {
+    "type": "Pull the cork/plug",
+    "see": "A wooden cork or plug stuck into a log, pond, or hole, usually chained or wedged in tight.",
+    "do": "Use Ultrahand to yank the cork out, or fling a heavy boulder/rocket at it to pop it free.",
+    "category": "build"
+   },
+   {
+    "type": "Offer the fruit",
+    "see": "A small statue, altar, or bowl with an empty offering plate (a carving sometimes hints what it wants).",
+    "do": "Drop the right fruit into the bowl — usually an apple, but some want a specific item like a Mighty Banana.",
+    "category": "offering"
+   }
+  ],
+  "hotspots": [
+   "Great Sky Island (the tutorial sky area, ~17–19 Koroks) — gentle intro puzzles: lift-the-rock, an Ultrahand block-fit, a dive-for-the-orb stump, and balloon shots that teach the patterns before you reach the Surface.",
+   "Lookout Landing and the surrounding Hyrule Field — once you land, the open field around the central hub is dotted with lift-the-rock, complete-the-circle, and flower-trail Koroks within easy walking distance.",
+   "New Serenne Stable / Lindor's Brow area (West Necluda) — right where you first meet Hestu, so you can trade as you go; nearby stumps and rocks make it a natural early farming spot.",
+   "Any Stable — stables almost always have a Korok at or near them (commonly a hidden rock or a 'carry me to my friend' buddy), so checking each stable you pass is reliable.",
+   "Roadsides and bridges everywhere — Koroks love road edges, the ends of bridges, and lone landmarks (a single tree, a rock arch); scanning these as you travel turns up flower trails, rock circles, and carry buddies constantly."
+  ],
+  "notes": "Sources agree there are 1,000 Korok Seeds total in the base game but only ~800 puzzle LOCATIONS — the difference is the carry-the-buddy reunions, which each pay 2 seeds. You only need 421 seeds to fully max every slot via Hestu (153 weapon, 160 shield, 108 bow), so the remaining ~579 are purely completionist (the reward for all 1,000 is Hestu's Gift, a famous gag trophy). Verified-but-omitted: a few guides also list a 'follow the sparkles/wisps' chase and a 'red signpost arrows converge' puzzle; both are real in TotK but were left out here to keep the 19 types clean (the sparkle-chase plays like the flower-trail; the signposts point to a hidden Korok). Puzzle counts vary by guide (~9 'main' families up to ~19 when every variant is split); the 19 here are each independently confirmed. Several types — Ultrahand build/repair, cork-pull, rock-in-ring via Ultrahand, the carry-buddy vehicle build, ceiling-stump Ascend — are TotK-signature and were not in BotW. Solutions are open-ended in TotK, so the 'do' steps describe the intended/easiest route, not the only one."
+ },
  "MAP_BEASTS": [
   {
    "x": 80,
