@@ -5,6 +5,26 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-19 — v12.13: equipment Compendium (catalog, not a pouch)
+
+- **User:** the auto-pouch is frustrating — gear changes too fast to keep "tracked" — and lots of gear is just
+  missing (called out the Guardian Shield line specifically). The real want: a complete catalog where you tap any
+  item to read what it does. Correct reframe: stop modeling *owned inventory*, model the *reference*.
+- **Built:** repurposed the Items tab from `PouchView` (walkthrough pickups) into `CompendiumView` — search +
+  category filters + tap-to-expand stats/effect/where. Falls back to `PouchView` when `COMPENDIUM` is empty so
+  TotK still works. Added a "Gear" lane to the answer-first global search.
+- **Data:** deep-research author→verify Workflow, one agent per equipment class (one/two-handed, spears, bows,
+  shields, armor head/body/legs) pulling Game8/Zelda Dungeon compendium tables. **272 base-game items** (127
+  weapons, 26 bows, 33 shields, 86 armor), each with power, durability, effect, where. No dups, no DLC, no TotK
+  bleed; Guardian Shield/+/++ all present.
+- **Workflow gotcha banked (important):** the `verify:one-handed` agent died on a **529 Overload** after retries
+  → the pipeline dropped that whole category (its author had succeeded). Total came back 223 missing the biggest
+  weapon class. **Fix: `Workflow({scriptPath, resumeFromRunId})`** — cached agents (incl. the one-handed author)
+  returned instantly and ONLY the failed verify re-ran, recovering the full 272. *Transient agent failure → resume,
+  don't re-run the whole thing.* Always scan the `<failures>` block in the task notification.
+- Verified in-browser: 272-item catalog, filters, Hylian Shield → Guard 90 / Durability 800 / where; "guardian
+  shield" surfaces in both the catalog search and the global answer-first search. 0 console errors. Shipped v12.13.
+
 ## 2026-06-19 — v12.12: answer-first search (the moment-of-need reframe)
 
 - **User reframed the whole app:** "imagine I'm playing and pull out the companion because I need help — how do

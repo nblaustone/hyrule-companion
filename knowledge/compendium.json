@@ -1,0 +1,2613 @@
+[
+ {
+  "name": "Ancient Battle Axe",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 30,
+  "durability": 15,
+  "effect": "Attack Up against Guardians; an ancient-tech axe with low durability.",
+  "where": "Dropped by Guardian Scouts in shrines (e.g. Tests of Strength) and Divine Beasts; found in the Gerudo Desert and Hyrule Field.",
+  "set": "Ancient"
+ },
+ {
+  "name": "Ancient Battle Axe+",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 45,
+  "durability": 20,
+  "effect": "Attack Up against Guardians; the upgraded ancient-tech axe.",
+  "where": "Dropped by Guardian Scouts in Modest Tests of Strength shrines; found in the Akkala Highlands and Hyrule Field.",
+  "set": "Ancient"
+ },
+ {
+  "name": "Ancient Battle Axe++",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 60,
+  "durability": 25,
+  "effect": "Attack Up against Guardians; the top-tier ancient battle axe.",
+  "where": "Dropped by Guardian Scouts in Major Tests of Strength shrines; found in the Hebra Mountains and Gerudo Highlands.",
+  "set": "Ancient"
+ },
+ {
+  "name": "Ancient Bladesaw",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 55,
+  "durability": 50,
+  "effect": "Attack Up against Guardians; the strongest craftable ancient two-hander, with high durability.",
+  "where": "Crafted at the Akkala Ancient Tech Lab (15 Ancient Screws, 5 Ancient Shafts, 2 Ancient Cores, 1,000 rupees).",
+  "set": "Ancient"
+ },
+ {
+  "name": "Ancient Short Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 40,
+  "durability": 54,
+  "effect": "Forged from ancient Sheikah parts — deals bonus Attack Up damage against Guardians; high power and durability.",
+  "where": "Crafted by Cherry at the Akkala Ancient Tech Lab for 1,000 Rupees + 2 Ancient Cores, 5 Ancient Shafts, 15 Ancient Springs.",
+  "set": "Ancient"
+ },
+ {
+  "name": "Ancient Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 30,
+  "durability": 50,
+  "effect": "Ancient Sheikah-tech spear that deals bonus damage to Guardians; one of the strongest spears. Crafted at the Akkala Ancient Tech Lab for ancient materials and rupees (1000 rupees + 2 Ancient Cores, 15 Ancient Gears, 5 Ancient Shafts).",
+  "where": "Bought/crafted from Cherry at the Akkala Ancient Tech Lab once unlocked.",
+  "set": "Ancient"
+ },
+ {
+  "name": "Biggoron's Sword",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 50,
+  "durability": 60,
+  "effect": "amiibo only (Ocarina of Time Link amiibo): a classic large sword with the highest durability of any amiibo melee weapon; no other special property.",
+  "where": "Random reward from scanning the Ocarina of Time Link amiibo.",
+  "set": "amiibo"
+ },
+ {
+  "name": "Blizzard Rod",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 10,
+  "durability": 32,
+  "effect": "An upgraded ice rod that casts cold over a wide area at range; higher durability than the Ice Rod.",
+  "where": "Found in the Gerudo Highlands and Hebra Mountains; dropped by Blizz (Ice) Wizzrobes.",
+  "set": "Rod"
+ },
+ {
+  "name": "Boat Oar",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 14,
+  "durability": 8,
+  "effect": "A plain wooden oar with no special property and very low durability.",
+  "where": "Found around boats and docks in East Necluda and along the Necluda Sea (e.g. Lurelin Village)."
+ },
+ {
+  "name": "Boko Bat",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 6,
+  "durability": 8,
+  "effect": "A crude wooden Bokoblin club with no special property and poor durability.",
+  "where": "Dropped by Red Bokoblins; common in the Necluda region.",
+  "set": "Monster"
+ },
+ {
+  "name": "Boko Club",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 4,
+  "durability": 12,
+  "effect": "A crude Bokoblin wooden club — no special property and low durability; can be lit on fire.",
+  "where": "Dropped by red Bokoblins across Hyrule Field and West Necluda.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Boko Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 2,
+  "durability": 12,
+  "effect": "A crude Bokoblin spear; among the weakest weapons in the game, no special property.",
+  "where": "Dropped by red/early Bokoblins; common in West Necluda and Hyrule Field.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Bokoblin Arm",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 5,
+  "durability": 5,
+  "effect": "A severed skeletal Bokoblin arm used as a club — extremely weak and fragile.",
+  "where": "Dropped by Stalkoblins (skeletal Bokoblins) at night across greater Hyrule."
+ },
+ {
+  "name": "Boomerang",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 8,
+  "durability": 18,
+  "effect": "A throwing weapon that arcs back to Link after being thrown, so you don't lose it.",
+  "where": "Found in West Necluda and the Faron Grasslands; carried by some Bokoblins."
+ },
+ {
+  "name": "Boulder Breaker",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 60,
+  "durability": 60,
+  "effect": "Daruk's Champion weapon: very high power AND durability, plus a powerful spin attack; rebuildable if broken.",
+  "where": "Reward from Bludo in Goron City after calming Divine Beast Vah Rudania; recraft via Rohan (1 Cobble Crusher, 5 Flint, 1 Diamond).",
+  "set": "Champion"
+ },
+ {
+  "name": "Ceremonial Trident",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 14,
+  "durability": 40,
+  "effect": "A decorative Zora trident (a weaker look-alike of the Lightscale Trident); no special property.",
+  "where": "Displayed in Zora's Domain (Lanayru Great Spring); obtained via the 'Lynel Safari' / ceremonial trident shrine quest.",
+  "set": "Zora"
+ },
+ {
+  "name": "Cobble Crusher",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 15,
+  "durability": 30,
+  "effect": "A basic Goron sledge with no special property; good for mining ore.",
+  "where": "Goron City / Eldin: by a house past Bludo's place and in the Abandoned North Mine cave where you rescue Yunobo.",
+  "set": "Goron"
+ },
+ {
+  "name": "Demon Carver",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 40,
+  "durability": 25,
+  "effect": "A spiked circular Yiga Clan weapon — high attack with no elemental property.",
+  "where": "Dropped by Yiga Blademasters/Footsoldiers that ambush Link after he defeats Master Kohga at the Yiga Clan Hideout.",
+  "set": "Yiga"
+ },
+ {
+  "name": "Double Axe",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 18,
+  "durability": 52,
+  "effect": "A large two-bladed axe with no special property but solid durability; fells trees fast.",
+  "where": "Found lying out in the open in West Necluda and the Gerudo Highlands."
+ },
+ {
+  "name": "Dragonbone Boko Bat",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 36,
+  "durability": 16,
+  "effect": "A Boko bat fortified with fossilized bone; no special property.",
+  "where": "Dropped by Black Bokoblins; common in Hyrule Ridge and along the Necluda Sea.",
+  "set": "Monster"
+ },
+ {
+  "name": "Dragonbone Boko Club",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 24,
+  "durability": 18,
+  "effect": "A Bokoblin club reinforced with fossilized bone — no special property, the strongest Boko club.",
+  "where": "Dropped by black/silver Bokoblins in Hyrule Ridge and the Necluda Sea.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Dragonbone Boko Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 12,
+  "durability": 20,
+  "effect": "A bone-built Bokoblin spear; the strongest Bokoblin spear, no special property.",
+  "where": "Dropped by black/silver Bokoblins, prominently around Akkala and Hyrule Ridge.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Dragonbone Moblin Club",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 45,
+  "durability": 24,
+  "effect": "A Moblin club reinforced with fossilized bone; no special property but high raw damage.",
+  "where": "Dropped by Black/Silver Moblins in the Hebra Mountains and Eldin Mountains.",
+  "set": "Monster"
+ },
+ {
+  "name": "Dragonbone Moblin Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 15,
+  "durability": 25,
+  "effect": "A bone-built Moblin spear; the strongest Moblin spear, no special property.",
+  "where": "Dropped by silver/strong Moblins in Hebra Mountains and Eldin Mountains.",
+  "set": "Moblin"
+ },
+ {
+  "name": "Drillshaft",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 14,
+  "durability": 50,
+  "effect": "A heavy Goron mining drill used as a spear; sturdy and mines ore deposits without losing durability, no combat bonus.",
+  "where": "Found in the Eldin region (Goron mining areas); one is a reward in the 'Death Mountain's Secret' side quest."
+ },
+ {
+  "name": "Edge of Duality",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 50,
+  "durability": 35,
+  "effect": "A double-edged Sheikah-tech greatsword with no special property; strong, fairly durable.",
+  "where": "Found in Hyrule Field and West Necluda; a Moblin in Princess Zelda's Room in Hyrule Castle drops one.",
+  "set": "Sheikah"
+ },
+ {
+  "name": "Eightfold Blade",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 15,
+  "durability": 26,
+  "effect": "A traditional single-edged Sheikah blade — no special property.",
+  "where": "Found in West Necluda and Lake Hylia; common around Kakariko Village.",
+  "set": "Sheikah"
+ },
+ {
+  "name": "Eightfold Longblade",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 32,
+  "durability": 25,
+  "effect": "A single-edged Sheikah longblade whose charge attack fires a horizontal wind-slash projectile.",
+  "where": "Found in West Necluda and the Lanayru Great Spring (Sheikah areas around Kakariko).",
+  "set": "Sheikah"
+ },
+ {
+  "name": "Enhanced Lizal Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 12,
+  "durability": 22,
+  "effect": "A stronger Lizalfos spear; better stats than the Lizal Spear, no special property.",
+  "where": "Dropped by blue/black Lizalfos in Tabantha Frontier and Gerudo Desert.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Farmer's Pitchfork",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 7,
+  "durability": 12,
+  "effect": "An ordinary farm tool repurposed as a spear; no special property.",
+  "where": "Found in urbanized areas of East Necluda (e.g. Hateno Village); occasionally carried by red Bokoblins."
+ },
+ {
+  "name": "Farming Hoe",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 16,
+  "durability": 6,
+  "effect": "A farm tool with no special property and very low durability.",
+  "where": "Found in farming areas and villages such as Hateno Village (East Necluda)."
+ },
+ {
+  "name": "Feathered Edge",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 15,
+  "durability": 27,
+  "effect": "A Rito-made sword — no special property, a lightweight blade.",
+  "where": "Found in the Tabantha Frontier and Hyrule Field; common around Rito Village.",
+  "set": "Rito"
+ },
+ {
+  "name": "Feathered Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 10,
+  "durability": 35,
+  "effect": "A Rito-made feathered spear; ordinary stats, no special property.",
+  "where": "Found around Tabantha Frontier (Rito Village area) and Hebra.",
+  "set": "Rito"
+ },
+ {
+  "name": "Fierce Deity Sword",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 60,
+  "durability": 35,
+  "effect": "amiibo only (Majora's Mask Link amiibo): a powerful greatsword with high power; no other special property.",
+  "where": "Random reward from scanning the Majora's Mask Link amiibo.",
+  "set": "amiibo"
+ },
+ {
+  "name": "Fire Rod",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 5,
+  "durability": 14,
+  "effect": "A magic rod that shoots a fireball at range — burns grass/enemies and melts ice; weak as a melee weapon and breaks if you strike with it directly.",
+  "where": "Found in the Gerudo Highlands and Great Hyrule Forest; dropped by Fire Wizzrobes.",
+  "set": "Rod"
+ },
+ {
+  "name": "Fishing Harpoon",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 8,
+  "durability": 12,
+  "effect": "A simple fishing spear; no special property.",
+  "where": "Found near water, especially around Lurelin Village in East Necluda and along Lake Hylia."
+ },
+ {
+  "name": "Flameblade",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 24,
+  "durability": 36,
+  "effect": "A fire-elemental sword — burns enemies and grass, melts ice, lights torches, and keeps Link warm in cold regions.",
+  "where": "Found in Hyrule Field and East Necluda; carried by some monsters near Death Mountain / Eldin.",
+  "set": "Elemental"
+ },
+ {
+  "name": "Flamespear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 24,
+  "durability": 50,
+  "effect": "A fire-elemental spear that deals burn damage, ignites grass, and melts ice; doubles as a torch and warms Link in the cold.",
+  "where": "Found in Hyrule Field and Hebra Mountains (often guarded by enemies)."
+ },
+ {
+  "name": "Forest Dweller's Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 11,
+  "durability": 35,
+  "effect": "A Korok-crafted wooden spear; ordinary stats, catches fire near flame, no special property.",
+  "where": "Found in the Great Hyrule Forest (Korok Forest) and Hyrule Ridge.",
+  "set": "Forest Dweller's"
+ },
+ {
+  "name": "Forest Dweller's Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 22,
+  "durability": 27,
+  "effect": "A Korok-made wooden sword — no special property; can be set on fire like other wooden weapons.",
+  "where": "Found in the Great Hyrule Forest and Hyrule Field; sold/given in Korok Forest."
+ },
+ {
+  "name": "Forked Lizal Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 18,
+  "durability": 28,
+  "effect": "A twin-bladed Lizalfos spear favored by skilled Lizalfos; the strongest Lizal spear, no special property.",
+  "where": "Dropped by silver/strong Lizalfos in Eldin Canyon and Akkala Highlands.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Frostblade",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 20,
+  "durability": 30,
+  "effect": "An ice-elemental sword — freezes enemies solid for a shatter hit and keeps Link cool in hot regions like the Gerudo Desert.",
+  "where": "Found in the Gerudo Highlands and Hyrule Field; common in the cold Hebra/Gerudo Highlands.",
+  "set": "Elemental"
+ },
+ {
+  "name": "Frostspear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 20,
+  "durability": 40,
+  "effect": "An ice-elemental spear that deals freeze damage and can freeze enemies for a follow-up hit; cools Link in hot areas.",
+  "where": "Found in Hebra Mountains and Hyrule Field."
+ },
+ {
+  "name": "Gerudo Scimitar",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 16,
+  "durability": 23,
+  "effect": "A common curved Gerudo sword carried for self-defense — no special property.",
+  "where": "Found in the Gerudo Highlands and Gerudo Desert; sold/carried around Gerudo Town.",
+  "set": "Gerudo"
+ },
+ {
+  "name": "Gerudo Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 16,
+  "durability": 35,
+  "effect": "A sleek Gerudo spear with good reach; strong mid-tier, no elemental property.",
+  "where": "Found in Gerudo Desert and Gerudo Highlands.",
+  "set": "Gerudo"
+ },
+ {
+  "name": "Giant Boomerang",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 25,
+  "durability": 40,
+  "effect": "Returns to you when thrown; the inner blades make it tricky to swing in melee.",
+  "where": "Found in West Necluda and the Hebra Mountains."
+ },
+ {
+  "name": "Goddess Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 28,
+  "durability": 45,
+  "effect": "A sacred blade resembling the Master Sword's ancestor — no elemental property; obtained via amiibo (Skyward Sword Link amiibo).",
+  "where": "amiibo: randomly appears in the treasure chest from scanning the Skyward Sword Link amiibo with the amiibo Rune.",
+  "set": "amiibo"
+ },
+ {
+  "name": "Golden Claymore",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 28,
+  "durability": 30,
+  "effect": "An ornate Gerudo claymore; surprisingly lightweight but no special property.",
+  "where": "Chests and enemy hands in the Gerudo Highlands and Hyrule Ridge; also a chest in Joloo Nah Shrine.",
+  "set": "Gerudo"
+ },
+ {
+  "name": "Great Flameblade",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 34,
+  "durability": 50,
+  "effect": "Deals fire damage, ignites grass/enemies, and gives off light and warmth.",
+  "where": "At the Ancient Tree Stump in Central Hyrule and the Eldin Great Skeleton; chests in Rona Kachta and Shai Yota Shrines.",
+  "set": "Elemental"
+ },
+ {
+  "name": "Great Frostblade",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 30,
+  "durability": 40,
+  "effect": "Deals freezing (ice) damage and can freeze enemies; emits cold and chills/preserves nearby ingredients.",
+  "where": "Landmarks and chests in cold regions (Hebra, Tabantha); dropped by Frost Talus.",
+  "set": "Elemental"
+ },
+ {
+  "name": "Great Thunderblade",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 32,
+  "durability": 50,
+  "effect": "Deals electric (shock) damage that can stun foes and make them drop weapons.",
+  "where": "Spawns between rock formations on Cuho Mountain (Hebra); dropped by Stalnox SW of Ishto Soh Shrine and by Molduga.",
+  "set": "Elemental"
+ },
+ {
+  "name": "Guardian Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 10,
+  "durability": 20,
+  "effect": "A spear built from ancient Guardian parts; deals bonus damage to Guardians, basic tier otherwise.",
+  "where": "Dropped by Guardian Scouts inside shrines (e.g. Minor Tests of Strength).",
+  "set": "Guardian"
+ },
+ {
+  "name": "Guardian Spear+",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 15,
+  "durability": 25,
+  "effect": "An improved Guardian-part spear; deals bonus damage to Guardians, stronger than the base.",
+  "where": "Dropped by Guardian Scouts III in tougher shrines (e.g. Modest Test of Strength).",
+  "set": "Guardian"
+ },
+ {
+  "name": "Guardian Spear++",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 20,
+  "durability": 35,
+  "effect": "The strongest Guardian-part spear; deals bonus damage to Guardians, high stats.",
+  "where": "Dropped by Guardian Scouts IV in Major Test of Strength shrines.",
+  "set": "Guardian"
+ },
+ {
+  "name": "Guardian Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 20,
+  "durability": 17,
+  "effect": "Made from ancient Guardian parts — deals bonus Attack Up damage against Guardians; fairly low durability.",
+  "where": "Dropped by Guardian Scouts in shrines and by decayed Guardians; found in Eldin Canyon and the Tabantha Frontier.",
+  "set": "Guardian"
+ },
+ {
+  "name": "Guardian Sword+",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 30,
+  "durability": 26,
+  "effect": "An upgraded Guardian blade — bonus Attack Up against Guardians, with improved cutting power and durability.",
+  "where": "Dropped by Guardian Scout II/III in shrines; found in the Gerudo Highlands and Akkala Highlands.",
+  "set": "Guardian"
+ },
+ {
+  "name": "Guardian Sword++",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 40,
+  "durability": 32,
+  "effect": "The strongest Guardian blade — bonus Attack Up against Guardians, max-tier power and durability.",
+  "where": "Dropped by Guardian Scout III/IV in shrines; found in the Hebra Mountains and Akkala Highlands.",
+  "set": "Guardian"
+ },
+ {
+  "name": "Ice Rod",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 5,
+  "durability": 14,
+  "effect": "A magic rod that casts a wave of freezing air at range — freezes enemies and water; weak in melee and breaks on a direct hit.",
+  "where": "Found in the Gerudo Highlands and Eldin Canyon; dropped by Ice Wizzrobes.",
+  "set": "Rod"
+ },
+ {
+  "name": "Iron Sledgehammer",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 12,
+  "durability": 40,
+  "effect": "A heavy mining hammer with no special property; good for smashing ore deposits and rocks.",
+  "where": "Common around mines in Eldin Canyon and the Akkala Highlands; in a chest in Owa Daim Shrine (Great Plateau).",
+  "set": "Tool"
+ },
+ {
+  "name": "Knight's Broadsword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 26,
+  "durability": 27,
+  "effect": "A high-quality knight's blade — no special property, strong all-rounder.",
+  "where": "Found in the Gerudo Desert and Tabantha Frontier; common in/around Hyrule Castle.",
+  "set": "Knight's"
+ },
+ {
+  "name": "Knight's Claymore",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 38,
+  "durability": 30,
+  "effect": "A finely honed Hyrule Castle knight's claymore; no special property but solid all-round stats.",
+  "where": "Carried by Black/Silver Moblins in outlying regions (Gerudo Desert, Tabantha Frontier, Hebra); chest in Keo Ruug Shrine.",
+  "set": "Knight"
+ },
+ {
+  "name": "Knight's Halberd",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 13,
+  "durability": 40,
+  "effect": "A long polearm with extended reach; sturdy mid-tier spear, no special property.",
+  "where": "Found around Hyrule Castle, Tabantha Frontier and Gerudo Desert.",
+  "set": "Knight"
+ },
+ {
+  "name": "Korok Leaf",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 1,
+  "durability": 25,
+  "effect": "A swing creates a gust of wind (used to push rafts/light objects); only loses durability if it hits or burns something. No combat use.",
+  "where": "Drops from felled trees and lies near rafts in Hyrule Field and West Necluda."
+ },
+ {
+  "name": "Lightning Rod",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 5,
+  "durability": 14,
+  "effect": "A magic rod that shoots a ball of electricity at range — shocks enemies and makes them drop weapons; weak in melee and breaks on a direct hit.",
+  "where": "Found in West Necluda and Hyrule Ridge; dropped by Electric Wizzrobes.",
+  "set": "Rod"
+ },
+ {
+  "name": "Lightscale Trident",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 22,
+  "durability": 70,
+  "effect": "Mipha's peerless Zora trident; very fast attack and high durability, no elemental bonus. If it breaks, Dento in Zora's Domain reforges it for a Zora Spear, a Diamond, and 5 Flint.",
+  "where": "Gifted by King Dorephan after freeing Divine Beast Vah Ruta (Zora's Domain).",
+  "set": "Champion / Zora"
+ },
+ {
+  "name": "Lizal Boomerang",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 14,
+  "durability": 17,
+  "effect": "A Lizalfos throwing blade that returns to Link when thrown.",
+  "where": "Dropped by Lizalfos around Lake Hylia and the Lanayru Wetlands.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Lizal Forked Boomerang",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 24,
+  "durability": 23,
+  "effect": "A two-pronged Lizalfos boomerang — more cutting power than the basic Lizal Boomerang, and still returns when thrown.",
+  "where": "Dropped by Lizalfos in the Gerudo Desert and Tabantha Frontier.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Lizal Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 7,
+  "durability": 18,
+  "effect": "A Lizalfos spear; light with modest reach, no special property.",
+  "where": "Dropped by Lizalfos in Lanayru Wetlands and East Necluda.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Lizal Tri-Boomerang",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 36,
+  "durability": 27,
+  "effect": "A three-bladed Lizalfos boomerang — high attack and returns when thrown (riskier to catch).",
+  "where": "Dropped by stronger Lizalfos in the Hebra Mountains and Akkala Highlands.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Lizalfos Arm",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 12,
+  "durability": 8,
+  "effect": "A severed Lizalfos arm — weak and fragile; can be thrown like a boomerang and returns.",
+  "where": "Dropped by Stalizalfos (skeletal Lizalfos) at night across greater Hyrule."
+ },
+ {
+  "name": "Lynel Crusher",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 36,
+  "durability": 20,
+  "effect": "A massive Lynel-made crusher with no special property; hits hard for its tier.",
+  "where": "Dropped by red-maned Lynels in the Gerudo Highlands and Tabantha Frontier.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Lynel Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 14,
+  "durability": 25,
+  "effect": "A spear crafted by a Lynel; strong for its tier, no special property.",
+  "where": "Dropped by red-maned Lynels (e.g. Gerudo Highlands, West Necluda).",
+  "set": "Lynel"
+ },
+ {
+  "name": "Lynel Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 24,
+  "durability": 26,
+  "effect": "A heavy Lynel-forged blade built for smashing — no elemental property, but strong.",
+  "where": "Dropped by (and can be Stasis-stolen from) red-maned Lynels in the Lanayru Great Spring and Hyrule Field.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Master Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 30,
+  "durability": 40,
+  "effect": "The legendary sword that seals the darkness — never breaks permanently; instead it runs out of energy and recharges in ~10 minutes. Its power doubles to 60 against Guardians, Malice-corrupted foes, and inside Hyrule Castle.",
+  "where": "Pulled from its pedestal deep in the Korok Forest (end of the Lost Woods). Requires at least 13 heart containers to draw it.",
+  "set": "Master Sword"
+ },
+ {
+  "name": "Meteor Rod",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 10,
+  "durability": 32,
+  "effect": "An upgraded fire rod that hurls three fireballs at once at range; higher durability than the Fire Rod.",
+  "where": "Found in Hyrule Field and the Hebra Mountains; dropped by Meteo (Fire) Wizzrobes.",
+  "set": "Rod"
+ },
+ {
+  "name": "Mighty Lynel Crusher",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 54,
+  "durability": 25,
+  "effect": "A reinforced Lynel crusher with overwhelming heft; no special property but very high damage.",
+  "where": "Dropped by blue-maned Lynels in the Gerudo Highlands and Hebra Mountains.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Mighty Lynel Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 20,
+  "durability": 35,
+  "effect": "A stronger Lynel spear; high attack, no special property.",
+  "where": "Dropped by blue-maned Lynels (e.g. Deep Akkala, Great Hyrule Forest).",
+  "set": "Lynel"
+ },
+ {
+  "name": "Mighty Lynel Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 36,
+  "durability": 32,
+  "effect": "A stronger Lynel blade — no elemental property, high attack and durability.",
+  "where": "Dropped by blue-maned Lynels in Hyrule Field and the Lanayru Great Spring.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Moblin Arm",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 15,
+  "durability": 5,
+  "effect": "A detached, still-moving Moblin bone used as a club; extremely brittle and breaks fast.",
+  "where": "Guaranteed drop from Stalmoblins (reanimating skeletons) at night in regions like Akkala and Eldin.",
+  "set": "Monster"
+ },
+ {
+  "name": "Moblin Club",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 9,
+  "durability": 12,
+  "effect": "A roughly carved Moblin club with no special property; breaks easily.",
+  "where": "Dropped by Moblins in the Faron Grasslands and Gerudo Highlands.",
+  "set": "Monster"
+ },
+ {
+  "name": "Moblin Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 4,
+  "durability": 15,
+  "effect": "A large crude Moblin spear; long reach but weak, no special property.",
+  "where": "Dropped by red Moblins in Faron Grasslands and Gerudo Highlands.",
+  "set": "Moblin"
+ },
+ {
+  "name": "Moonlight Scimitar",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 25,
+  "durability": 32,
+  "effect": "An ornate ceremonial Gerudo curved sword — no special property, but durable.",
+  "where": "Found in the Gerudo Highlands and Gerudo Desert.",
+  "set": "Gerudo"
+ },
+ {
+  "name": "Royal Broadsword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 36,
+  "durability": 36,
+  "effect": "An ornate royal-issue sword — no elemental property, but high attack and durability.",
+  "where": "Found in the Tabantha Frontier and Akkala Highlands; common loot inside Hyrule Castle.",
+  "set": "Royal"
+ },
+ {
+  "name": "Royal Claymore",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 52,
+  "durability": 40,
+  "effect": "A high-quality royal-issue claymore with no special property; strong and durable.",
+  "where": "Spawns in the broken stone skull atop Woodland Tower; chests and enemies in/around Hyrule Castle and late-game regions.",
+  "set": "Royal"
+ },
+ {
+  "name": "Royal Guard's Claymore",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 72,
+  "durability": 15,
+  "effect": "Very high attack but very low durability (a glass-cannon Hyrule Castle royal-guard weapon); no other property.",
+  "where": "Found inside Hyrule Castle (guard rooms / Docks area).",
+  "set": "Royal Guard"
+ },
+ {
+  "name": "Royal Guard's Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 32,
+  "durability": 15,
+  "effect": "The Royal Guard's elite spear; highest base attack of any spear but very low durability (a glass cannon).",
+  "where": "Found inside Hyrule Castle (e.g. Dining Hall); respawns each Blood Moon.",
+  "set": "Royal Guard"
+ },
+ {
+  "name": "Royal Guard's Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 48,
+  "durability": 14,
+  "effect": "A Sheikah replica of the Master Sword — very high attack but very low durability (Royal Guard's trait: glass cannon).",
+  "where": "Found inside Hyrule Castle, including behind a breakable wall above the Castle Armory.",
+  "set": "Royal Guard's"
+ },
+ {
+  "name": "Royal Halberd",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 26,
+  "durability": 50,
+  "effect": "A high-quality Hyrulean royal polearm with long reach; strong and durable, no elemental property.",
+  "where": "Found in Hyrule Castle, Gerudo Highlands and Tabantha Frontier.",
+  "set": "Royal"
+ },
+ {
+  "name": "Rusty Broadsword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 6,
+  "durability": 8,
+  "effect": "A corroded old blade — very weak and the most fragile sword; can be tossed to Octoroks to be 'cleaned' into a random royal/knight's weapon.",
+  "where": "Found in Hyrule Field and Eldin Canyon, often half-buried in dirt or in ruins."
+ },
+ {
+  "name": "Rusty Claymore",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 12,
+  "durability": 10,
+  "effect": "A corroded claymore with low stats and no innate property; can be transformed into a Knight's Claymore via the Octorok-balloon polish trick.",
+  "where": "Lying around or wielded by enemies in Hyrule Field and Eldin Canyon; often near ruins.",
+  "set": "Rusty"
+ },
+ {
+  "name": "Rusty Halberd",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 5,
+  "durability": 15,
+  "effect": "A corroded halberd; weak and fragile, but can be fed to a Rock Octorok (Eldin) to be spat back out upgraded into a random better weapon.",
+  "where": "Found at ruins all over Hyrule, especially Hyrule Field and the Great Hyrule Forest."
+ },
+ {
+  "name": "Savage Lynel Crusher",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 78,
+  "durability": 35,
+  "effect": "The strongest two-hander by base power; immensely heavy with a devastating downward swing. No elemental property.",
+  "where": "Dropped by White-maned, Silver, and Golden Lynels (e.g. Hebra Mountains, Eldin Mountains, Oseira Plains).",
+  "set": "Lynel"
+ },
+ {
+  "name": "Savage Lynel Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 30,
+  "durability": 45,
+  "effect": "The strongest Lynel spear; very high attack with good durability, no special property.",
+  "where": "Dropped by white-maned and silver Lynels (e.g. North Tabantha Snowfield, Gerudo Highlands).",
+  "set": "Lynel"
+ },
+ {
+  "name": "Savage Lynel Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 58,
+  "durability": 41,
+  "effect": "The strongest one-handed weapon in the base game — no elemental property, but enormous attack; some spawn with bonus modifiers.",
+  "where": "Dropped by White-Maned, Silver, or Golden Lynels (e.g. Hyrule Field, Hebra Mountains, Coliseum Ruins).",
+  "set": "Lynel"
+ },
+ {
+  "name": "Scimitar of the Seven",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 32,
+  "durability": 60,
+  "effect": "Champion Urbosa's legendary curved sword — very high durability; can be reforged at Gerudo Town if it breaks.",
+  "where": "Received from Gerudo Town (the chief Riju / quest) and reclaimed via the 'The Eight Heroine' / reforge questline.",
+  "set": "Champion"
+ },
+ {
+  "name": "Sea-Breeze Boomerang",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 20,
+  "durability": 20,
+  "effect": "The Wind Waker hero's boomerang that returns when thrown — obtained via amiibo (Toon Link amiibo).",
+  "where": "amiibo: randomly appears in the treasure chest from scanning the Toon Link (Wind Waker / Smash Bros.) amiibo with the amiibo Rune.",
+  "set": "amiibo"
+ },
+ {
+  "name": "Serpentine Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 12,
+  "durability": 35,
+  "effect": "A snake-styled spear; ordinary stats, no special property.",
+  "where": "Found in East Necluda (e.g. Kakariko Village area) and in some shrine chests (e.g. Shee Venath)."
+ },
+ {
+  "name": "Silver Longsword",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 22,
+  "durability": 30,
+  "effect": "A decorative Zora-made claymore-style longsword with no special property.",
+  "where": "Rarely in chests across Hyrule, most often in the Lanayru province; one behind Ne'ez Yohma Shrine in Zora's Domain.",
+  "set": "Silver"
+ },
+ {
+  "name": "Silverscale Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 12,
+  "durability": 40,
+  "effect": "A finer Zora spear; sturdier than the Zora Spear, no special property.",
+  "where": "Found in Akkala Highlands and Lanayru Great Spring (Zora's Domain).",
+  "set": "Zora"
+ },
+ {
+  "name": "Soldier's Broadsword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 14,
+  "durability": 25,
+  "effect": "A standard military-issue sword — no special property, a step up from the Traveler's Sword.",
+  "where": "Found in Hyrule Field and the Faron Grasslands; dropped by Hyrule Castle enemies and Bokoblins.",
+  "set": "Soldier's"
+ },
+ {
+  "name": "Soldier's Claymore",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 20,
+  "durability": 25,
+  "effect": "A standard Hyrulean soldier's claymore with no special property.",
+  "where": "Chest in Bosh Kala Shrine; one spawns under a stone slab by Faron Tower; carried by mid-tier enemies."
+ },
+ {
+  "name": "Soldier's Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 7,
+  "durability": 35,
+  "effect": "A standard-issue Hyrulean military spear; no special property.",
+  "where": "Found in Hyrule Field and Central Hyrule ruins and outposts (Hylian soldier camps)."
+ },
+ {
+  "name": "Soup Ladle",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 4,
+  "durability": 5,
+  "effect": "A wooden kitchen ladle used as a joke weapon — low damage and very fragile.",
+  "where": "Found in kitchens and homes around Hyrule Field and the Tabantha Frontier."
+ },
+ {
+  "name": "Spiked Boko Bat",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 18,
+  "durability": 12,
+  "effect": "A Boko bat reinforced with bone spikes; no special property.",
+  "where": "Dropped by Red and Blue Bokoblins; common in the Necluda region.",
+  "set": "Monster"
+ },
+ {
+  "name": "Spiked Boko Club",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 12,
+  "durability": 18,
+  "effect": "A Bokoblin club studded with spikes — no special property, stronger than the plain Boko Club.",
+  "where": "Dropped by blue Bokoblins in the Faron Grasslands and East Necluda.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Spiked Boko Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 6,
+  "durability": 15,
+  "effect": "A Bokoblin spear reinforced with spikes; slightly stronger than the Boko Spear, no special property.",
+  "where": "Dropped by blue/black Bokoblins in Faron Grasslands and East Necluda.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Spiked Moblin Club",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 27,
+  "durability": 18,
+  "effect": "A Moblin club fitted with bone to boost damage; no special property.",
+  "where": "Dropped by Moblins in Hyrule Field and the Akkala Highlands.",
+  "set": "Monster"
+ },
+ {
+  "name": "Spiked Moblin Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 9,
+  "durability": 20,
+  "effect": "A spiked Moblin spear; stronger than the basic Moblin Spear, no special property.",
+  "where": "Dropped by blue/black Moblins in Gerudo Highlands and Akkala Highlands.",
+  "set": "Moblin"
+ },
+ {
+  "name": "Spring-Loaded Hammer",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 1,
+  "durability": 80,
+  "effect": "A novelty hammer with almost no damage but huge durability (the most durable melee weapon in the game) — its fourth combo swing sends enemies flying (knockback).",
+  "where": "Bought from Kilton's Fang and Bone monster shop (199 Mon) after freeing at least one Divine Beast.",
+  "set": "Kilton"
+ },
+ {
+  "name": "Stone Smasher",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 42,
+  "durability": 40,
+  "effect": "A heavy Goron greatsmasher with no special property; strong and good for mining.",
+  "where": "Two in Hyrule Castle (one in the Library, one wielded by a Black Moblin in the Dining Hall); Eldin/Goron areas.",
+  "set": "Goron"
+ },
+ {
+  "name": "Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 22,
+  "durability": 27,
+  "effect": "The classic 8-bit Link's sword — no special property; obtained via amiibo (8-Bit Link amiibo).",
+  "where": "amiibo: randomly appears from scanning the 8-Bit Link (30th Anniversary) amiibo after freeing at least one Divine Beast.",
+  "set": "amiibo"
+ },
+ {
+  "name": "Sword of the Six Sages",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 48,
+  "durability": 50,
+  "effect": "amiibo only (Ganondorf / Super Smash Bros. amiibo): a large ceremonial sealing sword; no special elemental property.",
+  "where": "Random reward from scanning the Ganondorf (Super Smash Bros.) amiibo; chest appears after freeing one Divine Beast.",
+  "set": "amiibo"
+ },
+ {
+  "name": "Throwing Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 6,
+  "durability": 20,
+  "effect": "A light spear balanced to be thrown far; weak in melee but throws a long distance, no other special property.",
+  "where": "Found in chests in West Necluda and Hyrule Field (e.g. a Bokoblin-camp chest south of the Temple of Time)."
+ },
+ {
+  "name": "Thunderblade",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 22,
+  "durability": 36,
+  "effect": "A shock-elemental sword — electric hits can stun enemies and make them drop their weapons (don't use in the rain).",
+  "where": "Found in Hyrule Field and West Necluda.",
+  "set": "Elemental"
+ },
+ {
+  "name": "Thunderspear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 22,
+  "durability": 50,
+  "effect": "A shock-elemental spear that deals electric damage and can make enemies drop their weapons.",
+  "where": "Found in Hyrule Ridge and Hyrule Field."
+ },
+ {
+  "name": "Thunderstorm Rod",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 10,
+  "durability": 32,
+  "effect": "An upgraded shock rod that hurls three balls of electricity at once at range; higher durability than the Lightning Rod.",
+  "where": "Found in Hyrule Field and Hyrule Ridge; dropped by Thunderstorm (Electric) Wizzrobes.",
+  "set": "Rod"
+ },
+ {
+  "name": "Torch",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 2,
+  "durability": 8,
+  "effect": "A weak melee weapon whose real use is light and fire — light it to see in the dark, carry flame, or set grass/enemies alight (it goes out when sheathed).",
+  "where": "Found around campsites and forests in the Great Hyrule Forest and Hyrule Field."
+ },
+ {
+  "name": "Traveler's Claymore",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 10,
+  "durability": 20,
+  "effect": "A basic merchant-grade claymore with no special property.",
+  "where": "Chest in Ja Baij Shrine on the Great Plateau; commonly carried by low-tier enemies throughout Hyrule."
+ },
+ {
+  "name": "Traveler's Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 3,
+  "durability": 30,
+  "effect": "The most basic travel spear; weakest spear in the game, no special property.",
+  "where": "Common across Hyrule Field and West Necluda (carried by travelers, found at camps)."
+ },
+ {
+  "name": "Traveler's Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 5,
+  "durability": 20,
+  "effect": "The most common starter sword — no special property, just a basic reliable blade.",
+  "where": "Extremely common across Hyrule Field and West Necluda; carried by Bokoblins early on."
+ },
+ {
+  "name": "Tree Branch",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 2,
+  "durability": 4,
+  "effect": "A plain wooden branch — almost no damage and breaks almost instantly; can be lit on fire as a makeshift torch.",
+  "where": "Found lying on the ground near trees throughout Hyrule Field and West Necluda."
+ },
+ {
+  "name": "Vicious Sickle",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 16,
+  "durability": 14,
+  "effect": "A grim curved Yiga Clan blade — no special property and low durability.",
+  "where": "Dropped by Yiga Footsoldiers; found in the Gerudo Highlands and Gerudo Desert.",
+  "set": "Yiga"
+ },
+ {
+  "name": "Windcleaver",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 40,
+  "durability": 25,
+  "effect": "Its charge swing fires a ranged wind-slash projectile; favored by high-ranking Yiga Clan members.",
+  "where": "Dropped by Yiga Blademasters (who appear after you beat Master Kohga); found in the Gerudo Highlands and West Necluda.",
+  "set": "Yiga"
+ },
+ {
+  "name": "Woodcutter's Axe",
+  "cat": "weapon",
+  "type": "two-handed",
+  "power": 3,
+  "durability": 47,
+  "effect": "A logging tool that quickly fells trees; no combat bonus but high durability for chopping.",
+  "where": "Near the Woodcutter's House on the Great Plateau; common in wooded/lumber areas across Hyrule."
+ },
+ {
+  "name": "Wooden Mop",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 5,
+  "durability": 8,
+  "effect": "A plain household mop used as a weapon; very weak and fragile, no special property.",
+  "where": "Found in houses and stables around East Necluda (e.g. Hateno Village, Riverside/Wetland/South Akkala stables); also buyable from Kilton."
+ },
+ {
+  "name": "Zora Spear",
+  "cat": "weapon",
+  "type": "spear",
+  "power": 9,
+  "durability": 40,
+  "effect": "A light Zora-made spear used for fishing and defense; no special property.",
+  "where": "Found around Lanayru Great Spring (Zora's Domain) and Lake Hylia.",
+  "set": "Zora"
+ },
+ {
+  "name": "Zora Sword",
+  "cat": "weapon",
+  "type": "one-handed",
+  "power": 15,
+  "durability": 27,
+  "effect": "A Zora-crafted blade — no special property; well-suited to the watery Lanayru region.",
+  "where": "Found around the Lanayru Great Spring and East Necluda; common in Zora's Domain.",
+  "set": "Zora"
+ },
+ {
+  "name": "Ancient Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 44,
+  "durability": 120,
+  "effect": "Sheikah-tech bow with very high durability; arrows fly on a flat trajectory (no gravity drop) and boost Ancient/Guardian arrow effectiveness.",
+  "where": "Purchased at the Akkala Ancient Tech Lab (after the Tarrey Town/Robbie quest) for ancient parts + rupees.",
+  "set": "Ancient"
+ },
+ {
+  "name": "Boko Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 4,
+  "durability": 16,
+  "effect": "Crude Bokoblin bow with no special property; lowest durability of any bow.",
+  "where": "Dropped/carried by Bokoblins across Hyrule Field and West Necluda.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Bow of Light",
+  "cat": "bow",
+  "type": "bow",
+  "power": 100,
+  "durability": 100,
+  "effect": "Zelda's sacred bow; fires light arrows, is effectively unbreakable, and is only usable during the final Dark Beast Ganon battle.",
+  "where": "Given by Princess Zelda during the final battle against Dark Beast Ganon.",
+  "set": "Sacred"
+ },
+ {
+  "name": "Dragonbone Boko Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 24,
+  "durability": 30,
+  "effect": "Strongest Bokoblin bow; no special property.",
+  "where": "Carried by Bokoblins in Hyrule Ridge and across late-game Hyrule.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Duplex Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 14,
+  "durability": 18,
+  "effect": "Yiga Clan bow that fires 2 arrows per shot while consuming only one arrow; very low durability.",
+  "where": "Yiga Clan Hideout (Gerudo Highlands); carried by Yiga Blademasters/Footsoldiers.",
+  "set": "Yiga"
+ },
+ {
+  "name": "Falcon Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 20,
+  "durability": 50,
+  "effect": "Rito-made bow with a long draw range; no multishot.",
+  "where": "Tabantha Frontier and Hebra Mountains; found around Rito Village.",
+  "set": "Rito"
+ },
+ {
+  "name": "Forest Dweller's Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 15,
+  "durability": 35,
+  "effect": "Korok-crafted wooden bow that fires 3 arrows per shot while consuming only one arrow.",
+  "where": "Tabantha Frontier and Hyrule Ridge; found near Korok Forest and the Lost Woods.",
+  "set": "Korok"
+ },
+ {
+  "name": "Golden Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 14,
+  "durability": 60,
+  "effect": "Gerudo-made long-range bow; no multishot but very durable, with limited zoom.",
+  "where": "Gerudo Highlands and Gerudo Desert; found in chests/enemy camps.",
+  "set": "Gerudo"
+ },
+ {
+  "name": "Great Eagle Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 28,
+  "durability": 60,
+  "effect": "Revali's Champion bow; fires 3 arrows per shot while consuming only one arrow. Can be reforged by Harth in Rito Village if broken.",
+  "where": "Reward tied to completing Divine Beast Vah Medoh (obtained at Rito Village, Tabantha Frontier).",
+  "set": "Champion"
+ },
+ {
+  "name": "Knight's Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 26,
+  "durability": 48,
+  "effect": "Metal bow once favored by the knights of Hyrule Castle; no special property.",
+  "where": "Gerudo Desert and Tabantha Frontier; found in ruins, enemy camps, and a chest at the Temple of Time belfry.",
+  "set": "Soldier"
+ },
+ {
+  "name": "Lizal Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 14,
+  "durability": 25,
+  "effect": "Lizalfos bow with no special property.",
+  "where": "Dropped/carried by Lizalfos in Lanayru Great Spring and Lanayru Wetlands.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Lynel Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 10,
+  "durability": 30,
+  "effect": "Fires 3 arrows per shot while consuming only one arrow; dropped by standard red-maned Lynels.",
+  "where": "Dropped by red-maned Lynels (e.g. Ploymus Mountain), Lanayru Great Spring and other early Lynel sites.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Mighty Lynel Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 20,
+  "durability": 35,
+  "effect": "Fires 3 arrows per shot while consuming only one arrow; dropped by blue-maned Lynels.",
+  "where": "Dropped by blue-maned Lynels in Hyrule Field and Deep Akkala.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Phrenic Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 10,
+  "durability": 45,
+  "effect": "No multishot, but high durability and long range for its tier.",
+  "where": "West Necluda and around Lake Hylia; found in chests/enemy camps.",
+  "set": "Common"
+ },
+ {
+  "name": "Royal Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 38,
+  "durability": 60,
+  "effect": "High-end Hyrulean royal bow; no multishot but high attack and durability.",
+  "where": "Tabantha Frontier and Hebra Mountains; found in chests, Hyrule Castle, and enemy camps.",
+  "set": "Royal"
+ },
+ {
+  "name": "Royal Guard's Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 50,
+  "durability": 20,
+  "effect": "Royal Guard bow: very high attack and faster fire rate but very low durability (a glass-cannon bow).",
+  "where": "Found inside Hyrule Castle (Royal Guard areas and surrounding rooms).",
+  "set": "Royal Guard"
+ },
+ {
+  "name": "Savage Lynel Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 32,
+  "durability": 45,
+  "effect": "Strongest Lynel bow; fires 3 arrows per shot while consuming only one arrow (a rarer 5-shot 'Five-Shot Burst' bonus version can also drop).",
+  "where": "Dropped by white-maned and silver Lynels (e.g. Coliseum Ruins, Hebra) and other late-game areas.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Silver Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 15,
+  "durability": 40,
+  "effect": "Zora bow made for fishing; no multishot, modest attack but high durability. All-metal, so it attracts lightning in thunderstorms.",
+  "where": "Lanayru Great Spring and Akkala Highlands; most common in and around Zora's Domain.",
+  "set": "Zora"
+ },
+ {
+  "name": "Soldier's Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 14,
+  "durability": 36,
+  "effect": "Standard Hyrulean soldier's bow with no special property.",
+  "where": "Hyrule Field and Faron Grasslands; carried by enemies and found in ruins.",
+  "set": "Soldier"
+ },
+ {
+  "name": "Spiked Boko Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 12,
+  "durability": 20,
+  "effect": "Upgraded Bokoblin bow; no special property (counts as a bone weapon).",
+  "where": "Carried by Bokoblins in Faron Grasslands and East Necluda.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Steel Lizal Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 36,
+  "durability": 50,
+  "effect": "Strongest Lizalfos bow; no special property.",
+  "where": "Dropped/carried by Lizalfos in Hebra Mountains and Akkala Highlands.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Strengthened Lizal Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 25,
+  "durability": 35,
+  "effect": "Upgraded Lizalfos bow; no special property.",
+  "where": "Dropped/carried by Lizalfos in Tabantha Frontier and Gerudo Desert.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Swallow Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 9,
+  "durability": 30,
+  "effect": "Lightweight Rito bow with no multishot; light and quick to draw.",
+  "where": "Tabantha Frontier and Hebra Mountains; found around Rito Village.",
+  "set": "Rito"
+ },
+ {
+  "name": "Traveler's Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 5,
+  "durability": 22,
+  "effect": "Plain, cheap traveler's bow with no special property.",
+  "where": "Common find/drop in Hyrule Field and West Necluda; sold by some merchants.",
+  "set": "Common"
+ },
+ {
+  "name": "Twilight Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 30,
+  "durability": 100,
+  "effect": "amiibo bow; very high durability and long range, fires arrows as light projectiles. Base-game amiibo reward (not paid DLC).",
+  "where": "Rare reward from scanning the Princess Zelda (Smash Bros.) amiibo.",
+  "set": "amiibo"
+ },
+ {
+  "name": "Wooden Bow",
+  "cat": "bow",
+  "type": "bow",
+  "power": 4,
+  "durability": 20,
+  "effect": "Plain starter bow with no special property; weakest and least durable standard bow.",
+  "where": "Common drop/find across Hyrule Field and West Necluda; carried by some Bokoblins.",
+  "set": "Common"
+ },
+ {
+  "name": "Ancient Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 70,
+  "durability": 32,
+  "effect": "A Sheikah-tech shield that deflects Guardian beams (even without a parry) at the cost of durability; metal, so it attracts lightning.",
+  "where": "Crafted at the Akkala Ancient Tech Lab (Cherry): 1,000 Rupees + 10 Ancient Gears + 15 Ancient Springs + 1 Giant Ancient Core.",
+  "set": "Ancient"
+ },
+ {
+  "name": "Boko Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 3,
+  "durability": 5,
+  "effect": "A crude Bokoblin shield of lashed wood; very fragile and flammable, with no special property.",
+  "where": "Dropped by and carried by Bokoblins across Hyrule Field and West Necluda.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Daybreaker",
+  "cat": "shield",
+  "type": "shield",
+  "power": 48,
+  "durability": 60,
+  "effect": "Champion Urbosa's personal shield; very high durability, and can be reforged by Buliara in Gerudo Town (Gerudo Shield + Diamond + 5 Flint) if it breaks.",
+  "where": "Chest in Gerudo Town after defeating Thunderblight Ganon in Divine Beast Vah Naboris (speak to Riju).",
+  "set": "Champion"
+ },
+ {
+  "name": "Dragonbone Boko Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 25,
+  "durability": 8,
+  "effect": "The strongest Bokoblin shield, plated with dragon bone; decent guard but low durability and flammable.",
+  "where": "Carried by black/silver Bokoblins around Hyrule Ridge and the Necluda Sea.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Emblazoned Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 3,
+  "durability": 12,
+  "effect": "A decorative wooden shield with no special property; flammable.",
+  "where": "Found around East Necluda and the Hebra Mountains."
+ },
+ {
+  "name": "Fisherman's Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 3,
+  "durability": 10,
+  "effect": "A villager's wooden fishing shield; no special property and flammable.",
+  "where": "Found around East Necluda and the Hebra Mountains."
+ },
+ {
+  "name": "Forest Dweller's Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 30,
+  "durability": 18,
+  "effect": "A Korok-made wooden shield; light and quiet but flammable, with no special property.",
+  "where": "Found and sold (Korok merchants) in the Great Hyrule Forest / Korok Forest.",
+  "set": "Forest Dweller"
+ },
+ {
+  "name": "Gerudo Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 20,
+  "durability": 20,
+  "effect": "A Gerudo metal shield with no special property; conducts electricity in storms.",
+  "where": "Found and sold around the Gerudo Highlands and Gerudo Desert.",
+  "set": "Gerudo"
+ },
+ {
+  "name": "Guardian Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 18,
+  "durability": 10,
+  "effect": "A Sheikah Guardian-scout shield that can deflect Guardian Scout beams without parrying (at the cost of durability); metal, so it attracts lightning.",
+  "where": "Dropped by weaker Guardian Scouts (Guardian Scout II) in Shrines and Divine Beasts.",
+  "set": "Guardian"
+ },
+ {
+  "name": "Guardian Shield+",
+  "cat": "shield",
+  "type": "shield",
+  "power": 30,
+  "durability": 13,
+  "effect": "An upgraded Guardian-scout shield; deflects Guardian Scout beams without parrying (costs durability) and attracts lightning.",
+  "where": "Dropped by stronger Guardian Scouts (Guardian Scout III) in Shrines and Divine Beasts.",
+  "set": "Guardian"
+ },
+ {
+  "name": "Guardian Shield++",
+  "cat": "shield",
+  "type": "shield",
+  "power": 42,
+  "durability": 20,
+  "effect": "The strongest Guardian-scout shield; deflects Guardian Scout beams without parrying (costs durability) and attracts lightning.",
+  "where": "Dropped by the toughest Guardian Scouts (Guardian Scout IV) in Shrines and Divine Beasts.",
+  "set": "Guardian"
+ },
+ {
+  "name": "Hero's Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 65,
+  "durability": 90,
+  "effect": "amiibo reward (The Wind Waker Zelda 30th-anniversary amiibo); a very tough metal shield (amiibo drops always roll a Durability Up bonus) that attracts lightning in storms.",
+  "where": "Random treasure-chest drop from scanning the Wind Waker Zelda amiibo with the amiibo Rune."
+ },
+ {
+  "name": "Hunter's Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 3,
+  "durability": 10,
+  "effect": "A simple hunter's wooden shield; no special property and flammable.",
+  "where": "Found around the Hebra Mountains and Lanayru Mountains."
+ },
+ {
+  "name": "Hylian Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 90,
+  "durability": 800,
+  "effect": "The legendary best shield in the game: highest guard and far-and-away the highest durability; metal, so it attracts lightning. If it breaks it can be repurchased from a shop in Hateno Village.",
+  "where": "In the Lockup beneath Hyrule Castle, guarded by a Stalnox (defeat it to open the chest)."
+ },
+ {
+  "name": "Kite Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 14,
+  "durability": 16,
+  "effect": "A tall, narrow Hylian kite shield with no special property.",
+  "where": "Found around the Hebra Mountains and Tabantha Frontier."
+ },
+ {
+  "name": "Knight's Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 40,
+  "durability": 23,
+  "effect": "A well-made Hyrulean knight's shield; metal, so it attracts lightning in storms.",
+  "where": "Found around the Hebra Mountains and Eldin Mountains; carried by stronger enemies.",
+  "set": "Knight"
+ },
+ {
+  "name": "Lizal Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 15,
+  "durability": 8,
+  "effect": "A lightweight Lizalfos shield; low durability and no special property.",
+  "where": "Carried by Lizalfos around Lake Hylia and East Necluda.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Lynel Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 30,
+  "durability": 12,
+  "effect": "A Lynel's metal shield; strong guard but low durability, and attracts lightning in storms.",
+  "where": "Dropped by and carried by red/blue Lynels around Lanayru Great Spring and Hyrule Field.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Mighty Lynel Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 44,
+  "durability": 15,
+  "effect": "A reinforced Lynel shield; high guard, low durability, and conducts electricity in storms.",
+  "where": "Dropped by and carried by blue/white-maned Lynels around Hyrule Field and Lanayru Great Spring.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Pot Lid",
+  "cat": "shield",
+  "type": "shield",
+  "power": 1,
+  "durability": 10,
+  "effect": "An ordinary cooking-pot lid used as a makeshift shield; weakest guard in the game but cheap and disposable.",
+  "where": "Found in kitchens, cooking sites, and on tables across Hyrule Field and East Necluda."
+ },
+ {
+  "name": "Radiant Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 35,
+  "durability": 26,
+  "effect": "A glowing Gerudo shield; metal, so it conducts electricity in thunderstorms.",
+  "where": "Found and sold around the Gerudo Highlands and Gerudo Desert.",
+  "set": "Gerudo"
+ },
+ {
+  "name": "Reinforced Lizal Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 22,
+  "durability": 12,
+  "effect": "A bone-reinforced Lizalfos shield; tougher than the base Lizal Shield.",
+  "where": "Carried by stronger Lizalfos around Tabantha Frontier and the Gerudo Desert.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Royal Guard's Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 70,
+  "durability": 14,
+  "effect": "A Sheikah-built royal-guard shield: one of the highest guard values in the game but very low durability; metal, so it attracts lightning.",
+  "where": "Found inside Hyrule Castle (e.g. the King's Study in the Library); carried by some Hyrule Castle enemies.",
+  "set": "Royal Guard"
+ },
+ {
+  "name": "Royal Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 55,
+  "durability": 29,
+  "effect": "An ornate Hyrulean royal shield; metal, so it attracts lightning in thunderstorms.",
+  "where": "Found around Hyrule Field and the Hebra Mountains; in and around Hyrule Castle.",
+  "set": "Royal"
+ },
+ {
+  "name": "Rusty Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 3,
+  "durability": 16,
+  "effect": "A corroded old shield; can be tossed to a Rock Octorok which spits it back cleaned up as a random better shield (Traveler's/Soldier's/Knight's/Royal).",
+  "where": "Common in ruins and graveyards across Hyrule Field, East Necluda, and Hyrule Castle."
+ },
+ {
+  "name": "Savage Lynel Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 62,
+  "durability": 20,
+  "effect": "The strongest Lynel shield; high guard with the best Lynel-shield durability, and attracts lightning.",
+  "where": "Dropped by white-maned and silver Lynels around Hyrule Field and the Hebra Mountains.",
+  "set": "Lynel"
+ },
+ {
+  "name": "Shield of the Mind's Eye",
+  "cat": "shield",
+  "type": "shield",
+  "power": 16,
+  "durability": 16,
+  "effect": "A ceremonial Sheikah shield with no special property; metal, so it attracts lightning.",
+  "where": "Found around West Necluda and East Necluda (Kakariko region)."
+ },
+ {
+  "name": "Silver Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 18,
+  "durability": 20,
+  "effect": "A Zora-styled metal shield; being all metal it attracts lightning in thunderstorms.",
+  "where": "Several around Lanayru Great Spring and Lake Hylia, including chests at Lake Hylia and Eventide Island."
+ },
+ {
+  "name": "Soldier's Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 16,
+  "durability": 16,
+  "effect": "A standard Hyrulean soldier's shield; metal, so it conducts electricity in thunderstorms.",
+  "where": "Found around Tabantha Frontier and Hyrule Field; carried by enemies near forts.",
+  "set": "Soldier"
+ },
+ {
+  "name": "Spiked Boko Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 10,
+  "durability": 7,
+  "effect": "A Bokoblin shield reinforced with bone spikes; sturdier than the plain Boko Shield but still flammable.",
+  "where": "Carried by mid-tier Bokoblins around Faron Grasslands and East Necluda.",
+  "set": "Bokoblin"
+ },
+ {
+  "name": "Steel Lizal Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 35,
+  "durability": 15,
+  "effect": "A metal-banded Lizalfos shield; being metal it conducts electricity and attracts lightning in storms.",
+  "where": "Carried by black/silver Lizalfos around the Hebra Mountains and Akkala Highlands.",
+  "set": "Lizalfos"
+ },
+ {
+  "name": "Traveler's Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 4,
+  "durability": 12,
+  "effect": "A basic traveler's wooden shield with no special property.",
+  "where": "Very common early find around Hyrule Field and West Necluda; carried by Bokoblins.",
+  "set": "Traveler"
+ },
+ {
+  "name": "Wooden Shield",
+  "cat": "shield",
+  "type": "shield",
+  "power": 2,
+  "durability": 12,
+  "effect": "A plain wooden shield with no special property; burns if struck by fire.",
+  "where": "Common early-game find around Hyrule Field and East Necluda; carried by Bokoblins.",
+  "set": "Wooden"
+ },
+ {
+  "name": "Amber Earrings",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "No special effect, but the highest base defense of any jewelry headpiece (and cheap to make). No set bonus.",
+  "where": "Crafted/bought at the Starlight Memories jewelry shop in Gerudo Town (rupees + amber)."
+ },
+ {
+  "name": "Ancient Cuirass",
+  "cat": "armor",
+  "type": "body",
+  "power": 4,
+  "effect": "Guardian Resist Up (reduces damage taken from Guardians). Set bonus (full Ancient set at 2★): Ancient Proficiency — boosts the damage of ancient/Guardian weapons.",
+  "where": "Crafted at the Akkala Ancient Tech Lab for rupees + Ancient parts (Ancient Gears, Ancient Shafts/screws, and Ancient Cores), after powering up the lab's furnace.",
+  "set": "Ancient Set"
+ },
+ {
+  "name": "Ancient Greaves",
+  "cat": "armor",
+  "type": "legs",
+  "power": 4,
+  "effect": "Guardian Resist Up (reduces Guardian/ancient-weapon damage). Full Ancient Set bonus 'Ancient Proficiency' (boosts ancient/Guardian weapons) unlocks at 2 stars.",
+  "where": "Craft at the Akkala Ancient Tech Lab (talk to Cherry) for 2000 rupees + ancient materials, after lighting the lab's furnace.",
+  "set": "Ancient Set"
+ },
+ {
+  "name": "Ancient Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "Guardian Resist Up (less damage from Guardians). Ancient Set bonus (★★ Lv2, full set) = Ancient Proficiency (boosts Guardian/Ancient weapons).",
+  "where": "Crafted at Cherry (the terminal) in Akkala Ancient Tech Lab using ancient parts + rupees.",
+  "set": "Ancient Set"
+ },
+ {
+  "name": "Barbarian Armor",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Attack Up — increases Link's melee damage. Set bonus (full Barbarian set at 2★): Charge Attack Stamina Up, so spin/charge attacks drain less stamina.",
+  "where": "Treasure chest inside a shrine in the Lomei Labyrinth Island maze (far northeast, off the Akkala coast). Re-buyable from Granté in Tarrey Town once found.",
+  "set": "Barbarian Set"
+ },
+ {
+  "name": "Barbarian Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Attack Up (raises weapon damage). Barbarian Set bonus (★★ Lv2, full set) = Charge Attack Stamina Up.",
+  "where": "In a chest in Tu Ka'loh Shrine, at the end of the South Lomei Labyrinth (Gerudo Desert).",
+  "set": "Barbarian Set"
+ },
+ {
+  "name": "Barbarian Leg Wraps",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Attack Up (boosts melee damage). Full Barbarian Set bonus 'Charge Attack Stamina Up' (cheaper spin/charge attacks) unlocks at 2 stars.",
+  "where": "Chest along the path to Qaza Tokki Shrine, at the center of the NORTH Lomei Labyrinth (northwest, Hebra/Tabantha Tundra).",
+  "set": "Barbarian Set"
+ },
+ {
+  "name": "Bokoblin Mask",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Bokoblin Disguise (Bokoblins won't notice you until you attack). Cannot be upgraded.",
+  "where": "Bought from Kilton's Fang and Bone monster shop for Mon (available from the start of the shop)."
+ },
+ {
+  "name": "Cap of the Hero",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "amiibo. Master Sword Beam Up (Hero of the Wild set bonus when full set is upgraded). Classic green hero cap.",
+  "where": "amiibo: random drop from scanning the 8-Bit Link (The Legend of Zelda) amiibo via the amiibo Rune (base game).",
+  "set": "Hero of the Wild Set (amiibo)"
+ },
+ {
+  "name": "Cap of the Sky",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "amiibo. Master Sword Beam Up (Skyward Sword legacy set, fully upgraded).",
+  "where": "amiibo: random drop from scanning the Link (Skyward Sword) amiibo via the amiibo Rune.",
+  "set": "standalone (amiibo)"
+ },
+ {
+  "name": "Cap of the Wild",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "No individual effect (high base defense). Wild Set bonus (★★★★ Lv4, full set) = Master Sword Beam Up (stronger beams at full health).",
+  "where": "Found in the central chest before the Goddess Statue in the Forgotten Temple, given by the monks for completing all 120 Shrines ('A Gift from the Monks').",
+  "set": "Wild Set"
+ },
+ {
+  "name": "Cap of the Wind",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "amiibo. Master Sword Beam Up (Wind Waker / Toon Link legacy set, fully upgraded).",
+  "where": "amiibo: random drop from scanning the Toon Link (The Wind Waker) amiibo via the amiibo Rune.",
+  "set": "standalone (amiibo)"
+ },
+ {
+  "name": "Cap of Time",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "amiibo. Master Sword Beam Up (when worn with the matching Ocarina of Time legacy set, fully upgraded).",
+  "where": "amiibo: random drop from scanning the Link (Ocarina of Time) amiibo via the amiibo Rune.",
+  "set": "standalone (amiibo)"
+ },
+ {
+  "name": "Cap of Twilight",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "amiibo. Master Sword Beam Up (Twilight Princess legacy set, fully upgraded).",
+  "where": "amiibo: random drop from scanning the Link (Twilight Princess) amiibo via the amiibo Rune.",
+  "set": "standalone (amiibo)"
+ },
+ {
+  "name": "Champion's Tunic",
+  "cat": "armor",
+  "type": "body",
+  "power": 5,
+  "effect": "Lets Link see the exact HP of enemies (a numeric life gauge). Standalone — no set bonus, but it IS upgradeable (max 32 defense, the strongest body piece in the game).",
+  "where": "Given by Impa in Kakariko Village after you recover your first memory from the Captured Memories quest (show her the Sheikah Slate album).",
+  "set": "Champion's Tunic (standalone)"
+ },
+ {
+  "name": "Climber's Bandanna",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Climb Speed Up. Climbing Set bonus (★★ Lv2, full set) = Climbing Jump Stamina Up (cheaper climb-jumps).",
+  "where": "Free in a chest in Ree Dahee Shrine (Dueling Peaks area) — use Magnesis/Stasis to reach it.",
+  "set": "Climbing Set"
+ },
+ {
+  "name": "Climbing Boots",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Boost climb speed. Full Climbing Set bonus 'Climbing Jump Stamina Up' (less stamina per climbing jump) unlocks at 2 stars.",
+  "where": "Chest inside Tahno O'ah Shrine, at the base of Madorna Mountain on Mount Lanayru (northeast of the Hateno Ancient Tech Lab). Found via the 'Secrets of the Cedars' shrine quest (talk to Clavia in Hateno).",
+  "set": "Climbing Set (Climber's Bandanna + Climbing Gear)"
+ },
+ {
+  "name": "Climbing Gear",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Climb Speed Up — climb walls faster. Set bonus (full Climbing set at 2★): Climbing Jump Stamina Up, so wall-jumps cost less stamina.",
+  "where": "Treasure chest inside Chaas Qeta Shrine on a small island far off the south coast (Faron). Re-buyable from Granté in Tarrey Town once found.",
+  "set": "Climbing Set (Climber's Bandanna + Climbing Gear + Climbing Boots)"
+ },
+ {
+  "name": "Dark Hood",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "No individual effect (cosmetic 'Dark Link' look). Dark Set bonus = Night Speed Up (full set). Cannot be upgraded.",
+  "where": "Bought from Kilton's Fang and Bone monster shop for Mon — available only after freeing all four Divine Beasts.",
+  "set": "Dark Set"
+ },
+ {
+  "name": "Dark Trousers",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Part of the Dark Link costume; full Dark Set bonus 'Night Speed Up' (move faster at night). Base game (not amiibo).",
+  "where": "Buy from Kilton's Fang and Bone monster shop for 999 Mon, after defeating all four Divine Beasts (final inventory unlock)."
+ },
+ {
+  "name": "Dark Tunic",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "A 'Dark Link' tunic. No own buff. Set bonus (full Dark set): Night Speed Up. The Dark set cannot be upgraded by Great Fairies.",
+  "where": "Bought from Kilton's Fang and Bone shop for 999 Mon (monster-part currency). The shop only stocks the Dark set after you've cleared all four Divine Beasts.",
+  "set": "Dark Set"
+ },
+ {
+  "name": "Desert Voe Headband",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Heat Resistance. Desert Voe Set bonus (★★ Lv2, full set) = Shock Damage Resist Up.",
+  "where": "Bought from the Gerudo Secret Club (hidden shop) in Gerudo Town.",
+  "set": "Desert Voe Set"
+ },
+ {
+  "name": "Desert Voe Spaulder",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Grants 1 level of Heat Resistance (survive the Gerudo Desert daytime). Set bonus (full Desert Voe set at 2★): Shock Resistance Up.",
+  "where": "Bought from the Gerudo Secret Club in Gerudo Town, or from Rhondson at the Tarrey Town shop.",
+  "set": "Desert Voe Set"
+ },
+ {
+  "name": "Desert Voe Trousers",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Heat resistance (keeps Link cool in the Gerudo Desert daytime). Full Desert Voe Set bonus 'Shock Resistance Up' unlocks at 2 stars.",
+  "where": "Buy at the Gerudo Secret Club (men's clothing shop) in Gerudo Town. The trousers are also obtainable in Tarrey Town's shop after 'From the Ground Up.'",
+  "set": "Desert Voe Set"
+ },
+ {
+  "name": "Diamond Circlet",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "Guardian Resist Up. No set bonus (jewelry). Can be re-commissioned with a larger diamond for higher defense.",
+  "where": "Crafted/bought at the Starlight Memories jewelry shop in Gerudo Town (rupees + a diamond)."
+ },
+ {
+  "name": "Fierce Deity Armor",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Grants 1 level of Attack Up. Set bonus (full Fierce Deity set at 2★): Charge Attack Stamina Up.",
+  "where": "Random reward from scanning the Link (Majora's Mask) amiibo with the amiibo Rune (drops in a chest from the sky).",
+  "set": "Fierce Deity Set (amiibo)"
+ },
+ {
+  "name": "Fierce Deity Boots",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Majora's Mask Fierce Deity boots; each piece gives the 'Attack Up' added effect (boosts melee damage). Full Fierce Deity Set bonus 'Charge Attack Stamina Up' unlocks at 2 stars. amiibo.",
+  "where": "amiibo: scan the Link (Majora's Mask) amiibo (random armor drop)."
+ },
+ {
+  "name": "Fierce Deity's Mask",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "amiibo. Attack Up (raises weapon damage). Part of the Fierce Deity amiibo set.",
+  "where": "amiibo: random drop from scanning the Link (Majora's Mask) amiibo via the amiibo Rune.",
+  "set": "Fierce Deity Set (amiibo)"
+ },
+ {
+  "name": "Flamebreaker Armor",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Grants Flame Guard (immune to the scorching/burning air, e.g. climbing Death Mountain). Set bonus (full Flamebreaker set at 2★): Fireproof — open flames no longer set Link alight.",
+  "where": "Bought at Ripped and Shredded clothing shop in Goron City, or trade 10 Fireproof Lizards to Gongetsu at the Southern Mine for this piece.",
+  "set": "Flamebreaker Set"
+ },
+ {
+  "name": "Flamebreaker Boots",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Flame Guard (resists searing heat near lava in Eldin/Death Mountain). Full Flamebreaker Set bonus 'Fireproof' (won't catch fire) unlocks at 2 stars.",
+  "where": "Buy at the Ripped and Shredded armor shop in Goron City (Eldin).",
+  "set": "Flamebreaker Set"
+ },
+ {
+  "name": "Flamebreaker Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Flame Guard (resists hot/lava environments). Flamebreaker Set bonus (★★ Lv2, full set) = Fireproof (won't catch fire).",
+  "where": "Bought from the Ripped and Shredded armor shop in Goron City.",
+  "set": "Flamebreaker Set"
+ },
+ {
+  "name": "Gerudo Sirwal",
+  "cat": "armor",
+  "type": "legs",
+  "power": 1,
+  "effect": "Part of the women's Vai outfit that lets Link enter Gerudo Town. The full Gerudo Vai set has a built-in 'Heat Resistant' property at base. NOTE: the Gerudo set cannot be upgraded at a Great Fairy (no star tiers).",
+  "where": "Buy at the Vai clothing shop near Gerudo Town's entrance (also sold at the Kara Kara Bazaar stand on the way in).",
+  "set": "Gerudo Set (Vai Outfit)"
+ },
+ {
+  "name": "Gerudo Top",
+  "cat": "armor",
+  "type": "body",
+  "power": 1,
+  "effect": "No own buff; worn with the Veil and Sirwal it disguises Link as a Gerudo 'vai' to enter Gerudo Town, and the full set grants 1 level of Heat Resistance. The Gerudo (Vai) set CANNOT be upgraded by Great Fairies.",
+  "where": "Bought from Vilia at Kara Kara Bazaar for 600 rupees during the 'Forbidden City Entry' quest; the rest of the set is then sold in Gerudo Town.",
+  "set": "Gerudo Set (Vai Outfit)"
+ },
+ {
+  "name": "Gerudo Veil",
+  "cat": "armor",
+  "type": "head",
+  "power": 1,
+  "durability": 0,
+  "effect": "Heat Resistance; worn as a 'vai' it grants access to Gerudo Town. Gerudo (Vai) Set bonus = none in the base game (TotK adds Sand Camo). Low defense.",
+  "where": "Bought from the Gerudo Secret Club / vai clothing shop in Gerudo Town after the 'Forbidden City Entry' quest gets you in.",
+  "set": "Gerudo Set (Vai Outfit)"
+ },
+ {
+  "name": "Hylian Hood",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "No special property (plain cloth hood). Hylian Set has no set bonus.",
+  "where": "Bought from Ventest Clothing Boutique in Hateno Village (also enchanted/dyed at Kakariko); cheap (~60 rupees).",
+  "set": "Hylian Set"
+ },
+ {
+  "name": "Hylian Trousers",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Plain starter trousers, no passive of their own. The Hylian Set has no set bonus (it's the all-purpose set); all three pieces are cheap and easy to upgrade.",
+  "where": "Buy for 90 rupees at clothing shops (Hateno's Ventest Clothing Boutique, Kakariko, etc.), or free from a chest near the Temple of Time ruins on the Great Plateau.",
+  "set": "Hylian Set"
+ },
+ {
+  "name": "Hylian Tunic",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "No special property; basic balanced armor. The Hylian Set has no set bonus.",
+  "where": "Bought at the Ventest Clothing Boutique in Hateno Village for 120 rupees.",
+  "set": "Hylian Set"
+ },
+ {
+  "name": "Lizalfos Mask",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Lizalfos Disguise (Lizalfos won't notice you until you attack). Cannot be upgraded.",
+  "where": "Bought from Kilton's Fang and Bone monster shop for Mon (after freeing two Divine Beasts)."
+ },
+ {
+  "name": "Lynel Mask",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Lynel Disguise (Lynels won't notice you — fragile; breaks if you get too close or get hit). Cannot be upgraded.",
+  "where": "Bought from Kilton's Fang and Bone monster shop for Mon (after freeing three Divine Beasts)."
+ },
+ {
+  "name": "Moblin Mask",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Moblin Disguise (Moblins won't notice you until you attack). Cannot be upgraded.",
+  "where": "Bought from Kilton's Fang and Bone monster shop for Mon (after freeing one Divine Beast)."
+ },
+ {
+  "name": "Old Shirt",
+  "cat": "armor",
+  "type": "body",
+  "power": 1,
+  "effect": "Plain starter shirt — no special property and cannot be upgraded; it's just what Link wakes up in.",
+  "where": "Found in a treasure chest inside the Shrine of Resurrection at the very start of the game (Great Plateau).",
+  "set": "Worn Set (standalone starter)"
+ },
+ {
+  "name": "Opal Earrings",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Swim Speed Up. No set bonus (jewelry).",
+  "where": "Crafted/bought at the Starlight Memories jewelry shop in Gerudo Town (rupees + an opal)."
+ },
+ {
+  "name": "Radiant Mask",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Stal Disguise (Stal-type undead enemies ignore you). Radiant Set bonus (★★ Lv2, full set) = Bone Atk. Up (boosts bone/Stal weapons).",
+  "where": "Bought from the Gerudo Secret Club (hidden shop) in Gerudo Town.",
+  "set": "Radiant Set"
+ },
+ {
+  "name": "Radiant Shirt",
+  "cat": "armor",
+  "type": "body",
+  "power": 2,
+  "effect": "Glows in the dark. Set bonus (full Radiant set at 2★): Stal enemies stay down — the bones of slain Stal foes won't reanimate.",
+  "where": "Bought from the Gerudo Secret Club in Gerudo Town (requires the Vai outfit to enter; sold for rupees + Luminous Stones).",
+  "set": "Radiant Set"
+ },
+ {
+  "name": "Radiant Tights",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Glows in the dark; with the full set lets Stal enemies treat you as one of them. Full Radiant Set bonus 'Disguise' + 'Bone Atk. Up' (boosts bone-type weapons) unlocks at 2 stars.",
+  "where": "Buy at the Gerudo Secret Club in Gerudo Town after completing 'The Secret Club's Secret' side quest.",
+  "set": "Radiant Set"
+ },
+ {
+  "name": "Royal Guard Cap",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "No set bonus (purely defensive). Royal Guard armor cannot be upgraded.",
+  "where": "Found in Hyrule Castle (Princess Zelda's Study, behind the dressing screen); afterward re-buyable from Granté in Tarrey Town.",
+  "set": "Royal Guard Set"
+ },
+ {
+  "name": "Rubber Armor",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Grants 1 level of Shock Resistance (reduces lightning/electric damage). Set bonus (full Rubber set at 2★): Unshockable — you can't be stunned by electrocution, even holding metal in a storm.",
+  "where": "Treasure chest in Toh Yahsa Shrine, unlocked by completing the 'Trial of Thunder' shrine quest on the Thundra Plateau (Lake region).",
+  "set": "Rubber Set"
+ },
+ {
+  "name": "Rubber Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Shock Resistance. Rubber Set bonus (★★ Lv2, full set) = Unshockable (immune to lightning damage).",
+  "where": "Reward for the 'Thunder Magnet' side quest at Lakeside Stable (Faron).",
+  "set": "Rubber Set"
+ },
+ {
+  "name": "Rubber Tights",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Shock resistance (reduces lightning/electric damage). Full Rubber Set bonus 'Unshockable' (immune to electric shock, won't drop weapons) unlocks at 2 stars.",
+  "where": "Chest inside Qukah Nata Shrine (Lanayru region, east of Faron Tower / near the Zodobon Highlands).",
+  "set": "Rubber Set"
+ },
+ {
+  "name": "Ruby Circlet",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Cold Resistance. No set bonus (jewelry).",
+  "where": "Crafted/bought at the Starlight Memories jewelry shop in Gerudo Town (rupees + a ruby)."
+ },
+ {
+  "name": "Sand Boots",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Let Link walk on sand at normal speed (no sinking/slowing in the desert). Standalone, no set bonus; upgradeable and dyeable.",
+  "where": "Reward for completing 'The Eighth Heroine' side quest — give Bozai (outside Gerudo Town) a photo of the Eighth Heroine statue (Risoka Snowfield) while wearing the full Gerudo Vai outfit."
+ },
+ {
+  "name": "Sapphire Circlet",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Heat Resistance. No set bonus (jewelry).",
+  "where": "Crafted/bought at the Starlight Memories jewelry shop in Gerudo Town (rupees + a sapphire)."
+ },
+ {
+  "name": "Sheik's Mask",
+  "cat": "armor",
+  "type": "head",
+  "power": 2,
+  "durability": 0,
+  "effect": "amiibo. Stealth Up (quieter movement; Sheik cowl). No set bonus.",
+  "where": "amiibo: random drop from scanning the Sheik amiibo via the amiibo Rune.",
+  "set": "standalone (amiibo)"
+ },
+ {
+  "name": "Snow Boots",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Let Link walk on deep snow at normal speed (no sinking/slowing). Standalone, no set bonus; upgradeable and dyeable.",
+  "where": "Reward for completing 'The Forgotten Sword' side quest — bring Bozai a photo of the Sword of the Eighth Heroine (Gerudo Summit) in the Gerudo Vai outfit. (Bozai also hands over a free pair at the start of 'The Eighth Heroine.')"
+ },
+ {
+  "name": "Snowquill Headdress",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Cold Resistance. Snowquill Set bonus (★★ Lv2, full set) = Unfreezable.",
+  "where": "Bought from the Brazen Beak armor shop in Rito Village.",
+  "set": "Snowquill Set"
+ },
+ {
+  "name": "Snowquill Trousers",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Cold resistance (warms Link in freezing areas). Full Snowquill Set bonus 'Unfreezable' (immune to being frozen solid) unlocks at 2 stars.",
+  "where": "Buy at the Brazen Beak armor shop in Rito Village.",
+  "set": "Snowquill Set"
+ },
+ {
+  "name": "Snowquill Tunic",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Grants 1 level of Cold Resistance. Set bonus (full Snowquill set at 2★): Unfreezable — you won't be frozen by ice attacks.",
+  "where": "Bought at the Brazen Beak armor shop in Rito Village.",
+  "set": "Snowquill Set"
+ },
+ {
+  "name": "Soldier's Armor",
+  "cat": "armor",
+  "type": "body",
+  "power": 4,
+  "effect": "No special property; sturdy mid-game defense. The Soldier's Set has no set bonus.",
+  "where": "Bought at the Ventest Clothing Boutique in Hateno Village for 250 rupees, or found in a chest in Hyrule Castle.",
+  "set": "Soldier's Set"
+ },
+ {
+  "name": "Soldier's Greaves",
+  "cat": "armor",
+  "type": "legs",
+  "power": 4,
+  "effect": "Mid-tier defensive greaves with no special passive; the Soldier's Set has no set bonus, it's just solid early defense (high base 4).",
+  "where": "Buy for 200 rupees at Ventest Clothing Boutique in Hateno Village.",
+  "set": "Soldier's Set"
+ },
+ {
+  "name": "Soldier's Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "No special property. Soldier's Set has no set bonus (just solid early defense).",
+  "where": "Bought from Ventest Clothing Boutique in Hateno Village.",
+  "set": "Soldier's Set"
+ },
+ {
+  "name": "Stealth Chest Guard",
+  "cat": "armor",
+  "type": "body",
+  "power": 2,
+  "effect": "Stealth Up — makes Link quieter so enemies notice him less. Set bonus (full Stealth/Sheikah set at 2★): Night Speed Up, faster movement at night.",
+  "where": "Bought at Enchanted, the clothing shop in Kakariko Village.",
+  "set": "Stealth Set (Sheikah)"
+ },
+ {
+  "name": "Stealth Mask",
+  "cat": "armor",
+  "type": "head",
+  "power": 2,
+  "durability": 0,
+  "effect": "Stealth Up (quieter movement). Stealth (Sheikah) Set bonus (★★ Lv2, full set) = Night Speed Up.",
+  "where": "Bought from the Enchanted armor shop in Kakariko Village (~500 rupees).",
+  "set": "Stealth Set (Sheikah)"
+ },
+ {
+  "name": "Stealth Tights",
+  "cat": "armor",
+  "type": "legs",
+  "power": 2,
+  "effect": "Boost stealth (quiets your movement). Full Stealth/Sheikah Set bonus 'Night Speed Up' (move faster at night) unlocks at 2 stars.",
+  "where": "Buy at the Enchanted clothing shop in Kakariko Village.",
+  "set": "Stealth Set (Sheikah)"
+ },
+ {
+  "name": "Thunder Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Unshockable (negates all lightning-strike damage); can substitute for the Gerudo Veil to enter Gerudo Town. Cannot be upgraded.",
+  "where": "Gift from Chief Riju in Gerudo Town after the 'The Thunder Helm' side quest (clear the four Yiga/Gerudo town quests)."
+ },
+ {
+  "name": "Topaz Earrings",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Shock Resistance. No set bonus (jewelry).",
+  "where": "Crafted/bought at the Starlight Memories jewelry shop in Gerudo Town (rupees + a topaz)."
+ },
+ {
+  "name": "Trousers of the Hero",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Classic green-tunic hero trousers; full Hero Set bonus 'Master Sword Beam Up' at 2 stars. amiibo (cannot be dyed).",
+  "where": "amiibo: scan the 30th Anniversary 8-Bit Link / Link (The Legend of Zelda) amiibo (random armor drop)."
+ },
+ {
+  "name": "Trousers of the Sky",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Skyward Sword hero trousers; full set bonus 'Master Sword Beam Up' at 2 stars. amiibo.",
+  "where": "amiibo: scan the Link (Skyward Sword) amiibo (random armor drop)."
+ },
+ {
+  "name": "Trousers of the Wild",
+  "cat": "armor",
+  "type": "legs",
+  "power": 4,
+  "effect": "The green 'of the Wild' hero trousers; full Wild Set bonus 'Master Sword Beam Up' (boosts the Master Sword's full-health beam) unlocks at 2 stars. Dyeable.",
+  "where": "Reward from the side quest 'A Gift from the Monks' — open the correct chest at the Forgotten Temple after clearing all 120 shrines.",
+  "set": "Wild Set"
+ },
+ {
+  "name": "Trousers of the Wind",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Wind Waker hero trousers; full set bonus 'Master Sword Beam Up' at 2 stars. amiibo.",
+  "where": "amiibo: scan the Toon Link (Wind Waker / Super Smash Bros.) amiibo (random armor drop)."
+ },
+ {
+  "name": "Trousers of Time",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Ocarina of Time hero trousers; full set bonus 'Master Sword Beam Up' at 2 stars. amiibo.",
+  "where": "amiibo: scan the Ocarina of Time Link amiibo (random armor drop)."
+ },
+ {
+  "name": "Trousers of Twilight",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Twilight Princess hero trousers; full set bonus 'Master Sword Beam Up' at 2 stars. amiibo.",
+  "where": "amiibo: scan the Link (Twilight Princess) or Link (Super Smash Bros.) amiibo (random armor drop)."
+ },
+ {
+  "name": "Tunic of the Hero",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Classic green tunic (original The Legend of Zelda look). No own buff. Set bonus (full Hero set at 2★): Master Sword Beam Up.",
+  "where": "Random reward from scanning the 8-Bit Link (30th Anniversary) amiibo with the amiibo Rune; the piece drops in a chest from the sky (one scan per real day).",
+  "set": "Hero Set (amiibo)"
+ },
+ {
+  "name": "Tunic of the Sky",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Cosmetic classic tunic (Skyward Sword look). No special property; no set bonus.",
+  "where": "Random reward from scanning the Link (Skyward Sword) amiibo with the amiibo Rune.",
+  "set": "Hero of the Sky Set (amiibo)"
+ },
+ {
+  "name": "Tunic of the Wild",
+  "cat": "armor",
+  "type": "body",
+  "power": 4,
+  "effect": "No passive on its own. Set bonus (full Wild set, each piece enhanced at least 2★): Master Sword Beam Up — boosts the full-health Master Sword sword beam.",
+  "where": "Treasure chest in the Forgotten Temple, the reward for completing all 120 Shrines (the final Monk directs you there; it's in the left-hand chest at the Goddess Statue).",
+  "set": "Wild Set"
+ },
+ {
+  "name": "Tunic of the Wind",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Cosmetic classic tunic (The Wind Waker look). No special property; no set bonus.",
+  "where": "Random reward from scanning the Toon Link (The Wind Waker / Super Smash Bros.) amiibo with the amiibo Rune.",
+  "set": "Hero of the Wind Set (amiibo)"
+ },
+ {
+  "name": "Tunic of Time",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Cosmetic classic tunic (Ocarina of Time look). No special property; the Hero of Time set has no set bonus.",
+  "where": "Random reward from scanning the Link (Ocarina of Time) amiibo with the amiibo Rune (drops in a chest from the sky).",
+  "set": "Hero of Time Set (amiibo)"
+ },
+ {
+  "name": "Tunic of Twilight",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Cosmetic classic tunic (Twilight Princess look). No special property; no set bonus.",
+  "where": "Random reward from scanning the Link (Twilight Princess) or Super Smash Bros. Link amiibo with the amiibo Rune.",
+  "set": "Hero of Twilight Set (amiibo)"
+ },
+ {
+  "name": "Vah Medoh Divine Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "amiibo. Cold Resistance. (Pairs into the Ancient set's Ancient Proficiency bonus — it is the Ancient set re-skin.)",
+  "where": "amiibo: random drop from scanning the Revali amiibo (Champions series) via the amiibo Rune.",
+  "set": "Ancient/Divine Set (amiibo, Revali)"
+ },
+ {
+  "name": "Vah Naboris Divine Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "amiibo. Shock Resistance. (Pairs into the Ancient set's Ancient Proficiency bonus — it is the Ancient set re-skin.)",
+  "where": "amiibo: random drop from scanning the Urbosa amiibo (Champions series) via the amiibo Rune.",
+  "set": "Ancient/Divine Set (amiibo, Urbosa)"
+ },
+ {
+  "name": "Vah Rudania Divine Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "amiibo. Flame Guard. (Pairs into the Ancient set's Ancient Proficiency bonus — it is the Ancient set re-skin.)",
+  "where": "amiibo: random drop from scanning the Daruk amiibo (Champions series) via the amiibo Rune.",
+  "set": "Ancient/Divine Set (amiibo, Daruk)"
+ },
+ {
+  "name": "Vah Ruta Divine Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 4,
+  "durability": 0,
+  "effect": "amiibo. Swim Speed Up. (With the Ancient Cuirass + Greaves at ★★, gives the Ancient Proficiency set bonus — it is the Ancient set re-skin.)",
+  "where": "amiibo: random drop from scanning the Mipha amiibo (Champions series) via the amiibo Rune.",
+  "set": "Ancient/Divine Set (amiibo, Mipha)"
+ },
+ {
+  "name": "Warm Doublet",
+  "cat": "armor",
+  "type": "body",
+  "power": 1,
+  "effect": "Grants 1 level of Cold Resistance (lets you survive the freezing Great Plateau). Cannot be upgraded and has no set bonus.",
+  "where": "Given by the Old Man on the Great Plateau — either cook him a warm meal (e.g. spicy peppers) or find it in the chest in his cabin after you have the paraglider. Also buyable at the Ventest Clothing Boutique in Hateno Village."
+ },
+ {
+  "name": "Well-Worn Trousers",
+  "cat": "armor",
+  "type": "legs",
+  "power": 1,
+  "effect": "Tattered village trousers with no passive; the 'Old Shirt and trousers' Link starts the game in. Standalone, no set bonus.",
+  "where": "Starting clothing — Link wakes wearing the Old Shirt and Well-Worn Trousers in the Shrine of Resurrection."
+ },
+ {
+  "name": "Zora Armor",
+  "cat": "armor",
+  "type": "body",
+  "power": 3,
+  "effect": "Lets Link swim up waterfalls. No body-piece passive, but the full Zora set grants Swim Speed Up.",
+  "where": "Given by Prince Sidon / King Dorephan in Zora's Domain during the 'Divine Beast Vah Ruta' main quest.",
+  "set": "Zora Set"
+ },
+ {
+  "name": "Zora Greaves",
+  "cat": "armor",
+  "type": "legs",
+  "power": 3,
+  "effect": "Boost swim speed. Full Zora Set bonus 'Swim Dash Stamina Up' (cheaper swim dashes) unlocks at 2 stars.",
+  "where": "Reward for completing the Lynel Safari side quest (kill the Lynel on Ploymus Mountain and return to Laflat) in Zora's Domain.",
+  "set": "Zora Set"
+ },
+ {
+  "name": "Zora Helm",
+  "cat": "armor",
+  "type": "head",
+  "power": 3,
+  "durability": 0,
+  "effect": "Swim Speed Up; lets Link do a spin-attack while swimming. Zora Set bonus (★★ Lv2, full set) = Swim Dash Stamina Up.",
+  "where": "In a metal chest at the bottom of Toto Lake (lift it with Magnesis), near Zora's Domain.",
+  "set": "Zora Set"
+ }
+]

@@ -314,6 +314,20 @@ layout, `REGION_MAPS` = the per-region coords.
   (panic buttons, search-as-home, recent/nearby chips) as "not genuinely useful" — do NOT re-propose them;
   answer-first search + the Status coach already cover the moment-of-need. **Principle: content we already have is
   only as good as the taps to reach it; the magnifier is now the "help me now" button.**
+- **v12.13 (done):** **equipment Compendium** — the user: the auto-pouch was useless (gear churns too fast to
+  "track") and tons of gear was missing (e.g. no Guardian Shield line). Reframed the **Items tab** from a
+  walkthrough-pickup pouch into a complete, browsable **catalog** (`CompendiumView`): search + category filters
+  (Weapons/Bows/Shields/Armor), **tap any item → its stats + effect + where-to-find**. Data from a deep-research
+  author→verify Workflow (`build/gen-compendium-workflow.mjs`, 8 categories → `build/merge-compendium.mjs` →
+  `knowledge/compendium.json`, flat array, `cat`∈weapon/bow/shield/armor): **272 base-game items** (127 weapons —
+  one-handed/two-handed/spears; 26 bows; 33 shields incl. **Guardian Shield/+/++**; 86 armor pieces head/body/
+  legs). Also added a **Gear** category to the global answer-first search. `COMPENDIUM` wired into `inline-data` +
+  GAMES bundle; the Items tab **falls back to the old `PouchView`** when `COMPENDIUM` is empty (TotK). Verified
+  in-browser (272 items, filters, Hylian Shield → Guard 90/Dur 800/where, "guardian shield" surfaces in both the
+  catalog and global search), 0 console errors. **Workflow gotcha banked: a verify agent died on a 529 Overload →
+  that category (one-handed) dropped from the result; `resumeFromRunId` re-ran ONLY the failed agent (author
+  cached) and recovered it. Resume is the fix for transient agent failures — don't re-run the whole workflow.**
+  Materials/food remain covered by Cook + Economy; a materials/creatures compendium is the obvious next extension.
 - **Next (TotK depth):** TotK per-region + overview maps (`TOTK_MAP_NODES` + a coords pass); TotK fairies/
   towers/side-quests/Korok datasets → enable those Guide segments; orb panel sourced from `shrineStats`; a TotK
   **"Stuck?" sweep** + a **TotK cooking table** (same `CookView`/engine). **Beyond:** Ocarina of Time as game 3
