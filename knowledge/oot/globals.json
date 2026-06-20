@@ -1,0 +1,53 @@
+{
+ "_note": "OoT (game 3) static bundle fields. assemble-oot.mjs merges these with walkthrough.json (REGIONS) into app-data.json. Empty datasets degrade gracefully like TotK v1.",
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items & Songs",
+  "championsLabel": "Spiritual Stones",
+  "regionBanner": "Dungeon"
+ },
+ "guideSegs": [["runes", "Items"], ["tips", "Tips"], ["settings", "Settings"]],
+ "postRegionId": "oot_ganon",
+ "CATS": [
+  { "id": "sword", "name": "Swords", "glyph": "sword" },
+  { "id": "shield", "name": "Shields", "glyph": "shield" },
+  { "id": "bow", "name": "Bows & Slingshot", "glyph": "bow" },
+  { "id": "item", "name": "Items", "glyph": "bag" },
+  { "id": "song", "name": "Ocarina Songs", "glyph": "stasis" },
+  { "id": "key", "name": "Key Items", "glyph": "key" },
+  { "id": "material", "name": "Materials", "glyph": "gem" }
+ ],
+ "RUNES": [
+  { "id": "kokiri_sword", "name": "Kokiri Sword", "glyph": "sword", "from": "The training-ground maze behind the rock-blocked hole in Kokiri Forest.", "what": "Your first blade as a child. Crawl through the hole and cross the maze, dodging the rolling boulder, to find the chest.", "tip": "Roll (A while running) to move fast and break the boulder's timing. You keep this sword until you draw the Master Sword." },
+  { "id": "deku_shield", "name": "Deku Shield", "glyph": "shield", "from": "Bought from the Kokiri Shop for 40 Rupees (cut grass and lift rocks for the money).", "what": "A wooden shield you hold up with R. Needed to deflect the Deku Tree's webs and Deku Scrub seeds.", "tip": "It burns if a flame touches it — buy a spare. Mido won't let you into the Deku Tree until you have BOTH a sword and a shield." },
+  { "id": "fairy_slingshot", "name": "Fairy Slingshot", "glyph": "bow", "from": "A chest inside the Great Deku Tree.", "what": "Fires Deku Seeds at distant targets, switches, eyes, and the ladder-cord. Your first ranged weapon.", "tip": "Hold ZR/Z to aim in first person. Shoot Skulltulas in the eye and hit the gold eye-switches to drop ladders." },
+  { "id": "fairy_ocarina", "name": "Fairy Ocarina", "glyph": "stasis", "from": "Saria gives it to you on the bridge as you leave Kokiri Forest.", "what": "Play songs to trigger magic — open doors, warp, change the time of day, summon your horse. The heart of the game.", "tip": "Later swapped for the Ocarina of Time. Learn songs from people you meet; the notes appear on screen as you're taught." },
+  { "id": "zeldas_lullaby", "name": "Zelda's Lullaby", "glyph": "stasis", "from": "Impa teaches it behind Hyrule Castle after you meet Princess Zelda.", "what": "The royal family's song. Opens royal-crest doors and gates, and makes Gossip Stones and Triforce switches react.", "tip": "Many puzzles across the game ask for this song on a Triforce mark — keep it handy." },
+  { "id": "bombs", "name": "Bombs", "glyph": "bomb", "from": "Bomb Flowers in Dodongo's Cavern and on Death Mountain; later a Bomb Bag from the Dodongo's Cavern area.", "what": "Blow open cracked walls and boulders, stun enemies, and drop them in monster mouths. Essential for progress.", "tip": "Pick a Bomb Flower (it regrows) if you're out of bombs. Throw, don't hold — they explode on a timer." }
+ ],
+ "CHAMPIONS": [
+  { "name": "Kokiri's Emerald", "from": "Inside the Great Deku Tree", "note": "The Forest's Spiritual Stone — the Great Deku Tree entrusts it to you after Queen Gohma falls." },
+  { "name": "Goron's Ruby", "from": "Dodongo's Cavern", "note": "The Fire Spiritual Stone — Darunia gives it once you clear the Gorons' cavern of Dodongos." },
+  { "name": "Zora's Sapphire", "from": "Inside Jabu-Jabu's Belly", "note": "The Water Spiritual Stone — Princess Ruto hands it to you after Barinade is defeated." }
+ ],
+ "ROADMAP": [
+  { "id": "heartpieces", "name": "Pieces of Heart", "sub": "Four = one Heart Container", "note": "36 scattered across Hyrule in minigames, chests, and hidden corners. Every four you collect add a full heart.", "reward": "More hearts" },
+  { "id": "skulltulas", "name": "Gold Skulltulas", "sub": "The 100 cursed spiders", "note": "Slay golden Skulltulas and collect their tokens; turn them in to the cursed family in Kakariko for rewards.", "reward": "Wallets & prizes" },
+  { "id": "biggoron", "name": "Biggoron's Sword", "sub": "The ultimate trade quest", "note": "A long chain of timed trades up Death Mountain ends in the strongest two-handed sword in the game.", "reward": "Biggoron's Sword" },
+  { "id": "songs", "name": "Every Ocarina Song", "sub": "12 melodies", "note": "Warp songs, weather songs, and the storytelling melodies — collecting them all unlocks fast travel and secrets.", "reward": "Fast travel" }
+ ],
+ "TIPS": [
+  { "id": "basics", "name": "Getting started", "items": [
+   "Z-target (or L) to lock onto enemies and people — it's how you aim, strafe, and read what to do next.",
+   "Cut every bush and lift every rock for Rupees, and check behind waterfalls and in odd corners for secrets.",
+   "Save often (and note: dying sends you back to the dungeon entrance or your last save, not the title)."
+  ] },
+  { "id": "time", "name": "Child & Adult Link", "items": [
+   "Pulling the Master Sword jumps you 7 years forward; later you can travel between child and adult freely at the Temple of Time.",
+   "Some puzzles need the OTHER age — a bean planted as a child grows into a platform for the adult, for example.",
+   "The Sun's Song flips day and night instantly; some enemies (Stalchildren, ReDeads) and shops depend on the time."
+  ] }
+ ],
+ "WORLD": { "upgrades": [], "systems": [], "fairies": [] }
+}

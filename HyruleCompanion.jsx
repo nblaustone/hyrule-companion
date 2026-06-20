@@ -1000,7 +1000,7 @@ function HyruleGame({ game, setGame, games }) {
               </div>
             </div>
 
-            <div className="panel">
+            {shrineStats.total > 0 && <div className="panel">
               <div className="panel-h">Shrines</div>
               <button className="reg-row" onClick={() => setTab("shrines")}>
                 <span className="reg-ic"><Glyph name="shrine" size={18} /></span>
@@ -1008,7 +1008,7 @@ function HyruleGame({ game, setGame, games }) {
                 <span className="reg-bar"><span className="reg-fill" style={{ width: (shrineStats.total ? shrineStats.done / shrineStats.total * 100 : 0) + "%", background: shrineStats.total && shrineStats.done === shrineStats.total ? "var(--cyan)" : "var(--orange)" }} /></span>
                 <span className={"reg-count" + (shrineStats.total && shrineStats.done === shrineStats.total ? " reg-done" : "")}>{shrineStats.done}/{shrineStats.total}</span>
               </button>
-            </div>
+            </div>}
 
             {(extraStats.memTotal > 0 || extraStats.gfTotal > 0 || extraStats.sqTotal > 0 || KOROKS) && <div className="panel">
               <div className="panel-h">Collectibles</div>
@@ -22654,5 +22654,460 @@ const TOTK = {
   }
  ]
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK };
+const OOT = {
+ "id": "oot",
+ "label": "Ocarina of Time",
+ "short": "OoT",
+ "REGIONS": [
+  {
+   "id": "oot_kokiri",
+   "name": "Kokiri Forest",
+   "sub": "Main Quest — the beginning",
+   "kind": "region",
+   "tagline": "A boy without a fairy finally gets one, and the Great Deku Tree calls him to his first adventure.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "oot_kokiri_s_wake",
+     "name": "A Fairy Named Navi",
+     "sub": "Wake up and meet your partner",
+     "reward": "Navi the fairy",
+     "steps": [
+      {
+       "id": "oot_kokiri_wake_1",
+       "k": "step",
+       "t": "Wake in your treehouse after the nightmare. Navi, the fairy the Great Deku Tree sent, is now your partner — climb down the ladder into Kokiri Forest.",
+       "items": [
+        {
+         "name": "Navi",
+         "cat": "key",
+         "note": "Press Z (or L) to target; Navi flies to things worth examining and gives hints when she turns green."
+        }
+       ]
+      },
+      {
+       "id": "oot_kokiri_wake_2",
+       "k": "tip",
+       "t": "Saria, your best friend, is by the bridge to the south. The Great Deku Tree wants to see you, but Mido — the bossy Kokiri — is blocking the path until you're properly equipped."
+      }
+     ]
+    },
+    {
+     "id": "oot_kokiri_s_gear",
+     "name": "A Sword and a Shield",
+     "sub": "Mido won't budge without both",
+     "reward": "Kokiri Sword + Deku Shield",
+     "steps": [
+      {
+       "id": "oot_kokiri_gear_1",
+       "k": "loot",
+       "t": "Get the Kokiri Sword from the training ground: find the small fenced area with a crawl-hole (top-left of the forest), crawl through, and follow the maze to the chest.",
+       "stuck": "A big stone boulder rolls around the maze loop. Wait for it to pass, then run (or roll with A) along the wall in the same direction it's going so it never catches you; the chest with the Kokiri Sword sits in a nook off the path.",
+       "items": [
+        {
+         "name": "Kokiri Sword",
+         "cat": "sword",
+         "note": "Your starting blade. Press B to slash; you keep it until you draw the Master Sword."
+        }
+       ]
+      },
+      {
+       "id": "oot_kokiri_gear_2",
+       "k": "step",
+       "t": "Scrape together 40 Rupees — cut the grass and lift small rocks around the forest, and check Kokiri houses — then buy a Deku Shield at the Kokiri Shop.",
+       "stuck": "Green Rupees are 1, blue are 5. Slashing grass and lifting the loose rocks near the shop and pond adds up fast; there are also Rupees on the high ledges you reach by jumping from the shop roof.",
+       "items": [
+        {
+         "name": "Deku Shield",
+         "cat": "shield",
+         "note": "Hold R to raise it and deflect Deku Scrub seeds and the Deku Tree's webs. It burns if flames touch it — buy a spare if you can."
+        }
+       ]
+      },
+      {
+       "id": "oot_kokiri_gear_3",
+       "k": "step",
+       "t": "Equip the sword and shield in the menu, then show Mido at the Deku Tree's path. With both equipped he grumbles and steps aside.",
+       "items": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oot_deku",
+   "name": "Inside the Great Deku Tree",
+   "sub": "Main Quest — Dungeon 1",
+   "kind": "beast",
+   "tagline": "A curse festers inside the forest's guardian. Climb the hollow tree, burn through to its roots, and crush what's eating it alive.",
+   "champion": "Kokiri's Emerald",
+   "sections": [
+    {
+     "id": "oot_deku_s_enter",
+     "name": "Into the Hollow",
+     "sub": "First floor",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_deku_enter_1",
+       "k": "step",
+       "t": "Step inside. The Great Deku Tree explains a curse is killing him. Slash the Deku Babas (snapping plants) — they drop Deku Sticks and Deku Nuts you'll need.",
+       "items": [
+        {
+         "name": "Deku Stick",
+         "cat": "material",
+         "note": "A stick that catches fire from torches — your way to carry flame. It breaks after one use or a few hits."
+        }
+       ]
+      },
+      {
+       "id": "oot_deku_enter_2",
+       "k": "tip",
+       "t": "The ground floor has a torn web in the floor and another on the wall below. You'll burn the floor web later to drop to the basement — first you need to reach a torch up high.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "oot_deku_s_climb",
+     "name": "Climb to the Slingshot",
+     "sub": "Up the vines",
+     "reward": "Fairy Slingshot",
+     "steps": [
+      {
+       "id": "oot_deku_climb_1",
+       "k": "step",
+       "t": "Climb the ladder and ledges around the inside of the tree to the upper floors, dealing with Deku Scrubs (raise your shield to bounce their seeds back, then hit them).",
+       "stuck": "A Skulltula hangs on the vines with its armored back to you — wait for it to turn and show its soft underside/front, or just climb past on the far side when it rotates away.",
+       "items": []
+      },
+      {
+       "id": "oot_deku_climb_2",
+       "k": "loot",
+       "t": "Open the chest on the upper walkway for the Fairy Slingshot — your first ranged weapon.",
+       "items": [
+        {
+         "name": "Fairy Slingshot",
+         "cat": "bow",
+         "note": "Hold Z to aim and fire Deku Seeds at switches, eyes, and cords. Refill seeds from grass and Deku Babas."
+        }
+       ]
+      },
+      {
+       "id": "oot_deku_climb_3",
+       "k": "step",
+       "t": "Use the Slingshot to shoot the ladder's cord (or the eye-switch) so a ladder drops, then cross to the high torch.",
+       "stuck": "Aim up at the rolled-up ladder hanging above the doorway and shoot the cord holding it — it unrolls so you can climb. The gold eye-switches also react when you hit them with a seed.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "oot_deku_s_burn",
+     "name": "Burn Through to the Roots",
+     "sub": "Drop to the basement",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oot_deku_burn_1",
+       "k": "step",
+       "t": "Light a Deku Stick at the high torch, then jump down onto the torn web on the ground floor — the flame burns it away and you plunge into the flooded basement.",
+       "stuck": "You must be HOLDING a lit Deku Stick when you land on the web. Light it at the lit torch up top, then immediately leap straight down onto the center of the floor web before the stick burns out.",
+       "items": []
+      },
+      {
+       "id": "oot_deku_burn_2",
+       "k": "step",
+       "t": "In the basement, three Deku Scrubs guard the boss door. One tells you the order to hit them — strike the trio in that order to make them talk and open the way.",
+       "stuck": "The correct order is 2, 3, 1 (the middle scrub, then the right, then the left). Deflect each one's seed with your shield first, then run up and hit it.",
+       "items": []
+      }
+     ]
+    },
+    {
+     "id": "oot_deku_s_gohma",
+     "name": "Queen Gohma",
+     "sub": "Boss — the parasite",
+     "reward": "Kokiri's Emerald",
+     "steps": [
+      {
+       "id": "oot_deku_gohma_1",
+       "k": "step",
+       "t": "Enter the boss room. Queen Gohma, a giant armored eye-spider, drops from above. Watch her single eye — when it flashes RED she's about to strike.",
+       "items": []
+      },
+      {
+       "id": "oot_deku_gohma_2",
+       "k": "step",
+       "t": "Stun the red eye with a Slingshot seed (or a Deku Nut), then rush in and slash it with your sword. Repeat. When she climbs the ceiling to drop eggs, stun her so she falls.",
+       "stuck": "The instant her eye glows red, fire a seed at it — she crashes down stunned. Sprint in and mash B on the eye before she recovers. Kill the little Gohma Larvae she drops before they hatch.",
+       "items": []
+      },
+      {
+       "id": "oot_deku_gohma_3",
+       "k": "reward",
+       "t": "Gohma defeated, step into the blue light to claim your first Heart Container. The Great Deku Tree entrusts you with the Kokiri's Emerald, names the desert man who cursed him, then passes on.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "key",
+         "note": "Adds one full heart to your life bar — bosses always drop one."
+        },
+        {
+         "name": "Kokiri's Emerald",
+         "cat": "key",
+         "note": "The Forest's Spiritual Stone. One of three you need to open the Door of Time."
+        }
+       ]
+      },
+      {
+       "id": "oot_deku_gohma_4",
+       "k": "step",
+       "t": "Leave the forest. Mido blames you for the Deku Tree's death. At the bridge out of Kokiri Forest, Saria is waiting — she gives you the Fairy Ocarina and sends you toward Hyrule Castle.",
+       "items": [
+        {
+         "name": "Fairy Ocarina",
+         "cat": "song",
+         "note": "Play songs to work magic. Saria trusts you with it as a keepsake — head for Princess Zelda at the castle."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "kokiri_sword",
+   "name": "Kokiri Sword",
+   "glyph": "sword",
+   "from": "The training-ground maze behind the rock-blocked hole in Kokiri Forest.",
+   "what": "Your first blade as a child. Crawl through the hole and cross the maze, dodging the rolling boulder, to find the chest.",
+   "tip": "Roll (A while running) to move fast and break the boulder's timing. You keep this sword until you draw the Master Sword."
+  },
+  {
+   "id": "deku_shield",
+   "name": "Deku Shield",
+   "glyph": "shield",
+   "from": "Bought from the Kokiri Shop for 40 Rupees (cut grass and lift rocks for the money).",
+   "what": "A wooden shield you hold up with R. Needed to deflect the Deku Tree's webs and Deku Scrub seeds.",
+   "tip": "It burns if a flame touches it — buy a spare. Mido won't let you into the Deku Tree until you have BOTH a sword and a shield."
+  },
+  {
+   "id": "fairy_slingshot",
+   "name": "Fairy Slingshot",
+   "glyph": "bow",
+   "from": "A chest inside the Great Deku Tree.",
+   "what": "Fires Deku Seeds at distant targets, switches, eyes, and the ladder-cord. Your first ranged weapon.",
+   "tip": "Hold ZR/Z to aim in first person. Shoot Skulltulas in the eye and hit the gold eye-switches to drop ladders."
+  },
+  {
+   "id": "fairy_ocarina",
+   "name": "Fairy Ocarina",
+   "glyph": "stasis",
+   "from": "Saria gives it to you on the bridge as you leave Kokiri Forest.",
+   "what": "Play songs to trigger magic — open doors, warp, change the time of day, summon your horse. The heart of the game.",
+   "tip": "Later swapped for the Ocarina of Time. Learn songs from people you meet; the notes appear on screen as you're taught."
+  },
+  {
+   "id": "zeldas_lullaby",
+   "name": "Zelda's Lullaby",
+   "glyph": "stasis",
+   "from": "Impa teaches it behind Hyrule Castle after you meet Princess Zelda.",
+   "what": "The royal family's song. Opens royal-crest doors and gates, and makes Gossip Stones and Triforce switches react.",
+   "tip": "Many puzzles across the game ask for this song on a Triforce mark — keep it handy."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "Bomb Flowers in Dodongo's Cavern and on Death Mountain; later a Bomb Bag from the Dodongo's Cavern area.",
+   "what": "Blow open cracked walls and boulders, stun enemies, and drop them in monster mouths. Essential for progress.",
+   "tip": "Pick a Bomb Flower (it regrows) if you're out of bombs. Throw, don't hold — they explode on a timer."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Kokiri Sword",
+   "glyph": "sword",
+   "step": "oot_kokiri_gear_1"
+  },
+  {
+   "name": "Deku Shield",
+   "glyph": "shield",
+   "step": "oot_kokiri_gear_2"
+  },
+  {
+   "name": "Fairy Slingshot",
+   "glyph": "bow",
+   "step": "oot_deku_climb_2"
+  },
+  {
+   "name": "Fairy Ocarina",
+   "glyph": "stasis",
+   "step": "oot_deku_gohma_4"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Kokiri's Emerald",
+   "from": "Inside the Great Deku Tree",
+   "note": "The Forest's Spiritual Stone — the Great Deku Tree entrusts it to you after Queen Gohma falls.",
+   "step": "oot_deku_gohma_3"
+  },
+  {
+   "name": "Goron's Ruby",
+   "from": "Dodongo's Cavern",
+   "note": "The Fire Spiritual Stone — Darunia gives it once you clear the Gorons' cavern of Dodongos.",
+   "step": null
+  },
+  {
+   "name": "Zora's Sapphire",
+   "from": "Inside Jabu-Jabu's Belly",
+   "note": "The Water Spiritual Stone — Princess Ruto hands it to you after Barinade is defeated.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "bow",
+   "name": "Bows & Slingshot",
+   "glyph": "bow"
+  },
+  {
+   "id": "item",
+   "name": "Items",
+   "glyph": "bag"
+  },
+  {
+   "id": "song",
+   "name": "Ocarina Songs",
+   "glyph": "stasis"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Materials",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "heartpieces",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "36 scattered across Hyrule in minigames, chests, and hidden corners. Every four you collect add a full heart.",
+   "reward": "More hearts"
+  },
+  {
+   "id": "skulltulas",
+   "name": "Gold Skulltulas",
+   "sub": "The 100 cursed spiders",
+   "note": "Slay golden Skulltulas and collect their tokens; turn them in to the cursed family in Kakariko for rewards.",
+   "reward": "Wallets & prizes"
+  },
+  {
+   "id": "biggoron",
+   "name": "Biggoron's Sword",
+   "sub": "The ultimate trade quest",
+   "note": "A long chain of timed trades up Death Mountain ends in the strongest two-handed sword in the game.",
+   "reward": "Biggoron's Sword"
+  },
+  {
+   "id": "songs",
+   "name": "Every Ocarina Song",
+   "sub": "12 melodies",
+   "note": "Warp songs, weather songs, and the storytelling melodies — collecting them all unlocks fast travel and secrets.",
+   "reward": "Fast travel"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "basics",
+   "name": "Getting started",
+   "items": [
+    "Z-target (or L) to lock onto enemies and people — it's how you aim, strafe, and read what to do next.",
+    "Cut every bush and lift every rock for Rupees, and check behind waterfalls and in odd corners for secrets.",
+    "Save often (and note: dying sends you back to the dungeon entrance or your last save, not the title)."
+   ]
+  },
+  {
+   "id": "time",
+   "name": "Child & Adult Link",
+   "items": [
+    "Pulling the Master Sword jumps you 7 years forward; later you can travel between child and adult freely at the Temple of Time.",
+    "Some puzzles need the OTHER age — a bean planted as a child grows into a platform for the adult, for example.",
+    "The Sun's Song flips day and night instantly; some enemies (Stalchildren, ReDeads) and shops depend on the time."
+   ]
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items & Songs",
+  "championsLabel": "Spiritual Stones",
+  "regionBanner": "Dungeon"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "oot_ganon"
+};
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT };
 /* GEN:DATA:END */
