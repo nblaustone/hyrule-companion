@@ -436,7 +436,23 @@ layout, `REGION_MAPS` = the per-region coords.
   OoT Guide went **3→6 segments** (Items·Tips·Fairies·Quests·Enemies·Settings). Cross-game copy fixes (neutral
   for all 3): Enemies default lede dropped "flurry rush" (BotW-only); Items lede dropped "shrine"; FairiesView
   lede is spell-aware when fairies grant magic. Meta stripped at merge (v13.2 lesson). Verified in-browser, 0
-  console errors, 0 leaks. **Next for OoT (optional polish):** Heart Pieces/Gold Skulltula counters (Status
-  collectibles), an Items-tab equipment catalog (Compendium), dungeon maps. **OoT is now at strong parity** —
-  full main quest + Items/Enemies/Fairies/Quests reference. OoT is the owner's favorite → self-verifiable. The
-  shrine-progress overview map + cooking are deliberately N/A for OoT (no shrines/cooking system).
+  console errors, 0 leaks. **v14.3–14.5 — OoT polish pass** (new reusable shell features, all data-driven):
+    - **v14.3** (dcd90d7): **completion trackers** — a new `COLLECTIBLES` bundle field → counter rows in the
+      Status "Collectibles" panel (OoT: Pieces of Heart 0/36, Gold Skulltulas 0/100; −1/+1/+5 + bar). Counts
+      persist per game in `<game>:collect` (JSON map), ride in the backup blob (**v8→v9**), clear on reset. Any
+      game can define `COLLECTIBLES:[{id,label,total,glyph,note}]` and get trackers free; BotW/TotK define none.
+      Added a "heart" glyph.
+    - **v14.4** (e4034fe): **per-game tab gating** — the fixed 7-tab bar hid empty tabs: Shrines gated to
+      `hasShrines` (SHRINES.length>0), Cook to `hasCook` (RECIPES||COOK_INGREDIENTS) + a guard effect bounces the
+      active tab to Status if it lands on a hidden one. OoT now shows **5 tabs** (Status·Journey·Items·Guide·Lore);
+      BotW/TotK keep 7.
+    - **v14.5** (80c4bdf): coach copy fix — the "what to do next" Great Fairy card no longer says "raises every
+      armor upgrade" for OoT (game-aware → "grants a spell or a magic/defense upgrade").
+  **OoT is now at strong parity + polished** — full main quest + Items/Enemies/Fairies/Quests reference +
+  Heart Piece/Skulltula trackers + a clean OoT-appropriate tab set. The shrine-progress overview map + cooking
+  are deliberately N/A for OoT (no shrines/cooking system); OoT is the owner's favorite → self-verifiable.
+- **Biggest remaining build (whole app):** TotK **shrine solutions** (152 — the Stuck-reveal/answer-first-search
+  centerpiece; the only major functional gap left in any game). Resume `wf_ebb10104-cfd` (~150 left), ≤2
+  workflows at a time. Then TotK compendium + region maps. OoT optional extras: an Items-tab catalog, dungeon
+  maps. Lore is shared/cross-game and could gain OoT/TotK-era chapters (needs the writers'-room workflow + the
+  no-AI-slop bar — vet a sample first).
