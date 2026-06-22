@@ -41,6 +41,7 @@ const ITEMS = (() => { const d = opt("items-songs.json"); return d ? (d.items ||
 const BEST = opt("bestiary.json");
 const BESTIARY = BEST ? { enemies: BEST.enemies || [], ...(BEST.basics ? { basics: BEST.basics } : {}) } : { enemies: [] };
 const GREAT_FAIRIES = (() => { const d = opt("great-fairies.json"); return d ? (d.fairies || d) : []; })();
+const COMPENDIUM = (() => { const d = opt("compendium.json"); return d ? (d.items || d) : []; })();
 const qSlug = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "q";
 const SIDE_QUESTS = (() => {
   const d = opt("side-quests.json"); if (!d) return [];
@@ -67,7 +68,7 @@ const out = {
   COOKING: { rules: [], effects: [], recipes: [], dragons: [] },
   RECIPES: [], COOK_RULES: [], COOK_INGREDIENTS: [],
   WORLD: g.WORLD || { upgrades: [], systems: [], fairies: [] },
-  ECONOMY: null, COMPENDIUM: [],
+  ECONOMY: null, COMPENDIUM,
   SIDE_QUESTS, TOWERS: [], GREAT_FAIRIES,
   REGION_MAPS: {}, MAP_NODES: {}, MAP_BEASTS: [], KOROKS: null,
   RUNES: ITEMS,
@@ -84,7 +85,7 @@ const out = {
 const steps = REGIONS.reduce((n, r) => n + r.sections.reduce((m, s) => m + s.steps.length, 0), 0);
 console.log("OoT chapters:", REGIONS.length, "| steps:", steps);
 console.log("overlays → items/songs:", ITEMS.length, "| enemies:", (BESTIARY.enemies || []).length, "(basics " + ((BESTIARY.basics || []).length) + ")",
-  "| great-fairies:", GREAT_FAIRIES.length, "| side-quests:", SIDE_QUESTS.reduce((n, x) => n + x.quests.length, 0));
+  "| great-fairies:", GREAT_FAIRIES.length, "| side-quests:", SIDE_QUESTS.reduce((n, x) => n + x.quests.length, 0), "| compendium:", COMPENDIUM.length);
 console.log("STATUS_RUNES:", STATUS_RUNES.map((r) => r.name).join(", "));
 console.log("Stones/Medallions wired:", CHAMPIONS.map((c) => c.name + "→" + (c.step || "—")).join(", "));
 console.log("guideSegs:", out.guideSegs.map((s) => s[1]).join(" · "));

@@ -2266,6 +2266,8 @@ function CompendiumView({ data }) {
     { id: "bow", name: "Bows", glyph: "bow" },
     { id: "shield", name: "Shields", glyph: "shield" },
     { id: "armor", name: "Armor", glyph: "armor" },
+    { id: "item", name: "Items", glyph: "bag" },
+    { id: "mask", name: "Masks", glyph: "eye" },
     { id: "material", name: "Materials", glyph: "gem" },
     { id: "creature", name: "Creatures", glyph: "leaf" },
   ];
@@ -2276,7 +2278,7 @@ function CompendiumView({ data }) {
   return (
     <div className="ref">
       <h2 className="ref-title">Compendium</h2>
-      <p className="ref-lede">Every weapon, bow, shield, armor piece, material, and creature in the game — tap any one for what it does (and what it's for), its stats, and where to find it. {items.length} entries.</p>
+      <p className="ref-lede">Every piece of gear in the game — tap any one for what it does (and what it's for), its stats, and where to find it. {items.length} entries.</p>
       <div className="search">
         <input className="search-input" placeholder="Search any item — name, effect, where…" value={q} onChange={(e) => setQ(e.target.value)} />
         {q && <button className="search-clear" onClick={() => setQ("")}>✕</button>}
@@ -2306,7 +2308,7 @@ function CompendiumView({ data }) {
                   <div className="comp-badges">
                     {Number.isFinite(it.power) && <span className="comp-badge">{sn} {it.power}</span>}
                     {Number.isFinite(it.durability) && <span className="comp-badge">Durability {it.durability}</span>}
-                    {(c.id === "material" || c.id === "creature") && it.type && <span className="comp-badge">{it.type}</span>}
+                    {["material", "creature", "item", "mask"].includes(c.id) && it.type && <span className="comp-badge">{it.type}</span>}
                     {Number.isFinite(it.sell) && <span className="comp-badge">Sell {it.sell}</span>}
                     {it.set && it.set !== "standalone" && <span className="comp-badge comp-badge-set">{it.set}</span>}
                   </div>
@@ -22477,7 +22479,1032 @@ const TOTK = {
    ]
   }
  ],
- "REGION_MAPS": {},
+ "REGION_MAPS": {
+  "great_sky_island": {
+   "shrines": {
+    "Ukouh Shrine": {
+     "x": 34,
+     "y": 32
+    },
+    "In-isa Shrine": {
+     "x": 14,
+     "y": 60
+    },
+    "Gutanbac Shrine": {
+     "x": 22,
+     "y": 18
+    },
+    "Nachoyah Shrine": {
+     "x": 60,
+     "y": 30
+    }
+   },
+   "tower": null,
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Temple of Time",
+     "kind": "landmark",
+     "x": 52,
+     "y": 24
+    },
+    {
+     "name": "Starting Pond",
+     "kind": "lake",
+     "x": 30,
+     "y": 38
+    },
+    {
+     "name": "Mining Cave",
+     "kind": "tech-lab",
+     "x": 30,
+     "y": 16
+    }
+   ]
+  },
+  "central": {
+   "shrines": {
+    "Serutabomac Shrine": {
+     "x": 58,
+     "y": 16
+    },
+    "Sepapa Shrine": {
+     "x": 60,
+     "y": 22
+    },
+    "Ren-iz Shrine": {
+     "x": 70,
+     "y": 26
+    },
+    "Kyononis Shrine": {
+     "x": 47,
+     "y": 33
+    },
+    "Yamiyo Shrine": {
+     "x": 66,
+     "y": 36
+    },
+    "Ishodag Shrine": {
+     "x": 32,
+     "y": 42
+    },
+    "Sinakawak Shrine": {
+     "x": 20,
+     "y": 33
+    },
+    "Mayachin Shrine": {
+     "x": 40,
+     "y": 50
+    },
+    "Jojon Shrine": {
+     "x": 62,
+     "y": 48
+    },
+    "Jiosin Shrine": {
+     "x": 50,
+     "y": 52
+    },
+    "Teniten Shrine": {
+     "x": 48,
+     "y": 60
+    },
+    "Tajikats Shrine": {
+     "x": 56,
+     "y": 66
+    },
+    "Susuyai Shrine": {
+     "x": 34,
+     "y": 60
+    },
+    "Riogok Shrine": {
+     "x": 24,
+     "y": 56
+    },
+    "Kamizun Shrine": {
+     "x": 64,
+     "y": 70
+    },
+    "Tsutsu-um Shrine": {
+     "x": 22,
+     "y": 72
+    },
+    "Kyokugon Shrine": {
+     "x": 30,
+     "y": 82
+    },
+    "Tadarok Shrine": {
+     "x": 18,
+     "y": 84
+    },
+    "Tenmaten Shrine": {
+     "x": 44,
+     "y": 78
+    }
+   },
+   "tower": {
+    "name": "Lookout Landing Skyview Tower",
+    "x": 48,
+    "y": 44
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Hyrule Castle",
+     "kind": "landmark",
+     "x": 50,
+     "y": 24
+    },
+    {
+     "name": "Lookout Landing",
+     "kind": "town",
+     "x": 48,
+     "y": 44
+    },
+    {
+     "name": "Riverside Stable",
+     "kind": "stable",
+     "x": 58,
+     "y": 64
+    },
+    {
+     "name": "Great Plateau",
+     "kind": "peak",
+     "x": 30,
+     "y": 88
+    }
+   ]
+  },
+  "necluda": {
+   "shrines": {
+    "Makasura Shrine": {
+     "x": 33,
+     "y": 20
+    },
+    "Jochisiu Shrine": {
+     "x": 16,
+     "y": 34
+    },
+    "Eshos Shrine": {
+     "x": 30,
+     "y": 36
+    },
+    "Susub Shrine": {
+     "x": 9,
+     "y": 40
+    },
+    "Utojis Shrine": {
+     "x": 24,
+     "y": 52
+    },
+    "Joju-u-u Shrine": {
+     "x": 30,
+     "y": 74
+    },
+    "Tokiy Shrine": {
+     "x": 62,
+     "y": 11
+    },
+    "Mayahisik Shrine": {
+     "x": 66,
+     "y": 42
+    },
+    "Zanmik Shrine": {
+     "x": 55,
+     "y": 46
+    },
+    "Anedamimik Shrine": {
+     "x": 78,
+     "y": 44
+    },
+    "Sifumim Shrine": {
+     "x": 68,
+     "y": 70
+    },
+    "Bamitok Shrine": {
+     "x": 76,
+     "y": 78
+    },
+    "Marari-In Shrine": {
+     "x": 90,
+     "y": 90
+    }
+   },
+   "tower": {
+    "name": "Rabella Wetlands Tower",
+    "x": 56,
+    "y": 18
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Kakariko Village",
+     "kind": "town",
+     "x": 38,
+     "y": 22
+    },
+    {
+     "name": "Hateno Village",
+     "kind": "town",
+     "x": 64,
+     "y": 50
+    },
+    {
+     "name": "Lurelin Village",
+     "kind": "town",
+     "x": 73,
+     "y": 76
+    },
+    {
+     "name": "Lakeside Stable",
+     "kind": "stable",
+     "x": 26,
+     "y": 64
+    }
+   ]
+  },
+  "lanayru": {
+   "shrines": {
+    "Tukarok Shrine": {
+     "x": 22,
+     "y": 50
+    },
+    "Morok Shrine": {
+     "x": 14,
+     "y": 40
+    },
+    "Jonsau Shrine": {
+     "x": 26,
+     "y": 60
+    },
+    "Maoikes Shrine": {
+     "x": 18,
+     "y": 68
+    },
+    "Mogawak Shrine": {
+     "x": 54,
+     "y": 48
+    },
+    "Ihen-a Shrine": {
+     "x": 70,
+     "y": 50
+    },
+    "Apogek Shrine": {
+     "x": 60,
+     "y": 64
+    },
+    "Yomizuk Shrine": {
+     "x": 44,
+     "y": 78
+    },
+    "Joniu Shrine": {
+     "x": 42,
+     "y": 52
+    },
+    "Kurakat Shrine": {
+     "x": 50,
+     "y": 88
+    },
+    "O-ogim Shrine": {
+     "x": 40,
+     "y": 30
+    },
+    "Jikais Shrine": {
+     "x": 86,
+     "y": 16
+    },
+    "Zakusu Shrine": {
+     "x": 62,
+     "y": 28
+    },
+    "Jogou Shrine": {
+     "x": 56,
+     "y": 18
+    }
+   },
+   "tower": {
+    "name": "Sahasra Slope Skyview Tower",
+    "x": 24,
+    "y": 44
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Zora's Domain",
+     "kind": "town",
+     "x": 52,
+     "y": 44
+    },
+    {
+     "name": "Wetland Stable",
+     "kind": "stable",
+     "x": 20,
+     "y": 56
+    },
+    {
+     "name": "Mount Lanayru",
+     "kind": "peak",
+     "x": 72,
+     "y": 22
+    },
+    {
+     "name": "East Reservoir Lake",
+     "kind": "lake",
+     "x": 58,
+     "y": 56
+    }
+   ]
+  },
+  "faron": {
+   "shrines": {
+    "Ishokin Shrine": {
+     "x": 28,
+     "y": 9
+    },
+    "Utsushok Shrine": {
+     "x": 56,
+     "y": 12
+    },
+    "En-oma Shrine": {
+     "x": 47,
+     "y": 27
+    },
+    "Jiukoum Shrine": {
+     "x": 70,
+     "y": 32
+    },
+    "Sakunbomar Shrine": {
+     "x": 48,
+     "y": 74
+    },
+    "Musanokir Shrine": {
+     "x": 55,
+     "y": 79
+    },
+    "Pupunke Shrine": {
+     "x": 63,
+     "y": 76
+    },
+    "Ninjis Shrine": {
+     "x": 53,
+     "y": 88
+    },
+    "Kikakin Shrine": {
+     "x": 36,
+     "y": 86
+    },
+    "Kiuyoyou Shrine": {
+     "x": 14,
+     "y": 80
+    },
+    "Ekochiu Shrine": {
+     "x": 84,
+     "y": 70
+    }
+   },
+   "tower": {
+    "name": "Popla Foothills Skyview Tower",
+    "x": 60,
+    "y": 38
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Highland Stable",
+     "kind": "stable",
+     "x": 50,
+     "y": 14
+    },
+    {
+     "name": "Lake Hylia",
+     "kind": "lake",
+     "x": 40,
+     "y": 22
+    },
+    {
+     "name": "Korok Forest",
+     "kind": "landmark",
+     "x": 58,
+     "y": 72
+    },
+    {
+     "name": "Woodland Stable",
+     "kind": "stable",
+     "x": 82,
+     "y": 62
+    }
+   ]
+  },
+  "gerudo": {
+   "shrines": {
+    "Kudanisar Shrine": {
+     "x": 21,
+     "y": 47
+    },
+    "Mayatat Shrine": {
+     "x": 45,
+     "y": 57
+    },
+    "Soryotanog Shrine": {
+     "x": 28,
+     "y": 69
+    },
+    "Siwakama Shrine": {
+     "x": 68,
+     "y": 50
+    },
+    "Chichim Shrine": {
+     "x": 47,
+     "y": 70
+    },
+    "Karahatag Shrine": {
+     "x": 33,
+     "y": 86
+    },
+    "Irasak Shrine": {
+     "x": 20,
+     "y": 92
+    },
+    "Miryotanog Shrine": {
+     "x": 10,
+     "y": 68
+    },
+    "Motsusis Shrine": {
+     "x": 86,
+     "y": 83
+    },
+    "Rakakudaj Shrine": {
+     "x": 76,
+     "y": 45
+    },
+    "Turakamik Shrine": {
+     "x": 85,
+     "y": 34
+    },
+    "Kitawak Shrine": {
+     "x": 93,
+     "y": 68
+    },
+    "Otutsum Shrine": {
+     "x": 12,
+     "y": 8
+    },
+    "Mayamats Shrine": {
+     "x": 8,
+     "y": 30
+    },
+    "Suariwak Shrine": {
+     "x": 66,
+     "y": 24
+    },
+    "Rotsumamu Shrine": {
+     "x": 38,
+     "y": 78
+    }
+   },
+   "tower": {
+    "name": "Gerudo Canyon Skyview Tower",
+    "x": 78,
+    "y": 30
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Gerudo Town",
+     "kind": "town",
+     "x": 33,
+     "y": 62
+    },
+    {
+     "name": "Kara Kara Bazaar",
+     "kind": "landmark",
+     "x": 45,
+     "y": 50
+    },
+    {
+     "name": "Gerudo Canyon Stable",
+     "kind": "stable",
+     "x": 72,
+     "y": 40
+    },
+    {
+     "name": "Lightning Temple",
+     "kind": "landmark",
+     "x": 40,
+     "y": 88
+    }
+   ]
+  },
+  "ridgeland": {
+   "shrines": {
+    "Makurukis Shrine": {
+     "x": 8,
+     "y": 29
+    },
+    "Runakit Shrine": {
+     "x": 34,
+     "y": 9
+    },
+    "Taki-ihaban Shrine": {
+     "x": 90,
+     "y": 11
+    },
+    "Sonapan Shrine": {
+     "x": 84,
+     "y": 42
+    },
+    "Usazum Shrine": {
+     "x": 64,
+     "y": 90
+    }
+   },
+   "tower": {
+    "name": "Lindor's Brow Skyview Tower",
+    "x": 62,
+    "y": 13
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Mount Rhoam",
+     "kind": "peak",
+     "x": 18,
+     "y": 14
+    },
+    {
+     "name": "Satori Mountain",
+     "kind": "peak",
+     "x": 74,
+     "y": 62
+    },
+    {
+     "name": "Tabantha Bridge Stable",
+     "kind": "stable",
+     "x": 9,
+     "y": 46
+    }
+   ]
+  },
+  "tabantha": {
+   "shrines": {
+    "Mayausiy Shrine": {
+     "x": 90,
+     "y": 10
+    },
+    "Nouda Shrine": {
+     "x": 62,
+     "y": 20
+    },
+    "Gatakis Shrine": {
+     "x": 21,
+     "y": 32
+    },
+    "Oromuwak Shrine": {
+     "x": 40,
+     "y": 36
+    },
+    "Ikatak Shrine": {
+     "x": 14,
+     "y": 48
+    },
+    "Iun-orok Shrine": {
+     "x": 26,
+     "y": 56
+    },
+    "Gasas Shrine": {
+     "x": 8,
+     "y": 78
+    },
+    "Turakawak Shrine": {
+     "x": 24,
+     "y": 88
+    }
+   },
+   "tower": {
+    "name": "Rospro Pass Skyview Tower",
+    "x": 22,
+    "y": 26
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Rito Village",
+     "x": 13,
+     "y": 40,
+     "kind": "town"
+    },
+    {
+     "name": "Tanagar Canyon",
+     "x": 34,
+     "y": 64,
+     "kind": "landmark"
+    },
+    {
+     "name": "Snowfield Stable",
+     "x": 66,
+     "y": 30,
+     "kind": "stable"
+    },
+    {
+     "name": "Forgotten Temple",
+     "x": 84,
+     "y": 16,
+     "kind": "landmark"
+    }
+   ]
+  },
+  "hebra": {
+   "shrines": {
+    "Otak Shrine": {
+     "x": 11,
+     "y": 8
+    },
+    "Eutoum Shrine": {
+     "x": 31,
+     "y": 15
+    },
+    "Oshozan-u Shrine": {
+     "x": 79,
+     "y": 10
+    },
+    "Mayaotaki Shrine": {
+     "x": 92,
+     "y": 16
+    },
+    "Sisuran Shrine": {
+     "x": 53,
+     "y": 24
+    },
+    "Rutafu-um Shrine": {
+     "x": 43,
+     "y": 31
+    },
+    "Tauyosipun Shrine": {
+     "x": 8,
+     "y": 45
+    },
+    "Orochium Shrine": {
+     "x": 68,
+     "y": 53
+    },
+    "Sahirow Shrine": {
+     "x": 35,
+     "y": 67
+    },
+    "Wao-os Shrine": {
+     "x": 29,
+     "y": 92
+    }
+   },
+   "tower": {
+    "name": "Pikida Stonegrove",
+    "x": 58,
+    "y": 37
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Snowfield Stable",
+     "kind": "stable",
+     "x": 74,
+     "y": 59
+    },
+    {
+     "name": "Hebra East Summit",
+     "kind": "peak",
+     "x": 47,
+     "y": 37
+    },
+    {
+     "name": "Rospro Pass Tower",
+     "kind": "landmark",
+     "x": 27,
+     "y": 69
+    },
+    {
+     "name": "North Lomei Labyrinth",
+     "kind": "landmark",
+     "x": 86,
+     "y": 13
+    }
+   ]
+  },
+  "eldin": {
+   "shrines": {
+    "Kisinona Shrine": {
+     "x": 74,
+     "y": 11
+    },
+    "Timawak Shrine": {
+     "x": 47,
+     "y": 24
+    },
+    "Moshapin Shrine": {
+     "x": 71,
+     "y": 30
+    },
+    "Mayachideg Shrine": {
+     "x": 85,
+     "y": 28
+    },
+    "Marakuguc Shrine": {
+     "x": 45,
+     "y": 52
+    },
+    "Sitsum Shrine": {
+     "x": 64,
+     "y": 54
+    },
+    "Sikukuu Shrine": {
+     "x": 13,
+     "y": 62
+    },
+    "Isisim Shrine": {
+     "x": 48,
+     "y": 62
+    },
+    "Momosik Shrine": {
+     "x": 80,
+     "y": 58
+    },
+    "Sibajitak Shrine": {
+     "x": 63,
+     "y": 72
+    },
+    "Jiotak Shrine": {
+     "x": 47,
+     "y": 70
+    },
+    "Kimayat Shrine": {
+     "x": 76,
+     "y": 82
+    },
+    "Mayak Shrine": {
+     "x": 33,
+     "y": 88
+    },
+    "Minetak Shrine": {
+     "x": 10,
+     "y": 83
+    }
+   },
+   "tower": {
+    "name": "Eldin Canyon Skyview Tower",
+    "x": 40,
+    "y": 44
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Goron City",
+     "kind": "town",
+     "x": 48,
+     "y": 56
+    },
+    {
+     "name": "Death Mountain",
+     "kind": "peak",
+     "x": 62,
+     "y": 48
+    },
+    {
+     "name": "Skull Lake",
+     "kind": "lake",
+     "x": 85,
+     "y": 80
+    },
+    {
+     "name": "Foothill Stable",
+     "kind": "stable",
+     "x": 82,
+     "y": 16
+    }
+   ]
+  },
+  "akkala": {
+   "shrines": {
+    "Domizuin Shrine": {
+     "x": 9,
+     "y": 26
+    },
+    "Gatanisis Shrine": {
+     "x": 82,
+     "y": 9
+    },
+    "Jochi-iu Shrine": {
+     "x": 74,
+     "y": 73
+    },
+    "Gemimik Shrine": {
+     "x": 86,
+     "y": 49
+    },
+    "Rasiwak Shrine": {
+     "x": 91,
+     "y": 79
+    },
+    "Kamatukis Shrine": {
+     "x": 13,
+     "y": 86
+    },
+    "Sinatanika Shrine": {
+     "x": 42,
+     "y": 46
+    },
+    "Rasitakiwak Shrine": {
+     "x": 57,
+     "y": 22
+    },
+    "Jochi-ihiga Shrine": {
+     "x": 38,
+     "y": 16
+    },
+    "Igashuk Shrine": {
+     "x": 91,
+     "y": 93
+    }
+   },
+   "tower": {
+    "name": "Ulri Mtn Skyview Tower",
+    "x": 20,
+    "y": 49
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Tarrey Town",
+     "kind": "town",
+     "x": 45,
+     "y": 11
+    },
+    {
+     "name": "East Akkala Stable",
+     "kind": "stable",
+     "x": 70,
+     "y": 66
+    },
+    {
+     "name": "Akkala Tech Lab",
+     "kind": "tech-lab",
+     "x": 82,
+     "y": 82
+    },
+    {
+     "name": "Lake Akkala",
+     "kind": "lake",
+     "x": 22,
+     "y": 18
+    }
+   ]
+  },
+  "sky": {
+   "shrines": {
+    "Mogisari Shrine": {
+     "x": 92,
+     "y": 11
+    },
+    "Gikaku Shrine": {
+     "x": 89,
+     "y": 25
+    },
+    "Natak Shrine": {
+     "x": 82,
+     "y": 34
+    },
+    "Kadaunar Shrine": {
+     "x": 67,
+     "y": 36
+    },
+    "Mayam Shrine": {
+     "x": 53,
+     "y": 18
+    },
+    "Simosiwak Shrine": {
+     "x": 50,
+     "y": 29
+    },
+    "Jinodok Shrine": {
+     "x": 40,
+     "y": 65
+    },
+    "Joku-usin Shrine": {
+     "x": 56,
+     "y": 89
+    },
+    "Joku-u Shrine": {
+     "x": 64,
+     "y": 86
+    },
+    "Siyamotsus Shrine": {
+     "x": 33,
+     "y": 87
+    },
+    "Rakashog Shrine": {
+     "x": 35,
+     "y": 73
+    },
+    "Mayasiar Shrine": {
+     "x": 18,
+     "y": 54
+    },
+    "Taunhiy Shrine": {
+     "x": 29,
+     "y": 41
+    },
+    "Ganos Shrine": {
+     "x": 21,
+     "y": 46
+    },
+    "Ga-ahisas Shrine": {
+     "x": 13,
+     "y": 38
+    },
+    "Ijo-o Shrine": {
+     "x": 15,
+     "y": 21
+    },
+    "Mayaumekis Shrine": {
+     "x": 25,
+     "y": 15
+    },
+    "Kahatanaum Shrine": {
+     "x": 21,
+     "y": 9
+    },
+    "Taninoud Shrine": {
+     "x": 34,
+     "y": 11
+    },
+    "Tenbez Shrine": {
+     "x": 43,
+     "y": 10
+    },
+    "Jirutagumac Shrine": {
+     "x": 75,
+     "y": 45
+    },
+    "Igoshon Shrine": {
+     "x": 83,
+     "y": 42
+    },
+    "Sihajog Shrine": {
+     "x": 88,
+     "y": 57
+    },
+    "Mayanas Shrine": {
+     "x": 92,
+     "y": 65
+    },
+    "Josiu Shrine": {
+     "x": 64,
+     "y": 62
+    },
+    "Yansamin Shrine": {
+     "x": 71,
+     "y": 70
+    },
+    "Ukoojisi Shrine": {
+     "x": 62,
+     "y": 76
+    },
+    "Kumamayn Shrine": {
+     "x": 76,
+     "y": 82
+    }
+   },
+   "tower": {
+    "name": "Great Sky Island",
+    "x": 58,
+    "y": 54
+   },
+   "fairy": null,
+   "landmarks": [
+    {
+     "name": "Thunderhead Isles",
+     "kind": "landmark",
+     "x": 60,
+     "y": 92
+    },
+    {
+     "name": "Great Sky Island",
+     "kind": "landmark",
+     "x": 58,
+     "y": 54
+    },
+    {
+     "name": "Lomei Sky Labyrinth",
+     "kind": "landmark",
+     "x": 95,
+     "y": 7
+    },
+    {
+     "name": "Hebra Sky",
+     "kind": "peak",
+     "x": 19,
+     "y": 13
+    }
+   ]
+  }
+ },
  "MAP_NODES": {
   "great_sky_island": {
    "x": 120,
@@ -25123,7 +26150,414 @@ const OOT = {
   "fairies": []
  },
  "ECONOMY": null,
- "COMPENDIUM": [],
+ "COMPENDIUM": [
+  {
+   "name": "Kokiri Sword",
+   "cat": "weapon",
+   "type": "One-handed sword (child)",
+   "effect": "The basic starter sword and the only blade young Link can wield. Light enough for a child, it deals modest damage (1 unit per standard hit) but is needed to enter the Great Deku Tree and clear the opening dungeon.",
+   "where": "Found as a child in Kokiri Forest: in the fenced training area on the hill, crawl through the hole in the wall to reach a small maze with a rolling boulder, dodge it, and grab the sword from the treasure chest at the end."
+  },
+  {
+   "name": "Master Sword",
+   "cat": "weapon",
+   "type": "One-handed sword (adult)",
+   "effect": "The legendary Blade of Evil's Bane and adult Link's default sword. Longer and twice as strong as the Kokiri Sword (2 units per hit; 4 on a jump slash or charged spin attack). Drawing it is the act that seals Link in sleep for seven years and lets him travel between the child and adult eras.",
+   "where": "Pulled from the Pedestal of Time in the inner sanctum of the Temple of Time, behind the Door of Time (opened with the three Spiritual Stones and Zelda's Lullaby)."
+  },
+  {
+   "name": "Giant's Knife",
+   "cat": "weapon",
+   "type": "Two-handed sword (adult)",
+   "effect": "An oversized, very powerful blade (4 units per hit) wielded with both hands, so Link cannot use a shield while it is equipped. It is fragile: it shatters after about 100 hits on enemies or ~3 strikes on walls/hard surfaces, leaving a weak Broken Giant's Knife (1 unit per hit) until you buy another.",
+   "where": "Bought as adult Link for 200 Rupees from Medigoron, the giant Goron smith in the cave on the upper level of Goron City."
+  },
+  {
+   "name": "Biggoron's Sword",
+   "cat": "weapon",
+   "type": "Two-handed sword (adult)",
+   "effect": "The best sword in the game and a sturdier version of the Giant's Knife: it hits as hard (4 units per hit, the same as the Giant's Knife; 8 on a jump slash or charged spin) but, unlike that blade, it never breaks. Like other two-handed weapons it blocks shield use while equipped.",
+   "where": "Reward for completing the long timed adult trading sequence (the 'Biggoron's Sword' / eye-drops quest) that ends with Biggoron on Death Mountain."
+  },
+  {
+   "name": "Megaton Hammer",
+   "cat": "weapon",
+   "type": "Two-handed hammer (adult)",
+   "effect": "A heavy steel hammer that deals about the same damage as the Master Sword (2 units) but swings more slowly and, being two-handed, prevents shield use. It smashes ordinary rocks (not gray ones, which need the Silver Gauntlets), rusted switches, and certain blocks, can open some grottoes without bombs, and is required to defeat the Fire Temple boss Volvagia.",
+   "where": "The dungeon item of the Fire Temple, found by adult Link in a chest at the top of a fire room reached by a short timed run after hitting a switch."
+  },
+  {
+   "name": "Deku Stick",
+   "cat": "weapon",
+   "type": "Wooden stick (child melee/torch)",
+   "effect": "A consumable wooden branch young Link can swing as a weapon, dealing about double the Kokiri Sword's damage (2 units, or 4 while its tip is lit) and making it his strongest melee option, but it breaks after a single hit. Its main value is utility: lighting the tip at a torch to burn spiderwebs and light other torches.",
+   "where": "Bought ~10 Rupees each from the Kokiri Shop or the Market Bazaar (15 from Business Scrubs), found in jars/grass, or dropped by Deku Babas (cut the stalk). Carrying capacity upgrades from 10 to 20 (Business Scrub in the Lost Woods, 40 Rupees) and to 30 (wear the Skull Mask at the Lost Woods Forest Stage)."
+  },
+  {
+   "name": "Fairy Slingshot",
+   "cat": "bow",
+   "type": "Slingshot",
+   "effect": "Child Link's only ranged weapon. Fires Deku Seeds in a straight line to hit far-off switches, eyes and enemies; each hit is about as strong as one Kokiri Sword slash. Deku Seeds are gathered from cut grass and defeated Deku enemies (holds 30, upgradable to 40 then 50 via Bullet/Deku Seeds Bags). Adult Link cannot use it (the Fairy Bow takes over).",
+   "where": "Found in a treasure chest inside the Great Deku Tree (the first dungeon), needed to hit the eye switches and reach Queen Gohma."
+  },
+  {
+   "name": "Fairy Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Adult Link's primary ranged weapon and a far stronger replacement for the Slingshot. Fires arrows (Quiver holds 30, upgradable to 40 then 50) to hit distant switches and eyes and to kill enemies the Slingshot couldn't. Acts as the base for the three Magic Arrow types.",
+   "where": "Found in the Forest Temple, in a chest that appears after defeating the Stalfos mini-boss fight in the twisted-corridor room."
+  },
+  {
+   "name": "Fire Arrows",
+   "cat": "bow",
+   "type": "Arrow (Magic)",
+   "effect": "Imbues an arrow with fire, igniting torches, burning away cobwebs/wooden obstacles, melting ice and damaging enemies with flame — a ranged stand-in for a torch or Din's Fire. Costs Magic Power per shot. Optional, not required to finish the game.",
+   "where": "Lake Hylia (adult). Play the Sun's Song to make it dawn, stand on the platform above the Water Temple entrance, and shoot an arrow into the rising sun; the Fire Arrows drop onto the small island below to be collected."
+  },
+  {
+   "name": "Ice Arrows",
+   "cat": "bow",
+   "type": "Arrow (Magic)",
+   "effect": "Imbues an arrow with ice, freezing enemies that can be frozen for a few seconds and dealing double the damage of regular/Fire/Light Arrows to them (no effect on freeze-immune foes). Costs Magic Power per shot. Optional and obtained very late, so largely a bonus item.",
+   "where": "Reward for completing the Gerudo Training Ground (an optional silver-rupee maze inside Gerudo's Fortress, accessed with the Gerudo's Membership Card) — not needed to beat the game."
+  },
+  {
+   "name": "Light Arrows",
+   "cat": "bow",
+   "type": "Arrow (Magic)",
+   "effect": "Imbues an arrow with sacred light, the most potent Magic Arrow. Essential against Ganondorf/Ganon — used to stun and expose him during the final battle. Costs Magic Power per shot.",
+   "where": "Received at the Temple of Time from Sheik (who reveals herself as Princess Zelda) after Link has cleared the awakening temples; granted automatically as the story reward."
+  },
+  {
+   "name": "Bombchu",
+   "cat": "bow",
+   "type": "Bomb (mobile)",
+   "effect": "A wind-up mouse-shaped bomb that scurries forward in a straight line and can crawl along walls and ceilings before exploding, letting it reach switches and targets a thrown bomb or arrow can't. Consumable; carried as a counted item. Usable once Link has the Bomb Bag.",
+   "where": "Bought from the night-only Bombchu Shop in Castle Town's back alley (10 or 20 at a time), won as a prize at the Bombchu Bowling Alley, found in some dungeon chests, given by the House of Skulltula for 40 Gold Skulltula Tokens, or bought (10 for 200 Rupees) from the Carpet Merchant in the Haunted Wasteland."
+  },
+  {
+   "name": "Deku Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "A small wooden shield held up to block incoming attacks. Because it is made of wood, it instantly burns up and is destroyed by fire (e.g. Fire Keese or torch flames), and a Like Like can swallow it (you get it back after killing the Like Like). This is the only shield child Link can carry.",
+   "where": "Buy it for 40 Rupees at the Kokiri Shop in Kokiri Forest (Mido demands a sword and shield before letting you pass to the Great Deku Tree). Replacement Deku Shields also turn up in treasure chests in dungeons such as Dodongo's Cavern and can be re-bought in shops if yours burns."
+  },
+  {
+   "name": "Hylian Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "A large metal shield bearing the royal crest. Being metal it never burns, so it fully protects against fire. It is huge for child Link (he can crouch/turtle behind it but cannot walk while holding it up), while adult Link wields it normally as his standard shield. It is the one shield both child and adult Link can carry.",
+   "where": "Get it free in the Kakariko Village Graveyard: pull the grave with flowers in front of it (back row) to open a hole, drop in, and open the chest below. It can also be purchased for 80 Rupees at the Bazaar in Hyrule Castle Town Market (and re-bought there if lost)."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "A polished metal shield whose reflective face can bounce beams of light and offensive magic. It is used to redirect sunbeams to solve light puzzles in the Spirit Temple and Ganon's Castle, and it is required to defeat Twinrova by reflecting each sister's fire or ice beam back to absorb and return it. It does not burn and replaces the Hylian Shield once obtained. (Adult Link only.)",
+   "where": "Found in the adult-Link portion of the Spirit Temple: after defeating an Iron Knuckle mini-boss, go through the unlocked door back out onto the giant Goddess statue, where a treasure chest holds the Mirror Shield. (This is a separate area from the Silver Gauntlets, which child Link obtains earlier in the temple.)"
+  },
+  {
+   "name": "Kokiri Tunic",
+   "cat": "armor",
+   "type": "Tunic",
+   "effect": "Link's default green outfit; it has no special protection. It's all Young Link can wear, and it's automatically equipped and cannot be removed as a child.",
+   "where": "Worn from the very start of the game — Link begins his adventure in it in Kokiri Forest."
+  },
+  {
+   "name": "Goron Tunic",
+   "cat": "armor",
+   "type": "Tunic",
+   "effect": "A fire-red tunic that shields Link from extreme heat, letting him survive the volcanic interior of Death Mountain Crater and the Fire Temple. Without it those areas damage him constantly.",
+   "where": "As an adult, either get it free from the rolling Goron in Goron City (Darunia's son, named Link) by stopping him with a bomb, or buy it for 200 Rupees at the Goron Shop."
+  },
+  {
+   "name": "Zora Tunic",
+   "cat": "armor",
+   "type": "Tunic",
+   "effect": "A blue tunic that lets Link breathe underwater indefinitely. Essential for Lake Hylia and the Water Temple, usually worn together with the Iron Boots (which otherwise leave him on a drowning timer).",
+   "where": "As an adult, get it free by thawing the frozen King Zora at Zora's Domain with Blue Fire (from the Ice Cavern), or buy it for 300 Rupees at the Zora Shop."
+  },
+  {
+   "name": "Kokiri Boots",
+   "cat": "armor",
+   "type": "Boots",
+   "effect": "Link's default footwear with no special properties — they're his ordinary boots for normal walking and running. Both Young and Adult Link wear them by default.",
+   "where": "Worn from the start of the game; they are the standard boots, always available in the equipment menu."
+  },
+  {
+   "name": "Iron Boots",
+   "cat": "armor",
+   "type": "Boots",
+   "effect": "Heavy boots that sink Link to the bottom of water so he can walk along lakebeds and dungeon floors. While equipped he can't run or jump and moves very slowly, so they're typically paired with the Zora Tunic to breathe underwater.",
+   "where": "Found in a chest in the Ice Cavern, the icy dungeon near Zora's Fountain (adult Link)."
+  },
+  {
+   "name": "Hover Boots",
+   "cat": "armor",
+   "type": "Boots",
+   "effect": "Let Link hover in mid-air for a few seconds after he steps off a ledge, crossing gaps and skimming over water. On solid ground they have no traction, so Link slides like he's on ice — impractical for everyday use.",
+   "where": "Found in a chest in the Shadow Temple (Kakariko Village), obtained after defeating the mini-boss Dead Hand; use the Lens of Truth to locate it."
+  },
+  {
+   "name": "Goron's Bracelet",
+   "cat": "armor",
+   "type": "Bracelet",
+   "effect": "A strength upgrade for Young Link that lets him pick up and throw Bomb Flowers (and pull up bushes). It's used to blast open the boulder blocking the entrance to Dodongo's Cavern.",
+   "where": "Given by Darunia in Goron City after Link plays Saria's Song to lift his spirits (his chamber is opened by first playing Zelda's Lullaby)."
+  },
+  {
+   "name": "Silver Gauntlets",
+   "cat": "armor",
+   "type": "Gauntlets",
+   "effect": "A strength upgrade that lets Adult Link lift and move heavy objects — most notably the large silver/stone blocks inside and around the Spirit Temple.",
+   "where": "Found in a treasure chest on the hand of the Desert Colossus statue at the Spirit Temple, reached as Young Link after fighting an Iron Knuckle (they can only be used as an adult)."
+  },
+  {
+   "name": "Golden Gauntlets",
+   "cat": "armor",
+   "type": "Gauntlets",
+   "effect": "The strongest strength upgrade, letting Adult Link hurl aside the massive black pillars — one blocking the path inside Ganon's Castle, and one outside the castle on the path to Hyrule Castle (where the Great Fairy of Magic once dwelt) that hides the Great Fairy of Courage's fountain.",
+   "where": "Found in a chest within the Shadow Trial of Ganon's Castle (step on a switch to make the chest appear, then Longshot up to it)."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A throwable weapon that flies out and returns to Link, killing weak foes (Keese, Bari) and stunning most others; it also stuns and retrieves distant items and hits switches. Young Link only.",
+   "where": "Found in a chest inside Jabu-Jabu's Belly (the child dungeon under Zora's Fountain), in the Stinger Room after defeating the Stingers."
+  },
+  {
+   "name": "Slingshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires Deku Seeds as projectiles to hit distant switches, eyes, and weak enemies; Young Link's ranged weapon. Comes with the first Bullet Bag (holds 30 seeds).",
+   "where": "Found in a chest inside the Great Deku Tree (the first dungeon)."
+  },
+  {
+   "name": "Bombs / Bomb Bag",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "The Bomb Bag lets Link carry and set Bombs that blast cracked walls, boulders, and enemies. The first bag holds 20 bombs.",
+   "where": "The first Bomb Bag is found in a chest in Dodongo's Cavern."
+  },
+  {
+   "name": "Bombchu",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A self-propelled wind-up mouse bomb that runs along the floor and even up walls before exploding, hitting targets bombs can't reach. Tracked separately from regular Bombs.",
+   "where": "Bought from the Bombchu Shop in Hyrule Castle Town's back alley (night only) and from the Carpet Merchant in the Haunted Wasteland; also won at Bombchu Bowling and found in dungeon chests (Spirit Temple child side, Gerudo Training Ground, Bottom of the Well)."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A spring-loaded hook on a chain that grapples wooden surfaces and targets to pull Link to them (or pull items/enemies to Link); also damages and stuns foes at range.",
+   "where": "Won by beating Dampé the gravekeeper's ghost in the tomb race beneath his grave in the Kakariko Graveyard (as an adult)."
+  },
+  {
+   "name": "Longshot",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "An upgraded Hookshot with double the reach, essential for the Water Temple's long grapples and later dungeons. Adult Link only.",
+   "where": "Found in a chest in the Water Temple after defeating Dark Link."
+  },
+  {
+   "name": "Lens of Truth",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Reveals what is hidden when held active (draining magic): invisible enemies, false walls and floors, fake objects, and concealed passages.",
+   "where": "Found after defeating Dead Hand at the Bottom of the Well dungeon in Kakariko Village (as a child; drain the well first with the Song of Storms)."
+  },
+  {
+   "name": "Magic Beans",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Planted in patches of soft soil; as a child the sprout does nothing, but returning to that spot as an adult finds a fully grown plant (a leaf platform or floating-flower lift). (In OoT they grow platforms — not the Majora's Mask Bean Plant.)",
+   "where": "Bought from the Bean Seller at the mouth of Zora's River; the first costs 10 Rupees and the price rises 10 each purchase (10 beans total, last for 100)."
+  },
+  {
+   "name": "Fairy Ocarina",
+   "cat": "item",
+   "type": "Key item",
+   "effect": "Link's starting ocarina, given by Saria as he leaves the forest; played to perform songs. Later replaced by the Ocarina of Time.",
+   "where": "Given by Saria at the bridge out of Kokiri Forest after clearing the Great Deku Tree."
+  },
+  {
+   "name": "Ocarina of Time",
+   "cat": "item",
+   "type": "Key item",
+   "effect": "The royal ocarina; with the Song of Time it opens the Door of Time. It replaces the Fairy Ocarina and is used to play all of Link's songs.",
+   "where": "Tossed to Link by Princess Zelda as she and Impa flee Ganondorf; retrieved from the castle moat in Hyrule Castle Town."
+  },
+  {
+   "name": "Din's Fire",
+   "cat": "item",
+   "type": "Magic spell",
+   "effect": "Casts a ring of fire that expands outward from Link, burning nearby enemies and lighting torches/cobwebs. Costs magic.",
+   "where": "Learned from the Great Fairy in the Great Fairy's Fountain behind a bombable wall in the dead-end corner of Hyrule Castle grounds (as a child)."
+  },
+  {
+   "name": "Farore's Wind",
+   "cat": "item",
+   "type": "Magic spell",
+   "effect": "Sets a warp point inside a dungeon; recast to teleport back to that spot, letting you escape and return without losing progress. Costs magic.",
+   "where": "Learned from the Great Fairy in a Great Fairy's Fountain at Zora's Fountain, behind a bombable wall (as a child)."
+  },
+  {
+   "name": "Nayru's Love",
+   "cat": "item",
+   "type": "Magic spell",
+   "effect": "Surrounds Link with a protective crystal that blocks all damage for a time while still letting him act. Costs magic.",
+   "where": "Learned from the Great Fairy in the Great Fairy's Fountain at Desert Colossus, behind a bombable wall near the Spirit Temple (as an adult)."
+  },
+  {
+   "name": "Empty Bottle",
+   "cat": "item",
+   "type": "Bottle",
+   "effect": "A reusable container that can hold fairies, potions, Lon Lon Milk, bugs, fish, Blue Fire, Poes, and more. There are four total in the game.",
+   "where": "Four sources: return 7 cuccos for the Cucco Lady in Kakariko; win Talon's Super Cucco game at Lon Lon Ranch (comes as Lon Lon Milk); retrieve Ruto's Letter bottle in Lake Hylia and show King Zora (keep the bottle after); and collect all 10 Big Poes for the Poe Collector at the Ghost Shop."
+  },
+  {
+   "name": "Magic Meter",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Grants Link a green magic gauge that powers spells, the Spin Attack, and the Lens of Truth (initial capacity 48).",
+   "where": "Given by the Great Fairy in the Great Fairy's Fountain at the Death Mountain summit (above Goron City, behind a bombable wall near Kaepora Gaebora), who also teaches the Spin Attack (as a child)."
+  },
+  {
+   "name": "Double Magic",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Doubles the Magic Meter's length and capacity (48 to 96), letting Link cast far more spells.",
+   "where": "Granted by the Great Fairy in Death Mountain Crater; break the rock wall on the crater's west side with the Megaton Hammer to reach the fountain (as an adult)."
+  },
+  {
+   "name": "Adult Wallet",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Increases the Rupee carrying limit from 99 to 200.",
+   "where": "Given by a cursed family member at the House of Skulltula in Kakariko after collecting 10 Gold Skulltula Tokens."
+  },
+  {
+   "name": "Giant's Wallet",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Increases the Rupee carrying limit to 500.",
+   "where": "Given by the House of Skulltula family after collecting 30 Gold Skulltula Tokens."
+  },
+  {
+   "name": "Deku Seeds Bullet Bag (upgrades)",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Increases the Slingshot's seed capacity. The base bag holds 30; the two upgrades raise it to 40, then 50 Deku Seeds.",
+   "where": "Two upgrades, in either order: a perfect score in the child Shooting Gallery in Hyrule Castle Town, and scoring 100 points (hitting the hanging target's center) at the Lost Woods target to summon a Deku Scrub."
+  },
+  {
+   "name": "Big Quiver / Biggest Quiver",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Raises the Bow's arrow capacity. The base quiver holds 30; the Big Quiver holds 40 and the Biggest Quiver holds 50.",
+   "where": "Each from one of two challenges (whichever you finish first gives the Big Quiver, the second the Biggest): a perfect adult Shooting Gallery score in Kakariko, or scoring 1,500 in the Gerudo Horseback Archery minigame."
+  },
+  {
+   "name": "Bigger Bomb Bag / Biggest Bomb Bag",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Raises Bomb carrying capacity. The base bag holds 20; the Bigger Bomb Bag holds 30 and the Biggest Bomb Bag holds 40.",
+   "where": "Bigger: stop the Hot-Rodder Goron rolling in Goron City by bombing his path while he's in the tunnel (as a child). Biggest: won as a prize at Bombchu Bowling in Hyrule Castle Town."
+  },
+  {
+   "name": "Silver Scale",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "A diving scale that lets Link dive deeper underwater (down to about 6 meters) and hold his breath longer.",
+   "where": "Won from a Zora by collecting all five rupees in the Zora's Domain diving minigame (as a child)."
+  },
+  {
+   "name": "Golden Scale",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "A better diving scale allowing Link to dive even deeper (about 9 meters / three meters deeper than the Silver Scale) and hold his breath longest, needed for the deepest underwater spots.",
+   "where": "Given by the Fishing Pond owner for catching a fish weighing 13 pounds or more (best done as an adult)."
+  },
+  {
+   "name": "Stone of Agony",
+   "cat": "item",
+   "type": "Key item",
+   "effect": "Makes the controller rumble (or pulse) when Link is near hidden treasure, secret grottoes, or bombable spots — a treasure radar. (Requires a Rumble Pak on N64.)",
+   "where": "Given by the House of Skulltula family in Kakariko after collecting 20 Gold Skulltula Tokens."
+  },
+  {
+   "name": "Gerudo's Membership Card",
+   "cat": "item",
+   "type": "Key item",
+   "effect": "Proves Link is an honorary Gerudo, letting him move freely in Gerudo's Fortress (guards won't capture him) and granting access to the Horseback Archery Range and the Gerudo Training Ground.",
+   "where": "Earned by rescuing all four imprisoned carpenters in Gerudo's Fortress (as an adult); a Gerudo guard rewards you with the card."
+  },
+  {
+   "name": "Biggoron's Sword Trade Quest",
+   "cat": "item",
+   "type": "Key item",
+   "effect": "An optional adult-only chain of timed trades (Pocket Egg, Pocket Cucco, Cojiro, Odd Mushroom, and on through Eyedrops, the Claim Check, etc.) that ultimately yields Biggoron's Sword — a two-handed blade roughly double the Master Sword's power that never breaks.",
+   "where": "Starts by talking to the Cucco Lady in Kakariko Village (as an adult) for the Pocket Egg, then trading item to item across Hyrule before claiming the finished sword from Biggoron on Death Mountain."
+  },
+  {
+   "name": "Keaton Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "The first mask in the trading sequence — a yellow fox-spirit mask with no gameplay power of its own. You borrow it and sell it onward to start the chain (a small 5-Rupee profit).",
+   "where": "Borrow from the Happy Mask Shop in Hyrule Castle Town Market (cost 10 Rupees), then sell it to the soldier guarding the Death Mountain Trail gate in Kakariko Village (he wants it for his son), who pays 15 Rupees."
+  },
+  {
+   "name": "Skull Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "The second trading mask, shaped like a Skull Kid's face. Purely a sale item — you actually take a loss on it. (Note: the mask can also be shown at the Lost Woods Forest Stage stage-show for a Deku Stick capacity upgrade; that is separate from the trading sequence.)",
+   "where": "Borrow from the Happy Mask Shop after selling the Keaton Mask (cost 20 Rupees). Befriend the Skull Kid in the Lost Woods first by playing Saria's Song (this also earns a Piece of Heart), then wear the mask and talk to him; he buys it for only 10 Rupees, a 10-Rupee loss."
+  },
+  {
+   "name": "Spooky Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "The third trading mask — a frightening face resembling a ReDead, said to be carved from coffin wood (it glows in the dark). No effect beyond being sold; this sale breaks even.",
+   "where": "Borrow from the Happy Mask Shop after selling the Skull Mask (cost 30 Rupees). Wear it and speak to the boy (a Dampé admirer who mistakes Link for the gravedigger) in the Kakariko Village graveyard during the day; he pays the full 30 Rupees."
+  },
+  {
+   "name": "Bunny Hood",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "The fourth and final trading mask, a pair of long rabbit ears. In Ocarina of Time it has no movement bonus (unlike Majora's Mask) — it is only sold to complete the chain, but it sells for a large profit.",
+   "where": "Borrow from the Happy Mask Shop after selling the Spooky Mask (cost 50 Rupees), available only once you have all three Spiritual Stones (i.e. after clearing Inside Jabu-Jabu's Belly). Sell it to the Running Man who jogs around Hyrule Field (looping past Lon Lon Ranch, between Gerudo Valley and Kokiri Forest); he fills your wallet, so best done with a large wallet."
+  },
+  {
+   "name": "Mask of Truth",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "The reward for finishing the trading sequence. Wearing it lets Link speak with the Gossip Stones scattered across Hyrule, which give hints and tips for progressing through the game.",
+   "where": "Granted by the Happy Mask Shop owner after you have sold all four trading masks (Keaton, Skull, Spooky, Bunny Hood). It can then be borrowed freely at any time."
+  },
+  {
+   "name": "Goron Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "A decorative disguise mask of a Goron face (NOT a transformation like in Majora's Mask). It has no gameplay function — it only changes some NPCs' reactions, e.g. King Zora reminisces about his old friend Biggoron when you wear it.",
+   "where": "Borrow freely from the Happy Mask Shop at any time after completing the mask trading sequence (selling all four trading masks)."
+  },
+  {
+   "name": "Zora Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "A decorative disguise mask of a Zora face (NOT a transformation like in Majora's Mask). No practical effect — it only changes NPC reactions, e.g. Princess Ruto is delighted, saying Link has 'become a Zora,' when you wear it.",
+   "where": "Borrow freely from the Happy Mask Shop at any time after completing the mask trading sequence (selling all four trading masks)."
+  },
+  {
+   "name": "Gerudo Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "A decorative disguise mask of a Gerudo woman's face (NOT a transformation like in Majora's Mask). No practical effect — it only changes NPC reactions: it makes people think Link is a woman, Nabooru remarks it looks like her (then retracts), King Zora says it gives him the chills, Talon thinks it resembles his wife, and Princess Ruto calls Link a 'funny guy.'",
+   "where": "Borrow freely from the Happy Mask Shop at any time after completing the mask trading sequence (selling all four trading masks)."
+  }
+ ],
  "SIDE_QUESTS": [
   {
    "region": "Big Trades & the Biggoron Sword",

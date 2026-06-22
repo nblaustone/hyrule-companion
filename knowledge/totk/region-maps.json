@@ -1,0 +1,1026 @@
+{
+ "great_sky_island": {
+  "shrines": {
+   "Ukouh Shrine": {
+    "x": 34,
+    "y": 32
+   },
+   "In-isa Shrine": {
+    "x": 14,
+    "y": 60
+   },
+   "Gutanbac Shrine": {
+    "x": 22,
+    "y": 18
+   },
+   "Nachoyah Shrine": {
+    "x": 60,
+    "y": 30
+   }
+  },
+  "tower": null,
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Temple of Time",
+    "kind": "landmark",
+    "x": 52,
+    "y": 24
+   },
+   {
+    "name": "Starting Pond",
+    "kind": "lake",
+    "x": 30,
+    "y": 38
+   },
+   {
+    "name": "Mining Cave",
+    "kind": "tech-lab",
+    "x": 30,
+    "y": 16
+   }
+  ]
+ },
+ "central": {
+  "shrines": {
+   "Serutabomac Shrine": {
+    "x": 58,
+    "y": 16
+   },
+   "Sepapa Shrine": {
+    "x": 60,
+    "y": 22
+   },
+   "Ren-iz Shrine": {
+    "x": 70,
+    "y": 26
+   },
+   "Kyononis Shrine": {
+    "x": 47,
+    "y": 33
+   },
+   "Yamiyo Shrine": {
+    "x": 66,
+    "y": 36
+   },
+   "Ishodag Shrine": {
+    "x": 32,
+    "y": 42
+   },
+   "Sinakawak Shrine": {
+    "x": 20,
+    "y": 33
+   },
+   "Mayachin Shrine": {
+    "x": 40,
+    "y": 50
+   },
+   "Jojon Shrine": {
+    "x": 62,
+    "y": 48
+   },
+   "Jiosin Shrine": {
+    "x": 50,
+    "y": 52
+   },
+   "Teniten Shrine": {
+    "x": 48,
+    "y": 60
+   },
+   "Tajikats Shrine": {
+    "x": 56,
+    "y": 66
+   },
+   "Susuyai Shrine": {
+    "x": 34,
+    "y": 60
+   },
+   "Riogok Shrine": {
+    "x": 24,
+    "y": 56
+   },
+   "Kamizun Shrine": {
+    "x": 64,
+    "y": 70
+   },
+   "Tsutsu-um Shrine": {
+    "x": 22,
+    "y": 72
+   },
+   "Kyokugon Shrine": {
+    "x": 30,
+    "y": 82
+   },
+   "Tadarok Shrine": {
+    "x": 18,
+    "y": 84
+   },
+   "Tenmaten Shrine": {
+    "x": 44,
+    "y": 78
+   }
+  },
+  "tower": {
+   "name": "Lookout Landing Skyview Tower",
+   "x": 48,
+   "y": 44
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Hyrule Castle",
+    "kind": "landmark",
+    "x": 50,
+    "y": 24
+   },
+   {
+    "name": "Lookout Landing",
+    "kind": "town",
+    "x": 48,
+    "y": 44
+   },
+   {
+    "name": "Riverside Stable",
+    "kind": "stable",
+    "x": 58,
+    "y": 64
+   },
+   {
+    "name": "Great Plateau",
+    "kind": "peak",
+    "x": 30,
+    "y": 88
+   }
+  ]
+ },
+ "necluda": {
+  "shrines": {
+   "Makasura Shrine": {
+    "x": 33,
+    "y": 20
+   },
+   "Jochisiu Shrine": {
+    "x": 16,
+    "y": 34
+   },
+   "Eshos Shrine": {
+    "x": 30,
+    "y": 36
+   },
+   "Susub Shrine": {
+    "x": 9,
+    "y": 40
+   },
+   "Utojis Shrine": {
+    "x": 24,
+    "y": 52
+   },
+   "Joju-u-u Shrine": {
+    "x": 30,
+    "y": 74
+   },
+   "Tokiy Shrine": {
+    "x": 62,
+    "y": 11
+   },
+   "Mayahisik Shrine": {
+    "x": 66,
+    "y": 42
+   },
+   "Zanmik Shrine": {
+    "x": 55,
+    "y": 46
+   },
+   "Anedamimik Shrine": {
+    "x": 78,
+    "y": 44
+   },
+   "Sifumim Shrine": {
+    "x": 68,
+    "y": 70
+   },
+   "Bamitok Shrine": {
+    "x": 76,
+    "y": 78
+   },
+   "Marari-In Shrine": {
+    "x": 90,
+    "y": 90
+   }
+  },
+  "tower": {
+   "name": "Rabella Wetlands Tower",
+   "x": 56,
+   "y": 18
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Kakariko Village",
+    "kind": "town",
+    "x": 38,
+    "y": 22
+   },
+   {
+    "name": "Hateno Village",
+    "kind": "town",
+    "x": 64,
+    "y": 50
+   },
+   {
+    "name": "Lurelin Village",
+    "kind": "town",
+    "x": 73,
+    "y": 76
+   },
+   {
+    "name": "Lakeside Stable",
+    "kind": "stable",
+    "x": 26,
+    "y": 64
+   }
+  ]
+ },
+ "lanayru": {
+  "shrines": {
+   "Tukarok Shrine": {
+    "x": 22,
+    "y": 50
+   },
+   "Morok Shrine": {
+    "x": 14,
+    "y": 40
+   },
+   "Jonsau Shrine": {
+    "x": 26,
+    "y": 60
+   },
+   "Maoikes Shrine": {
+    "x": 18,
+    "y": 68
+   },
+   "Mogawak Shrine": {
+    "x": 54,
+    "y": 48
+   },
+   "Ihen-a Shrine": {
+    "x": 70,
+    "y": 50
+   },
+   "Apogek Shrine": {
+    "x": 60,
+    "y": 64
+   },
+   "Yomizuk Shrine": {
+    "x": 44,
+    "y": 78
+   },
+   "Joniu Shrine": {
+    "x": 42,
+    "y": 52
+   },
+   "Kurakat Shrine": {
+    "x": 50,
+    "y": 88
+   },
+   "O-ogim Shrine": {
+    "x": 40,
+    "y": 30
+   },
+   "Jikais Shrine": {
+    "x": 86,
+    "y": 16
+   },
+   "Zakusu Shrine": {
+    "x": 62,
+    "y": 28
+   },
+   "Jogou Shrine": {
+    "x": 56,
+    "y": 18
+   }
+  },
+  "tower": {
+   "name": "Sahasra Slope Skyview Tower",
+   "x": 24,
+   "y": 44
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Zora's Domain",
+    "kind": "town",
+    "x": 52,
+    "y": 44
+   },
+   {
+    "name": "Wetland Stable",
+    "kind": "stable",
+    "x": 20,
+    "y": 56
+   },
+   {
+    "name": "Mount Lanayru",
+    "kind": "peak",
+    "x": 72,
+    "y": 22
+   },
+   {
+    "name": "East Reservoir Lake",
+    "kind": "lake",
+    "x": 58,
+    "y": 56
+   }
+  ]
+ },
+ "faron": {
+  "shrines": {
+   "Ishokin Shrine": {
+    "x": 28,
+    "y": 9
+   },
+   "Utsushok Shrine": {
+    "x": 56,
+    "y": 12
+   },
+   "En-oma Shrine": {
+    "x": 47,
+    "y": 27
+   },
+   "Jiukoum Shrine": {
+    "x": 70,
+    "y": 32
+   },
+   "Sakunbomar Shrine": {
+    "x": 48,
+    "y": 74
+   },
+   "Musanokir Shrine": {
+    "x": 55,
+    "y": 79
+   },
+   "Pupunke Shrine": {
+    "x": 63,
+    "y": 76
+   },
+   "Ninjis Shrine": {
+    "x": 53,
+    "y": 88
+   },
+   "Kikakin Shrine": {
+    "x": 36,
+    "y": 86
+   },
+   "Kiuyoyou Shrine": {
+    "x": 14,
+    "y": 80
+   },
+   "Ekochiu Shrine": {
+    "x": 84,
+    "y": 70
+   }
+  },
+  "tower": {
+   "name": "Popla Foothills Skyview Tower",
+   "x": 60,
+   "y": 38
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Highland Stable",
+    "kind": "stable",
+    "x": 50,
+    "y": 14
+   },
+   {
+    "name": "Lake Hylia",
+    "kind": "lake",
+    "x": 40,
+    "y": 22
+   },
+   {
+    "name": "Korok Forest",
+    "kind": "landmark",
+    "x": 58,
+    "y": 72
+   },
+   {
+    "name": "Woodland Stable",
+    "kind": "stable",
+    "x": 82,
+    "y": 62
+   }
+  ]
+ },
+ "gerudo": {
+  "shrines": {
+   "Kudanisar Shrine": {
+    "x": 21,
+    "y": 47
+   },
+   "Mayatat Shrine": {
+    "x": 45,
+    "y": 57
+   },
+   "Soryotanog Shrine": {
+    "x": 28,
+    "y": 69
+   },
+   "Siwakama Shrine": {
+    "x": 68,
+    "y": 50
+   },
+   "Chichim Shrine": {
+    "x": 47,
+    "y": 70
+   },
+   "Karahatag Shrine": {
+    "x": 33,
+    "y": 86
+   },
+   "Irasak Shrine": {
+    "x": 20,
+    "y": 92
+   },
+   "Miryotanog Shrine": {
+    "x": 10,
+    "y": 68
+   },
+   "Motsusis Shrine": {
+    "x": 86,
+    "y": 83
+   },
+   "Rakakudaj Shrine": {
+    "x": 76,
+    "y": 45
+   },
+   "Turakamik Shrine": {
+    "x": 85,
+    "y": 34
+   },
+   "Kitawak Shrine": {
+    "x": 93,
+    "y": 68
+   },
+   "Otutsum Shrine": {
+    "x": 12,
+    "y": 8
+   },
+   "Mayamats Shrine": {
+    "x": 8,
+    "y": 30
+   },
+   "Suariwak Shrine": {
+    "x": 66,
+    "y": 24
+   },
+   "Rotsumamu Shrine": {
+    "x": 38,
+    "y": 78
+   }
+  },
+  "tower": {
+   "name": "Gerudo Canyon Skyview Tower",
+   "x": 78,
+   "y": 30
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Gerudo Town",
+    "kind": "town",
+    "x": 33,
+    "y": 62
+   },
+   {
+    "name": "Kara Kara Bazaar",
+    "kind": "landmark",
+    "x": 45,
+    "y": 50
+   },
+   {
+    "name": "Gerudo Canyon Stable",
+    "kind": "stable",
+    "x": 72,
+    "y": 40
+   },
+   {
+    "name": "Lightning Temple",
+    "kind": "landmark",
+    "x": 40,
+    "y": 88
+   }
+  ]
+ },
+ "ridgeland": {
+  "shrines": {
+   "Makurukis Shrine": {
+    "x": 8,
+    "y": 29
+   },
+   "Runakit Shrine": {
+    "x": 34,
+    "y": 9
+   },
+   "Taki-ihaban Shrine": {
+    "x": 90,
+    "y": 11
+   },
+   "Sonapan Shrine": {
+    "x": 84,
+    "y": 42
+   },
+   "Usazum Shrine": {
+    "x": 64,
+    "y": 90
+   }
+  },
+  "tower": {
+   "name": "Lindor's Brow Skyview Tower",
+   "x": 62,
+   "y": 13
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Mount Rhoam",
+    "kind": "peak",
+    "x": 18,
+    "y": 14
+   },
+   {
+    "name": "Satori Mountain",
+    "kind": "peak",
+    "x": 74,
+    "y": 62
+   },
+   {
+    "name": "Tabantha Bridge Stable",
+    "kind": "stable",
+    "x": 9,
+    "y": 46
+   }
+  ]
+ },
+ "tabantha": {
+  "shrines": {
+   "Mayausiy Shrine": {
+    "x": 90,
+    "y": 10
+   },
+   "Nouda Shrine": {
+    "x": 62,
+    "y": 20
+   },
+   "Gatakis Shrine": {
+    "x": 21,
+    "y": 32
+   },
+   "Oromuwak Shrine": {
+    "x": 40,
+    "y": 36
+   },
+   "Ikatak Shrine": {
+    "x": 14,
+    "y": 48
+   },
+   "Iun-orok Shrine": {
+    "x": 26,
+    "y": 56
+   },
+   "Gasas Shrine": {
+    "x": 8,
+    "y": 78
+   },
+   "Turakawak Shrine": {
+    "x": 24,
+    "y": 88
+   }
+  },
+  "tower": {
+   "name": "Rospro Pass Skyview Tower",
+   "x": 22,
+   "y": 26
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Rito Village",
+    "x": 13,
+    "y": 40,
+    "kind": "town"
+   },
+   {
+    "name": "Tanagar Canyon",
+    "x": 34,
+    "y": 64,
+    "kind": "landmark"
+   },
+   {
+    "name": "Snowfield Stable",
+    "x": 66,
+    "y": 30,
+    "kind": "stable"
+   },
+   {
+    "name": "Forgotten Temple",
+    "x": 84,
+    "y": 16,
+    "kind": "landmark"
+   }
+  ]
+ },
+ "hebra": {
+  "shrines": {
+   "Otak Shrine": {
+    "x": 11,
+    "y": 8
+   },
+   "Eutoum Shrine": {
+    "x": 31,
+    "y": 15
+   },
+   "Oshozan-u Shrine": {
+    "x": 79,
+    "y": 10
+   },
+   "Mayaotaki Shrine": {
+    "x": 92,
+    "y": 16
+   },
+   "Sisuran Shrine": {
+    "x": 53,
+    "y": 24
+   },
+   "Rutafu-um Shrine": {
+    "x": 43,
+    "y": 31
+   },
+   "Tauyosipun Shrine": {
+    "x": 8,
+    "y": 45
+   },
+   "Orochium Shrine": {
+    "x": 68,
+    "y": 53
+   },
+   "Sahirow Shrine": {
+    "x": 35,
+    "y": 67
+   },
+   "Wao-os Shrine": {
+    "x": 29,
+    "y": 92
+   }
+  },
+  "tower": {
+   "name": "Pikida Stonegrove",
+   "x": 58,
+   "y": 37
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Snowfield Stable",
+    "kind": "stable",
+    "x": 74,
+    "y": 59
+   },
+   {
+    "name": "Hebra East Summit",
+    "kind": "peak",
+    "x": 47,
+    "y": 37
+   },
+   {
+    "name": "Rospro Pass Tower",
+    "kind": "landmark",
+    "x": 27,
+    "y": 69
+   },
+   {
+    "name": "North Lomei Labyrinth",
+    "kind": "landmark",
+    "x": 86,
+    "y": 13
+   }
+  ]
+ },
+ "eldin": {
+  "shrines": {
+   "Kisinona Shrine": {
+    "x": 74,
+    "y": 11
+   },
+   "Timawak Shrine": {
+    "x": 47,
+    "y": 24
+   },
+   "Moshapin Shrine": {
+    "x": 71,
+    "y": 30
+   },
+   "Mayachideg Shrine": {
+    "x": 85,
+    "y": 28
+   },
+   "Marakuguc Shrine": {
+    "x": 45,
+    "y": 52
+   },
+   "Sitsum Shrine": {
+    "x": 64,
+    "y": 54
+   },
+   "Sikukuu Shrine": {
+    "x": 13,
+    "y": 62
+   },
+   "Isisim Shrine": {
+    "x": 48,
+    "y": 62
+   },
+   "Momosik Shrine": {
+    "x": 80,
+    "y": 58
+   },
+   "Sibajitak Shrine": {
+    "x": 63,
+    "y": 72
+   },
+   "Jiotak Shrine": {
+    "x": 47,
+    "y": 70
+   },
+   "Kimayat Shrine": {
+    "x": 76,
+    "y": 82
+   },
+   "Mayak Shrine": {
+    "x": 33,
+    "y": 88
+   },
+   "Minetak Shrine": {
+    "x": 10,
+    "y": 83
+   }
+  },
+  "tower": {
+   "name": "Eldin Canyon Skyview Tower",
+   "x": 40,
+   "y": 44
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Goron City",
+    "kind": "town",
+    "x": 48,
+    "y": 56
+   },
+   {
+    "name": "Death Mountain",
+    "kind": "peak",
+    "x": 62,
+    "y": 48
+   },
+   {
+    "name": "Skull Lake",
+    "kind": "lake",
+    "x": 85,
+    "y": 80
+   },
+   {
+    "name": "Foothill Stable",
+    "kind": "stable",
+    "x": 82,
+    "y": 16
+   }
+  ]
+ },
+ "akkala": {
+  "shrines": {
+   "Domizuin Shrine": {
+    "x": 9,
+    "y": 26
+   },
+   "Gatanisis Shrine": {
+    "x": 82,
+    "y": 9
+   },
+   "Jochi-iu Shrine": {
+    "x": 74,
+    "y": 73
+   },
+   "Gemimik Shrine": {
+    "x": 86,
+    "y": 49
+   },
+   "Rasiwak Shrine": {
+    "x": 91,
+    "y": 79
+   },
+   "Kamatukis Shrine": {
+    "x": 13,
+    "y": 86
+   },
+   "Sinatanika Shrine": {
+    "x": 42,
+    "y": 46
+   },
+   "Rasitakiwak Shrine": {
+    "x": 57,
+    "y": 22
+   },
+   "Jochi-ihiga Shrine": {
+    "x": 38,
+    "y": 16
+   },
+   "Igashuk Shrine": {
+    "x": 91,
+    "y": 93
+   }
+  },
+  "tower": {
+   "name": "Ulri Mtn Skyview Tower",
+   "x": 20,
+   "y": 49
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Tarrey Town",
+    "kind": "town",
+    "x": 45,
+    "y": 11
+   },
+   {
+    "name": "East Akkala Stable",
+    "kind": "stable",
+    "x": 70,
+    "y": 66
+   },
+   {
+    "name": "Akkala Tech Lab",
+    "kind": "tech-lab",
+    "x": 82,
+    "y": 82
+   },
+   {
+    "name": "Lake Akkala",
+    "kind": "lake",
+    "x": 22,
+    "y": 18
+   }
+  ]
+ },
+ "sky": {
+  "shrines": {
+   "Mogisari Shrine": {
+    "x": 92,
+    "y": 11
+   },
+   "Gikaku Shrine": {
+    "x": 89,
+    "y": 25
+   },
+   "Natak Shrine": {
+    "x": 82,
+    "y": 34
+   },
+   "Kadaunar Shrine": {
+    "x": 67,
+    "y": 36
+   },
+   "Mayam Shrine": {
+    "x": 53,
+    "y": 18
+   },
+   "Simosiwak Shrine": {
+    "x": 50,
+    "y": 29
+   },
+   "Jinodok Shrine": {
+    "x": 40,
+    "y": 65
+   },
+   "Joku-usin Shrine": {
+    "x": 56,
+    "y": 89
+   },
+   "Joku-u Shrine": {
+    "x": 64,
+    "y": 86
+   },
+   "Siyamotsus Shrine": {
+    "x": 33,
+    "y": 87
+   },
+   "Rakashog Shrine": {
+    "x": 35,
+    "y": 73
+   },
+   "Mayasiar Shrine": {
+    "x": 18,
+    "y": 54
+   },
+   "Taunhiy Shrine": {
+    "x": 29,
+    "y": 41
+   },
+   "Ganos Shrine": {
+    "x": 21,
+    "y": 46
+   },
+   "Ga-ahisas Shrine": {
+    "x": 13,
+    "y": 38
+   },
+   "Ijo-o Shrine": {
+    "x": 15,
+    "y": 21
+   },
+   "Mayaumekis Shrine": {
+    "x": 25,
+    "y": 15
+   },
+   "Kahatanaum Shrine": {
+    "x": 21,
+    "y": 9
+   },
+   "Taninoud Shrine": {
+    "x": 34,
+    "y": 11
+   },
+   "Tenbez Shrine": {
+    "x": 43,
+    "y": 10
+   },
+   "Jirutagumac Shrine": {
+    "x": 75,
+    "y": 45
+   },
+   "Igoshon Shrine": {
+    "x": 83,
+    "y": 42
+   },
+   "Sihajog Shrine": {
+    "x": 88,
+    "y": 57
+   },
+   "Mayanas Shrine": {
+    "x": 92,
+    "y": 65
+   },
+   "Josiu Shrine": {
+    "x": 64,
+    "y": 62
+   },
+   "Yansamin Shrine": {
+    "x": 71,
+    "y": 70
+   },
+   "Ukoojisi Shrine": {
+    "x": 62,
+    "y": 76
+   },
+   "Kumamayn Shrine": {
+    "x": 76,
+    "y": 82
+   }
+  },
+  "tower": {
+   "name": "Great Sky Island",
+   "x": 58,
+   "y": 54
+  },
+  "fairy": null,
+  "landmarks": [
+   {
+    "name": "Thunderhead Isles",
+    "kind": "landmark",
+    "x": 60,
+    "y": 92
+   },
+   {
+    "name": "Great Sky Island",
+    "kind": "landmark",
+    "x": 58,
+    "y": 54
+   },
+   {
+    "name": "Lomei Sky Labyrinth",
+    "kind": "landmark",
+    "x": 95,
+    "y": 7
+   },
+   {
+    "name": "Hebra Sky",
+    "kind": "peak",
+    "x": 19,
+    "y": 13
+   }
+  ]
+ }
+}
