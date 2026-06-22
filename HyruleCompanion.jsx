@@ -617,6 +617,9 @@ function HyruleGame({ game, setGame, games }) {
   const G = games[game];
   const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, COLLECTIBLES, terms, guideSegs, postRegionId } = G;
   const K = (s) => game + ":" + s; // storage key namespace per game (botw:* preserves existing data)
+  // a game without shrines (OoT) or without a cooking system (OoT) hides those tabs entirely (no empty tabs)
+  const hasShrines = (SHRINES || []).length > 0;
+  const hasCook = (RECIPES && RECIPES.length > 0) || (COOK_INGREDIENTS && COOK_INGREDIENTS.length > 0);
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState({});
   const [tab, setTab] = useState("status");
@@ -682,6 +685,8 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("ui"), JSON.stringify({ tab, region, openSections, guideSub })); }, [tab, region, openSections, guideSub, loaded]);
   useEffect(() => { if (loaded) store.set(K("koroks"), String(koroks)); }, [koroks, loaded]);
   useEffect(() => { if (loaded) store.set(K("collect"), JSON.stringify(collect)); }, [collect, loaded]);
+  // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
+  useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
   useEffect(() => { if (loaded) store.set(K("notes"), JSON.stringify(notes)); }, [notes, loaded]);
   useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
   useEffect(() => { if (loaded) store.set(K("recipes"), JSON.stringify(recipes)); }, [recipes, loaded]);
@@ -1197,9 +1202,9 @@ function HyruleGame({ game, setGame, games }) {
       <nav className="tabbar">
         <TabBtn active={tab === "status"} onClick={() => setTab("status")} glyph="eye" label="Status" />
         <TabBtn active={tab === "journey"} onClick={() => setTab("journey")} glyph="tower" label="Journey" />
-        <TabBtn active={tab === "shrines"} onClick={() => setTab("shrines")} glyph="shrine" label="Shrines" />
+        {hasShrines && <TabBtn active={tab === "shrines"} onClick={() => setTab("shrines")} glyph="shrine" label="Shrines" />}
         <TabBtn active={tab === "items"} onClick={() => setTab("items")} glyph="bag" label="Items" />
-        <TabBtn active={tab === "cook"} onClick={() => setTab("cook")} glyph="pot" label="Cook" />
+        {hasCook && <TabBtn active={tab === "cook"} onClick={() => setTab("cook")} glyph="pot" label="Cook" />}
         <TabBtn active={tab === "guide"} onClick={() => setTab("guide")} glyph="book" label="Guide" />
         <TabBtn active={tab === "library"} onClick={() => setTab("library")} glyph="scroll" label="Lore" />
       </nav>
