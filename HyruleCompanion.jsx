@@ -527,6 +527,7 @@ function Glyph({ name, size = 26 }) {
     case "fairy": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M24 28c0-7 4-12 12-12-1 7-5 11-12 12ZM24 28c0-7-4-12-12-12 1 7 5 11 12 12ZM24 28c4 4 4 11 0 14-4-3-4-10 0-14Z" /><circle cx="24" cy="28" r="2.6" fill="currentColor" stroke="none" /></svg>);
     case "skull": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M24 7c8 0 13 6 13 14 0 4-2 8-5 10v5H19v-5c-3-2-5-6-5-10C14 13 16 7 24 7Z" /><circle cx="19.5" cy="22" r="2.6" fill="currentColor" stroke="none" /><circle cx="28.5" cy="22" r="2.6" fill="currentColor" stroke="none" /><path d="M24 28v4M20 38v3M28 38v3" /></svg>);
     case "leaf": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M11 37C11 20 24 11 38 11c0 17-13 26-27 26Z" /><path d="M16 32c6-6 13-11 18-14" /></svg>);
+    case "heart": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M24 41C9 31 6 22 6 16a9 9 0 0 1 18-2 9 9 0 0 1 18 2c0 6-3 15-18 25Z" /></svg>);
     case "scroll": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M15 11h15a3 3 0 0 1 3 3v21a3 3 0 0 0 3 3H17a3 3 0 0 1-3-3V11Z" /><path d="M19 19h9M19 25h9M19 31h6" /></svg>);
     case "search": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><circle cx="20" cy="20" r="11" /><path d="M28 28l11 11" /></svg>);
     case "pencil": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M32 8l8 8-22 22-10 2 2-10L32 8Z" /><path d="M28 12l8 8" /></svg>);
@@ -614,7 +615,7 @@ function GamePicker({ games, game, setGame }) {
    storage loads cleanly. G shadows the data globals with the active game's data (ADR 0005). */
 function HyruleGame({ game, setGame, games }) {
   const G = games[game];
-  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms, guideSegs, postRegionId } = G;
+  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, COLLECTIBLES, terms, guideSegs, postRegionId } = G;
   const K = (s) => game + ":" + s; // storage key namespace per game (botw:* preserves existing data)
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState({});
@@ -625,6 +626,7 @@ function HyruleGame({ game, setGame, games }) {
   const [query, setQuery] = useState("");
   const [confirmReset, setConfirmReset] = useState(false);
   const [koroks, setKoroks] = useState(0);          // Korok-seed counter (botw:koroks)
+  const [collect, setCollect] = useState({});       // v14.3: data-driven collectible counters {id:n} (<game>:collect) — OoT Heart Pieces/Gold Skulltulas
   const [notes, setNotes] = useState({});           // per-step/shrine notes (botw:notes)
   const [armorTier, setArmorTier] = useState({});   // armor upgrade tier 0..4 by set index (botw:armortier)
   const [recipes, setRecipes] = useState([]);       // v10: saved cooking builds (botw:recipes)
@@ -651,10 +653,10 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec] = await Promise.all([
+      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl] = await Promise.all([
         store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
         store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"), store.get("hyrule:books"),
-        store.get(K("shrinepin")), store.get(K("shrinerecents")),
+        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -671,6 +673,7 @@ function HyruleGame({ game, setGame, games }) {
       try { if (bk) { const a = JSON.parse(bk); if (Array.isArray(a)) setUserBooks(a); } } catch (e) {}
       try { if (spin) setShrinePin(JSON.parse(spin)); } catch (e) {}
       try { if (srec) { const a = JSON.parse(srec); if (Array.isArray(a)) setShrineRecents(a); } } catch (e) {}
+      try { if (cl) { const o = JSON.parse(cl); if (o && typeof o === "object") setCollect(o); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -678,6 +681,7 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("progress"), JSON.stringify(progress)); }, [progress, loaded]);
   useEffect(() => { if (loaded) store.set(K("ui"), JSON.stringify({ tab, region, openSections, guideSub })); }, [tab, region, openSections, guideSub, loaded]);
   useEffect(() => { if (loaded) store.set(K("koroks"), String(koroks)); }, [koroks, loaded]);
+  useEffect(() => { if (loaded) store.set(K("collect"), JSON.stringify(collect)); }, [collect, loaded]);
   useEffect(() => { if (loaded) store.set(K("notes"), JSON.stringify(notes)); }, [notes, loaded]);
   useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
   useEffect(() => { if (loaded) store.set(K("recipes"), JSON.stringify(recipes)); }, [recipes, loaded]);
@@ -746,12 +750,12 @@ function HyruleGame({ game, setGame, games }) {
   const toggleSection = useCallback((id) => setOpenSections((o) => ({ ...o, [id]: !o[id] })), []);
   const setNote = useCallback((id, text) => setNotes((m) => { const n = { ...m }; if (text && text.trim()) n[id] = text; else delete n[id]; return n; }), []);
   const setTier = useCallback((i, t) => setArmorTier((m) => ({ ...m, [i]: Math.max(0, Math.min(4, t)) })), []);
-  const resetAll = useCallback(() => { setProgress({}); setKoroks(0); setNotes({}); setArmorTier({}); setRecipes([]); setConfirmReset(false); }, []);
+  const resetAll = useCallback(() => { setProgress({}); setKoroks(0); setCollect({}); setNotes({}); setArmorTier({}); setRecipes([]); setConfirmReset(false); }, []);
   // export/import the whole save as a portable code (offline backup, ADR 0002)
   const exportSave = useCallback(() => {
-    const blob = { v: 8, progress, koroks, notes, armorTier, recipes, shrinePin, shrineRecents };
+    const blob = { v: 9, progress, koroks, collect, notes, armorTier, recipes, shrinePin, shrineRecents };
     try { return btoa(unescape(encodeURIComponent(JSON.stringify(blob)))); } catch (e) { return JSON.stringify(blob); }
-  }, [progress, koroks, notes, armorTier, recipes, shrinePin, shrineRecents]);
+  }, [progress, koroks, collect, notes, armorTier, recipes, shrinePin, shrineRecents]);
   const importSave = useCallback((code) => {
     try {
       const raw = code.trim().startsWith("{") ? code : decodeURIComponent(escape(atob(code.trim())));
@@ -759,6 +763,7 @@ function HyruleGame({ game, setGame, games }) {
       if (b && typeof b === "object") {
         if (b.progress && typeof b.progress === "object") setProgress(b.progress);
         if (Number.isFinite(b.koroks)) setKoroks(b.koroks);
+        if (b.collect && typeof b.collect === "object") setCollect(b.collect);
         if (b.notes && typeof b.notes === "object") setNotes(b.notes);
         if (b.armorTier && typeof b.armorTier === "object") setArmorTier(b.armorTier);
         if (Array.isArray(b.recipes)) setRecipes(b.recipes);
@@ -1010,7 +1015,7 @@ function HyruleGame({ game, setGame, games }) {
               </button>
             </div>}
 
-            {(extraStats.memTotal > 0 || extraStats.gfTotal > 0 || extraStats.sqTotal > 0 || KOROKS) && <div className="panel">
+            {(extraStats.memTotal > 0 || extraStats.gfTotal > 0 || extraStats.sqTotal > 0 || KOROKS || (COLLECTIBLES && COLLECTIBLES.length)) && <div className="panel">
               <div className="panel-h">Collectibles</div>
               {extraStats.memTotal > 0 && <button className="reg-row" onClick={() => openRegion("memories")}>
                 <span className="reg-ic"><Glyph name="camera" size={16} /></span><span className="reg-name">Memories</span>
@@ -1032,6 +1037,25 @@ function HyruleGame({ game, setGame, games }) {
                 <span className="reg-bar"><span className="reg-fill" style={{ width: Math.min(100, koroks / ((KOROKS && KOROKS.maxSeeds) || 441) * 100) + "%", background: koroks >= ((KOROKS && KOROKS.maxSeeds) || 441) ? "var(--cyan)" : "var(--moss)" }} /></span>
                 <span className="reg-count">{koroks}</span>
               </button>}
+              {(COLLECTIBLES || []).map((c) => {
+                const n = collect[c.id] || 0; const done = n >= c.total; const pct = Math.min(100, Math.round(n / c.total * 100));
+                const set = (v) => setCollect((m) => ({ ...m, [c.id]: Math.max(0, Math.min(c.total, v)) }));
+                return (
+                  <div className="collect-row" key={c.id}>
+                    <div className="collect-head">
+                      <span className="reg-name"><span className="reg-ic"><Glyph name={c.glyph || "leaf"} size={16} /></span>{c.label}</span>
+                      <span className={"reg-count" + (done ? " reg-done" : "")}>{n}/{c.total}</span>
+                    </div>
+                    <span className="reg-bar"><span className="reg-fill" style={{ width: pct + "%", background: done ? "var(--cyan)" : "var(--orange)" }} /></span>
+                    <div className="collect-btns">
+                      <button onClick={() => set(n - 1)} aria-label={"Remove one " + c.label}>−1</button>
+                      <button onClick={() => set(n + 1)} aria-label={"Add one " + c.label}>+1</button>
+                      <button onClick={() => set(n + 5)} aria-label={"Add five " + c.label}>+5</button>
+                      {c.note && <span className="collect-note">{c.note}</span>}
+                    </div>
+                  </div>
+                );
+              })}
             </div>}
 
             {STATUS_RUNES.length > 0 && <div className="panel">
@@ -2724,6 +2748,13 @@ function StyleBlock() {
 .korok-c-btns{display:flex;gap:6px;}
 .korok-c-btns button{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;color:var(--moss);background:rgba(155,192,138,0.1);border:1px solid rgba(155,192,138,0.4);border-radius:9px;padding:7px 12px;cursor:pointer;}
 .korok-c-note{font-size:12px;color:var(--parch-dim);margin:9px 0 0;line-height:1.4;}
+.collect-row{padding:9px 0 4px;border-top:1px solid var(--ink-line);}
+.collect-row:first-of-type{border-top:0;}
+.collect-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px;}
+.collect-btns{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.collect-btns button{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;color:var(--orange);background:rgba(240,144,42,0.1);border:1px solid rgba(240,144,42,0.4);border-radius:9px;padding:6px 12px;min-width:42px;cursor:pointer;}
+.collect-btns button:active{transform:scale(0.94);}
+.collect-note{font-size:11px;color:var(--parch-dim);margin-left:4px;}
 .hmap-wrap{margin:2px -4px 0;}
 .hmap{width:100%;height:auto;display:block;}
 .hmap-n{fill:var(--parch);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;}
@@ -25952,6 +25983,22 @@ const OOT = {
     "Some puzzles need the OTHER age — a bean planted as a child grows into a platform for the adult, for example.",
     "The Sun's Song flips day and night instantly; some enemies (Stalchildren, ReDeads) and shops depend on the time."
    ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 36,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container."
+  },
+  {
+   "id": "skulltulas",
+   "label": "Gold Skulltulas",
+   "total": 100,
+   "glyph": "skull",
+   "note": "Slay the golden spiders; turn tokens in to the Cursed Family in Kakariko."
   }
  ],
  "terms": {

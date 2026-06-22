@@ -55,5 +55,9 @@
    "The Sun's Song flips day and night instantly; some enemies (Stalchildren, ReDeads) and shops depend on the time."
   ] }
  ],
- "WORLD": { "upgrades": [], "systems": [], "fairies": [] }
+ "WORLD": { "upgrades": [], "systems": [], "fairies": [] },
+ "COLLECTIBLES": [
+  { "id": "hearts", "label": "Pieces of Heart", "total": 36, "glyph": "heart", "note": "Every 4 make a full Heart Container." },
+  { "id": "skulltulas", "label": "Gold Skulltulas", "total": 100, "glyph": "skull", "note": "Slay the golden spiders; turn tokens in to the Cursed Family in Kakariko." }
+ ]
 }

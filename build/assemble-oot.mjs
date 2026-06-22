@@ -75,6 +75,7 @@ const out = {
   CATS: g.CATS || [],
   ROADMAP: g.ROADMAP || [],
   TIPS: g.TIPS || [],
+  COLLECTIBLES: g.COLLECTIBLES || [],
   terms: g.terms,
   guideSegs,
   postRegionId: g.postRegionId,
