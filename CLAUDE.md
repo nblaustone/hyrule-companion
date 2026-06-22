@@ -426,7 +426,17 @@ layout, `REGION_MAPS` = the per-region coords.
   Temples → Ganon's Castle), appended after the opening → **12 chapters, 217 steps, 112 Stuck hints.** All 9
   Spiritual Stones + Medallions grant-as-item and wire to the Status tracker (assemble-oot's stepGranting). The
   merge (`/tmp/oot-merge.mjs` pattern) strips region `sources`/`corrections` and asserts globally-unique step ids
-  + champion-grant coverage before writing. Verified in-browser, 0 console errors. **Next for OoT:** items/songs
-  reference depth (RUNES is only 6 entries), an enemies/bestiary segment, Heart Pieces/Gold Skulltulas trackers,
-  the Biggoron trade + side content, dungeon maps. OoT is the owner's favorite (beaten many times) →
-  self-verifiable.
+  + champion-grant coverage before writing. **v14.2** (974b8fa): **OoT depth** — `assemble-oot.mjs` now folds
+  OPTIONAL `knowledge/oot/*.json` overlays (like assemble-totk) + rebuilds guideSegs. One workflow
+  (`gen-oot-depth`, 36 agents) → 4 datasets: **Items & Songs** reference (40 cards = 28 items + 12 songs →
+  `items-songs.json` → RUNES, Guide→Items), **Enemies** (6-card combat primer + 21 enemies + 11 boss how-to-win
+  guides → `bestiary.json`, Guide→Enemies; boss `battle` spliced onto the enemy list by name), **Great Fairies**
+  (6 fountains + the spell/upgrade each grants → `great-fairies.json`, Guide→Fairies), **Side quests** (31:
+  Biggoron trade chain · collectibles · minigames → `side-quests.json` w/ stable `sq_<slug>` ids, Guide→Quests).
+  OoT Guide went **3→6 segments** (Items·Tips·Fairies·Quests·Enemies·Settings). Cross-game copy fixes (neutral
+  for all 3): Enemies default lede dropped "flurry rush" (BotW-only); Items lede dropped "shrine"; FairiesView
+  lede is spell-aware when fairies grant magic. Meta stripped at merge (v13.2 lesson). Verified in-browser, 0
+  console errors, 0 leaks. **Next for OoT (optional polish):** Heart Pieces/Gold Skulltula counters (Status
+  collectibles), an Items-tab equipment catalog (Compendium), dungeon maps. **OoT is now at strong parity** —
+  full main quest + Items/Enemies/Fairies/Quests reference. OoT is the owner's favorite → self-verifiable. The
+  shrine-progress overview map + cooking are deliberately N/A for OoT (no shrines/cooking system).
