@@ -1,0 +1,364 @@
+{
+ "items": [
+  {
+   "id": "fairy-slingshot",
+   "name": "Fairy Slingshot",
+   "glyph": "bow",
+   "from": "Treasure chest inside the Great Deku Tree (your first dungeon, as young Link).",
+   "what": "A child's ranged weapon that fires Deku Seeds. Stuns small enemies and hits faraway switches, eyes, and ropes.",
+   "tip": "Shoot the spiked ladder-ropes and eye switches in the Deku Tree; later snipe the eye above doors to open them.",
+   "kind": "item"
+  },
+  {
+   "id": "bomb-bag",
+   "name": "Bomb Bag (Bombs)",
+   "glyph": "bomb",
+   "from": "Big treasure chest in Dodongo's Cavern (holds 20 bombs; upgradable to 30 and 40 via the Hot Rodder Goron in Goron City and the Bombchu Bowling Alley).",
+   "what": "Lets you carry and throw Bombs that blast cracked walls/boulders, expose secrets, and damage enemies.",
+   "tip": "Bomb cracked walls everywhere — many Great Fairy fountains, grottos, and shortcuts hide behind them.",
+   "kind": "item"
+  },
+  {
+   "id": "bombchu",
+   "name": "Bombchu",
+   "glyph": "bomb",
+   "from": "Found in dungeon chests, or buy from the Bombchu Shop in the Back Alley of Hyrule Castle Town (child only, open at night; you need the Adult's Wallet to afford a pack).",
+   "what": "A wind-up mouse bomb that drives along floors, walls, and ceilings before exploding — reaches what a thrown bomb can't.",
+   "tip": "Send one up a wall or across a gap to hit a switch or cracked wall you can't reach by hand.",
+   "kind": "item"
+  },
+  {
+   "id": "fairy-bow",
+   "name": "Fairy Bow",
+   "glyph": "bow",
+   "from": "Big treasure chest in the Forest Temple (adult Link's first dungeon).",
+   "what": "The adult bow. Fires arrows for long-range damage and hits distant switches, eye targets, and weak points.",
+   "tip": "Shoot the twisting-corridor and painting puzzles in the Forest Temple; later the base for Fire, Ice, and Light Arrows.",
+   "kind": "item"
+  },
+  {
+   "id": "fire-arrows",
+   "name": "Fire Arrows",
+   "glyph": "bow",
+   "from": "Lake Hylia, as adult: stand on the plaque/platform above the Water Temple entrance and shoot the sun the moment it rises.",
+   "what": "Arrows wreathed in flame that ignite torches, burn webs and ice, and deal extra fire damage.",
+   "tip": "Light far-off torches from a distance, and melt ice obstacles in the Ice Cavern and Water Temple area.",
+   "kind": "item"
+  },
+  {
+   "id": "ice-arrows",
+   "name": "Ice Arrows",
+   "glyph": "bow",
+   "from": "Prize for clearing the Gerudo Training Ground (Gerudo's Fortress, adult).",
+   "what": "Arrows that freeze enemies solid on hit. Largely optional — not needed to finish the game.",
+   "tip": "Freeze a tough enemy in place to line up a follow-up hit; handy in the Training Ground itself.",
+   "kind": "item"
+  },
+  {
+   "id": "light-arrows",
+   "name": "Light Arrows",
+   "glyph": "bow",
+   "from": "Given by Princess Zelda (revealed from Sheik) at the Temple of Time after you clear the five adult temples and awaken the Sages.",
+   "what": "Holy arrows of pure light that devastate evil enemies — the key weapon against Ganondorf and Ganon.",
+   "tip": "Stun Ganondorf with a Light Arrow during his fight, then close in with the sword.",
+   "kind": "item"
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "leaf",
+   "from": "Treasure chest inside Jabu-Jabu's Belly (young Link only).",
+   "what": "A throwing weapon that stuns enemies, cuts ropes, and grabs distant items/switches before returning to you.",
+   "tip": "Stun the jellyfish-like enemies and hit far switches in Jabu-Jabu; great for snagging out-of-reach pickups.",
+   "kind": "item"
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "stasis",
+   "from": "Win the gravedigging race against Dampé's ghost in the Kakariko Graveyard (adult Link).",
+   "what": "A chain-launched grapple that pulls Link to wooden targets/posts and yanks distant enemies and items toward him.",
+   "tip": "Grapple to tree trunks, signs, and treasure to cross gaps; stun and reel in enemies from afar.",
+   "kind": "item"
+  },
+  {
+   "id": "longshot",
+   "name": "Longshot",
+   "glyph": "stasis",
+   "from": "Treasure chest in the Water Temple, in the room where you fight Dark Link.",
+   "what": "An upgraded Hookshot with roughly twice the reach — same grapple/pull function, much greater range.",
+   "tip": "Use the extra reach for far targets the Hookshot can't touch, including the Biggoron's Sword trade and Water Temple puzzles.",
+   "kind": "item"
+  },
+  {
+   "id": "megaton-hammer",
+   "name": "Megaton Hammer",
+   "glyph": "sword",
+   "from": "Treasure chest in the Fire Temple (adult), after freeing the trapped Gorons.",
+   "what": "A massive hammer that smashes rusted switches and cracked black stone, and pounds armored foes flat.",
+   "tip": "Pound the rusted switches in the Fire Temple, and shatter the red boulders that block Death Mountain Crater paths.",
+   "kind": "item"
+  },
+  {
+   "id": "lens-of-truth",
+   "name": "Lens of Truth",
+   "glyph": "eye",
+   "from": "Treasure chest at the Bottom of the Well in Kakariko (young Link), after defeating Dead Hand.",
+   "what": "Reveals invisible things — hidden enemies, fake walls, secret platforms and chests — while it drains Magic.",
+   "tip": "Essential in the Shadow Temple: hold it up to expose invisible bridges and walk across the empty-looking gaps.",
+   "kind": "item"
+  },
+  {
+   "id": "magic-beans",
+   "name": "Magic Beans",
+   "glyph": "leaf",
+   "from": "Buy from the Bean Seller at Zora's River (10 rupees for the first, rising by 10 each up to 100 for the tenth).",
+   "what": "Plant one in patches of soft soil as young Link; as an adult, each sprouts into a leafy platform that lifts or carries you.",
+   "tip": "Plant beans in soft soil during childhood, then ride the grown plants as an adult to reach Heart Pieces and high ledges.",
+   "kind": "item"
+  },
+  {
+   "id": "dins-fire",
+   "name": "Din's Fire",
+   "glyph": "fairy",
+   "from": "Great Fairy Fountain on the Hyrule Castle ledge (bomb the corner rock, crawl in) — young Link.",
+   "what": "A spell that bursts a ring of fire around Link, hitting all nearby enemies and lighting every torch at once.",
+   "tip": "Stand on an unlit torch puzzle and cast once to light them all together; also clears swarms of close enemies.",
+   "kind": "item"
+  },
+  {
+   "id": "farores-wind",
+   "name": "Farore's Wind",
+   "glyph": "fairy",
+   "from": "Great Fairy Fountain behind a bombable wall in Zora's Fountain.",
+   "what": "A spell that sets a warp point inside a dungeon; cast again to teleport back to it — only works in dungeons with a map.",
+   "tip": "Drop a warp at a dungeon's start before a long detour so a death or wrong turn doesn't cost you the whole trek.",
+   "kind": "item"
+  },
+  {
+   "id": "nayrus-love",
+   "name": "Nayru's Love",
+   "glyph": "fairy",
+   "from": "Great Fairy Fountain behind a bombable wall at the Desert Colossus (near the Spirit Temple).",
+   "what": "A spell that surrounds Link in a crystal shield, blocking all damage (you can still be knocked back) until Magic runs out.",
+   "tip": "Cast it before a tough boss or the Iron Knuckles for a window of total invincibility.",
+   "kind": "item"
+  },
+  {
+   "id": "bottle",
+   "name": "Empty Bottle",
+   "glyph": "bag",
+   "from": "Four total: Lon Lon Ranch Super Cucco game, the Kakariko Cucco Lady, the Ruto's-Letter bottle underwater at Lake Hylia, and the 10 Big Poes reward.",
+   "what": "All-purpose containers. A bottle can hold fairies, potions (red/green/blue), Lon Lon Milk, bugs, fish, Blue Fire, Poes, or fairy souls.",
+   "tip": "Always carry a captured fairy — if Link dies with one bottled, it revives him with 8 hearts automatically.",
+   "kind": "item"
+  },
+  {
+   "id": "iron-boots",
+   "name": "Iron Boots",
+   "glyph": "shield",
+   "from": "Treasure chest in the Ice Cavern (adult), beyond Zora's Domain.",
+   "what": "Heavy boots that sink Link underwater so he can walk along the bottom; also anchor him against wind and pull.",
+   "tip": "Equip them to descend and explore the flooded floors of the Water Temple; swap them off to float back up.",
+   "kind": "item"
+  },
+  {
+   "id": "hover-boots",
+   "name": "Hover Boots",
+   "glyph": "shield",
+   "from": "Treasure chest in the Shadow Temple (adult), after defeating Dead Hand.",
+   "what": "Boots that let Link skate briefly across thin air after he steps off a ledge — a short hover with no traction.",
+   "tip": "Run off an edge and drift across a gap that's too wide to jump in the Shadow Temple and Ganon's Castle.",
+   "kind": "item"
+  },
+  {
+   "id": "goron-tunic",
+   "name": "Goron Tunic",
+   "glyph": "shield",
+   "from": "Free from Link the Goron in Goron City (adult), or buy it at the Goron Shop for 200 rupees.",
+   "what": "A red tunic that protects Link from extreme heat, letting him survive Death Mountain Crater and the Fire Temple.",
+   "tip": "Wear it before entering the Fire Temple or the Crater — without it the heat drains your hearts.",
+   "kind": "item"
+  },
+  {
+   "id": "zora-tunic",
+   "name": "Zora Tunic",
+   "glyph": "shield",
+   "from": "Free from King Zora after you thaw him with Blue Fire (adult), or buy it at the Zora Shop for 300 rupees.",
+   "what": "A blue tunic that lets Link breathe underwater indefinitely, so he can swim and dive without drowning.",
+   "tip": "Equip it before the Water Temple so you never have to surface for air mid-puzzle.",
+   "kind": "item"
+  },
+  {
+   "id": "silver-gauntlets",
+   "name": "Silver Gauntlets",
+   "glyph": "key",
+   "from": "Treasure chest in the Spirit Temple after defeating the Iron Knuckle (reachable as young Link via the Requiem of Spirit).",
+   "what": "Strength-boosting gauntlets that let Link lift heavy silver/black blocks he otherwise couldn't budge.",
+   "tip": "Push the big block at the Spirit Temple entrance to open the path forward and unite the child/adult halves.",
+   "kind": "item"
+  },
+  {
+   "id": "golden-gauntlets",
+   "name": "Golden Gauntlets",
+   "glyph": "key",
+   "from": "Treasure chest in Ganon's Castle (the Shadow/silver-barrier area), as adult Link.",
+   "what": "The ultimate strength upgrade — lets Link lift and hurl enormous pillars far beyond the Silver Gauntlets' limit.",
+   "tip": "Use them to heave the giant black pillar blocking the way in Ganon's Castle.",
+   "kind": "item"
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "Big treasure chest in the Spirit Temple (adult half).",
+   "what": "A polished shield that reflects light and magical beams back at their source — a puzzle and combat tool.",
+   "tip": "Catch sunlight and aim the beam onto sun-faced statues and frozen Stalfos to open paths and stun foes.",
+   "kind": "item"
+  },
+  {
+   "id": "hylian-shield",
+   "name": "Hylian Shield",
+   "glyph": "shield",
+   "from": "Buy at the Castle Town Bazaar for ~80 rupees, or grab it free from a flower-marked grave in the Kakariko Graveyard at night.",
+   "what": "The big knight's shield. Adult Link wields it normally; it blocks attacks the small Deku/wooden shields can't, and it won't burn.",
+   "tip": "Equip it for the adult game — it deflects strong projectiles and survives fire that destroys the Deku Shield.",
+   "kind": "item"
+  },
+  {
+   "id": "biggorons-sword",
+   "name": "Biggoron's Sword",
+   "glyph": "sword",
+   "from": "Reward for finishing the long Biggoron trade quest (Cucco Lady → ... → World's Finest Eye Drops → Claim Check), redeemed at Biggoron on Death Mountain.",
+   "what": "A two-handed great sword that hits twice as hard as the Master Sword and — unlike the Giant's Knife — never breaks.",
+   "tip": "Swing it two-handed for big damage on bosses, but remember you can't hold a shield while it's drawn.",
+   "kind": "item"
+  },
+  {
+   "id": "magic-meter",
+   "name": "Magic Meter",
+   "glyph": "gem",
+   "from": "The base meter is a gift from the Great Fairy at Death Mountain's summit (with the Spin Attack); Double Magic comes from the Great Fairy in Death Mountain Crater (behind boulders broken with the Megaton Hammer).",
+   "what": "Your green Magic Power bar — the fuel for the Slingshot's special, the three spells, Fire/Light Arrows, and the Lens of Truth.",
+   "tip": "Refill it with Magic Jars or a Green Potion; Double Magic doubles the bar so you can cast far more before running dry.",
+   "kind": "item"
+  },
+  {
+   "id": "ocarina",
+   "name": "Ocarina of Time",
+   "glyph": "book",
+   "from": "Start with the Fairy Ocarina (Saria gives it as you leave Kokiri Forest); upgraded to the Ocarina of Time when Princess Zelda tosses it to you as she flees the castle with Impa.",
+   "what": "The titular instrument. Play learned songs on it to warp across Hyrule, change day to night, open the Door of Time, summon storms, and trigger countless puzzles.",
+   "tip": "Learn the Sun's Song early to flip day/night on demand, and grab the warp songs to fast-travel between regions.",
+   "kind": "item"
+  },
+  {
+   "id": "zeldas-lullaby",
+   "name": "Zelda's Lullaby",
+   "glyph": "stasis",
+   "from": "Impa, just outside Hyrule Castle (after meeting Princess Zelda)",
+   "what": "The song of Hyrule's Royal Family. Played at Triforce crests, it opens doors and triggers events.",
+   "tip": "Play it on Triforce symbols to unblock progress (e.g. the Goron City crest, Zora's Domain waterfall) and to enter the Royal Family's Tomb in the graveyard.",
+   "kind": "song"
+  },
+  {
+   "id": "sarias-song",
+   "name": "Saria's Song",
+   "glyph": "stasis",
+   "from": "Saria, deep in the Sacred Forest Meadow (Lost Woods)",
+   "what": "Magically contacts Saria, who gives a hint about what to do next. Also pleases certain characters.",
+   "tip": "Play it to get a free next-step hint anytime you're lost; also needed to win over the Goron leader Darunia in Goron City.",
+   "kind": "song"
+  },
+  {
+   "id": "eponas-song",
+   "name": "Epona's Song",
+   "glyph": "stasis",
+   "from": "Malon at Lon Lon Ranch (talk to her, then pull out the ocarina)",
+   "what": "Summons the horse Epona to your side; also fills empty bottles with Lon Lon Milk and calms her.",
+   "tip": "As an adult, learn it to call Epona and jump the ranch fences to escape with your horse.",
+   "kind": "song"
+  },
+  {
+   "id": "suns-song",
+   "name": "Sun's Song",
+   "glyph": "stasis",
+   "from": "Found in the Royal Family's Tomb, Kakariko Graveyard (read the inscription; enter via Zelda's Lullaby)",
+   "what": "Instantly toggles between day and night; also freezes ReDeads and Gibdos in place.",
+   "tip": "Use it to skip to the time you need (shops, ghosts, gravediggers) and to paralyze ReDeads before they grab you.",
+   "kind": "song"
+  },
+  {
+   "id": "song-of-time",
+   "name": "Song of Time",
+   "glyph": "stasis",
+   "from": "Princess Zelda (taught via vision after she tosses you the Ocarina of Time at the castle drawbridge)",
+   "what": "Opens the Door of Time, and makes blue Time Blocks appear or vanish.",
+   "tip": "Required to open the Door of Time and claim the Master Sword; replay it on blue blocks to solve dungeon puzzles.",
+   "kind": "song"
+  },
+  {
+   "id": "song-of-storms",
+   "name": "Song of Storms",
+   "glyph": "stasis",
+   "from": "Guru-Guru, the windmill man, inside the Kakariko Village windmill (as an adult)",
+   "what": "Summons rain. Played at certain spots it fills wells, drains the windmill, exposes grottos, or refills a Magic Bean spot.",
+   "tip": "Play it as a child at the bottom of the Kakariko well to drain it, opening the path to the Bottom of the Well dungeon.",
+   "kind": "song"
+  },
+  {
+   "id": "minuet-of-forest",
+   "name": "Minuet of Forest",
+   "glyph": "stasis",
+   "from": "Sheik, at the entrance to the Sacred Forest Meadow (adult)",
+   "what": "Warp song. Teleports you to the Sacred Forest Meadow, right by the Forest Temple entrance.",
+   "tip": "Use it to fast-travel straight to the Forest Temple instead of crossing the Lost Woods.",
+   "kind": "song"
+  },
+  {
+   "id": "bolero-of-fire",
+   "name": "Bolero of Fire",
+   "glyph": "stasis",
+   "from": "Sheik, in Death Mountain Crater (reached via the Hookshot over the broken bridge)",
+   "what": "Warp song. Teleports you to Death Mountain Crater, near the Fire Temple entrance.",
+   "tip": "Warp here to reach the Fire Temple instantly and skip the long climb up Death Mountain.",
+   "kind": "song"
+  },
+  {
+   "id": "serenade-of-water",
+   "name": "Serenade of Water",
+   "glyph": "stasis",
+   "from": "Sheik, in the Ice Cavern after you grab the Iron Boots",
+   "what": "Warp song. Teleports you to Lake Hylia, beside the entrance to the Water Temple.",
+   "tip": "Warp here to reach the Water Temple; pair the trip with the Iron Boots and Zora Tunic you'll need inside.",
+   "kind": "song"
+  },
+  {
+   "id": "nocturne-of-shadow",
+   "name": "Nocturne of Shadow",
+   "glyph": "stasis",
+   "from": "Sheik, outside Kakariko Village (cutscene after clearing the Water Temple)",
+   "what": "Warp song. Teleports you to the Kakariko Graveyard, by the Shadow Temple entrance.",
+   "tip": "Learn it by returning to a burning Kakariko after the Water Temple, then warp here to start the Shadow Temple.",
+   "kind": "song"
+  },
+  {
+   "id": "requiem-of-spirit",
+   "name": "Requiem of Spirit",
+   "glyph": "stasis",
+   "from": "Sheik, at the Desert Colossus (your first visit, after crossing the Haunted Wasteland)",
+   "what": "Warp song. Teleports you to the Desert Colossus, in front of the Spirit Temple.",
+   "tip": "Once learned, warp straight to the Colossus so you never have to re-cross the Haunted Wasteland.",
+   "kind": "song"
+  },
+  {
+   "id": "prelude-of-light",
+   "name": "Prelude of Light",
+   "glyph": "stasis",
+   "from": "Sheik, at the Temple of Time (after you complete the Forest Temple)",
+   "what": "Warp song. Teleports you to the Temple of Time in Hyrule Castle Town.",
+   "tip": "Use it to return to the Master Sword pedestal to switch between child and adult Link.",
+   "kind": "song"
+  }
+ ]
+}

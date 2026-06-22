@@ -2247,7 +2247,171 @@
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "Stalchild",
+    "tier": "common",
+    "tactic": "Skeletal child that rises from Hyrule Field at night; just slash it twice with your sword, or play the Sun's Song to bring back daytime and make them vanish.",
+    "drops": "Rupees (bigger Stalchildren can drop blue Rupees)"
+   },
+   {
+    "name": "ReDead",
+    "tier": "common",
+    "tactic": "Its moan paralyzes you and it latches on to drain hearts (mash A/B to break the grab) — play the Sun's Song to freeze it, or backflip away, then strike from behind; a Deku Nut also stuns it.",
+    "drops": "Nothing reliable (often nothing)"
+   },
+   {
+    "name": "Lizalfos",
+    "tier": "common",
+    "tactic": "Agile lizard swordsmen (first met in Dodongo's Cavern). Z-target, hold your shield to block their lunges, then counter with a jump attack when they pause.",
+    "drops": "Recovery Hearts"
+   },
+   {
+    "name": "Wolfos",
+    "tier": "common",
+    "tactic": "Wolf that circles and slashes with its claws; Z-target and block, then strike its exposed tail/back when it lunges (a hit there can drop it in one). White Wolfos appear in icy areas.",
+    "drops": "Recovery Hearts"
+   },
+   {
+    "name": "Like Like",
+    "tier": "common",
+    "tactic": "A tube that swallows Link and can eat his shield or tunic — it spits you out on its own, so kill it fast to get your gear back; attack with sword or arrows (or swap your equipment before it spits you out to keep it).",
+    "drops": "Returns the shield/tunic it ate; sometimes Rupees"
+   },
+   {
+    "name": "Keese",
+    "tier": "common",
+    "tactic": "Small bats that swoop in; one sword swing, slingshot pellet, or arrow drops them. Fire and Ice Keese inflict that element, so block or hit them at range.",
+    "drops": "Nothing reliable"
+   },
+   {
+    "name": "Skulltula",
+    "tier": "common",
+    "tactic": "Wall spider armored on its back; wait for it to flip and expose its soft underside, then slash it. Gold Skulltulas drop a token instead — hit them and grab it.",
+    "drops": "Normal: nothing; Gold Skulltula: a Gold Skulltula Token"
+   },
+   {
+    "name": "Stalfos",
+    "tier": "mini-boss",
+    "tactic": "Armed skeleton that guards with its shield; Z-target and wait for it to drop its guard or finish a swing, then jump-attack. Backflip/sidehop to dodge its lunges.",
+    "drops": "Recovery Hearts; clears the room to advance"
+   },
+   {
+    "name": "Iron Knuckle",
+    "tier": "mini-boss",
+    "tactic": "Armored axe-wielder that hits like a truck. Z-target, dart in, and bait an axe swing — back away as it swings, then land one jump attack and retreat. Repeat; it loses its armor and speeds up.",
+    "drops": "Clears the room / opens the way forward",
+    "battle": "Bring your strongest blade — the Biggoron's Sword (or at least the Master Sword) ends this far faster than the Kokiri Sword ever could, and keep a bottled fairy or a charged Nayru's Love handy, because one axe hit hurts brutally (about 4 hearts — enough to nearly kill you early on). Wake the seated knight by hitting it with an arrow or a sword slash, then Z-target and respect its range: it's slow but its huge axe can nearly kill you in a swing. Don't trade blows — bait the overhead chop, then sidehop or backflip out of reach. When the axe slams down and sticks in the floor, dash in and land a couple of hits in that opening, then dodge out again before it recovers. After enough damage its armor shatters and it speeds up, swinging more often, so stay patient and keep circling rather than getting greedy. If you get hurt, duck behind a column or the throne — its axe will smash it and shake loose a few recovery hearts. Whittle it down with that bait-dodge-punish loop and it collapses — netting a Heart Container. (In the Spirit Temple's second half this foe is a brainwashed Nabooru in disguise; the tactics are identical.)"
+   },
+   {
+    "name": "Dead Hand",
+    "tier": "mini-boss",
+    "tactic": "Let the grasping Hands grab you on purpose; mash A/B free as the long-necked head lunges down to bite, then slash its face. Repeat until it dies.",
+    "drops": "Lens of Truth (Bottom of the Well); also appears in the Shadow Temple"
+   },
+   {
+    "name": "Dark Link",
+    "tier": "mini-boss",
+    "tactic": "Your mirror image who parries normal sword swings. Don't Z-target — circle and stab from the side; or hammer him with the Megaton Hammer, Biggoron's Sword, or Din's Fire, which he can't block.",
+    "drops": "Clears the Water Temple miniboss room to continue",
+    "battle": "Bring the Megaton Hammer (or Din's Fire) — they're the cheat codes here, since Dark Link can't mimic or block either, and a fairy in a bottle is good insurance. The fight starts when you cross the empty mirror room toward the far locked door: turn around and your own shadow drops in. He copies Link's moveset and shares your health, so the number of hits to kill him equals your current Heart Containers — and he counters Z-targeted sword swings (your blades just clash) and punishes every forward thrust/stab (he hops onto the blade and pins you). So DON'T lock on and poke. The reliable melee loop is to run AT him swinging WITHOUT Z-targeting — the horizontal slash connects before he can mirror it. Better still, use Din's Fire whenever you have magic (unblockable, hits every time), or just walk up and swing the Megaton Hammer or Biggoron's Sword, which shred him (and Biggoron's reach stops him from jumping the blade). Whittle his hearts down and he bursts; the barred door unlocks, and the chest beyond holds the Longshot."
+   },
+   {
+    "name": "Queen Gohma",
+    "tier": "boss",
+    "tactic": "Giant spider in the Great Deku Tree. When her single eye glows red, hit it with the Slingshot (or a Deku Nut) to stun her, then rush in with your sword. Watch for the Gohma Larva she lays on the ceiling.",
+    "drops": "Heart Container; clears the Great Deku Tree",
+    "battle": "Bring the Fairy Slingshot (you won it earlier in the Great Deku Tree) with a full stash of Deku Seeds, and keep some Deku Nuts as backup — a fairy in a bottle helps for your first dungeon, though Gohma is gentle. Step in and look up: aim the Slingshot at the ceiling to make her drop, then keep her Z-targeted. The whole fight is one loop — wait for her single huge eye to glow red (she's winding up to attack), then shoot it with a Deku Seed (a thrown Deku Nut also stuns her). The hit dazes her flat on the floor with the eye exposed; run in and slash the eye with your Kokiri Sword as fast as you can. Repeat. When she scuttles up to the ceiling, wait for the eye to redden and shoot it with the Slingshot — she crashes down for a longer stun and free hits (don't rely on a Deku Nut here; the Slingshot to the red eye is what drops her). If she lays eggs that hatch into Gohma Larvae, cut them down with a quick spin or slash, then get back to the eye. Want it over fast: jab a lit Deku Stick into the exposed eye — a Deku Stick deals double the Kokiri Sword's damage, and a jump-attack adds another 2x (so ~4x total), ending her in well under a minute. A few stun-and-slash cycles kills her; grab the Heart Container she leaves and step into the blue warp."
+   },
+   {
+    "name": "King Dodongo",
+    "tier": "boss",
+    "tactic": "As he inhales for his fire breath, throw a Bomb into his open mouth — it blows up inside, stuns him, and you slash him; repeat about four times. Avoid his rolling body.",
+    "drops": "Heart Container; clears Dodongo's Cavern",
+    "battle": "Bring a full stock of Bombs (or Bombchu) — this is the one fight you literally cannot win without them, so top up from the Bomb Flowers in the room's corners if you run dry. King Dodongo lumbers around the central lava pit with only two attacks: he curls into a ball and rolls around the room's perimeter, and he rears back, inhales a huge breath, then spits a wall of fire. That inhale is your whole game plan. The moment he sucks in air, lob a bomb straight into his open mouth (Z-target him to aim); he swallows it, it detonates inside, and he flops down stunned — run in and slash his face with your sword before he recovers. Repeat that bomb-in-the-mouth-then-slash cycle about three or four times to kill him (fewer if you've got the Master Sword later — at this point your Kokiri Sword takes the full count). To survive between openings, dodge the roll by standing right at the inner edge of the lava so he barrels harmlessly past, or tuck into a corner; if you happen to have the Hylian Shield you can crouch and tank the roll, but never get caught in the open by his fire breath. When he dies he topples into the lava — grab the Heart Container, then step into the blue warp, where Darunia hands you the Goron's Ruby, the Spiritual Stone of Fire."
+   },
+   {
+    "name": "Barinade",
+    "tier": "boss",
+    "tactic": "Jellyfish in Jabu-Jabu. Use the Boomerang to cut the tentacles anchoring it to the ceiling, then boomerang its core to stun it and finish with your sword. Mind the spinning Bari around it.",
+    "drops": "Heart Container; clears Inside Jabu-Jabu's Belly",
+    "battle": "Bring the Boomerang you win in this dungeon (Jabu-Jabu's Belly) — it's the whole fight — plus a stock of Deku Sticks and a bottled fairy for insurance. Barinade's lightning CANNOT be blocked by your shield, so you'll be dodging, not guarding. Open by Z-targeting the three cords tethering Barinade to the ceiling and hurling the Boomerang to sever them; once it drops to the floor, its ring of Bari jellyfish spins around the core. Keep your distance and keep throwing the Boomerang — let it slice through the spinning Bari until it punches past them and stuns the core. The moment Barinade freezes, close in and hit the core with Deku Sticks (they hit for double the Kokiri Sword; fall back on the sword if you run out, jump-attacks for extra damage). It then whirls around the room firing electricity from its tentacles — each bolt has a tell, so keep circling and sidestep on the flash. Repeat the loop — Boomerang to stun, Sticks/sword to wound — and smash the room's jars if you need hearts. A few stun-and-strike cycles drops it for the Heart Container."
+   },
+   {
+    "name": "Phantom Ganon",
+    "tier": "boss",
+    "tactic": "Forest Temple. Two phantoms charge out of the paintings — shoot the REAL one (lighter colored) with the Fairy Bow. In phase two, deflect his energy orb back and forth with sword swings (like tennis) until it hits him, then strike.",
+    "drops": "Forest Medallion; Heart Container",
+    "battle": "Bring the Fairy Bow with a full arrow stash, the Master Sword, and a bottled fairy as insurance. Phase 1 is a shooting gallery: don't stand in the center — back against an edge (on one of the Triforce marks) so you can watch the six paintings, then pick out the REAL Phantom Ganon, who charges his horse OUT of a painting (the real one glows brighter/white, often with a purple portal); the fakes just turn away and retreat, never leaping. Bow him as he emerges (you can loose the arrow the instant the portal glows), and three clean hits knock him off the horse and out into the room. If you miss, he scatters an electric blast across the floor — the Triforce corner marks are the safe spots. Phase 2 is a duel of \"dead man's volley\": Z-target him and swing your sword (a bottle works too) to bat his energy ball straight back, then he returns it — keep rallying until he fumbles and the orb staggers him to the floor. Standing closer makes it easier, since he gets less time to react. The moment he crashes down, rush in and hack away with the Master Sword (you can also land a Bow shot while he's stunned for extra damage). Later in the fight he'll charge with his spear/staff for big damage — sidestep or roll clear. Repeat the volley-and-slash until he drops."
+   },
+   {
+    "name": "Volvagia",
+    "tier": "boss",
+    "tactic": "Fire dragon in the Fire Temple. Watch which floor hole it pops from, then smash its head with the Megaton Hammer when it surfaces to stun it, and slash. Dodge its dive attacks and falling rocks.",
+    "drops": "Fire Medallion; Heart Container",
+    "battle": "Bring the Megaton Hammer (the Fire Temple's own item) — it's mandatory, since the killing blow can only land as a melee hit while Volvagia is stunned — plus a stocked bow, and a fairy or two in bottles as insurance. (The Goron Tunic keeps you alive in the Fire Temple's heat on the way in, but the boss platform itself isn't a fire-damage floor, so no extra fire-resist is needed once you're in the arena.) The fight is whac-a-mole on a platform of nine lava holes: Volvagia always dives into the hole right in front of you to start, then a small fire burst telegraphs which hole it'll surface from next — and as its health drops it adds fake-outs, bubbling up to three holes before the real one. When its head pops up, run over and smash it with the Megaton Hammer to stun it, then Z-target and pile on sword slashes before it swings its flaming mane, breathes fire, and retracts with a claw swipe (a jump attack lands extra damage — the hammer's jump hit actually out-damages the sword's). It also flies: in the fire phase it skims low chasing you with fire jets — its head is vulnerable to arrows here, and a hit ends the phase early — and in the boulder phase it climbs to the ceiling and rains rocks that shatter and bounce, so watch the shadows and hang off one of the climbable side walls to ride it out safely. Repeat the hammer-stun-then-slash loop (roughly six stunned Master Sword slashes finish it); when its health is gone the dragon bursts apart, a Heart Container appears, and Darunia awards the Fire Medallion."
+   },
+   {
+    "name": "Morpha",
+    "tier": "boss",
+    "tactic": "Water amoeba in the Water Temple. Back into a corner so its water tentacles can't reach you, then Hookshot/Longshot its red nucleus to yank it out of the water and slash it before it dives back in.",
+    "drops": "Water Medallion; Heart Container",
+    "battle": "Bring the Longshot you found earlier in the Water Temple (the upgraded Hookshot — its long reach is the whole fight) and a bottled fairy or a couple of Red Potions as insurance. Step into the center of the room to trigger Morpha, then immediately retreat to one of the four corners — the water tentacles can't reach you there, so you're safe to take your time. Morpha's body and tentacles are harmless; the only target is the small red nucleus hiding inside a tentacle. Z-target it and fire the Longshot to yank the nucleus out of the water and onto the floor toward you. The clean kill: stand in a corner, keep Longshotting to drag the nucleus into that corner, then turn so you're between it and the open water and slash with your sword. Pinned in the corner it can't flee back to the water, and rapid sword strikes (jump slash, then crouch/power stabs) can finish it fast. If it does escape into the water, just Longshot it out of a tentacle again — as the fight goes on it spawns two tentacles at once, then three, so keep cornering it. When it pops, grab the Heart Container; afterward Ruto awakens as the Sage and gives you the Water Medallion.</battle> <parameter name=\"tier\">boss"
+   },
+   {
+    "name": "Bongo Bongo",
+    "tier": "boss",
+    "tactic": "Shadow Temple. Use the Lens of Truth to see it. Stun its two hands with arrows or the Longshot to make it open its red eye, then arrow the eye to stun it and rush in with your sword (the Hover Boots steady you on the drum).",
+    "drops": "Shadow Medallion; Heart Container",
+    "battle": "Bring the Lens of Truth (mandatory — Bongo Bongo's body and eye are invisible without it, and it must stay active to see him), the Fairy Bow with plenty of arrows, and ideally the Biggoron's Sword plus a fairy or two in bottles for insurance. You fight on a giant drum ringed by poison, against two huge severed hands you can see even without the Lens. The hands pound the drum, and the heavy beat bounces you into the air and ruins your aim. The Hover Boots (the Shadow Temple's own item) can largely cancel that bounce — many players swear by them here, though some find the lost traction makes dodging worse, so they're optional, not required. Z-target one hand and shoot it with an arrow; it turns blue and goes limp, so immediately swing to the other hand and shoot it too. (Shortcut: a single Ice Arrow to one hand freezes it — Bongo Bongo opens his eye while smashing it free, letting you skip stunning both.) With both hands stunned, the eye opens and the whole spirit rushes you with a hand on either side. Keep the Lens active so you can see it, shoot the open eye with an arrow, and it crashes to the drum. Run in and lay into the eye with sword slashes — jump attacks, best with the Biggoron's Sword, do the most damage. Repeat the stun-both-hands, shoot-the-eye, slash cycle until it dissolves into a dark puddle. Grab the Heart Container and step into the blue portal."
+   },
+   {
+    "name": "Twinrova",
+    "tier": "boss",
+    "tactic": "Gerudo witch twins (Spirit Temple). Hold up the Mirror Shield to absorb each sister's fire and ice beams; charge it with three of the SAME element, then fire that back to stun them and attack.",
+    "drops": "Spirit Medallion; Heart Container",
+    "battle": "Equip the Mirror Shield you found earlier in this temple — it is the whole fight; bring a bottled fairy and a few hearts of food as insurance. The witches split: Koume is the Sorceress of Flame (red, fire) and Kotake the Sorceress of Ice (blue). PHASE ONE: wait for a sister to charge and fire her colored beam, then crouch behind the raised Mirror Shield while FACING the witch who shot it (turn or Z-target her to line up your facing) so the beam bounces off your shield into the OTHER sister — fire burns the ice witch, ice freezes the fire witch. Land roughly four crossed hits and they fuse into Twinrova. PHASE TWO: she now fires single elemental blasts — hold the Mirror Shield up and absorb THREE of the SAME element in a row; DODGE any opposite-element blast, because catching the wrong element hurts you and cancels your charge. After the third same-element hit the shield glows and auto-fires a charged beam — aim it at Twinrova to stun/knock her down, then run in and slash her with your sword. Repeat the absorb-three, blast, slash cycle until she falls. Reward: a Heart Container, and Nabooru awakened grants the Spirit Medallion."
+   },
+   {
+    "name": "Ganondorf",
+    "tier": "boss",
+    "tactic": "Atop his tower, he hurls energy balls — bat them back with your sword until one staggers him, then hit him with a Light Arrow to drop him and charge in for sword combos. Repeat through his phases.",
+    "drops": "Triggers the tower escape; leads into the Ganon fight",
+    "battle": "Bring Light Arrows (the must-have for both phases), the Master Sword and your shield, full magic, and stock up on bottled fairies plus extra arrows from the pots before you enter — the door seals behind you. PHASE 1 (Ganondorf, floating over the broken tower floor): Z-targeting won't lock onto him here, so aim by hand. He hurls a ball of magic; swing your sword the instant it nears to bat it back — the \"tennis\" volley (Dead Man's Volley). Rally it back and forth, speeding up each time, until it strikes and stuns him, then immediately fire a Light Arrow to drop him to the central platform. Cross to him (Hover Boots help, or a leaping jump-slash) and slash with your sword until he recovers and floats back up; repeat. Dodge his ground-pound/charged-lightning by standing in a corner, or interrupt the charge with a Light Arrow (a Magic Spin Attack also volleys his multi-shot back). PHASE 2 (Ganon, the beast): a final blow seems to win, then he revives as a massive boar wielding two swords and knocks the Master Sword beyond a ring of flame. Shoot his head/face with a Light Arrow to stun him so his tail — the only weak spot — drops; roll between his legs and strike the tail (Biggoron's Sword or Megaton Hammer hit hardest; Light Arrows or the Longshot work in a pinch). After enough hits the flames fall and Zelda calls out — grab the Master Sword. With Zelda holding Ganon in place, land the finishing blow with the Master Sword itself (only the Master Sword can finish him — a Light Arrow can stun to set it up, but the killing strike must be the blade)."
+   },
+   {
+    "name": "Ganon",
+    "tier": "boss",
+    "tactic": "The beast knocks away your sword. Roll between his legs to reach his glowing tail and strike it (a Light Arrow stuns him so the tail drops in reach), then deliver the finishing blows with the Master Sword as Zelda holds him.",
+    "drops": "Final boss — defeating him ends the game"
+   }
+  ],
+  "basics": [
+   {
+    "title": "Z-Targeting",
+    "body": "Press Z to lock onto an enemy or object. While locked, Link automatically faces the target, strafes around it to keep his shield up, and your sword and items aim straight at it. Z-targeting is the single most important skill in the game — it turns chaotic 3D fights into a readable dance."
+   },
+   {
+    "title": "Shield & the Spin Attack",
+    "body": "Hold R to raise your shield and block most frontal attacks (combine it with Z-targeting to circle a foe safely). For offense, hold B until Link glows, then release to unleash a Spin Attack that hits everything around you — perfect for swarms or a foe who just dropped its guard."
+   },
+   {
+    "title": "Bottles are clutch",
+    "body": "Empty bottles are your lifeline. Catch a Fairy in one and it will auto-revive you the instant you run out of hearts. Bottles also hold caught bugs (for Gold Skulltula soil), fish, Blue Fire (to melt red ice), Lon Lon Milk, and potions — always carry a spare bottle into a dungeon."
+   },
+   {
+    "title": "Deku Nuts & Sticks",
+    "body": "Throw a Deku Nut to flash-stun nearby enemies, opening them up for a free hit. Deku Sticks are a fragile starter weapon, but their real value is fire: light one on a torch or flame and you can carry that fire to ignite other torches, webs, and puzzles."
+   },
+   {
+    "title": "Bombs & arrows",
+    "body": "Bombs blow open cracked walls and floors and trigger heavy switches; lob one into King Dodongo's mouth. Arrows hit distant switches, eye-targets, and flying foes. Later you gain elemental arrows — Fire melts ice, Ice freezes water/enemies, and Light Arrows are needed to stagger Ganondorf and stun Ganon."
+   },
+   {
+    "title": "Sun's Song & the Lens",
+    "body": "Play the Sun's Song to instantly freeze ReDeads and Gibdos (and to flip between day and night). The Lens of Truth, fueled by magic, reveals invisible things — hidden chests, fake walls, secret paths, and Bongo Bongo's body in the Shadow Temple."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -2265,61 +2429,705 @@
  },
  "ECONOMY": null,
  "COMPENDIUM": [],
- "SIDE_QUESTS": [],
+ "SIDE_QUESTS": [
+  {
+   "region": "Big Trades & the Biggoron Sword",
+   "quests": [
+    {
+     "id": "pocket-egg-start-the-trade",
+     "name": "Pocket Egg (start the trade)",
+     "giver": "Anju, the Cucco Lady — Kakariko Village (by the Cucco pen, south of the well)",
+     "location": "Kakariko Village",
+     "reward": "Pocket Egg (hatches into a Pocket Cucco)",
+     "oneLine": "As an adult, get the Pocket Egg from the Cucco Lady to begin the long trade that ends in the unbreakable Biggoron's Sword.",
+     "how": "As adult Link, talk to Anju the Cucco Lady near the Cucco pen in Kakariko Village; she hands you the Pocket Egg to look after. Wait one in-game night (or play the Sun's Song a couple of times) and it hatches into a Pocket Cucco. The whole trade is adult-only and needs Epona for the timed legs."
+    },
+    {
+     "id": "pocket-cucco-wake-talon",
+     "name": "Pocket Cucco → wake Talon",
+     "giver": "Talon — asleep inside the house at the foot of the north stairs, Kakariko Village (the lazy rancher from Lon Lon)",
+     "location": "Kakariko Village",
+     "reward": "(Talon wakes) — then the Cucco Lady will trade you Cojiro",
+     "oneLine": "Use the hatched Pocket Cucco to wake the snoring Talon, proving you can mind a Cucco.",
+     "how": "Carry the Pocket Cucco into the house at the base of the north stairs in Kakariko Village, where Talon is sleeping, and pull it out next to him — its crow wakes him up. Then return to the Cucco Lady."
+    },
+    {
+     "id": "cojiro-the-blue-cucco",
+     "name": "Cojiro (the blue Cucco)",
+     "giver": "Anju, the Cucco Lady — Kakariko Village",
+     "location": "Kakariko Village",
+     "reward": "Cojiro (a rare blue Cucco)",
+     "oneLine": "Impressed you tamed her Cucco, the Cucco Lady gives you Cojiro, her brother's prized blue bird.",
+     "how": "After waking Talon, go back to the Cucco Lady; the Pocket Cucco looks happy, so she trades you Cojiro — her brother's tame blue Cucco that only crows for someone it likes. You'll use Cojiro to reach her brother in the Lost Woods."
+    },
+    {
+     "id": "cojiro-odd-mushroom",
+     "name": "Cojiro → Odd Mushroom",
+     "giver": "Grog, the Cucco Lady's slumped-over brother — Lost Woods (first left from the Kokiri Forest entrance, by the tree stump)",
+     "location": "Lost Woods",
+     "reward": "Odd Mushroom",
+     "oneLine": "Cojiro cheers up the gloomy brother in the woods, who asks you to rush a mushroom to his grandmother.",
+     "how": "Equip Cojiro and walk up to the slumped man (Grog) at the stump in the Lost Woods — take the first left from the Kokiri Forest entrance. The blue Cucco perks him up and he hands you the Odd Mushroom to deliver. Bring Epona for the next dash — the mushroom spoils fast."
+    },
+    {
+     "id": "odd-mushroom-odd-potion-timed-3-min",
+     "name": "Odd Mushroom → Odd Potion (TIMED, 3 min)",
+     "giver": "The old hag — Granny's Potion Shop in Kakariko Village (through the back door of the Medicine Shop)",
+     "location": "Kakariko Village",
+     "reward": "Odd Potion (the N64 'Odd Medicine'; called Odd Poultice in the 3DS remake)",
+     "oneLine": "Race the spoiling mushroom to the potion-shop granny before it rots — you have about three minutes.",
+     "how": "The Odd Mushroom spoils in roughly three minutes, so ride hard to Kakariko Village and give it to the old woman in Granny's Potion Shop (reached through the Medicine Shop's back door). Don't use warp songs — they burn the timer. She brews it into the Odd Potion."
+    },
+    {
+     "id": "odd-potion-poacher-s-saw",
+     "name": "Odd Potion → Poacher's Saw",
+     "giver": "Fado, a Kokiri girl, at the stump — Lost Woods (where Grog was; he's now gone)",
+     "location": "Lost Woods",
+     "reward": "Poacher's Saw",
+     "oneLine": "Bring the finished potion back to the woods, only to find Grog gone — a Kokiri girl there gives you his saw.",
+     "how": "Carry the Odd Potion back to the same stump in the Lost Woods. Grog has vanished — as a non-Kokiri he got lost and turned into a Stalfos — but Fado, the Kokiri girl now standing there, takes the potion and hands you the Poacher's Saw he left behind."
+    },
+    {
+     "id": "poacher-s-saw-broken-goron-s-sword",
+     "name": "Poacher's Saw → Broken Goron's Sword",
+     "giver": "Mutoh, the master carpenter (foreman of the Carpenters) — Gerudo Valley (carpenters' tent by the broken bridge)",
+     "location": "Gerudo Valley",
+     "reward": "Broken Goron's Sword",
+     "oneLine": "Trade the saw to the carpenter boss in Gerudo Valley for a famous broken blade.",
+     "how": "Take the Poacher's Saw to Mutoh, the carpenter foreman by the bridge in Gerudo Valley, and trade it for the Broken Goron's Sword — the legendary Giant's Knife (bought from Medigoron), snapped in two."
+    },
+    {
+     "id": "broken-goron-s-sword-prescription",
+     "name": "Broken Goron's Sword → Prescription",
+     "giver": "Biggoron — top of Death Mountain Trail (the summit, near the Death Mountain Crater entrance)",
+     "location": "Death Mountain Trail",
+     "reward": "Prescription",
+     "oneLine": "Show the broken sword to Biggoron; he'll re-forge it, but first needs eye medicine for his sore eyes.",
+     "how": "Climb to Biggoron at the top of Death Mountain Trail and show him the Broken Goron's Sword. He agrees to repair it, but his eyes are killing him after the eruption — he gives you a Prescription to fill for his eye drops."
+    },
+    {
+     "id": "prescription-eyeball-frog",
+     "name": "Prescription → Eyeball Frog",
+     "giver": "King Zora — Zora's Domain (the throne, once thawed from the red ice)",
+     "location": "Zora's Domain",
+     "reward": "Eyeball Frog",
+     "oneLine": "Fill Biggoron's prescription with King Zora, who hands you a live Eyeball Frog to make the medicine.",
+     "how": "Show the Prescription to King Zora on his throne in Zora's Domain. You must first melt the red ice trapping him using Blue Fire. He gives you the Eyeball Frog, the ingredient for the eye drops — keep it fresh."
+    },
+    {
+     "id": "eyeball-frog-world-s-finest-eyedrops-timed-3-min",
+     "name": "Eyeball Frog → World's Finest Eyedrops (TIMED, ~3 min)",
+     "giver": "The Lake Scientist (professor) — Lakeside Laboratory at Lake Hylia",
+     "location": "Lake Hylia",
+     "reward": "World's Finest Eyedrops",
+     "oneLine": "Rush the fresh Eyeball Frog to the lake professor before it goes off; he makes the eye drops.",
+     "how": "The Eyeball Frog must stay fresh, so hurry it to the scientist at the Lakeside Laboratory on Lake Hylia (about three minutes — don't warp). He uses it to make the World's Finest Eyedrops, which themselves spoil fast."
+    },
+    {
+     "id": "world-s-finest-eyedrops-claim-check-timed-4-min",
+     "name": "World's Finest Eyedrops → Claim Check (TIMED, ~4 min)",
+     "giver": "Biggoron — top of Death Mountain Trail",
+     "location": "Death Mountain Trail",
+     "reward": "Claim Check",
+     "oneLine": "Sprint the warm eye drops all the way back to Biggoron before they spoil; he gives you a Claim Check.",
+     "how": "The eye drops must arrive fresh, so race from Lake Hylia back up to Biggoron on Death Mountain (about four minutes — no warp songs; Epona helps). He uses them and hands you a Claim Check while he forges your sword."
+    },
+    {
+     "id": "claim-check-biggoron-s-sword",
+     "name": "Claim Check → Biggoron's Sword",
+     "giver": "Biggoron — top of Death Mountain Trail (after the forging time passes)",
+     "location": "Death Mountain Trail",
+     "reward": "Biggoron's Sword (a huge two-handed blade, stronger than the Master Sword and unbreakable)",
+     "oneLine": "Wait three days for the forge, then redeem the Claim Check for the mighty, unbreakable Biggoron's Sword.",
+     "how": "Biggoron needs about three days to finish the blade — play the Sun's Song to skip nights (about six times, once per day/night change) or just wait, then bring the Claim Check back to him. He swaps it for the Biggoron's Sword, a two-hand weapon that hits twice as hard as the Master Sword and, unlike the Giant's Knife, never breaks."
+    }
+   ]
+  },
+  {
+   "region": "Collectibles & Trackers",
+   "quests": [
+    {
+     "id": "gold-skulltulas-the-cursed-family",
+     "name": "Gold Skulltulas (The Cursed Family)",
+     "giver": "The Cursed Rich Family, House of Skulltula, southeast Kakariko Village",
+     "location": "All 100 Gold Skulltulas are spread across Hyrule (child and adult eras); rewards are claimed at the House of Skulltula in Kakariko Village",
+     "reward": "Tiered prizes — Adult's Wallet, Stone of Agony, Giant's Wallet, Bombchus, a Piece of Heart, and a repeatable 200-rupee Huge Rupee at 100",
+     "oneLine": "Hunt 100 Gold Skulltula Tokens across Hyrule to lift the spider curse on the greedy rich family in Kakariko.",
+     "how": "Kill each Gold Skulltula and grab the token it drops. They cling to walls and posts; many appear ONLY at night, and you'll hear a rattle when one is near. Hit it with the Hookshot/Longshot (which also yanks the token to you), the Slingshot/Bow, a Boomerang/bomb, or a jump-slash. Return to the House of Skulltula in southeast Kakariko Village to free a family member and claim a prize at each milestone: 10 = Adult's Wallet (holds 200), 20 = Stone of Agony, 30 = Giant's Wallet (holds 500), 40 = Bombchus, 50 = a Piece of Heart, and 100 = a 200-rupee Huge Rupee from the father that refreshes every time you leave and re-enter the house."
+    },
+    {
+     "id": "pieces-of-heart",
+     "name": "Pieces of Heart",
+     "giver": "Various (mini-games, hidden chests, NPCs, and grown bean-plant rides)",
+     "location": "Scattered across all of Hyrule, in both the child and adult eras",
+     "reward": "9 extra Heart Containers (36 pieces / 4) toward Link's 20-heart maximum",
+     "oneLine": "Collect all 36 Pieces of Heart hidden around Hyrule — every 4 forms a full Heart Container.",
+     "how": "Find 36 Pieces of Heart; every four combine into one Heart Container (3 starting hearts + 8 from dungeon bosses + 9 from pieces = 20 hearts max). Sources include mini-games (Fishing Pond, Bombchu Bowling, the Treasure Chest Game, archery ranges, Dampé's Heart-Pounding Gravedigging Tour), song tricks (Sun's Song chest in the Graveyard, Song of Storms / windmill, the Skull Kids' tune in the Lost Woods), and hidden spots — several of the last ones are reachable only by riding grown Magic Bean plants as an adult."
+    },
+    {
+     "id": "big-poes-the-poe-collector",
+     "name": "Big Poes (The Poe Collector)",
+     "giver": "The Poe Collector, at the Ghost Shop (the former guard house just outside the Hyrule Castle Town Market entrance, adult era)",
+     "location": "10 Big Poes haunt adult-era Hyrule Field; sold at the Ghost Shop by the Market drawbridge",
+     "reward": "An empty Bottle (the 4th bottle) at 1,000 points, plus 50 Rupees per Big Poe",
+     "oneLine": "As an adult, ride Epona across Hyrule Field to ambush all 10 Big Poes and sell their souls to the Poe Collector for a Bottle.",
+     "how": "Big Poes only spawn while you're riding Epona, so finish the Epona / Lon Lon Ranch quest first and get the Fairy Bow from the Forest Temple. Ride to each of the 10 spawn spots in Hyrule Field, shoot the Big Poe from horseback with the Bow, then scoop its soul into an empty bottle. Sell each at the Ghost Shop (the old guard house by the Market gate) for 50 Rupees and 100 points; at 1,000 points (all 10) the Poe Collector hands over an empty Bottle. (Note: bottled common-Poe souls are worth far less and don't count toward the bottle.)"
+    },
+    {
+     "id": "magic-beans-soft-soil-spots",
+     "name": "Magic Beans (Soft Soil Spots)",
+     "giver": "The Bean Salesman, on the riverbank at the entrance to Zora's River",
+     "location": "10 patches of soft soil scattered across Hyrule",
+     "reward": "Grown bean-leaf platforms that carry adult Link up to Pieces of Heart, Gold Skulltulas, rupees, and shortcuts",
+     "oneLine": "Buy Magic Beans and plant them in all 10 soft-soil spots as a child so the grown leaf platforms ferry adult Link to hidden prizes.",
+     "how": "Buy beans from the Bean Salesman beside Zora's River (the first costs 10 rupees, each next one 10 more, up to 100 for the tenth — 550 rupees total) and plant one in each of the 10 soft-soil patches as a child: Zora's River (next to the salesman), Kokiri Forest (behind the shop), TWO in the Lost Woods (near the bridge to Kokiri, and near the Forest Stage), the Kakariko Graveyard, the Dodongo's Cavern entrance on the Death Mountain trail, Lake Hylia, Gerudo Valley, Death Mountain Crater (by the warp spot), and Desert Colossus (outside the Spirit Temple). Return as an adult, step onto the sprouted leaf platform, and ride it up to the Piece of Heart, Gold Skulltula, rupees, or shortcut it reaches."
+    },
+    {
+     "id": "biggoron-s-sword-adult-trade-sequence",
+     "name": "Biggoron's Sword (Adult Trade Sequence)",
+     "giver": "Anju the Cucco Lady, Kakariko Village (gives the Pocket Egg to start the chain); the sword itself comes from Biggoron atop Death Mountain",
+     "location": "A 10-trade chain spanning Kakariko, the Lost Woods, Gerudo's Fortress, Death Mountain, Zora's Fountain, and Lake Hylia (adult era)",
+     "reward": "Biggoron's Sword — a two-handed sword that deals double the Master Sword's damage and never breaks",
+     "oneLine": "As an adult, run a long chain of trades — racing the clock on two timed legs — to earn the game's strongest sword.",
+     "how": "Get the Pocket Egg from Anju in Kakariko; it hatches into a Pocket Cucco (use it to wake Talon), which you trade her for Cojiro. Show Cojiro to the sleeping man in the Lost Woods for the Odd Mushroom → rush it (TIMED) to Granny's Potion Shop in Kakariko for the Odd Potion → take it (also part of the same timed leg) to Fado in the Lost Woods for the Poacher's Saw → give that to Mutoh the carpenter foreman near Gerudo's Fortress for the Broken Goron's Sword → show it to Biggoron atop Death Mountain for the Prescription → give that to King Zora (defrost him first) for the Eyeball Frog → race it (TIMED, ~3 min, no warping) to the Lake Scientist at Lake Hylia for the World's Finest Eyedrops → race those (TIMED) back to Biggoron, who gives you the Claim Check. Wait a few in-game days, then show the Claim Check to Biggoron to receive Biggoron's Sword. The two timed legs are the Odd Mushroom→Odd Potion delivery and the Eyeball Frog→Eyedrops→Biggoron delivery."
+    }
+   ]
+  },
+  {
+   "region": "Minigames & Side Spots",
+   "quests": [
+    {
+     "id": "bombchu-bowling-alley",
+     "name": "Bombchu Bowling Alley",
+     "giver": "Bombchu Bowling attendants — shop on the west side of Hyrule Castle Town Market",
+     "location": "Hyrule Castle Town Market (child Link, after Dodongo's Cavern)",
+     "reward": "Rotating prizes: Bigger Bomb Bag (40-bomb upgrade) and a Piece of Heart (each once per file), or Bombchus, Bombs, or a Purple Rupee",
+     "oneLine": "Steer a Bombchu past Cuccos and a spinning blade into the hole to win rotating prizes.",
+     "how": "Opens after you beat King Dodongo. Costs 30 Rupees per play; the prize is revealed after you pay but before you start. Send the Bombchu straight down the lane, then steer it up onto the back wall and into the small hole at the top while it climbs — let it ride the wall rather than aiming head-on. Replay until the Bigger Bomb Bag and the Piece of Heart have both come up (those two are one-time only; the other prizes recur)."
+    },
+    {
+     "id": "treasure-chest-game",
+     "name": "Treasure Chest Game",
+     "giver": "Treasure Chest Shop Manager — Treasure Chest Shop in the Market (open only at night)",
+     "location": "Hyrule Castle Town Market (child Link only)",
+     "reward": "Piece of Heart (first win); a Purple Rupee on later wins",
+     "oneLine": "A gambling minigame of guessing which of two chests holds the key to the next room.",
+     "how": "Pay 10 Rupees, then in each room open the correct one of two chests (one hides the key onward, one a rupee) — guess wrong and you start the run over. Come back as an adult with the Lens of Truth and it's trivial: equip the Lens to see straight through each chest and pick the key every time, clearing all the rooms for the Piece of Heart (a Gossip Stone even hints that 'glasses' beat this game)."
+    },
+    {
+     "id": "heart-pounding-gravedigging-tour",
+     "name": "Heart-Pounding Gravedigging Tour",
+     "giver": "Dampé the gravekeeper — Kakariko Village Graveyard",
+     "location": "Kakariko Graveyard (child Link, after 6:00pm)",
+     "reward": "Random per dig: Rupees, or the one Piece of Heart hidden in the run",
+     "oneLine": "Pay Dampe to dig random graveyard plots, hoping one unearths a Piece of Heart.",
+     "how": "Visit the graveyard at night as a child and pay Dampe 10 Rupees to dig wherever you're standing. The Heart Piece comes up at a RANDOM dig, not a fixed plot — keep paying and digging (the rupees you pull usually keep it profitable) until he strikes the Heart Piece, which pops out of the ground. Important: grab it the moment it appears — there's a bug where leaving the area or saving after it's dug up makes it permanently uncollectable on that file."
+    },
+    {
+     "id": "dampe-s-race-windmill-hut-hookshot",
+     "name": "Dampe's Race (Windmill Hut Hookshot)",
+     "giver": "Dampe's ghost — inside his tomb, Kakariko Graveyard",
+     "location": "Kakariko Graveyard tomb (adult Link)",
+     "reward": "The Hookshot (finish the first race); a Piece of Heart (a separate rerun finished under one minute)",
+     "oneLine": "Chase Dampe's ghost through his burning crypt to win the Hookshot.",
+     "how": "As an adult, pull the gravestone in the back of the graveyard and drop in; light the torch and talk to Dampe's ghost to start. Follow him closely through the crypt (he drops fireballs, so hug the walls) and reach the end before he vanishes — that first finish gives you the Hookshot, no time limit. To get the Piece of Heart you must talk to him and RACE AGAIN, this time crossing the finish in under 60 seconds. Once you have the Longshot, latching its tip to the torch near the exit shaves the seconds you need."
+    },
+    {
+     "id": "lon-lon-ranch-obstacle-course",
+     "name": "Lon Lon Ranch Obstacle Course",
+     "giver": "Malon — Lon Lon Ranch corral",
+     "location": "Lon Lon Ranch (adult Link, after winning Epona from Ingo)",
+     "reward": "A cow, delivered to Link's house in Kokiri Forest",
+     "oneLine": "Race Epona over the ranch's fences to beat Malon's lap time and win a cow.",
+     "how": "After you've won Epona from Ingo (so Malon runs the ranch), talk to Malon in the corral to start: clear two laps over the eight fences in under her ~50-second record. Build up Epona's gallop with the carrots, take each fence straight-on so she clears it without breaking stride, and save carrots for the tall fences (low ones don't need a speed boost). Win and Malon sends a cow to your Kokiri Forest house (play Epona's Song at it for free Lon Lon Milk if you have a bottle)."
+    },
+    {
+     "id": "gerudo-horseback-archery-archery-range",
+     "name": "Gerudo Horseback Archery (archery range)",
+     "giver": "Gerudo guard at the archery range — Gerudo's Fortress",
+     "location": "Gerudo's Fortress archery course (adult Link, on horseback)",
+     "reward": "Piece of Heart (1,000 points); a bigger Quiver (1,500 points)",
+     "oneLine": "Ride Epona down the range shooting targets for points to win a quiver upgrade.",
+     "how": "Free the carpenters and earn the Gerudo Membership Card first, and bring Epona (won at Lon Lon Ranch). Pay 20 Rupees, then gallop the course firing your 20 arrows at the targets — a dead-center hit or a pot is worth 100 points; near-misses score by how close to center you land. Score 1,000 in a run for the Piece of Heart, and 1,500 in a single run for the bigger Quiver (the larger arrow capacity)."
+    },
+    {
+     "id": "gerudo-s-training-ground-ice-arrows",
+     "name": "Gerudo's Training Ground (Ice Arrows)",
+     "giver": "Self-directed mini-dungeon — Gerudo's Fortress",
+     "location": "Gerudo's Fortress (adult Link)",
+     "reward": "The Ice Arrows",
+     "oneLine": "An optional combat-and-puzzle mini-dungeon whose central vault holds the Ice Arrows.",
+     "how": "Needs the Gerudo Membership Card; pay 10 Rupees to enter. Most rooms hand you a Small Key for collecting their Silver Rupees (some timed) or clearing a fight — there are nine keys but only seven are needed. Bring the Fairy Bow, Hookshot/Longshot, Megaton Hammer, Iron Boots, ideally the Lens of Truth, and good Bombchu/arrow stocks. Spend keys on the locked doors working inward to the central chamber, where the chest holds the Ice Arrows."
+    },
+    {
+     "id": "fishing-pond",
+     "name": "Fishing Pond",
+     "giver": "Fishing Pond owner — northeast shore of Lake Hylia",
+     "location": "Lake Hylia (child and adult Link)",
+     "reward": "Piece of Heart (child, a fish ~10 lb or heavier); the Golden Scale (adult, a fish ~13 lb or heavier)",
+     "oneLine": "Pay to cast a rod and reel in a big enough fish for a Heart Piece and the Golden Scale.",
+     "how": "Pay 20 Rupees for the rod. Cast far out, wait for a big fish to bite, then reel in (hold back on the stick) and ease off whenever the line strains so it doesn't snap. As a child land a fish ~10 lb or heavier for the Piece of Heart; as an adult land one ~13 lb or heavier (about four pounds over the standing record) for the Golden Scale, which lets you dive deeper. Note: in the N64 game the Sinking Lure only appears AFTER you've already won the prize, and catching a record fish with it gets you disqualified — stick to the normal lure."
+    },
+    {
+     "id": "the-lost-dog-richard",
+     "name": "The Lost Dog (Richard)",
+     "giver": "Mamamu Yan, the dog's owner — her house in the Market Back Alley",
+     "location": "Hyrule Castle Town Market at night (child Link only)",
+     "reward": "Piece of Heart (first time); a Blue Rupee on later returns",
+     "oneLine": "Find Mamamu Yan's runaway white dog Richard at night and walk him home.",
+     "how": "At night, go to Mamamu Yan's house in the Market's Back Alley; she frets that her dog Richard has run off. Many dogs roam the night streets and any one will trail you, so the trick is finding the right one — Richard is the white dog near a stall by the market entrance. Lead/carry him back to her house for a Piece of Heart the first time (as an adult, Richard has died, so this is child-only)."
+    },
+    {
+     "id": "happy-mask-shop-mask-trading-sequence",
+     "name": "Happy Mask Shop (Mask Trading Sequence)",
+     "giver": "Happy Mask Salesman — Happy Mask Shop, Hyrule Castle Town Market",
+     "location": "Market shop; buyers across Hyrule (child Link only)",
+     "reward": "Free use of the Mask of Truth (reads Gossip Stones); the shop also stocks the Goron/Zora/Gerudo masks afterward",
+     "oneLine": "Borrow and resell a chain of masks to specific townsfolk to unlock the Mask of Truth.",
+     "how": "Borrow each mask in turn and sell it, paying the salesman his cut before he lends the next: Keaton Mask -> the Kakariko gate guard (near the Death Mountain trail); Skull Mask -> the Skull Kid in the Lost Woods; Spooky Mask -> the boy in the Kakariko Graveyard by day; Bunny Hood -> the Running Man in Hyrule Field (he only appears once you have all three Spiritual Stones, i.e. after Jabu-Jabu's Belly — he fills your wallet). Once all four sell, the salesman lets you freely borrow the Mask of Truth, which reads Gossip Stones (and the minds of NPCs/animals)."
+    },
+    {
+     "id": "skull-kid-the-scarecrow-s-song",
+     "name": "Skull Kid & the Scarecrow's Song",
+     "giver": "Skull Kid (Lost Woods) and the scarecrow Bonooru (Lake Hylia)",
+     "location": "Lost Woods and Lake Hylia",
+     "reward": "Piece of Heart from the Skull Kid (Saria's Song); the Scarecrow's Song summons Pierre to Hookshot-reach high spots (e.g. a Heart Piece atop the Lakeside Lab)",
+     "oneLine": "Befriend the lonely Skull Kid with Saria's Song, and teach scarecrow Bonooru a tune you can replay to summon a grappling target.",
+     "how": "In the Lost Woods, stand on the stump across from the lone Skull Kid and play Saria's Song to befriend him for a Piece of Heart. Separately, as a child go to the scarecrow Bonooru at Lake Hylia and play him any 8-note tune to register the Scarecrow's Song; return as an adult and replay that exact tune to summon his partner Pierre anywhere, then Hookshot/Longshot onto Pierre to reach high ledges — such as the roof of the Lakeside Laboratory for a Piece of Heart."
+    },
+    {
+     "id": "biggoron-s-sword-trade-trading-sequence",
+     "name": "Biggoron's Sword Trade (Trading Sequence)",
+     "giver": "Cucco Lady in Kakariko Village (starts the chain) — runs across Hyrule",
+     "location": "Kakariko -> Lost Woods -> Gerudo Valley -> Death Mountain -> Zora's Domain -> Lake Hylia (adult Link)",
+     "reward": "Biggoron's Sword — a two-handed blade that out-damages the Master Sword and never breaks",
+     "oneLine": "A long chain of deliveries — several on a strict timer — that ends in the game's strongest sword.",
+     "how": "Get the Pocket Egg from the Cucco Lady, hatch it and trade up: Pocket Cucco (wake Talon) -> Cojiro -> give Cojiro to Grog in the Lost Woods for the Odd Mushroom. Three legs are TIMED — sprint them: the Odd Mushroom must reach Granny in Kakariko within ~3 minutes; later the Eyeball Frog (from King Zora) must reach the Lake Scientist within ~3 minutes for the World's Finest Eyedrops; then the Eyedrops must reach Biggoron atop Death Mountain within ~4 minutes (don't warp — it spoils). The untimed legs: Odd Potion -> Poacher's Saw -> give it to Mutoh in Gerudo Valley for the Broken Goron's Sword -> show Biggoron for the Prescription -> trade up to the Claim Check, then wait three days and show the Claim Check to Biggoron for the sword."
+    },
+    {
+     "id": "gold-skulltulas-house-of-skulltula",
+     "name": "Gold Skulltulas (House of Skulltula)",
+     "giver": "The cursed family — House of Skulltula, Kakariko Village",
+     "location": "All over Hyrule; redeem tokens at the House of Skulltula (child & adult)",
+     "reward": "Reward at 10/20/30/40/50/100 tokens: Adult Wallet, Stone of Agony, Giant's Wallet, Bombchus, a Piece of Heart, then an endless Huge Rupee",
+     "oneLine": "Slay the 100 hidden Gold Skulltulas and cash their tokens to lift a family's curse.",
+     "how": "There are 100 Gold Skulltulas hidden across Hyrule; kill one (often a Hookshot/Boomerang/arrow target on a wall) and collect the token it drops. Bring tokens to the House of Skulltula in Kakariko, where each cursed family member frees at a threshold: 10 tokens -> Adult's Wallet (200 cap), 20 -> Stone of Agony (buzzes near secrets), 30 -> Giant's Wallet (500 cap), 40 -> Bombchus, 50 -> a Piece of Heart, and 100 (all of them) -> a Huge Rupee (200) you can re-collect each time you re-enter the house."
+    },
+    {
+     "id": "big-poe-ghost-shop",
+     "name": "Big Poe Ghost Shop",
+     "giver": "Poe Collector — the Ghost Shop in Hyrule Castle Town ruins (adult)",
+     "location": "Hyrule Field (catch Big Poes) -> Castle Town Ghost Shop (adult Link, on Epona)",
+     "reward": "An Empty Bottle (after selling 10 Big Poes for 1,000 points); 50 Rupees per Poe along the way",
+     "oneLine": "Hunt the rare Big Poes across Hyrule Field on horseback and sell their spirits for a bottle.",
+     "how": "As an adult, ride Epona around Hyrule Field at night to make Big Poes appear (they fade if you're on foot). Hit one with your bow/sword until it materializes, then catch it in an Empty Bottle. Take each to the Poe Collector at the Ghost Shop in the Castle Town ruins: he pays 50 Rupees and 100 points per Big Poe. Hit 1,000 points (10 Big Poes) and he rewards you with an Empty Bottle, then stops buying."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Great Fairy of Power (Magic Meter & Spin Attack)",
+   "region": "Death Mountain Trail (summit)",
+   "location": "At the very top of Death Mountain Trail, beside the owl (Kaepora Gaebora) at the summit. Bomb the cracked wall next to the owl to open the fountain, then stand on the Triforce/Hylian crest inside and play Zelda's Lullaby. Reachable as CHILD Link once you have Bombs (after Dodongo's Cavern); buy a Hylian Shield first to survive the falling rocks.",
+   "cost": "Grants the MAGIC METER plus the Spin Attack (Magic Spin Slash) ability — bomb the wall by the owl at the Death Mountain summit and play Zelda's Lullaby. (This is the meter that powers every magic spell; the Spin Attack drains it.)"
+  },
+  {
+   "name": "Great Fairy of Magic (Din's Fire)",
+   "region": "Path to Hyrule Castle (Castle Town outskirts)",
+   "location": "On the path up to Hyrule Castle: from the Market, climb the vines, hop past the gate, and follow the path to a 'Dead End' sign with a boulder behind it. Bomb the boulder, crawl in, stand on the Triforce mark and play Zelda's Lullaby. Reachable as CHILD Link (the Death Mountain Great Fairy points you here).",
+   "cost": "Grants DIN'S FIRE (the fire spell — a burst of flame around Link; required to clear the Shadow Temple, so a mandatory pickup) — bomb the boulder at the 'Dead End' on the path to Hyrule Castle and play Zelda's Lullaby."
+  },
+  {
+   "name": "Great Fairy of Magic (Farore's Wind)",
+   "region": "Zora's Fountain",
+   "location": "Southeast corner of Zora's Fountain, behind Lord Jabu-Jabu on a small ledge. Bomb the light-colored brown boulder to blow open the wall, enter, stand on the Triforce and play Zelda's Lullaby. Accessible as CHILD or ADULT Link (you need Bombs and King Zora unfrozen to reach this part of the Fountain).",
+   "cost": "Grants FARORE'S WIND (the warp spell — set a warp point inside a dungeon and warp back to it) — bomb the boulder behind Jabu-Jabu in Zora's Fountain and play Zelda's Lullaby."
+  },
+  {
+   "name": "Great Fairy of Wisdom (Double Magic)",
+   "region": "Death Mountain Crater",
+   "location": "Inside Death Mountain Crater. Near the broken bridge (reach the crater via Darunia's chamber in Goron City or the warp), smash the two large rocks blocking the alcove with the Megaton Hammer to reveal the fountain, then play Zelda's Lullaby on the Triforce. ADULT Link only (needs the Megaton Hammer from the Fire Temple).",
+   "cost": "Grants the DOUBLE MAGIC upgrade (doubles the Magic Meter's length) — Megaton-Hammer the rocks by the bridge in Death Mountain Crater and play Zelda's Lullaby."
+  },
+  {
+   "name": "Great Fairy of Kindness / Protection (Nayru's Love)",
+   "region": "Desert Colossus (Spirit Temple)",
+   "location": "At the Desert Colossus in front of the Spirit Temple, near a pair of palm trees. Bomb the cracked section of the stone wall to open the fountain, enter, and play Zelda's Lullaby on the Triforce. ADULT Link (you arrive here for the Spirit Temple).",
+   "cost": "Grants NAYRU'S LOVE (the protective-barrier spell — a temporary crystal shield that blocks all damage) — bomb the cracked wall by the palm trees in front of the Spirit Temple and play Zelda's Lullaby."
+  },
+  {
+   "name": "Great Fairy of Courage (Double Defense)",
+   "region": "Ganon's Castle (exterior, in the void where Hyrule Castle stood)",
+   "location": "On the ledge outside Ganon's Castle, a large stone pillar/boulder blocks an alcove. Lift it with the Golden Gauntlets (obtained inside Ganon's Castle), enter, and play Zelda's Lullaby on the Triforce. ADULT Link, late game.",
+   "cost": "Grants DOUBLE DEFENSE (Link takes half damage from all attacks, effectively doubling his survivability) — lift the pillar outside Ganon's Castle with the Golden Gauntlets and play Zelda's Lullaby."
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
  "KOROKS": null,
  "RUNES": [
   {
-   "id": "kokiri_sword",
-   "name": "Kokiri Sword",
-   "glyph": "sword",
-   "from": "The training-ground maze behind the rock-blocked hole in Kokiri Forest.",
-   "what": "Your first blade as a child. Crawl through the hole and cross the maze, dodging the rolling boulder, to find the chest.",
-   "tip": "Roll (A while running) to move fast and break the boulder's timing. You keep this sword until you draw the Master Sword."
-  },
-  {
-   "id": "deku_shield",
-   "name": "Deku Shield",
-   "glyph": "shield",
-   "from": "Bought from the Kokiri Shop for 40 Rupees (cut grass and lift rocks for the money).",
-   "what": "A wooden shield you hold up with R. Needed to deflect the Deku Tree's webs and Deku Scrub seeds.",
-   "tip": "It burns if a flame touches it — buy a spare. Mido won't let you into the Deku Tree until you have BOTH a sword and a shield."
-  },
-  {
-   "id": "fairy_slingshot",
+   "id": "fairy-slingshot",
    "name": "Fairy Slingshot",
    "glyph": "bow",
-   "from": "A chest inside the Great Deku Tree.",
-   "what": "Fires Deku Seeds at distant targets, switches, eyes, and the ladder-cord. Your first ranged weapon.",
-   "tip": "Hold ZR/Z to aim in first person. Shoot Skulltulas in the eye and hit the gold eye-switches to drop ladders."
+   "from": "Treasure chest inside the Great Deku Tree (your first dungeon, as young Link).",
+   "what": "A child's ranged weapon that fires Deku Seeds. Stuns small enemies and hits faraway switches, eyes, and ropes.",
+   "tip": "Shoot the spiked ladder-ropes and eye switches in the Deku Tree; later snipe the eye above doors to open them.",
+   "kind": "item"
   },
   {
-   "id": "fairy_ocarina",
-   "name": "Fairy Ocarina",
+   "id": "bomb-bag",
+   "name": "Bomb Bag (Bombs)",
+   "glyph": "bomb",
+   "from": "Big treasure chest in Dodongo's Cavern (holds 20 bombs; upgradable to 30 and 40 via the Hot Rodder Goron in Goron City and the Bombchu Bowling Alley).",
+   "what": "Lets you carry and throw Bombs that blast cracked walls/boulders, expose secrets, and damage enemies.",
+   "tip": "Bomb cracked walls everywhere — many Great Fairy fountains, grottos, and shortcuts hide behind them.",
+   "kind": "item"
+  },
+  {
+   "id": "bombchu",
+   "name": "Bombchu",
+   "glyph": "bomb",
+   "from": "Found in dungeon chests, or buy from the Bombchu Shop in the Back Alley of Hyrule Castle Town (child only, open at night; you need the Adult's Wallet to afford a pack).",
+   "what": "A wind-up mouse bomb that drives along floors, walls, and ceilings before exploding — reaches what a thrown bomb can't.",
+   "tip": "Send one up a wall or across a gap to hit a switch or cracked wall you can't reach by hand.",
+   "kind": "item"
+  },
+  {
+   "id": "fairy-bow",
+   "name": "Fairy Bow",
+   "glyph": "bow",
+   "from": "Big treasure chest in the Forest Temple (adult Link's first dungeon).",
+   "what": "The adult bow. Fires arrows for long-range damage and hits distant switches, eye targets, and weak points.",
+   "tip": "Shoot the twisting-corridor and painting puzzles in the Forest Temple; later the base for Fire, Ice, and Light Arrows.",
+   "kind": "item"
+  },
+  {
+   "id": "fire-arrows",
+   "name": "Fire Arrows",
+   "glyph": "bow",
+   "from": "Lake Hylia, as adult: stand on the plaque/platform above the Water Temple entrance and shoot the sun the moment it rises.",
+   "what": "Arrows wreathed in flame that ignite torches, burn webs and ice, and deal extra fire damage.",
+   "tip": "Light far-off torches from a distance, and melt ice obstacles in the Ice Cavern and Water Temple area.",
+   "kind": "item"
+  },
+  {
+   "id": "ice-arrows",
+   "name": "Ice Arrows",
+   "glyph": "bow",
+   "from": "Prize for clearing the Gerudo Training Ground (Gerudo's Fortress, adult).",
+   "what": "Arrows that freeze enemies solid on hit. Largely optional — not needed to finish the game.",
+   "tip": "Freeze a tough enemy in place to line up a follow-up hit; handy in the Training Ground itself.",
+   "kind": "item"
+  },
+  {
+   "id": "light-arrows",
+   "name": "Light Arrows",
+   "glyph": "bow",
+   "from": "Given by Princess Zelda (revealed from Sheik) at the Temple of Time after you clear the five adult temples and awaken the Sages.",
+   "what": "Holy arrows of pure light that devastate evil enemies — the key weapon against Ganondorf and Ganon.",
+   "tip": "Stun Ganondorf with a Light Arrow during his fight, then close in with the sword.",
+   "kind": "item"
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "leaf",
+   "from": "Treasure chest inside Jabu-Jabu's Belly (young Link only).",
+   "what": "A throwing weapon that stuns enemies, cuts ropes, and grabs distant items/switches before returning to you.",
+   "tip": "Stun the jellyfish-like enemies and hit far switches in Jabu-Jabu; great for snagging out-of-reach pickups.",
+   "kind": "item"
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
    "glyph": "stasis",
-   "from": "Saria gives it to you on the bridge as you leave Kokiri Forest.",
-   "what": "Play songs to trigger magic — open doors, warp, change the time of day, summon your horse. The heart of the game.",
-   "tip": "Later swapped for the Ocarina of Time. Learn songs from people you meet; the notes appear on screen as you're taught."
+   "from": "Win the gravedigging race against Dampé's ghost in the Kakariko Graveyard (adult Link).",
+   "what": "A chain-launched grapple that pulls Link to wooden targets/posts and yanks distant enemies and items toward him.",
+   "tip": "Grapple to tree trunks, signs, and treasure to cross gaps; stun and reel in enemies from afar.",
+   "kind": "item"
   },
   {
-   "id": "zeldas_lullaby",
+   "id": "longshot",
+   "name": "Longshot",
+   "glyph": "stasis",
+   "from": "Treasure chest in the Water Temple, in the room where you fight Dark Link.",
+   "what": "An upgraded Hookshot with roughly twice the reach — same grapple/pull function, much greater range.",
+   "tip": "Use the extra reach for far targets the Hookshot can't touch, including the Biggoron's Sword trade and Water Temple puzzles.",
+   "kind": "item"
+  },
+  {
+   "id": "megaton-hammer",
+   "name": "Megaton Hammer",
+   "glyph": "sword",
+   "from": "Treasure chest in the Fire Temple (adult), after freeing the trapped Gorons.",
+   "what": "A massive hammer that smashes rusted switches and cracked black stone, and pounds armored foes flat.",
+   "tip": "Pound the rusted switches in the Fire Temple, and shatter the red boulders that block Death Mountain Crater paths.",
+   "kind": "item"
+  },
+  {
+   "id": "lens-of-truth",
+   "name": "Lens of Truth",
+   "glyph": "eye",
+   "from": "Treasure chest at the Bottom of the Well in Kakariko (young Link), after defeating Dead Hand.",
+   "what": "Reveals invisible things — hidden enemies, fake walls, secret platforms and chests — while it drains Magic.",
+   "tip": "Essential in the Shadow Temple: hold it up to expose invisible bridges and walk across the empty-looking gaps.",
+   "kind": "item"
+  },
+  {
+   "id": "magic-beans",
+   "name": "Magic Beans",
+   "glyph": "leaf",
+   "from": "Buy from the Bean Seller at Zora's River (10 rupees for the first, rising by 10 each up to 100 for the tenth).",
+   "what": "Plant one in patches of soft soil as young Link; as an adult, each sprouts into a leafy platform that lifts or carries you.",
+   "tip": "Plant beans in soft soil during childhood, then ride the grown plants as an adult to reach Heart Pieces and high ledges.",
+   "kind": "item"
+  },
+  {
+   "id": "dins-fire",
+   "name": "Din's Fire",
+   "glyph": "fairy",
+   "from": "Great Fairy Fountain on the Hyrule Castle ledge (bomb the corner rock, crawl in) — young Link.",
+   "what": "A spell that bursts a ring of fire around Link, hitting all nearby enemies and lighting every torch at once.",
+   "tip": "Stand on an unlit torch puzzle and cast once to light them all together; also clears swarms of close enemies.",
+   "kind": "item"
+  },
+  {
+   "id": "farores-wind",
+   "name": "Farore's Wind",
+   "glyph": "fairy",
+   "from": "Great Fairy Fountain behind a bombable wall in Zora's Fountain.",
+   "what": "A spell that sets a warp point inside a dungeon; cast again to teleport back to it — only works in dungeons with a map.",
+   "tip": "Drop a warp at a dungeon's start before a long detour so a death or wrong turn doesn't cost you the whole trek.",
+   "kind": "item"
+  },
+  {
+   "id": "nayrus-love",
+   "name": "Nayru's Love",
+   "glyph": "fairy",
+   "from": "Great Fairy Fountain behind a bombable wall at the Desert Colossus (near the Spirit Temple).",
+   "what": "A spell that surrounds Link in a crystal shield, blocking all damage (you can still be knocked back) until Magic runs out.",
+   "tip": "Cast it before a tough boss or the Iron Knuckles for a window of total invincibility.",
+   "kind": "item"
+  },
+  {
+   "id": "bottle",
+   "name": "Empty Bottle",
+   "glyph": "bag",
+   "from": "Four total: Lon Lon Ranch Super Cucco game, the Kakariko Cucco Lady, the Ruto's-Letter bottle underwater at Lake Hylia, and the 10 Big Poes reward.",
+   "what": "All-purpose containers. A bottle can hold fairies, potions (red/green/blue), Lon Lon Milk, bugs, fish, Blue Fire, Poes, or fairy souls.",
+   "tip": "Always carry a captured fairy — if Link dies with one bottled, it revives him with 8 hearts automatically.",
+   "kind": "item"
+  },
+  {
+   "id": "iron-boots",
+   "name": "Iron Boots",
+   "glyph": "shield",
+   "from": "Treasure chest in the Ice Cavern (adult), beyond Zora's Domain.",
+   "what": "Heavy boots that sink Link underwater so he can walk along the bottom; also anchor him against wind and pull.",
+   "tip": "Equip them to descend and explore the flooded floors of the Water Temple; swap them off to float back up.",
+   "kind": "item"
+  },
+  {
+   "id": "hover-boots",
+   "name": "Hover Boots",
+   "glyph": "shield",
+   "from": "Treasure chest in the Shadow Temple (adult), after defeating Dead Hand.",
+   "what": "Boots that let Link skate briefly across thin air after he steps off a ledge — a short hover with no traction.",
+   "tip": "Run off an edge and drift across a gap that's too wide to jump in the Shadow Temple and Ganon's Castle.",
+   "kind": "item"
+  },
+  {
+   "id": "goron-tunic",
+   "name": "Goron Tunic",
+   "glyph": "shield",
+   "from": "Free from Link the Goron in Goron City (adult), or buy it at the Goron Shop for 200 rupees.",
+   "what": "A red tunic that protects Link from extreme heat, letting him survive Death Mountain Crater and the Fire Temple.",
+   "tip": "Wear it before entering the Fire Temple or the Crater — without it the heat drains your hearts.",
+   "kind": "item"
+  },
+  {
+   "id": "zora-tunic",
+   "name": "Zora Tunic",
+   "glyph": "shield",
+   "from": "Free from King Zora after you thaw him with Blue Fire (adult), or buy it at the Zora Shop for 300 rupees.",
+   "what": "A blue tunic that lets Link breathe underwater indefinitely, so he can swim and dive without drowning.",
+   "tip": "Equip it before the Water Temple so you never have to surface for air mid-puzzle.",
+   "kind": "item"
+  },
+  {
+   "id": "silver-gauntlets",
+   "name": "Silver Gauntlets",
+   "glyph": "key",
+   "from": "Treasure chest in the Spirit Temple after defeating the Iron Knuckle (reachable as young Link via the Requiem of Spirit).",
+   "what": "Strength-boosting gauntlets that let Link lift heavy silver/black blocks he otherwise couldn't budge.",
+   "tip": "Push the big block at the Spirit Temple entrance to open the path forward and unite the child/adult halves.",
+   "kind": "item"
+  },
+  {
+   "id": "golden-gauntlets",
+   "name": "Golden Gauntlets",
+   "glyph": "key",
+   "from": "Treasure chest in Ganon's Castle (the Shadow/silver-barrier area), as adult Link.",
+   "what": "The ultimate strength upgrade — lets Link lift and hurl enormous pillars far beyond the Silver Gauntlets' limit.",
+   "tip": "Use them to heave the giant black pillar blocking the way in Ganon's Castle.",
+   "kind": "item"
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "Big treasure chest in the Spirit Temple (adult half).",
+   "what": "A polished shield that reflects light and magical beams back at their source — a puzzle and combat tool.",
+   "tip": "Catch sunlight and aim the beam onto sun-faced statues and frozen Stalfos to open paths and stun foes.",
+   "kind": "item"
+  },
+  {
+   "id": "hylian-shield",
+   "name": "Hylian Shield",
+   "glyph": "shield",
+   "from": "Buy at the Castle Town Bazaar for ~80 rupees, or grab it free from a flower-marked grave in the Kakariko Graveyard at night.",
+   "what": "The big knight's shield. Adult Link wields it normally; it blocks attacks the small Deku/wooden shields can't, and it won't burn.",
+   "tip": "Equip it for the adult game — it deflects strong projectiles and survives fire that destroys the Deku Shield.",
+   "kind": "item"
+  },
+  {
+   "id": "biggorons-sword",
+   "name": "Biggoron's Sword",
+   "glyph": "sword",
+   "from": "Reward for finishing the long Biggoron trade quest (Cucco Lady → ... → World's Finest Eye Drops → Claim Check), redeemed at Biggoron on Death Mountain.",
+   "what": "A two-handed great sword that hits twice as hard as the Master Sword and — unlike the Giant's Knife — never breaks.",
+   "tip": "Swing it two-handed for big damage on bosses, but remember you can't hold a shield while it's drawn.",
+   "kind": "item"
+  },
+  {
+   "id": "magic-meter",
+   "name": "Magic Meter",
+   "glyph": "gem",
+   "from": "The base meter is a gift from the Great Fairy at Death Mountain's summit (with the Spin Attack); Double Magic comes from the Great Fairy in Death Mountain Crater (behind boulders broken with the Megaton Hammer).",
+   "what": "Your green Magic Power bar — the fuel for the Slingshot's special, the three spells, Fire/Light Arrows, and the Lens of Truth.",
+   "tip": "Refill it with Magic Jars or a Green Potion; Double Magic doubles the bar so you can cast far more before running dry.",
+   "kind": "item"
+  },
+  {
+   "id": "ocarina",
+   "name": "Ocarina of Time",
+   "glyph": "book",
+   "from": "Start with the Fairy Ocarina (Saria gives it as you leave Kokiri Forest); upgraded to the Ocarina of Time when Princess Zelda tosses it to you as she flees the castle with Impa.",
+   "what": "The titular instrument. Play learned songs on it to warp across Hyrule, change day to night, open the Door of Time, summon storms, and trigger countless puzzles.",
+   "tip": "Learn the Sun's Song early to flip day/night on demand, and grab the warp songs to fast-travel between regions.",
+   "kind": "item"
+  },
+  {
+   "id": "zeldas-lullaby",
    "name": "Zelda's Lullaby",
    "glyph": "stasis",
-   "from": "Impa teaches it behind Hyrule Castle after you meet Princess Zelda.",
-   "what": "The royal family's song. Opens royal-crest doors and gates, and makes Gossip Stones and Triforce switches react.",
-   "tip": "Many puzzles across the game ask for this song on a Triforce mark — keep it handy."
+   "from": "Impa, just outside Hyrule Castle (after meeting Princess Zelda)",
+   "what": "The song of Hyrule's Royal Family. Played at Triforce crests, it opens doors and triggers events.",
+   "tip": "Play it on Triforce symbols to unblock progress (e.g. the Goron City crest, Zora's Domain waterfall) and to enter the Royal Family's Tomb in the graveyard.",
+   "kind": "song"
   },
   {
-   "id": "bombs",
-   "name": "Bombs",
-   "glyph": "bomb",
-   "from": "Bomb Flowers in Dodongo's Cavern and on Death Mountain; later a Bomb Bag from the Dodongo's Cavern area.",
-   "what": "Blow open cracked walls and boulders, stun enemies, and drop them in monster mouths. Essential for progress.",
-   "tip": "Pick a Bomb Flower (it regrows) if you're out of bombs. Throw, don't hold — they explode on a timer."
+   "id": "sarias-song",
+   "name": "Saria's Song",
+   "glyph": "stasis",
+   "from": "Saria, deep in the Sacred Forest Meadow (Lost Woods)",
+   "what": "Magically contacts Saria, who gives a hint about what to do next. Also pleases certain characters.",
+   "tip": "Play it to get a free next-step hint anytime you're lost; also needed to win over the Goron leader Darunia in Goron City.",
+   "kind": "song"
+  },
+  {
+   "id": "eponas-song",
+   "name": "Epona's Song",
+   "glyph": "stasis",
+   "from": "Malon at Lon Lon Ranch (talk to her, then pull out the ocarina)",
+   "what": "Summons the horse Epona to your side; also fills empty bottles with Lon Lon Milk and calms her.",
+   "tip": "As an adult, learn it to call Epona and jump the ranch fences to escape with your horse.",
+   "kind": "song"
+  },
+  {
+   "id": "suns-song",
+   "name": "Sun's Song",
+   "glyph": "stasis",
+   "from": "Found in the Royal Family's Tomb, Kakariko Graveyard (read the inscription; enter via Zelda's Lullaby)",
+   "what": "Instantly toggles between day and night; also freezes ReDeads and Gibdos in place.",
+   "tip": "Use it to skip to the time you need (shops, ghosts, gravediggers) and to paralyze ReDeads before they grab you.",
+   "kind": "song"
+  },
+  {
+   "id": "song-of-time",
+   "name": "Song of Time",
+   "glyph": "stasis",
+   "from": "Princess Zelda (taught via vision after she tosses you the Ocarina of Time at the castle drawbridge)",
+   "what": "Opens the Door of Time, and makes blue Time Blocks appear or vanish.",
+   "tip": "Required to open the Door of Time and claim the Master Sword; replay it on blue blocks to solve dungeon puzzles.",
+   "kind": "song"
+  },
+  {
+   "id": "song-of-storms",
+   "name": "Song of Storms",
+   "glyph": "stasis",
+   "from": "Guru-Guru, the windmill man, inside the Kakariko Village windmill (as an adult)",
+   "what": "Summons rain. Played at certain spots it fills wells, drains the windmill, exposes grottos, or refills a Magic Bean spot.",
+   "tip": "Play it as a child at the bottom of the Kakariko well to drain it, opening the path to the Bottom of the Well dungeon.",
+   "kind": "song"
+  },
+  {
+   "id": "minuet-of-forest",
+   "name": "Minuet of Forest",
+   "glyph": "stasis",
+   "from": "Sheik, at the entrance to the Sacred Forest Meadow (adult)",
+   "what": "Warp song. Teleports you to the Sacred Forest Meadow, right by the Forest Temple entrance.",
+   "tip": "Use it to fast-travel straight to the Forest Temple instead of crossing the Lost Woods.",
+   "kind": "song"
+  },
+  {
+   "id": "bolero-of-fire",
+   "name": "Bolero of Fire",
+   "glyph": "stasis",
+   "from": "Sheik, in Death Mountain Crater (reached via the Hookshot over the broken bridge)",
+   "what": "Warp song. Teleports you to Death Mountain Crater, near the Fire Temple entrance.",
+   "tip": "Warp here to reach the Fire Temple instantly and skip the long climb up Death Mountain.",
+   "kind": "song"
+  },
+  {
+   "id": "serenade-of-water",
+   "name": "Serenade of Water",
+   "glyph": "stasis",
+   "from": "Sheik, in the Ice Cavern after you grab the Iron Boots",
+   "what": "Warp song. Teleports you to Lake Hylia, beside the entrance to the Water Temple.",
+   "tip": "Warp here to reach the Water Temple; pair the trip with the Iron Boots and Zora Tunic you'll need inside.",
+   "kind": "song"
+  },
+  {
+   "id": "nocturne-of-shadow",
+   "name": "Nocturne of Shadow",
+   "glyph": "stasis",
+   "from": "Sheik, outside Kakariko Village (cutscene after clearing the Water Temple)",
+   "what": "Warp song. Teleports you to the Kakariko Graveyard, by the Shadow Temple entrance.",
+   "tip": "Learn it by returning to a burning Kakariko after the Water Temple, then warp here to start the Shadow Temple.",
+   "kind": "song"
+  },
+  {
+   "id": "requiem-of-spirit",
+   "name": "Requiem of Spirit",
+   "glyph": "stasis",
+   "from": "Sheik, at the Desert Colossus (your first visit, after crossing the Haunted Wasteland)",
+   "what": "Warp song. Teleports you to the Desert Colossus, in front of the Spirit Temple.",
+   "tip": "Once learned, warp straight to the Colossus so you never have to re-cross the Haunted Wasteland.",
+   "kind": "song"
+  },
+  {
+   "id": "prelude-of-light",
+   "name": "Prelude of Light",
+   "glyph": "stasis",
+   "from": "Sheik, at the Temple of Time (after you complete the Forest Temple)",
+   "what": "Warp song. Teleports you to the Temple of Time in Hyrule Castle Town.",
+   "tip": "Use it to return to the Master Sword pedestal to switch between child and adult Link.",
+   "kind": "song"
   }
  ],
  "STATUS_RUNES": [
@@ -2502,6 +3310,18 @@
   [
    "tips",
    "Tips"
+  ],
+  [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
   ],
   [
    "settings",

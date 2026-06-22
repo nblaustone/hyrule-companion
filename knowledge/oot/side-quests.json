@@ -1,0 +1,267 @@
+{
+ "regions": [
+  {
+   "region": "Big Trades & the Biggoron Sword",
+   "quests": [
+    {
+     "name": "Pocket Egg (start the trade)",
+     "giver": "Anju, the Cucco Lady — Kakariko Village (by the Cucco pen, south of the well)",
+     "location": "Kakariko Village",
+     "reward": "Pocket Egg (hatches into a Pocket Cucco)",
+     "oneLine": "As an adult, get the Pocket Egg from the Cucco Lady to begin the long trade that ends in the unbreakable Biggoron's Sword.",
+     "how": "As adult Link, talk to Anju the Cucco Lady near the Cucco pen in Kakariko Village; she hands you the Pocket Egg to look after. Wait one in-game night (or play the Sun's Song a couple of times) and it hatches into a Pocket Cucco. The whole trade is adult-only and needs Epona for the timed legs."
+    },
+    {
+     "name": "Pocket Cucco → wake Talon",
+     "giver": "Talon — asleep inside the house at the foot of the north stairs, Kakariko Village (the lazy rancher from Lon Lon)",
+     "location": "Kakariko Village",
+     "reward": "(Talon wakes) — then the Cucco Lady will trade you Cojiro",
+     "oneLine": "Use the hatched Pocket Cucco to wake the snoring Talon, proving you can mind a Cucco.",
+     "how": "Carry the Pocket Cucco into the house at the base of the north stairs in Kakariko Village, where Talon is sleeping, and pull it out next to him — its crow wakes him up. Then return to the Cucco Lady."
+    },
+    {
+     "name": "Cojiro (the blue Cucco)",
+     "giver": "Anju, the Cucco Lady — Kakariko Village",
+     "location": "Kakariko Village",
+     "reward": "Cojiro (a rare blue Cucco)",
+     "oneLine": "Impressed you tamed her Cucco, the Cucco Lady gives you Cojiro, her brother's prized blue bird.",
+     "how": "After waking Talon, go back to the Cucco Lady; the Pocket Cucco looks happy, so she trades you Cojiro — her brother's tame blue Cucco that only crows for someone it likes. You'll use Cojiro to reach her brother in the Lost Woods."
+    },
+    {
+     "name": "Cojiro → Odd Mushroom",
+     "giver": "Grog, the Cucco Lady's slumped-over brother — Lost Woods (first left from the Kokiri Forest entrance, by the tree stump)",
+     "location": "Lost Woods",
+     "reward": "Odd Mushroom",
+     "oneLine": "Cojiro cheers up the gloomy brother in the woods, who asks you to rush a mushroom to his grandmother.",
+     "how": "Equip Cojiro and walk up to the slumped man (Grog) at the stump in the Lost Woods — take the first left from the Kokiri Forest entrance. The blue Cucco perks him up and he hands you the Odd Mushroom to deliver. Bring Epona for the next dash — the mushroom spoils fast."
+    },
+    {
+     "name": "Odd Mushroom → Odd Potion (TIMED, 3 min)",
+     "giver": "The old hag — Granny's Potion Shop in Kakariko Village (through the back door of the Medicine Shop)",
+     "location": "Kakariko Village",
+     "reward": "Odd Potion (the N64 'Odd Medicine'; called Odd Poultice in the 3DS remake)",
+     "oneLine": "Race the spoiling mushroom to the potion-shop granny before it rots — you have about three minutes.",
+     "how": "The Odd Mushroom spoils in roughly three minutes, so ride hard to Kakariko Village and give it to the old woman in Granny's Potion Shop (reached through the Medicine Shop's back door). Don't use warp songs — they burn the timer. She brews it into the Odd Potion."
+    },
+    {
+     "name": "Odd Potion → Poacher's Saw",
+     "giver": "Fado, a Kokiri girl, at the stump — Lost Woods (where Grog was; he's now gone)",
+     "location": "Lost Woods",
+     "reward": "Poacher's Saw",
+     "oneLine": "Bring the finished potion back to the woods, only to find Grog gone — a Kokiri girl there gives you his saw.",
+     "how": "Carry the Odd Potion back to the same stump in the Lost Woods. Grog has vanished — as a non-Kokiri he got lost and turned into a Stalfos — but Fado, the Kokiri girl now standing there, takes the potion and hands you the Poacher's Saw he left behind."
+    },
+    {
+     "name": "Poacher's Saw → Broken Goron's Sword",
+     "giver": "Mutoh, the master carpenter (foreman of the Carpenters) — Gerudo Valley (carpenters' tent by the broken bridge)",
+     "location": "Gerudo Valley",
+     "reward": "Broken Goron's Sword",
+     "oneLine": "Trade the saw to the carpenter boss in Gerudo Valley for a famous broken blade.",
+     "how": "Take the Poacher's Saw to Mutoh, the carpenter foreman by the bridge in Gerudo Valley, and trade it for the Broken Goron's Sword — the legendary Giant's Knife (bought from Medigoron), snapped in two."
+    },
+    {
+     "name": "Broken Goron's Sword → Prescription",
+     "giver": "Biggoron — top of Death Mountain Trail (the summit, near the Death Mountain Crater entrance)",
+     "location": "Death Mountain Trail",
+     "reward": "Prescription",
+     "oneLine": "Show the broken sword to Biggoron; he'll re-forge it, but first needs eye medicine for his sore eyes.",
+     "how": "Climb to Biggoron at the top of Death Mountain Trail and show him the Broken Goron's Sword. He agrees to repair it, but his eyes are killing him after the eruption — he gives you a Prescription to fill for his eye drops."
+    },
+    {
+     "name": "Prescription → Eyeball Frog",
+     "giver": "King Zora — Zora's Domain (the throne, once thawed from the red ice)",
+     "location": "Zora's Domain",
+     "reward": "Eyeball Frog",
+     "oneLine": "Fill Biggoron's prescription with King Zora, who hands you a live Eyeball Frog to make the medicine.",
+     "how": "Show the Prescription to King Zora on his throne in Zora's Domain. You must first melt the red ice trapping him using Blue Fire. He gives you the Eyeball Frog, the ingredient for the eye drops — keep it fresh."
+    },
+    {
+     "name": "Eyeball Frog → World's Finest Eyedrops (TIMED, ~3 min)",
+     "giver": "The Lake Scientist (professor) — Lakeside Laboratory at Lake Hylia",
+     "location": "Lake Hylia",
+     "reward": "World's Finest Eyedrops",
+     "oneLine": "Rush the fresh Eyeball Frog to the lake professor before it goes off; he makes the eye drops.",
+     "how": "The Eyeball Frog must stay fresh, so hurry it to the scientist at the Lakeside Laboratory on Lake Hylia (about three minutes — don't warp). He uses it to make the World's Finest Eyedrops, which themselves spoil fast."
+    },
+    {
+     "name": "World's Finest Eyedrops → Claim Check (TIMED, ~4 min)",
+     "giver": "Biggoron — top of Death Mountain Trail",
+     "location": "Death Mountain Trail",
+     "reward": "Claim Check",
+     "oneLine": "Sprint the warm eye drops all the way back to Biggoron before they spoil; he gives you a Claim Check.",
+     "how": "The eye drops must arrive fresh, so race from Lake Hylia back up to Biggoron on Death Mountain (about four minutes — no warp songs; Epona helps). He uses them and hands you a Claim Check while he forges your sword."
+    },
+    {
+     "name": "Claim Check → Biggoron's Sword",
+     "giver": "Biggoron — top of Death Mountain Trail (after the forging time passes)",
+     "location": "Death Mountain Trail",
+     "reward": "Biggoron's Sword (a huge two-handed blade, stronger than the Master Sword and unbreakable)",
+     "oneLine": "Wait three days for the forge, then redeem the Claim Check for the mighty, unbreakable Biggoron's Sword.",
+     "how": "Biggoron needs about three days to finish the blade — play the Sun's Song to skip nights (about six times, once per day/night change) or just wait, then bring the Claim Check back to him. He swaps it for the Biggoron's Sword, a two-hand weapon that hits twice as hard as the Master Sword and, unlike the Giant's Knife, never breaks."
+    }
+   ]
+  },
+  {
+   "region": "Collectibles & Trackers",
+   "quests": [
+    {
+     "name": "Gold Skulltulas (The Cursed Family)",
+     "giver": "The Cursed Rich Family, House of Skulltula, southeast Kakariko Village",
+     "location": "All 100 Gold Skulltulas are spread across Hyrule (child and adult eras); rewards are claimed at the House of Skulltula in Kakariko Village",
+     "reward": "Tiered prizes — Adult's Wallet, Stone of Agony, Giant's Wallet, Bombchus, a Piece of Heart, and a repeatable 200-rupee Huge Rupee at 100",
+     "oneLine": "Hunt 100 Gold Skulltula Tokens across Hyrule to lift the spider curse on the greedy rich family in Kakariko.",
+     "how": "Kill each Gold Skulltula and grab the token it drops. They cling to walls and posts; many appear ONLY at night, and you'll hear a rattle when one is near. Hit it with the Hookshot/Longshot (which also yanks the token to you), the Slingshot/Bow, a Boomerang/bomb, or a jump-slash. Return to the House of Skulltula in southeast Kakariko Village to free a family member and claim a prize at each milestone: 10 = Adult's Wallet (holds 200), 20 = Stone of Agony, 30 = Giant's Wallet (holds 500), 40 = Bombchus, 50 = a Piece of Heart, and 100 = a 200-rupee Huge Rupee from the father that refreshes every time you leave and re-enter the house."
+    },
+    {
+     "name": "Pieces of Heart",
+     "giver": "Various (mini-games, hidden chests, NPCs, and grown bean-plant rides)",
+     "location": "Scattered across all of Hyrule, in both the child and adult eras",
+     "reward": "9 extra Heart Containers (36 pieces / 4) toward Link's 20-heart maximum",
+     "oneLine": "Collect all 36 Pieces of Heart hidden around Hyrule — every 4 forms a full Heart Container.",
+     "how": "Find 36 Pieces of Heart; every four combine into one Heart Container (3 starting hearts + 8 from dungeon bosses + 9 from pieces = 20 hearts max). Sources include mini-games (Fishing Pond, Bombchu Bowling, the Treasure Chest Game, archery ranges, Dampé's Heart-Pounding Gravedigging Tour), song tricks (Sun's Song chest in the Graveyard, Song of Storms / windmill, the Skull Kids' tune in the Lost Woods), and hidden spots — several of the last ones are reachable only by riding grown Magic Bean plants as an adult."
+    },
+    {
+     "name": "Big Poes (The Poe Collector)",
+     "giver": "The Poe Collector, at the Ghost Shop (the former guard house just outside the Hyrule Castle Town Market entrance, adult era)",
+     "location": "10 Big Poes haunt adult-era Hyrule Field; sold at the Ghost Shop by the Market drawbridge",
+     "reward": "An empty Bottle (the 4th bottle) at 1,000 points, plus 50 Rupees per Big Poe",
+     "oneLine": "As an adult, ride Epona across Hyrule Field to ambush all 10 Big Poes and sell their souls to the Poe Collector for a Bottle.",
+     "how": "Big Poes only spawn while you're riding Epona, so finish the Epona / Lon Lon Ranch quest first and get the Fairy Bow from the Forest Temple. Ride to each of the 10 spawn spots in Hyrule Field, shoot the Big Poe from horseback with the Bow, then scoop its soul into an empty bottle. Sell each at the Ghost Shop (the old guard house by the Market gate) for 50 Rupees and 100 points; at 1,000 points (all 10) the Poe Collector hands over an empty Bottle. (Note: bottled common-Poe souls are worth far less and don't count toward the bottle.)"
+    },
+    {
+     "name": "Magic Beans (Soft Soil Spots)",
+     "giver": "The Bean Salesman, on the riverbank at the entrance to Zora's River",
+     "location": "10 patches of soft soil scattered across Hyrule",
+     "reward": "Grown bean-leaf platforms that carry adult Link up to Pieces of Heart, Gold Skulltulas, rupees, and shortcuts",
+     "oneLine": "Buy Magic Beans and plant them in all 10 soft-soil spots as a child so the grown leaf platforms ferry adult Link to hidden prizes.",
+     "how": "Buy beans from the Bean Salesman beside Zora's River (the first costs 10 rupees, each next one 10 more, up to 100 for the tenth — 550 rupees total) and plant one in each of the 10 soft-soil patches as a child: Zora's River (next to the salesman), Kokiri Forest (behind the shop), TWO in the Lost Woods (near the bridge to Kokiri, and near the Forest Stage), the Kakariko Graveyard, the Dodongo's Cavern entrance on the Death Mountain trail, Lake Hylia, Gerudo Valley, Death Mountain Crater (by the warp spot), and Desert Colossus (outside the Spirit Temple). Return as an adult, step onto the sprouted leaf platform, and ride it up to the Piece of Heart, Gold Skulltula, rupees, or shortcut it reaches."
+    },
+    {
+     "name": "Biggoron's Sword (Adult Trade Sequence)",
+     "giver": "Anju the Cucco Lady, Kakariko Village (gives the Pocket Egg to start the chain); the sword itself comes from Biggoron atop Death Mountain",
+     "location": "A 10-trade chain spanning Kakariko, the Lost Woods, Gerudo's Fortress, Death Mountain, Zora's Fountain, and Lake Hylia (adult era)",
+     "reward": "Biggoron's Sword — a two-handed sword that deals double the Master Sword's damage and never breaks",
+     "oneLine": "As an adult, run a long chain of trades — racing the clock on two timed legs — to earn the game's strongest sword.",
+     "how": "Get the Pocket Egg from Anju in Kakariko; it hatches into a Pocket Cucco (use it to wake Talon), which you trade her for Cojiro. Show Cojiro to the sleeping man in the Lost Woods for the Odd Mushroom → rush it (TIMED) to Granny's Potion Shop in Kakariko for the Odd Potion → take it (also part of the same timed leg) to Fado in the Lost Woods for the Poacher's Saw → give that to Mutoh the carpenter foreman near Gerudo's Fortress for the Broken Goron's Sword → show it to Biggoron atop Death Mountain for the Prescription → give that to King Zora (defrost him first) for the Eyeball Frog → race it (TIMED, ~3 min, no warping) to the Lake Scientist at Lake Hylia for the World's Finest Eyedrops → race those (TIMED) back to Biggoron, who gives you the Claim Check. Wait a few in-game days, then show the Claim Check to Biggoron to receive Biggoron's Sword. The two timed legs are the Odd Mushroom→Odd Potion delivery and the Eyeball Frog→Eyedrops→Biggoron delivery."
+    }
+   ]
+  },
+  {
+   "region": "Minigames & Side Spots",
+   "quests": [
+    {
+     "name": "Bombchu Bowling Alley",
+     "giver": "Bombchu Bowling attendants — shop on the west side of Hyrule Castle Town Market",
+     "location": "Hyrule Castle Town Market (child Link, after Dodongo's Cavern)",
+     "reward": "Rotating prizes: Bigger Bomb Bag (40-bomb upgrade) and a Piece of Heart (each once per file), or Bombchus, Bombs, or a Purple Rupee",
+     "oneLine": "Steer a Bombchu past Cuccos and a spinning blade into the hole to win rotating prizes.",
+     "how": "Opens after you beat King Dodongo. Costs 30 Rupees per play; the prize is revealed after you pay but before you start. Send the Bombchu straight down the lane, then steer it up onto the back wall and into the small hole at the top while it climbs — let it ride the wall rather than aiming head-on. Replay until the Bigger Bomb Bag and the Piece of Heart have both come up (those two are one-time only; the other prizes recur)."
+    },
+    {
+     "name": "Treasure Chest Game",
+     "giver": "Treasure Chest Shop Manager — Treasure Chest Shop in the Market (open only at night)",
+     "location": "Hyrule Castle Town Market (child Link only)",
+     "reward": "Piece of Heart (first win); a Purple Rupee on later wins",
+     "oneLine": "A gambling minigame of guessing which of two chests holds the key to the next room.",
+     "how": "Pay 10 Rupees, then in each room open the correct one of two chests (one hides the key onward, one a rupee) — guess wrong and you start the run over. Come back as an adult with the Lens of Truth and it's trivial: equip the Lens to see straight through each chest and pick the key every time, clearing all the rooms for the Piece of Heart (a Gossip Stone even hints that 'glasses' beat this game)."
+    },
+    {
+     "name": "Heart-Pounding Gravedigging Tour",
+     "giver": "Dampé the gravekeeper — Kakariko Village Graveyard",
+     "location": "Kakariko Graveyard (child Link, after 6:00pm)",
+     "reward": "Random per dig: Rupees, or the one Piece of Heart hidden in the run",
+     "oneLine": "Pay Dampe to dig random graveyard plots, hoping one unearths a Piece of Heart.",
+     "how": "Visit the graveyard at night as a child and pay Dampe 10 Rupees to dig wherever you're standing. The Heart Piece comes up at a RANDOM dig, not a fixed plot — keep paying and digging (the rupees you pull usually keep it profitable) until he strikes the Heart Piece, which pops out of the ground. Important: grab it the moment it appears — there's a bug where leaving the area or saving after it's dug up makes it permanently uncollectable on that file."
+    },
+    {
+     "name": "Dampe's Race (Windmill Hut Hookshot)",
+     "giver": "Dampe's ghost — inside his tomb, Kakariko Graveyard",
+     "location": "Kakariko Graveyard tomb (adult Link)",
+     "reward": "The Hookshot (finish the first race); a Piece of Heart (a separate rerun finished under one minute)",
+     "oneLine": "Chase Dampe's ghost through his burning crypt to win the Hookshot.",
+     "how": "As an adult, pull the gravestone in the back of the graveyard and drop in; light the torch and talk to Dampe's ghost to start. Follow him closely through the crypt (he drops fireballs, so hug the walls) and reach the end before he vanishes — that first finish gives you the Hookshot, no time limit. To get the Piece of Heart you must talk to him and RACE AGAIN, this time crossing the finish in under 60 seconds. Once you have the Longshot, latching its tip to the torch near the exit shaves the seconds you need."
+    },
+    {
+     "name": "Lon Lon Ranch Obstacle Course",
+     "giver": "Malon — Lon Lon Ranch corral",
+     "location": "Lon Lon Ranch (adult Link, after winning Epona from Ingo)",
+     "reward": "A cow, delivered to Link's house in Kokiri Forest",
+     "oneLine": "Race Epona over the ranch's fences to beat Malon's lap time and win a cow.",
+     "how": "After you've won Epona from Ingo (so Malon runs the ranch), talk to Malon in the corral to start: clear two laps over the eight fences in under her ~50-second record. Build up Epona's gallop with the carrots, take each fence straight-on so she clears it without breaking stride, and save carrots for the tall fences (low ones don't need a speed boost). Win and Malon sends a cow to your Kokiri Forest house (play Epona's Song at it for free Lon Lon Milk if you have a bottle)."
+    },
+    {
+     "name": "Gerudo Horseback Archery (archery range)",
+     "giver": "Gerudo guard at the archery range — Gerudo's Fortress",
+     "location": "Gerudo's Fortress archery course (adult Link, on horseback)",
+     "reward": "Piece of Heart (1,000 points); a bigger Quiver (1,500 points)",
+     "oneLine": "Ride Epona down the range shooting targets for points to win a quiver upgrade.",
+     "how": "Free the carpenters and earn the Gerudo Membership Card first, and bring Epona (won at Lon Lon Ranch). Pay 20 Rupees, then gallop the course firing your 20 arrows at the targets — a dead-center hit or a pot is worth 100 points; near-misses score by how close to center you land. Score 1,000 in a run for the Piece of Heart, and 1,500 in a single run for the bigger Quiver (the larger arrow capacity)."
+    },
+    {
+     "name": "Gerudo's Training Ground (Ice Arrows)",
+     "giver": "Self-directed mini-dungeon — Gerudo's Fortress",
+     "location": "Gerudo's Fortress (adult Link)",
+     "reward": "The Ice Arrows",
+     "oneLine": "An optional combat-and-puzzle mini-dungeon whose central vault holds the Ice Arrows.",
+     "how": "Needs the Gerudo Membership Card; pay 10 Rupees to enter. Most rooms hand you a Small Key for collecting their Silver Rupees (some timed) or clearing a fight — there are nine keys but only seven are needed. Bring the Fairy Bow, Hookshot/Longshot, Megaton Hammer, Iron Boots, ideally the Lens of Truth, and good Bombchu/arrow stocks. Spend keys on the locked doors working inward to the central chamber, where the chest holds the Ice Arrows."
+    },
+    {
+     "name": "Fishing Pond",
+     "giver": "Fishing Pond owner — northeast shore of Lake Hylia",
+     "location": "Lake Hylia (child and adult Link)",
+     "reward": "Piece of Heart (child, a fish ~10 lb or heavier); the Golden Scale (adult, a fish ~13 lb or heavier)",
+     "oneLine": "Pay to cast a rod and reel in a big enough fish for a Heart Piece and the Golden Scale.",
+     "how": "Pay 20 Rupees for the rod. Cast far out, wait for a big fish to bite, then reel in (hold back on the stick) and ease off whenever the line strains so it doesn't snap. As a child land a fish ~10 lb or heavier for the Piece of Heart; as an adult land one ~13 lb or heavier (about four pounds over the standing record) for the Golden Scale, which lets you dive deeper. Note: in the N64 game the Sinking Lure only appears AFTER you've already won the prize, and catching a record fish with it gets you disqualified — stick to the normal lure."
+    },
+    {
+     "name": "The Lost Dog (Richard)",
+     "giver": "Mamamu Yan, the dog's owner — her house in the Market Back Alley",
+     "location": "Hyrule Castle Town Market at night (child Link only)",
+     "reward": "Piece of Heart (first time); a Blue Rupee on later returns",
+     "oneLine": "Find Mamamu Yan's runaway white dog Richard at night and walk him home.",
+     "how": "At night, go to Mamamu Yan's house in the Market's Back Alley; she frets that her dog Richard has run off. Many dogs roam the night streets and any one will trail you, so the trick is finding the right one — Richard is the white dog near a stall by the market entrance. Lead/carry him back to her house for a Piece of Heart the first time (as an adult, Richard has died, so this is child-only)."
+    },
+    {
+     "name": "Happy Mask Shop (Mask Trading Sequence)",
+     "giver": "Happy Mask Salesman — Happy Mask Shop, Hyrule Castle Town Market",
+     "location": "Market shop; buyers across Hyrule (child Link only)",
+     "reward": "Free use of the Mask of Truth (reads Gossip Stones); the shop also stocks the Goron/Zora/Gerudo masks afterward",
+     "oneLine": "Borrow and resell a chain of masks to specific townsfolk to unlock the Mask of Truth.",
+     "how": "Borrow each mask in turn and sell it, paying the salesman his cut before he lends the next: Keaton Mask -> the Kakariko gate guard (near the Death Mountain trail); Skull Mask -> the Skull Kid in the Lost Woods; Spooky Mask -> the boy in the Kakariko Graveyard by day; Bunny Hood -> the Running Man in Hyrule Field (he only appears once you have all three Spiritual Stones, i.e. after Jabu-Jabu's Belly — he fills your wallet). Once all four sell, the salesman lets you freely borrow the Mask of Truth, which reads Gossip Stones (and the minds of NPCs/animals)."
+    },
+    {
+     "name": "Skull Kid & the Scarecrow's Song",
+     "giver": "Skull Kid (Lost Woods) and the scarecrow Bonooru (Lake Hylia)",
+     "location": "Lost Woods and Lake Hylia",
+     "reward": "Piece of Heart from the Skull Kid (Saria's Song); the Scarecrow's Song summons Pierre to Hookshot-reach high spots (e.g. a Heart Piece atop the Lakeside Lab)",
+     "oneLine": "Befriend the lonely Skull Kid with Saria's Song, and teach scarecrow Bonooru a tune you can replay to summon a grappling target.",
+     "how": "In the Lost Woods, stand on the stump across from the lone Skull Kid and play Saria's Song to befriend him for a Piece of Heart. Separately, as a child go to the scarecrow Bonooru at Lake Hylia and play him any 8-note tune to register the Scarecrow's Song; return as an adult and replay that exact tune to summon his partner Pierre anywhere, then Hookshot/Longshot onto Pierre to reach high ledges — such as the roof of the Lakeside Laboratory for a Piece of Heart."
+    },
+    {
+     "name": "Biggoron's Sword Trade (Trading Sequence)",
+     "giver": "Cucco Lady in Kakariko Village (starts the chain) — runs across Hyrule",
+     "location": "Kakariko -> Lost Woods -> Gerudo Valley -> Death Mountain -> Zora's Domain -> Lake Hylia (adult Link)",
+     "reward": "Biggoron's Sword — a two-handed blade that out-damages the Master Sword and never breaks",
+     "oneLine": "A long chain of deliveries — several on a strict timer — that ends in the game's strongest sword.",
+     "how": "Get the Pocket Egg from the Cucco Lady, hatch it and trade up: Pocket Cucco (wake Talon) -> Cojiro -> give Cojiro to Grog in the Lost Woods for the Odd Mushroom. Three legs are TIMED — sprint them: the Odd Mushroom must reach Granny in Kakariko within ~3 minutes; later the Eyeball Frog (from King Zora) must reach the Lake Scientist within ~3 minutes for the World's Finest Eyedrops; then the Eyedrops must reach Biggoron atop Death Mountain within ~4 minutes (don't warp — it spoils). The untimed legs: Odd Potion -> Poacher's Saw -> give it to Mutoh in Gerudo Valley for the Broken Goron's Sword -> show Biggoron for the Prescription -> trade up to the Claim Check, then wait three days and show the Claim Check to Biggoron for the sword."
+    },
+    {
+     "name": "Gold Skulltulas (House of Skulltula)",
+     "giver": "The cursed family — House of Skulltula, Kakariko Village",
+     "location": "All over Hyrule; redeem tokens at the House of Skulltula (child & adult)",
+     "reward": "Reward at 10/20/30/40/50/100 tokens: Adult Wallet, Stone of Agony, Giant's Wallet, Bombchus, a Piece of Heart, then an endless Huge Rupee",
+     "oneLine": "Slay the 100 hidden Gold Skulltulas and cash their tokens to lift a family's curse.",
+     "how": "There are 100 Gold Skulltulas hidden across Hyrule; kill one (often a Hookshot/Boomerang/arrow target on a wall) and collect the token it drops. Bring tokens to the House of Skulltula in Kakariko, where each cursed family member frees at a threshold: 10 tokens -> Adult's Wallet (200 cap), 20 -> Stone of Agony (buzzes near secrets), 30 -> Giant's Wallet (500 cap), 40 -> Bombchus, 50 -> a Piece of Heart, and 100 (all of them) -> a Huge Rupee (200) you can re-collect each time you re-enter the house."
+    },
+    {
+     "name": "Big Poe Ghost Shop",
+     "giver": "Poe Collector — the Ghost Shop in Hyrule Castle Town ruins (adult)",
+     "location": "Hyrule Field (catch Big Poes) -> Castle Town Ghost Shop (adult Link, on Epona)",
+     "reward": "An Empty Bottle (after selling 10 Big Poes for 1,000 points); 50 Rupees per Poe along the way",
+     "oneLine": "Hunt the rare Big Poes across Hyrule Field on horseback and sell their spirits for a bottle.",
+     "how": "As an adult, ride Epona around Hyrule Field at night to make Big Poes appear (they fade if you're on foot). Hit one with your bow/sword until it materializes, then catch it in an Empty Bottle. Take each to the Poe Collector at the Ghost Shop in the Castle Town ruins: he pays 50 Rupees and 100 points per Big Poe. Hit 1,000 points (10 Big Poes) and he rewards you with an Empty Bottle, then stops buying."
+    }
+   ]
+  }
+ ]
+}

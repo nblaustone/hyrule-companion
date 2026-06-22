@@ -1,0 +1,40 @@
+{
+ "fairies": [
+  {
+   "name": "Great Fairy of Power (Magic Meter & Spin Attack)",
+   "region": "Death Mountain Trail (summit)",
+   "location": "At the very top of Death Mountain Trail, beside the owl (Kaepora Gaebora) at the summit. Bomb the cracked wall next to the owl to open the fountain, then stand on the Triforce/Hylian crest inside and play Zelda's Lullaby. Reachable as CHILD Link once you have Bombs (after Dodongo's Cavern); buy a Hylian Shield first to survive the falling rocks.",
+   "cost": "Grants the MAGIC METER plus the Spin Attack (Magic Spin Slash) ability — bomb the wall by the owl at the Death Mountain summit and play Zelda's Lullaby. (This is the meter that powers every magic spell; the Spin Attack drains it.)"
+  },
+  {
+   "name": "Great Fairy of Magic (Din's Fire)",
+   "region": "Path to Hyrule Castle (Castle Town outskirts)",
+   "location": "On the path up to Hyrule Castle: from the Market, climb the vines, hop past the gate, and follow the path to a 'Dead End' sign with a boulder behind it. Bomb the boulder, crawl in, stand on the Triforce mark and play Zelda's Lullaby. Reachable as CHILD Link (the Death Mountain Great Fairy points you here).",
+   "cost": "Grants DIN'S FIRE (the fire spell — a burst of flame around Link; required to clear the Shadow Temple, so a mandatory pickup) — bomb the boulder at the 'Dead End' on the path to Hyrule Castle and play Zelda's Lullaby."
+  },
+  {
+   "name": "Great Fairy of Magic (Farore's Wind)",
+   "region": "Zora's Fountain",
+   "location": "Southeast corner of Zora's Fountain, behind Lord Jabu-Jabu on a small ledge. Bomb the light-colored brown boulder to blow open the wall, enter, stand on the Triforce and play Zelda's Lullaby. Accessible as CHILD or ADULT Link (you need Bombs and King Zora unfrozen to reach this part of the Fountain).",
+   "cost": "Grants FARORE'S WIND (the warp spell — set a warp point inside a dungeon and warp back to it) — bomb the boulder behind Jabu-Jabu in Zora's Fountain and play Zelda's Lullaby."
+  },
+  {
+   "name": "Great Fairy of Wisdom (Double Magic)",
+   "region": "Death Mountain Crater",
+   "location": "Inside Death Mountain Crater. Near the broken bridge (reach the crater via Darunia's chamber in Goron City or the warp), smash the two large rocks blocking the alcove with the Megaton Hammer to reveal the fountain, then play Zelda's Lullaby on the Triforce. ADULT Link only (needs the Megaton Hammer from the Fire Temple).",
+   "cost": "Grants the DOUBLE MAGIC upgrade (doubles the Magic Meter's length) — Megaton-Hammer the rocks by the bridge in Death Mountain Crater and play Zelda's Lullaby."
+  },
+  {
+   "name": "Great Fairy of Kindness / Protection (Nayru's Love)",
+   "region": "Desert Colossus (Spirit Temple)",
+   "location": "At the Desert Colossus in front of the Spirit Temple, near a pair of palm trees. Bomb the cracked section of the stone wall to open the fountain, enter, and play Zelda's Lullaby on the Triforce. ADULT Link (you arrive here for the Spirit Temple).",
+   "cost": "Grants NAYRU'S LOVE (the protective-barrier spell — a temporary crystal shield that blocks all damage) — bomb the cracked wall by the palm trees in front of the Spirit Temple and play Zelda's Lullaby."
+  },
+  {
+   "name": "Great Fairy of Courage (Double Defense)",
+   "region": "Ganon's Castle (exterior, in the void where Hyrule Castle stood)",
+   "location": "On the ledge outside Ganon's Castle, a large stone pillar/boulder blocks an alcove. Lift it with the Golden Gauntlets (obtained inside Ganon's Castle), enter, and play Zelda's Lullaby on the Triforce. ADULT Link, late game.",
+   "cost": "Grants DOUBLE DEFENSE (Link takes half damage from all attacks, effectively doubling his survivability) — lift the pillar outside Ganon's Castle with the Golden Gauntlets and play Zelda's Lullaby."
+  }
+ ]
+}

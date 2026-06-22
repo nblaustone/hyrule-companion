@@ -1,0 +1,167 @@
+{
+ "enemies": [
+  {
+   "name": "Stalchild",
+   "tier": "common",
+   "tactic": "Skeletal child that rises from Hyrule Field at night; just slash it twice with your sword, or play the Sun's Song to bring back daytime and make them vanish.",
+   "drops": "Rupees (bigger Stalchildren can drop blue Rupees)"
+  },
+  {
+   "name": "ReDead",
+   "tier": "common",
+   "tactic": "Its moan paralyzes you and it latches on to drain hearts (mash A/B to break the grab) — play the Sun's Song to freeze it, or backflip away, then strike from behind; a Deku Nut also stuns it.",
+   "drops": "Nothing reliable (often nothing)"
+  },
+  {
+   "name": "Lizalfos",
+   "tier": "common",
+   "tactic": "Agile lizard swordsmen (first met in Dodongo's Cavern). Z-target, hold your shield to block their lunges, then counter with a jump attack when they pause.",
+   "drops": "Recovery Hearts"
+  },
+  {
+   "name": "Wolfos",
+   "tier": "common",
+   "tactic": "Wolf that circles and slashes with its claws; Z-target and block, then strike its exposed tail/back when it lunges (a hit there can drop it in one). White Wolfos appear in icy areas.",
+   "drops": "Recovery Hearts"
+  },
+  {
+   "name": "Like Like",
+   "tier": "common",
+   "tactic": "A tube that swallows Link and can eat his shield or tunic — it spits you out on its own, so kill it fast to get your gear back; attack with sword or arrows (or swap your equipment before it spits you out to keep it).",
+   "drops": "Returns the shield/tunic it ate; sometimes Rupees"
+  },
+  {
+   "name": "Keese",
+   "tier": "common",
+   "tactic": "Small bats that swoop in; one sword swing, slingshot pellet, or arrow drops them. Fire and Ice Keese inflict that element, so block or hit them at range.",
+   "drops": "Nothing reliable"
+  },
+  {
+   "name": "Skulltula",
+   "tier": "common",
+   "tactic": "Wall spider armored on its back; wait for it to flip and expose its soft underside, then slash it. Gold Skulltulas drop a token instead — hit them and grab it.",
+   "drops": "Normal: nothing; Gold Skulltula: a Gold Skulltula Token"
+  },
+  {
+   "name": "Stalfos",
+   "tier": "mini-boss",
+   "tactic": "Armed skeleton that guards with its shield; Z-target and wait for it to drop its guard or finish a swing, then jump-attack. Backflip/sidehop to dodge its lunges.",
+   "drops": "Recovery Hearts; clears the room to advance"
+  },
+  {
+   "name": "Iron Knuckle",
+   "tier": "mini-boss",
+   "tactic": "Armored axe-wielder that hits like a truck. Z-target, dart in, and bait an axe swing — back away as it swings, then land one jump attack and retreat. Repeat; it loses its armor and speeds up.",
+   "drops": "Clears the room / opens the way forward",
+   "battle": "Bring your strongest blade — the Biggoron's Sword (or at least the Master Sword) ends this far faster than the Kokiri Sword ever could, and keep a bottled fairy or a charged Nayru's Love handy, because one axe hit hurts brutally (about 4 hearts — enough to nearly kill you early on). Wake the seated knight by hitting it with an arrow or a sword slash, then Z-target and respect its range: it's slow but its huge axe can nearly kill you in a swing. Don't trade blows — bait the overhead chop, then sidehop or backflip out of reach. When the axe slams down and sticks in the floor, dash in and land a couple of hits in that opening, then dodge out again before it recovers. After enough damage its armor shatters and it speeds up, swinging more often, so stay patient and keep circling rather than getting greedy. If you get hurt, duck behind a column or the throne — its axe will smash it and shake loose a few recovery hearts. Whittle it down with that bait-dodge-punish loop and it collapses — netting a Heart Container. (In the Spirit Temple's second half this foe is a brainwashed Nabooru in disguise; the tactics are identical.)"
+  },
+  {
+   "name": "Dead Hand",
+   "tier": "mini-boss",
+   "tactic": "Let the grasping Hands grab you on purpose; mash A/B free as the long-necked head lunges down to bite, then slash its face. Repeat until it dies.",
+   "drops": "Lens of Truth (Bottom of the Well); also appears in the Shadow Temple"
+  },
+  {
+   "name": "Dark Link",
+   "tier": "mini-boss",
+   "tactic": "Your mirror image who parries normal sword swings. Don't Z-target — circle and stab from the side; or hammer him with the Megaton Hammer, Biggoron's Sword, or Din's Fire, which he can't block.",
+   "drops": "Clears the Water Temple miniboss room to continue",
+   "battle": "Bring the Megaton Hammer (or Din's Fire) — they're the cheat codes here, since Dark Link can't mimic or block either, and a fairy in a bottle is good insurance. The fight starts when you cross the empty mirror room toward the far locked door: turn around and your own shadow drops in. He copies Link's moveset and shares your health, so the number of hits to kill him equals your current Heart Containers — and he counters Z-targeted sword swings (your blades just clash) and punishes every forward thrust/stab (he hops onto the blade and pins you). So DON'T lock on and poke. The reliable melee loop is to run AT him swinging WITHOUT Z-targeting — the horizontal slash connects before he can mirror it. Better still, use Din's Fire whenever you have magic (unblockable, hits every time), or just walk up and swing the Megaton Hammer or Biggoron's Sword, which shred him (and Biggoron's reach stops him from jumping the blade). Whittle his hearts down and he bursts; the barred door unlocks, and the chest beyond holds the Longshot."
+  },
+  {
+   "name": "Queen Gohma",
+   "tier": "boss",
+   "tactic": "Giant spider in the Great Deku Tree. When her single eye glows red, hit it with the Slingshot (or a Deku Nut) to stun her, then rush in with your sword. Watch for the Gohma Larva she lays on the ceiling.",
+   "drops": "Heart Container; clears the Great Deku Tree",
+   "battle": "Bring the Fairy Slingshot (you won it earlier in the Great Deku Tree) with a full stash of Deku Seeds, and keep some Deku Nuts as backup — a fairy in a bottle helps for your first dungeon, though Gohma is gentle. Step in and look up: aim the Slingshot at the ceiling to make her drop, then keep her Z-targeted. The whole fight is one loop — wait for her single huge eye to glow red (she's winding up to attack), then shoot it with a Deku Seed (a thrown Deku Nut also stuns her). The hit dazes her flat on the floor with the eye exposed; run in and slash the eye with your Kokiri Sword as fast as you can. Repeat. When she scuttles up to the ceiling, wait for the eye to redden and shoot it with the Slingshot — she crashes down for a longer stun and free hits (don't rely on a Deku Nut here; the Slingshot to the red eye is what drops her). If she lays eggs that hatch into Gohma Larvae, cut them down with a quick spin or slash, then get back to the eye. Want it over fast: jab a lit Deku Stick into the exposed eye — a Deku Stick deals double the Kokiri Sword's damage, and a jump-attack adds another 2x (so ~4x total), ending her in well under a minute. A few stun-and-slash cycles kills her; grab the Heart Container she leaves and step into the blue warp."
+  },
+  {
+   "name": "King Dodongo",
+   "tier": "boss",
+   "tactic": "As he inhales for his fire breath, throw a Bomb into his open mouth — it blows up inside, stuns him, and you slash him; repeat about four times. Avoid his rolling body.",
+   "drops": "Heart Container; clears Dodongo's Cavern",
+   "battle": "Bring a full stock of Bombs (or Bombchu) — this is the one fight you literally cannot win without them, so top up from the Bomb Flowers in the room's corners if you run dry. King Dodongo lumbers around the central lava pit with only two attacks: he curls into a ball and rolls around the room's perimeter, and he rears back, inhales a huge breath, then spits a wall of fire. That inhale is your whole game plan. The moment he sucks in air, lob a bomb straight into his open mouth (Z-target him to aim); he swallows it, it detonates inside, and he flops down stunned — run in and slash his face with your sword before he recovers. Repeat that bomb-in-the-mouth-then-slash cycle about three or four times to kill him (fewer if you've got the Master Sword later — at this point your Kokiri Sword takes the full count). To survive between openings, dodge the roll by standing right at the inner edge of the lava so he barrels harmlessly past, or tuck into a corner; if you happen to have the Hylian Shield you can crouch and tank the roll, but never get caught in the open by his fire breath. When he dies he topples into the lava — grab the Heart Container, then step into the blue warp, where Darunia hands you the Goron's Ruby, the Spiritual Stone of Fire."
+  },
+  {
+   "name": "Barinade",
+   "tier": "boss",
+   "tactic": "Jellyfish in Jabu-Jabu. Use the Boomerang to cut the tentacles anchoring it to the ceiling, then boomerang its core to stun it and finish with your sword. Mind the spinning Bari around it.",
+   "drops": "Heart Container; clears Inside Jabu-Jabu's Belly",
+   "battle": "Bring the Boomerang you win in this dungeon (Jabu-Jabu's Belly) — it's the whole fight — plus a stock of Deku Sticks and a bottled fairy for insurance. Barinade's lightning CANNOT be blocked by your shield, so you'll be dodging, not guarding. Open by Z-targeting the three cords tethering Barinade to the ceiling and hurling the Boomerang to sever them; once it drops to the floor, its ring of Bari jellyfish spins around the core. Keep your distance and keep throwing the Boomerang — let it slice through the spinning Bari until it punches past them and stuns the core. The moment Barinade freezes, close in and hit the core with Deku Sticks (they hit for double the Kokiri Sword; fall back on the sword if you run out, jump-attacks for extra damage). It then whirls around the room firing electricity from its tentacles — each bolt has a tell, so keep circling and sidestep on the flash. Repeat the loop — Boomerang to stun, Sticks/sword to wound — and smash the room's jars if you need hearts. A few stun-and-strike cycles drops it for the Heart Container."
+  },
+  {
+   "name": "Phantom Ganon",
+   "tier": "boss",
+   "tactic": "Forest Temple. Two phantoms charge out of the paintings — shoot the REAL one (lighter colored) with the Fairy Bow. In phase two, deflect his energy orb back and forth with sword swings (like tennis) until it hits him, then strike.",
+   "drops": "Forest Medallion; Heart Container",
+   "battle": "Bring the Fairy Bow with a full arrow stash, the Master Sword, and a bottled fairy as insurance. Phase 1 is a shooting gallery: don't stand in the center — back against an edge (on one of the Triforce marks) so you can watch the six paintings, then pick out the REAL Phantom Ganon, who charges his horse OUT of a painting (the real one glows brighter/white, often with a purple portal); the fakes just turn away and retreat, never leaping. Bow him as he emerges (you can loose the arrow the instant the portal glows), and three clean hits knock him off the horse and out into the room. If you miss, he scatters an electric blast across the floor — the Triforce corner marks are the safe spots. Phase 2 is a duel of \"dead man's volley\": Z-target him and swing your sword (a bottle works too) to bat his energy ball straight back, then he returns it — keep rallying until he fumbles and the orb staggers him to the floor. Standing closer makes it easier, since he gets less time to react. The moment he crashes down, rush in and hack away with the Master Sword (you can also land a Bow shot while he's stunned for extra damage). Later in the fight he'll charge with his spear/staff for big damage — sidestep or roll clear. Repeat the volley-and-slash until he drops."
+  },
+  {
+   "name": "Volvagia",
+   "tier": "boss",
+   "tactic": "Fire dragon in the Fire Temple. Watch which floor hole it pops from, then smash its head with the Megaton Hammer when it surfaces to stun it, and slash. Dodge its dive attacks and falling rocks.",
+   "drops": "Fire Medallion; Heart Container",
+   "battle": "Bring the Megaton Hammer (the Fire Temple's own item) — it's mandatory, since the killing blow can only land as a melee hit while Volvagia is stunned — plus a stocked bow, and a fairy or two in bottles as insurance. (The Goron Tunic keeps you alive in the Fire Temple's heat on the way in, but the boss platform itself isn't a fire-damage floor, so no extra fire-resist is needed once you're in the arena.) The fight is whac-a-mole on a platform of nine lava holes: Volvagia always dives into the hole right in front of you to start, then a small fire burst telegraphs which hole it'll surface from next — and as its health drops it adds fake-outs, bubbling up to three holes before the real one. When its head pops up, run over and smash it with the Megaton Hammer to stun it, then Z-target and pile on sword slashes before it swings its flaming mane, breathes fire, and retracts with a claw swipe (a jump attack lands extra damage — the hammer's jump hit actually out-damages the sword's). It also flies: in the fire phase it skims low chasing you with fire jets — its head is vulnerable to arrows here, and a hit ends the phase early — and in the boulder phase it climbs to the ceiling and rains rocks that shatter and bounce, so watch the shadows and hang off one of the climbable side walls to ride it out safely. Repeat the hammer-stun-then-slash loop (roughly six stunned Master Sword slashes finish it); when its health is gone the dragon bursts apart, a Heart Container appears, and Darunia awards the Fire Medallion."
+  },
+  {
+   "name": "Morpha",
+   "tier": "boss",
+   "tactic": "Water amoeba in the Water Temple. Back into a corner so its water tentacles can't reach you, then Hookshot/Longshot its red nucleus to yank it out of the water and slash it before it dives back in.",
+   "drops": "Water Medallion; Heart Container",
+   "battle": "Bring the Longshot you found earlier in the Water Temple (the upgraded Hookshot — its long reach is the whole fight) and a bottled fairy or a couple of Red Potions as insurance. Step into the center of the room to trigger Morpha, then immediately retreat to one of the four corners — the water tentacles can't reach you there, so you're safe to take your time. Morpha's body and tentacles are harmless; the only target is the small red nucleus hiding inside a tentacle. Z-target it and fire the Longshot to yank the nucleus out of the water and onto the floor toward you. The clean kill: stand in a corner, keep Longshotting to drag the nucleus into that corner, then turn so you're between it and the open water and slash with your sword. Pinned in the corner it can't flee back to the water, and rapid sword strikes (jump slash, then crouch/power stabs) can finish it fast. If it does escape into the water, just Longshot it out of a tentacle again — as the fight goes on it spawns two tentacles at once, then three, so keep cornering it. When it pops, grab the Heart Container; afterward Ruto awakens as the Sage and gives you the Water Medallion.</battle> <parameter name=\"tier\">boss"
+  },
+  {
+   "name": "Bongo Bongo",
+   "tier": "boss",
+   "tactic": "Shadow Temple. Use the Lens of Truth to see it. Stun its two hands with arrows or the Longshot to make it open its red eye, then arrow the eye to stun it and rush in with your sword (the Hover Boots steady you on the drum).",
+   "drops": "Shadow Medallion; Heart Container",
+   "battle": "Bring the Lens of Truth (mandatory — Bongo Bongo's body and eye are invisible without it, and it must stay active to see him), the Fairy Bow with plenty of arrows, and ideally the Biggoron's Sword plus a fairy or two in bottles for insurance. You fight on a giant drum ringed by poison, against two huge severed hands you can see even without the Lens. The hands pound the drum, and the heavy beat bounces you into the air and ruins your aim. The Hover Boots (the Shadow Temple's own item) can largely cancel that bounce — many players swear by them here, though some find the lost traction makes dodging worse, so they're optional, not required. Z-target one hand and shoot it with an arrow; it turns blue and goes limp, so immediately swing to the other hand and shoot it too. (Shortcut: a single Ice Arrow to one hand freezes it — Bongo Bongo opens his eye while smashing it free, letting you skip stunning both.) With both hands stunned, the eye opens and the whole spirit rushes you with a hand on either side. Keep the Lens active so you can see it, shoot the open eye with an arrow, and it crashes to the drum. Run in and lay into the eye with sword slashes — jump attacks, best with the Biggoron's Sword, do the most damage. Repeat the stun-both-hands, shoot-the-eye, slash cycle until it dissolves into a dark puddle. Grab the Heart Container and step into the blue portal."
+  },
+  {
+   "name": "Twinrova",
+   "tier": "boss",
+   "tactic": "Gerudo witch twins (Spirit Temple). Hold up the Mirror Shield to absorb each sister's fire and ice beams; charge it with three of the SAME element, then fire that back to stun them and attack.",
+   "drops": "Spirit Medallion; Heart Container",
+   "battle": "Equip the Mirror Shield you found earlier in this temple — it is the whole fight; bring a bottled fairy and a few hearts of food as insurance. The witches split: Koume is the Sorceress of Flame (red, fire) and Kotake the Sorceress of Ice (blue). PHASE ONE: wait for a sister to charge and fire her colored beam, then crouch behind the raised Mirror Shield while FACING the witch who shot it (turn or Z-target her to line up your facing) so the beam bounces off your shield into the OTHER sister — fire burns the ice witch, ice freezes the fire witch. Land roughly four crossed hits and they fuse into Twinrova. PHASE TWO: she now fires single elemental blasts — hold the Mirror Shield up and absorb THREE of the SAME element in a row; DODGE any opposite-element blast, because catching the wrong element hurts you and cancels your charge. After the third same-element hit the shield glows and auto-fires a charged beam — aim it at Twinrova to stun/knock her down, then run in and slash her with your sword. Repeat the absorb-three, blast, slash cycle until she falls. Reward: a Heart Container, and Nabooru awakened grants the Spirit Medallion."
+  },
+  {
+   "name": "Ganondorf",
+   "tier": "boss",
+   "tactic": "Atop his tower, he hurls energy balls — bat them back with your sword until one staggers him, then hit him with a Light Arrow to drop him and charge in for sword combos. Repeat through his phases.",
+   "drops": "Triggers the tower escape; leads into the Ganon fight",
+   "battle": "Bring Light Arrows (the must-have for both phases), the Master Sword and your shield, full magic, and stock up on bottled fairies plus extra arrows from the pots before you enter — the door seals behind you. PHASE 1 (Ganondorf, floating over the broken tower floor): Z-targeting won't lock onto him here, so aim by hand. He hurls a ball of magic; swing your sword the instant it nears to bat it back — the \"tennis\" volley (Dead Man's Volley). Rally it back and forth, speeding up each time, until it strikes and stuns him, then immediately fire a Light Arrow to drop him to the central platform. Cross to him (Hover Boots help, or a leaping jump-slash) and slash with your sword until he recovers and floats back up; repeat. Dodge his ground-pound/charged-lightning by standing in a corner, or interrupt the charge with a Light Arrow (a Magic Spin Attack also volleys his multi-shot back). PHASE 2 (Ganon, the beast): a final blow seems to win, then he revives as a massive boar wielding two swords and knocks the Master Sword beyond a ring of flame. Shoot his head/face with a Light Arrow to stun him so his tail — the only weak spot — drops; roll between his legs and strike the tail (Biggoron's Sword or Megaton Hammer hit hardest; Light Arrows or the Longshot work in a pinch). After enough hits the flames fall and Zelda calls out — grab the Master Sword. With Zelda holding Ganon in place, land the finishing blow with the Master Sword itself (only the Master Sword can finish him — a Light Arrow can stun to set it up, but the killing strike must be the blade)."
+  },
+  {
+   "name": "Ganon",
+   "tier": "boss",
+   "tactic": "The beast knocks away your sword. Roll between his legs to reach his glowing tail and strike it (a Light Arrow stuns him so the tail drops in reach), then deliver the finishing blows with the Master Sword as Zelda holds him.",
+   "drops": "Final boss — defeating him ends the game"
+  }
+ ],
+ "basics": [
+  {
+   "title": "Z-Targeting",
+   "body": "Press Z to lock onto an enemy or object. While locked, Link automatically faces the target, strafes around it to keep his shield up, and your sword and items aim straight at it. Z-targeting is the single most important skill in the game — it turns chaotic 3D fights into a readable dance."
+  },
+  {
+   "title": "Shield & the Spin Attack",
+   "body": "Hold R to raise your shield and block most frontal attacks (combine it with Z-targeting to circle a foe safely). For offense, hold B until Link glows, then release to unleash a Spin Attack that hits everything around you — perfect for swarms or a foe who just dropped its guard."
+  },
+  {
+   "title": "Bottles are clutch",
+   "body": "Empty bottles are your lifeline. Catch a Fairy in one and it will auto-revive you the instant you run out of hearts. Bottles also hold caught bugs (for Gold Skulltula soil), fish, Blue Fire (to melt red ice), Lon Lon Milk, and potions — always carry a spare bottle into a dungeon."
+  },
+  {
+   "title": "Deku Nuts & Sticks",
+   "body": "Throw a Deku Nut to flash-stun nearby enemies, opening them up for a free hit. Deku Sticks are a fragile starter weapon, but their real value is fire: light one on a torch or flame and you can carry that fire to ignite other torches, webs, and puzzles."
+  },
+  {
+   "title": "Bombs & arrows",
+   "body": "Bombs blow open cracked walls and floors and trigger heavy switches; lob one into King Dodongo's mouth. Arrows hit distant switches, eye-targets, and flying foes. Later you gain elemental arrows — Fire melts ice, Ice freezes water/enemies, and Light Arrows are needed to stagger Ganondorf and stun Ganon."
+  },
+  {
+   "title": "Sun's Song & the Lens",
+   "body": "Play the Sun's Song to instantly freeze ReDeads and Gibdos (and to flip between day and night). The Lens of Truth, fueled by magic, reveals invisible things — hidden chests, fake walls, secret paths, and Bongo Bongo's body in the Shadow Temple."
+  }
+ ]
+}
