@@ -3,6 +3,8 @@ build/.app.processed.jsx
 # os
 .DS_Store
 node_modules/
+# agent workflow ledgers (local working memory; see AGENT_WORKFLOW.md)
+.agent-ledger/
 # v12 ADR 0009: copyrighted book artifacts NEVER touch the public repo.
 # Source books live in iCloud; import packs are generated locally and stay on-device.
 *.hbook.zip

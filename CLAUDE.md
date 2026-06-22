@@ -28,6 +28,12 @@
 3. **The repo is the memory.** Decisions live in `journal/decisions/`, not in chat. Supersede with a new ADR;
    never rewrite history.
 
+## Agent Workflow
+For any multi-step agentic task, follow the policy in [AGENT_WORKFLOW.md](AGENT_WORKFLOW.md): **serial cascade by
+default; fan out only when subtasks are truly independent.** When you DO fan out over many like items (shrines,
+quests, item cards), **BATCH them — one agent per group of ~12, never one-per-item** (the single biggest token
+saver here). Run **≤2 Workflows at once** (3+ trips 529 overload); `resumeFromRunId` mops up failures.
+
 ## The games (multi-game as of v8; three games as of v14)
 Three games now live behind a **game picker** (Status tab): **Breath of the Wild**, **Tears of the Kingdom**,
 and **Ocarina of Time** (game 3, started v14). `GAMES = { botw, totk, oot }` (built by `inline-data.mjs` — each
