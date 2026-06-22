@@ -406,10 +406,11 @@ layout, `REGION_MAPS` = the per-region coords.
     verified 1000 seeds/421-to-max), Money (10 earners/16 farms/8 tips). **TotK Guide tab is now at FULL parity:
     Abilities · Tips · Armor · Fairies · Towers · Quests · Enemies · Koroks · Money · World · Settings.** All
     v13.0–13.3 verified in-browser (0 console errors, 0 meta leaks).
-  - **TotK remaining (2 gaps, generators staged in `build/`, run ≤2 at a time):** **shrine solutions** (152 — the
+  - **TotK region maps DONE (v14.6)** — `gen-totk-region-maps` (24 agents) → `region-maps.json` (all 152 shrines
+    on per-region 0-100 grids + towers/landmarks); the Shrines-tab RegionMap now renders for TotK like BotW.
+  - **TotK remaining (1 gap, generators staged, run ≤2 at a time):** **shrine solutions** (152 — the
     Stuck-reveal/search centerpiece; `gen-totk-shrine-solutions`, **resume `wf_ebb10104-cfd`**, ~150 left);
-    **compendium** (`gen-totk-compendium`, Items-tab catalog, not yet run); **region maps** (`gen-totk-region-maps`,
-    per-region schematics, not yet run). User paused here (budget) to start OoT.
+    **compendium** (`gen-totk-compendium`, Items-tab catalog, not yet run — lower priority).
   - **⚠ RATE-LIMIT RULE (learned the hard way):** **3+ Workflows concurrently** (~360 agents) triggers server-side
     **529 overload** — shrine-solutions came back 2/152. **Run ≤2 workflows at a time**; `resumeFromRunId` mops up
     failures (cached successes return instantly). Heavy runs are ~1.5–2M tokens each.
@@ -451,8 +452,13 @@ layout, `REGION_MAPS` = the per-region coords.
   **OoT is now at strong parity + polished** — full main quest + Items/Enemies/Fairies/Quests reference +
   Heart Piece/Skulltula trackers + a clean OoT-appropriate tab set. The shrine-progress overview map + cooking
   are deliberately N/A for OoT (no shrines/cooking system); OoT is the owner's favorite → self-verifiable.
+  - **v14.6 — the "lighter extras"** (two workflows, run concurrently): **TotK per-region maps** (above) +
+    **OoT Items-tab Compendium** (`gen-oot-compendium`, 12 agents + a bow-category resume → `compendium.json`,
+    58 entries: 6 weapons · 6 bows · 3 shields · 9 wearables · 26 items/spells/upgrades · 8 masks). assemble-oot
+    folds `compendium.json` → COMPENDIUM → the OoT Items tab is now `CompendiumView` (was the auto-pouch);
+    CompendiumView gained **Items + Masks** category columns (additive — BotW/TotK unaffected). **OoT is now
+    fully at parity** (full quest + all reference tabs + trackers + catalog + game-appropriate tab set).
 - **Biggest remaining build (whole app):** TotK **shrine solutions** (152 — the Stuck-reveal/answer-first-search
   centerpiece; the only major functional gap left in any game). Resume `wf_ebb10104-cfd` (~150 left), ≤2
-  workflows at a time. Then TotK compendium + region maps. OoT optional extras: an Items-tab catalog, dungeon
-  maps. Lore is shared/cross-game and could gain OoT/TotK-era chapters (needs the writers'-room workflow + the
-  no-AI-slop bar — vet a sample first).
+  workflows at a time. Lower-priority: TotK Items-tab compendium. Lore is shared/cross-game and could gain
+  OoT/TotK-era chapters (needs the writers'-room workflow + the no-AI-slop bar — vet a sample first).
