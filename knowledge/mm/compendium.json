@@ -1,0 +1,452 @@
+{
+ "items": [
+  {
+   "name": "Kokiri Sword",
+   "cat": "weapon",
+   "type": "Sword",
+   "effect": "Link's starting blade — the basic weapon for human Link (the small short sword kept from Ocarina of Time). The game's weakest sword (base sword damage; double on a jump/spin attack). Note: you cannot use it while transformed into a Deku Scrub, Goron, or Zora — each of those forms has its own attacks instead.",
+   "where": "You already have it at the start of the game — Link arrives in Termina with it equipped. No quest needed."
+  },
+  {
+   "name": "Razor Sword",
+   "cat": "weapon",
+   "type": "Sword (upgrade)",
+   "effect": "The first sword upgrade: hits twice as hard as the Kokiri Sword (2x). NOT permanent — the blade dulls back into the Kokiri Sword after 100 hits, and it also reverts whenever you reset the cycle by playing the Song of Time. Treat it as a temporary power-up, and the required stepping-stone to the Gilded Sword.",
+   "where": "At the Mountain Smithy in Mountain Village (Snowhead region). First thaw the frozen forge (melt the ice with a Fire Arrow or Hot Spring Water, or clear the eternal winter by beating Goht), then pay the smith Zubora 100 Rupees and come back later (a few hours) to collect the upgraded sword."
+  },
+  {
+   "name": "Gilded Sword",
+   "cat": "weapon",
+   "type": "Sword (permanent upgrade)",
+   "effect": "The permanent top-tier forged sword: it hits three times as hard as the Kokiri Sword (3x — one step STRONGER than the Razor Sword, not equal to it), and unlike the Razor Sword it never dulls and survives the Song of Time, so it stays with you for the rest of the game. The standard 'real' sword to keep.",
+   "where": "At the Mountain Smithy in Mountain Village. You must already have the Razor Sword. Bring the smiths (Zubora & Gabora) a Bottle of Gold Dust — won by finishing first in the Goron Race (accessible after beating Goht to bring back spring, then using a Powder Keg to clear the boulder to the racetrack) — and they forge your Razor Sword into the Gilded Sword; collect it after the wait."
+  },
+  {
+   "name": "Great Fairy's Sword",
+   "cat": "weapon",
+   "type": "Great sword (two-handed)",
+   "effect": "The most powerful sword in the game — hits four times as hard as the Kokiri Sword (4x), tied with Fierce Deity Link's sword. It's a large two-handed blade equipped to a C-button as an ITEM rather than to B, so you cannot hold a shield while using it (and it can even be swung while jinxed by a Blue Bubble). It is permanent and never breaks.",
+   "where": "Reward from the Great Fairy of Ikana (Great Fairy Fountain in Ikana Canyon, near Stone Tower). Collect all 15 Stray Fairies inside the Stone Tower Temple and return them to her fountain to restore her; she gives you the Great Fairy's Sword."
+  },
+  {
+   "name": "Deku Scrub spin / bubble (transformed melee)",
+   "cat": "weapon",
+   "type": "Transform attack (Deku Mask)",
+   "effect": "As Deku Link you have no sword — your melee is a quick spin attack (weak, roughly Kokiri-tier per hit), and you can also blow a damaging bubble projectile after collecting magic. Useful for skating across water on Deku Flowers, not for heavy combat.",
+   "where": "Comes with the Deku Mask — the form Link is cursed into at the very start of the game (the Happy Mask Salesman returns the mask after you beat Skull Kid's first puzzle)."
+  },
+  {
+   "name": "Goron punch / pound / Spike Roll (transformed melee)",
+   "cat": "weapon",
+   "type": "Transform attack (Goron Mask)",
+   "effect": "As Goron Link your melee is a heavy punch/ground-pound combo (about 2x Kokiri damage — your strongest fists) plus a magic-fueled curled Spike Roll that mows through enemies and rolls fast across the ground. The brawler form; no sword or shield.",
+   "where": "Comes with the Goron Mask, obtained in the Snowhead region by healing the spirit of the Goron hero Darmani (play the Song of Healing at his grave)."
+  },
+  {
+   "name": "Zora punch / jump-slash / fin boomerangs (transformed melee)",
+   "cat": "weapon",
+   "type": "Transform attack (Zora Mask)",
+   "effect": "As Zora Link your melee is a fast punch and a jumping slash (jump-slash ~2x Kokiri), plus throwable boomerang fins (a ranged C-button attack) and a magic electric barrier while swimming. The fastest, most versatile combat form; no sword or shield.",
+   "where": "Comes with the Zora Mask, obtained in Great Bay by playing the Song of Healing for the dying Zora guitarist Mikau on the beach."
+  },
+  {
+   "name": "Hero's Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Link's bow, used to shoot arrows at distant switches, eyes, and enemies. Comes with a Quiver that holds 30 arrows; the bow is also the carrier for the elemental Fire/Ice/Light arrow types you find in later temples (select an arrow type, then nock and fire).",
+   "where": "Dungeon item of Woodfall Temple (the first temple, in the Southern Swamp) - found in the chest that appears after you defeat the Dinolfos mini-boss. It is needed to progress through the temple to the boss Odolwa (Odolwa himself can be beaten without it, but you cannot reach him without the bow)."
+  },
+  {
+   "name": "Arrow",
+   "cat": "bow",
+   "type": "Arrow",
+   "effect": "The standard ammunition for the Hero's Bow. Hits switches, eye targets, and enemies at range; does not cost magic. You hold up to 30 by default, raised to 40 (Large Quiver) and 50 (Largest Quiver) via the shooting-gallery upgrades.",
+   "where": "An initial 30 come with the Hero's Bow in Woodfall Temple; bundles are sold in shops and dropped by enemies/cut grass, and pots and bushes around Termina often hold a few. Capacity upgrades: the Large Quiver (40) is earned by scoring 40 at the Clock Town Town Shooting Gallery or a perfect run at the Swamp Shooting Gallery, and the Largest Quiver (50) by clearing the other gallery (whichever you do second)."
+  },
+  {
+   "name": "Fire Arrow",
+   "cat": "bow",
+   "type": "Arrow",
+   "effect": "An arrow wreathed in flame (costs magic to fire - about 2 magic points per shot). Melts ice and frozen blocks, lights torches (even ones too far for Din's Fire), burns flammable things, and damages enemies with fire. With low magic the arrow fires unlit. Hold the bow with the Fire Arrow selected to nock it.",
+   "where": "Treasure of Snowhead Temple (the Snowhead mountain dungeon) - obtained from a large chest after defeating the mini-boss Wizzrobe."
+  },
+  {
+   "name": "Ice Arrow",
+   "cat": "bow",
+   "type": "Arrow",
+   "effect": "An arrow of freezing magic (costs magic to fire). Shot into water it creates a temporary ice platform you can stand on (the platform melts after a while), and it freezes certain enemies solid. Used for crossing water and solving freeze puzzles.",
+   "where": "Treasure of Great Bay Temple (the Great Bay Coast dungeon) - obtained from a chest after defeating the mini-boss Wart."
+  },
+  {
+   "name": "Light Arrow",
+   "cat": "bow",
+   "type": "Arrow",
+   "effect": "An arrow of sacred light (costs magic to fire). It strikes light/sun emblems to clear obstacles, destroys or stuns light-weak enemies (some drop rupees when hit), and is powerful against darkness- and undead-aligned foes. Needed for Stone Tower's puzzles and its boss.",
+   "where": "Treasure of Stone Tower Temple (the Ikana Canyon dungeon) - obtained from a chest after defeating the mini-boss Garo Master. You then shoot it at the Red Emblem above the temple entrance to flip/invert all of Stone Tower upside down."
+  },
+  {
+   "name": "Hero's Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "The basic shield Link carries — hold R to raise it and block enemy attacks and projectiles. It can be eaten by a Like Like, in which case you lose it until you recover it from the same Like Like or buy a replacement.",
+   "where": "Link has it from the start (it's auto-equipped when he reverts from Deku form to Hylian). If you lose it (e.g. swallowed by a Like Like), buy another at the Trading Post in West Clock Town for 80 Rupees."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "An upgraded shield that blocks attacks like the Hero's Shield and also reflects beams of light/sunlight. Reflecting light is needed to solve light puzzles in Ikana Canyon (Ikana Castle) and the Stone Tower Temple. It permanently replaces the Hero's Shield once obtained — you cannot switch back for the rest of the playthrough.",
+   "where": "Found in a treasure chest in Beneath the Well in Ikana Canyon: wear the Gibdo Mask and give each Gibdo the item it asks for to pass, then light the four torches in the final room (Fire Arrows or a lit Deku Stick) to make the chest appear."
+  },
+  {
+   "name": "Deku Mask",
+   "cat": "mask",
+   "type": "Transformation mask",
+   "effect": "Transforms Link into a Deku Scrub: hop across water on lily pads, shoot bubbles, burrow into and launch from Deku Flowers, and twirl down with petals. The first mask you get.",
+   "where": "After chasing Skull Kid and recovering the Ocarina of Time, the Happy Mask Salesman teaches Link the Song of Healing, which lifts the curse and leaves behind the Deku Mask (Clock Tower interior, opening of the game)."
+  },
+  {
+   "name": "Goron Mask",
+   "cat": "mask",
+   "type": "Transformation mask",
+   "effect": "Transforms Link into a Goron: roll at high speed (and curl into a spiked ball with magic), Goron Pound, punch with fists of fire, and move heavy objects. Lets Gorons treat you as the hero Darmani.",
+   "where": "Use the Lens of Truth to follow Darmani's ghost up the cliff from Goron Village to his grave, then play the Song of Healing for his spirit, healing his sorrow into the mask."
+  },
+  {
+   "name": "Zora Mask",
+   "cat": "mask",
+   "type": "Transformation mask",
+   "effect": "Transforms Link into a Zora: swim quickly underwater, dive, create an electric barrier, and throw the boomerang-like fins on the arms as weapons. Lets Zora treat you as the guitarist Mikau.",
+   "where": "On the Great Bay Coast (near the Marine Research Lab), push the dying Zora Mikau ashore and play the Song of Healing for him to receive the mask."
+  },
+  {
+   "name": "Fierce Deity's Mask",
+   "cat": "mask",
+   "type": "Transformation mask",
+   "effect": "Transforms Link into the towering Fierce Deity, wielding a double-helix sword that fires sword beams at full health. The most powerful form, but it can ONLY be worn inside boss rooms.",
+   "where": "Collect all 20 non-transformation masks, then enter the Moon and give masks to the masked Moon Children, clearing their hide-and-seek challenges; the final child sitting under the tree (wearing Majora's Mask) hands over the Fierce Deity's Mask."
+  },
+  {
+   "name": "Postman's Hat",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Lets Link open the Clock Town postboxes and take the contents (the first postbox you check holds a Piece of Heart). Marks Link as the Postman.",
+   "where": "During the Anju and Kafei quest, deliver Kafei's letter to the Postman so he completes his last delivery to Madame Aroma; freed of his schedule, he meets Link outside the Milk Bar on the Final Day and gives him his hat (West Clock Town)."
+  },
+  {
+   "name": "All-Night Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Keeps Link awake during the Stock Pot Inn grandmother's long bedtime stories, letting you stay for her tales and answer her quiz (for Pieces of Heart).",
+   "where": "Save the Old Lady from Sakon the thief (North Clock Town, First Night) to put it in the Curiosity Shop's stock, then buy it from the Curiosity Shop in West Clock Town for 500 Rupees on the night of the Final Day."
+  },
+  {
+   "name": "Blast Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Acts as a face-mounted bomb: press to set off an explosion (it also damages Link unless he shields) with no bombs needed; it must recharge between blasts.",
+   "where": "In North Clock Town around midnight on the First Night, stop Sakon the thief from stealing the Old Lady's Big Bomb Bag (slash him); she rewards you with the Blast Mask."
+  },
+  {
+   "name": "Stone Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Makes Link nearly invisible to most enemies, so they ignore him until attacked — useful for slipping past tough foes.",
+   "where": "Using the Lens of Truth, find the invisible soldier Shiro on the Road to Ikana / Ikana Valley and give him a bottle of Red or Blue Potion; he thanks you with the Stone Mask. (In the original N64 version he is here, not the Pirates' Fortress as in the 3DS remake.)"
+  },
+  {
+   "name": "Great Fairy's Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Draws Stray Fairies toward Link, making them easier to collect, and the hair reacts when a fairy is near.",
+   "where": "Return the Stray Fairy found in the Clock Town area to the Great Fairy's Fountain in North Clock Town; she gives you the mask."
+  },
+  {
+   "name": "Keaton Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Summons the fox-spirit Keaton from certain shaking bushes; answer his five quiz questions correctly to win Pieces of Heart and Rupees.",
+   "where": "Given during the Anju and Kafei quest — the Curiosity Shop owner passes it to Link after Kafei leaves for Sakon's Hideout, near the Final Day."
+  },
+  {
+   "name": "Bremen Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Lets Link play a marching tune (hold B) so that small animals like baby Cuccos fall in line and follow him in a parade.",
+   "where": "Talk to Guru-Guru, the organ/music-box man, in the Laundry Pool at night on the First or Second Day; he gives you the mask."
+  },
+  {
+   "name": "Bunny Hood",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Greatly increases Link's running speed (and lengthens jumps), making it the go-to mask for getting around quickly.",
+   "where": "At Romani Ranch's Cucco Shack, wear the Bremen Mask and march all ten chicks until they grow into adult Cuccos; Grog rewards you with the Bunny Hood."
+  },
+  {
+   "name": "Don Gero's Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Lets Link assemble the Frog Choir — wear it to call the five scattered frogs together to sing, earning a Piece of Heart.",
+   "where": "In the Goron Shrine, light the ring of torches (lighting the chandelier of pots), then as Goron Link roll into the hanging pots to knock down a Rock Sirloin; carry it to the hungry Goron on a ledge in Mountain Village, who gives you the mask."
+  },
+  {
+   "name": "Mask of Scents",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Lets Link see scents as colored musk, revealing things like the locations of hidden mushrooms (used to brew the Blue Potion in the Lost Woods) and other smell-based clues.",
+   "where": "After rescuing the Deku Princess (post-Odolwa), complete the Deku Butler's racing course through the cave beside the Deku Palace; the Butler gives you the mask."
+  },
+  {
+   "name": "Romani's Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Identifies Link as a Romani Ranch member, granting entry to the members-only Milk Bar (Latte) in East Clock Town at night.",
+   "where": "At Romani Ranch, defend the ranch from the alien 'Them' on the First Night, then protect Cremia's milk wagon from masked thieves on the Second Day; Cremia gives you the mask."
+  },
+  {
+   "name": "Circus Leader's Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "A mask resembling the grieving troupe leader Gorman; worn, it cries and has a calming effect on Gorman-related people (it soothes the Gorman Brothers, draining their rudeness).",
+   "where": "In the Milk Bar (entered wearing Romani's Mask), help Toto by playing the 'Ballad of the Wind Fish' on each of Link's four forms' instruments (Deku, Goron, Zora, and Hylian/ocarina); the moved troupe leader Gorman gives you the mask. (Called the Troupe Leader's Mask only in the 3DS remake.)"
+  },
+  {
+   "name": "Kafei's Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Shows people the face of the missing Kafei, prompting NPCs to share information about him — it advances the Anju and Kafei quest.",
+   "where": "Speak with Madame Aroma in the Mayor's Residence (after about 10 AM on the First Day) and agree to search for her son Kafei; she gives you his mask."
+  },
+  {
+   "name": "Couple's Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "A symbol of the reunited Anju and Kafei; worn in the Mayor's office it stops the heated council argument between Mutoh and Captain Viscen, earning a Piece of Heart.",
+   "where": "Fully complete the Anju and Kafei quest — reunite the couple on the Final Night; their Sun's Mask and Moon's Mask magically combine and they give Link the Couple's Mask."
+  },
+  {
+   "name": "Mask of Truth",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Lets Link read the minds of animals and hear the whispers of Gossip Stones, which give hints about the game and mask locations.",
+   "where": "In the Swamp Spider House (Southern Swamp), destroy all 30 Gold Skulltulas to lift the curse; you receive the Mask of Truth as the reward."
+  },
+  {
+   "name": "Kamaro's Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Teaches Link Kamaro's special dance; performing it for the Rosa Sisters (the Gorman Troupe dancers) in West Clock Town earns a Piece of Heart.",
+   "where": "At night (around midnight) in northern Termina Field, play the Song of Healing for the ghost of the dancer Kamaro atop his mushroom-shaped stone."
+  },
+  {
+   "name": "Garo's Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Disguises Link as a Garo (Garo Master), allowing him to summon and battle the ghostly Garo in Ikana, and is needed to advance in Ikana Canyon (it also makes ReDeads/Gibdos dance).",
+   "where": "Win the horseback obstacle race against the Gorman Brothers at the Gorman Track on Milk Road (riding Epona); they reward you with the mask."
+  },
+  {
+   "name": "Captain's Hat",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Lets Link command the undead Stalchildren of Ikana as their captain (they obey orders and open paths), and makes nearby ReDeads dance helplessly.",
+   "where": "In the Ikana Graveyard, play the Sonata of Awakening to wake Captain Keeta, chase and defeat him; open the big chest he leaves to claim the Captain's Hat."
+  },
+  {
+   "name": "Gibdo Mask",
+   "cat": "mask",
+   "type": "Mask",
+   "effect": "Disguises Link as a Gibdo so the mummies stop attacking and will talk; it is required to pass the item-demanding Gibdos Beneath the Well in Ikana.",
+   "where": "Play the Song of Storms to open the Music Box House in Ikana Canyon, go inside to the basement and play the Song of Healing for the grieving man (Pamela's father, cursed into a Gibdo)."
+  },
+  {
+   "name": "Giant's Mask",
+   "cat": "mask",
+   "type": "Transformation mask",
+   "effect": "Turns Link into a giant for a limited time, used to grapple and defeat the boss Twinmold in the Stone Tower Temple.",
+   "where": "In the Stone Tower Temple, found in a large treasure chest that appears after defeating the second Eyegore in the room just BEFORE the Twinmold boss door (original N64 version — the 3DS remake instead places it in a chest that appears mid-fight after killing the blue Twinmold)."
+  },
+  {
+   "name": "Ocarina of Time",
+   "cat": "item",
+   "type": "Key item",
+   "effect": "The magical ocarina used to play songs that warp time, change day/night, slow the three-day clock, and solve countless puzzles. Playing the Song of Time resets the cycle back to the dawn of the First Day.",
+   "where": "Recovered from the Skull Kid in the Clock Tower interior at midnight on the Final Day; the Happy Mask Salesman then teaches Link the Song of Time."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a chain-tipped spike that latches onto wooden posts, boards, trees, and some targets to pull Link across gaps or yank distant items toward him. Also stuns or damages many enemies.",
+   "where": "Reward for defeating the Wizzrobe mini-boss inside the Pirates' Fortress (Great Bay), encountered while rescuing the Zora eggs."
+  },
+  {
+   "name": "Bombs (Bomb Bag)",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Throwable explosives carried in the Bomb Bag; blow open cracked walls, destroy enemies, and trigger switches. The starting Bomb Bag holds 20 bombs.",
+   "where": "Buy the Bomb Bag at the Bomb Shop in West Clock Town (50 Rupees); bombs themselves refill from shops, grass, and pots."
+  },
+  {
+   "name": "Bombchu",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Mobile mouse-like bombs: set one down and it scurries forward along the ground or up walls, then explodes — useful for hitting switches and enemies at a distance or around corners.",
+   "where": "Purchased from the Bomb Shop in West Clock Town (10 for 40 Rupees), and found in chests/grottos."
+  },
+  {
+   "name": "Powder Keg",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A giant barrel of explosives far more powerful than a bomb — clears huge boulders. Only Goron Link can carry one (it slows him), and only one can be held at a time.",
+   "where": "Earn Medigoron's approval by passing his test in Goron Village as Goron Link (carry a Powder Keg to blast the boulder blocking the Goron Racetrack on the road to Goron Village); afterward buy them from the Goron at the West Clock Town Bomb Shop or from Medigoron."
+  },
+  {
+   "name": "Lens of Truth",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Reveals hidden things while held: invisible enemies, hidden platforms, secret passages, false walls, and spirits (e.g., Darmani). Drains magic while in use.",
+   "where": "Inside a chest in a cave across the chasm in Goron Village — follow the owl Kaepora Gaebora's dropped feathers across the gap to reach it."
+  },
+  {
+   "name": "Magic Bean",
+   "cat": "item",
+   "type": "Item",
+   "effect": "Plant a bean in soft soil and water it with spring water to instantly grow a leaf/plant Link can ride up to higher areas.",
+   "where": "Bought from the wandering Bean Seller in a hole near the Deku Palace gardens / Southern Swamp, 10 Rupees apiece (the price climbs as you buy more)."
+  },
+  {
+   "name": "Pictograph Box",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A camera that takes pictographs (photos); required for several sidequests, such as photographing the Deku King, Tingle, or the Gerudo pirate captain.",
+   "where": "Given by Koume at the Swamp Tourist Center after you rescue her in the Woods of Mystery (Southern Swamp)."
+  },
+  {
+   "name": "Empty Bottle",
+   "cat": "item",
+   "type": "Bottle",
+   "effect": "Reusable container that holds potions, fairies, water, eggs, bugs, and quest items. Majora's Mask has six bottles total.",
+   "where": "Six sources: (1) Kotake's free Red Potion bottle for saving Koume; (2) Gold Dust from winning the Goron Race; (3) Romani's bottle of milk for defending the ranch cows from the aliens; (4) Madame Aroma's bottle of Chateau Romani from the Anju & Kafei 'Special Delivery to Mama' quest; (5) winning the beaver brothers' race in Great Bay; (6) helping Dampe dig in Ikana Graveyard (Captain's Hat needed)."
+  },
+  {
+   "name": "Red Potion",
+   "cat": "item",
+   "type": "Bottle (contents)",
+   "effect": "Drink to fully restore all hearts (health). Also cures the Blue Bubble jinx.",
+   "where": "Bought from the Magic Hags' Potion Shop, Trading Post, Zora Shop, and Goron Shop; Kotake also gives a free bottle of Red Potion for rescuing Koume."
+  },
+  {
+   "name": "Green Potion",
+   "cat": "item",
+   "type": "Bottle (contents)",
+   "effect": "Drink to fully restore the Magic Meter.",
+   "where": "Bought from the Magic Hags' Potion Shop in the Southern Swamp."
+  },
+  {
+   "name": "Blue Potion",
+   "cat": "item",
+   "type": "Bottle (contents)",
+   "effect": "Drink to fully restore both hearts (health) and the Magic Meter; also removes a Blue Bubble's jinx.",
+   "where": "Bought from the Ikana Canyon Business Scrub (100 Rupees), or have Kotake brew them (60 Rupees each) after giving her a Magic Mushroom."
+  },
+  {
+   "name": "Fairy",
+   "cat": "item",
+   "type": "Bottle (contents)",
+   "effect": "A bottled fairy heals several hearts when used, and automatically revives Link with health if he falls in battle while carrying one.",
+   "where": "Catch a stray/wild fairy in a bottle (e.g., from Great Fairy Fountains or fairies floating in the field), or scoop one up after it appears."
+  },
+  {
+   "name": "Chateau Romani",
+   "cat": "item",
+   "type": "Bottle (contents)",
+   "effect": "Premium Romani Ranch milk that restores hearts and grants unlimited (infinite) magic for the rest of the current three-day cycle.",
+   "where": "Given by Madame Aroma (via the Anju & Kafei 'Special Delivery to Mama' quest), or buy it at the Milk Bar 'Latte' in East Clock Town (200 Rupees) — entry requires Romani's Mask."
+  },
+  {
+   "name": "Hot Spring Water",
+   "cat": "item",
+   "type": "Bottle (contents)",
+   "effect": "Bottled hot water that melts ice — thaws the frozen Goron Elder and frozen blocks in the Mountain Village/Goron areas. Cools to ordinary spring water after a short time.",
+   "where": "Scoop it from the hot spring in the cave where you got the Goron Mask (Darmani's resting place) or from the hot-spring hole on Twin Islands near Goron Village."
+  },
+  {
+   "name": "Zora Egg",
+   "cat": "item",
+   "type": "Bottle (contents)",
+   "effect": "A Zora egg carried in a bottle; used to deliver the rescued eggs to the Marine Research Lab so the scientist can teach Lulu's song (New Wave Bossa Nova). Has no other functional use.",
+   "where": "Collected from the Pirates' Fortress and Pinnacle Rock in Great Bay (seven eggs total) as Zora Link, scooped into bottles."
+  },
+  {
+   "name": "Gold Dust",
+   "cat": "item",
+   "type": "Bottle (contents)",
+   "effect": "Rare reagent given to Zubora and Gabora at the Mountain Smithy to forge the Gilded Sword — the permanent, stronger upgrade of the Razor Sword.",
+   "where": "Won by placing first in the Goron Race (Goron Racetrack) for the first time, as Goron Link; comes in its own new bottle."
+  },
+  {
+   "name": "Bombers' Notebook",
+   "cat": "item",
+   "type": "Key item",
+   "effect": "A scheduling notebook that tracks the comings, goings, and personal events of Clock Town's people across the three days, logging sidequests and the rewards (often Heart Pieces and masks) you can earn by helping them.",
+   "where": "Join the Bombers' Secret Society of Justice — play hide-and-seek and catch all five Bomber kids around Clock Town before dawn; their leader Jim then gives you the Notebook and the secret-hideout code."
+  },
+  {
+   "name": "Magic Spin Attack (Spin Attack upgrade)",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Charging the sword unleashes a spinning slash that hits all around Link. With magic, holding the charge produces a stronger magic-powered Spin Attack (the blue spin).",
+   "where": "Granted by the Great Fairy of Magic in North Clock Town after you return her single Stray Fairy (this also gives Link his Magic Power)."
+  },
+  {
+   "name": "Great Spin Attack",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "A longer-charged, far more powerful version of the Spin Attack — double the power and reach, the charge aura advancing past blue.",
+   "where": "Granted by the Great Fairy in the Southern Swamp after you collect and return all 15 Stray Fairies of Woodfall Temple to her Fairy's Fountain (same in the N64 original and the 3DS remake)."
+  },
+  {
+   "name": "Adult Wallet",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Raises Link's Rupee capacity from 99 to 200.",
+   "where": "Deposit a cumulative total of 200 or more Rupees at the Clock Town Bank (West Clock Town); the banker rewards you with the Adult Wallet."
+  },
+  {
+   "name": "Giant's Wallet",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Raises Link's Rupee capacity to 500 (needed to afford the All-Night Mask).",
+   "where": "Clear all 30 Gold Skulltulas from the Oceanside (Swamp) Spider House on the First Day; the man at the entrance then gives you the Giant's Wallet. (In MM3D you can claim it on any day.)"
+  },
+  {
+   "name": "Large Quiver",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Increases the Hero's Bow's arrow capacity from 30 to 40.",
+   "where": "Score 40+ points at the Town Shooting Gallery in East Clock Town."
+  },
+  {
+   "name": "Largest Quiver",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Increases the Hero's Bow's arrow capacity from 40 to 50.",
+   "where": "Score a perfect score at the Swamp Shooting Gallery (Southern Swamp)."
+  },
+  {
+   "name": "Big Bomb Bag",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Increases bomb capacity from 20 to 30.",
+   "where": "Save the Bomb Shop's old lady from the thief Sakon in North Clock Town around midnight on the First Night (she also rewards the Blast Mask); afterward buy the Big Bomb Bag from the Bomb Shop in West Clock Town for 90 Rupees."
+  },
+  {
+   "name": "Biggest Bomb Bag",
+   "cat": "item",
+   "type": "Upgrade",
+   "effect": "Increases bomb capacity from 30 to 40.",
+   "where": "With the Big Bomb Bag and Goron Mask, talk to the Business Scrub in Goron Village as Goron Link to buy the Biggest Bomb Bag for 200 Rupees."
+  }
+ ]
+}
