@@ -1,0 +1,182 @@
+{
+ "enemies": [
+  {
+   "name": "ChuChu",
+   "tier": "common",
+   "tactic": "Hit the gelatinous blob with any attack; the color tells you the drop, and a Blue ChuChu can be frozen with an Ice Arrow into a stepping platform.",
+   "drops": "Recovery Heart (Red), Magic Jar (Green), 10 Arrows (Yellow), Rupees"
+  },
+  {
+   "name": "Octorok",
+   "tier": "common",
+   "tactic": "Raise any non-Mirror shield to bounce its spat rock back for a one-hit kill, or pelt it with arrows; otherwise it takes two hits.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Keese",
+   "tier": "common",
+   "tactic": "Swat the flapping bat with anything; long-range tools (Bow, Hookshot) are easiest. Fire/Ice Keese will burn or freeze on contact, so drop them before they reach you.",
+   "drops": "Recovery Hearts, Rupees"
+  },
+  {
+   "name": "Leever",
+   "tier": "common",
+   "tactic": "These spinning creatures burrow in sand and surface to ram you; just slash them with your sword as they pop up.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Skulltula",
+   "tier": "common",
+   "tactic": "Its front is armored and it can spin to knock you back. Wait for it to turn and strike the soft backside, or shoot it with an arrow (the Hookshot does NOT damage MM Skulltulas).",
+   "drops": "Rupees, Recovery Hearts (Gold Skulltulas in the Spider Houses count toward those rewards)"
+  },
+  {
+   "name": "Stalchild",
+   "tier": "common",
+   "tactic": "These two-hit skeletons rise at night in the Ikana Graveyard (and the Oceanside Spider House) and attack in pairs; a couple of sword slashes drops each one.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "ReDead",
+   "tier": "common",
+   "tactic": "Its moan paralyzes you up close; play the Sun's Song (stuns it ~30s) or stun it with a Deku Nut, then move behind it and slash, or hit it from range with arrows.",
+   "drops": "Rupees"
+  },
+  {
+   "name": "Gibdo",
+   "tier": "common",
+   "tactic": "A bandaged mummy that freezes you with its shriek; burn the wraps off with Fire Arrows (revealing a ReDead beneath) or stun it with the Sun's Song / a Deku Nut and slash.",
+   "drops": "Recovery Heart, Rupee, or other minor pickups"
+  },
+  {
+   "name": "Like Like",
+   "tier": "common",
+   "tactic": "It swallows you and steals your shield (or an optional tunic), so never stand in front of it; hit it with sword or arrows, and after it spits you out KILL it fast to get your gear back before it dissolves. It can't eat the Hylian Shield.",
+   "drops": "Rupees, Magic Jars, Recovery Hearts (kill it after it spits you out to recover a swallowed shield)"
+  },
+  {
+   "name": "Eeno",
+   "tier": "common",
+   "tactic": "A snow mound that lobs snowballs; a large Eeno splits into three small ones when hit, so a single Fire Arrow (their heat weakness) melts any of them, or finish the little ones with slashes or a spin attack.",
+   "drops": "Recovery Hearts, Rupees"
+  },
+  {
+   "name": "Dexihand",
+   "tier": "common",
+   "tactic": "A giant turquoise hand jutting from an underwater wall that grabs and tosses you (it can't directly hurt you); kill it with Zora Link's fin boomerangs or electric barrier, or any attack.",
+   "drops": "Recovery Hearts, Rupees"
+  },
+  {
+   "name": "Real Bombchu",
+   "tier": "common",
+   "tactic": "A live walking bomb-mouse that scurries at you and explodes; pick it off from range with an arrow (which detonates it safely). The Stone Mask makes them ignore you entirely.",
+   "drops": "reappears after a short time (no reliable drop)"
+  },
+  {
+   "name": "Gekko",
+   "tier": "mini-boss",
+   "tactic": "Hit the leaping frog with sword or Deku bubbles, then knock it off the Snapper it summons with a Deku Flower blast or a Bomb, and shoot it with the Bow as it scrambles along the walls. Repeat three times.",
+   "drops": "dungeon progress (Woodfall & Great Bay mini-boss)",
+   "battle": "The Gekko is a recurring miniboss fought twice. Bring the Hero's Bow with plenty of arrows, Bombs, and the Deku Mask, plus a bottled fairy as insurance. (You do NOT need to bring Ice Arrows — you find them inside Great Bay Temple from a chest after the Wart miniboss, so you'll already have them by the second Gekko fight.) WOODFALL TEMPLE: it opens by hopping around throwing punches/kicks, so keep moving and hit it with your sword until it summons a Snapper and rides it. While it spins around on the Snapper, flip the turtle over — drop a Bomb in its path or pop up out of a Deku Flower as Deku Link as it passes — to knock the Gekko off. It then scrambles up the walls and ceiling; Z-target it, wait for it to pause, and shoot it with an arrow. Repeat that cycle (sword to summon, dismount, arrow) two to three times to win. Defeating it lets you open the large chest in the room for the Hero's Bow and Quiver (the dungeon item) — the Gekko itself does not drop the Boss Key. GREAT BAY TEMPLE: here it lobs blobs of Mad Jelly at you (a hit sticks to you and traps you — shield-block or quick-spin them away). Chase it down and hit it with your sword; it leaps to the ceiling and gathers the jelly into one giant ball. Dodge the ball's falling shadow, then while the ball is fully on the ceiling shoot it with an Ice Arrow so it freezes, drops, and shatters, leaving the Gekko exposed for another sword combo. Repeat until it's beaten — it turns back into a harmless frog. The Boss Key sits in an adjacent chamber you can now reach (it is not dropped by the Gekko)."
+  },
+  {
+   "name": "Wizzrobe",
+   "tier": "mini-boss",
+   "tactic": "This teleporting mage warps between pads and blasts a freezing spell; watch the mini-map for the red dot, then arrow it or Goron-fire-punch it before it warps. When it splits into clones, the solid one with a flame on its staff is real.",
+   "drops": "Magic Jars, dungeon progress (Snowhead Temple mini-boss)"
+  },
+  {
+   "name": "Wart",
+   "tier": "mini-boss",
+   "tactic": "A giant eye shielded by Bubbles; knock the Bubbles off first (any weapon — spin attack, Zora fins, Hookshot), then shoot the exposed eye with arrows until it drops, and clear leftover Bubbles with spin attacks.",
+   "drops": "Ice Arrows (chest after the fight, Great Bay Temple)",
+   "battle": "Wart is the Great Bay Temple mini-boss: a single giant eye sheathed in a shell of gelatinous bubbles, and it can only be hurt when the eyelid is open. Bring a full quiver and your Hookshot — and TAKE THE ZORA MASK OFF (you fight this one as Hylian Link). A bottled fairy is good insurance. Strip the protective bubbles first: Z-target and Hookshot a bubble loose, then slash it with your sword before it escapes (the spin attack and arrows work too). You don't need to clear every bubble — only enough to get a clear line on the eye. If you want to shave many off at once, a Fire Arrow knocks down a whole patch (with a bit more risk); as Zora Link, the Double Cutters (boomerang fins) are an alternative way to peel several at a time, but the Hookshot-and-slash method is the standard, safer one. Once a gap opens over the eye, wait for it to roll open and fire an arrow (or the Hookshot) straight into it — a closed eye takes no damage. After several clean hits the whole bubble layer sloughs off and Wart starts skidding around the room to ram you; back into a corner (Wart can't reach the very corners), let the rush sail past, and keep hitting the open eye with arrows until it bursts. Open the chest it leaves for the Ice Arrows."
+  },
+  {
+   "name": "Gomess",
+   "tier": "mini-boss",
+   "tactic": "A scythe-wielding reaper cloaked in invulnerable Bad Bats; block its scythe, then fire a Light Arrow to scatter the bats and slash the exposed orb beneath its chest (Zora Link's barrier can farm the bats for magic without hitting Gomess).",
+   "drops": "the dungeon Boss Key (chest after the fight, inverted Stone Tower Temple)"
+  },
+  {
+   "name": "Garo Master",
+   "tier": "mini-boss",
+   "tactic": "A dual-blade ninja; Z-target and dodge/back away so his charge misses, then strike him in the brief opening (or stun with Deku Nut/Hookshot). When he warps away he reappears nearby — turn and hit his back. Wait after the kill and he reveals a secret.",
+   "drops": "information / dungeon progress (Stone Tower Temple mini-boss)"
+  },
+  {
+   "name": "Dinolfos",
+   "tier": "mini-boss",
+   "tactic": "An agile reptile swordsman that breathes fire (often right after being hit or dodging); wait out its guard, dodge the flame breath, and counter with sword slashes or Goron Link's punches. Two guard a room near the top of Snowhead Temple.",
+   "drops": "Stray Fairies, Recovery Hearts (Snowhead Temple)"
+  },
+  {
+   "name": "Igos du Ikana",
+   "tier": "mini-boss",
+   "tactic": "The mummified King of Ikana; first defeat his two guards, then fight Igos, dodging his thrown head. Stun him and reflect sunlight onto him with the Mirror Shield to finish.",
+   "drops": "teaches the Elegy of Emptiness",
+   "battle": "Bring the Mirror Shield (the whole fight hinges on it) and Fire Arrows, top off your magic, and stash a bottled fairy as insurance — this is a sword-and-light duel, not a transformation fight. When you enter the throne room the king draws the curtains and plunges it into darkness; immediately fire a Fire Arrow at each drape to burn them away and let the sunbeams back in. Phase one is his two skeletal servants (Stalfos-like): hack them down with your sword (Bunny Hood helps you dart behind them), but a downed servant revives unless you stand in a sunbeam and angle the Mirror Shield to bathe its body in light — so do both: knock it down with the sword, then reflect sunlight onto it to keep it dead. Phase two is the King himself: he attacks with a sword and shield and a poison-like breath, so circle him and slash his sides or back (just after he swings is the safe window). Watch for the moment he detaches his head — the flying skull chases you to latch on for heavy damage, and while it's off his body the King can't be hurt, so keep moving (a Goron roll or a Bunny Hood dodge shakes it) until the head reattaches. Then stagger him with the sword to knock him to the floor, plant yourself in a light beam, and reflect sunlight onto him while he's down; repeat the knock-down-then-burn cycle a few times and he crumbles, teaching you the Elegy of Emptiness needed for Stone Tower."
+  },
+  {
+   "name": "Odolwa",
+   "tier": "boss",
+   "tactic": "Woodfall Temple boss. When the dancing jungle warrior pauses, blind him with arrows, then rush in and slash. Clear the bugs he summons with a Bomb or spin attack, and side-hop his sword lunge behind a raised shield.",
+   "drops": "Heart Container, Odolwa's Remains",
+   "battle": "Bring arrows, bombs (or grab the Bomb Flowers that grow in the arena), Deku Nuts, and a bottled fairy as insurance. Step toward the center and Odolwa drops down swinging twin machetes — keep moving and roll out of his reach when he slashes (only human Link can raise a shield; Z-target to lock on and line up shots, not to block as Deku Link). Two stuns differ by version. N64 original: the cleanest method is to Z-target and fire a Hero's Bow arrow whenever he lowers his guard to do his intimidation dance or chant — the hit stuns him; rush in and slash his knees/legs with the sword until he recovers, then repeat. (Tossing a couple of Bomb Flowers/bombs, or the Blast Mask, also staggers him and can trivialize the fight; in the N64 version almost any weapon damages him.) 3DS remake: a red weak-point eye appears on the back of his head and he now blocks most attacks, so dive into one of the Deku Flowers around the room, launch into the air as Deku Link, hover with the spin, and aim (R) to drop a Deku Nut straight onto his head — that stuns and topples him; instantly doff the Deku Mask and unload leaping sword slashes on the exposed eye, repeating the launch-Deku-Nut-stun-then-slash loop three or four times. In both versions he periodically chants to summon enemies (moths, insect/spider-like creatures, or a few falling boulders depending on the chant) and rings you in fire to make his spin attack harder to dodge — bomb or Blast-Mask the swarm and keep circling. Whittle him down over three or four stun cycles. Then grab the Heart Container and step into the blue warp to claim Odolwa's Remains."
+  },
+  {
+   "name": "Goht",
+   "tier": "boss",
+   "tactic": "Snowhead Temple boss. Fire-Arrow the frozen mechanical bull to free it, then become Goron Link and spike-roll after it around the track, ramming it; pound it while it's grounded. (Chateau Romani helps the magic drain.)",
+   "drops": "Heart Container, Goht's Remains",
+   "battle": "Bring Fire Arrows, the Goron Mask, a full magic meter, and a bottled fairy as insurance. Goht starts encased in ice: shoot it with a Fire Arrow to thaw it and start the fight, then immediately don the Goron Mask, because this is a Goron-roll race around the doughnut-shaped arena. Hold the roll button to build into the spiked speed-roll (it drains magic) and chase Goht down, rolling over the green magic jars that respawn along the track to keep your meter topped off. Ram your spiked roll into its hind legs, or use the ramps/speed-bumps to fling yourself up onto its back — enough hits knock it flat and stun it. While it's down, keep pounding it with the spiked roll. (In the 3DS remake a glowing eye appears on its back when stunned — hit that with arrows or your sword for big damage; the N64 original has no eye, so just keep ramming.) Dodge its attacks as you circle: it flings rocks/boulders backward from its hooves, drops stalactites and bombs, and lobs a bouncing energy orb (blue beam); and if you fall too far behind, it stops, turns, and fires a homing lightning bolt down the track (in 3DS this only triggers when you lag behind). Keep the pressure on through its more aggressive later phase until it collapses for good, then grab the Heart Container and step into the light for the Remains of Goht.</battle> <parameter name=\"tier\">Boss (Snowhead Temple)"
+  },
+  {
+   "name": "Gyorg",
+   "tier": "boss",
+   "tactic": "Great Bay Temple boss. Stun the giant fish from the central platform with an arrow (or Zora fin/Hookshot), then dive in as Zora Link and hit it with the electric barrier before retreating to the platform. (3DS: feed it a mine while it inhales.)",
+   "drops": "Heart Container, Gyorg's Remains",
+   "battle": "Bring the Zora Mask, your Bow with plenty of arrows, and a bottled fairy as insurance — Gyorg's chomp does massive damage, and the underwater swimming eats magic, so carry Magic/Chateau Romani or potions too. The fight rings a small central platform over deep water. Open as Hylian Link on the platform: when Gyorg breaks the surface, Z-target and shoot it with an arrow to stun it (Zora-form fin boomerangs work too if you're out of arrows). Its weak point is the big eye, exposed while it's stunned. The instant it's stunned, slap on the Zora Mask, dive in, and hold A to swim straight at it — then deal damage with the Electric Barrier (R), which hurts it far more than fin slashes — and immediately swim back and climb out onto the platform before it recovers. Never linger in the water: Gyorg charges and chews you for heavy damage and can swallow you whole (mash to break free). It also flops up onto the platform to ram you; hop briefly into the water to dodge. If it spits out small fish, the Electric Barrier clears them. Repeat the loop — arrow to stun, dive, barrier, retreat — until it dies. (Version note: this platform fight is the whole battle on the original N64 version — you can even choose to fight entirely underwater. The 3DS remake adds a forced second phase: Gyorg sinks the platform and you stun it by luring it to inhale a floating spike mine while it sucks in water, then hit the exposed eye.) Victory yields a Heart Container and Gyorg's Remains."
+  },
+  {
+   "name": "Twinmold",
+   "tier": "boss",
+   "tactic": "Stone Tower Temple boss. Don the Giant's Mask and battle the two sandworms with your enlarged body, slamming heads/tails (smash the pillars for Magic Jars to stay big). Or arrow the worms — Fire Arrows hurt the blue one, Ice Arrows hurt the red.",
+   "drops": "Heart Container, Twinmold's Remains",
+   "battle": "Bring Chateau Romani (or at least the extended magic meter) and a bottled fairy first — the Giant's Mask is the heart of this fight and it drains your magic fast. You won it earlier in Stone Tower Temple, from the chest a tougher-than-usual Eyegore drops. In the N64 original both serpents, red and blue, surface and dive through the sand at the same time, so you're juggling two threats (the 3DS remake split them into two separate phases instead). Put on the Giant's Mask to grow to their scale, Z-target a worm, and strike its only weak spots — the head and the tail — landing blows as it rises out of or dives back into the sand; ignore the armored body. One worm will fall before the other, so once one is dead you can focus everything on the survivor. When magic runs low, hammer the stone pillars around the arena (and let the worms smash them too) to shake loose magic jars and arrows. If you'd rather conserve magic, you can also snipe them small with elemental arrows at the head/tail: blue Twinmold takes heavy damage from Fire Arrows, red from Ice Arrows (each worm has about 20 HP, so roughly four well-aimed elemental arrows drop one; Light Arrows work too but at reduced bonus). Kill both worms and you free the last of the Four Giants, claiming a Heart Container and Twinmold's Remains."
+  },
+  {
+   "name": "Majora (Mask / Incarnation / Wrath)",
+   "tier": "boss",
+   "tactic": "Final boss on the Moon. Mask: arrow its vulnerable back as it spins, then strike it down. Incarnation: keep your shield up against its energy orbs and stab it as it dashes past. Wrath: shield its whips, hit it with a Light Arrow, then slash. The Fierce Deity's Mask shreds every form with sword beams.",
+   "drops": "the end of the game (no item drop)",
+   "battle": "Bring the Fierce Deity's Mask if you have it — trading all 20 non-transformation masks (including the Giant's Mask) to the four masked Moon Children in the Moon turns the whole fight trivial; if not, bring the Zora, Deku and Goron Masks, your bow with Light Arrows, the Mirror Shield, and 1-2 bottled fairies as a revive net. Phase 1, Majora's Mask: the mask floats and does a spinning ram charge — stun it by hitting its unprotected back, easiest with Zora Link's homing boomerang fins, then switch to sword and slash while it's down. When the four Boss Remains masks appear and fire beams, kill them with arrows or by reflecting their beam back with the Mirror Shield (if you don't clear them, they keep attacking through the later phases). Phase 2, Majora's Incarnation: a fast humanoid form that dances around and shoots a barrage of energy orbs — block the orbs with your shield, stun it with a Light Arrow, or catch it with a thrust as it runs past, then close in with the sword while it's stunned. Phase 3, Majora's Wrath: the muscular final form whips long tentacle arms and throws homing spinning tops — keep medium range (too close gets you kicked, too far gets you grabbed and thrown), block the whips with your shield or bounce the tops off it, stun it with a Light Arrow or Zora Link's bio-electric barrier, then unload sword strikes. With the Fierce Deity's Mask, just lock on and spam ranged sword beams through every phase to win fast. Beating Wrath ends the game — there's no Heart Container reward from the final boss."
+  }
+ ],
+ "basics": [
+  {
+   "title": "Z-Targeting",
+   "body": "Press Z (L on the 3DS) to lock onto a foe. Targeting lets you strafe around it, keep your shield and sword pointed the right way, and auto-aim arrows or thrown items. Lock on first in almost every fight so you can circle, block, and read the enemy's tells."
+  },
+  {
+   "title": "Three forms, three fighters",
+   "body": "The transformation masks are your real arsenal. Deku Link spins to attack, shoots bubbles, and launches from Deku Flowers to glide; Goron Link curls into a spiked roll, ground-pounds, and is immune to lava; Zora Link swims fast, hurls fin-boomerangs, and raises a body-zapping electric barrier. Swap to whichever mask fits the room before you fight."
+  },
+  {
+   "title": "Shield, dodge & spin attack",
+   "body": "Hold R to raise your shield and block most frontal attacks. While Z-targeted, tap a direction to side-hop or press back to backflip away from a strike. Hold B to charge a spin attack, then release to sweep everything around you at once."
+  },
+  {
+   "title": "Bottles & magic",
+   "body": "Keep a fairy in a bottle: if you die with one, it revives you with hearts automatically. Red Potion refills hearts, Green Potion refills magic, and Blue refills both. Drinking Chateau Romani (the 200-rupee Romani Ranch milk) grants unlimited magic until you next reset time, so masks and magic arrows cost nothing."
+  },
+  {
+   "title": "Deku Nuts & elemental arrows",
+   "body": "Deku Nuts burst in a flash that stuns nearby enemies, opening them up for a free hit. The three magic arrows each have a job: Fire Arrows melt ice and torch frozen or snowy foes, Ice Arrows freeze water into solid platforms (and freeze enemies), and Light Arrows banish the cursed dead of Ikana and stun light-weak foes where nothing else works."
+  },
+  {
+   "title": "Beat the clock",
+   "body": "You only have a three-day cycle, so aim to clear a temple in one run before resetting time with the Song of Time (which also banks your progress). Play the Inverted Song of Time to slow the clock to about a third speed and buy yourself room. If a boss is giving you trouble, the Fierce Deity's Mask (earned by trading away your collected masks to the children on the Moon, and usable only in boss rooms) turns Link into a powerful swordsman who fires beams and shreds bosses fast."
+  }
+ ]
+}

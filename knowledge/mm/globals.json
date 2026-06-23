@@ -5,7 +5,8 @@
   "orbWord": "hearts",
   "runesLabel": "Masks & Songs",
   "championsLabel": "Remains",
-  "regionBanner": "Temple"
+  "regionBanner": "Temple",
+  "worldName": "Termina"
  },
  "guideSegs": [["runes", "Masks"], ["tips", "Tips"], ["settings", "Settings"]],
  "postRegionId": "mm_moon",

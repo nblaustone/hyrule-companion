@@ -1,0 +1,34 @@
+{
+ "fairies": [
+  {
+   "name": "Great Fairy of Magic",
+   "region": "Clock Town",
+   "location": "Fairy Fountain on the west side of North Clock Town. Restored with the single Stray Fairy hidden in Clock Town (1 Stray Fairy) — it floats in the Laundry Pool during the day and near the Stock Pot Inn in East Clock Town at night.",
+   "cost": "GRANTS Magic Power (the magic meter itself) the first time she is restored as Deku Link, enabling magic-based abilities (e.g. the Deku bubble shot). Then, if you return to her in human/Hylian form, she gives the Great Fairy's Mask — a mask that chimes and glows when a Stray Fairy is in the same room, used to help locate the 15 Stray Fairies in each temple."
+  },
+  {
+   "name": "Great Fairy (Woodfall)",
+   "region": "Southern Swamp / Woodfall",
+   "location": "Fairy Fountain in Woodfall, in a grotto near Woodfall Temple. Restored by returning all 15 Stray Fairies from Woodfall Temple.",
+   "cost": "GRANTS the Great Spin Attack — an enhanced sword Spin Attack with double the power and range of the normal Spin Attack."
+  },
+  {
+   "name": "Great Fairy (Snowhead)",
+   "region": "Snowhead / Mountain Village (northern mountains)",
+   "location": "Fairy Fountain at Snowhead, near the entrance to Snowhead Temple. Restored by returning all 15 Stray Fairies from Snowhead Temple.",
+   "cost": "GRANTS Double Magic Power — an extended magic meter that doubles Link's magic capacity (the larger/double magic gauge)."
+  },
+  {
+   "name": "Great Fairy (Great Bay)",
+   "region": "Great Bay Coast",
+   "location": "Fairy Fountain in the Great Bay region near Zora Cape. Restored by returning all 15 Stray Fairies from Great Bay Temple.",
+   "cost": "GRANTS Double Defense (Enhanced Defense) — halves the amount of damage Link takes from all damage sources."
+  },
+  {
+   "name": "Great Fairy (Stone Tower)",
+   "region": "Ikana Canyon / Stone Tower",
+   "location": "Fairy Fountain in Ikana Canyon, near Stone Tower. Restored by returning all 15 Stray Fairies from Stone Tower Temple.",
+   "cost": "GRANTS the Great Fairy's Sword — the strongest sword in the game, a magical two-handed sword equipped to a C-button item slot."
+  }
+ ]
+}

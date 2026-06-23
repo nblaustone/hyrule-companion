@@ -1,0 +1,432 @@
+{
+ "regions": [
+  {
+   "region": "The Bombers' Notebook & Anju–Kafei",
+   "quests": [
+    {
+     "name": "Join the Bombers' Secret Society of Justice (Hide-and-Seek)",
+     "giver": "Jim, leader of the Bombers gang — North Clock Town",
+     "location": "North Clock Town (chase runs across North/East/West Clock Town)",
+     "reward": "The 5-digit hideout passcode (the Notebook comes later, as human Link)",
+     "oneLine": "Win the Bombers' hide-and-seek to earn their secret code.",
+     "how": "You play this as DEKU LINK (the form the Skull Kid traps you in) — pop the balloon Jim's gang is shooting at in North Clock Town to be challenged, then tag all five Bombers scattered around North, East and West Clock Town before time runs out. They reward you with a five-digit passcode (the digits 1–5 in a random, save-specific order — write it down) to their underground hideout. NOTE: the Bombers only let HUMANS formally join, so as a Deku Scrub you get the code but NOT the Notebook yet — that comes once you're back in Hylian form (next entry)."
+    },
+    {
+     "name": "The Bombers' Notebook",
+     "giver": "The Bombers (Jim's gang) — awarded to human Link",
+     "location": "Obtained in Clock Town as Hylian Link; used everywhere across the three-day cycle",
+     "reward": "A side-quest schedule tracker (logs ~20 people, their time windows, and rewards earned)",
+     "oneLine": "The key item that tracks every person's three-day schedule and your progress on their quests.",
+     "how": "Once you regain your Hylian form (after the Song of Healing), become a real member to get the Notebook — either replay the Bombers' hide-and-seek as a human, OR go to the hideout entrance in East Clock Town and give the previously-learned code to the Bombers guard there. The Notebook auto-marks its first entry (the Bombers) complete. It tracks roughly 20 people (the Bombers, Anju, Kafei, Romani, Cremia, the Postman, Madame Aroma and more): blue bars = open windows of opportunity, red bars = a missed/expired chance, and a checkmark/'Happy Sticker' marks an entry whose quest is finished, plus reminders of upcoming appointment times."
+    },
+    {
+     "name": "Kafei's Mask (Madame Aroma's search for Kafei)",
+     "giver": "Madame Aroma — Mayor's Residence, East Clock Town",
+     "location": "Mayor's Residence office, East Clock Town",
+     "reward": "Kafei's Mask (and the Anju–Kafei quest begins)",
+     "oneLine": "Madame Aroma hires Link to find her missing son Kafei and hands over Kafei's Mask.",
+     "how": "On the First Day between roughly 10:00 AM and 12:00 PM, enter the Mayor's Residence and find Madame Aroma in the office room; speak to her in human form and she gives you Kafei's Mask, asking you to find Kafei (who has gone missing before his wedding to Anju). IMPORTANT for the chain: it's fine to save the Old Lady from Sakon on Night 1 — but ONLY ever hit Sakon with your SWORD. If you blow up his stolen bomb-bag (any other weapon), his hideout ends up empty and Kafei can never recover the Sun's Mask, which fails the reunion."
+    },
+    {
+     "name": "Meet Anju with Kafei's Mask (the Letter to Kafei)",
+     "giver": "Anju — Stock Pot Inn, East Clock Town",
+     "location": "Stock Pot Inn, East Clock Town (front desk, then the kitchen)",
+     "reward": "Letter to Kafei (and a promised meeting)",
+     "oneLine": "Wearing Kafei's Mask, Link convinces Anju to trust him and entrust a letter for her missing fiancé.",
+     "how": "On the First Day, after the Postman delivers Anju a letter at the inn (around 1:00–2:00 PM), wear Kafei's Mask and talk to Anju at the Stock Pot Inn desk; she recognizes it and asks to meet privately at 11:30 PM. Return that night (her kitchen window is roughly 12:00 AM–6:00 AM) and she gives you the Letter to Kafei to deliver."
+    },
+    {
+     "name": "Mail the Letter to Kafei",
+     "giver": "Self-directed (any Clock Town mailbox; the Postman collects it)",
+     "location": "Any Clock Town mailbox",
+     "reward": "Triggers Kafei to appear at the Laundry Pool",
+     "oneLine": "Drop Anju's letter in a mailbox so the Postman delivers it and Kafei surfaces.",
+     "how": "On the Second Day, deposit the Letter to Kafei in any Clock Town mailbox before the Postman's ~9:00 AM pickup. He carries it onward, which sets up Kafei appearing at the Laundry Pool that afternoon."
+    },
+    {
+     "name": "Find Kafei at the Curiosity Shop Back Room (Pendant of Memories)",
+     "giver": "Kafei (cursed into a child) — Laundry Pool / Curiosity Shop back room",
+     "location": "Laundry Pool door leading to the Curiosity Shop back room, West Clock Town area",
+     "reward": "Pendant of Memories",
+     "oneLine": "Tail the masked child to Kafei's hideout, where he explains Sakon stole his Sun's Mask and entrusts the Pendant of Memories.",
+     "how": "On the Second Day around 3:10 PM, wait at the Laundry Pool; the masked boy (Kafei) arrives to collect the letter — follow him through the door into the Curiosity Shop's hidden back room before it shuts. Kafei reveals the Skull Kid turned him into a child and the thief Sakon stole his Sun's Mask (needed for the wedding); he gives you the Pendant of Memories to take to Anju as proof he'll return."
+    },
+    {
+     "name": "Give the Pendant of Memories to Anju",
+     "giver": "Self-directed — deliver to Anju at the Stock Pot Inn",
+     "location": "Stock Pot Inn, East Clock Town",
+     "reward": "Anju agrees to wait for Kafei instead of fleeing town",
+     "oneLine": "Hand Anju the pendant so she chooses to wait for Kafei rather than evacuate with her mother.",
+     "how": "Bring the Pendant of Memories to Anju at the Stock Pot Inn (the window runs roughly 10:00 AM–7:00 PM, on the Second or Final Day). Seeing it convinces her Kafei is alive and coming, so she resolves to wait for him on the Final Day rather than flee the Moon — which is required for the reunion."
+    },
+    {
+     "name": "Sakon's Hideout & the Sun's Mask (Kafei's side)",
+     "giver": "Kafei (the final-night raid) — Sakon's Hideout, Ikana Canyon",
+     "location": "Sakon's Hideout, Ikana Canyon",
+     "reward": "Kafei recovers the Sun's Mask (story beat enabling the Couple's Mask)",
+     "oneLine": "On the final night Kafei breaks into Sakon's hideout to reclaim the stolen Sun's Mask.",
+     "how": "Once you've kept the chain alive (and never destroyed Sakon's bomb-bag), Kafei reaches Sakon's Hideout in Ikana Canyon on the Final Day and retrieves his Sun's Mask so he can return for the wedding. In the N64 original this resolves OFF-SCREEN; in Majora's Mask 3D there's an optional playable Kafei segment inside the hideout. With both masks in hand, head back to the inn for the reunion."
+    },
+    {
+     "name": "The Reunion — Couple's Mask",
+     "giver": "Anju & Kafei — Stock Pot Inn, East Clock Town",
+     "location": "Stock Pot Inn (Anju's room / Employees Only back area), East Clock Town",
+     "reward": "Couple's Mask",
+     "oneLine": "Witness Anju and Kafei's wedding reunion as the Sun's and Moon's masks merge into the Couple's Mask.",
+     "how": "On the Final Night, when there is about 1:30 left on the countdown clock (roughly 4:30 AM), return to the Stock Pot Inn and go to the back room (Anju's room / Employees Only). If the Pendant was given and Kafei recovered the Sun's Mask in time, the two reunite and combine the Sun's Mask and Moon's Mask, awarding Link the Couple's Mask."
+    },
+    {
+     "name": "Couple's Mask — Stop the Mayor's Meeting (Piece of Heart)",
+     "giver": "Mayor Dotour's meeting (Mutoh vs. Viscen) — Mayor's Residence",
+     "location": "Mayor's office, Mayor's Residence, East Clock Town",
+     "reward": "Piece of Heart",
+     "oneLine": "Wear the Couple's Mask in the Mayor's office to end the carpenter-vs-soldier argument for a Piece of Heart.",
+     "how": "Wearing the Couple's Mask, enter the Mayor's office during the deadlocked meeting between Mutoh (carpenters, wants to hold the festival) and Captain Viscen (soldiers, wants to evacuate). The mask reminds Mayor Dotour of family over conflict; he ends the meeting (citizens may choose for themselves) and rewards you with a Piece of Heart — the mask's only use."
+    },
+    {
+     "name": "Special Delivery to Mama — Postman's Hat",
+     "giver": "Man at the Curiosity Shop back room — final day",
+     "location": "Curiosity Shop back room → the Postman (Post Office) / Madame Aroma (Milk Bar)",
+     "reward": "Postman's Hat (or, alternatively, an Empty Bottle of Chateau Romani)",
+     "oneLine": "Carry Kafei's farewell letter to his mother; give it to the Postman for his Hat, or to Madame Aroma for a bottle.",
+     "how": "On the Final Day from about 1:00 PM, enter the Curiosity Shop back room; the Man there gives you the Special Delivery to Mama, a letter Kafei left for Madame Aroma. Take it to the Postman at the Post Office (West Clock Town) around 6:00 PM — he delivers it, is freed from duty, and you catch him outside the Milk Bar afterward to receive the Postman's Hat. ALTERNATIVELY, take the letter into the Milk Bar and give it to Madame Aroma yourself for an Empty Bottle of Chateau Romani. The two rewards are mutually exclusive."
+    },
+    {
+     "name": "The Postman's Dilemma (Postman's Hat path)",
+     "giver": "The Postman — Clock Town Post Office / his schedule rounds",
+     "location": "Clock Town (Post Office; mailboxes town-wide)",
+     "reward": "Postman's Hat (used to find a Piece of Heart in a mailbox)",
+     "oneLine": "The duty-bound Postman is terrified of the Moon but can't flee until his schedule is clear — letting him deliver one last letter frees him.",
+     "how": "The Postman rigidly follows his schedule (tracked in the Bombers' Notebook) and is too dutiful to evacuate while a delivery remains. Giving him the Special Delivery to Mama on the Final Day empties his route so he can finally flee, and he hands you the Postman's Hat. Afterward, wear the Postman's Hat and check a Clock Town mailbox — the first one you check yields a Piece of Heart."
+    }
+   ]
+  },
+  {
+   "region": "Romani Ranch & Milk Road",
+   "quests": [
+    {
+     "name": "Defend the Ranch from Them (Romani's Aliens)",
+     "giver": "Romani — at Romani Ranch (Milk Road, southwest of Termina Field)",
+     "location": "Romani Ranch (the barn and surrounding fields)",
+     "reward": "Saves Romani and the cows (prevents her abduction/dazing); enables Cremia's Second-Day milk run, and the night defense itself nets a bottle of milk",
+     "oneLine": "Help Romani repel the alien Ghosts ('Them') that invade the ranch at 2:30am on the night of the First Day.",
+     "how": "Reach the ranch on the morning of the First Day, talk to Romani and clear her balloon archery practice (pop 10 ghost balloons on horseback within 2 minutes) — this also earns you Epona's Song. Return to Romani by about 2:00am that first night; from 2:30am, ride/run the perimeter (the dog's bark flags intruders) and shoot the glowing aliens with the Hero's Bow before any reach the barn. Hold them off until dawn (about 5:15am) — if even one breaks into the barn, Romani is abducted and the quest fails for that cycle. (Inverted Song of Time slows time to make it easier.)"
+    },
+    {
+     "name": "Escort Cremia's Milk Wagon",
+     "giver": "Cremia — at Romani Ranch",
+     "location": "Milk Road / Gorman Track, from Romani Ranch to Clock Town",
+     "reward": "Romani's Mask (proof of Milk Bar membership)",
+     "oneLine": "Ride shotgun on Cremia's milk wagon on the night of the Second Day and shoot down the masked Gorman bandits before they smash the milk.",
+     "how": "Only available if you saved Romani the night before. Be at the ranch by 6:00pm on the Second Day and accept Cremia's offer; from the back of the wagon, use the Hero's Bow (unlimited arrows) to shoot the masked Gorman Brothers who attack along the Gorman Track detour before they reach the cargo. Deliver the milk intact and Cremia gives you Romani's Mask. (On a later cycle, wearing the Troupe Leader's/Circus Leader's Mask makes the bandits trail the wagon but never charge — but you can't have that mask on a first run, since it requires Romani's Mask.)"
+    },
+    {
+     "name": "Gorman Brothers' Horse Race",
+     "giver": "The Gorman Brothers — at Gorman Track (on Milk Road)",
+     "location": "Gorman Track, Milk Road",
+     "reward": "Garo's Mask",
+     "oneLine": "Beat the Gorman Brothers in a horseback race around Gorman Track to win Garo's Mask.",
+     "how": "Bring Epona to Gorman Track and pay the 10-Rupee entry to challenge the brothers (available any day once you have Epona). Win by clearing every fence jump (keep at least 3 carrots in reserve so Epona can sprint and leap) and using your bow to briefly stun the brothers' horses on open stretches. Do this BEFORE completing the Cremia escort — once you protect her wagon, the brothers leave the track and the race is unavailable that cycle."
+    },
+    {
+     "name": "The Milk Bar 'Latte' Show (Toto & Gorman)",
+     "giver": "Gorman — Milk Bar 'Latte', East Clock Town (Toto runs the sound check)",
+     "location": "Milk Bar ('Latte'), East Clock Town",
+     "reward": "Troupe Leader's Mask (a.k.a. Circus Leader's Mask)",
+     "oneLine": "Wearing Romani's Mask, enter the Milk Bar at night and perform the Ballad of the Wind Fish in all four forms to move the heartbroken Gorman.",
+     "how": "Get Romani's Mask first (it's proof of Milk Bar membership), then enter the Latte Milk Bar after it opens at 10:00pm. Talk to Toto, the Indigo-Go's manager, to start a 'sound check' and play the 'Ballad of the Wind Fish' once in each of Link's four forms (Deku/Goron/Zora/Hylian) so the full song comes together; Gorman, listening at the bar, is moved to tears and gives you the Troupe Leader's Mask."
+    },
+    {
+     "name": "Chateau Romani",
+     "giver": "Barten (the bartender) — Milk Bar 'Latte', East Clock Town",
+     "location": "Milk Bar ('Latte'), East Clock Town",
+     "reward": "A bottle of Chateau Romani — unlimited magic for the rest of the three-day cycle (also fully refills hearts and magic)",
+     "oneLine": "Buy the Milk Bar's premium drink for unlimited magic that lasts until the cycle resets.",
+     "how": "With Romani's Mask for entry, come to the Milk Bar after 10:00pm and buy Chateau Romani from Barten for 200 Rupees (needs the Adult/Giant Wallet; only sold once Cremia's Second-Day delivery has succeeded). Drinking it grants infinite magic for the remainder of that cycle — huge for Goht, Twinmold, and the Goron race. (You can also get one free bottle by hand-delivering Kafei's letter to Madame Aroma during the Anju & Kafei quest.)"
+    },
+    {
+     "name": "Kamaro's Dance (the Rosa Sisters)",
+     "giver": "The Rosa Sisters — West Clock Town (Kamaro's Mask first comes from Kamaro's ghost in Termina Field)",
+     "location": "West Clock Town (Kamaro's ghost is atop a mushroom-shaped rock in northern Termina Field, near the Snowhead entrance)",
+     "reward": "Piece of Heart",
+     "oneLine": "Wear Kamaro's Mask and teach his dance to the Rosa Sisters practicing in West Clock Town for a Piece of Heart.",
+     "how": "First get Kamaro's Mask: between midnight and 6:00am, play the Song of Healing for the dancing ghost Kamaro atop the mushroom-shaped rock in northern Termina Field. Then, at night, find the Rosa Sisters rehearsing in West Clock Town, put on Kamaro's Mask, and dance for them; impressed, they learn the routine and reward you with a Piece of Heart."
+    }
+   ]
+  },
+  {
+   "region": "The 20 Masks of Termina",
+   "quests": [
+    {
+     "name": "Postman's Hat",
+     "giver": "The Postman (Post Office / outside the Milk Bar) — West Clock Town",
+     "location": "Clock Town",
+     "reward": "Postman's Hat — wear it to read the postbox/Bombers' schedule and check the time precisely; cosmetic Postman disguise.",
+     "oneLine": "Free the dutiful Postman from his schedule during the Anju & Kafei quest and he flees town, handing you his hat.",
+     "how": "During the Anju & Kafei quest, on the Final Day get the 'Special Delivery to Mama' letter from the Curiosity Shop Owner (at the Laundry Pool hideout) and give it to the Postman in the West Clock Town Post Office instead of to Madame Aroma. He reads it, decides to flee his duties, and runs from town — speak to him as he leaves to get the Postman's Hat. Note: giving the letter to the Postman (Postman's Hat) vs to Madame Aroma at the Milk Bar (a Bottle of Chateau Romani) are mutually exclusive, so you need two separate cycles to get both."
+    },
+    {
+     "name": "All-Night Mask",
+     "giver": "Curiosity Shop (purchase, 500 Rupees) — West Clock Town",
+     "location": "Clock Town",
+     "reward": "All-Night Mask — keeps Link awake; lets you stay up through Anju's Grandmother's long stories (each correct answer = a Piece of Heart).",
+     "oneLine": "Stop the thief Sakon, and the rare mask he'd have fenced goes on sale at the Curiosity Shop on the final night.",
+     "how": "Around midnight on the Night of the First Day, Sakon robs the Old Lady (the Bomb Shop owner's mother) in North Clock Town — hit him with your sword to stop the theft. Because the goods are saved, the All-Night Mask becomes buyable at the Curiosity Shop in West Clock Town after 10 PM on the Final Day for 500 Rupees (you need the Adult/Giant's Wallet to hold that much). Stopping Sakon also earns the Blast Mask, but the Blast Mask itself is NOT a prerequisite — saving the Old Lady is."
+    },
+    {
+     "name": "Blast Mask",
+     "giver": "The Old Lady (Bomb Shop owner's mother) — North Clock Town",
+     "location": "Clock Town",
+     "reward": "Blast Mask — explodes like a bomb on command (a free, reusable bomb; guard with your shield to avoid the blast damage).",
+     "oneLine": "Save the old woman from the night thief Sakon and she rewards you with an explosive mask.",
+     "how": "Around midnight on the Night of the First Day, Sakon the thief approaches the Old Lady as she walks through North Clock Town and tries to steal her Bomb Bag. Strike Sakon with your sword to stop him; the grateful Old Lady gives Link the Blast Mask."
+    },
+    {
+     "name": "Stone Mask",
+     "giver": "Shiro, an invisible/forgotten soldier — Road to Ikana (N64)",
+     "location": "Ikana Valley",
+     "reward": "Stone Mask — makes Link unnoticed by most enemies and by Gerudo guards; great for sneaking.",
+     "oneLine": "Find a soldier so unremarkable he's literally invisible, give him a potion, and he gifts you the Stone Mask.",
+     "how": "Requires the Lens of Truth (Epona makes the trip easier). In the N64 version, go to the Road to Ikana and use the Lens of Truth to reveal Shiro, an invisible wounded soldier, at the base of the cliff wall. Talk to him and give him a bottle of Red or Blue Potion; in thanks he hands over the Stone Mask. (In the 3DS remake he's instead in the Pirates' Fortress.)"
+    },
+    {
+     "name": "Great Fairy's Mask",
+     "giver": "Great Fairy of Magic — North Clock Town Fairy Fountain",
+     "location": "Clock Town",
+     "reward": "Great Fairy's Mask — its hair shimmers near Stray Fairies and draws them to you, making dungeon fairy-collecting far easier.",
+     "oneLine": "Return Clock Town's lone Stray Fairy to its fountain and the Great Fairy thanks you with her mask.",
+     "how": "As Hylian Link, catch the single Stray Fairy in Clock Town — in the Laundry Pool by day, or in East Clock Town at night — and carry it to the Great Fairy Fountain on the west side of North Clock Town. The restored Great Fairy of Magic gives Link the Great Fairy's Mask."
+    },
+    {
+     "name": "Keaton Mask",
+     "giver": "The Curiosity Shop Owner — Laundry Pool hideout, Clock Town",
+     "location": "Clock Town",
+     "reward": "Keaton Mask — summon Keaton the fox in moving grass patches (e.g. North Clock Town, Milk Road) to answer a quiz for a Piece of Heart.",
+     "oneLine": "Part of the Anju & Kafei quest — on the final day the Curiosity Shop Owner hands you the fox mask along with Kafei's special letter.",
+     "how": "Progress the Anju & Kafei quest to the Final Day. Between roughly 1 PM and 6 PM, return to Kafei's hideout at the Laundry Pool and speak to the Curiosity Shop Owner — he gives Link the Keaton Mask and the 'Special Delivery to Mama' letter. (Note: it is Madame Aroma who hands out Kafei's Mask earlier — the Keaton Mask comes from the Curiosity Shop Owner, not Aroma.)"
+    },
+    {
+     "name": "Bremen Mask",
+     "giver": "Guru-Guru, the music-box man — Laundry Pool, Clock Town",
+     "location": "Clock Town",
+     "reward": "Bremen Mask — march while holding B to make small animals (baby Cuccos, etc.) line up and follow you; needed for the Bunny Hood.",
+     "oneLine": "The grumpy music-box man tells you his troupe days and hands over a mask he no longer needs.",
+     "how": "Between 10 PM and 6 AM on the Night of the First or Second Day, go to the Laundry Pool in Clock Town and talk to Guru-Guru (playing his music box). He reminisces about his marching-troupe days and, deciding he no longer needs it, gives Link the Bremen Mask."
+    },
+    {
+     "name": "Bunny Hood",
+     "giver": "Grog — Cucco Shack, Romani Ranch",
+     "location": "Romani Ranch",
+     "reward": "Bunny Hood — makes Link run noticeably faster and jump farther; one of the most-used utility masks.",
+     "oneLine": "Use the Bremen Mask to raise Grog's chicks, and the rancher gives you his Bunny Hood.",
+     "how": "Needs the Bremen Mask. Go to the Cucco Shack at the back of Romani Ranch and talk to Grog. Wear the Bremen Mask and hold B to march around the baby Cuccos so they all follow you; keep marching until every chick grows into an adult Cucco. Once all have matured, Grog rewards Link with the Bunny Hood."
+    },
+    {
+     "name": "Don Gero's Mask",
+     "giver": "A shivering, hungry Goron — Mountain Village",
+     "location": "Snowhead / Mountain Village",
+     "reward": "Don Gero's Mask — wear it to conduct the frog choir (gather the 5 frogs across Termina) for a Piece of Heart.",
+     "oneLine": "Bring a hunk of Rock Sirloin to a freezing Goron stuck on a ledge and he thanks you with the frog-conductor's mask.",
+     "how": "Requires the Goron Mask. In the Goron Shrine, light all the wall torches (a Deku Stick from torch to torch, or one Fire Arrow into the central torch) to set the hanging-pot chandelier spinning. As Goron Link, roll off the upper ramp at full speed to smash the Goron-head pot and grab the Rock Sirloin. Carry it to the freezing Goron on a ledge in the Mountain Village; he eats it and gives Link Don Gero's Mask."
+    },
+    {
+     "name": "Mask of Scents",
+     "giver": "The Deku Butler — Deku Shrine cave, by the Deku Palace",
+     "location": "Southern Swamp / Deku Palace",
+     "reward": "Mask of Scents — lets Link smell things, revealing hidden mushrooms and edible plants by their scent.",
+     "oneLine": "After freeing the Deku Princess, beat the Deku Butler in a race through his shrine for his late son's mask.",
+     "how": "First clear Woodfall Temple and return the Deku Princess to the Deku Palace. Then enter the Deku Shrine cave by the palace and talk to the Deku Butler; he challenges you to a flower-hopping race as Deku Link (the Bunny Hood helps). Reach the end and, after a sad story about his missing son, he gives Link the Mask of Scents."
+    },
+    {
+     "name": "Romani's Mask",
+     "giver": "Cremia — Romani Ranch (milk-wagon escort to Clock Town)",
+     "location": "Romani Ranch",
+     "reward": "Romani's Mask — marks you as a 'milk man'; lets Link into the members-only Milk Bar (Latte) in East Clock Town.",
+     "oneLine": "Defend the ranch from aliens overnight, then guard Cremia's milk wagon from robbers to earn the rancher's mask.",
+     "how": "Reach Romani Ranch (the boulder on Milk Road needs a Powder Keg, which requires the Goron Mask + Powder-Keg license). On the Night of the First Day, talk to Romani before 2 AM, then help her shoot the alien 'Them' so they can't reach the barn (they vanish by dawn). On the Night of the Second Day, at 6 PM ride shotgun on Cremia's milk wagon and shoot the masked Gorman robbers before they smash the jars — protect the milk and Cremia gives Link Romani's Mask."
+    },
+    {
+     "name": "Circus Leader's Mask",
+     "giver": "Gorman, the troupe leader — Milk Bar (Latte), East Clock Town",
+     "location": "Clock Town",
+     "reward": "Circus Leader's Mask (Troupe Leader's Mask) — its crying calms Gorman's kin; worn during Cremia's escort it stops the Gorman robbers, and it soothes the crying Gorman Brothers.",
+     "oneLine": "Wear Romani's Mask into the Milk Bar and perform a four-form mini-concert; the moved troupe leader Gorman gives you his mask.",
+     "how": "Needs Romani's Mask (to get in) plus the Deku, Goron, and Zora Masks. After 10 PM on the Night of the First or Second Day, wear Romani's Mask to enter the Milk Bar. Help Toto by playing the Ballad of the Wind Fish across all four forms (Link, then Deku/Goron/Zora each play their instrument). Finish the performance and Gorman — moved to tears — gives Link the Circus Leader's Mask."
+    },
+    {
+     "name": "Kafei's Mask",
+     "giver": "Madame Aroma — Mayor's Residence, East Clock Town",
+     "location": "Clock Town",
+     "reward": "Kafei's Mask — show it to people to ask after the missing Kafei; advances the Anju & Kafei quest.",
+     "oneLine": "Madame Aroma asks you to find her vanished son Kafei and gives you a mask of his face to ask around with.",
+     "how": "Between 10 AM and noon on the First (or Second) Day, go to the Mayor's Residence in East Clock Town and speak with Madame Aroma (the pink-haired woman in the office). Searching for her missing son, she gives Link Kafei's Mask to show around town while investigating his disappearance (the Anju & Kafei quest)."
+    },
+    {
+     "name": "Couple's Mask",
+     "giver": "Anju & Kafei (reunited) — Stock Pot Inn, East Clock Town",
+     "location": "Clock Town",
+     "reward": "Couple's Mask — fused Sun & Moon Mask; wear it in the Mayor's office to settle the Carpenter-vs-soldier argument for a Piece of Heart.",
+     "oneLine": "Reunite the lovers Anju and Kafei before the moon falls and they fuse their masks into one for you.",
+     "how": "Complete the full Anju & Kafei quest across the three days (deliver the Pendant of Memories to Anju, and help Kafei recover his stolen Sun Mask from Sakon's Hideout in Ikana). At about 4:30 AM on the Final Night, go to the upstairs 'Employees Only' back room of the Stock Pot Inn — the reunited couple merge the Sun Mask and Moon Mask into the Couple's Mask and give it to Link."
+    },
+    {
+     "name": "Mask of Truth",
+     "giver": "The Cursed Rich Man (Swamp Spider House owner) — Southern Swamp",
+     "location": "Southern Swamp",
+     "reward": "Mask of Truth — read the thoughts of Gossip Stones, animals, and certain people (hints and secrets).",
+     "oneLine": "Clear the Swamp Spider House of all its gold spiders and the freed owner rewards you with the truth-seeing mask.",
+     "how": "Enter the Swamp Spider House in the Southern Swamp (burn the spiderweb door with a Deku Stick or Fire Arrow). Defeat all 30 Gold Skulltulas inside to lift the curse, then speak to the cursed man at the entrance — restored, he gives Link the Mask of Truth."
+    },
+    {
+     "name": "Kamaro's Mask",
+     "giver": "Kamaro, a dancer's ghost — atop a mushroom-shaped rock, northern Termina Field",
+     "location": "Termina Field",
+     "reward": "Kamaro's Mask — perform Kamaro's dance; teach it to the Rosa Sisters in West Clock Town for a Piece of Heart.",
+     "oneLine": "Free the spirit of a dancer practicing on a rock at night by playing the Song of Healing.",
+     "how": "From midnight to 6 AM on the First or Second Day, head to the northern (northwest) part of Termina Field and find Kamaro dancing atop a tall mushroom-shaped stone — use the Bunny Hood/long-jump to reach the top. Play the Song of Healing to put his restless spirit to peace; he vanishes, leaving Kamaro's Mask."
+    },
+    {
+     "name": "Garo's Mask",
+     "giver": "The Gorman Brothers (horse race) — Gorman Track, Milk Road",
+     "location": "Milk Road / Romani Ranch area",
+     "reward": "Garo's Mask — a Garo disguise; lets you summon the Garo Master / advance the Ikana storyline and access Ikana Canyon.",
+     "oneLine": "Beat the cheating Gorman Brothers in a horse race and they hand over the Garo ninja mask.",
+     "how": "Requires Epona (and Epona's Song to call her). Ride up to the Gorman Track on Milk Road and pay 10 Rupees to race the two Gorman Brothers on horseback. Cross the finish line first (dodge the obstacles, cut corners) and the brothers reward Link with Garo's Mask. (Do this before completing Cremia's escort, or the brothers leave the track.)"
+    },
+    {
+     "name": "Captain's Hat",
+     "giver": "Captain Keeta (Stalchild captain) — Ikana Graveyard",
+     "location": "Ikana Canyon",
+     "reward": "Captain's Hat — command Stalchildren (they won't attack and will obey); used to open the graves in the Ikana Graveyard.",
+     "oneLine": "Wake and chase down the graveyard's giant skeletal captain to claim his commanding hat.",
+     "how": "On the First or Second Day (night), go to the Ikana Graveyard and play the Sonata of Awakening at Keeta's grave to rouse Captain Keeta. Chase him on foot (the Bunny Hood helps) through the field, dodging his Stalchildren and fire walls; catch up and strike him until he yields, then open the chest he reveals to get the Captain's Hat."
+    },
+    {
+     "name": "Gibdo Mask",
+     "giver": "Pamela's father (cured of his Gibdo curse) — Music Box House, Ikana Canyon",
+     "location": "Ikana Canyon",
+     "reward": "Gibdo Mask — disguises Link as a Gibdo; lets you talk to and feed the Gibdos blocking the Well, and pass ReDeads unharmed.",
+     "oneLine": "Cure Pamela's mummified father with the Song of Healing and he leaves behind the Gibdo mask.",
+     "how": "In Ikana Canyon, get the Music Box House's song playing again (restore the spring water with the Song of Storms so the music drives the Gibdos back). Slip inside while Pamela is away (the Stone Mask makes sneaking easy) and go to the basement; her Gibdo-cursed father lunges out. Play the Song of Healing right away to cure him — the curse turns into the Gibdo Mask for Link to pick up."
+    },
+    {
+     "name": "Giant's Mask",
+     "giver": "Treasure chest (after the Eyegore mini-boss) — Stone Tower Temple (N64)",
+     "location": "Ikana / Stone Tower Temple",
+     "reward": "Giant's Mask — temporarily turns Link giant (drains magic fast); used only in the Twinmold boss arena.",
+     "oneLine": "A dungeon mask found late in Stone Tower Temple that makes you giant for the Twinmold fight.",
+     "how": "In the N64 Stone Tower Temple, in the corridor toward the boss room, defeat the tough Eyegore mini-boss (stun it, then attack its eye). Its defeat reveals a chest holding the Giant's Mask. Wear it in the Twinmold arena to become giant — bring Chateau Romani or extra magic, since it drains the meter very fast. (In the 3DS remake the mask is instead found mid-boss-fight.)"
+    }
+   ]
+  },
+  {
+   "region": "Minigames & Collectibles",
+   "quests": [
+    {
+     "name": "Town Shooting Gallery",
+     "giver": "Shooting Gallery owner, East Clock Town",
+     "location": "East Clock Town (Clock Town)",
+     "reward": "Bigger quiver (first time) / Piece of Heart (perfect 50)",
+     "oneLine": "Shoot the red Octoroks and spare the blue ones in Clock Town's archery booth for a quiver upgrade and a Piece of Heart.",
+     "how": "Pay 20 Rupees and shoot only the RED Octoroks (hitting a blue one deducts time as a penalty). Targets pop up in the same order every run, so memorize the pattern. Beating the high score (40 of 50) the first time gives a quiver upgrade (50 Rupees on later wins); a perfect 50 awards the Piece of Heart (200 Rupees afterward). Open 6am-10pm all three days."
+    },
+    {
+     "name": "Swamp Shooting Gallery",
+     "giver": "Gallery manager, Southern Swamp",
+     "location": "Southern Swamp (near the Tourist Center)",
+     "reward": "Large Quiver (first perfect) / Piece of Heart (repeat perfect)",
+     "oneLine": "Bow down waves of Deku Scrubs, Guays and a Wolfos in the swamp gallery for a quiver and a heart.",
+     "how": "Pay and shoot the three waves of targets (Deku Scrubs, Guay formations, a passing Wolfos) within the 1:40 limit. A first perfect run of 2,120 points (10 pts per second left can cover a missed target) earns the Large Quiver (40 arrows); play again and score 2,200 for the Piece of Heart. Don't miss the Deku Scrub on the left hilltop."
+    },
+    {
+     "name": "Honey & Darling's Shop",
+     "giver": "Honey & Darling, East Clock Town",
+     "location": "East Clock Town (Clock Town)",
+     "reward": "Piece of Heart (plus a Purple Rupee for each daily win)",
+     "oneLine": "Ace Honey & Darling's three rotating games across one three-day cycle for a Piece of Heart.",
+     "how": "Their game changes each day: Day 1 is the Bombchu wall-target game, Day 2 is bomb basket (toss bombs into raised baskets), the Final Day is target shooting during earthquakes. Each daily perfect pays a Purple Rupee (50). Win all three within a SINGLE three-day cycle (the Final Day completes it) for the Piece of Heart."
+    },
+    {
+     "name": "Swordsman's School",
+     "giver": "The Swordsman, West Clock Town",
+     "location": "West Clock Town",
+     "reward": "Piece of Heart",
+     "oneLine": "Pass the swordsman's Expert Course with a flawless score to earn a Piece of Heart.",
+     "how": "Pay 10 Rupees for the Expert Course and slice the 10 logs. Only the Jump Attack scores the full 3 points per log; other slashes score 1. Cut all 10 logs with Jump Attacks for a perfect 30 and the impressed swordsman hands over the Piece of Heart. (In the 3DS remake, scoring 30 again later gives a Fishing Hole Pass.)"
+    },
+    {
+     "name": "Deku Scrub Playground",
+     "giver": "Business Scrubs, North Clock Town",
+     "location": "North Clock Town (small hollow)",
+     "reward": "Piece of Heart",
+     "oneLine": "As Deku Link, set the record three days straight on the moving-platform Rupee course for a Piece of Heart.",
+     "how": "Pay 10 Rupees and, as Deku Link, grab the Rupees while leaping between platforms with Deku Flowers. Platforms speed up daily (Day 1 vertical, Day 2 horizontal, Final Day mixed and fastest). Set a NEW record on all three days of the same cycle to win the Piece of Heart (after which you can no longer play)."
+    },
+    {
+     "name": "Boat Cruise Pictograph Contest",
+     "giver": "The Guide (Tingle's father), Swamp Tourist Center",
+     "location": "Southern Swamp Tourist Center / Woodfall boat cruise",
+     "reward": "Piece of Heart (then 100 Rupees on repeats)",
+     "oneLine": "Snap a winning pictograph on Koume's Woodfall boat cruise and show it off for a Piece of Heart.",
+     "how": "First heal Koume in the Woods of Mystery with Red/Blue Potion so she runs the Tourist Center; take her boat cruise to receive the Pictograph Box. Photograph Tingle (the floating balloon man) or the Deku King during the cruise, then show the pictograph to the Guide back at the Tourist Center for the Piece of Heart. (A separate target-shooting run on the cruise — hit 20+ targets — gives its own Piece of Heart.)"
+    },
+    {
+     "name": "Treasure Chest Shop",
+     "giver": "Shop attendant, East Clock Town",
+     "location": "East Clock Town (Clock Town)",
+     "reward": "Piece of Heart (as Goron Link)",
+     "oneLine": "Reach the treasure chest at the end of the shop's rising-floor maze as Goron Link to claim a Piece of Heart.",
+     "how": "Enter as Goron Link, pay 30 Rupees, and cross the checkered floor (squares rise into walls as you near them) to the chest within 45 seconds. The first Goron win gives the Piece of Heart (50 Rupees on later cycles). Other forms win only lesser prizes (Rupees or Deku Nuts)."
+    },
+    {
+     "name": "Clock Town Bank",
+     "giver": "The Banker, West Clock Town",
+     "location": "West Clock Town (Clock Town)",
+     "reward": "Adult Wallet (200 deposited) and a Piece of Heart (5,000 deposited)",
+     "oneLine": "Bank your Rupees with the Banker, who keeps your savings even through Song of Time resets, for a bigger wallet and a heart.",
+     "how": "Deposit Rupees with the Banker (he stamps your hand so he recognizes you); banked Rupees are the ONLY money that survives playing the Song of Time, so deposit before each reset. 200 total deposited earns the Adult Wallet, 1,000 a free Blue Rupee, and 5,000 the Piece of Heart (the account caps at 5,499)."
+    },
+    {
+     "name": "Beaver Brothers' Race",
+     "giver": "Beaver Brothers, Waterfall Rapids (Zora Cape)",
+     "location": "Zora Cape / Waterfall Rapids",
+     "reward": "Empty Bottle (first time) / Piece of Heart (repeat run)",
+     "oneLine": "As Zora Link, swim the ring gauntlet against both beaver brothers for a Bottle and later a Piece of Heart.",
+     "how": "Wearing the Zora Mask, race the Little Brother through 20 rings (under 2:00), then the Big Brother through 25 rings (under 2:00) to win an Empty Bottle. Race both again in the same cycle, beating the tighter 1:50 limit each time, to earn the Piece of Heart."
+    },
+    {
+     "name": "Goron Races (Goron Racetrack)",
+     "giver": "Goron racers, Goron Racetrack near Goron Village",
+     "location": "Mountain Village / Goron Racetrack (Snowhead region)",
+     "reward": "Bottle of Gold Dust (used to forge the Gilded Sword)",
+     "oneLine": "Roll to first place as Goron Link against four rival Gorons to win a bottle of Gold Dust.",
+     "how": "Defeat Goht to restore spring, then as Goron Link blow up the boulder blocking the track entrance with a Powder Keg. Win the race (curl-roll the Bomb-Flower-lined track and ram rivals) for a Bottle of Gold Dust; give it to Zubora & Gabora to upgrade the Razor Sword into the Gilded Sword. Later wins give Gold Dust without the bottle."
+    },
+    {
+     "name": "Pieces of Heart (52 total)",
+     "giver": "Scattered across Termina",
+     "location": "All of Termina (towns, fields, temples, minigames)",
+     "reward": "1 Heart Container per 4 pieces (13 containers total)",
+     "oneLine": "Hunt down all 52 Pieces of Heart scattered through Termina to max out Link's health.",
+     "how": "There are 52 Pieces of Heart; every 4 form one new Heart Container (52 = 13 containers). They hide in chests and are awarded by side quests and minigame wins (Anju & Kafei, the bank, the shooting galleries, etc.). With the 3 starting hearts and 4 boss-drop containers, all 52 fill the bar to the maximum 20 hearts."
+    },
+    {
+     "name": "Stray Fairies (15 per temple)",
+     "giver": "Great Fairies (Fairy Fountains)",
+     "location": "Woodfall, Snowhead, Great Bay & Stone Tower temples + Clock Town",
+     "reward": "A Great Fairy upgrade per temple (Spin Attack, Magic, Defense, Great Fairy's Sword)",
+     "oneLine": "Gather all 15 Stray Fairies inside each temple and return them to that region's Great Fairy for a powerful reward.",
+     "how": "Each of the four temples hides 15 Stray Fairies (the Great Fairy's Mask draws scattered ones to you). Collect all 15 and bring them to its regional Fairy Fountain: Woodfall gives the enhanced Spin Attack, Snowhead doubles your Magic meter, Great Bay grants Double Defense (half damage, white heart outline), and Stone Tower gives the Great Fairy's Sword. (Reuniting the single Clock Town Stray Fairy first earns the Great Fairy's Mask.)"
+    },
+    {
+     "name": "Masks (20 regular + Fierce Deity's Mask)",
+     "giver": "Various NPCs / side quests across Termina; Moon Children inside the Moon",
+     "location": "All of Termina (Clock Town, the four regions, Ikana) + the Moon",
+     "reward": "Each mask's own ability; all 20 regular masks unlock the Fierce Deity's Mask",
+     "oneLine": "Collect all 20 non-transformation masks across Termina, then trade them to the Moon Children to earn the Fierce Deity's Mask.",
+     "how": "Beyond the 4 transformation masks (Deku/Goron/Zora plus Fierce Deity), there are 20 regular masks, each earned its own way (e.g. Couple's Mask from the Anju & Kafei quest, Romani's Mask from the ranch, Garo's/Gibdo Mask in Ikana, the Bombers' Notebook masks, etc.). Reach the Moon, complete the four trial dungeons by giving the Moon Children masks, and surrendering all 20 to the children earns the Fierce Deity's Mask for the final boss."
+    }
+   ]
+  }
+ ]
+}

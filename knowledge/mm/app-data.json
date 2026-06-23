@@ -1336,7 +1336,186 @@
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "ChuChu",
+    "tier": "common",
+    "tactic": "Hit the gelatinous blob with any attack; the color tells you the drop, and a Blue ChuChu can be frozen with an Ice Arrow into a stepping platform.",
+    "drops": "Recovery Heart (Red), Magic Jar (Green), 10 Arrows (Yellow), Rupees"
+   },
+   {
+    "name": "Octorok",
+    "tier": "common",
+    "tactic": "Raise any non-Mirror shield to bounce its spat rock back for a one-hit kill, or pelt it with arrows; otherwise it takes two hits.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Keese",
+    "tier": "common",
+    "tactic": "Swat the flapping bat with anything; long-range tools (Bow, Hookshot) are easiest. Fire/Ice Keese will burn or freeze on contact, so drop them before they reach you.",
+    "drops": "Recovery Hearts, Rupees"
+   },
+   {
+    "name": "Leever",
+    "tier": "common",
+    "tactic": "These spinning creatures burrow in sand and surface to ram you; just slash them with your sword as they pop up.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Skulltula",
+    "tier": "common",
+    "tactic": "Its front is armored and it can spin to knock you back. Wait for it to turn and strike the soft backside, or shoot it with an arrow (the Hookshot does NOT damage MM Skulltulas).",
+    "drops": "Rupees, Recovery Hearts (Gold Skulltulas in the Spider Houses count toward those rewards)"
+   },
+   {
+    "name": "Stalchild",
+    "tier": "common",
+    "tactic": "These two-hit skeletons rise at night in the Ikana Graveyard (and the Oceanside Spider House) and attack in pairs; a couple of sword slashes drops each one.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "ReDead",
+    "tier": "common",
+    "tactic": "Its moan paralyzes you up close; play the Sun's Song (stuns it ~30s) or stun it with a Deku Nut, then move behind it and slash, or hit it from range with arrows.",
+    "drops": "Rupees"
+   },
+   {
+    "name": "Gibdo",
+    "tier": "common",
+    "tactic": "A bandaged mummy that freezes you with its shriek; burn the wraps off with Fire Arrows (revealing a ReDead beneath) or stun it with the Sun's Song / a Deku Nut and slash.",
+    "drops": "Recovery Heart, Rupee, or other minor pickups"
+   },
+   {
+    "name": "Like Like",
+    "tier": "common",
+    "tactic": "It swallows you and steals your shield (or an optional tunic), so never stand in front of it; hit it with sword or arrows, and after it spits you out KILL it fast to get your gear back before it dissolves. It can't eat the Hylian Shield.",
+    "drops": "Rupees, Magic Jars, Recovery Hearts (kill it after it spits you out to recover a swallowed shield)"
+   },
+   {
+    "name": "Eeno",
+    "tier": "common",
+    "tactic": "A snow mound that lobs snowballs; a large Eeno splits into three small ones when hit, so a single Fire Arrow (their heat weakness) melts any of them, or finish the little ones with slashes or a spin attack.",
+    "drops": "Recovery Hearts, Rupees"
+   },
+   {
+    "name": "Dexihand",
+    "tier": "common",
+    "tactic": "A giant turquoise hand jutting from an underwater wall that grabs and tosses you (it can't directly hurt you); kill it with Zora Link's fin boomerangs or electric barrier, or any attack.",
+    "drops": "Recovery Hearts, Rupees"
+   },
+   {
+    "name": "Real Bombchu",
+    "tier": "common",
+    "tactic": "A live walking bomb-mouse that scurries at you and explodes; pick it off from range with an arrow (which detonates it safely). The Stone Mask makes them ignore you entirely.",
+    "drops": "reappears after a short time (no reliable drop)"
+   },
+   {
+    "name": "Gekko",
+    "tier": "mini-boss",
+    "tactic": "Hit the leaping frog with sword or Deku bubbles, then knock it off the Snapper it summons with a Deku Flower blast or a Bomb, and shoot it with the Bow as it scrambles along the walls. Repeat three times.",
+    "drops": "dungeon progress (Woodfall & Great Bay mini-boss)",
+    "battle": "The Gekko is a recurring miniboss fought twice. Bring the Hero's Bow with plenty of arrows, Bombs, and the Deku Mask, plus a bottled fairy as insurance. (You do NOT need to bring Ice Arrows — you find them inside Great Bay Temple from a chest after the Wart miniboss, so you'll already have them by the second Gekko fight.) WOODFALL TEMPLE: it opens by hopping around throwing punches/kicks, so keep moving and hit it with your sword until it summons a Snapper and rides it. While it spins around on the Snapper, flip the turtle over — drop a Bomb in its path or pop up out of a Deku Flower as Deku Link as it passes — to knock the Gekko off. It then scrambles up the walls and ceiling; Z-target it, wait for it to pause, and shoot it with an arrow. Repeat that cycle (sword to summon, dismount, arrow) two to three times to win. Defeating it lets you open the large chest in the room for the Hero's Bow and Quiver (the dungeon item) — the Gekko itself does not drop the Boss Key. GREAT BAY TEMPLE: here it lobs blobs of Mad Jelly at you (a hit sticks to you and traps you — shield-block or quick-spin them away). Chase it down and hit it with your sword; it leaps to the ceiling and gathers the jelly into one giant ball. Dodge the ball's falling shadow, then while the ball is fully on the ceiling shoot it with an Ice Arrow so it freezes, drops, and shatters, leaving the Gekko exposed for another sword combo. Repeat until it's beaten — it turns back into a harmless frog. The Boss Key sits in an adjacent chamber you can now reach (it is not dropped by the Gekko)."
+   },
+   {
+    "name": "Wizzrobe",
+    "tier": "mini-boss",
+    "tactic": "This teleporting mage warps between pads and blasts a freezing spell; watch the mini-map for the red dot, then arrow it or Goron-fire-punch it before it warps. When it splits into clones, the solid one with a flame on its staff is real.",
+    "drops": "Magic Jars, dungeon progress (Snowhead Temple mini-boss)"
+   },
+   {
+    "name": "Wart",
+    "tier": "mini-boss",
+    "tactic": "A giant eye shielded by Bubbles; knock the Bubbles off first (any weapon — spin attack, Zora fins, Hookshot), then shoot the exposed eye with arrows until it drops, and clear leftover Bubbles with spin attacks.",
+    "drops": "Ice Arrows (chest after the fight, Great Bay Temple)",
+    "battle": "Wart is the Great Bay Temple mini-boss: a single giant eye sheathed in a shell of gelatinous bubbles, and it can only be hurt when the eyelid is open. Bring a full quiver and your Hookshot — and TAKE THE ZORA MASK OFF (you fight this one as Hylian Link). A bottled fairy is good insurance. Strip the protective bubbles first: Z-target and Hookshot a bubble loose, then slash it with your sword before it escapes (the spin attack and arrows work too). You don't need to clear every bubble — only enough to get a clear line on the eye. If you want to shave many off at once, a Fire Arrow knocks down a whole patch (with a bit more risk); as Zora Link, the Double Cutters (boomerang fins) are an alternative way to peel several at a time, but the Hookshot-and-slash method is the standard, safer one. Once a gap opens over the eye, wait for it to roll open and fire an arrow (or the Hookshot) straight into it — a closed eye takes no damage. After several clean hits the whole bubble layer sloughs off and Wart starts skidding around the room to ram you; back into a corner (Wart can't reach the very corners), let the rush sail past, and keep hitting the open eye with arrows until it bursts. Open the chest it leaves for the Ice Arrows."
+   },
+   {
+    "name": "Gomess",
+    "tier": "mini-boss",
+    "tactic": "A scythe-wielding reaper cloaked in invulnerable Bad Bats; block its scythe, then fire a Light Arrow to scatter the bats and slash the exposed orb beneath its chest (Zora Link's barrier can farm the bats for magic without hitting Gomess).",
+    "drops": "the dungeon Boss Key (chest after the fight, inverted Stone Tower Temple)"
+   },
+   {
+    "name": "Garo Master",
+    "tier": "mini-boss",
+    "tactic": "A dual-blade ninja; Z-target and dodge/back away so his charge misses, then strike him in the brief opening (or stun with Deku Nut/Hookshot). When he warps away he reappears nearby — turn and hit his back. Wait after the kill and he reveals a secret.",
+    "drops": "information / dungeon progress (Stone Tower Temple mini-boss)"
+   },
+   {
+    "name": "Dinolfos",
+    "tier": "mini-boss",
+    "tactic": "An agile reptile swordsman that breathes fire (often right after being hit or dodging); wait out its guard, dodge the flame breath, and counter with sword slashes or Goron Link's punches. Two guard a room near the top of Snowhead Temple.",
+    "drops": "Stray Fairies, Recovery Hearts (Snowhead Temple)"
+   },
+   {
+    "name": "Igos du Ikana",
+    "tier": "mini-boss",
+    "tactic": "The mummified King of Ikana; first defeat his two guards, then fight Igos, dodging his thrown head. Stun him and reflect sunlight onto him with the Mirror Shield to finish.",
+    "drops": "teaches the Elegy of Emptiness",
+    "battle": "Bring the Mirror Shield (the whole fight hinges on it) and Fire Arrows, top off your magic, and stash a bottled fairy as insurance — this is a sword-and-light duel, not a transformation fight. When you enter the throne room the king draws the curtains and plunges it into darkness; immediately fire a Fire Arrow at each drape to burn them away and let the sunbeams back in. Phase one is his two skeletal servants (Stalfos-like): hack them down with your sword (Bunny Hood helps you dart behind them), but a downed servant revives unless you stand in a sunbeam and angle the Mirror Shield to bathe its body in light — so do both: knock it down with the sword, then reflect sunlight onto it to keep it dead. Phase two is the King himself: he attacks with a sword and shield and a poison-like breath, so circle him and slash his sides or back (just after he swings is the safe window). Watch for the moment he detaches his head — the flying skull chases you to latch on for heavy damage, and while it's off his body the King can't be hurt, so keep moving (a Goron roll or a Bunny Hood dodge shakes it) until the head reattaches. Then stagger him with the sword to knock him to the floor, plant yourself in a light beam, and reflect sunlight onto him while he's down; repeat the knock-down-then-burn cycle a few times and he crumbles, teaching you the Elegy of Emptiness needed for Stone Tower."
+   },
+   {
+    "name": "Odolwa",
+    "tier": "boss",
+    "tactic": "Woodfall Temple boss. When the dancing jungle warrior pauses, blind him with arrows, then rush in and slash. Clear the bugs he summons with a Bomb or spin attack, and side-hop his sword lunge behind a raised shield.",
+    "drops": "Heart Container, Odolwa's Remains",
+    "battle": "Bring arrows, bombs (or grab the Bomb Flowers that grow in the arena), Deku Nuts, and a bottled fairy as insurance. Step toward the center and Odolwa drops down swinging twin machetes — keep moving and roll out of his reach when he slashes (only human Link can raise a shield; Z-target to lock on and line up shots, not to block as Deku Link). Two stuns differ by version. N64 original: the cleanest method is to Z-target and fire a Hero's Bow arrow whenever he lowers his guard to do his intimidation dance or chant — the hit stuns him; rush in and slash his knees/legs with the sword until he recovers, then repeat. (Tossing a couple of Bomb Flowers/bombs, or the Blast Mask, also staggers him and can trivialize the fight; in the N64 version almost any weapon damages him.) 3DS remake: a red weak-point eye appears on the back of his head and he now blocks most attacks, so dive into one of the Deku Flowers around the room, launch into the air as Deku Link, hover with the spin, and aim (R) to drop a Deku Nut straight onto his head — that stuns and topples him; instantly doff the Deku Mask and unload leaping sword slashes on the exposed eye, repeating the launch-Deku-Nut-stun-then-slash loop three or four times. In both versions he periodically chants to summon enemies (moths, insect/spider-like creatures, or a few falling boulders depending on the chant) and rings you in fire to make his spin attack harder to dodge — bomb or Blast-Mask the swarm and keep circling. Whittle him down over three or four stun cycles. Then grab the Heart Container and step into the blue warp to claim Odolwa's Remains."
+   },
+   {
+    "name": "Goht",
+    "tier": "boss",
+    "tactic": "Snowhead Temple boss. Fire-Arrow the frozen mechanical bull to free it, then become Goron Link and spike-roll after it around the track, ramming it; pound it while it's grounded. (Chateau Romani helps the magic drain.)",
+    "drops": "Heart Container, Goht's Remains",
+    "battle": "Bring Fire Arrows, the Goron Mask, a full magic meter, and a bottled fairy as insurance. Goht starts encased in ice: shoot it with a Fire Arrow to thaw it and start the fight, then immediately don the Goron Mask, because this is a Goron-roll race around the doughnut-shaped arena. Hold the roll button to build into the spiked speed-roll (it drains magic) and chase Goht down, rolling over the green magic jars that respawn along the track to keep your meter topped off. Ram your spiked roll into its hind legs, or use the ramps/speed-bumps to fling yourself up onto its back — enough hits knock it flat and stun it. While it's down, keep pounding it with the spiked roll. (In the 3DS remake a glowing eye appears on its back when stunned — hit that with arrows or your sword for big damage; the N64 original has no eye, so just keep ramming.) Dodge its attacks as you circle: it flings rocks/boulders backward from its hooves, drops stalactites and bombs, and lobs a bouncing energy orb (blue beam); and if you fall too far behind, it stops, turns, and fires a homing lightning bolt down the track (in 3DS this only triggers when you lag behind). Keep the pressure on through its more aggressive later phase until it collapses for good, then grab the Heart Container and step into the light for the Remains of Goht.</battle> <parameter name=\"tier\">Boss (Snowhead Temple)"
+   },
+   {
+    "name": "Gyorg",
+    "tier": "boss",
+    "tactic": "Great Bay Temple boss. Stun the giant fish from the central platform with an arrow (or Zora fin/Hookshot), then dive in as Zora Link and hit it with the electric barrier before retreating to the platform. (3DS: feed it a mine while it inhales.)",
+    "drops": "Heart Container, Gyorg's Remains",
+    "battle": "Bring the Zora Mask, your Bow with plenty of arrows, and a bottled fairy as insurance — Gyorg's chomp does massive damage, and the underwater swimming eats magic, so carry Magic/Chateau Romani or potions too. The fight rings a small central platform over deep water. Open as Hylian Link on the platform: when Gyorg breaks the surface, Z-target and shoot it with an arrow to stun it (Zora-form fin boomerangs work too if you're out of arrows). Its weak point is the big eye, exposed while it's stunned. The instant it's stunned, slap on the Zora Mask, dive in, and hold A to swim straight at it — then deal damage with the Electric Barrier (R), which hurts it far more than fin slashes — and immediately swim back and climb out onto the platform before it recovers. Never linger in the water: Gyorg charges and chews you for heavy damage and can swallow you whole (mash to break free). It also flops up onto the platform to ram you; hop briefly into the water to dodge. If it spits out small fish, the Electric Barrier clears them. Repeat the loop — arrow to stun, dive, barrier, retreat — until it dies. (Version note: this platform fight is the whole battle on the original N64 version — you can even choose to fight entirely underwater. The 3DS remake adds a forced second phase: Gyorg sinks the platform and you stun it by luring it to inhale a floating spike mine while it sucks in water, then hit the exposed eye.) Victory yields a Heart Container and Gyorg's Remains."
+   },
+   {
+    "name": "Twinmold",
+    "tier": "boss",
+    "tactic": "Stone Tower Temple boss. Don the Giant's Mask and battle the two sandworms with your enlarged body, slamming heads/tails (smash the pillars for Magic Jars to stay big). Or arrow the worms — Fire Arrows hurt the blue one, Ice Arrows hurt the red.",
+    "drops": "Heart Container, Twinmold's Remains",
+    "battle": "Bring Chateau Romani (or at least the extended magic meter) and a bottled fairy first — the Giant's Mask is the heart of this fight and it drains your magic fast. You won it earlier in Stone Tower Temple, from the chest a tougher-than-usual Eyegore drops. In the N64 original both serpents, red and blue, surface and dive through the sand at the same time, so you're juggling two threats (the 3DS remake split them into two separate phases instead). Put on the Giant's Mask to grow to their scale, Z-target a worm, and strike its only weak spots — the head and the tail — landing blows as it rises out of or dives back into the sand; ignore the armored body. One worm will fall before the other, so once one is dead you can focus everything on the survivor. When magic runs low, hammer the stone pillars around the arena (and let the worms smash them too) to shake loose magic jars and arrows. If you'd rather conserve magic, you can also snipe them small with elemental arrows at the head/tail: blue Twinmold takes heavy damage from Fire Arrows, red from Ice Arrows (each worm has about 20 HP, so roughly four well-aimed elemental arrows drop one; Light Arrows work too but at reduced bonus). Kill both worms and you free the last of the Four Giants, claiming a Heart Container and Twinmold's Remains."
+   },
+   {
+    "name": "Majora (Mask / Incarnation / Wrath)",
+    "tier": "boss",
+    "tactic": "Final boss on the Moon. Mask: arrow its vulnerable back as it spins, then strike it down. Incarnation: keep your shield up against its energy orbs and stab it as it dashes past. Wrath: shield its whips, hit it with a Light Arrow, then slash. The Fierce Deity's Mask shreds every form with sword beams.",
+    "drops": "the end of the game (no item drop)",
+    "battle": "Bring the Fierce Deity's Mask if you have it — trading all 20 non-transformation masks (including the Giant's Mask) to the four masked Moon Children in the Moon turns the whole fight trivial; if not, bring the Zora, Deku and Goron Masks, your bow with Light Arrows, the Mirror Shield, and 1-2 bottled fairies as a revive net. Phase 1, Majora's Mask: the mask floats and does a spinning ram charge — stun it by hitting its unprotected back, easiest with Zora Link's homing boomerang fins, then switch to sword and slash while it's down. When the four Boss Remains masks appear and fire beams, kill them with arrows or by reflecting their beam back with the Mirror Shield (if you don't clear them, they keep attacking through the later phases). Phase 2, Majora's Incarnation: a fast humanoid form that dances around and shoots a barrage of energy orbs — block the orbs with your shield, stun it with a Light Arrow, or catch it with a thrust as it runs past, then close in with the sword while it's stunned. Phase 3, Majora's Wrath: the muscular final form whips long tentacle arms and throws homing spinning tops — keep medium range (too close gets you kicked, too far gets you grabbed and thrown), block the whips with your shield or bounce the tops off it, stun it with a Light Arrow or Zora Link's bio-electric barrier, then unload sword strikes. With the Fierce Deity's Mask, just lock on and spam ranged sword beams through every phase to win fast. Beating Wrath ends the game — there's no Heart Container reward from the final boss."
+   }
+  ],
+  "basics": [
+   {
+    "title": "Z-Targeting",
+    "body": "Press Z (L on the 3DS) to lock onto a foe. Targeting lets you strafe around it, keep your shield and sword pointed the right way, and auto-aim arrows or thrown items. Lock on first in almost every fight so you can circle, block, and read the enemy's tells."
+   },
+   {
+    "title": "Three forms, three fighters",
+    "body": "The transformation masks are your real arsenal. Deku Link spins to attack, shoots bubbles, and launches from Deku Flowers to glide; Goron Link curls into a spiked roll, ground-pounds, and is immune to lava; Zora Link swims fast, hurls fin-boomerangs, and raises a body-zapping electric barrier. Swap to whichever mask fits the room before you fight."
+   },
+   {
+    "title": "Shield, dodge & spin attack",
+    "body": "Hold R to raise your shield and block most frontal attacks. While Z-targeted, tap a direction to side-hop or press back to backflip away from a strike. Hold B to charge a spin attack, then release to sweep everything around you at once."
+   },
+   {
+    "title": "Bottles & magic",
+    "body": "Keep a fairy in a bottle: if you die with one, it revives you with hearts automatically. Red Potion refills hearts, Green Potion refills magic, and Blue refills both. Drinking Chateau Romani (the 200-rupee Romani Ranch milk) grants unlimited magic until you next reset time, so masks and magic arrows cost nothing."
+   },
+   {
+    "title": "Deku Nuts & elemental arrows",
+    "body": "Deku Nuts burst in a flash that stuns nearby enemies, opening them up for a free hit. The three magic arrows each have a job: Fire Arrows melt ice and torch frozen or snowy foes, Ice Arrows freeze water into solid platforms (and freeze enemies), and Light Arrows banish the cursed dead of Ikana and stun light-weak foes where nothing else works."
+   },
+   {
+    "title": "Beat the clock",
+    "body": "You only have a three-day cycle, so aim to clear a temple in one run before resetting time with the Song of Time (which also banks your progress). Play the Inverted Song of Time to slow the clock to about a third speed and buy yourself room. If a boss is giving you trouble, the Fierce Deity's Mask (earned by trading away your collected masks to the children on the Moon, and usable only in boss rooms) turns Link into a powerful swordsman who fires beams and shreds bosses fast."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -1803,61 +1982,1100 @@
    "where": "With the Big Bomb Bag and Goron Mask, talk to the Business Scrub in Goron Village as Goron Link to buy the Biggest Bomb Bag for 200 Rupees."
   }
  ],
- "SIDE_QUESTS": [],
+ "SIDE_QUESTS": [
+  {
+   "region": "The Bombers' Notebook & Anju–Kafei",
+   "quests": [
+    {
+     "id": "join-the-bombers-secret-society-of-justice-hide-and-seek",
+     "name": "Join the Bombers' Secret Society of Justice (Hide-and-Seek)",
+     "giver": "Jim, leader of the Bombers gang — North Clock Town",
+     "location": "North Clock Town (chase runs across North/East/West Clock Town)",
+     "reward": "The 5-digit hideout passcode (the Notebook comes later, as human Link)",
+     "oneLine": "Win the Bombers' hide-and-seek to earn their secret code.",
+     "how": "You play this as DEKU LINK (the form the Skull Kid traps you in) — pop the balloon Jim's gang is shooting at in North Clock Town to be challenged, then tag all five Bombers scattered around North, East and West Clock Town before time runs out. They reward you with a five-digit passcode (the digits 1–5 in a random, save-specific order — write it down) to their underground hideout. NOTE: the Bombers only let HUMANS formally join, so as a Deku Scrub you get the code but NOT the Notebook yet — that comes once you're back in Hylian form (next entry)."
+    },
+    {
+     "id": "the-bombers-notebook",
+     "name": "The Bombers' Notebook",
+     "giver": "The Bombers (Jim's gang) — awarded to human Link",
+     "location": "Obtained in Clock Town as Hylian Link; used everywhere across the three-day cycle",
+     "reward": "A side-quest schedule tracker (logs ~20 people, their time windows, and rewards earned)",
+     "oneLine": "The key item that tracks every person's three-day schedule and your progress on their quests.",
+     "how": "Once you regain your Hylian form (after the Song of Healing), become a real member to get the Notebook — either replay the Bombers' hide-and-seek as a human, OR go to the hideout entrance in East Clock Town and give the previously-learned code to the Bombers guard there. The Notebook auto-marks its first entry (the Bombers) complete. It tracks roughly 20 people (the Bombers, Anju, Kafei, Romani, Cremia, the Postman, Madame Aroma and more): blue bars = open windows of opportunity, red bars = a missed/expired chance, and a checkmark/'Happy Sticker' marks an entry whose quest is finished, plus reminders of upcoming appointment times."
+    },
+    {
+     "id": "kafei-s-mask-madame-aroma-s-search-for-kafei",
+     "name": "Kafei's Mask (Madame Aroma's search for Kafei)",
+     "giver": "Madame Aroma — Mayor's Residence, East Clock Town",
+     "location": "Mayor's Residence office, East Clock Town",
+     "reward": "Kafei's Mask (and the Anju–Kafei quest begins)",
+     "oneLine": "Madame Aroma hires Link to find her missing son Kafei and hands over Kafei's Mask.",
+     "how": "On the First Day between roughly 10:00 AM and 12:00 PM, enter the Mayor's Residence and find Madame Aroma in the office room; speak to her in human form and she gives you Kafei's Mask, asking you to find Kafei (who has gone missing before his wedding to Anju). IMPORTANT for the chain: it's fine to save the Old Lady from Sakon on Night 1 — but ONLY ever hit Sakon with your SWORD. If you blow up his stolen bomb-bag (any other weapon), his hideout ends up empty and Kafei can never recover the Sun's Mask, which fails the reunion."
+    },
+    {
+     "id": "meet-anju-with-kafei-s-mask-the-letter-to-kafei",
+     "name": "Meet Anju with Kafei's Mask (the Letter to Kafei)",
+     "giver": "Anju — Stock Pot Inn, East Clock Town",
+     "location": "Stock Pot Inn, East Clock Town (front desk, then the kitchen)",
+     "reward": "Letter to Kafei (and a promised meeting)",
+     "oneLine": "Wearing Kafei's Mask, Link convinces Anju to trust him and entrust a letter for her missing fiancé.",
+     "how": "On the First Day, after the Postman delivers Anju a letter at the inn (around 1:00–2:00 PM), wear Kafei's Mask and talk to Anju at the Stock Pot Inn desk; she recognizes it and asks to meet privately at 11:30 PM. Return that night (her kitchen window is roughly 12:00 AM–6:00 AM) and she gives you the Letter to Kafei to deliver."
+    },
+    {
+     "id": "mail-the-letter-to-kafei",
+     "name": "Mail the Letter to Kafei",
+     "giver": "Self-directed (any Clock Town mailbox; the Postman collects it)",
+     "location": "Any Clock Town mailbox",
+     "reward": "Triggers Kafei to appear at the Laundry Pool",
+     "oneLine": "Drop Anju's letter in a mailbox so the Postman delivers it and Kafei surfaces.",
+     "how": "On the Second Day, deposit the Letter to Kafei in any Clock Town mailbox before the Postman's ~9:00 AM pickup. He carries it onward, which sets up Kafei appearing at the Laundry Pool that afternoon."
+    },
+    {
+     "id": "find-kafei-at-the-curiosity-shop-back-room-pendant-of-memori",
+     "name": "Find Kafei at the Curiosity Shop Back Room (Pendant of Memories)",
+     "giver": "Kafei (cursed into a child) — Laundry Pool / Curiosity Shop back room",
+     "location": "Laundry Pool door leading to the Curiosity Shop back room, West Clock Town area",
+     "reward": "Pendant of Memories",
+     "oneLine": "Tail the masked child to Kafei's hideout, where he explains Sakon stole his Sun's Mask and entrusts the Pendant of Memories.",
+     "how": "On the Second Day around 3:10 PM, wait at the Laundry Pool; the masked boy (Kafei) arrives to collect the letter — follow him through the door into the Curiosity Shop's hidden back room before it shuts. Kafei reveals the Skull Kid turned him into a child and the thief Sakon stole his Sun's Mask (needed for the wedding); he gives you the Pendant of Memories to take to Anju as proof he'll return."
+    },
+    {
+     "id": "give-the-pendant-of-memories-to-anju",
+     "name": "Give the Pendant of Memories to Anju",
+     "giver": "Self-directed — deliver to Anju at the Stock Pot Inn",
+     "location": "Stock Pot Inn, East Clock Town",
+     "reward": "Anju agrees to wait for Kafei instead of fleeing town",
+     "oneLine": "Hand Anju the pendant so she chooses to wait for Kafei rather than evacuate with her mother.",
+     "how": "Bring the Pendant of Memories to Anju at the Stock Pot Inn (the window runs roughly 10:00 AM–7:00 PM, on the Second or Final Day). Seeing it convinces her Kafei is alive and coming, so she resolves to wait for him on the Final Day rather than flee the Moon — which is required for the reunion."
+    },
+    {
+     "id": "sakon-s-hideout-the-sun-s-mask-kafei-s-side",
+     "name": "Sakon's Hideout & the Sun's Mask (Kafei's side)",
+     "giver": "Kafei (the final-night raid) — Sakon's Hideout, Ikana Canyon",
+     "location": "Sakon's Hideout, Ikana Canyon",
+     "reward": "Kafei recovers the Sun's Mask (story beat enabling the Couple's Mask)",
+     "oneLine": "On the final night Kafei breaks into Sakon's hideout to reclaim the stolen Sun's Mask.",
+     "how": "Once you've kept the chain alive (and never destroyed Sakon's bomb-bag), Kafei reaches Sakon's Hideout in Ikana Canyon on the Final Day and retrieves his Sun's Mask so he can return for the wedding. In the N64 original this resolves OFF-SCREEN; in Majora's Mask 3D there's an optional playable Kafei segment inside the hideout. With both masks in hand, head back to the inn for the reunion."
+    },
+    {
+     "id": "the-reunion-couple-s-mask",
+     "name": "The Reunion — Couple's Mask",
+     "giver": "Anju & Kafei — Stock Pot Inn, East Clock Town",
+     "location": "Stock Pot Inn (Anju's room / Employees Only back area), East Clock Town",
+     "reward": "Couple's Mask",
+     "oneLine": "Witness Anju and Kafei's wedding reunion as the Sun's and Moon's masks merge into the Couple's Mask.",
+     "how": "On the Final Night, when there is about 1:30 left on the countdown clock (roughly 4:30 AM), return to the Stock Pot Inn and go to the back room (Anju's room / Employees Only). If the Pendant was given and Kafei recovered the Sun's Mask in time, the two reunite and combine the Sun's Mask and Moon's Mask, awarding Link the Couple's Mask."
+    },
+    {
+     "id": "couple-s-mask-stop-the-mayor-s-meeting-piece-of-heart",
+     "name": "Couple's Mask — Stop the Mayor's Meeting (Piece of Heart)",
+     "giver": "Mayor Dotour's meeting (Mutoh vs. Viscen) — Mayor's Residence",
+     "location": "Mayor's office, Mayor's Residence, East Clock Town",
+     "reward": "Piece of Heart",
+     "oneLine": "Wear the Couple's Mask in the Mayor's office to end the carpenter-vs-soldier argument for a Piece of Heart.",
+     "how": "Wearing the Couple's Mask, enter the Mayor's office during the deadlocked meeting between Mutoh (carpenters, wants to hold the festival) and Captain Viscen (soldiers, wants to evacuate). The mask reminds Mayor Dotour of family over conflict; he ends the meeting (citizens may choose for themselves) and rewards you with a Piece of Heart — the mask's only use."
+    },
+    {
+     "id": "special-delivery-to-mama-postman-s-hat",
+     "name": "Special Delivery to Mama — Postman's Hat",
+     "giver": "Man at the Curiosity Shop back room — final day",
+     "location": "Curiosity Shop back room → the Postman (Post Office) / Madame Aroma (Milk Bar)",
+     "reward": "Postman's Hat (or, alternatively, an Empty Bottle of Chateau Romani)",
+     "oneLine": "Carry Kafei's farewell letter to his mother; give it to the Postman for his Hat, or to Madame Aroma for a bottle.",
+     "how": "On the Final Day from about 1:00 PM, enter the Curiosity Shop back room; the Man there gives you the Special Delivery to Mama, a letter Kafei left for Madame Aroma. Take it to the Postman at the Post Office (West Clock Town) around 6:00 PM — he delivers it, is freed from duty, and you catch him outside the Milk Bar afterward to receive the Postman's Hat. ALTERNATIVELY, take the letter into the Milk Bar and give it to Madame Aroma yourself for an Empty Bottle of Chateau Romani. The two rewards are mutually exclusive."
+    },
+    {
+     "id": "the-postman-s-dilemma-postman-s-hat-path",
+     "name": "The Postman's Dilemma (Postman's Hat path)",
+     "giver": "The Postman — Clock Town Post Office / his schedule rounds",
+     "location": "Clock Town (Post Office; mailboxes town-wide)",
+     "reward": "Postman's Hat (used to find a Piece of Heart in a mailbox)",
+     "oneLine": "The duty-bound Postman is terrified of the Moon but can't flee until his schedule is clear — letting him deliver one last letter frees him.",
+     "how": "The Postman rigidly follows his schedule (tracked in the Bombers' Notebook) and is too dutiful to evacuate while a delivery remains. Giving him the Special Delivery to Mama on the Final Day empties his route so he can finally flee, and he hands you the Postman's Hat. Afterward, wear the Postman's Hat and check a Clock Town mailbox — the first one you check yields a Piece of Heart."
+    }
+   ]
+  },
+  {
+   "region": "Romani Ranch & Milk Road",
+   "quests": [
+    {
+     "id": "defend-the-ranch-from-them-romani-s-aliens",
+     "name": "Defend the Ranch from Them (Romani's Aliens)",
+     "giver": "Romani — at Romani Ranch (Milk Road, southwest of Termina Field)",
+     "location": "Romani Ranch (the barn and surrounding fields)",
+     "reward": "Saves Romani and the cows (prevents her abduction/dazing); enables Cremia's Second-Day milk run, and the night defense itself nets a bottle of milk",
+     "oneLine": "Help Romani repel the alien Ghosts ('Them') that invade the ranch at 2:30am on the night of the First Day.",
+     "how": "Reach the ranch on the morning of the First Day, talk to Romani and clear her balloon archery practice (pop 10 ghost balloons on horseback within 2 minutes) — this also earns you Epona's Song. Return to Romani by about 2:00am that first night; from 2:30am, ride/run the perimeter (the dog's bark flags intruders) and shoot the glowing aliens with the Hero's Bow before any reach the barn. Hold them off until dawn (about 5:15am) — if even one breaks into the barn, Romani is abducted and the quest fails for that cycle. (Inverted Song of Time slows time to make it easier.)"
+    },
+    {
+     "id": "escort-cremia-s-milk-wagon",
+     "name": "Escort Cremia's Milk Wagon",
+     "giver": "Cremia — at Romani Ranch",
+     "location": "Milk Road / Gorman Track, from Romani Ranch to Clock Town",
+     "reward": "Romani's Mask (proof of Milk Bar membership)",
+     "oneLine": "Ride shotgun on Cremia's milk wagon on the night of the Second Day and shoot down the masked Gorman bandits before they smash the milk.",
+     "how": "Only available if you saved Romani the night before. Be at the ranch by 6:00pm on the Second Day and accept Cremia's offer; from the back of the wagon, use the Hero's Bow (unlimited arrows) to shoot the masked Gorman Brothers who attack along the Gorman Track detour before they reach the cargo. Deliver the milk intact and Cremia gives you Romani's Mask. (On a later cycle, wearing the Troupe Leader's/Circus Leader's Mask makes the bandits trail the wagon but never charge — but you can't have that mask on a first run, since it requires Romani's Mask.)"
+    },
+    {
+     "id": "gorman-brothers-horse-race",
+     "name": "Gorman Brothers' Horse Race",
+     "giver": "The Gorman Brothers — at Gorman Track (on Milk Road)",
+     "location": "Gorman Track, Milk Road",
+     "reward": "Garo's Mask",
+     "oneLine": "Beat the Gorman Brothers in a horseback race around Gorman Track to win Garo's Mask.",
+     "how": "Bring Epona to Gorman Track and pay the 10-Rupee entry to challenge the brothers (available any day once you have Epona). Win by clearing every fence jump (keep at least 3 carrots in reserve so Epona can sprint and leap) and using your bow to briefly stun the brothers' horses on open stretches. Do this BEFORE completing the Cremia escort — once you protect her wagon, the brothers leave the track and the race is unavailable that cycle."
+    },
+    {
+     "id": "the-milk-bar-latte-show-toto-gorman",
+     "name": "The Milk Bar 'Latte' Show (Toto & Gorman)",
+     "giver": "Gorman — Milk Bar 'Latte', East Clock Town (Toto runs the sound check)",
+     "location": "Milk Bar ('Latte'), East Clock Town",
+     "reward": "Troupe Leader's Mask (a.k.a. Circus Leader's Mask)",
+     "oneLine": "Wearing Romani's Mask, enter the Milk Bar at night and perform the Ballad of the Wind Fish in all four forms to move the heartbroken Gorman.",
+     "how": "Get Romani's Mask first (it's proof of Milk Bar membership), then enter the Latte Milk Bar after it opens at 10:00pm. Talk to Toto, the Indigo-Go's manager, to start a 'sound check' and play the 'Ballad of the Wind Fish' once in each of Link's four forms (Deku/Goron/Zora/Hylian) so the full song comes together; Gorman, listening at the bar, is moved to tears and gives you the Troupe Leader's Mask."
+    },
+    {
+     "id": "chateau-romani",
+     "name": "Chateau Romani",
+     "giver": "Barten (the bartender) — Milk Bar 'Latte', East Clock Town",
+     "location": "Milk Bar ('Latte'), East Clock Town",
+     "reward": "A bottle of Chateau Romani — unlimited magic for the rest of the three-day cycle (also fully refills hearts and magic)",
+     "oneLine": "Buy the Milk Bar's premium drink for unlimited magic that lasts until the cycle resets.",
+     "how": "With Romani's Mask for entry, come to the Milk Bar after 10:00pm and buy Chateau Romani from Barten for 200 Rupees (needs the Adult/Giant Wallet; only sold once Cremia's Second-Day delivery has succeeded). Drinking it grants infinite magic for the remainder of that cycle — huge for Goht, Twinmold, and the Goron race. (You can also get one free bottle by hand-delivering Kafei's letter to Madame Aroma during the Anju & Kafei quest.)"
+    },
+    {
+     "id": "kamaro-s-dance-the-rosa-sisters",
+     "name": "Kamaro's Dance (the Rosa Sisters)",
+     "giver": "The Rosa Sisters — West Clock Town (Kamaro's Mask first comes from Kamaro's ghost in Termina Field)",
+     "location": "West Clock Town (Kamaro's ghost is atop a mushroom-shaped rock in northern Termina Field, near the Snowhead entrance)",
+     "reward": "Piece of Heart",
+     "oneLine": "Wear Kamaro's Mask and teach his dance to the Rosa Sisters practicing in West Clock Town for a Piece of Heart.",
+     "how": "First get Kamaro's Mask: between midnight and 6:00am, play the Song of Healing for the dancing ghost Kamaro atop the mushroom-shaped rock in northern Termina Field. Then, at night, find the Rosa Sisters rehearsing in West Clock Town, put on Kamaro's Mask, and dance for them; impressed, they learn the routine and reward you with a Piece of Heart."
+    }
+   ]
+  },
+  {
+   "region": "The 20 Masks of Termina",
+   "quests": [
+    {
+     "id": "postman-s-hat",
+     "name": "Postman's Hat",
+     "giver": "The Postman (Post Office / outside the Milk Bar) — West Clock Town",
+     "location": "Clock Town",
+     "reward": "Postman's Hat — wear it to read the postbox/Bombers' schedule and check the time precisely; cosmetic Postman disguise.",
+     "oneLine": "Free the dutiful Postman from his schedule during the Anju & Kafei quest and he flees town, handing you his hat.",
+     "how": "During the Anju & Kafei quest, on the Final Day get the 'Special Delivery to Mama' letter from the Curiosity Shop Owner (at the Laundry Pool hideout) and give it to the Postman in the West Clock Town Post Office instead of to Madame Aroma. He reads it, decides to flee his duties, and runs from town — speak to him as he leaves to get the Postman's Hat. Note: giving the letter to the Postman (Postman's Hat) vs to Madame Aroma at the Milk Bar (a Bottle of Chateau Romani) are mutually exclusive, so you need two separate cycles to get both."
+    },
+    {
+     "id": "all-night-mask",
+     "name": "All-Night Mask",
+     "giver": "Curiosity Shop (purchase, 500 Rupees) — West Clock Town",
+     "location": "Clock Town",
+     "reward": "All-Night Mask — keeps Link awake; lets you stay up through Anju's Grandmother's long stories (each correct answer = a Piece of Heart).",
+     "oneLine": "Stop the thief Sakon, and the rare mask he'd have fenced goes on sale at the Curiosity Shop on the final night.",
+     "how": "Around midnight on the Night of the First Day, Sakon robs the Old Lady (the Bomb Shop owner's mother) in North Clock Town — hit him with your sword to stop the theft. Because the goods are saved, the All-Night Mask becomes buyable at the Curiosity Shop in West Clock Town after 10 PM on the Final Day for 500 Rupees (you need the Adult/Giant's Wallet to hold that much). Stopping Sakon also earns the Blast Mask, but the Blast Mask itself is NOT a prerequisite — saving the Old Lady is."
+    },
+    {
+     "id": "blast-mask",
+     "name": "Blast Mask",
+     "giver": "The Old Lady (Bomb Shop owner's mother) — North Clock Town",
+     "location": "Clock Town",
+     "reward": "Blast Mask — explodes like a bomb on command (a free, reusable bomb; guard with your shield to avoid the blast damage).",
+     "oneLine": "Save the old woman from the night thief Sakon and she rewards you with an explosive mask.",
+     "how": "Around midnight on the Night of the First Day, Sakon the thief approaches the Old Lady as she walks through North Clock Town and tries to steal her Bomb Bag. Strike Sakon with your sword to stop him; the grateful Old Lady gives Link the Blast Mask."
+    },
+    {
+     "id": "stone-mask",
+     "name": "Stone Mask",
+     "giver": "Shiro, an invisible/forgotten soldier — Road to Ikana (N64)",
+     "location": "Ikana Valley",
+     "reward": "Stone Mask — makes Link unnoticed by most enemies and by Gerudo guards; great for sneaking.",
+     "oneLine": "Find a soldier so unremarkable he's literally invisible, give him a potion, and he gifts you the Stone Mask.",
+     "how": "Requires the Lens of Truth (Epona makes the trip easier). In the N64 version, go to the Road to Ikana and use the Lens of Truth to reveal Shiro, an invisible wounded soldier, at the base of the cliff wall. Talk to him and give him a bottle of Red or Blue Potion; in thanks he hands over the Stone Mask. (In the 3DS remake he's instead in the Pirates' Fortress.)"
+    },
+    {
+     "id": "great-fairy-s-mask",
+     "name": "Great Fairy's Mask",
+     "giver": "Great Fairy of Magic — North Clock Town Fairy Fountain",
+     "location": "Clock Town",
+     "reward": "Great Fairy's Mask — its hair shimmers near Stray Fairies and draws them to you, making dungeon fairy-collecting far easier.",
+     "oneLine": "Return Clock Town's lone Stray Fairy to its fountain and the Great Fairy thanks you with her mask.",
+     "how": "As Hylian Link, catch the single Stray Fairy in Clock Town — in the Laundry Pool by day, or in East Clock Town at night — and carry it to the Great Fairy Fountain on the west side of North Clock Town. The restored Great Fairy of Magic gives Link the Great Fairy's Mask."
+    },
+    {
+     "id": "keaton-mask",
+     "name": "Keaton Mask",
+     "giver": "The Curiosity Shop Owner — Laundry Pool hideout, Clock Town",
+     "location": "Clock Town",
+     "reward": "Keaton Mask — summon Keaton the fox in moving grass patches (e.g. North Clock Town, Milk Road) to answer a quiz for a Piece of Heart.",
+     "oneLine": "Part of the Anju & Kafei quest — on the final day the Curiosity Shop Owner hands you the fox mask along with Kafei's special letter.",
+     "how": "Progress the Anju & Kafei quest to the Final Day. Between roughly 1 PM and 6 PM, return to Kafei's hideout at the Laundry Pool and speak to the Curiosity Shop Owner — he gives Link the Keaton Mask and the 'Special Delivery to Mama' letter. (Note: it is Madame Aroma who hands out Kafei's Mask earlier — the Keaton Mask comes from the Curiosity Shop Owner, not Aroma.)"
+    },
+    {
+     "id": "bremen-mask",
+     "name": "Bremen Mask",
+     "giver": "Guru-Guru, the music-box man — Laundry Pool, Clock Town",
+     "location": "Clock Town",
+     "reward": "Bremen Mask — march while holding B to make small animals (baby Cuccos, etc.) line up and follow you; needed for the Bunny Hood.",
+     "oneLine": "The grumpy music-box man tells you his troupe days and hands over a mask he no longer needs.",
+     "how": "Between 10 PM and 6 AM on the Night of the First or Second Day, go to the Laundry Pool in Clock Town and talk to Guru-Guru (playing his music box). He reminisces about his marching-troupe days and, deciding he no longer needs it, gives Link the Bremen Mask."
+    },
+    {
+     "id": "bunny-hood",
+     "name": "Bunny Hood",
+     "giver": "Grog — Cucco Shack, Romani Ranch",
+     "location": "Romani Ranch",
+     "reward": "Bunny Hood — makes Link run noticeably faster and jump farther; one of the most-used utility masks.",
+     "oneLine": "Use the Bremen Mask to raise Grog's chicks, and the rancher gives you his Bunny Hood.",
+     "how": "Needs the Bremen Mask. Go to the Cucco Shack at the back of Romani Ranch and talk to Grog. Wear the Bremen Mask and hold B to march around the baby Cuccos so they all follow you; keep marching until every chick grows into an adult Cucco. Once all have matured, Grog rewards Link with the Bunny Hood."
+    },
+    {
+     "id": "don-gero-s-mask",
+     "name": "Don Gero's Mask",
+     "giver": "A shivering, hungry Goron — Mountain Village",
+     "location": "Snowhead / Mountain Village",
+     "reward": "Don Gero's Mask — wear it to conduct the frog choir (gather the 5 frogs across Termina) for a Piece of Heart.",
+     "oneLine": "Bring a hunk of Rock Sirloin to a freezing Goron stuck on a ledge and he thanks you with the frog-conductor's mask.",
+     "how": "Requires the Goron Mask. In the Goron Shrine, light all the wall torches (a Deku Stick from torch to torch, or one Fire Arrow into the central torch) to set the hanging-pot chandelier spinning. As Goron Link, roll off the upper ramp at full speed to smash the Goron-head pot and grab the Rock Sirloin. Carry it to the freezing Goron on a ledge in the Mountain Village; he eats it and gives Link Don Gero's Mask."
+    },
+    {
+     "id": "mask-of-scents",
+     "name": "Mask of Scents",
+     "giver": "The Deku Butler — Deku Shrine cave, by the Deku Palace",
+     "location": "Southern Swamp / Deku Palace",
+     "reward": "Mask of Scents — lets Link smell things, revealing hidden mushrooms and edible plants by their scent.",
+     "oneLine": "After freeing the Deku Princess, beat the Deku Butler in a race through his shrine for his late son's mask.",
+     "how": "First clear Woodfall Temple and return the Deku Princess to the Deku Palace. Then enter the Deku Shrine cave by the palace and talk to the Deku Butler; he challenges you to a flower-hopping race as Deku Link (the Bunny Hood helps). Reach the end and, after a sad story about his missing son, he gives Link the Mask of Scents."
+    },
+    {
+     "id": "romani-s-mask",
+     "name": "Romani's Mask",
+     "giver": "Cremia — Romani Ranch (milk-wagon escort to Clock Town)",
+     "location": "Romani Ranch",
+     "reward": "Romani's Mask — marks you as a 'milk man'; lets Link into the members-only Milk Bar (Latte) in East Clock Town.",
+     "oneLine": "Defend the ranch from aliens overnight, then guard Cremia's milk wagon from robbers to earn the rancher's mask.",
+     "how": "Reach Romani Ranch (the boulder on Milk Road needs a Powder Keg, which requires the Goron Mask + Powder-Keg license). On the Night of the First Day, talk to Romani before 2 AM, then help her shoot the alien 'Them' so they can't reach the barn (they vanish by dawn). On the Night of the Second Day, at 6 PM ride shotgun on Cremia's milk wagon and shoot the masked Gorman robbers before they smash the jars — protect the milk and Cremia gives Link Romani's Mask."
+    },
+    {
+     "id": "circus-leader-s-mask",
+     "name": "Circus Leader's Mask",
+     "giver": "Gorman, the troupe leader — Milk Bar (Latte), East Clock Town",
+     "location": "Clock Town",
+     "reward": "Circus Leader's Mask (Troupe Leader's Mask) — its crying calms Gorman's kin; worn during Cremia's escort it stops the Gorman robbers, and it soothes the crying Gorman Brothers.",
+     "oneLine": "Wear Romani's Mask into the Milk Bar and perform a four-form mini-concert; the moved troupe leader Gorman gives you his mask.",
+     "how": "Needs Romani's Mask (to get in) plus the Deku, Goron, and Zora Masks. After 10 PM on the Night of the First or Second Day, wear Romani's Mask to enter the Milk Bar. Help Toto by playing the Ballad of the Wind Fish across all four forms (Link, then Deku/Goron/Zora each play their instrument). Finish the performance and Gorman — moved to tears — gives Link the Circus Leader's Mask."
+    },
+    {
+     "id": "kafei-s-mask",
+     "name": "Kafei's Mask",
+     "giver": "Madame Aroma — Mayor's Residence, East Clock Town",
+     "location": "Clock Town",
+     "reward": "Kafei's Mask — show it to people to ask after the missing Kafei; advances the Anju & Kafei quest.",
+     "oneLine": "Madame Aroma asks you to find her vanished son Kafei and gives you a mask of his face to ask around with.",
+     "how": "Between 10 AM and noon on the First (or Second) Day, go to the Mayor's Residence in East Clock Town and speak with Madame Aroma (the pink-haired woman in the office). Searching for her missing son, she gives Link Kafei's Mask to show around town while investigating his disappearance (the Anju & Kafei quest)."
+    },
+    {
+     "id": "couple-s-mask",
+     "name": "Couple's Mask",
+     "giver": "Anju & Kafei (reunited) — Stock Pot Inn, East Clock Town",
+     "location": "Clock Town",
+     "reward": "Couple's Mask — fused Sun & Moon Mask; wear it in the Mayor's office to settle the Carpenter-vs-soldier argument for a Piece of Heart.",
+     "oneLine": "Reunite the lovers Anju and Kafei before the moon falls and they fuse their masks into one for you.",
+     "how": "Complete the full Anju & Kafei quest across the three days (deliver the Pendant of Memories to Anju, and help Kafei recover his stolen Sun Mask from Sakon's Hideout in Ikana). At about 4:30 AM on the Final Night, go to the upstairs 'Employees Only' back room of the Stock Pot Inn — the reunited couple merge the Sun Mask and Moon Mask into the Couple's Mask and give it to Link."
+    },
+    {
+     "id": "mask-of-truth",
+     "name": "Mask of Truth",
+     "giver": "The Cursed Rich Man (Swamp Spider House owner) — Southern Swamp",
+     "location": "Southern Swamp",
+     "reward": "Mask of Truth — read the thoughts of Gossip Stones, animals, and certain people (hints and secrets).",
+     "oneLine": "Clear the Swamp Spider House of all its gold spiders and the freed owner rewards you with the truth-seeing mask.",
+     "how": "Enter the Swamp Spider House in the Southern Swamp (burn the spiderweb door with a Deku Stick or Fire Arrow). Defeat all 30 Gold Skulltulas inside to lift the curse, then speak to the cursed man at the entrance — restored, he gives Link the Mask of Truth."
+    },
+    {
+     "id": "kamaro-s-mask",
+     "name": "Kamaro's Mask",
+     "giver": "Kamaro, a dancer's ghost — atop a mushroom-shaped rock, northern Termina Field",
+     "location": "Termina Field",
+     "reward": "Kamaro's Mask — perform Kamaro's dance; teach it to the Rosa Sisters in West Clock Town for a Piece of Heart.",
+     "oneLine": "Free the spirit of a dancer practicing on a rock at night by playing the Song of Healing.",
+     "how": "From midnight to 6 AM on the First or Second Day, head to the northern (northwest) part of Termina Field and find Kamaro dancing atop a tall mushroom-shaped stone — use the Bunny Hood/long-jump to reach the top. Play the Song of Healing to put his restless spirit to peace; he vanishes, leaving Kamaro's Mask."
+    },
+    {
+     "id": "garo-s-mask",
+     "name": "Garo's Mask",
+     "giver": "The Gorman Brothers (horse race) — Gorman Track, Milk Road",
+     "location": "Milk Road / Romani Ranch area",
+     "reward": "Garo's Mask — a Garo disguise; lets you summon the Garo Master / advance the Ikana storyline and access Ikana Canyon.",
+     "oneLine": "Beat the cheating Gorman Brothers in a horse race and they hand over the Garo ninja mask.",
+     "how": "Requires Epona (and Epona's Song to call her). Ride up to the Gorman Track on Milk Road and pay 10 Rupees to race the two Gorman Brothers on horseback. Cross the finish line first (dodge the obstacles, cut corners) and the brothers reward Link with Garo's Mask. (Do this before completing Cremia's escort, or the brothers leave the track.)"
+    },
+    {
+     "id": "captain-s-hat",
+     "name": "Captain's Hat",
+     "giver": "Captain Keeta (Stalchild captain) — Ikana Graveyard",
+     "location": "Ikana Canyon",
+     "reward": "Captain's Hat — command Stalchildren (they won't attack and will obey); used to open the graves in the Ikana Graveyard.",
+     "oneLine": "Wake and chase down the graveyard's giant skeletal captain to claim his commanding hat.",
+     "how": "On the First or Second Day (night), go to the Ikana Graveyard and play the Sonata of Awakening at Keeta's grave to rouse Captain Keeta. Chase him on foot (the Bunny Hood helps) through the field, dodging his Stalchildren and fire walls; catch up and strike him until he yields, then open the chest he reveals to get the Captain's Hat."
+    },
+    {
+     "id": "gibdo-mask",
+     "name": "Gibdo Mask",
+     "giver": "Pamela's father (cured of his Gibdo curse) — Music Box House, Ikana Canyon",
+     "location": "Ikana Canyon",
+     "reward": "Gibdo Mask — disguises Link as a Gibdo; lets you talk to and feed the Gibdos blocking the Well, and pass ReDeads unharmed.",
+     "oneLine": "Cure Pamela's mummified father with the Song of Healing and he leaves behind the Gibdo mask.",
+     "how": "In Ikana Canyon, get the Music Box House's song playing again (restore the spring water with the Song of Storms so the music drives the Gibdos back). Slip inside while Pamela is away (the Stone Mask makes sneaking easy) and go to the basement; her Gibdo-cursed father lunges out. Play the Song of Healing right away to cure him — the curse turns into the Gibdo Mask for Link to pick up."
+    },
+    {
+     "id": "giant-s-mask",
+     "name": "Giant's Mask",
+     "giver": "Treasure chest (after the Eyegore mini-boss) — Stone Tower Temple (N64)",
+     "location": "Ikana / Stone Tower Temple",
+     "reward": "Giant's Mask — temporarily turns Link giant (drains magic fast); used only in the Twinmold boss arena.",
+     "oneLine": "A dungeon mask found late in Stone Tower Temple that makes you giant for the Twinmold fight.",
+     "how": "In the N64 Stone Tower Temple, in the corridor toward the boss room, defeat the tough Eyegore mini-boss (stun it, then attack its eye). Its defeat reveals a chest holding the Giant's Mask. Wear it in the Twinmold arena to become giant — bring Chateau Romani or extra magic, since it drains the meter very fast. (In the 3DS remake the mask is instead found mid-boss-fight.)"
+    }
+   ]
+  },
+  {
+   "region": "Minigames & Collectibles",
+   "quests": [
+    {
+     "id": "town-shooting-gallery",
+     "name": "Town Shooting Gallery",
+     "giver": "Shooting Gallery owner, East Clock Town",
+     "location": "East Clock Town (Clock Town)",
+     "reward": "Bigger quiver (first time) / Piece of Heart (perfect 50)",
+     "oneLine": "Shoot the red Octoroks and spare the blue ones in Clock Town's archery booth for a quiver upgrade and a Piece of Heart.",
+     "how": "Pay 20 Rupees and shoot only the RED Octoroks (hitting a blue one deducts time as a penalty). Targets pop up in the same order every run, so memorize the pattern. Beating the high score (40 of 50) the first time gives a quiver upgrade (50 Rupees on later wins); a perfect 50 awards the Piece of Heart (200 Rupees afterward). Open 6am-10pm all three days."
+    },
+    {
+     "id": "swamp-shooting-gallery",
+     "name": "Swamp Shooting Gallery",
+     "giver": "Gallery manager, Southern Swamp",
+     "location": "Southern Swamp (near the Tourist Center)",
+     "reward": "Large Quiver (first perfect) / Piece of Heart (repeat perfect)",
+     "oneLine": "Bow down waves of Deku Scrubs, Guays and a Wolfos in the swamp gallery for a quiver and a heart.",
+     "how": "Pay and shoot the three waves of targets (Deku Scrubs, Guay formations, a passing Wolfos) within the 1:40 limit. A first perfect run of 2,120 points (10 pts per second left can cover a missed target) earns the Large Quiver (40 arrows); play again and score 2,200 for the Piece of Heart. Don't miss the Deku Scrub on the left hilltop."
+    },
+    {
+     "id": "honey-darling-s-shop",
+     "name": "Honey & Darling's Shop",
+     "giver": "Honey & Darling, East Clock Town",
+     "location": "East Clock Town (Clock Town)",
+     "reward": "Piece of Heart (plus a Purple Rupee for each daily win)",
+     "oneLine": "Ace Honey & Darling's three rotating games across one three-day cycle for a Piece of Heart.",
+     "how": "Their game changes each day: Day 1 is the Bombchu wall-target game, Day 2 is bomb basket (toss bombs into raised baskets), the Final Day is target shooting during earthquakes. Each daily perfect pays a Purple Rupee (50). Win all three within a SINGLE three-day cycle (the Final Day completes it) for the Piece of Heart."
+    },
+    {
+     "id": "swordsman-s-school",
+     "name": "Swordsman's School",
+     "giver": "The Swordsman, West Clock Town",
+     "location": "West Clock Town",
+     "reward": "Piece of Heart",
+     "oneLine": "Pass the swordsman's Expert Course with a flawless score to earn a Piece of Heart.",
+     "how": "Pay 10 Rupees for the Expert Course and slice the 10 logs. Only the Jump Attack scores the full 3 points per log; other slashes score 1. Cut all 10 logs with Jump Attacks for a perfect 30 and the impressed swordsman hands over the Piece of Heart. (In the 3DS remake, scoring 30 again later gives a Fishing Hole Pass.)"
+    },
+    {
+     "id": "deku-scrub-playground",
+     "name": "Deku Scrub Playground",
+     "giver": "Business Scrubs, North Clock Town",
+     "location": "North Clock Town (small hollow)",
+     "reward": "Piece of Heart",
+     "oneLine": "As Deku Link, set the record three days straight on the moving-platform Rupee course for a Piece of Heart.",
+     "how": "Pay 10 Rupees and, as Deku Link, grab the Rupees while leaping between platforms with Deku Flowers. Platforms speed up daily (Day 1 vertical, Day 2 horizontal, Final Day mixed and fastest). Set a NEW record on all three days of the same cycle to win the Piece of Heart (after which you can no longer play)."
+    },
+    {
+     "id": "boat-cruise-pictograph-contest",
+     "name": "Boat Cruise Pictograph Contest",
+     "giver": "The Guide (Tingle's father), Swamp Tourist Center",
+     "location": "Southern Swamp Tourist Center / Woodfall boat cruise",
+     "reward": "Piece of Heart (then 100 Rupees on repeats)",
+     "oneLine": "Snap a winning pictograph on Koume's Woodfall boat cruise and show it off for a Piece of Heart.",
+     "how": "First heal Koume in the Woods of Mystery with Red/Blue Potion so she runs the Tourist Center; take her boat cruise to receive the Pictograph Box. Photograph Tingle (the floating balloon man) or the Deku King during the cruise, then show the pictograph to the Guide back at the Tourist Center for the Piece of Heart. (A separate target-shooting run on the cruise — hit 20+ targets — gives its own Piece of Heart.)"
+    },
+    {
+     "id": "treasure-chest-shop",
+     "name": "Treasure Chest Shop",
+     "giver": "Shop attendant, East Clock Town",
+     "location": "East Clock Town (Clock Town)",
+     "reward": "Piece of Heart (as Goron Link)",
+     "oneLine": "Reach the treasure chest at the end of the shop's rising-floor maze as Goron Link to claim a Piece of Heart.",
+     "how": "Enter as Goron Link, pay 30 Rupees, and cross the checkered floor (squares rise into walls as you near them) to the chest within 45 seconds. The first Goron win gives the Piece of Heart (50 Rupees on later cycles). Other forms win only lesser prizes (Rupees or Deku Nuts)."
+    },
+    {
+     "id": "clock-town-bank",
+     "name": "Clock Town Bank",
+     "giver": "The Banker, West Clock Town",
+     "location": "West Clock Town (Clock Town)",
+     "reward": "Adult Wallet (200 deposited) and a Piece of Heart (5,000 deposited)",
+     "oneLine": "Bank your Rupees with the Banker, who keeps your savings even through Song of Time resets, for a bigger wallet and a heart.",
+     "how": "Deposit Rupees with the Banker (he stamps your hand so he recognizes you); banked Rupees are the ONLY money that survives playing the Song of Time, so deposit before each reset. 200 total deposited earns the Adult Wallet, 1,000 a free Blue Rupee, and 5,000 the Piece of Heart (the account caps at 5,499)."
+    },
+    {
+     "id": "beaver-brothers-race",
+     "name": "Beaver Brothers' Race",
+     "giver": "Beaver Brothers, Waterfall Rapids (Zora Cape)",
+     "location": "Zora Cape / Waterfall Rapids",
+     "reward": "Empty Bottle (first time) / Piece of Heart (repeat run)",
+     "oneLine": "As Zora Link, swim the ring gauntlet against both beaver brothers for a Bottle and later a Piece of Heart.",
+     "how": "Wearing the Zora Mask, race the Little Brother through 20 rings (under 2:00), then the Big Brother through 25 rings (under 2:00) to win an Empty Bottle. Race both again in the same cycle, beating the tighter 1:50 limit each time, to earn the Piece of Heart."
+    },
+    {
+     "id": "goron-races-goron-racetrack",
+     "name": "Goron Races (Goron Racetrack)",
+     "giver": "Goron racers, Goron Racetrack near Goron Village",
+     "location": "Mountain Village / Goron Racetrack (Snowhead region)",
+     "reward": "Bottle of Gold Dust (used to forge the Gilded Sword)",
+     "oneLine": "Roll to first place as Goron Link against four rival Gorons to win a bottle of Gold Dust.",
+     "how": "Defeat Goht to restore spring, then as Goron Link blow up the boulder blocking the track entrance with a Powder Keg. Win the race (curl-roll the Bomb-Flower-lined track and ram rivals) for a Bottle of Gold Dust; give it to Zubora & Gabora to upgrade the Razor Sword into the Gilded Sword. Later wins give Gold Dust without the bottle."
+    },
+    {
+     "id": "pieces-of-heart-52-total",
+     "name": "Pieces of Heart (52 total)",
+     "giver": "Scattered across Termina",
+     "location": "All of Termina (towns, fields, temples, minigames)",
+     "reward": "1 Heart Container per 4 pieces (13 containers total)",
+     "oneLine": "Hunt down all 52 Pieces of Heart scattered through Termina to max out Link's health.",
+     "how": "There are 52 Pieces of Heart; every 4 form one new Heart Container (52 = 13 containers). They hide in chests and are awarded by side quests and minigame wins (Anju & Kafei, the bank, the shooting galleries, etc.). With the 3 starting hearts and 4 boss-drop containers, all 52 fill the bar to the maximum 20 hearts."
+    },
+    {
+     "id": "stray-fairies-15-per-temple",
+     "name": "Stray Fairies (15 per temple)",
+     "giver": "Great Fairies (Fairy Fountains)",
+     "location": "Woodfall, Snowhead, Great Bay & Stone Tower temples + Clock Town",
+     "reward": "A Great Fairy upgrade per temple (Spin Attack, Magic, Defense, Great Fairy's Sword)",
+     "oneLine": "Gather all 15 Stray Fairies inside each temple and return them to that region's Great Fairy for a powerful reward.",
+     "how": "Each of the four temples hides 15 Stray Fairies (the Great Fairy's Mask draws scattered ones to you). Collect all 15 and bring them to its regional Fairy Fountain: Woodfall gives the enhanced Spin Attack, Snowhead doubles your Magic meter, Great Bay grants Double Defense (half damage, white heart outline), and Stone Tower gives the Great Fairy's Sword. (Reuniting the single Clock Town Stray Fairy first earns the Great Fairy's Mask.)"
+    },
+    {
+     "id": "masks-20-regular-fierce-deity-s-mask",
+     "name": "Masks (20 regular + Fierce Deity's Mask)",
+     "giver": "Various NPCs / side quests across Termina; Moon Children inside the Moon",
+     "location": "All of Termina (Clock Town, the four regions, Ikana) + the Moon",
+     "reward": "Each mask's own ability; all 20 regular masks unlock the Fierce Deity's Mask",
+     "oneLine": "Collect all 20 non-transformation masks across Termina, then trade them to the Moon Children to earn the Fierce Deity's Mask.",
+     "how": "Beyond the 4 transformation masks (Deku/Goron/Zora plus Fierce Deity), there are 20 regular masks, each earned its own way (e.g. Couple's Mask from the Anju & Kafei quest, Romani's Mask from the ranch, Garo's/Gibdo Mask in Ikana, the Bombers' Notebook masks, etc.). Reach the Moon, complete the four trial dungeons by giving the Moon Children masks, and surrendering all 20 to the children earns the Fierce Deity's Mask for the final boss."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Great Fairy of Magic",
+   "region": "Clock Town",
+   "location": "Fairy Fountain on the west side of North Clock Town. Restored with the single Stray Fairy hidden in Clock Town (1 Stray Fairy) — it floats in the Laundry Pool during the day and near the Stock Pot Inn in East Clock Town at night.",
+   "cost": "GRANTS Magic Power (the magic meter itself) the first time she is restored as Deku Link, enabling magic-based abilities (e.g. the Deku bubble shot). Then, if you return to her in human/Hylian form, she gives the Great Fairy's Mask — a mask that chimes and glows when a Stray Fairy is in the same room, used to help locate the 15 Stray Fairies in each temple."
+  },
+  {
+   "name": "Great Fairy (Woodfall)",
+   "region": "Southern Swamp / Woodfall",
+   "location": "Fairy Fountain in Woodfall, in a grotto near Woodfall Temple. Restored by returning all 15 Stray Fairies from Woodfall Temple.",
+   "cost": "GRANTS the Great Spin Attack — an enhanced sword Spin Attack with double the power and range of the normal Spin Attack."
+  },
+  {
+   "name": "Great Fairy (Snowhead)",
+   "region": "Snowhead / Mountain Village (northern mountains)",
+   "location": "Fairy Fountain at Snowhead, near the entrance to Snowhead Temple. Restored by returning all 15 Stray Fairies from Snowhead Temple.",
+   "cost": "GRANTS Double Magic Power — an extended magic meter that doubles Link's magic capacity (the larger/double magic gauge)."
+  },
+  {
+   "name": "Great Fairy (Great Bay)",
+   "region": "Great Bay Coast",
+   "location": "Fairy Fountain in the Great Bay region near Zora Cape. Restored by returning all 15 Stray Fairies from Great Bay Temple.",
+   "cost": "GRANTS Double Defense (Enhanced Defense) — halves the amount of damage Link takes from all damage sources."
+  },
+  {
+   "name": "Great Fairy (Stone Tower)",
+   "region": "Ikana Canyon / Stone Tower",
+   "location": "Fairy Fountain in Ikana Canyon, near Stone Tower. Restored by returning all 15 Stray Fairies from Stone Tower Temple.",
+   "cost": "GRANTS the Great Fairy's Sword — the strongest sword in the game, a magical two-handed sword equipped to a C-button item slot."
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
  "KOROKS": null,
  "RUNES": [
   {
-   "id": "deku_mask",
+   "id": "deku-mask",
    "name": "Deku Mask",
    "glyph": "mask",
-   "from": "The Happy Mask Salesman plays the Song of Healing in the Clock Tower after you recover the Ocarina — your Deku-Scrub curse is sealed into a wearable mask.",
-   "what": "Wear it (from the masks menu) to become a Deku Scrub: hop across water on lily pads, shoot bubbles, and launch from Deku Flowers. Take it off to be Hylian again.",
-   "tip": "Transformation masks change WHO you are, not just what you wear. Some doors, switches, and water only respond to the right form."
+   "from": "The Happy Mask Salesman plays the Song of Healing for you after you recover the Ocarina of Time from Skull Kid atop the Clock Tower, lifting the Deku Scrub curse into a wearable mask.",
+   "what": "Transforms Link into Deku Link. Hop across water (up to 5 skips before sinking), launch from Deku Flowers and glide on twin propellers, shoot bubble projectiles, do a spin attack, and talk to other Deku Scrubs. Weak to fire.",
+   "tip": "Use Deku Flowers to fly across gaps to ledges you can't reach on foot, then sink into a flower to pop up through soft soil. Save it for water-skipping and aerial puzzles in Woodfall.",
+   "kind": "mask"
   },
   {
-   "id": "ocarina_of_time",
-   "name": "Ocarina of Time",
-   "glyph": "stasis",
-   "from": "Recovered from the Skull Kid atop the Clock Tower at midnight on the Final Day.",
-   "what": "Your instrument. Songs played on it bend time, warp you, summon Epona, and solve puzzles — the heart of the whole game.",
-   "tip": "Open the ocarina with the song you assigned it to; the notes you press appear on screen as you're taught each melody."
+   "id": "goron-mask",
+   "name": "Goron Mask",
+   "glyph": "mask",
+   "from": "Play the Song of Healing for the spirit of the hero Darmani at his grave in the Goron Graveyard (Mountain Village), soothing his regret into the Goron Mask.",
+   "what": "Transforms Link into Goron Link. Curl into a ball and roll at high speed (grow spikes and accelerate with magic), Goron Pound to smash, punch with fists of fire, push heavy objects, and walk unharmed across lava. Other Gorons treat you as Darmani.",
+   "tip": "Roll at full speed off ramps to clear long lava gaps and the Goron racetrack; use the ground-pound to flip switches and crack weak floors.",
+   "kind": "mask"
   },
   {
-   "id": "song_of_time",
+   "id": "zora-mask",
+   "name": "Zora Mask",
+   "glyph": "mask",
+   "from": "Play the Song of Healing for the dying Zora guitarist Mikau (the Indigo-Go's), washed up on Great Bay Coast, laying his spirit to rest as the Zora Mask.",
+   "what": "Transforms Link into Zora Link. Swim fast and dive freely, fight underwater, hurl the boomerang-like fins on your arms as projectiles, raise an electric barrier, and breathe underwater. Other Zora treat you as Mikau.",
+   "tip": "Throw both fins to hit two switches or distant targets at once underwater; use the electric shield to fry jellyfish-type enemies that touch you.",
+   "kind": "mask"
+  },
+  {
+   "id": "fierce-deitys-mask",
+   "name": "Fierce Deity's Mask",
+   "glyph": "mask",
+   "from": "Give all 20 regular (non-transformation) masks to the four Moon Children running around the tree inside the Moon. After clearing their hide-and-seek trials, the child wearing Majora's Mask hands you the Fierce Deity's Mask.",
+   "what": "Transforms Link into the towering Fierce Deity, wielding the double-helix Fierce Deity Sword that deals several times the Kokiri Sword's damage and fires sword beams when you Z-target at full health. It can ONLY be worn inside boss rooms.",
+   "tip": "Equip it the moment a boss battle begins to trivialize fights like Twinmold and Majora — the Z-target sword beams let you hammer the boss from across the room.",
+   "kind": "mask"
+  },
+  {
+   "id": "bremen-mask",
+   "name": "Bremen Mask",
+   "glyph": "mask",
+   "from": "Talk to Guru-Guru, the music-box man, in the Laundry Pool of Clock Town at night (First or Second Night); he reminisces about his troupe days and gives you the Bremen Mask he took from his old troupe leader.",
+   "what": "While worn, press B to play a marching tune on the ocarina. Small domesticated animals nearby fall in line and follow Link in a parade as he marches.",
+   "tip": "March the baby Cuccos in the Cucco Shack at Romani Ranch into a parade until they all grow into adults — that's how you earn the Bunny Hood.",
+   "kind": "mask"
+  },
+  {
+   "id": "bunny-hood",
+   "name": "Bunny Hood",
+   "glyph": "mask",
+   "from": "Wear the Bremen Mask in the Cucco Shack at Romani Ranch and march the ten chicks until they mature into adult Cuccos; the grateful rancher Grog rewards you with the Bunny Hood.",
+   "what": "Doubles Link's running speed (and, because jump distance scales with speed, lets him jump noticeably farther) while worn.",
+   "tip": "Keep it on for all overworld travel to cross Termina far faster, and wear it during the Postman's count-to-ten timing game so the on-screen timer stays visible — making the Piece of Heart easy.",
+   "kind": "mask"
+  },
+  {
+   "id": "keaton-mask",
+   "name": "Keaton Mask",
+   "glyph": "mask",
+   "from": "Part of the Anju and Kafei (Couple's Mask) quest chain — on the Final Day the Curiosity Shop owner hands you the Keaton Mask along with Kafei's express letter to his mother (Madame Aroma).",
+   "what": "Summons Keaton, a quiz-loving fox, when you cut the clump of grass in the center of certain circles of moving bushes while wearing it. Keaton asks five Termina-trivia questions.",
+   "tip": "Answer all five questions correctly the first time at a bush circle (North Clock Town, Milk Road, or Mountain Village) for a Piece of Heart; later runs pay out a Red Rupee instead.",
+   "kind": "mask"
+  },
+  {
+   "id": "postmans-hat",
+   "name": "Postman's Hat",
+   "glyph": "mask",
+   "from": "During the Anju and Kafei quest, give Kafei's letter to his mother to the Postman in West Clock Town on the Final Day; after he delivers it to Madame Aroma and is freed from his schedule, he gives Link his hat just before fleeing town.",
+   "what": "Lets Link peek inside the postboxes scattered around Clock Town and pull out the Rupees inside them. The very first postbox you open while wearing it yields a Piece of Heart.",
+   "tip": "Wear it and check every Clock Town postbox — the first one gives a Piece of Heart, and the rest are free pocket money.",
+   "kind": "mask"
+  },
+  {
+   "id": "all-night-mask",
+   "name": "All-Night Mask",
+   "glyph": "mask",
+   "from": "Buy it from the Curiosity Shop in West Clock Town on the Final Night for 500 Rupees — it only appears in stock if you've already saved the old Bomb Shop lady from the thief Sakon during the same three-day cycle.",
+   "what": "Keeps Link awake and attentive through long, sleep-inducing tales so he can hear them in full.",
+   "tip": "Wear it and listen to Anju's Grandmother's two bedtime stories (about the Carnival of Time and the Four Giants) — staying awake through each earns a Piece of Heart you can't get otherwise.",
+   "kind": "mask"
+  },
+  {
+   "id": "blast-mask",
+   "name": "Blast Mask",
+   "glyph": "mask",
+   "from": "Stop the thief Sakon from robbing the old Bomb Shop lady in North Clock Town at midnight on the First Night by slashing him with your sword; she rewards you with the Blast Mask.",
+   "what": "Lets Link detonate a bomb-like explosion from his own face on command, with no need to spend bombs. Using it without raising your shield to brace also hurts Link.",
+   "tip": "Raise your shield the instant before triggering it to avoid self-damage, and use it as a free, unlimited bomb to clear cracked walls and boulders when you're out of real bombs.",
+   "kind": "mask"
+  },
+  {
+   "id": "stone-mask",
+   "name": "Stone Mask",
+   "glyph": "mask",
+   "from": "In Ikana, use the Lens of Truth to spot the invisible Garo soldier Shiro pleading in the road, then give him a Blue Potion (or Red Potion); he thanks you with the Stone Mask.",
+   "what": "Makes Link appear as a plain, unremarkable stone — most common enemies completely ignore him while he wears it.",
+   "tip": "Wear it to walk straight past tough roaming enemies (great for sneaking through the dangerous stretches of Ikana and Pirates' Fortress) instead of fighting them.",
+   "kind": "mask"
+  },
+  {
+   "id": "great-fairys-mask",
+   "name": "Great Fairy's Mask",
+   "glyph": "mask",
+   "from": "As human Link, catch the lone Stray Fairy wandering Clock Town (in the Laundry Pool by day, near East Clock Town at night) and return it to the Great Fairy in North Clock Town; she gives you her mask.",
+   "what": "While worn, the mask reacts when a Stray Fairy is in the room and gently draws nearby loose Stray Fairies toward Link, making them far easier to collect.",
+   "tip": "Wear it while sweeping each dungeon for its 15 Stray Fairies — it signals a fairy is still in the room, and lost ones drift to you so you don't miss any before reuniting them with their Great Fairy.",
+   "kind": "mask"
+  },
+  {
+   "id": "don-geros-mask",
+   "name": "Don Gero's Mask",
+   "glyph": "mask",
+   "from": "In the Goron Shrine: as Goron Link, lull the Elder's son to sleep with the Goron Lullaby (light all the torches to spin the chandelier), then roll off the ramp at full speed to smash the pot on the spinning chandelier for a chunk of Rock Sirloin. Carry it to the shivering Goron freezing on a ledge in Mountain Village — he gives you the mask in thanks.",
+   "what": "Lets you talk to and gather the Frog Choir — five frogs plus Don Gero as conductor. Worn, the frogs respond to you so you can round them up.",
+   "tip": "After beating Goht and thawing Snowhead/Mountain Village, wear it to find all five frogs across Termina and reunite them at the Mountain Village pond; conduct the choir for a Piece of Heart.",
+   "kind": "mask"
+  },
+  {
+   "id": "mask-of-scents",
+   "name": "Mask of Scents",
+   "glyph": "mask",
+   "from": "After clearing Woodfall Temple and returning the Deku Princess, talk to the Deku Butler in the shrine behind Deku Palace. He challenges you to a race; keep up with him through the maze and he gives you the mask, saying it reminds him of racing his son.",
+   "what": "Gives Link a heightened sense of smell — normally invisible Magic Mushrooms appear as visible clouds of purple mist so you can spot and scoop them into a bottle.",
+   "tip": "Wear it to find Magic Mushrooms (e.g. near the Deku Palace / Southern Swamp), bottle one, and bring it to Kotake at the Magic Hags' Potion Shop to get a free Blue Potion.",
+   "kind": "mask"
+  },
+  {
+   "id": "romanis-mask",
+   "name": "Romani's Mask",
+   "glyph": "mask",
+   "from": "Earned through the Romani Ranch quest line: first defend the ranch from the alien 'Them' with Romani on the first night (rewarded with a bottle of Romani's Milk), then the next night help Cremia by shooting the Gorman Brothers as they ambush the milk wagon on the way to Clock Town. Protect the delivery and Cremia rewards you with the mask.",
+   "what": "Marks you as a member of the Milk Bar — it lets you into the exclusive Latte Milk Bar in East Clock Town, which only opens at night.",
+   "tip": "Wear it to enter the Milk Bar after 10 PM — buy Chateau Romani (200 rupees; refills your magic and grants unlimited magic for the rest of the cycle) and meet Toto to start the Circus Leader's Mask quest.",
+   "kind": "mask"
+  },
+  {
+   "id": "circus-leaders-mask",
+   "name": "Circus Leader's Mask",
+   "glyph": "mask",
+   "from": "Wearing Romani's Mask, enter the Latte Milk Bar on the First or Second Night and meet Toto, manager of the Indigo-Go's. Stand on stage and play the Ballad of the Wind Fish once in each of your four forms (human Link's ocarina, Deku Pipes, Goron Drums, Zora Guitar). Gorman, moved to tears, gives you his mask. (Called the Troupe Leader's Mask in the 3DS version.)",
+   "what": "The mask's grieving face calms anyone connected to Gorman — most usefully, it stops the Gorman Brothers from attacking Cremia's milk wagon.",
+   "tip": "Wear it during Cremia's night-two milk delivery: the Gorman Brothers can't bring themselves to attack, so the wagon arrives safe with no fighting needed.",
+   "kind": "mask"
+  },
+  {
+   "id": "kafeis-mask",
+   "name": "Kafei's Mask",
+   "glyph": "mask",
+   "from": "Given by Madame Aroma in the Mayor's Residence in East Clock Town after 10 AM on the First or Second Day. It bears the likeness of her missing son Kafei, and she asks you to help find him.",
+   "what": "A search mask for the Anju & Kafei sidequest — show it to Clock Town residents and they'll tell you what they know about the missing Kafei.",
+   "tip": "It kicks off the Anju & Kafei quest: wear it and talk to Anju at the Stock Pot Inn so she'll set up the secret late-night meeting that leads to the Pendant of Memories and, eventually, the Couple's Mask.",
+   "kind": "mask"
+  },
+  {
+   "id": "couples-mask",
+   "name": "Couple's Mask",
+   "glyph": "mask",
+   "from": "The final reward of the long Anju & Kafei reunion sidequest. When the two reunite on the Final Night they exchange the wedding masks — Kafei gives Anju his Sun's Mask, Anju gives Kafei her Moon's Mask — and the two merge into the Couple's Mask, which the couple gives you for witnessing their vow.",
+   "what": "A symbol of the reunited lovers' devotion. Worn, it can soothe a heated argument — most notably the Mayor's deadlocked council meeting.",
+   "tip": "Wear it in front of Mayor Dotour during the tense town-evacuation argument at the Mayor's Residence to settle the room and earn a Piece of Heart.",
+   "kind": "mask"
+  },
+  {
+   "id": "mask-of-truth",
+   "name": "Mask of Truth",
+   "glyph": "mask",
+   "from": "Given by the cursed, spider-bound rich man in the Swamp Spider House (Southern Swamp). Destroy all 30 Gold Skulltulas hidden in the house to lift his curse and he rewards you with the mask.",
+   "what": "Lets you read the secret thoughts of Gossip Stones (which give hints, often about other masks) and read the minds of certain animals.",
+   "tip": "Wear it at a Gossip Stone for hints, or use it at the Doggy Racetrack on Romani Ranch to read the dogs' minds — read the golden dog to pick the winner toward the Piece of Heart.",
+   "kind": "mask"
+  },
+  {
+   "id": "kamaros-mask",
+   "name": "Kamaro's Mask",
+   "glyph": "mask",
+   "from": "Around midnight, leave Clock Town to the north into Termina Field. The ghost of the dancer Kamaro is dancing atop a mushroom-shaped rock in northern Termina Field. Climb up and play the Song of Healing to soothe his spirit; he leaves you his mask.",
+   "what": "Lets Link perform Kamaro's flamboyant dance.",
+   "tip": "Wear it in West Clock Town on the First or Second Night and dance for the Rosa Sisters who are rehearsing there — teach them the routine to earn a Piece of Heart.",
+   "kind": "mask"
+  },
+  {
+   "id": "garos-mask",
+   "name": "Garo's Mask",
+   "glyph": "mask",
+   "from": "Once you have Epona, go to the Gorman Track on Milk Road and pay 10 rupees to race the Gorman Brothers on horseback. Beat them and they award you the mask.",
+   "what": "A Garo ninja disguise. Worn in Ikana, it summons hidden Garo enemies (who give hints when defeated) and makes ReDeads dance harmlessly instead of attacking.",
+   "tip": "It's your key into Ikana Canyon: wear it at the base of the cliff on the road to Ikana and the watcher (the Poe Collector) summons a withered tree you can hookshot to, opening the path forward.",
+   "kind": "mask"
+  },
+  {
+   "id": "captains-hat",
+   "name": "Captain's Hat",
+   "glyph": "mask",
+   "from": "In the Ikana Graveyard on the First or Second Night, play the Sonata of Awakening to rouse Captain Keeta, leader of the Stalchildren. Chase and defeat him before he reaches the end of the path; he hands over the Captain's Hat.",
+   "what": "Disguises Link as the Stalchildren's captain — undead Stalchildren and Stalfos mistake him for their leader and won't attack.",
+   "tip": "Wear it to walk safely past the Stalchildren in Ikana, and to command the small Stalchildren guarding the graves (they'll obey their 'captain' and open the grave they're patrolling).",
+   "kind": "mask"
+  },
+  {
+   "id": "gibdo-mask",
+   "name": "Gibdo Mask",
+   "glyph": "mask",
+   "from": "In Ikana, first learn the Song of Storms from the Composer Brother Flat in his crypt Beneath the Graveyard. Play it to Sharp in the Spring Water Cave to break his curse and restart the Ikana River — which powers the Music Box House. Sneak inside and play the Song of Healing for Pamela's father, who is turning into a Gibdo; healing him cures him and leaves you the mask.",
+   "what": "Disguises Link as a Gibdo so Gibdos and ReDeads treat him as one of their own and won't attack; it also lets him talk to the Gibdos.",
+   "tip": "Wear it Beneath the Well in Ikana Canyon to talk to the blocking Gibdos and bring them the items they crave (fish, Big Poes, etc.) so they'll move aside and let you reach Ikana Castle.",
+   "kind": "mask"
+  },
+  {
+   "id": "giants-mask",
+   "name": "Giant's Mask",
+   "glyph": "mask",
+   "from": "Found in a chest in Stone Tower Temple that appears after defeating the second Eyegore (the giant eye-statue mini-boss) inside the dungeon.",
+   "what": "Transforms Link into a towering giant, draining his magic meter while worn. It only works in the Twinmold boss arena.",
+   "tip": "Equip it during the Twinmold boss fight: at giant size you can grab the Twinmold worm by the head/tail, swing it, and slam it — far easier than fighting it normally.",
+   "kind": "mask"
+  },
+  {
+   "id": "song-of-time",
    "name": "Song of Time",
    "glyph": "stasis",
-   "from": "Remembered the instant you touch the Ocarina again — Princess Zelda taught it to you before your journey.",
-   "what": "Plays you back to the Dawn of the First Day, resetting the three-day cycle. You KEEP masks, songs, key quest items, bottles, and Heart Containers; you lose rupees, ammo, dungeon keys, and Stray Fairies.",
-   "tip": "Bank rupees in the Clock Town bank before you reset — the banker remembers your balance across cycles. Save your real progress by tying it to masks, songs, and Remains."
+   "from": "Recalled from Princess Zelda once you recover the Ocarina of Time from the Skull Kid (after regaining your Hylian form).",
+   "what": "Resets the three-day cycle, warping you back to the Dawn of the First Day (6:00 AM). Banked Rupees and your masks/songs carry over; most temporary progress, opened dungeons, and consumables reset.",
+   "tip": "Your save-and-reset button. Play it before the Moon falls to restart the clock without losing your major equipment. You can also play it to slow your fall in time-sensitive spots.",
+   "kind": "song"
   },
   {
-   "id": "song_of_healing",
+   "id": "inverted-song-of-time",
+   "name": "Inverted Song of Time",
+   "glyph": "stasis",
+   "from": "Not formally taught or stored in your song list (it never shows in the song UI). The Stylin' Scarecrow hints at it; you play the Song of Time backwards once you know the Song of Time.",
+   "what": "Slows the flow of time for the rest of the current cycle — to about one-third speed in the N64 original (about half speed in the 3DS remake), giving you far more real time within the three days.",
+   "tip": "Play it at the Dawn of the First Day so timed quests and long dungeons stop feeling like a sprint. The single most useful trick for a first-timer.",
+   "kind": "song"
+  },
+  {
+   "id": "song-of-double-time",
+   "name": "Song of Double Time",
+   "glyph": "stasis",
+   "from": "Not formally taught or stored. The Scarecrow hints at it; you play each note of the Song of Time twice in a row once you know the Song of Time.",
+   "what": "Skips time forward. In the N64 original it jumps ahead 12 hours (to the next 6:00 AM or 6:00 PM); in the 3DS remake it lets you pick the exact hour to skip to.",
+   "tip": "Use it to fast-forward to a scheduled event (a shop opening, a character appearing) instead of standing around waiting.",
+   "kind": "song"
+  },
+  {
+   "id": "song-of-healing",
    "name": "Song of Healing",
    "glyph": "stasis",
-   "from": "Taught by the Happy Mask Salesman in the Clock Tower once you have the Ocarina back.",
-   "what": "Soothes a troubled spirit and seals it into a mask. It lifts your own Deku curse first, then later heals Darmani and Mikau into the Goron and Zora Masks.",
-   "tip": "Whenever someone is grieving or cursed and Tatl hints at it, the Song of Healing is usually the answer — and you walk away with a new mask."
+   "from": "Taught by the Happy Mask Salesman, after you recover your stolen Ocarina from the Skull Kid and return to the first day of the cycle.",
+   "what": "Soothes troubled spirits, settling their cursed sorrow into a mask Link can wear. It's how you obtain the transformation masks (Deku, Goron, Zora) and several healing masks.",
+   "tip": "Play it for any tormented soul the game points you to. It turns the Deku/Goron/Zora curses into the masks that let you change form.",
+   "kind": "song"
   },
   {
-   "id": "heros_bow",
+   "id": "song-of-soaring",
+   "name": "Song of Soaring",
+   "glyph": "stasis",
+   "from": "Learned from the owl Kaepora Gaebora at the Owl Statue when you reach the Southern Swamp (the statue near the swamp/Woodfall area).",
+   "what": "Instantly warps you to any Owl Statue you have already struck and activated, from anywhere in Termina.",
+   "tip": "Hit every Owl Statue you pass to unlock that fast-travel point. After a Song of Time reset, soaring back is much faster than walking.",
+   "kind": "song"
+  },
+  {
+   "id": "song-of-storms",
+   "name": "Song of Storms",
+   "glyph": "stasis",
+   "from": "Learned from Flat, one of the Composer Brothers, in the tomb beneath the Ikana Graveyard (reached by opening the graves with the Captain's Hat and defeating the Iron Knuckle inside).",
+   "what": "Summons rain on command. The rain cleanses certain cursed/evil spirits and waters planted Magic Beans so they sprout instantly.",
+   "tip": "Plant a Magic Bean, then play this to grow it at once and ride the plant up to otherwise unreachable ledges and Pieces of Heart.",
+   "kind": "song"
+  },
+  {
+   "id": "sonata-of-awakening",
+   "name": "Sonata of Awakening",
+   "glyph": "stasis",
+   "from": "Taught by the caged monkey in the Deku Palace, after you reach it through the Inner Palace Garden.",
+   "what": "Awakens sleeping beings. It raises Woodfall Temple out of the swamp, opening the path inside.",
+   "tip": "Play it on the platform in the poison swamp at Woodfall to make the temple rise, then enter as Deku Link.",
+   "kind": "song"
+  },
+  {
+   "id": "gorons-lullaby",
+   "name": "Goron Lullaby",
+   "glyph": "stasis",
+   "from": "Begun by the Goron Elder, who teaches the first part; play that part to his crying baby (the Elder's son) as Goron Link and the tot completes the melody for you.",
+   "what": "A lullaby that puts Gorons to sleep — including the giant invisible Goron whose icy breath blocks the way to Snowhead Temple.",
+   "tip": "You must play the whole song to put big Gorons to sleep; the short hint version only quiets the baby. Learn the full tune before heading to Snowhead.",
+   "kind": "song"
+  },
+  {
+   "id": "new-wave-bossa-nova",
+   "name": "New Wave Bossa Nova",
+   "glyph": "stasis",
+   "from": "Taught by the newly hatched baby Zoras at the Marine Research Lab, after you rescue all seven Zora Eggs and place them in the aquarium so they hatch and line up.",
+   "what": "Restores Lulu's lost voice and awakens the giant turtle, which ferries you out to Great Bay Temple.",
+   "tip": "As Zora Link, take out the guitar in front of the lined-up hatchlings to learn it, then play it for Lulu at the coast to summon the turtle.",
+   "kind": "song"
+  },
+  {
+   "id": "elegy-of-emptiness",
+   "name": "Elegy of Emptiness",
+   "glyph": "stasis",
+   "from": "Taught by Igos du Ikana (the King of Ikana) in the Ancient Castle of Ikana, after you defeat him and his two guards.",
+   "what": "Creates a hollow, statue-like shell duplicate of Link's current form that stays put where you played it. Each form makes its own weighted statue.",
+   "tip": "Essential for Stone Tower Temple: drop statues on switches to hold multiple buttons down at once while you move on.",
+   "kind": "song"
+  },
+  {
+   "id": "oath-to-order",
+   "name": "Oath to Order",
+   "glyph": "stasis",
+   "from": "Taught by a freed Giant after you clear the first temple — Woodfall (defeating Odolwa) — when you're carried to the Giant's dreamlike chamber.",
+   "what": "Calls the Four Giants. At the climax it summons them to catch and hold back the falling Moon over Clock Town.",
+   "tip": "Required for the final showdown: after all four temples, play it from the Clock Tower roof at midnight on the Final Day to summon the Giants.",
+   "kind": "song"
+  },
+  {
+   "id": "eponas-song",
+   "name": "Epona's Song",
+   "glyph": "stasis",
+   "from": "Taught by Romani at Romani Ranch after you pass her daytime training — shooting all ten ghost-shaped balloons from horseback within the time limit.",
+   "what": "Summons your horse Epona to your side out in the field. It can also calm or coax certain animals (like Cremia's cows).",
+   "tip": "Once you've claimed Epona, whistle this to call her across Termina Field for fast riding and to clear the high fences on the way to the ranch.",
+   "kind": "song"
+  },
+  {
+   "id": "scarecrows-song",
+   "name": "Scarecrow's Song",
+   "glyph": "stasis",
+   "from": "Composed by you, the player, for Pierre the dancing Scarecrow (found in the Astral Observatory / at the trading-post scarecrow) — an 8-note tune of your own choosing.",
+   "what": "Your custom melody. Playing it summons the hidden Scarecrow at certain spots, giving you a Hookshot target to swing to faraway ledges; it can also speed up the Bombers' and dancing sequences.",
+   "tip": "Make it short and memorable. When Tatl flashes (turns green), play your song to call the Scarecrow and hookshot to spots you couldn't otherwise reach.",
+   "kind": "song"
+  },
+  {
+   "id": "ocarina-of-time",
+   "name": "Ocarina of Time",
+   "glyph": "stasis",
+   "from": "Stolen by the Skull Kid at the very start; recovered as a Deku Scrub at the end of the first three-day cycle, after which you turn human again and the Happy Mask Salesman teaches you the Song of Time.",
+   "what": "Your instrument and the heart of the game. Play it to perform songs that warp time, change the weather, summon your horse, and open dungeon paths.",
+   "tip": "Play the Song of Time to reset to the Dawn of the First Day (saving masks, songs, and key items) before the moon falls. Inverted Song of Time slows the clock to a third speed, buying time inside a cycle.",
+   "kind": "item"
+  },
+  {
+   "id": "heros-bow",
    "name": "Hero's Bow",
    "glyph": "bow",
-   "from": "A chest inside Woodfall Temple, the first dungeon.",
-   "what": "Your main ranged weapon as Hylian Link — shoot eye-switches, distant targets, and (with elemental arrows) freeze or ignite things.",
-   "tip": "You can buy bigger Quivers later. Fire and Ice Arrows come from the temples; Light Arrows are the key to the final fight."
+   "from": "Found in a chest inside Woodfall Temple (the first dungeon), after the mini-boss room.",
+   "what": "A standard bow firing arrows at range. The base bow comes with a 30-arrow quiver and is the platform for the Fire, Ice, and Light arrows.",
+   "tip": "Use it to hit faraway switches and eyes; defeating Odolwa and most temple bosses leans on ranged arrow hits to stun them.",
+   "kind": "item"
   },
   {
-   "id": "bomb_bag",
+   "id": "fire-arrows",
+   "name": "Fire Arrow",
+   "glyph": "bow",
+   "from": "Found in Snowhead Temple, after beating a Wizzrobe mini-boss.",
+   "what": "Magic arrows wreathed in flame. They melt ice, burn spider webs, and light torches.",
+   "tip": "Shoot a Fire Arrow at the frozen door of the Goron Powder Keg Shop to enter it in winter instead of waiting for spring.",
+   "kind": "item"
+  },
+  {
+   "id": "ice-arrows",
+   "name": "Ice Arrow",
+   "glyph": "bow",
+   "from": "Found in Great Bay Temple.",
+   "what": "Magic arrows that freeze enemies solid and create ice blocks on the surface of deep or flowing water.",
+   "tip": "Fire them into water to make stepping-stone ice platforms you can stand on to cross gaps.",
+   "kind": "item"
+  },
+  {
+   "id": "light-arrows",
+   "name": "Light Arrow",
+   "glyph": "bow",
+   "from": "Found in Stone Tower Temple.",
+   "what": "Arrows infused with sacred light. They destroy dark enemies, solve light puzzles without the Mirror Shield, and are needed in the final battle.",
+   "tip": "Shoot a Light Arrow at the sun emblem to flip the entire Stone Tower upside-down; they also stagger Majora in the last fight.",
+   "kind": "item"
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "key",
+   "from": "Found in a chest inside the Pirates' Fortress at Great Bay Coast (reached as Zora Link).",
+   "what": "A spring-loaded chain that latches onto targets and reels Link across gaps, or pulls items and stunned enemies toward you.",
+   "tip": "Aim it at a wooden target or scarecrow to zip over a chasm; it also yanks treasure and grabs distant enemies.",
+   "kind": "item"
+  },
+  {
+   "id": "bomb-bag",
    "name": "Bomb Bag",
    "glyph": "bomb",
-   "from": "Won at the Town Shooting Gallery, or bought from the Bomb Shop in West Clock Town (after stopping the robber).",
-   "what": "Lets you carry and throw Bombs to blast cracked walls and boulders and to stun enemies. Bombchu crawl along walls and floors first.",
-   "tip": "Bombs and arrows are consumables — they reset every cycle. Restock cheaply from the Bomb Shop or Bomb Flowers before a dungeon run."
+   "from": "Bought at the Bomb Shop in West Clock Town. The starter bag holds 20 Bombs.",
+   "what": "Holds Bombs, the round explosives you set down or throw to blow open cracked walls, stun enemies, and trigger switches.",
+   "tip": "Plant a Bomb beside any cracked or suspicious wall to open hidden rooms and grottoes.",
+   "kind": "item"
+  },
+  {
+   "id": "big-bomb-bag",
+   "name": "Big Bomb Bag",
+   "glyph": "bag",
+   "from": "In North Clock Town at midnight on the First Night, stop Sakon from stealing the Bomb Lady's bag (hit him with your sword); the Bomb Shop then sells it for 90 rupees the next day. Holds 30 Bombs.",
+   "what": "The first Bomb Bag upgrade, raising your Bomb (and Bombchu) carrying capacity from 20 to 30.",
+   "tip": "Be in North Clock Town just before 12 a.m. on Night One to catch the thief and unlock the cheaper purchase.",
+   "kind": "item"
+  },
+  {
+   "id": "biggest-bomb-bag",
+   "name": "Biggest Bomb Bag",
+   "glyph": "bag",
+   "from": "From the Business Scrub in Goron Village (you must wear the Goron Mask to be a customer). 1,000 rupees normally, or trade in the Big Bomb Bag plus 200 rupees.",
+   "what": "The final Bomb Bag upgrade, raising capacity to 40 Bombs.",
+   "tip": "Bring the Big Bomb Bag and only 200 rupees to get the discount trade instead of paying the full 1,000.",
+   "kind": "item"
+  },
+  {
+   "id": "bombchu",
+   "name": "Bombchu",
+   "glyph": "bomb",
+   "from": "Bought at the Bomb Shop in West Clock Town, 10 for 40 rupees (you must already own a Bomb Bag). Carried within your Bomb Bag's capacity.",
+   "what": "Wind-up mouse bombs that scurry along the floor and up walls, then explode on contact.",
+   "tip": "Send a Bombchu up a wall or across a room to detonate a switch or enemy you can't reach with a thrown Bomb.",
+   "kind": "item"
+  },
+  {
+   "id": "powder-keg",
+   "name": "Powder Keg",
+   "glyph": "bomb",
+   "from": "Usable only as Goron Link, after passing Medigoron's certification test at the Goron Powder Keg Shop (carry one to the boulder by the Goron Racetrack and blow it up within the time limit). Then bought for 100 rupees; you carry only one at a time.",
+   "what": "A giant barrel bomb with a far larger blast than a normal Bomb, able to destroy massive boulders and reinforced obstacles.",
+   "tip": "Use one to clear the huge boulder blocking the path to the Goron Racetrack and other large rockfalls.",
+   "kind": "item"
+  },
+  {
+   "id": "lens-of-truth",
+   "name": "Lens of Truth",
+   "glyph": "stasis",
+   "from": "In the Lone Peak Shrine, a hidden cave east of Goron Village in the Snowhead region: follow the owl Kaepora Gaebora's dropped feathers across the invisible platforms to reach it.",
+   "what": "Reveals what the naked eye can't see, invisible platforms, hidden enemies, fake walls and secret passages, while it drains magic.",
+   "tip": "Hold it up over gaps in the Ikana region and dungeons to find invisible walkways and ghosts; it stops draining magic the moment you let go.",
+   "kind": "item"
+  },
+  {
+   "id": "magic-beans",
+   "name": "Magic Bean",
+   "glyph": "leaf",
+   "from": "Bought for 10 rupees each from the Business Scrub beside the Swamp Tourist Center in the Southern Swamp.",
+   "what": "Plantable beans that sprout into a leaf platform once watered, lifting Link to high places.",
+   "tip": "Plant a bean in soft soil, then water it with Spring Water or play the Song of Storms to make it grow instantly into a ride upward.",
+   "kind": "item"
+  },
+  {
+   "id": "pictograph-box",
+   "name": "Pictograph Box",
+   "glyph": "bag",
+   "from": "Given by Koume at the Swamp Tourist Center: rescue her from the Woods of Mystery, then talk to her on the Boat Cruise and she hands it over.",
+   "what": "A camera that captures a single pictograph (photo). Several sidequests ask you to photograph a specific person, creature, or scene.",
+   "tip": "Snap a clear pictograph of the Deku King's monkey or the Gerudo pirate to clear photo sidequests for rewards.",
+   "kind": "item"
+  },
+  {
+   "id": "bottle",
+   "name": "Empty Bottle",
+   "glyph": "bag",
+   "from": "Six exist on the N64 original, earned around Termina, e.g. the Chateau Romani bottle from Romani Ranch, the bottle from Madame Aroma, the Beaver Brothers race, the Dampe dig, the seahorse trade, and the Goron Race.",
+   "what": "A reusable container. Each can hold one consumable or captured thing: Red/Blue/Green Potion, a Fairy, Milk, Chateau Romani, Hot Spring Water, a Zora Egg, Gold Dust, a Bug, Fish, Spring Water, or a Big Poe.",
+   "tip": "Keep a Fairy bottled, it auto-revives you when you fall in battle; carry Hot Spring Water to melt ice fast, and a Zora Egg to advance the Great Bay egg quest.",
+   "kind": "item"
+  },
+  {
+   "id": "red-potion",
+   "name": "Red Potion",
+   "glyph": "bag",
+   "from": "Bought at the Trading Post or the Magic Hags' Potion Shop, or brewed; stored in a Bottle.",
+   "what": "A health restorative, drinking it refills a chunk of your hearts.",
+   "tip": "Bottle one before a boss so you can heal mid-fight without leaving the room.",
+   "kind": "item"
+  },
+  {
+   "id": "chateau-romani",
+   "name": "Chateau Romani",
+   "glyph": "bag",
+   "from": "Sold at the Milk Bar in East Clock Town for 200 rupees, you need the Romani's Mask to enter and an Adult/Giant's Wallet to afford it. Stored in a Bottle.",
+   "what": "A premium milk that fully refills health and gives unlimited magic for the rest of the cycle (until the next Song of Time reset).",
+   "tip": "Drink it before a dungeon to spam the Lens of Truth, Fire/Ice Arrows, and spins without ever running out of magic.",
+   "kind": "item"
+  },
+  {
+   "id": "kokiri-sword",
+   "name": "Kokiri Sword",
+   "glyph": "sword",
+   "from": "Your starting sword, returned to you by the Happy Mask Salesman after the opening (the basic blade Link carries from the start).",
+   "what": "The weakest sword, used for basic slashes, spin attacks, and stabs. The baseline all other swords improve on.",
+   "tip": "It's enough for early Clock Town and Woodfall enemies; upgrade at the Mountain Smithy as soon as you can spare 100 rupees.",
+   "kind": "item"
+  },
+  {
+   "id": "razor-sword",
+   "name": "Razor Sword",
+   "glyph": "sword",
+   "from": "Forged at the Mountain Smithy in Mountain Village for 100 rupees (upgrades your Kokiri Sword).",
+   "what": "A sharper blade with greater reach and double the Kokiri Sword's damage. WARNING: its edge dulls after 100 hits, and a Song of Time reset reverts it to the Kokiri Sword.",
+   "tip": "Plan to upgrade it to the Gilded Sword before resetting, otherwise a Song of Time reset wipes the upgrade and you'll have to pay again.",
+   "kind": "item"
+  },
+  {
+   "id": "gilded-sword",
+   "name": "Gilded Sword",
+   "glyph": "sword",
+   "from": "Forged at the Mountain Smithy by giving the smith Gold Dust (won from first place in the Goron Race, bottled, with 24+ hours left in the cycle) to upgrade your Razor Sword.",
+   "what": "A permanent blade that never dulls or reverts, dealing triple the Kokiri Sword's damage.",
+   "tip": "Bottle the Gold Dust from the Goron Race and rush it to the Smithy before the cycle ends, the bottled dust survives a reset, but the unforged sword does not.",
+   "kind": "item"
+  },
+  {
+   "id": "great-fairys-sword",
+   "name": "Great Fairy's Sword",
+   "glyph": "sword",
+   "from": "Reward from the Great Fairy in Ikana Canyon for collecting all 15 Stray Fairies in Stone Tower Temple and returning them to her fountain.",
+   "what": "The strongest standard weapon, four times the Kokiri Sword's damage. It's a two-handed C-button item you equip and swing, so you cannot use a shield while it's drawn.",
+   "tip": "Equip it to a C-button for boss fights where you can dodge instead of block; its huge damage shortens Twinmold and the final battle.",
+   "kind": "item"
+  },
+  {
+   "id": "heros-shield",
+   "name": "Hero's Shield",
+   "glyph": "shield",
+   "from": "Held from the start (or re-bought cheaply at the Trading Post / Bomb Shop in Clock Town if lost).",
+   "what": "A basic shield. Hold it up to block enemy attacks and projectiles; it can be eaten by certain enemies if you're careless.",
+   "tip": "Raise it against Octorok rocks and Deku Baba lunges; press to crouch behind it when arrows or fire are incoming.",
+   "kind": "item"
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "Found in Beneath the Well, a mini-dungeon in northern Ikana Canyon (light the final room's torches with Fire Arrows to spawn its chest).",
+   "what": "A reflective shield that blocks like the Hero's Shield but also catches and redirects beams of light to hit distant switches, Sun Blocks, and Sun crests.",
+   "tip": "Stand in a sunbeam and angle the shield to fire light at the Sun Faces and Sun Blocks in Ikana and Stone Tower Temple.",
+   "kind": "item"
+  },
+  {
+   "id": "adult-wallet",
+   "name": "Adult's Wallet",
+   "glyph": "bag",
+   "from": "From the Clock Town Bank clerk after you've deposited a running total of 200 rupees.",
+   "what": "A bigger wallet that raises your rupee capacity from 99 to 200.",
+   "tip": "Deposit your spare rupees early, hitting 200 saved unlocks this so you can actually afford things like Chateau Romani.",
+   "kind": "item"
+  },
+  {
+   "id": "giants-wallet",
+   "name": "Giant's Wallet",
+   "glyph": "bag",
+   "from": "From the cursed man at the Oceanside Spider House (Great Bay Coast) after you destroy all 30 Gold Skulltulas there.",
+   "what": "The largest wallet, raising rupee capacity to 500.",
+   "tip": "Clear the Oceanside Spider House's Gold Skulltulas to lift the curse and bank up to 500 rupees for the pricier upgrades.",
+   "kind": "item"
+  },
+  {
+   "id": "large-quiver",
+   "name": "Large Quiver",
+   "glyph": "bow",
+   "from": "Prize for scoring high at the Town Shooting Gallery in East Clock Town.",
+   "what": "Raises your maximum arrow count from 30 to 40.",
+   "tip": "Practice the Town Shooting Gallery rounds; the higher score tier hands you this upgrade for free.",
+   "kind": "item"
+  },
+  {
+   "id": "biggest-quiver",
+   "name": "Largest Quiver",
+   "glyph": "bow",
+   "from": "Prize for a high score at the Swamp Shooting Gallery in the Southern Swamp.",
+   "what": "The final quiver upgrade, raising maximum arrows from 40 to 50.",
+   "tip": "Come back to the Swamp Shooting Gallery once you have the Hero's Bow and ace it to carry the most arrows.",
+   "kind": "item"
   }
  ],
  "STATUS_RUNES": [
@@ -2030,7 +3248,8 @@
   "orbWord": "hearts",
   "runesLabel": "Masks & Songs",
   "championsLabel": "Remains",
-  "regionBanner": "Temple"
+  "regionBanner": "Temple",
+  "worldName": "Termina"
  },
  "guideSegs": [
   [
@@ -2040,6 +3259,18 @@
   [
    "tips",
    "Tips"
+  ],
+  [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
   ],
   [
    "settings",
