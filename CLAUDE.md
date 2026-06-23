@@ -34,15 +34,17 @@ default; fan out only when subtasks are truly independent.** When you DO fan out
 quests, item cards), **BATCH them — one agent per group of ~12, never one-per-item** (the single biggest token
 saver here). Run **≤2 Workflows at once** (3+ trips 529 overload); `resumeFromRunId` mops up failures.
 
-## The games (multi-game as of v8; three games as of v14)
-Three games now live behind a **game picker** (Status tab): **Breath of the Wild**, **Tears of the Kingdom**,
-and **Ocarina of Time** (game 3, started v14). `GAMES = { botw, totk, oot }` (built by `inline-data.mjs` — each
-of TOTK/OOT is read wholesale from `knowledge/<game>/app-data.json`); the `HyruleCompanion` wrapper owns the
-active game (`hyrule:game`) and remounts `<HyruleGame key={game}>`, which shadows the data globals with
-`GAMES[game]` and namespaces storage (`botw:*` / `totk:*` / `oot:*`). Per-game `terms`/`guideSegs`/`postRegionId`
-adapt labels + surfaces; **missing datasets degrade gracefully** (OoT v1 has no shrines/cooking/maps/armor/…, like
-TotK v1 — TotK/OoT are the canaries for "does this feature degrade?"). See ADR 0005. Data: `knowledge/totk/`
-(`build/assemble-totk.mjs`) and `knowledge/oot/` (`build/assemble-oot.mjs`).
+## The games (multi-game as of v8; four games as of v15)
+Four games now live behind a **game picker** (Status tab): **Breath of the Wild**, **Tears of the Kingdom**,
+**Ocarina of Time** (game 3, v14), and **Majora's Mask** (game 4, v15). `GAMES = { botw, totk, oot, mm }` (built by
+`inline-data.mjs` — each of TOTK/OOT/MM is read wholesale from `knowledge/<game>/app-data.json`); the
+`HyruleCompanion` wrapper owns the active game (`hyrule:game`) and remounts `<HyruleGame key={game}>`, which
+shadows the data globals with `GAMES[game]` and namespaces storage (`botw:*` / `totk:*` / `oot:*` / `mm:*`).
+Per-game `terms`/`guideSegs`/`postRegionId` adapt labels + surfaces; **missing datasets degrade gracefully**
+(OoT/MM have no shrines/cooking/maps/armor/…, like TotK v1 — TotK/OoT/MM are the canaries for "does this feature
+degrade?"). See ADR 0005. Data: `knowledge/totk/` (`build/assemble-totk.mjs`), `knowledge/oot/`
+(`build/assemble-oot.mjs`), and `knowledge/mm/` (`build/assemble-mm.mjs`). MM adds a `terms.worldName` (Termina vs
+Hyrule) used by the Enemies lede — falls back to "Hyrule" for the other three.
 
 ## Layout
 ```
@@ -464,7 +466,35 @@ layout, `REGION_MAPS` = the per-region coords.
     folds `compendium.json` → COMPENDIUM → the OoT Items tab is now `CompendiumView` (was the auto-pouch);
     CompendiumView gained **Items + Masks** category columns (additive — BotW/TotK unaffected). **OoT is now
     fully at parity** (full quest + all reference tabs + trackers + catalog + game-appropriate tab set).
+- **v15 — Majora's Mask as game 4 (DONE, at full OoT parity):** scaffolded + built out in one session, mirroring
+  the OoT pattern exactly. `build/assemble-mm.mjs` (clone of assemble-oot) folds OPTIONAL `knowledge/mm/*.json`
+  overlays into `app-data.json`, derives STATUS_RUNES (the 3 transformation masks + Ocarina), wires the **four
+  Remains** (the "Stones & Medallions" analog → `terms.championsLabel:"Remains"`) to their boss-reward steps, and
+  rebuilds guideSegs. `inline-data.mjs` wires `mm: MM`. Added a `mask` Glyph (also upgraded the Compendium Masks-
+  column glyph for all games). The defining 3-day clock + transformation masks live in TIPS + Stuck hints + the
+  walkthrough (no schema change). MM-appropriate **5-tab set** (Status·Journey·Items·Guide·Lore — no shrines/cook).
+  - **v15.0** (scaffold): `knowledge/mm/{globals,walkthrough}.json` — terms (Heart Containers/hearts · Masks &
+    Songs · Remains · Temple · **worldName:"Termina"**), CATS (mask/song/sword/shield/bow/item/key/material),
+    CHAMPIONS = the 4 Remains, COLLECTIBLES (Masks 24 · Pieces of Heart 52). Hand-authored Clock Town opening
+    (5 sections: the curse → Clock Tower Final Day → Song of Time reset → Song of Healing → Deku Mask) as the
+    voice/shape anchor for the walkthrough workflow.
+  - **v15.1** (full main quest): `gen-mm-walkthrough-workflow.mjs` (author→verify, 10 agents) → the 5 remaining
+    chapters (Southern Swamp/Woodfall→Odolwa, Snowhead→Goht, Great Bay→Gyorg, Ikana/Stone Tower→Twinmold,
+    the Moon→Majora). **6 chapters, 128 steps**, all 4 Remains granted-as-item + wired. Verifier caught real
+    errors (Koume/Kotake swap, an invented "Tijo", the Great-Fairy-grants-Magic-Power-as-Deku nuance).
+  - **v15.2** (Items compendium): `gen-mm-compendium-workflow.mjs` (10 agents) → `compendium.json`, **64 entries**
+    (7 weapons · 5 bows/arrows · 2 shields · **all 24 masks** · 26 items) → the Items tab is now CompendiumView.
+  - **v15.3** (depth): `gen-mm-depth-workflow.mjs` (author→verify, 36 agents) → 4 overlays → Guide tab at full
+    parity (**Masks · Tips · Fairies · Quests · Enemies · Settings**): items-songs (64 = 24 masks + 13 songs +
+    27 items), bestiary (24 enemies + 6 basics + 8 spliced boss/mini-boss guides incl. Majora's 3 forms), the
+    5 Great Fairies, and 51 side quests across 4 groups (Bombers' Notebook & **Anju–Kafei**, Romani Ranch, the
+    20 Masks, Minigames & Collectibles). **A transient 529 killed the Masks/bestiary authors mid-run;
+    `resumeFromRunId` recovered them (battles/fairies/quests cached) — the documented fix held.**
+  All v15 verified in-browser, 0 console errors, **no meta leaks** (merge scripts pick named fields only; MM is
+  inlined wholesale like TotK/OoT, so the v13.2 lesson applies). Three cross-game copy fixes shipped alongside:
+  the Enemies lede uses `worldName`; the Quests lede drops its shrine clause when a game has no shrines (also fixes
+  OoT); the coach Great-Fairy card now says "a new power or upgrade" (correct for OoT spells AND MM magic/spin/sword).
 - **Biggest remaining build (whole app):** TotK **shrine solutions** (152 — the Stuck-reveal/answer-first-search
   centerpiece; the only major functional gap left in any game). Resume `wf_ebb10104-cfd` (~150 left), ≤2
   workflows at a time. Lower-priority: TotK Items-tab compendium. Lore is shared/cross-game and could gain
-  OoT/TotK-era chapters (needs the writers'-room workflow + the no-AI-slop bar — vet a sample first).
+  OoT/TotK/MM-era chapters (needs the writers'-room workflow + the no-AI-slop bar — vet a sample first).
