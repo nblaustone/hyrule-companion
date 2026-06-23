@@ -1,0 +1,143 @@
+[
+ {
+  "id": "mm_clocktown",
+  "name": "Clock Town & the Skull Kid",
+  "sub": "Main Quest — the first three-day cycle",
+  "kind": "region",
+  "tagline": "A stolen ocarina, a cursed boy, and a Moon falling on a town that has only three days left — learn to rewind time itself.",
+  "champion": null,
+  "sections": [
+   {
+    "id": "mm_ct_s_curse",
+    "name": "Cursed in the Woods",
+    "sub": "From the Lost Woods into Termina",
+    "reward": "Tatl the fairy",
+    "steps": [
+     {
+      "id": "mm_ct_curse_1",
+      "k": "step",
+      "t": "In the opening you're riding Epona through the woods searching for a lost friend. The Skull Kid and his two fairies, Tatl and Tael, ambush you, steal the Ocarina of Time, and knock you off your horse. Chase the Skull Kid down the tunnel — you'll tumble into a strange falling world called Termina.",
+      "items": [
+       { "name": "Tatl", "cat": "key", "note": "The fairy Tael's sister. When the Skull Kid flees she's left behind and reluctantly becomes your partner. Press Z (or L) to target; Tatl flies to things worth examining and gives hints." }
+      ]
+     },
+     {
+      "id": "mm_ct_curse_2",
+      "k": "warn",
+      "t": "The Skull Kid laughs and turns you into a Deku Scrub — a little plant creature. You're stuck in this body for now. Tatl stays with you, and you must climb down through the swirling underground passage."
+     },
+     {
+      "id": "mm_ct_curse_3",
+      "k": "step",
+      "t": "At the bottom of the passage you meet the Happy Mask Salesman in the room beneath the Clock Tower. He says he can turn you back to normal — but only if you recover both the Ocarina AND the precious mask the Skull Kid stole from him, and you have just three days to do it. Step through the door into South Clock Town.",
+      "stuck": "Talk to the Happy Mask Salesman fully (mash through all his dialogue). He won't help yet, but his deal — get the Ocarina back within three days — is the whole first cycle in a nutshell."
+     }
+    ]
+   },
+   {
+    "id": "mm_ct_s_clock",
+    "name": "The Three-Day Clock",
+    "sub": "A town under a falling Moon",
+    "reward": null,
+    "steps": [
+     {
+      "id": "mm_ct_clock_1",
+      "k": "tip",
+      "t": "Look up: a grinning Moon is falling toward Clock Town, and a clock at the bottom of the screen counts down three days. When it hits the end of the Final Day, the Moon lands and it's game over. Don't panic — you're about to learn to turn the clock back."
+     },
+     {
+      "id": "mm_ct_clock_2",
+      "k": "step",
+      "t": "Explore South Clock Town as a Deku Scrub while the days pass. You can't beat the Skull Kid yet — the door at the top of the Clock Tower stays sealed until midnight on the Final Day, when the Carnival of Time begins and the steps drop down.",
+      "stuck": "As a Deku you can jump onto the lily pad in the pool and hop across, and launch out of Deku Flowers. There's little you must do this first cycle except reach the Final Day — feel free to wander and meet the townsfolk."
+     },
+     {
+      "id": "mm_ct_clock_3",
+      "k": "optional",
+      "t": "Find the Bombers — the gang of kids in town. Their leader's hide-and-seek game (and later their secret code) earns you the Bombers' Notebook, the planner that tracks every person you can help and exactly when to find them over the three days.",
+      "items": [
+       { "name": "Bombers' Notebook", "cat": "key", "note": "Termina's quest journal. It logs each character's schedule across the three days so you know when to be where. You'll get it properly once you can move freely as Hylian Link." }
+      ]
+     },
+     {
+      "id": "mm_ct_clock_4",
+      "k": "warn",
+      "t": "When the clock reaches the night of the Final Day, head to the Clock Tower entrance in South Clock Town. The platform at the top is now open."
+     }
+    ]
+   },
+   {
+    "id": "mm_ct_s_ocarina",
+    "name": "Atop the Clock Tower",
+    "sub": "Final Day, midnight",
+    "reward": "Ocarina of Time",
+    "steps": [
+     {
+      "id": "mm_ct_ocarina_1",
+      "k": "step",
+      "t": "Climb the ramp to the top of the Clock Tower. The Skull Kid is there, holding the Ocarina of Time aloft, and he's hurrying the Moon down faster. Tael pleads with you to hurry."
+     },
+     {
+      "id": "mm_ct_ocarina_2",
+      "k": "step",
+      "t": "As a Deku Scrub, shoot a bubble at the Skull Kid — press R to guard-pose, then attack to spit. The hit knocks the Ocarina out of his hands; grab it as it falls.",
+      "stuck": "Aim the Deku bubble at the floating Ocarina (or the Skull Kid himself). One good shot drops it. Walk into the Ocarina to pick it up — the screen will go to a memory.",
+      "items": [
+       { "name": "Ocarina of Time", "cat": "item", "note": "Your instrument. Songs played on it bend time, warp you, and solve puzzles. Recovering it is the key to escaping the three-day trap." }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mm_ct_s_songtime",
+    "name": "The Song of Time",
+    "sub": "Rewind to the First Day",
+    "reward": "Song of Time",
+    "steps": [
+     {
+      "id": "mm_ct_songtime_1",
+      "k": "step",
+      "t": "The moment you touch the Ocarina you remember Princess Zelda teaching you the Song of Time and telling you to use it in an emergency. Play it now."
+     },
+     {
+      "id": "mm_ct_songtime_2",
+      "k": "reward",
+      "t": "Time rushes backward — you're returned to the Dawn of the First Day, safe, with the Ocarina and the Song of Time. This is your lifeline: play the Song of Time anytime to reset the three days. You keep your masks, songs, and important items through every reset.",
+      "items": [
+       { "name": "Song of Time", "cat": "song", "note": "Rewinds to the Dawn of the First Day. KEEPS masks, songs, Heart Containers, bottles, and boss Remains; LOSES rupees, bombs, arrows, dungeon keys, and Stray Fairies. Bank rupees before you reset." }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mm_ct_s_healing",
+    "name": "The Song of Healing & the Deku Mask",
+    "sub": "Back to Hylian — and your first mask",
+    "reward": "Deku Mask",
+    "steps": [
+     {
+      "id": "mm_ct_healing_1",
+      "k": "step",
+      "t": "Return to the Happy Mask Salesman in the room beneath the Clock Tower. Now that you have the Ocarina, he teaches you the Song of Healing.",
+      "items": [
+       { "name": "Song of Healing", "cat": "song", "note": "Soothes a troubled or cursed spirit and seals it into a mask. It lifts your Deku curse first; later it heals Darmani and Mikau into the Goron and Zora Masks." }
+      ]
+     },
+     {
+      "id": "mm_ct_healing_2",
+      "k": "reward",
+      "t": "The Song of Healing lifts your curse — Link returns to his Hylian form, and the Deku-Scrub shape is sealed into the Deku Mask. Wear it anytime to become a Deku Scrub again.",
+      "items": [
+       { "name": "Deku Mask", "cat": "mask", "note": "Wear it (from the masks menu) to transform into a Deku Scrub: hop across water on lily pads, spit bubbles, and launch out of Deku Flowers. Take it off to be Hylian again." }
+      ]
+     },
+     {
+      "id": "mm_ct_healing_3",
+      "k": "tip",
+      "t": "The Salesman is overjoyed you're well — then horrified that you still don't have his stolen mask, Majora's Mask. He warns that it holds a terrible power. You're now free to explore Clock Town as Hylian Link and begin saving Termina, one region at a time. Head to the Southern Swamp first."
+     }
+    ]
+   }
+  ]
+ }
+]

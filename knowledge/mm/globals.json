@@ -1,0 +1,64 @@
+{
+ "_note": "Majora's Mask (game 4) static bundle fields. assemble-mm.mjs merges these with walkthrough.json (REGIONS) into app-data.json. Empty datasets degrade gracefully like TotK/OoT v1. Termina, not Hyrule — the 3-day clock is the defining mechanic; transformation masks are the core verbs; the 4 Remains (awakening the 4 Giants) are the main-quest trophies (the 'Stones & Medallions' analog).",
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Masks & Songs",
+  "championsLabel": "Remains",
+  "regionBanner": "Temple"
+ },
+ "guideSegs": [["runes", "Masks"], ["tips", "Tips"], ["settings", "Settings"]],
+ "postRegionId": "mm_moon",
+ "CATS": [
+  { "id": "mask", "name": "Masks", "glyph": "mask" },
+  { "id": "song", "name": "Ocarina Songs", "glyph": "stasis" },
+  { "id": "sword", "name": "Swords", "glyph": "sword" },
+  { "id": "shield", "name": "Shields", "glyph": "shield" },
+  { "id": "bow", "name": "Bow & Projectiles", "glyph": "bow" },
+  { "id": "item", "name": "Items", "glyph": "bag" },
+  { "id": "key", "name": "Key Items", "glyph": "key" },
+  { "id": "material", "name": "Materials", "glyph": "gem" }
+ ],
+ "RUNES": [
+  { "id": "deku_mask", "name": "Deku Mask", "glyph": "mask", "from": "The Happy Mask Salesman plays the Song of Healing in the Clock Tower after you recover the Ocarina — your Deku-Scrub curse is sealed into a wearable mask.", "what": "Wear it (from the masks menu) to become a Deku Scrub: hop across water on lily pads, shoot bubbles, and launch from Deku Flowers. Take it off to be Hylian again.", "tip": "Transformation masks change WHO you are, not just what you wear. Some doors, switches, and water only respond to the right form." },
+  { "id": "ocarina_of_time", "name": "Ocarina of Time", "glyph": "stasis", "from": "Recovered from the Skull Kid atop the Clock Tower at midnight on the Final Day.", "what": "Your instrument. Songs played on it bend time, warp you, summon Epona, and solve puzzles — the heart of the whole game.", "tip": "Open the ocarina with the song you assigned it to; the notes you press appear on screen as you're taught each melody." },
+  { "id": "song_of_time", "name": "Song of Time", "glyph": "stasis", "from": "Remembered the instant you touch the Ocarina again — Princess Zelda taught it to you before your journey.", "what": "Plays you back to the Dawn of the First Day, resetting the three-day cycle. You KEEP masks, songs, key quest items, bottles, and Heart Containers; you lose rupees, ammo, dungeon keys, and Stray Fairies.", "tip": "Bank rupees in the Clock Town bank before you reset — the banker remembers your balance across cycles. Save your real progress by tying it to masks, songs, and Remains." },
+  { "id": "song_of_healing", "name": "Song of Healing", "glyph": "stasis", "from": "Taught by the Happy Mask Salesman in the Clock Tower once you have the Ocarina back.", "what": "Soothes a troubled spirit and seals it into a mask. It lifts your own Deku curse first, then later heals Darmani and Mikau into the Goron and Zora Masks.", "tip": "Whenever someone is grieving or cursed and Tatl hints at it, the Song of Healing is usually the answer — and you walk away with a new mask." },
+  { "id": "heros_bow", "name": "Hero's Bow", "glyph": "bow", "from": "A chest inside Woodfall Temple, the first dungeon.", "what": "Your main ranged weapon as Hylian Link — shoot eye-switches, distant targets, and (with elemental arrows) freeze or ignite things.", "tip": "You can buy bigger Quivers later. Fire and Ice Arrows come from the temples; Light Arrows are the key to the final fight." },
+  { "id": "bomb_bag", "name": "Bomb Bag", "glyph": "bomb", "from": "Won at the Town Shooting Gallery, or bought from the Bomb Shop in West Clock Town (after stopping the robber).", "what": "Lets you carry and throw Bombs to blast cracked walls and boulders and to stun enemies. Bombchu crawl along walls and floors first.", "tip": "Bombs and arrows are consumables — they reset every cycle. Restock cheaply from the Bomb Shop or Bomb Flowers before a dungeon run." }
+ ],
+ "CHAMPIONS": [
+  { "name": "Odolwa's Remains", "from": "Woodfall Temple", "note": "Defeat Odolwa, the masked jungle warrior, to free the Giant of the Southern Swamp and earn his Remains." },
+  { "name": "Goht's Remains", "from": "Snowhead Temple", "note": "Defeat Goht, the mechanical bull, to free the Giant of the snowy mountains and earn his Remains." },
+  { "name": "Gyorg's Remains", "from": "Great Bay Temple", "note": "Defeat Gyorg, the giant masked fish, to free the Giant of the ocean and earn his Remains." },
+  { "name": "Twinmold's Remains", "from": "Stone Tower Temple", "note": "Defeat Twinmold, the pair of giant sand serpents, to free the Giant of Ikana Canyon and earn his Remains." }
+ ],
+ "ROADMAP": [
+  { "id": "masks", "name": "The 24 Masks", "sub": "Termina's faces", "note": "Twenty regular masks (each from helping someone) plus the four transformation masks. Give the twenty regular masks to the Moon Children to earn the Fierce Deity's Mask.", "reward": "Fierce Deity's Mask" },
+  { "id": "heartpieces", "name": "Pieces of Heart", "sub": "Four = one Heart Container", "note": "Fifty-two are hidden across Termina in minigames, trades, and corners — the most of any Zelda game. Every four make a full heart.", "reward": "More hearts" },
+  { "id": "bombers", "name": "Bombers' Notebook", "sub": "Termina's schedule", "note": "A planner the Bombers gang gives you. It logs every person whose problem you can solve and exactly WHEN over the three days to find them.", "reward": "Quest tracking" },
+  { "id": "songs", "name": "Every Ocarina Song", "sub": "The melodies of time", "note": "Songs slow time, skip to dawn or night, warp you between owl statues, and free each Giant — collecting them all is how you bend the three-day clock to your will.", "reward": "Time control" }
+ ],
+ "TIPS": [
+  { "id": "clock", "name": "The three-day clock", "items": [
+   "You have three in-game days (about 54 real minutes) before the Moon falls. Play the Song of Time to rewind to the Dawn of the First Day whenever you need more time — or before the Moon lands.",
+   "Resetting KEEPS what defines progress: masks, songs, Heart Containers, bottles, and the boss Remains. It WIPES the temporary: rupees, bombs, arrows, dungeon (small) keys, and Stray Fairies.",
+   "So finish a temple in one cycle if you can, and bank your rupees at the Clock Town bank first — the banker remembers your balance across resets."
+  ] },
+  { "id": "masks", "name": "Wearing a new face", "items": [
+   "The Deku, Goron, and Zora Masks transform Link into that race, each with its own moves (Deku hops on water and flies from flowers; Goron rolls and pounds; Zora swims and throws fin-boomerangs).",
+   "Many puzzles only work in the right form — if you're stuck, try a different mask. Regular masks (Bunny Hood, Bremen Mask, Stone Mask…) give smaller perks and solve specific problems.",
+   "The Fierce Deity's Mask, won by giving away the twenty regular masks in the Moon, turns Link into a towering swordsman — but only inside boss rooms."
+  ] },
+  { "id": "time", "name": "Bending time", "items": [
+   "The Inverted Song of Time (play the Song of Time backwards) slows time to a crawl — learn it from the Scarecrow and use it to survive a long dungeon in one cycle.",
+   "The Song of Double Time jumps straight ahead to the next dawn, noon, or night so you don't have to wait around.",
+   "Use the Song of Soaring (Owl statues) to warp across Termina, and the Bombers' Notebook to know exactly when and where each person will be."
+  ] }
+ ],
+ "WORLD": { "upgrades": [], "systems": [], "fairies": [] },
+ "COLLECTIBLES": [
+  { "id": "masks", "label": "Masks", "total": 24, "glyph": "mask", "note": "20 regular + 4 transformation. Give the 20 regular masks to the Moon Children for the Fierce Deity's Mask." },
+  { "id": "hearts", "label": "Pieces of Heart", "total": 52, "glyph": "heart", "note": "Every 4 make a Heart Container — 13 hearts' worth, the most of any Zelda game." }
+ ]
+}
