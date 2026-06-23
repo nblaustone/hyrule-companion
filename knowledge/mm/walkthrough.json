@@ -18,7 +18,11 @@
       "k": "step",
       "t": "In the opening you're riding Epona through the woods searching for a lost friend. The Skull Kid and his two fairies, Tatl and Tael, ambush you, steal the Ocarina of Time, and knock you off your horse. Chase the Skull Kid down the tunnel — you'll tumble into a strange falling world called Termina.",
       "items": [
-       { "name": "Tatl", "cat": "key", "note": "The fairy Tael's sister. When the Skull Kid flees she's left behind and reluctantly becomes your partner. Press Z (or L) to target; Tatl flies to things worth examining and gives hints." }
+       {
+        "name": "Tatl",
+        "cat": "key",
+        "note": "The fairy Tael's sister. When the Skull Kid flees she's left behind and reluctantly becomes your partner. Press Z (or L) to target; Tatl flies to things worth examining and gives hints."
+       }
       ]
      },
      {
@@ -56,7 +60,11 @@
       "k": "optional",
       "t": "Find the Bombers — the gang of kids in town. Their leader's hide-and-seek game (and later their secret code) earns you the Bombers' Notebook, the planner that tracks every person you can help and exactly when to find them over the three days.",
       "items": [
-       { "name": "Bombers' Notebook", "cat": "key", "note": "Termina's quest journal. It logs each character's schedule across the three days so you know when to be where. You'll get it properly once you can move freely as Hylian Link." }
+       {
+        "name": "Bombers' Notebook",
+        "cat": "key",
+        "note": "Termina's quest journal. It logs each character's schedule across the three days so you know when to be where. You'll get it properly once you can move freely as Hylian Link."
+       }
       ]
      },
      {
@@ -83,7 +91,11 @@
       "t": "As a Deku Scrub, shoot a bubble at the Skull Kid — press R to guard-pose, then attack to spit. The hit knocks the Ocarina out of his hands; grab it as it falls.",
       "stuck": "Aim the Deku bubble at the floating Ocarina (or the Skull Kid himself). One good shot drops it. Walk into the Ocarina to pick it up — the screen will go to a memory.",
       "items": [
-       { "name": "Ocarina of Time", "cat": "item", "note": "Your instrument. Songs played on it bend time, warp you, and solve puzzles. Recovering it is the key to escaping the three-day trap." }
+       {
+        "name": "Ocarina of Time",
+        "cat": "item",
+        "note": "Your instrument. Songs played on it bend time, warp you, and solve puzzles. Recovering it is the key to escaping the three-day trap."
+       }
       ]
      }
     ]
@@ -104,7 +116,11 @@
       "k": "reward",
       "t": "Time rushes backward — you're returned to the Dawn of the First Day, safe, with the Ocarina and the Song of Time. This is your lifeline: play the Song of Time anytime to reset the three days. You keep your masks, songs, and important items through every reset.",
       "items": [
-       { "name": "Song of Time", "cat": "song", "note": "Rewinds to the Dawn of the First Day. KEEPS masks, songs, Heart Containers, bottles, and boss Remains; LOSES rupees, bombs, arrows, dungeon keys, and Stray Fairies. Bank rupees before you reset." }
+       {
+        "name": "Song of Time",
+        "cat": "song",
+        "note": "Rewinds to the Dawn of the First Day. KEEPS masks, songs, Heart Containers, bottles, and boss Remains; LOSES rupees, bombs, arrows, dungeon keys, and Stray Fairies. Bank rupees before you reset."
+       }
       ]
      }
     ]
@@ -120,7 +136,11 @@
       "k": "step",
       "t": "Return to the Happy Mask Salesman in the room beneath the Clock Tower. Now that you have the Ocarina, he teaches you the Song of Healing.",
       "items": [
-       { "name": "Song of Healing", "cat": "song", "note": "Soothes a troubled or cursed spirit and seals it into a mask. It lifts your Deku curse first; later it heals Darmani and Mikau into the Goron and Zora Masks." }
+       {
+        "name": "Song of Healing",
+        "cat": "song",
+        "note": "Soothes a troubled or cursed spirit and seals it into a mask. It lifts your Deku curse first; later it heals Darmani and Mikau into the Goron and Zora Masks."
+       }
       ]
      },
      {
@@ -128,13 +148,1179 @@
       "k": "reward",
       "t": "The Song of Healing lifts your curse — Link returns to his Hylian form, and the Deku-Scrub shape is sealed into the Deku Mask. Wear it anytime to become a Deku Scrub again.",
       "items": [
-       { "name": "Deku Mask", "cat": "mask", "note": "Wear it (from the masks menu) to transform into a Deku Scrub: hop across water on lily pads, spit bubbles, and launch out of Deku Flowers. Take it off to be Hylian again." }
+       {
+        "name": "Deku Mask",
+        "cat": "mask",
+        "note": "Wear it (from the masks menu) to transform into a Deku Scrub: hop across water on lily pads, spit bubbles, and launch out of Deku Flowers. Take it off to be Hylian again."
+       }
       ]
      },
      {
       "id": "mm_ct_healing_3",
       "k": "tip",
       "t": "The Salesman is overjoyed you're well — then horrified that you still don't have his stolen mask, Majora's Mask. He warns that it holds a terrible power. You're now free to explore Clock Town as Hylian Link and begin saving Termina, one region at a time. Head to the Southern Swamp first."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "mm_swamp",
+  "name": "Southern Swamp & Woodfall Temple",
+  "sub": "Main Quest — Temple 1 (Deku)",
+  "kind": "beast",
+  "tagline": "Poisoned water, a wrongly-caged monkey, and a temple sunk in the muck — learn the song that raises it, then free the first Giant from a dancing jungle warrior.",
+  "champion": "Odolwa's Remains",
+  "sections": [
+   {
+    "id": "mm_swamp_s_arrive",
+    "name": "Into the Poisoned Swamp",
+    "sub": "South from Clock Town to the Tourist Center",
+    "reward": null,
+    "steps": [
+     {
+      "id": "mm_swamp_arrive_1",
+      "k": "step",
+      "t": "Leave Clock Town through the southern gate and follow the path into the Southern Swamp. Tatl notes the water has turned a sickly purple — it's poisonous now, and you can't swim or wade in it. Head for the building ahead, the Swamp Tourist Center."
+     },
+     {
+      "id": "mm_swamp_arrive_2",
+      "k": "step",
+      "t": "Inside the Swamp Tourist Center, talk to everyone to learn the lay of the land: a Boat Cruise runs deeper into the swamp, but the counter is empty and closed. A pictograph contest is also running here. This is your hub for the region."
+     },
+     {
+      "id": "mm_swamp_arrive_3",
+      "k": "tip",
+      "t": "This whole region is meant to be cleared in one three-day cycle. Bank any rupees you're carrying before you reset, because the Song of Time keeps your masks, songs, Heart Containers, bottles, and Remains, but wipes rupees, arrows, bombs, and dungeon keys (small AND boss keys). If you run low on time, play the Song of Time and run the route again — you keep everything that matters."
+     }
+    ]
+   },
+   {
+    "id": "mm_swamp_s_magic",
+    "name": "Magic Power (an aside)",
+    "sub": "The Great Fairy of Magic, back in North Clock Town",
+    "reward": "Magic Power",
+    "steps": [
+     {
+      "id": "mm_swamp_magic_1",
+      "k": "optional",
+      "t": "Before going deep, it's worth a quick trip back to North Clock Town. The Great Fairy there has been shattered into stray fairies. Gather her single stray fairy and bring it to her fountain to restore the Great Fairy of Magic.",
+      "stuck": "The lone stray fairy floats in the Laundry Pool area in the daytime; at night it drifts into East Clock Town. Catch it and carry it into the North Clock Town fairy fountain. Important: return it while wearing the Deku Mask (Deku Link) to receive Magic Power — if you return it as human Link instead, she gives you the Great Fairy's Mask, not the magic meter."
+     },
+     {
+      "id": "mm_swamp_magic_2",
+      "k": "reward",
+      "t": "Restored as Deku Link, the Great Fairy of Magic grants you Magic Power — the green magic meter. You need it for Deku bubbles (your Deku Scrub's ranged attack), spin attacks, and later for elemental arrows. It's not strictly required to start the swamp, but the Deku bubble makes everything ahead easier.",
+      "items": [
+       {
+        "name": "Magic Power",
+        "cat": "item",
+        "note": "The green magic meter. Powers Deku Scrub bubbles, the sword spin attack, and (much later) Fire/Ice/Light Arrows. Granted by restoring the Great Fairy of Magic in North Clock Town while in Deku form."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mm_swamp_s_koume",
+    "name": "The Lost Witch & the Boat Cruise",
+    "sub": "Woods of Mystery and the Magic Hags' Potion Shop",
+    "reward": "Empty Bottle + the Boat Cruise reopens",
+    "steps": [
+     {
+      "id": "mm_swamp_koume_1",
+      "k": "step",
+      "t": "Go to the Magic Hags' Potion Shop, run by the witch Kotake. She's worried sick — her sister Koume went into the Woods of Mystery and hasn't come back. She asks you to find her, and the monkeys know the way.",
+      "stuck": "The Magic Hags' Potion Shop sits along the swamp's northeastern edge, past the Tourist Center toward the Woods of Mystery. Talk to Kotake fully to start the search for her sister Koume."
+     },
+     {
+      "id": "mm_swamp_koume_2",
+      "k": "step",
+      "t": "Enter the Woods of Mystery. The paths twist and loop, but a monkey appears and waits for you to follow it. Chase the monkey through the correct turns and you'll find Koume lying hurt on the ground — the Skull Kid attacked her. She needs something to restore her energy.",
+      "stuck": "The woods are a maze designed to send you in circles, but the monkey always leads the right way — just keep following it through each fork until you reach the wounded Koume."
+     },
+     {
+      "id": "mm_swamp_koume_3",
+      "k": "step",
+      "t": "Return to Kotake at the potion shop. She fills your very first Bottle with Red Potion and asks you to take it to Koume. Carry it back into the woods and give it to her to heal her.",
+      "items": [
+       {
+        "name": "Empty Bottle",
+        "cat": "key",
+        "note": "Your first bottle, given (filled with Red Potion) by Kotake to revive her sister Koume. Once emptied it's yours for life — store potions, fairies, milk, or later the Deku Princess in it."
+       }
+      ]
+     },
+     {
+      "id": "mm_swamp_koume_4",
+      "k": "step",
+      "t": "Healed, Koume flies back to the Swamp Tourist Center and takes over the empty counter — Koume's Boat Cruise is now open, and she'll give you a free ride deep into the swamp toward the Deku Palace."
+     }
+    ]
+   },
+   {
+    "id": "mm_swamp_s_palace",
+    "name": "Deku Palace & the Sonata",
+    "sub": "Sneak in as Deku Link; free the song from the monkey",
+    "reward": "Sonata of Awakening",
+    "steps": [
+     {
+      "id": "mm_swamp_palace_1",
+      "k": "step",
+      "t": "At the Deku Palace you learn the trouble: the Deku Princess has vanished, and the furious Deku King has locked a monkey in a cage out back, wrongly blaming it for her disappearance. The guards won't let an outsider near it."
+     },
+     {
+      "id": "mm_swamp_palace_2",
+      "k": "step",
+      "t": "Put on the Deku Mask to become Deku Link, then slip past the patrolling palace guards to reach the caged monkey in the back garden. Watch the guards' sweeping patrol and move when their backs are turned.",
+      "stuck": "This is a stealth puzzle gated to Deku form. Hide behind shrubs and posts, wait for each guard to turn away, and dash to the next cover; hop into Deku Flowers to launch over gaps where the path allows. If a guard spots you, you're thrown out the front — just go back in and try again."
+     },
+     {
+      "id": "mm_swamp_palace_3",
+      "k": "step",
+      "t": "Reach the caged monkey. It explains it did NOT take the princess — she and the monkey went to Woodfall Temple to find out why the water turned poisonous, and she was captured there. As Deku Link, take out your Ocarina and the monkey teaches you the Sonata of Awakening, the song that wakes the temple.",
+      "items": [
+       {
+        "name": "Sonata of Awakening",
+        "cat": "song",
+        "note": "Taught by the caged monkey in the Deku Palace. Played by Deku Link on a Deku platform, it raises Woodfall Temple out of the poison swamp; it also wakes certain sleeping creatures elsewhere."
+       }
+      ],
+      "stuck": "You must be in Deku form with the Ocarina out for the monkey to teach you. The Sonata of Awakening is added to your song list automatically once the monkey finishes singing."
+     }
+    ]
+   },
+   {
+    "id": "mm_swamp_s_raise",
+    "name": "Raising Woodfall Temple",
+    "sub": "To Woodfall and the Sonata platform",
+    "reward": "Woodfall Temple rises",
+    "steps": [
+     {
+      "id": "mm_swamp_raise_1",
+      "k": "step",
+      "t": "From the Deku Palace, ride the leaf-elevator up and out the back, then use the Deku Flowers to launch from flower to flower across the poison toward Woodfall. Avoid the hostile Mad Scrubs along the way.",
+      "stuck": "As Deku Link, stand in a Deku Flower and hold to burrow, then release to launch into a glide; aim for the next flower or platform. While airborne you can spin (it spends magic) to extend the hover and reach the far ledges."
+     },
+     {
+      "id": "mm_swamp_raise_2",
+      "k": "step",
+      "t": "At Woodfall you'll find a round platform stamped with a Deku Scrub symbol out over the poison. Stand on it as Deku Link and play the Sonata of Awakening. The whole temple groans up out of the swamp on a pillar of rock — Woodfall Temple is now open.",
+      "stuck": "You must be in Deku form, standing on the Deku-symbol platform, and play the Sonata of Awakening (not the Song of Time). If nothing rises, you're either in Hylian form or off the marked platform."
+     }
+    ]
+   },
+   {
+    "id": "mm_swamp_s_temple",
+    "name": "Woodfall Temple",
+    "sub": "Deku flowers, fire, and the Hero's Bow",
+    "reward": "Hero's Bow + Boss Key",
+    "steps": [
+     {
+      "id": "mm_swamp_temple_1",
+      "k": "warn",
+      "t": "The temple is full of poison water. As Deku Link you can hop across it on lily pads and Deku Flowers; in Hylian form the poison drains your hearts. Switch forms for what each room needs — Deku to cross water and ride flowers, Hylian to swing the sword and carry a lit Deku Stick."
+     },
+     {
+      "id": "mm_swamp_temple_2",
+      "k": "loot",
+      "t": "Push deeper and a locked room traps you with a Dinolfos (a sword-swinging, fire-spitting dino-knight mini-boss). Beat it and a chest appears holding the Hero's Bow — your main ranged weapon for the rest of the dungeon and the boss. It comes with a starting supply of arrows.",
+      "items": [
+       {
+        "name": "Hero's Bow",
+        "cat": "bow",
+        "note": "Found in Woodfall Temple after the Dinolfos fight. Shoots arrows to hit switches and far-off targets, and it's your key tool for stunning Odolwa. Comes with a starting quiver of arrows (lost on a Song of Time reset, refilled from pots/grass)."
+       }
+      ]
+     },
+     {
+      "id": "mm_swamp_temple_3",
+      "k": "step",
+      "t": "Progress runs on fire and arrows: as Hylian Link, walk a Deku Stick through a flame to light it, then carry the burning stick to unlit torches to open doors before it burns out. You can also shoot a Fire-lit arrow path and use the Hero's Bow to hit crystal switches across gaps, then swap to Deku Link to float on a flower to the ledge they reveal.",
+      "stuck": "A lit Deku Stick burns down fast — light it from the nearest flame and run straight to the torch. If torches relight or flames block a flower, shoot the crystal switch first, then transform to Deku and launch from the flower while the way is clear."
+     },
+     {
+      "id": "mm_swamp_temple_4",
+      "k": "loot",
+      "t": "Deeper in, you'll fight the Gekko-and-Snapper mini-boss (a frog riding a turtle-like beast). Beating them opens the way to a big chest holding the Boss Key — the door to Odolwa.",
+      "items": [
+       {
+        "name": "Boss Key",
+        "cat": "key",
+        "note": "Opens the locked boss door to Odolwa's chamber. Like all dungeon keys, it's lost if you reset with the Song of Time — so finish the temple in the same cycle you grab it."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mm_swamp_s_boss",
+    "name": "Odolwa & the First Giant",
+    "sub": "The masked jungle warrior",
+    "reward": "Heart Container · Odolwa's Remains · Oath to Order",
+    "steps": [
+     {
+      "id": "mm_swamp_boss_1",
+      "k": "warn",
+      "t": "Through the boss door waits Odolwa, the Masked Jungle Warrior: a tall, dancing figure who fights with a long sword and a shield, can ring you in fire, and summons swarms of moths and insect minions to harass you. He blocks well, so you can't just rush him — you need to open him up first."
+     },
+     {
+      "id": "mm_swamp_boss_2",
+      "k": "step",
+      "t": "Beginner line: as Hylian Link, Z-target Odolwa and fire Hero's Bow arrows to stun him — he's most open when he stops to dance. While he's stunned, run in and slash with your sword, then back off before he recovers. Deku Nuts (thrown, or popped from above off a Deku Flower) also stun him in a pinch.",
+      "stuck": "If arrows keep bouncing off, wait for his dance animation and shoot then. In the 3DS remake there's a glowing eye on the BACK of his head, exposed mainly while he dances — circle behind, or float above on a Deku Flower and drop a Deku Nut onto his head to stun, then slash the eye. A bomb damages him and clears the bug swarm too. In the original N64 version he has no special weak point — just stun and slash the body. Kill the summoned moths and bugs for recovery hearts."
+     },
+     {
+      "id": "mm_swamp_boss_3",
+      "k": "reward",
+      "t": "Odolwa falls and leaves behind your first Heart Container and Odolwa's Remains. Step into the light to claim them — the first of the Four Giants is freed. The Giant carries you to an ethereal place and teaches you the Oath to Order, the song that calls all four Giants (you'll need it at the very end).",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "key",
+        "note": "Permanently adds one full heart to your maximum health. Kept through every Song of Time reset."
+       },
+       {
+        "name": "Odolwa's Remains",
+        "cat": "key",
+        "note": "Proof the first Giant is freed — the first of four Remains you collect across the temples. Kept through Song of Time resets."
+       },
+       {
+        "name": "Oath to Order",
+        "cat": "song",
+        "note": "Taught by the freed Giant after Odolwa falls. Summons the Four Giants; you use it on the Final Day at the Clock Tower to hold back the Moon during the finale."
+       }
+      ]
+     },
+     {
+      "id": "mm_swamp_boss_4",
+      "k": "step",
+      "t": "With the Giant awake, the Woodfall waters lose their poison and turn clear. Back at the palace the monkey's name is cleared and it's freed, and you recover the Deku Princess — scoop her into your Empty Bottle and carry her home to the Deku King to set things right. The Southern Swamp is saved; on to the mountains."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "mm_snowhead",
+  "name": "Snowhead & Snowhead Temple",
+  "sub": "Main Quest — Temple 2 (Goron)",
+  "kind": "beast",
+  "tagline": "A mountain locked in endless winter, a dead Goron hero's regret, and a frozen bull-god to thaw and ram — restore spring to Snowhead.",
+  "champion": "Goht's Remains",
+  "sections": [
+   {
+    "id": "mm_snowhead_s_mountain",
+    "name": "Into the Endless Winter",
+    "sub": "North to Mountain Village",
+    "reward": "Goron Mask",
+    "steps": [
+     {
+      "id": "mm_snowhead_mountain_1",
+      "k": "step",
+      "t": "Head north out of Clock Town through the North Gate and up the snowy mountain path toward Mountain Village. Shoot the icicles blocking the way with your bow and blow open snowballs with bombs; watch for Dodongos and Tektites. You arrive at Mountain Village, frozen solid in a winter that will not end — the second Giant has been sealed away, and the cold is the proof.",
+      "stuck": "If an icicle bars the path, shoot it down with an arrow; blast snowballs with a bomb. Tatl will fly toward whatever is worth examining."
+     },
+     {
+      "id": "mm_snowhead_mountain_2",
+      "k": "tip",
+      "t": "This whole region is best done in ONE three-day cycle. Playing the Song of Time to reset the cycle sends you back to the dawn of the first day and undoes most progress (rupees, consumed items, opened minor chests, NPC favors) — but it KEEPS your masks, songs, dungeon items like the Bow and Fire Arrows, and your heart containers. If you run low on time, the Inverted Song of Time (the Song of Time played note-reversed) slows the clock to a crawl; the Song of Double Time skips you forward to the next morning or night."
+     },
+     {
+      "id": "mm_snowhead_mountain_3",
+      "k": "step",
+      "t": "Cross to Goron Village and the Goron Shrine. The Gorons are freezing and starving, huddled and barely moving. Inside the Shrine, the Goron Elder's baby son sits crying in a back room because his father went up to Snowhead and never came back."
+     },
+     {
+      "id": "mm_snowhead_mountain_4",
+      "k": "loot",
+      "t": "Before you can find the Goron hero's ghost you need the Lens of Truth, which reveals hidden and invisible things. Find the great owl Kaepora Gaebora near Goron Village and talk to him — he flies to the entrance of the Lone Peak Shrine, leaving feathers that mark the invisible ice platforms across the water. Hop the platforms to the floating shrine and open the chest inside for the Lens.",
+      "items": [
+       {
+        "name": "Lens of Truth",
+        "cat": "item",
+        "note": "Hold it to see what's invisible — hidden platforms, treasure, ghosts, and the giant blizzard Goron. It slowly drains your magic meter while active. You need it to see Darmani's ghost."
+       }
+      ],
+      "stuck": "Talk to the owl first so he drops the feather markers, then jump platform to platform to reach the Lone Peak Shrine (don't wear the Bunny Hood — you'll overshoot the jumps). Equip the Lens of Truth to an item button and hold it (it drains magic) to reveal invisible platforms, ghosts, and the unseen giant Goron later."
+     },
+     {
+      "id": "mm_snowhead_mountain_5",
+      "k": "step",
+      "t": "Hold up the Lens of Truth and you can now see the faint ghost of a Goron warrior in the village. Follow him out across the snow up to the Goron Graveyard. There you meet Darmani the Third — the dead Goron hero who tried and failed to reach Snowhead and save his people.",
+      "stuck": "Keep the Lens active to see Darmani's ghost; he leads you up the path to the graveyard. Walk to the grave and use the Lens to see him. Without the Lens his spirit is invisible."
+     },
+     {
+      "id": "mm_snowhead_mountain_6",
+      "k": "reward",
+      "t": "Darmani begs you to bring him back to life. You can't — but you can ease his sorrow. Play the Song of Healing for him. His regret is sealed into the Goron Mask, and his powers pass to you. Wear it to become Goron Link.",
+      "items": [
+       {
+        "name": "Goron Mask",
+        "cat": "mask",
+        "note": "Wear it to transform into Goron Link: curl into a rolling ball, ground-pound, punch through rock, and survive heat and lava. Roll long enough on flat ground and magic spikes appear, rolling faster but draining your magic meter. As a Goron you play the Goron Drums."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mm_snowhead_s_lullaby",
+    "name": "The Goron's Lullaby",
+    "sub": "A song learned in two halves",
+    "reward": "Goron's Lullaby",
+    "steps": [
+     {
+      "id": "mm_snowhead_lullaby_1",
+      "k": "tip",
+      "t": "A fierce, unending blizzard guards the way to Snowhead. To get through it you'll need the Goron's Lullaby — a song that puts things to sleep. You learn it in two pieces from two different Gorons."
+     },
+     {
+      "id": "mm_snowhead_lullaby_2",
+      "k": "step",
+      "t": "Wear the Goron Mask and head up the path toward Snowhead. In the White Wolfos area you'll find the Goron Elder frozen inside a snowball. Carry hot spring water over and pour it on the ice to thaw him out, then talk to him.",
+      "stuck": "Scoop hot spring water in a bottle from the nearby hot spring and pour it on the frozen Elder to melt him free. (Empty a bottle first if both are full.)"
+     },
+     {
+      "id": "mm_snowhead_lullaby_3",
+      "k": "step",
+      "t": "The Elder doesn't believe you're really Darmani, but he teaches you what he can remember of the lullaby — only the opening notes (the 'Lullaby Intro'). He can't recall the rest, so the song is incomplete for now."
+     },
+     {
+      "id": "mm_snowhead_lullaby_4",
+      "k": "reward",
+      "t": "Go back to the Goron Shrine, wear the Goron Mask, and play the Lullaby Intro for the Elder's crying baby son in the back room. He recognizes the song his father plays, calms down, and gives you the last two notes — completing the Goron's Lullaby.",
+      "items": [
+       {
+        "name": "Goron's Lullaby",
+        "cat": "song",
+        "note": "A slow song that puts things to sleep — the opposite of the Sonata of Awakening. Learned in two halves: the frozen Goron Elder teaches the intro, his baby in the Goron Shrine completes it. Use it on the invisible giant Goron causing the blizzard."
+       }
+      ],
+      "stuck": "Equip the Goron Mask first, then stand by the baby and play the half-song you just learned on the Goron Drums. He finishes it for you. The full Goron's Lullaby is what you'll use to put the blizzard Goron to sleep."
+     }
+    ]
+   },
+   {
+    "id": "mm_snowhead_s_blizzard",
+    "name": "Quieting the Blizzard",
+    "sub": "Reaching Snowhead Temple",
+    "reward": null,
+    "steps": [
+     {
+      "id": "mm_snowhead_blizzard_1",
+      "k": "step",
+      "t": "Take the path up toward Snowhead. As Goron Link, build up rolling speed on the snow and use the wooden ramps to launch across the gaps and ravines that ordinary Link can't cross. A roaring wind whips snow into your face the whole way.",
+      "stuck": "As Goron Link, hold the roll and gather speed before a ramp — momentum carries you over the gap. Curl up and aim straight at the next ledge; don't wear the Bunny Hood."
+     },
+     {
+      "id": "mm_snowhead_blizzard_2",
+      "k": "step",
+      "t": "At the top, the blizzard is being blown by Biggoron — an enormous invisible Goron who has no idea of the chaos he's causing. Hold up the Lens of Truth to see him, then wear the Goron Mask and play the full Goron's Lullaby on the Goron Drums. He falls asleep, curls over into the gorge, and the storm dies — clearing the way into Snowhead Temple.",
+      "stuck": "Use the Lens of Truth to spot Biggoron blowing the wind, then switch to the Goron Mask and play the complete Goron's Lullaby. He topples aside and the blizzard stops, opening the temple entrance."
+     }
+    ]
+   },
+   {
+    "id": "mm_snowhead_s_temple",
+    "name": "Snowhead Temple",
+    "sub": "Fire Arrows & the central pillar",
+    "reward": "Fire Arrows · Boss Key",
+    "steps": [
+     {
+      "id": "mm_snowhead_temple_1",
+      "k": "tip",
+      "t": "Snowhead Temple is built around a huge central pillar in the main chamber. You raise it by Goron-pounding a switch and lower it by punching out the ice cylinders wrapped around it on each floor — changing the pillar's height is how you reach new doors. You'll swap constantly between Goron Link (pound, punch, roll) and Hylian Link (bow, sword)."
+     },
+     {
+      "id": "mm_snowhead_temple_2",
+      "k": "loot",
+      "t": "Deeper in you'll fight a Wizzrobe, a teleporting spellcaster mini-boss. Beat it and a large chest appears holding the Fire Arrows — flaming arrows that melt ice, light torches, and thaw frozen things.",
+      "items": [
+       {
+        "name": "Fire Arrows",
+        "cat": "bow",
+        "note": "Flaming arrows fired from the Hero's Bow. They melt ice, thaw frozen objects, and light torches from a distance. Essential for the rest of Snowhead Temple and for starting the Goht fight. Each shot costs magic."
+       }
+      ],
+      "stuck": "Lock onto the Wizzrobe with Z-targeting and shoot it with arrows whenever it appears to cast; it teleports between spots. The big chest with the Fire Arrows only appears once it's dead."
+     },
+     {
+      "id": "mm_snowhead_temple_3",
+      "k": "step",
+      "t": "With Fire Arrows, melt the ice blocking doors and light the torches the puzzles require. In the central-pillar room, light the torches with Fire Arrows to open the sealed door, then become Goron Link and pound the switch to drive the great pillar upward.",
+      "stuck": "Light the torches around the central room with Fire Arrows to open the sealed door, then ground-pound the floor switch as Goron Link to raise the pillar. Punch out the ice cylinders on the pillar to lower it again when you need the lower floors."
+     },
+     {
+      "id": "mm_snowhead_temple_4",
+      "k": "loot",
+      "t": "Work your way up the floors, riding the raised pillar and using fire-punches and rolls to clear the snow-boulder passages. A second Wizzrobe fight (more teleport spots — use Fire Arrows) guards the ornate chest with the Boss Key, which unlocks the path to the boss.",
+      "items": [
+       {
+        "name": "Boss Key",
+        "cat": "key",
+        "note": "Opens the door to Goht's lair at the top of Snowhead Temple. Found in the ornate chest after the second Wizzrobe, once the central pillar is set right."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mm_snowhead_s_goht",
+    "name": "Goht & the Return of Spring",
+    "sub": "Boss — the mechanical bull",
+    "reward": "Heart Container · Goht's Remains",
+    "steps": [
+     {
+      "id": "mm_snowhead_goht_1",
+      "k": "step",
+      "t": "In the circular arena Goht hangs frozen in a wall of ice — a huge mechanical bull. Shoot it with a Fire Arrow to thaw it out. It breaks free and immediately starts charging around the round track.",
+      "stuck": "Equip the Fire Arrows (you need them here) and hit the ice-encased Goht to free it. Nothing happens until you melt it — that's what starts the fight."
+     },
+     {
+      "id": "mm_snowhead_goht_2",
+      "k": "step",
+      "t": "Put on the Goron Mask and curl into a roll to chase Goht around the arena. Keep rolling on the flat track until magic spikes form around you, then ram it from behind. Run into the green magic jars that line the track to refill your meter, and dodge the stalactites Goht shakes from the ceiling (bonking one cancels your spiked roll).",
+      "stuck": "The spiked roll drains your magic meter — it stops if magic runs out, so grab the green magic jars around the arena to keep the spikes up and stay fast enough to catch Goht. Swerve to keep behind it."
+     },
+     {
+      "id": "mm_snowhead_goht_3",
+      "k": "step",
+      "t": "Slam into Goht hard enough — or use a ramp to hit it higher — and it tumbles and crashes. While it's down, attack it. As the fight goes on it throws bombs and boulders and fires lightning from its horns; an alternate tactic is to drop the Goron Mask, stun Goht with a Fire Arrow, then quickly put the mask back on and ram it.",
+      "stuck": "Attack Goht whenever it's knocked down. Refill magic at the green jars between charges and repeat the chase. If chasing is hard, a Fire Arrow can stun it so you can catch up and hit it."
+     },
+     {
+      "id": "mm_snowhead_goht_4",
+      "k": "reward",
+      "t": "Goht shatters. Grab the Heart Container it leaves, then step into the blue light to receive Goht's Remains. The second Giant is freed, the eternal winter breaks, and spring returns to the mountains of Snowhead.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "key",
+        "note": "A full extra heart on your life bar, awarded for clearing the temple boss."
+       },
+       {
+        "name": "Goht's Remains",
+        "cat": "key",
+        "note": "The mask-like remains of the Goht boss — proof the second of the four Giants is freed. Restores spring to Snowhead and counts toward calling the Giants against the Moon."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "mm_bay",
+  "name": "Great Bay Coast & Great Bay Temple",
+  "sub": "Main Quest — Temple 3 (Zora)",
+  "kind": "beast",
+  "tagline": "A dying guitarist, a clutch of stolen eggs, and a song hidden in newborn Zora — wake the Giant Turtle and dive into the flooded heart of Great Bay.",
+  "champion": "Gyorg's Remains",
+  "sections": [
+   {
+    "id": "mm_bay_s_mikau",
+    "name": "Mikau & the Zora Mask",
+    "sub": "Great Bay Coast — your third transformation",
+    "reward": "Zora Mask",
+    "steps": [
+     {
+      "id": "mm_bay_mikau_1",
+      "k": "step",
+      "t": "Travel west from Clock Town to the Great Bay Coast, a sunny stretch of sea, beach, and a research lab on stilts. The water here is sick — something is wrong with the bay, and the Zora who live nearby are in trouble. Aim to do this whole region in a single three-day cycle.",
+      "stuck": "From West Clock Town the Great Bay is the western exit of Termina Field. If you've unlocked the owl statue here you can warp straight to the Great Bay Coast with the Song of Soaring."
+     },
+     {
+      "id": "mm_bay_mikau_2",
+      "k": "step",
+      "t": "Out in the waves you'll spot a battered Zora floating limp in the sea. This is Mikau, guitarist of the band the Indigo-Go's. Swim or wade out, get behind him, and push his body to shore (hold to keep pushing him in). He's dying.",
+      "stuck": "Approach Mikau from behind in the water and push — he drifts ahead of you toward the beach. Land him on the sand, then talk to him to hear his story before he fades."
+     },
+     {
+      "id": "mm_bay_mikau_3",
+      "k": "step",
+      "t": "Mikau gasps out his tale: the eggs of his bandmate Lulu, the Indigo-Go's lead singer, were stolen, her voice is gone, and the band can't play the Carnival without her. He asks you to lay his spirit to rest. Take out the Ocarina and play the Song of Healing for him."
+     },
+     {
+      "id": "mm_bay_mikau_4",
+      "k": "reward",
+      "t": "The Song of Healing soothes Mikau's spirit and seals it into the Zora Mask. Wear it from the masks menu to become Mikau — a Zora who can swim and dive fast, dolphin-jump out of the water, throw boomerang fins as a ranged attack, and raise a crackling electric barrier underwater (press R while swimming).",
+      "items": [
+       {
+        "name": "Zora Mask",
+        "cat": "mask",
+        "note": "Transforms Link into the Zora Mikau. Swim and dive at high speed, dolphin-jump from the water, throw fin-boomerangs at range, and hold/press R underwater to surround yourself with an electric barrier. Required for the whole Great Bay region."
+       }
+      ]
+     },
+     {
+      "id": "mm_bay_mikau_5",
+      "k": "tip",
+      "t": "Remember the three-day clock: the Song of Time rewinds you to the Dawn of the First Day, keeping your masks, ocarina songs, Heart Containers, bottles, and any Remains — but you lose rupees, arrows, small keys, and Stray Fairies. The Inverted Song of Time slows the clock; the Song of Double Time skips ahead to the next morning or evening."
+     }
+    ]
+   },
+   {
+    "id": "mm_bay_s_eggs",
+    "name": "Lulu's Stolen Eggs",
+    "sub": "Pirates' Fortress, Pinnacle Rock & the Hookshot",
+    "reward": "Hookshot",
+    "steps": [
+     {
+      "id": "mm_bay_eggs_1",
+      "k": "step",
+      "t": "Seven of Lulu's Zora eggs were taken; four are held by the Gerudo pirates in the Pirates' Fortress out in the bay. As a Zora, dive down to the underwater wall and ram the loose wooden board blocking the entrance to slip inside the fortress grounds.",
+      "stuck": "Underwater near the fortress wall are wooden planks painted with skulls; the loose one (often the second from the left) gives way — Zora-charge straight into it to break through into the fortress's inner waterway."
+     },
+     {
+      "id": "mm_bay_eggs_2",
+      "k": "loot",
+      "t": "Inside the fortress, work your way to the chest holding the Hookshot. It fires a chain that latches onto wooden targets, posts, and palm trees to pull you across — you'll need it constantly from here on, both in the fortress and the temple.",
+      "items": [
+       {
+        "name": "Hookshot",
+        "cat": "item",
+        "note": "Fires a spring-loaded chain that grapples wooden targets, posts, treasure chests, and palm trees, yanking Link (in any form) across the gap. Essential for the Pirates' Fortress and Great Bay Temple."
+       }
+      ],
+      "stuck": "The Hookshot chest sits in the fortress interior; you reach it by getting past the guards (for example, shooting down a beehive so the bees scatter them). It grapples wooden planks and palm trees throughout the area."
+     },
+     {
+      "id": "mm_bay_eggs_3",
+      "k": "step",
+      "t": "Four of the seven eggs are held in glass tanks inside the fortress. Hookshot up to the planks above each tank, drop in as a Zora, deal with the guard fish (an electric barrier or a couple of hits work), then scoop the egg into an empty Bottle. You'll need an empty bottle for each.",
+      "stuck": "Stand on the wooden overhang, Hookshot or dive into the tank, clear the guard fish, then swim into the egg with an empty Bottle equipped to bottle it. Four tanks = four bottled eggs."
+     },
+     {
+      "id": "mm_bay_eggs_4",
+      "k": "step",
+      "t": "Carry the four eggs to the Marine Research Lab (the stilt house on the coast) and drop them into the big aquarium. The professor explains the last three eggs are out at Pinnacle Rock, in the underwater Sea Snake Den."
+     },
+     {
+      "id": "mm_bay_eggs_5",
+      "k": "step",
+      "t": "Swim out to Pinnacle Rock and dive into the Sea Snake Den. Defeat the eel-like Deep Pythons (Sea Snakes) guarding the holes to free the remaining three eggs, bottle them, and bring them back to the aquarium at the lab.",
+      "stuck": "The Deep Pythons hide in holes in the walls and lunge out; bait the lunge, then strike the lit head as a Zora. Three of the eggs are down here — bottle each and resurface."
+     }
+    ]
+   },
+   {
+    "id": "mm_bay_s_song",
+    "name": "The New Wave Bossa Nova",
+    "sub": "The hatchlings' song & the Giant Turtle",
+    "reward": "New Wave Bossa Nova",
+    "steps": [
+     {
+      "id": "mm_bay_song_1",
+      "k": "step",
+      "t": "With all seven eggs in the aquarium, they hatch into baby Zora. The hatchlings line up against the glass to show you a melody, one note at a time. Take out the Ocarina and play the notes back to learn the seven-note New Wave Bossa Nova — Lulu's lost song.",
+      "items": [
+       {
+        "name": "New Wave Bossa Nova",
+        "cat": "song",
+        "note": "The seven-note song taught by Lulu's hatched eggs: C-Left, C-Up, C-Left, C-Right, C-Down, C-Left, C-Right. Played as a Zora it wakes the Giant Turtle; it also restores Lulu's voice for the Indigo-Go's."
+       }
+      ],
+      "stuck": "Watch which note each baby Zora flashes and copy the order on the Ocarina. The sequence is C-Left, C-Up, C-Left, C-Right, C-Down, C-Left, C-Right. Get all seven and the song is yours."
+     },
+     {
+      "id": "mm_bay_song_2",
+      "k": "step",
+      "t": "Head to the open water off Zora Cape. There's a huge rock out in the bay that's actually the slumbering Giant Turtle. Put on the Zora Mask and play the New Wave Bossa Nova to wake him.",
+      "stuck": "Stand near the big rock out in the bay, wear the Zora Mask, and play New Wave Bossa Nova. The 'rock' rises — it's the Turtle's shell."
+     },
+     {
+      "id": "mm_bay_song_3",
+      "k": "step",
+      "t": "The Giant Turtle rises and offers to ferry you to the temple. Climb onto his back and he carries you out to Great Bay Temple at the center of the bay's poisoned vortex."
+     }
+    ]
+   },
+   {
+    "id": "mm_bay_s_temple",
+    "name": "Great Bay Temple",
+    "sub": "Currents, valves & the Ice Arrows",
+    "reward": "Boss Key",
+    "steps": [
+     {
+      "id": "mm_bay_temple_1",
+      "k": "step",
+      "t": "Great Bay Temple is a flooded clockwork of pipes, waterwheels, and currents, navigated almost entirely as a Zora. A central control room has colored valves and switches (red, yellow, green) that redirect the water through the temple — turning them raises and lowers water levels and changes the flow, opening new routes.",
+      "stuck": "Lost early? The colored valves/switches in and around the main room control which pipes flow. Turn one, see what water moves, and ride the new current as a Zora to the next door."
+     },
+     {
+      "id": "mm_bay_temple_2",
+      "k": "step",
+      "t": "Push and turn the colored valves to change the water's direction, using the resulting currents to reach blocked doors. Reaching some valves or ledges means freezing water into an ice block to climb — which is exactly what the dungeon item is for.",
+      "stuck": "Where the water glows/sparkles, an Ice Arrow turns it into a solid step. Build a block beneath a high valve or ledge, climb up, and turn the valve."
+     },
+     {
+      "id": "mm_bay_temple_3",
+      "k": "loot",
+      "t": "Deep in the temple you'll fight the mini-boss Wart — a giant floating eyeball coated in small bouncing bubbles. Knock the bubbles off (bombs, Deku Nuts, the Hookshot, or sword strikes all work well), then hit the exposed central eye until it dies. When it pops, a chest appears holding the Ice Arrows.",
+      "items": [
+       {
+        "name": "Ice Arrows",
+        "cat": "bow",
+        "note": "Magic arrows that freeze sparkling water into solid stepping blocks and turn certain enemies into ice. The Great Bay Temple's signature tool for crossing water and reaching high switches."
+       }
+      ],
+      "stuck": "Wart is shielded by a layer of Bubbles — clear them with bombs, Deku Nuts, the Hookshot, or your sword until the single eye is bare, then keep hitting the exposed eye (about three solid hits). The Ice Arrows chest appears when he pops."
+     },
+     {
+      "id": "mm_bay_temple_4",
+      "k": "step",
+      "t": "Use the Ice Arrows to freeze the sparkling patches of water into blocks, building your own path across rooms and reaching switches you couldn't before. Combine frozen blocks with the valves to route water exactly where you need it.",
+      "stuck": "Only the shimmering/sparkling water can be frozen. Aim an Ice Arrow at it to pop up a solid block you can stand on or hop across — chain several to bridge a gap."
+     },
+     {
+      "id": "mm_bay_temple_5",
+      "k": "step",
+      "t": "The second mini-boss is Gekko, who calls down a mass of Mad Jelly. Damage Gekko once and the jelly gathers into a single blob around him — freeze that blob solid with an Ice Arrow so it drops, then slash Gekko while he's exposed. Repeat until he's beaten.",
+      "stuck": "Hit Gekko to make the jelly clump into one ball, then fire an Ice Arrow at the ball to freeze it and drop Gekko; attack him directly while he's stunned. Keep an Ice Arrow ready each time the jelly reforms."
+     },
+     {
+      "id": "mm_bay_temple_6",
+      "k": "loot",
+      "t": "After Gekko falls, take the door out of his room, follow the path, and open the chest to claim the Boss Key. With it you can open the sealed door to the temple's heart.",
+      "items": [
+       {
+        "name": "Boss Key",
+        "cat": "key",
+        "note": "Opens the locked door to Gyorg's flooded arena at the bottom of Great Bay Temple."
+       }
+      ]
+     },
+     {
+      "id": "mm_bay_temple_7",
+      "k": "tip",
+      "t": "Before you face the boss, top up: refill your arrows, bring full hearts, and have a fairy or potion in a bottle if you can. The boss arena is all water, so the Zora Mask and a full supply of arrows are what matter most."
+     }
+    ]
+   },
+   {
+    "id": "mm_bay_s_gyorg",
+    "name": "Gyorg & Gyorg's Remains",
+    "sub": "Boss — the masked fish of the bay",
+    "reward": "Heart Container & Gyorg's Remains",
+    "steps": [
+     {
+      "id": "mm_bay_gyorg_1",
+      "k": "step",
+      "t": "Open the Boss Key door to face Gyorg, an enormous masked fish in a flooded arena with a single platform in the middle. The beginner line is simple: stay on the platform and shoot Gyorg with arrows whenever it leaps or surfaces to stun it, then put on the Zora Mask, dive in, and attack while it's dazed.",
+      "stuck": "Stand on the central platform with your bow out and Z-target Gyorg. When it jumps out of the water, fire an arrow at it (or throw Zora fin-boomerangs if you're out of arrows) to stun it. Then swap to the Zora Mask, dive, and strike."
+     },
+     {
+      "id": "mm_bay_gyorg_2",
+      "k": "step",
+      "t": "Once Gyorg is stunned, become a Zora, dive into the water, and lay into it — the electric barrier (R) is especially effective when you're right against its body. Then climb back onto the platform and out of the water quickly so it can't bite you when it recovers.",
+      "stuck": "After a stun, dive as Zora and swim into Gyorg while pulsing the R electric barrier for fast damage. Get back on the platform between hits so it can't ram or chew you."
+     },
+     {
+      "id": "mm_bay_gyorg_3",
+      "k": "warn",
+      "t": "Watch its attacks: Gyorg spits schools of little fish that swarm and bite you in the water, can charge the water with electricity (don't be swimming when it does), and sometimes jumps onto the platform to ram you — get out of its path, then climb back on."
+     },
+     {
+      "id": "mm_bay_gyorg_4",
+      "k": "tip",
+      "t": "Later in the fight (especially in the 3DS version) the platform can sink and you must fight more as a Zora while sea mines on chains rise up. Lure Gyorg's inhale/suck attack toward a mine so it swallows the bomb, which staggers it and re-exposes it to attack.",
+      "stuck": "If the platform is gone and Gyorg tries to inhale you, position a chained sea mine between you and its mouth so it sucks in the explosive — the blast stuns it for a free combo."
+     },
+     {
+      "id": "mm_bay_gyorg_5",
+      "k": "reward",
+      "t": "When Gyorg's health runs out it thrashes and dissolves. The third Giant is freed, the poisoned vortex clears, and the seas calm. You receive a Heart Container and Gyorg's Remains.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "key",
+        "note": "Permanently adds one full heart to your life meter. Kept through every Song of Time rewind."
+       },
+       {
+        "name": "Gyorg's Remains",
+        "cat": "key",
+        "note": "Proof the Great Bay's Giant is freed — the third of the four Remains. Kept through every Song of Time rewind; collect all four to confront the Skull Kid and the Moon."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "mm_ikana",
+  "name": "Ikana Canyon & Stone Tower Temple",
+  "sub": "Main Quest — Temple 4 (Twinmold)",
+  "kind": "beast",
+  "tagline": "A haunted valley of the dead, a song that empties the body into stone, a temple you flip upside-down with arrows of light — and twin sand-serpents to topple as a giant.",
+  "champion": "Twinmold's Remains",
+  "sections": [
+   {
+    "id": "mm_ikana_s_canyon",
+    "name": "Into the Haunted Canyon",
+    "sub": "Reaching Ikana, the valley of the dead",
+    "reward": "Garo's Mask",
+    "steps": [
+     {
+      "id": "mm_ikana_canyon_1",
+      "k": "tip",
+      "t": "Ikana lies east of Termina, past the swamp and the ranch road — a dried-out kingdom of ghosts, skeletons, and an ancient cursed castle. It is the longest, most puzzle-heavy region in the game, so head in fresh on the Dawn of the First Day. Bounce in and out of the owl statues (Song of Soaring) to bank progress, and remember a Song of Time rewind keeps your masks, songs, Heart Containers, and bottles — but resets keys, small consumables, and the clock."
+     },
+     {
+      "id": "mm_ikana_canyon_2",
+      "k": "step",
+      "t": "First win the Garo's Mask. You need Epona, so reclaim her at Romani Ranch if you haven't. Go to the Gorman Track (off Milk Road, southwest of Termina Field), pay the 10-rupee entry, and race the Gorman Brothers on Epona. Win and they will sulk and demand a rematch; win again and they finally hand over the Garo's Mask.",
+      "items": [
+       {
+        "name": "Garo's Mask",
+        "cat": "mask",
+        "note": "A black ninja mask of the Garo spies. It is your pass into Ikana — wear it where a hidden Garo waits and one appears to point the way (or open a path), and the canyon's guards let you through."
+       }
+      ],
+      "stuck": "Save at least three carrots so you can clear the fences late in the lap — your carrot meter refills slowly, so don't burn it all at the start. Hug their tails, take every jump cleanly, and surge past on the final stretch. Lose and you can just talk to them and race again."
+     },
+     {
+      "id": "mm_ikana_canyon_3",
+      "k": "step",
+      "t": "Ride the road toward the canyon. Where the path is blocked, equip the Garo's Mask and a Garo spirit appears — beat it and it conjures a tree you can Hookshot to, letting you climb up into Ikana Canyon proper. From here on you're in the land of the dead.",
+      "stuck": "If the cliff looks impassable, equip the Garo's Mask and approach the spot the game funnels you toward — the summoned Garo, once defeated, becomes (or reveals) the Hookshot target you need to ascend."
+     }
+    ]
+   },
+   {
+    "id": "mm_ikana_s_graveyard",
+    "name": "The Graveyard & Captain Keeta",
+    "sub": "Commanding the dead",
+    "reward": "Captain's Hat",
+    "steps": [
+     {
+      "id": "mm_ikana_grave_1",
+      "k": "step",
+      "t": "Visit the Ikana Graveyard. The Stalchildren there guard the graves, and to command them you want the Captain's Hat — won from the long-dead soldier Captain Keeta, a giant skeleton sleeping beneath the stone archway.",
+      "stuck": "The graveyard sits just off Ikana Canyon's lower area. The big sleeping skeleton under the arch is Captain Keeta — you rouse him with the Sonata of Awakening (the song from the caged monkey at the Deku Palace, learned back in the Southern Swamp)."
+     },
+     {
+      "id": "mm_ikana_grave_2",
+      "k": "step",
+      "t": "Play the Sonata of Awakening in front of Captain Keeta. He wakes, smashes the archway, and marches off — beginning a chase that's also a race against the clock. Keep up as he summons Stalchildren and raises walls of fire; clear the Stalchildren by each fire wall to drop it, then keep advancing.",
+      "stuck": "Don't try to fight everything — only the Stalchildren blocking each fire wall need to die, then sprint on. If Keeta gets too far ahead the chase resets. Use the Bunny Hood or a Goron roll to gain ground if you fall behind."
+     },
+     {
+      "id": "mm_ikana_grave_3",
+      "k": "loot",
+      "t": "Catch Captain Keeta at the end of the run before time runs out. He yields, tells his story, and leaves behind a chest — open it for the Captain's Hat.",
+      "items": [
+       {
+        "name": "Captain's Hat",
+        "cat": "mask",
+        "note": "Wear it and Stalchildren mistake you for their captain — they stop attacking and obey you. Use it on the Stalchildren circling a grave to have them dig it open, which is how you get Beneath the Graveyard."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mm_ikana_s_river",
+    "name": "Restoring the River, Taking the Well",
+    "sub": "The composers' curse, the Gibdo Mask, and the Mirror Shield",
+    "reward": "Mirror Shield",
+    "steps": [
+     {
+      "id": "mm_ikana_river_1",
+      "k": "tip",
+      "t": "Ikana River has run dry and bandage-wrapped Gibdos haunt the valley. The cursed composer Sharp stopped the Music Box House's melody — and that melody, 'Farewell to Gibdos,' is the only thing that keeps the Gibdos away. Cleanse Sharp and the water returns, the music plays, and the Gibdos sink into the earth — but first you must learn the song that breaks the curse."
+     },
+     {
+      "id": "mm_ikana_river_2",
+      "k": "step",
+      "t": "Use the Captain's Hat so a Stalchild opens a grave, then drop Beneath the Graveyard. Inside, defeat the heavy axe-swinging Iron Knuckle to free the imprisoned soul of Flat, Sharp's brother — and Flat teaches you the Song of Storms, the tune he wrote to break his brother's curse.",
+      "items": [
+       {
+        "name": "Song of Storms",
+        "cat": "song",
+        "note": "Summons rain. Here it cleanses the cursed composer Sharp and restores Ikana River; it also fills certain dry pools and can reveal hidden grottoes elsewhere."
+       }
+      ],
+      "stuck": "The Iron Knuckle telegraphs a slow overhead swing — backflip or sidehop it, then land a couple of hits while it recovers; it speeds up at half health, so keep dodging. You can only reach this room after a Stalchild (commanded with the Captain's Hat) digs the grave open."
+     },
+     {
+      "id": "mm_ikana_river_3",
+      "k": "step",
+      "t": "Find Sharp at the Spring Water Cave just east of the Music Box House. Step into the pool until he appears, then play the Song of Storms to lift his curse. The water flows again, the Music Box House's waterwheel turns, 'Farewell to Gibdos' plays, and the Gibdos sink into the ground — clearing the canyon.",
+      "stuck": "If Sharp won't react, wade further into the pool until he materializes, then play the Song of Storms right away. You must have learned it from Flat first."
+     },
+     {
+      "id": "mm_ikana_river_4",
+      "k": "loot",
+      "t": "Now get the Gibdo Mask, which you'll need to enter the well. Slip into the Music Box House (Pamela patrols outside — time your dash, or wear the Stone Mask to pass her unseen). Downstairs, a mummified man bursts from the closet; play the Song of Healing to cure him. He is Pamela's father, cursed by the Gibdos, and his healing leaves behind the Gibdo Mask.",
+      "items": [
+       {
+        "name": "Gibdo Mask",
+        "cat": "mask",
+        "note": "Lets you walk among Gibdos and ReDeads unharmed and speak with the Gibdos in the well, who block each door until you give them the item they ask for. Required to clear Beneath the Well."
+       }
+      ],
+      "stuck": "If Pamela spots you she shoos you off — wait for her to walk to the far side, or equip the Stone Mask so she can't see you. The moment the mummy lunges from the closet, play the Song of Healing; you don't have to fight it."
+     },
+     {
+      "id": "mm_ikana_river_5",
+      "k": "step",
+      "t": "With the Gibdos gone from the surface, enter the well (Beneath the Well). Each door is guarded by a Gibdo that demands a specific item — wear the Gibdo Mask and trade what each asks (milk, a fish, blue potion, magic beans, and more) to be let deeper.",
+      "stuck": "Stock bottled items before you go down (milk, a fresh fish, a blue/red potion, magic beans bought at the Deku Palace) and keep a free bottle for fish or spring-water requests you can fill on the spot — you can run dry and have to backtrack to refill."
+     },
+     {
+      "id": "mm_ikana_river_6",
+      "k": "loot",
+      "t": "In the final room of the well, light every torch (Fire Arrows are fastest) to make a large chest appear. Open it for the Mirror Shield — the key to the rest of Ikana and Stone Tower.",
+      "items": [
+       {
+        "name": "Mirror Shield",
+        "cat": "shield",
+        "note": "A polished shield that reflects beams of light and sunlight. Hold it up in a light ray and aim the reflection at switches, the undead, and the sun-crests in Ikana Castle and Stone Tower. It replaces your Hero's Shield."
+       }
+      ],
+      "stuck": "If the chest won't appear you've missed a torch — every one in that room must be lit at once. Without Fire Arrows, light a Deku Stick and dash between the torches before it burns out."
+     }
+    ]
+   },
+   {
+    "id": "mm_ikana_s_castle",
+    "name": "Ikana Castle & the Ghost King",
+    "sub": "Igos du Ikana and the Elegy of Emptiness",
+    "reward": "Elegy of Emptiness",
+    "steps": [
+     {
+      "id": "mm_ikana_castle_1",
+      "k": "step",
+      "t": "Climb to the Ancient Castle of Ikana at the head of the canyon. Inside, catch the sunbeams from the windows on the Mirror Shield and aim the reflection at the sun-faced crests to dissolve the cursed barriers, and at the ReDeads and traps to burn them away as you work toward the throne room.",
+      "stuck": "Stand in a shaft of light with the Mirror Shield raised and angle Link until the reflected dot lands on a crest or an enemy. Sunlight is poison to the undead here — it's your main weapon as much as your sword."
+     },
+     {
+      "id": "mm_ikana_castle_2",
+      "k": "step",
+      "t": "In the throne room you face Igos du Ikana, the long-dead king, and his two skeletal King's Lackeys. He sends the lackeys first. Shoot the window curtains with Fire Arrows to let sunlight pour in, then sword each lackey to knock down its guard and reflect the sunlight onto it with the Mirror Shield.",
+      "stuck": "Burn the curtains down with Fire Arrows first — no light, no fight. Catch each lackey between sword strikes when its shield is down, then flash the reflected beam onto it; a few good hits drop both."
+     },
+     {
+      "id": "mm_ikana_castle_3",
+      "k": "step",
+      "t": "Now Igos himself joins. He detaches his skull, which flies and lunges to bite — knock it away with the sword to stun him (the Bunny Hood helps you dodge), and the moment his body slumps to the floor, reflect the sunlight onto him with the Mirror Shield. Repeat until he falls for good and the king and his soldiers find peace.",
+      "stuck": "Sword the flying skull to stagger the body; the instant Igos drops, stand in a light beam and aim the reflection at him. Keep the curtains burned open so the sunlight stays available."
+     },
+     {
+      "id": "mm_ikana_castle_4",
+      "k": "reward",
+      "t": "Beaten and at rest, Igos du Ikana teaches you the Elegy of Emptiness — the song that empties your body into a hollow statue. This is what unlocks the climb to Stone Tower.",
+      "items": [
+       {
+        "name": "Elegy of Emptiness",
+        "cat": "song",
+        "note": "Play it to leave behind a hollow statue of Link's CURRENT form — Hylian, Deku, Goron, or Zora. The statue stays put and holds down a switch. You can have one of each form out at once (four total), so make a statue, change form, make another, and weigh several switches at the same time."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mm_ikana_s_tower",
+    "name": "Climbing Stone Tower",
+    "sub": "Statues on switches, and the Light Arrows",
+    "reward": "Light Arrows",
+    "steps": [
+     {
+      "id": "mm_ikana_tower_1",
+      "k": "step",
+      "t": "At the foot of Stone Tower, use the Elegy of Emptiness to drop statues on the floor switches — leave a statue on one switch, change form and leave another on the next, standing on the last yourself if needed — to raise the moving blocks and build a path up the giant tower.",
+      "stuck": "You only get one statue per form, so plan the order: drop a statue, swap form, drop the next, and weigh the final switch with your own body. The owl statue here saves your spot so you can Soar back."
+     },
+     {
+      "id": "mm_ikana_tower_2",
+      "k": "step",
+      "t": "Climb to the top and enter Stone Tower Temple, the fourth and final temple. Inside, the rooms demand every form — Hylian, Deku (float on air vents from Deku Flowers), Goron (roll, ground-pound, cross lava), and Zora (swim) — plus Elegy statues to pin switches.",
+      "stuck": "When a room stalls, ask which form fits the obstacle: updraft = Deku float, lava or a heavy block = Goron, deep water = Zora, a switch you must hold while you leave = an Elegy statue."
+     },
+     {
+      "id": "mm_ikana_tower_3",
+      "k": "loot",
+      "t": "Fight through to the Garo Master mini-boss. Beat him and a chest appears holding the Light Arrows — the temple's main item and the key to its central trick.",
+      "items": [
+       {
+        "name": "Light Arrows",
+        "cat": "item",
+        "note": "Sacred arrows of pure light. They one-shot many undead, fire into the sun-crests to flip Stone Tower, scatter Gomess's bats, and later are needed to harm Twinmold and Majora. Each shot costs magic — keep the meter topped up."
+       }
+      ],
+      "stuck": "The Garo Master teleports and slashes, and blocking does nothing. Put on the Bunny Hood and dodge his charge rather than guarding; when he stops to look around after attacking, dart in for a hit. At low health he tries to self-destruct — back off until the blast passes, then claim the chest."
+     }
+    ]
+   },
+   {
+    "id": "mm_ikana_s_temple",
+    "name": "Flipping the Temple",
+    "sub": "Upside-down, the Giant's Mask, and the Boss Key",
+    "reward": "Giant's Mask + Boss Key",
+    "steps": [
+     {
+      "id": "mm_ikana_temple_1",
+      "k": "step",
+      "t": "The temple's gimmick: shoot a Light Arrow into a sun-crest (the red eye-emblem on the wall) and the whole dungeon — and Stone Tower itself — flips upside-down, turning floor into ceiling. You'll flip it back and forth to reach areas that only exist in one orientation.",
+      "stuck": "For the big outside flip, stand on the inner corner of the platform, face the red crest across the gap, and fire a Light Arrow into it. Inside, hunt for sun-faces on walls and ceilings and shoot them to flip the room or open the way."
+     },
+     {
+      "id": "mm_ikana_temple_2",
+      "k": "loot",
+      "t": "Press deeper, solving the flip puzzles with all four forms and your Elegy statues. In the original N64 version the Giant's Mask waits behind a tougher-than-usual Eyegore (the big stone-faced sentry) — beat it and the chest with the mask appears. (In the 3DS remake you're handed the Giant's Mask partway through the Twinmold fight instead.)",
+      "items": [
+       {
+        "name": "Giant's Mask",
+        "cat": "mask",
+        "note": "Found in Stone Tower Temple (N64). Wear it in the Twinmold boss room to swell to the worms' size so you can grapple, punch, and slam them. It drains magic fast — bring a big meter (Chateau Romani's unlimited magic helps a lot)."
+       }
+      ],
+      "stuck": "If a heavy block won't move, that's usually a flip room: shove the block, fire a sun-crest to flip, shove it again, flip back, and walk it into place. The Giant's Mask chest is gated behind defeating the second Eyegore (N64)."
+     },
+     {
+      "id": "mm_ikana_temple_3",
+      "k": "loot",
+      "t": "Defeat the Gomess mini-boss — the cloaked reaper shrouded in a swarm of Keese bats — to reach the chest holding the Boss Key, then head for the boss door.",
+      "items": [
+       {
+        "name": "Boss Key",
+        "cat": "key",
+        "note": "Opens the door to Stone Tower Temple's boss room, where Twinmold waits in a desert arena."
+       }
+      ],
+      "stuck": "Gomess hides behind his Keese. Z-target him, wait out his attack, then shoot him with a Light Arrow to scatter the bats and expose the green core under his cloak — run in and slash it (or hit it with another Light Arrow). Deku Nuts scatter the bats too if you run low on magic."
+     }
+    ]
+   },
+   {
+    "id": "mm_ikana_s_boss",
+    "name": "Twinmold — the Last Giant",
+    "sub": "Twin sand-serpents and Twinmold's Remains",
+    "reward": "Heart Container + Twinmold's Remains",
+    "steps": [
+     {
+      "id": "mm_ikana_boss_1",
+      "k": "tip",
+      "t": "The boss is Twinmold: a pair of enormous sand-worms in a desert pit — a RED one that flies above ground and a BLUE one that burrows beneath the sand. Only their heads and tails are exposed and vulnerable; the bodies are armored. Watch the quicksand around the arena."
+     },
+     {
+      "id": "mm_ikana_boss_2",
+      "k": "step",
+      "t": "Beginner line: equip the Giant's Mask to grow as huge as the worms. Now grab a worm, punch it, and slam or throw it for big damage — go for the heads. Watch your magic, because the mask drains it and you shrink back to normal (and become vulnerable) when it runs out.",
+      "stuck": "If you run low on magic, slash the stone pillars around the arena to drop magic jars, grab them while small, then re-equip the Giant's Mask. A full meter — or Chateau Romani's unlimited magic — makes this far easier. As a giant, grapple a worm's head or tail and hammer it."
+     },
+     {
+      "id": "mm_ikana_boss_3",
+      "k": "step",
+      "t": "Prefer arrows? You can stay small and shoot the heads and tail-tips when they surface. Light Arrows work on both worms; Fire Arrows hit the BLUE worm extra hard and Ice Arrows hit the RED worm extra hard. Either way, whittle down the blue burrower and the red flyer until both fall.",
+      "stuck": "When a worm rises from or dives into the sand its head and tail are briefly exposed — that's your window. (In the 3DS remake the fight is restructured: down the blue Twinmold first — shoot the eyes on its underside, then its big eye — which drops the Giant's Mask, then punch and tail-slam the red one as a giant.)"
+     },
+     {
+      "id": "mm_ikana_boss_4",
+      "k": "reward",
+      "t": "With both worms destroyed, Twinmold dies and the fourth and final Giant is freed from its body. You receive a Heart Container and Twinmold's Remains — every Giant of Termina is now released. The road to confronting the Skull Kid atop the Clock Tower opens.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "key",
+        "note": "Permanently adds one full heart to your life bar. Kept through every Song of Time rewind."
+       },
+       {
+        "name": "Twinmold's Remains",
+        "cat": "key",
+        "note": "The remains of the fourth and final temple's evil, freeing the last imprisoned Giant. With all four Remains the Giants will answer the Oath to Order to hold back the falling Moon."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "mm_moon",
+  "name": "The Carnival of Time & the Moon",
+  "sub": "Main Quest — the final battle",
+  "kind": "beast",
+  "tagline": "All four Giants freed, you climb the Clock Tower one last time, call the gods with a song, and follow Majora into the Moon to end the three days forever.",
+  "champion": null,
+  "sections": [
+   {
+    "id": "mm_moon_s_climb",
+    "name": "The Carnival of Time",
+    "sub": "Atop the Clock Tower, Final Day, midnight",
+    "reward": null,
+    "steps": [
+     {
+      "id": "mm_moon_climb_1",
+      "k": "warn",
+      "t": "Do this on a single three-day cycle once all four Remains are in hand and the four Giants are awake. The Clock Tower roof only opens at midnight on the night of the Final Day, when the Carnival of Time begins and the steps drop down. Spend the cycle however you like, then be at the Clock Tower entrance in South Clock Town for midnight."
+     },
+     {
+      "id": "mm_moon_climb_2",
+      "k": "tip",
+      "t": "If you are short on time on the Final Day, play the Inverted Song of Time at the start of a fresh cycle to slow the day's passage, or use the Song of Double Time to skip ahead. As Hylian Link, climb the ramp to the top of the Clock Tower as midnight strikes.",
+      "stuck": "Inverted Song of Time = Song of Time played note-reversed; it slows the clock to roughly a third speed for the cycle. Song of Double Time jumps you forward to the next dawn or dusk. Both help you reach midnight with breathing room. Remember the plain Song of Time resets the three days and banks your songs, masks, and key items, but you lose loose rupees and consumables."
+     },
+     {
+      "id": "mm_moon_climb_3",
+      "k": "step",
+      "t": "At the top, the Skull Kid is hauling the Moon down by force, and the grinning Moon fills the sky. Tael cries out, begging you to summon the giants. This is the moment everything has built toward."
+     }
+    ]
+   },
+   {
+    "id": "mm_moon_s_oath",
+    "name": "The Oath to Order",
+    "sub": "Calling the Four Giants",
+    "reward": "The Four Giants catch the Moon",
+    "steps": [
+     {
+      "id": "mm_moon_oath_1",
+      "k": "step",
+      "t": "Play the Oath to Order. The four Giants answer with a long bellowing cry from the four corners of Termina, march in, and catch the falling Moon, holding it back from the town.",
+      "items": [
+       {
+        "name": "Oath to Order",
+        "cat": "song",
+        "note": "Summons the Four Giants. You already learned it from the FIRST Giant after clearing Woodfall Temple (right after Odolwa), so by now it should be in your songs; if for some reason it is not, that Giant grants it. Played atop the Clock Tower on the Final Day, it calls all four to stop the Moon."
+       }
+      ]
+     },
+     {
+      "id": "mm_moon_oath_2",
+      "k": "step",
+      "t": "With the Moon stopped, the Skull Kid collapses, and the truth comes out: he was never the real danger. The mask he wore, Majora's Mask, has been using him all along. Its power tears free of the Skull Kid and flees upward into the Moon, making it glow stronger."
+     },
+     {
+      "id": "mm_moon_oath_3",
+      "k": "step",
+      "t": "The freed Skull Kid is himself again, and is gently reunited with Tael and Tatl. A glowing path opens up to the Moon. Step into it to follow Majora and finish this.",
+      "stuck": "There is no fight here yet and nothing to miss. Walk into the shining portal that rises toward the Moon; the screen fades and you arrive inside it."
+     }
+    ]
+   },
+   {
+    "id": "mm_moon_s_field",
+    "name": "Inside the Moon",
+    "sub": "A peaceful field and five children",
+    "reward": null,
+    "steps": [
+     {
+      "id": "mm_moon_field_1",
+      "k": "tip",
+      "t": "Inside the Moon is not chaos at all. It is a quiet, sunlit grassy field with one lone tree on the hill. Five children play here. Four of them wear the masks of the bosses you defeated; the fifth boy, sitting under the tree, wears Majora's Mask itself."
+     },
+     {
+      "id": "mm_moon_field_2",
+      "k": "step",
+      "t": "Walk up to each of the four masked children to talk. Each one will play a little game with you in exchange for masks, leading into a small trial room. You hand over your ordinary, non-transformation masks across the four children, a few at a time."
+     },
+     {
+      "id": "mm_moon_field_3",
+      "k": "warn",
+      "t": "The Deku, Goron, and Zora Masks cannot be given away, so you keep them. To unlock the final reward you must hand over all twenty of your other masks, including the Giant's Mask, between the four children. If you are missing some masks, you can still proceed to the boss, but you will not earn the Fierce Deity's Mask.",
+      "stuck": "The twenty tradeable masks are every mask except Deku/Goron/Zora. The four children together take all twenty across their conversations. If you skipped side masks earlier, you can fight Majora without the Fierce Deity's Mask; it is just much harder. Light Arrows make that doable."
+     }
+    ]
+   },
+   {
+    "id": "mm_moon_s_trials",
+    "name": "The Four Mask Trials",
+    "sub": "Each child's little dungeon",
+    "reward": "Heart Pieces in the trial rooms",
+    "steps": [
+     {
+      "id": "mm_moon_trials_1",
+      "k": "step",
+      "t": "The Odolwa child's room is a Deku trial. Wear the Deku Mask and ride the spinning Deku Flowers, launching from one to the next across the gaps while dodging a spinning spiked log, to reach the far side and its Piece of Heart.",
+      "stuck": "Stand on a flower, sink in, and launch with A; aim mid-flight so you glide onto the next flower. Each child hands your masks back and offers more games the more masks you give them."
+     },
+     {
+      "id": "mm_moon_trials_2",
+      "k": "step",
+      "t": "The Goht child's room is a Goron trial. Wear the Goron Mask, curl into a roll, build speed, and bounce off the treasure chests along the looping track to stay on course and grab the Piece of Heart.",
+      "stuck": "Hold the roll button to charge into a spiked speed-roll, then steer; the chests act as bumpers that keep you on the path, while glowing eye-switch circles can knock you back. Keep your magic up so the speed boost holds."
+     },
+     {
+      "id": "mm_moon_trials_3",
+      "k": "step",
+      "t": "The Gyorg child's room is a Zora trial. Wear the Zora Mask and swim the branching underwater maze; pick the correct fork at each junction and leap out before the gate closes to reach the Piece of Heart.",
+      "stuck": "Swim with A to boost through the current. The correct turns differ between the N64 original and the 3DS remake, so go by the fish-filled tunnels and the open gates rather than a memorized sequence; a wrong branch just loops you back to try again."
+     },
+     {
+      "id": "mm_moon_trials_4",
+      "k": "step",
+      "t": "The Twinmold child's room is a combat trial. As Hylian Link, fight through rooms of tougher enemies, including lizard foes and a teleporting Garo Master, to clear it and claim the Piece of Heart at the end.",
+      "stuck": "The Garo Master teleports and throws blades; Z-target, block, and counter its spin, then slash. If you have the Great Fairy's Sword it makes this room far easier. Save magic and arrows for the boss after."
+     },
+     {
+      "id": "mm_moon_trials_5",
+      "k": "tip",
+      "t": "You do not have to complete the trial rooms to get the mask; you only need to give away all twenty tradeable masks. The trials are optional puzzle rooms (each holds a Piece of Heart). Once your tradeable masks are gone, go talk to the lonely boy under the tree."
+     }
+    ]
+   },
+   {
+    "id": "mm_moon_s_fierce",
+    "name": "The Boy Under the Tree",
+    "sub": "The Fierce Deity's Mask",
+    "reward": "Fierce Deity's Mask",
+    "steps": [
+     {
+      "id": "mm_moon_fierce_1",
+      "k": "step",
+      "t": "Approach the boy wearing Majora's Mask under the lone tree. With all your other masks given away, he notices you have nothing left and asks, in his strange way, whether masks like the ones you wear have any special power. Then he gives you the last mask of your journey."
+     },
+     {
+      "id": "mm_moon_fierce_2",
+      "k": "reward",
+      "t": "You receive the Fierce Deity's Mask. Wear it and Link becomes a towering, white-eyed swordsman wielding a great double-helix blade that fires sword beams. It can be worn in the boss rooms ahead and turns the final fight from grueling into manageable.",
+      "items": [
+       {
+        "name": "Fierce Deity's Mask",
+        "cat": "mask",
+        "note": "Earned by giving all twenty tradeable masks to the Moon children (Deku/Goron/Zora are kept). Transforms Link into a giant swordsman; at full health he launches sword beams from the Fierce Deity Sword. Usable only inside boss rooms (including Majora). The ultimate reward for collecting every mask."
+       }
+      ]
+     },
+     {
+      "id": "mm_moon_fierce_3",
+      "k": "warn",
+      "t": "Sword beams only fire when your hearts are full, so heal up before each form. Stock potions or fairies in bottles. Talk to the boy again to begin the final battle whenever you are ready."
+     }
+    ]
+   },
+   {
+    "id": "mm_moon_s_majora",
+    "name": "Majora",
+    "sub": "The final battle, three forms",
+    "reward": "Termina is saved — the ending",
+    "steps": [
+     {
+      "id": "mm_moon_majora_1",
+      "k": "step",
+      "t": "First form, Majora's Mask: the mask floats and spins around the room trailing whip-like tentacle cords, and the four boss masks detach and circle the arena, firing energy at you. With the Fierce Deity's Mask on, Z-target and pour on sword beams to cut it down fast.",
+      "stuck": "Without the Fierce Deity's Mask: the cleanest stun is Zora Link's boomerang fins, thrown so they curve around to its unguarded back; once it drops, switch to Hylian Link and slash. You can also reflect its laser back with the Mirror Shield. The circling boss masks can be shot down with arrows if they harass you."
+     },
+     {
+      "id": "mm_moon_majora_2",
+      "k": "step",
+      "t": "Second form, Majora's Incarnation: a childlike body with arms, legs, and a third eye that sprints around the room, pausing to dance and taunt, then suddenly machine-guns a barrage of energy. Hold your shield up for the volley, and strike when it stops.",
+      "stuck": "A reliable trick without the Fierce Deity's Mask: stand still with your shield raised and stab it as it runs past to stun it, then run in and slash while it is down. Light Arrows or sword beams also work when it pauses."
+     },
+     {
+      "id": "mm_moon_majora_3",
+      "k": "step",
+      "t": "Third form, Majora's Wrath: it grows a head and muscular body and lashes two long whip-arms, and can grab and throw you. Block the whips with your shield, wait for a pause between strikes, then close in.",
+      "stuck": "With the Fierce Deity's Mask: Z-target and pour on sword beams; this melts it. Without it: fire a Light Arrow or two to stun it during a pause, then run in and slash repeatedly before it recovers. Zora Link's electric barrier can also stun it when it closes in."
+     },
+     {
+      "id": "mm_moon_majora_4",
+      "k": "reward",
+      "t": "Majora is destroyed and the room dissolves with it. The Moon fades from the sky, the Skull Kid is saved, and the Happy Mask Salesman recovers Majora's Mask at last, the evil finally gone from it. Dawn breaks on a peaceful Carnival of Time, the townsfolk celebrate, the Giants return to their slumber, and Link rides on. You have saved Termina. The Dawn of a New Day."
      }
     ]
    }
