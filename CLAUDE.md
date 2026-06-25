@@ -34,17 +34,20 @@ default; fan out only when subtasks are truly independent.** When you DO fan out
 quests, item cards), **BATCH them — one agent per group of ~12, never one-per-item** (the single biggest token
 saver here). Run **≤2 Workflows at once** (3+ trips 529 overload); `resumeFromRunId` mops up failures.
 
-## The games (multi-game as of v8; four games as of v15)
-Four games now live behind a **game picker** (Status tab): **Breath of the Wild**, **Tears of the Kingdom**,
-**Ocarina of Time** (game 3, v14), and **Majora's Mask** (game 4, v15). `GAMES = { botw, totk, oot, mm }` (built by
-`inline-data.mjs` — each of TOTK/OOT/MM is read wholesale from `knowledge/<game>/app-data.json`); the
+## The games (multi-game as of v8; six games as of v16)
+Six games now live behind a **console/era game shelf** (v16; topbar `● <short> ▾` button + a Status "Now playing"
+banner → a full-screen `GameShelf` overlay grouped by console): **Breath of the Wild** + **Tears of the Kingdom**
+(Switch), **Ocarina of Time** (game 3, v14) + **Majora's Mask** (game 4, v15) (N64), **A Link to the Past** (game 5,
+v16, SNES), and **Link's Awakening** (game 6, v16, Game Boy). `GAMES = { botw, totk, oot, mm, alttp, la }` (built by
+`inline-data.mjs` — each of TOTK/OOT/MM/ALTTP/LA is read wholesale from `knowledge/<game>/app-data.json`); the
 `HyruleCompanion` wrapper owns the active game (`hyrule:game`) and remounts `<HyruleGame key={game}>`, which
-shadows the data globals with `GAMES[game]` and namespaces storage (`botw:*` / `totk:*` / `oot:*` / `mm:*`).
-Per-game `terms`/`guideSegs`/`postRegionId` adapt labels + surfaces; **missing datasets degrade gracefully**
-(OoT/MM have no shrines/cooking/maps/armor/…, like TotK v1 — TotK/OoT/MM are the canaries for "does this feature
-degrade?"). See ADR 0005. Data: `knowledge/totk/` (`build/assemble-totk.mjs`), `knowledge/oot/`
-(`build/assemble-oot.mjs`), and `knowledge/mm/` (`build/assemble-mm.mjs`). MM adds a `terms.worldName` (Termina vs
-Hyrule) used by the Enemies lede — falls back to "Hyrule" for the other three.
+shadows the data globals with `GAMES[game]` and namespaces storage (`botw:*` / `totk:*` / `oot:*` / `mm:*` /
+`alttp:*` / `la:*`). Per-game `terms`/`guideSegs`/`postRegionId` adapt labels + surfaces, and a per-game **`meta`**
+block (console/consoleRank/year/era/accent/accent2/cover — the SINGLE source is the `META` map in `inline-data.mjs`)
+drives the shelf cards + original-SVG `GameCover` emblems. **Missing datasets degrade gracefully** (OoT/MM/ALttP/LA
+have no shrines/cooking/maps/armor/…, like TotK v1 — the canaries for "does this feature degrade?"). See ADR 0005.
+Data: `knowledge/{totk,oot,mm,alttp,la}/` each with its own `build/assemble-<game>.mjs`. MM/ALttP/LA set
+`terms.worldName` (Termina / Hyrule / Koholint) used by the Enemies lede — falls back to "Hyrule" otherwise.
 
 ## Layout
 ```
@@ -53,11 +56,15 @@ index.html            BUILT, self-contained, offline PWA (open this on your phon
 build/build.mjs       esbuild pipeline: jsx → transformed js → inlined into index.html (React + fonts inlined)
 build/assemble-knowledge.mjs  research output → reconciled knowledge/*.json (the 120/15/4 honesty gate)
 build/inline-data.mjs        knowledge/*.json → the .jsx GEN:DATA block (strips agent `notes`)
-build/gen-*-workflow.mjs     content authoring: each emits a self-contained author→adversarial-verify Workflow
-                      script (embeds its input as consts; v12.7+). Pair with a `build/merge-*.mjs` that splices
-                      ONLY the new field(s) back into knowledge/*.json (additive; strips sources/corrections).
-                      Used for: shrine solutions, battle guides, armor/economy/korok depth, side quests,
-                      the equipment + materials/creatures compendium.
+build/gen-*-workflow.mjs     content authoring (older pattern): each emits a self-contained author→adversarial-
+                      verify Workflow script (embeds its input as consts; v12.7+). Pair with a `build/merge-*.mjs`
+                      that splices ONLY the new field(s) back into knowledge/*.json (additive; strips sources).
+                      Used for: shrine solutions, battle guides, armor/economy/korok depth, side quests, compendium.
+build/wf-*.mjs        content authoring (v16+, direct Workflow-tool scripts): self-contained `export const meta`
+                      + `agent()/pipeline()` scripts run via the **Workflow tool** (`scriptPath`), NOT emitted.
+                      `wf-<game>-{walkthrough,depth,compendium}.mjs` author→verify a classic game's content; pair
+                      with `build/merge-walkthrough.mjs` (opening + chapters, asserts unique ids) and
+                      `build/merge-game-depth.mjs` (writes the 4 overlay JSONs). Run HEAVY walkthrough wf SOLO.
 build/vendor/         pinned React + ReactDOM UMD (vendored so the build needs no network at runtime)
 manifest.webmanifest  PWA manifest (name, icons, standalone display) · icon-512/180.png  generated Sheikah eye
 knowledge/            researched, verified BotW data (sourced JSON). `_raw-research.json` = the full workflow
@@ -494,7 +501,45 @@ layout, `REGION_MAPS` = the per-region coords.
   inlined wholesale like TotK/OoT, so the v13.2 lesson applies). Three cross-game copy fixes shipped alongside:
   the Enemies lede uses `worldName`; the Quests lede drops its shrine clause when a game has no shrines (also fixes
   OoT); the coach Great-Fairy card now says "a new power or upgrade" (correct for OoT spells AND MM magic/spin/sword).
+- **v16 — A Link to the Past (SNES) + Link's Awakening (Game Boy) as games 5 & 6, + the console/era game shelf
+  (DONE, both at full OoT/MM parity):** the owner asked to add the SNES/Game-Boy classics AND to better organize
+  "how you get into the companion for each game" now that there are >4. Two halves, shipped as v16.0–16.5:
+  - **v16.0 — the game shelf** (the organization ask): replaced the flat `game-pill` row with a dedicated,
+    full-screen **`GameShelf`** overlay (portaled to body) that groups games by console (Switch · N64 · SNES ·
+    Game Boy, newest first via `meta.consoleRank`) — each a rich card with an original-SVG **`GameCover`** emblem
+    in the game's accent, title, console·year, and that game's own progress % (read straight from `<id>:progress`,
+    since only the active game lives in component state). Reachable from a topbar **`● <short> ▾`** switch button
+    + a Status **"Now playing"** banner (`GameSwitchTrigger`). New: a single-source **`META`** map in
+    `inline-data.mjs` (console/consoleRank/year/era/accent/accent2/cover) injected as `.meta` onto every bundle.
+  - **v16.1 — both shells scaffolded** (mirrors the MM v15.0 scaffold): `knowledge/{alttp,la}/{globals,walkthrough}.json`
+    + `build/assemble-{alttp,la}.mjs` (clones of assemble-mm) + inline-data reads. ALttP = Hyrule's two worlds
+    (terms Heart Containers/Items/**Pendants & Crystals**; CHAMPIONS = 3 Pendants + 7 Crystals; COLLECTIBLES Pieces
+    of Heart 24 + Bottles 4). LA = **Koholint** (no Triforce/Ganon; terms **Instruments**; CHAMPIONS = the 8
+    Instruments of the Sirens; COLLECTIBLES Pieces of Heart 12 + Secret Seashells 26 — web-verified). Each got a
+    hand-authored opening chapter as the voice anchor. Both render at the OoT-style **5-tab set**
+    (Status·Journey·Items·Guide·Lore — no shrines/cook).
+  - **v16.2 / v16.3 — full main quests:** author→adversarial-verify Workflows (`build/wf-{alttp,la}-walkthrough.mjs`,
+    web-sourced) → ALttP **13 chapters / 184 steps** (Eastern→Desert→Hera→Master Sword/Agahnim→7 crystal dungeons→
+    Ganon's Tower), LA **10 chapters / 143 steps** (Tail Cave→…→Turtle Rock→the Wind Fish's Egg). All trophies +
+    iconic items granted-as-item and wired (`build/merge-walkthrough.mjs` keeps the opening + asserts unique ids).
+  - **v16.4 — depth:** `build/wf-{alttp,la}-depth.mjs` → 4 overlays each (items-songs · bestiary {basics+boss guides}
+    · great-fairies · side-quests) via `build/merge-game-depth.mjs`. Both Guide tabs now **Items·Tips·Fairies·
+    Quests·Enemies·Settings** (full parity). Also fixed a cross-game nit: the Combat-Basics header hardcoded "7"
+    → dynamic `basics.length` (OoT/MM/ALttP/LA all have 6).
+  - **v16.5 — Items-tab Compendium:** `build/wf-{alttp,la}-compendium.mjs` → ALttP **47** / LA **40** entries; the
+    Items tab is now `CompendiumView` for both. **Fix:** CompendiumView's category `COLS` were hardcoded around
+    BotW's `weapon` cat, so the classic cats `sword`/`key`/`song` rendered no column AND dropped those items (LA
+    would've lost the 8 Instruments) — added Swords/Songs/Key-Items columns (empty ones auto-hide → BotW/OoT/MM
+    unchanged) + show the `type` badge for stat-less entries.
+  **Workflow lesson reinforced (the hard way again):** two HEAVY walkthrough workflows (~24 web-fetching agents,
+  ~800k tokens each) run **concurrently** tripped server-side **529** and — because the pipeline drops an item when
+  its verify stage throws — silently lost the un-verified chapters (ALttP kept 3/12, LA 5/9). `resumeFromRunId`
+  recovered everything (cached authors returned instantly; only failed verifies re-ran) when run **one at a time**.
+  Rule: heavy walkthrough workflows run SOLO; lighter depth/compendium (≤8 agents) are fine 2-up. Defensive tweak:
+  depth/compendium verify stages now fall back to the author draft on failure (`v || draft`) so a dataset is never
+  lost outright. All v16 verified in-browser (6 games grouped in the shelf, both classics' quests/guide/items
+  render, MM/BotW unregressed, 0 console errors).
 - **Biggest remaining build (whole app):** TotK **shrine solutions** (152 — the Stuck-reveal/answer-first-search
   centerpiece; the only major functional gap left in any game). Resume `wf_ebb10104-cfd` (~150 left), ≤2
   workflows at a time. Lower-priority: TotK Items-tab compendium. Lore is shared/cross-game and could gain
-  OoT/TotK/MM-era chapters (needs the writers'-room workflow + the no-AI-slop bar — vet a sample first).
+  OoT/TotK/MM/ALttP/LA-era chapters (needs the writers'-room workflow + the no-AI-slop bar — vet a sample first).
