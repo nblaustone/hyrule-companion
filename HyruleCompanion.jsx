@@ -33163,6 +33163,1262 @@ const LA = {
      ]
     }
    ]
+  },
+  {
+   "id": "la_tail",
+   "name": "Tail Cave",
+   "sub": "Dungeon 1 — the Full Moon Cello",
+   "champion": "Full Moon Cello",
+   "tagline": "The first Instrument, and a feather to leap with.",
+   "sections": [
+    {
+     "id": "la_tail_open",
+     "name": "Opening the Cave",
+     "sub": "Use the Tail Key at the Mini-Moldorm statue out front",
+     "steps": [
+      {
+       "id": "la_tail_locate",
+       "k": "step",
+       "t": "Head to the far east edge of the map, to the foot of the eastern hills near the seashore. Tail Cave's entrance sits behind iron bars, with a stone Mini-Moldorm statue standing in front of it."
+      },
+      {
+       "id": "la_tail_unlock",
+       "k": "step",
+       "t": "Walk up to the Mini-Moldorm statue in front of the entrance and use the Tail Key (the key you found in a chest in the Mysterious Woods). It slots into the keyhole on the statue and the bars blocking the cave rise. Step inside.",
+       "stuck": "The Tail Key isn't equipped like a weapon — face the central Mini-Moldorm statue at the entrance and press the action button to insert it; the bars lift on their own. No key? Go back to the Mysterious Woods: sprinkle Magic Powder on the raccoon (that's Tarin) so the forest stops looping, then open the chest to the north for the Tail Key."
+      },
+      {
+       "id": "la_tail_map_tip",
+       "k": "tip",
+       "t": "Inside, look for the Map and Compass early. The Compass chimes in any room that still holds a chest, so you'll never wonder if you cleared a room."
+      }
+     ]
+    },
+    {
+     "id": "la_tail_delve",
+     "name": "Into the Cave",
+     "sub": "Keys, torches, blocks — and the feather that leaps",
+     "steps": [
+      {
+       "id": "la_tail_smallkeys",
+       "k": "step",
+       "t": "Fight through the early rooms with your Sword. Clearing every enemy in a room makes locked doors and barred gates open; pick up the Small Keys that pop out or sit in chests to pass through locked doors."
+      },
+      {
+       "id": "la_tail_torches",
+       "k": "step",
+       "t": "Some gates stay barred until you light both torches in a room. Touch your Sword to a torch that's already lit to carry the flame on your blade, then touch it to an unlit one — light both and the gate opens.",
+       "stuck": "No fire item yet? Strike a torch that's already burning to pick the flame up on your Sword, then carry it to the dark torch. Light every torch in the room and the bars lift."
+      },
+      {
+       "id": "la_tail_feather",
+       "k": "loot",
+       "t": "Find the big chest holding Roc's Feather — the dungeon item. Equip it to a button. Press it to JUMP: you can now hop over pits, spikes, and small gaps.",
+       "stuck": "Roc's Feather is in a chest part-way through the dungeon, usually reached after a block push or a torch puzzle. Equip it to the A or B button (you can only hold two items at once), then tap that button to spring straight up. You can swing the Sword in mid-air too.",
+       "items": [
+        {
+         "name": "Roc's Feather",
+         "cat": "item",
+         "note": "Press to jump over pits, spikes, and gaps. Your key to crossing the dungeon's hazards."
+        }
+       ]
+      },
+      {
+       "id": "la_tail_jumpgaps",
+       "k": "step",
+       "t": "With the Feather equipped, jump the spike floors and pit gaps that blocked you before. Crossing a gap you couldn't reach earlier usually opens the path deeper in."
+      },
+      {
+       "id": "la_tail_blocks",
+       "k": "step",
+       "t": "Push the movable blocks to reveal hidden stairs or to weigh down floor switches. If a room looks stuck, try shoving every block one tile.",
+       "stuck": "Some blocks only move in one direction. Stand flush against a block and walk into it steadily for a second to push it. A block sliding aside often uncovers a staircase or a switch that drops a wall elsewhere."
+      },
+      {
+       "id": "la_tail_nightmarekey",
+       "k": "loot",
+       "t": "Find the Nightmare Key — the special boss key, larger and ornate. It opens the one big locked door that leads to the boss.",
+       "stuck": "The Nightmare Key sits in a chest deeper in the dungeon, often guarded or behind a block/torch puzzle. It only fits the single boss door (the one with the big ornate lock) — small locked doors still need ordinary Small Keys.",
+       "items": [
+        {
+         "name": "Nightmare Key",
+         "cat": "key",
+         "note": "Opens the boss door to Moldorm's chamber."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "la_tail_boss",
+     "name": "Boss: Moldorm",
+     "sub": "Hit the tail-tip — and don't fall off the edge",
+     "reward": "The Full Moon Cello",
+     "steps": [
+      {
+       "id": "la_tail_enter_boss",
+       "k": "step",
+       "t": "Open the boss door with the Nightmare Key. Inside is a small square floor with open pits and a staircase at the edges. Moldorm is the wriggling worm that drops in."
+      },
+      {
+       "id": "la_tail_moldorm_trick",
+       "k": "warn",
+       "t": "Moldorm's only weak spot is the glowing tip of its TAIL — hitting the head or body does nothing and just bumps you. Worse, a bump can knock you off the edge: you drop to a passage below and have to climb the staircase back up, and Moldorm's health refills while you're gone."
+      },
+      {
+       "id": "la_tail_moldorm_fight",
+       "k": "step",
+       "t": "Chase the back of the worm and slash the glowing tail-tip with your Sword. It speeds up each time you hit it. When it charges at you, JUMP over it with Roc's Feather to dodge — and a Spin Attack landed on the tail does double duty. Stay near the middle of the floor so a bump can't fling you off the edge.",
+       "stuck": "Don't panic and swing wildly — that's how you get knocked into a pit. Track only the tail, line up behind it, and stab; use Roc's Feather to hop over Moldorm when it rushes you. About four solid tail hits (or two Spin Attacks) finish it. Keeping toward the center gives you room to recover from a bump instead of dropping off."
+      },
+      {
+       "id": "la_tail_heartcontainer",
+       "k": "loot",
+       "t": "Moldorm bursts and a Heart Container appears. Grab it to permanently raise your maximum hearts by one."
+      },
+      {
+       "id": "la_tail_cello",
+       "k": "reward",
+       "t": "Step into the light and claim the first Instrument of the Sirens — the Full Moon Cello. One of eight; play them all to wake the Wind Fish.",
+       "items": [
+        {
+         "name": "Full Moon Cello",
+         "cat": "key",
+         "note": "Instrument of the Sirens 1 of 8. The Full Moon Cello, won from Moldorm."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "la_tail_after",
+     "name": "After the Cave: the Dream Shrine",
+     "sub": "An optional Ocarina back in Mabe Village",
+     "steps": [
+      {
+       "id": "la_tail_dreamshrine",
+       "k": "optional",
+       "t": "Now that you have Roc's Feather, return to Mabe Village and enter the Dream Shrine (the small building with a bed). Jump onto the bed and choose to sleep.",
+       "stuck": "The Dream Shrine is the little hut in the northeast of Mabe Village, behind some rocks. You couldn't reach the bed before — use Roc's Feather to jump up onto it, then pick 'Yes' to sleep and the dream room opens."
+      },
+      {
+       "id": "la_tail_ocarina",
+       "k": "loot",
+       "t": "Inside the dream, cross to the chest to claim the Ocarina. You'll learn songs for it later — it's worth grabbing now.",
+       "items": [
+        {
+         "name": "Ocarina",
+         "cat": "song",
+         "note": "Found in the Dream Shrine after you have Roc's Feather. You'll learn its songs as you go."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "la_bottle",
+   "name": "Bottle Grotto",
+   "sub": "Dungeon 2 — the Conch Horn",
+   "champion": "Conch Horn",
+   "tagline": "Rescue BowWow, clear the swamp, lift with new strength.",
+   "sections": [
+    {
+     "id": "la_bottle_rescue",
+     "name": "Rescue BowWow",
+     "sub": "Get the chain-chomp back from the Moblins",
+     "reward": "BowWow joins you and chomps the swamp flowers",
+     "steps": [
+      {
+       "id": "la_bottle_madambowwow",
+       "k": "step",
+       "t": "In Mabe Village, BowWow's dog house beside Madam MeowMeow's home is empty — Moblins have stolen him. Leave the village and head north through the Mysterious Forest, past the Witch's Hut, and on into Tal Tal Heights to find the Moblin Cave.",
+       "stuck": "From Mabe Village go north into the Mysterious Forest, then keep heading north past the Witch's Hut into the open Tal Tal Heights. The Moblin Cave is a doorway set into the cliffs there, with Moblins patrolling outside."
+      },
+      {
+       "id": "la_bottle_moblincave",
+       "k": "step",
+       "t": "Inside the Moblin Cave, cut your way through the rooms of Moblins. In the final chamber the giant King Moblin holds BowWow captive — beat him to free the chain-chomp.",
+       "stuck": "Clear every Moblin in a room to open the way on. In the boss room, King Moblin charges you — if he misses he headbutts the wall and is left dizzy, so dodge the charge then strike while he's stunned. Down him and BowWow is yours to borrow."
+      },
+      {
+       "id": "la_bottle_takebowwow",
+       "k": "reward",
+       "t": "BowWow now follows you on his chain. Lead him toward Goponga Swamp — he lunges and chomps anything that gets close, including the spiky Goponga Flowers blocking the way."
+      }
+     ]
+    },
+    {
+     "id": "la_bottle_swamp",
+     "name": "Goponga Swamp",
+     "sub": "Clear the flowers and reach the dungeon",
+     "reward": "Bottle Grotto's entrance is open",
+     "steps": [
+      {
+       "id": "la_bottle_chompflowers",
+       "k": "step",
+       "t": "Walk BowWow up to the giant Goponga Flowers choking the swamp. Stand right beside one and BowWow lunges and eats it, opening the path. Munch your way through the blossoms toward the dungeon. (Smaller swamp fish you can handle with your own sword.)",
+       "stuck": "BowWow only attacks when an enemy or flower is right next to him. Step up close to each giant Goponga Flower and wait a beat — he snaps it up. Keep nudging forward, flower by flower."
+      },
+      {
+       "id": "la_bottle_grottoentrance",
+       "k": "step",
+       "t": "Past the last flower, the entrance to Bottle Grotto sits in the swamp wall. BowWow can't follow you inside — head in alone.",
+       "stuck": "The dungeon door is the dark archway revealed once the flowers are cleared. BowWow stays behind at the entrance; just walk in."
+      }
+     ]
+    },
+    {
+     "id": "la_bottle_dungeon",
+     "name": "Inside Bottle Grotto",
+     "sub": "Find the Power Bracelet, reach the boss",
+     "reward": "The Power Bracelet and the way to the Genie",
+     "steps": [
+      {
+       "id": "la_bottle_smallkeys",
+       "k": "step",
+       "t": "Work through the early rooms, clearing enemies and collecting Small Keys as you go. Many doors here are locked — spend each key to push deeper into the dungeon.",
+       "stuck": "If a door won't open, you need a key. Clearing every enemy in a sealed room is the usual trigger — a chest or key appears once the room is empty. Read any Owl Statue (use the Stone Beak on it) for the order to kill enemies in a tricky room."
+      },
+      {
+       "id": "la_bottle_polsvoice",
+       "k": "tip",
+       "t": "Watch for Pols Voice (the big-eared rabbity ghosts) — your sword does nothing to them. Lift a nearby jar with the items you already have and throw it at them, or wait for the Power Bracelet to clear them out."
+      },
+      {
+       "id": "la_bottle_powerbracelet",
+       "k": "loot",
+       "t": "To reach the dungeon item you must beat two Boos in a torch-lit room — they vanish when you swing at them, so sprinkle Magic Powder on the torches to make them solid, then cut them down. The chest beyond holds the Power Bracelet. Equip it and you can lift pots, skulls, and small rocks, then throw them.",
+       "stuck": "The Boos disappear the instant you attack — light the room's torches with Magic Powder first and they stay vulnerable. With the Bracelet equipped, stand next to a pot or skull and press its button to hoist it, then press again to hurl it.",
+       "items": [
+        {
+         "name": "Power Bracelet",
+         "cat": "item",
+         "note": "Lift pots, rocks, and skulls. Many blocked rooms here need objects lifted out of the way."
+        }
+       ]
+      },
+      {
+       "id": "la_bottle_lifttoprogress",
+       "k": "step",
+       "t": "Now use the Power Bracelet to lift the skulls and pots blocking doorways, and to hurl pots at enemies or onto switches. Clearing these objects opens the paths toward the boss door.",
+       "stuck": "Stuck at a dead end? Lift every pot and skull in the room — some sit on switches or hide stairs and openings underneath. A thrown pot will also stun or finish off enemies your sword struggles with."
+      },
+      {
+       "id": "la_bottle_bossdoor",
+       "k": "step",
+       "t": "Reach the Nightmare door at the dungeon's far end. It stays sealed until you hold the Nightmare Key found in the dungeon — once you have it, step into the door to face the Genie.",
+       "stuck": "The Nightmare Key is in its own chest, reached by lifting and clearing your way through the later rooms. The boss door won't open until you carry that key; then just walk into it."
+      }
+     ]
+    },
+    {
+     "id": "la_bottle_boss",
+     "name": "Boss: the Genie",
+     "sub": "Trap him in his bottle, then smash it",
+     "reward": "The second Instrument of the Sirens",
+     "steps": [
+      {
+       "id": "la_bottle_geniephase1",
+       "k": "step",
+       "t": "The Genie floats inside his bottle, drifting back and forth and spitting fireballs. You cannot hurt him in this state — run side to side to dodge the fireballs and wait for him to pop out of the bottle.",
+       "stuck": "Don't waste sword swings on the floating Genie — he's invulnerable while bottled. Keep moving horizontally to slip past the fireballs (Roc's Feather helps) until the bottle drops to the floor and starts bouncing around."
+      },
+      {
+       "id": "la_bottle_geniebottle",
+       "k": "step",
+       "t": "When the empty bottle bounces loose on the floor, slash it once with your sword to stun it, then equip the Power Bracelet, lift the bottle, and throw it hard against a wall. Do this about three times — the bottle finally shatters and the Genie is forced out for good.",
+       "stuck": "Sword first to stun, THEN lift and throw. Aim the throw at a wall so it smashes. He'll keep climbing back into the bottle, so re-stun and re-throw each time until — after roughly three good throws — the bottle breaks."
+      },
+      {
+       "id": "la_bottle_geniephase3",
+       "k": "step",
+       "t": "Now bottle-less, the Genie splits into spinning ghost copies that circle the room. Wait for the real one to solidify (it winds up a big fireball), dodge that, then rush in and strike it with your sword. A few clean hits finishes him.",
+       "stuck": "Ignore the see-through copies — only the solid Genie can be hurt and it gives itself away by stopping to launch a large homing fireball. Sidestep that, close the gap, and land your sword on the real one; repeat until he's gone."
+      },
+      {
+       "id": "la_bottle_conchhorn",
+       "k": "reward",
+       "t": "With the Genie destroyed, grab the Heart Container that appears, then step onto the portal to claim the second Instrument of the Sirens — the Conch Horn. Two down, six to go.",
+       "items": [
+        {
+         "name": "Conch Horn",
+         "cat": "key",
+         "note": "The second Instrument of the Sirens — a piece of the song that wakes the Wind Fish."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "la_key",
+   "name": "Key Cavern",
+   "sub": "Dungeon 3 — the Sea Lily's Bell",
+   "champion": "Sea Lily's Bell",
+   "tagline": "Golden leaves for a buried key, and boots to charge with.",
+   "sections": [
+    {
+     "id": "la_key_leaves",
+     "name": "The Golden Leaves",
+     "sub": "Kanalet Castle — earn the Slime Key",
+     "reward": "Slime Key",
+     "steps": [
+      {
+       "id": "la_key_castle",
+       "k": "step",
+       "t": "Head to Kanalet Castle, in the northeast above Ukuku Prairie. The front gate is closed — you can't walk straight in. Follow the moat around to the east side to find a way across.",
+       "stuck": "The main gate stays shut. You enter from the east, where Kiki the monkey is waiting by the moat — see the next step."
+      },
+      {
+       "id": "la_key_kiki",
+       "k": "step",
+       "t": "On the east side of the moat you'll meet Kiki the monkey. Give Kiki the Bananas (from the trading sequence) and Kiki's troop of monkeys builds a bridge across the moat, opening the castle to you.",
+       "stuck": "No Bananas yet? They come from the island trade chain (Yoshi Doll → ... → Bananas). Trade up until you're holding the Bananas, then hand them to Kiki here; the monkeys build the bridge automatically."
+      },
+      {
+       "id": "la_key_leaf_count",
+       "k": "tip",
+       "t": "There are exactly five Golden Leaves to collect, spread across the castle grounds and the two floors inside. Grab them in any order — just have all five before you head back to Richard."
+      },
+      {
+       "id": "la_key_collect",
+       "k": "loot",
+       "t": "Gather all five Golden Leaves. Each is guarded by an enemy you must defeat — none are just lying loose.",
+       "stuck": "The five: (1) on the castle grounds, defeat the Mad Bomber in the lawn with the six pits; (2) on the grounds, throw a rock at the Crow in the tree to wake it, then kill it; (3) in the first room inside, beat the two Darknuts (dodge the flying flaming skull); (4) in the sunken room, bomb a cracked Darknut wall-carving to spawn an enemy — defeat the LEFT one; (5) in the final room upstairs, beat the Ball & Chain Trooper, timing past its swinging weapon.",
+       "items": [
+        {
+         "name": "Golden Leaf",
+         "cat": "material",
+         "note": "Five total — collect them all to earn the Slime Key from Richard."
+        }
+       ]
+      },
+      {
+       "id": "la_key_richard",
+       "k": "step",
+       "t": "Return to Prince Richard at his villa, just south of the castle. Hand him all five leaves and he opens the path through the field behind his house.",
+       "stuck": "Richard's Villa is the house south of Kanalet Castle (he was thrown out of the castle and lives here now). Talk to him before AND after the leaves — he asks for them, then opens the gate to the field behind his villa once all five are in hand."
+      },
+      {
+       "id": "la_key_slimekey",
+       "k": "reward",
+       "t": "Cross the field behind Richard's villa to the Owl Statue. Dig directly in front of it with the Shovel to unearth the Slime Key.",
+       "stuck": "The leaves don't hand you the key — Richard just opens the field. Walk to the Owl Statue back there and use the Shovel on the ground right in front of it. The Slime Key pops out of the dirt.",
+       "items": [
+        {
+         "name": "Slime Key",
+         "cat": "key",
+         "note": "Opens the gate to Key Cavern in Ukuku Prairie."
+        }
+       ]
+      },
+      {
+       "id": "la_key_entrance",
+       "k": "step",
+       "t": "Take the Slime Key down into Ukuku Prairie, just south of Richard's villa. Set it in the keyhole to open the dungeon gate, then cross the small islands west to reach Key Cavern, the island's third dungeon."
+      }
+     ]
+    },
+    {
+     "id": "la_key_dungeon",
+     "name": "Into Key Cavern",
+     "sub": "Find the Pegasus Boots",
+     "reward": "Pegasus Boots",
+     "steps": [
+      {
+       "id": "la_key_smallkeys",
+       "k": "tip",
+       "t": "Key Cavern lives up to its name — it's a maze of locked doors fed by lots of Small Keys. Clear a room's enemies and lift or push blocks; keys are often the reward for emptying a room before its doors will open."
+      },
+      {
+       "id": "la_key_map_compass",
+       "k": "loot",
+       "t": "Grab the dungeon Map and Compass as you explore the early rooms. The Compass chimes in any room that still hides a key or chest, which makes the maze far less confusing.",
+       "items": [
+        {
+         "name": "Map",
+         "cat": "item",
+         "note": "Dungeon map for Key Cavern."
+        },
+        {
+         "name": "Compass",
+         "cat": "item",
+         "note": "Chimes when a room still holds a key or chest."
+        }
+       ]
+      },
+      {
+       "id": "la_key_boots",
+       "k": "loot",
+       "t": "Find the chest holding the Pegasus Boots in the dungeon's interior. Hold the assigned button to charge, then release to DASH straight ahead.",
+       "stuck": "Equip the Pegasus Boots to one of your two item buttons. Hold that button to build up speed, then release to sprint forward. Combine a held dash with Roc's Feather to clear long gaps — and you'll need the dash itself to smash cracked blocks and, later, to beat the boss.",
+       "items": [
+        {
+         "name": "Pegasus Boots",
+         "cat": "item",
+         "note": "Hold to dash; charge into cracked blocks and enemies. Dash + Roc's Feather = a long jump."
+        }
+       ]
+      },
+      {
+       "id": "la_key_dash_blocks",
+       "k": "step",
+       "t": "Use a Pegasus Boots dash to smash through cracked blocks and shove aside Hardhat Beetles that pen you in. Dash beetles into pits or simply barrel past them to open the route deeper into the dungeon.",
+       "stuck": "Equip the Boots, hold to build speed, then release into a cracked block to shatter it (or into a Hardhat Beetle to knock it back). Many doors here only open once you've dash-cleared the blocks or beetles blocking them."
+      },
+      {
+       "id": "la_key_nightmare_key",
+       "k": "step",
+       "t": "Work toward the Nightmare Key — the boss key. With it, open the final ornate door to reach the boss's lair.",
+       "stuck": "The Nightmare Key sits behind a chain of Small-Key doors and dash puzzles deeper in the dungeon. Clear each room and use the Compass chime to confirm you've collected every key before backtracking. The boss door is the one with the big ornate lock."
+      }
+     ]
+    },
+    {
+     "id": "la_key_boss",
+     "name": "Boss: Slime Eye",
+     "sub": "Dash it apart, then strike each eye",
+     "reward": "Sea Lily's Bell",
+     "steps": [
+      {
+       "id": "la_key_boss_intro",
+       "k": "warn",
+       "t": "Slime Eye starts hidden on the ceiling, taunting you — you can't hit what you can't see. You have to knock it down first, and that's exactly what the Pegasus Boots are for. Don't stand in its shadow, or it drops right onto you."
+      },
+      {
+       "id": "la_key_boss_grab",
+       "k": "step",
+       "t": "Dash into the wall with the Pegasus Boots to shake Slime Eye loose from the ceiling. Once it's down, slash its eye with your sword; each hit stretches it wider. When the two eyes are pulled fully apart and the slime between them is thinnest, line up and DASH through the middle to split it into two separate eyes.",
+       "stuck": "Hold the Boots button, release into the back wall, and the boss drops. Sword the eye to stretch it; keep hitting until the link between the two eyes is a thin strand. Then center yourself and dash-attack straight through that thin center with the Pegasus Boots — that's the only way to cut it in two. (No Hookshot or Power Bracelet needed here — this fight is all about the dash.)"
+      },
+      {
+       "id": "la_key_boss_win",
+       "k": "step",
+       "t": "Now finish each of the two smaller eyes with your sword. When one leaps and lands, the shockwave will knock you flat — jump with Roc's Feather as it lands to stay on your feet. Kill both and Slime Eye is beaten; step into the Heart Container it leaves to raise your max life by one heart.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Raises your maximum hearts by one."
+        }
+       ]
+      },
+      {
+       "id": "la_key_bell",
+       "k": "reward",
+       "t": "Claim the third Instrument of the Sirens, the Sea Lily's Bell. Three of the eight are yours — its tone joins the song you'll one day play for the Wind Fish.",
+       "items": [
+        {
+         "name": "Sea Lily's Bell",
+         "cat": "key",
+         "note": "Instrument 3 of 8 — won from Slime Eye in Key Cavern."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "la_angler",
+   "name": "Angler's Tunnel",
+   "sub": "Dungeon 4 — the Surf Harp",
+   "champion": "Surf Harp",
+   "tagline": "Pull the Angler Key from the desert, part the falls, then learn to swim.",
+   "kind": "region",
+   "sections": [
+    {
+     "id": "la_angler_open",
+     "name": "Opening the Falls",
+     "sub": "Win the Angler Key, then part the waterfall",
+     "steps": [
+      {
+       "id": "la_angler_key",
+       "k": "loot",
+       "t": "Head to the Yarna Desert (east, past Animal Village) and find the patch of quicksand. A Lanmola — a red, centipede-like sand monster — bursts up to fight you. Beat it and it drops the fish-shaped Angler Key.",
+       "stuck": "The Lanmola dives in and out of the sand. Stand still until it surfaces, then hit its head with the Sword (charged swings help) and step away before it dives again. When it dies the Angler Key gets pulled into the quicksand vortex — follow it and pick it up.",
+       "items": [
+        {
+         "name": "Angler Key",
+         "cat": "key",
+         "note": "Fish-shaped key won in the Yarna Desert — opens the way into Angler's Tunnel."
+        }
+       ]
+      },
+      {
+       "id": "la_angler_drop",
+       "k": "step",
+       "t": "Carry the Angler Key to the big waterfall on the northeastern mountain. There's a fish-shaped Angler Keyhole set in the rock in front of the falls. Insert the key — the waterfall parts and reveals the tunnel entrance shaped like a giant fish.",
+       "stuck": "Walk up to the carved keyhole on the ledge by the waterfall and use the Angler Key on it. The cascade splits to one side, exposing the fish-mouth doorway behind it."
+      },
+      {
+       "id": "la_angler_enter",
+       "k": "step",
+       "t": "Parting the falls isn't enough to walk straight in — you have to reach the entrance from above. Climb up through the Tal Tal mountain caves and ladders (a sliding-block and rock-push puzzle or two on the way) to the top of the falls, then drop down to the now-open fish doorway. This is Angler's Tunnel, Dungeon 4.",
+       "stuck": "From the keyhole ledge, work your way up the mountain path. After the cave passages you come out at the top of the waterfall — step off the ledge to land right at the entrance the parted water uncovered."
+      },
+      {
+       "id": "la_angler_gear",
+       "k": "tip",
+       "t": "Keep the Sword on one button and the Pegasus Boots handy. Remember the two-button limit — you'll swap a slot for the Flippers once you find them inside, since the boss can't be fought without them."
+      }
+     ]
+    },
+    {
+     "id": "la_angler_dungeon",
+     "name": "Into the Tunnel",
+     "sub": "Find the Flippers and learn to swim",
+     "reward": "Flippers",
+     "steps": [
+      {
+       "id": "la_angler_water",
+       "k": "warn",
+       "t": "Much of this dungeon is flooded. Until you have the Flippers you can only wade in shallow water — deep water blocks you, so map your route around it and come back to the deep rooms once you can swim."
+      },
+      {
+       "id": "la_angler_smallkey",
+       "k": "loot",
+       "t": "Work through the early rooms clearing enemies and pushing blocks to open paths. Pick up the Small Keys you find and use them on the locked doors blocking your way deeper in.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Opens one locked door inside Angler's Tunnel."
+        }
+       ]
+      },
+      {
+       "id": "la_angler_miniboss",
+       "k": "tip",
+       "t": "A mini-boss, Cue Ball, blocks the path — a big spiked ball that bounces straight at you down the room.",
+       "stuck": "Don't try to block it. When Cue Ball charges, jump over it with the Pegasus Boots dash or just sidestep, then slash it from behind. A few clean back-hits and it pops."
+      },
+      {
+       "id": "la_angler_flippers",
+       "k": "loot",
+       "t": "Reach the chest holding the dungeon item: the Flippers. From now on you can SWIM across deep water and DIVE underwater — this opens up the rest of the dungeon (and the whole island).",
+       "stuck": "The Flippers chest is in a room past the first locked doors; clear the monsters and open the chest. Once you have them you swim automatically when you step into deep water — press the dive button to go under and reach sunken switches and chests.",
+       "items": [
+        {
+         "name": "Flippers",
+         "cat": "item",
+         "note": "Swim across deep water and dive underwater. Needed for the boss and the rest of the island."
+        }
+       ]
+      },
+      {
+       "id": "la_angler_swim",
+       "k": "step",
+       "t": "Swim across the flooded rooms you couldn't cross before. Dive under to flip submerged floor switches and reach chests sitting in deep water — these open the path toward the boss.",
+       "stuck": "Stand in the deep water and press the button to dive. Underwater you can pass under low gaps and stand on a sunken switch to hold it down, opening barred doors above."
+      },
+      {
+       "id": "la_angler_bosskey",
+       "k": "loot",
+       "t": "Find the Nightmare Key and use it on the locked boss door deep in the tunnel. Top off your hearts before you open it.",
+       "items": [
+        {
+         "name": "Nightmare Key",
+         "cat": "key",
+         "note": "Opens the boss door at the end of Angler's Tunnel."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "la_angler_boss",
+     "name": "Boss: Angler Fish",
+     "sub": "Beat it for the Surf Harp",
+     "reward": "Surf Harp",
+     "steps": [
+      {
+       "id": "la_angler_boss_intro",
+       "k": "warn",
+       "t": "The fight is underwater — you'll be swimming the whole time (this is why you needed the Flippers). The giant Angler Fish swims back and forth, rams the walls to knock rocks loose, and summons little fish that swim at you. A glowing antenna juts from the top of its head."
+      },
+      {
+       "id": "la_angler_boss_fight",
+       "k": "step",
+       "t": "Equip your Sword. The weak point is the glowing orb on the antenna over its head — get above it and slash down onto that light. Keep swinging at the antenna whenever you can reach it, dodge its swimming passes, swat the small fish, and steer clear of the rocks it shakes loose. A handful of solid hits to the orb and it goes down.",
+       "stuck": "Don't aim for its mouth — aim for the glowing antenna on its head. Position yourself just above the fish and stab downward onto the light. Charged Sword swings land extra hits. Watch for falling rocks after it rams a wall, and clear the little fish so they don't chip your hearts."
+      },
+      {
+       "id": "la_angler_heart",
+       "k": "loot",
+       "t": "Grab the Heart Container the boss leaves behind to permanently raise your maximum hearts.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Permanently adds one heart to your maximum life."
+        }
+       ]
+      },
+      {
+       "id": "la_angler_harp",
+       "k": "reward",
+       "t": "Step into the light and claim the Surf Harp — the fourth Instrument of the Sirens. Four down, four to go on the way to waking the Wind Fish.",
+       "items": [
+        {
+         "name": "Surf Harp",
+         "cat": "key",
+         "note": "Instrument of the Sirens #4 — play it later as part of the Ballad of the Wind Fish."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la_catfish",
+   "name": "Catfish's Maw",
+   "sub": "Dungeon 5 — the Wind Marimba",
+   "champion": "Wind Marimba",
+   "tagline": "Dive into Martha's Bay and chase down the Hookshot.",
+   "sections": [
+    {
+     "id": "la_catfish_approach",
+     "name": "Across Martha's Bay",
+     "sub": "Dive to the Maw in the bay",
+     "steps": [
+      {
+       "id": "la_catfish_flippers_check",
+       "k": "warn",
+       "t": "You need the Flippers (from Angler's Tunnel, Dungeon 4) before you start. Without them you can't swim out into Martha's Bay to reach this dungeon."
+      },
+      {
+       "id": "la_catfish_swim_east",
+       "k": "step",
+       "t": "Head to Martha's Bay on the east side of the map. With the Flippers equipped, swim out toward the large rock formation shaped like a catfish in the middle of the bay."
+      },
+      {
+       "id": "la_catfish_find_maw",
+       "k": "step",
+       "t": "Near the catfish statue there's a whirlpool in the water. Swim into it and dive down — you'll drop into a short underwater (side-view) stretch that leads to the entrance of Catfish's Maw.",
+       "stuck": "Look on the west side of the catfish rocks for a small opening with a swirling whirlpool. Stand in it and press the dive button. In the 2D underwater section, swim low and across to the other side to surface at the dungeon door."
+      },
+      {
+       "id": "la_catfish_boomerang_optional",
+       "k": "optional",
+       "t": "Optional, nearby: a hidden man in a cave along the southern seashore will swap your Boomerang for one of your other items. The Boomerang is a strong throwing weapon, but you give up whatever you trade — your call. (Easy to skip; you can come back later.)",
+       "items": [
+        {
+         "name": "Boomerang",
+         "cat": "item",
+         "note": "Trade one of your items to the hidden man in the seashore cave; thrown, it flies out and returns to you."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "la_catfish_dungeon",
+     "name": "Inside the Maw",
+     "sub": "Chase down the Hookshot",
+     "steps": [
+      {
+       "id": "la_catfish_keys",
+       "k": "tip",
+       "t": "Like every dungeon, grab the Map, Compass, and Small Keys as you go, and keep Bombs handy — cracked walls and blocked paths hide rooms here. Rooms with skull-shaped floor tiles are where you'll fight a recurring mini-boss."
+      },
+      {
+       "id": "la_catfish_hookshot",
+       "k": "loot",
+       "t": "The dungeon item is the Hookshot, but Master Stalfos steals it. You fight this sword-and-shield skeleton mini-boss four times across the dungeon (in the skull-tiled rooms); on his final defeat he drops the Hookshot. It fires a chain that pulls you across pits, grabs far chests, and stuns or yanks enemies toward you.",
+       "stuck": "Hit Master Stalfos with your sword to stagger him, then strike again before he recovers — he flees after a few hits each time. Beat all four encounters and the Hookshot is yours. (If a fight won't trigger, drop the blocks in the room or hit the floor switch first.)",
+       "items": [
+        {
+         "name": "Hookshot",
+         "cat": "item",
+         "note": "Catfish's Maw dungeon item, recovered from Master Stalfos; fires a chain to cross pits and stun or pull enemies."
+        }
+       ]
+      },
+      {
+       "id": "la_catfish_use_hookshot",
+       "k": "tip",
+       "t": "Use the Hookshot to reach ledges across pits and to pull yourself to far blocks. Remember you can equip only two items at once, so swap the Hookshot onto a button when a gap or a hook target needs it."
+      },
+      {
+       "id": "la_catfish_boss_key",
+       "k": "step",
+       "t": "Find the Nightmare Key, then head for the locked boss door deeper in the dungeon.",
+       "stuck": "The Nightmare Key chest is across a gap — Hookshot the hook on the far side to pull out a bridge, cross, and open the chest. The boss door is the big locked Nightmare door past the keyed rooms."
+      }
+     ]
+    },
+    {
+     "id": "la_catfish_boss",
+     "name": "Boss: Slime Eel",
+     "sub": "Hookshot the head, sword the glowing segment",
+     "reward": "Wind Marimba",
+     "steps": [
+      {
+       "id": "la_catfish_boss_intro",
+       "k": "warn",
+       "t": "The boss is the Slime Eel. Its spiked tail swings around the central hole in the room, and its fanged head darts out of holes in the walls. Bring a heart-restoring item — the tail does heavy damage if it catches you."
+      },
+      {
+       "id": "la_catfish_boss_drop",
+       "k": "step",
+       "t": "Watch the wall holes. When the Slime Eel's head pokes out, fire the Hookshot straight into it to grab the head and pull the eel out, dragging its body into the open.",
+       "stuck": "Equip the Hookshot and stand back from the wall. The head only appears for a moment in one of the holes — aim level with it and fire the instant it shows. The chain latches on and drags the eel's body out, exposing it."
+      },
+      {
+       "id": "la_catfish_boss_kill",
+       "k": "step",
+       "t": "Once it's pulled out, a glowing red segment on its body/neck is the weak point. Slash that glowing part with your sword. Repeat — Hookshot the head, then strike the glowing segment — until it dies.",
+       "stuck": "Only the glowing segment takes damage. Stand as far from the central hole as you can so the swinging tail can't reach you, hit the glow a couple of times after each Hookshot pull, then back off. Ignore the fake bouncing eels — they self-destruct on their own."
+      },
+      {
+       "id": "la_catfish_marimba",
+       "k": "reward",
+       "t": "The Slime Eel dies and a Heart Container appears. Take it, then claim the fifth Instrument of the Sirens — the Wind Marimba.",
+       "items": [
+        {
+         "name": "Wind Marimba",
+         "cat": "key",
+         "note": "Fifth Instrument of the Sirens; one of the eight needed to wake the Wind Fish."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "la_face",
+   "name": "Face Shrine",
+   "sub": "Dungeon 6 — the Coral Triangle",
+   "champion": "Coral Triangle",
+   "tagline": "A desert of faces, and a firmer grip.",
+   "sections": [
+    {
+     "id": "la_face_reach",
+     "name": "Raising the Face Shrine",
+     "sub": "Get the Face Key from the Ancient Ruins, then open the shrine north of Animal Village",
+     "steps": [
+      {
+       "id": "la_face_head_east",
+       "k": "step",
+       "t": "The Face Shrine sits north of Animal Village — but its entrance is hidden until you raise it with the Face Key. First go get that key: from Animal Village, head northwest to reach the Ancient Ruins, a field of armed statues."
+      },
+      {
+       "id": "la_face_quicksand_warn",
+       "k": "step",
+       "t": "To enter the Ancient Ruins building, lift the boulder blocking the lower path with your Power Bracelet and step inside. Work to the center room.",
+       "stuck": "If you can't find the way in, you're at the bottom of the rocky field below the ruins — pick up the single boulder there to clear the doorway."
+      },
+      {
+       "id": "la_face_key_note",
+       "k": "loot",
+       "t": "In the Ancient Ruins, defeat the large Armos Knight to receive the Face Key. (It wakes when you approach; its only attack is leaping up and slamming down to stun you — strike it between slams.)",
+       "items": [
+        {
+         "name": "Face Key",
+         "cat": "key",
+         "note": "Dropped by the Armos Knight — raises the Face Shrine's entrance."
+        }
+       ],
+       "stuck": "Hit the Armos Knight with your sword between its jumps. When it falls, the Face Key drops and the room opens. Pick the key up before you leave."
+      },
+      {
+       "id": "la_face_enter",
+       "k": "step",
+       "t": "Go to the Face Shrine spot north of Animal Village and insert the Face Key into the keyhole on the big statue. The shrine rises out of the ground — walk in to begin the dungeon.",
+       "stuck": "Stand right in front of the carved face statue and press the button with the Face Key on it; the doorway will surface."
+      }
+     ]
+    },
+    {
+     "id": "la_face_inside",
+     "name": "Inside the Face Shrine",
+     "sub": "Push the statues, dodge the traps, claim the bracelet",
+     "steps": [
+      {
+       "id": "la_face_statues",
+       "k": "step",
+       "t": "Much of the dungeon is blocked by face statues you must push. Push each one in the right direction to clear a path or hold down a floor switch — when a statue lines up correctly, a door or stairway opens.",
+       "stuck": "Push a statue ONTO a switch to hold its door open. Statues only slide in straight lines and can only be pushed, never pulled, so plan the order — if one jams against a wall, leave the room and re-enter to reset it."
+      },
+      {
+       "id": "la_face_tile_traps",
+       "k": "warn",
+       "t": "Watch the floor and walls: some rooms have arrow statues that fire when you step in front of them, and Wall Masters can drop to grab you and toss you back to the entrance. Move along safe edges and don't linger."
+      },
+      {
+       "id": "la_face_small_keys",
+       "k": "loot",
+       "t": "Collect the small keys hidden behind statue puzzles and in chests as you go — you'll need them to reach the dungeon item and the boss. Clear a room's enemies if a key sits behind a locked 'beat all foes' door."
+      },
+      {
+       "id": "la_face_bracelet",
+       "k": "loot",
+       "t": "Find the chest holding the Power Bracelet Lv-2 — the dungeon's main item. It upgrades your grip so you can lift heavier objects than the old bracelet could.",
+       "stuck": "The bracelet chest is reached by clearing the central statue puzzles. Once you have it, equip it to a button — you'll use it to grab and move blocks and to keep pushing statues for the rest of the dungeon.",
+       "items": [
+        {
+         "name": "Power Bracelet Lv-2",
+         "cat": "item",
+         "note": "The stronger bracelet — your upgraded grip for heavier objects."
+        }
+       ]
+      },
+      {
+       "id": "la_face_use_bracelet",
+       "k": "step",
+       "t": "With the Power Bracelet Lv-2 equipped, keep moving statues and blocks to open the path deeper into the shrine, working toward the locked boss door."
+      },
+      {
+       "id": "la_face_boss_key",
+       "k": "loot",
+       "t": "Grab the Nightmare Key (boss key) from its chest, then unlock the large boss door. Top up on hearts at any pots or fairy before you push in."
+      }
+     ]
+    },
+    {
+     "id": "la_face_boss",
+     "name": "Boss — Facade",
+     "sub": "The face in the floor",
+     "reward": "Coral Triangle",
+     "steps": [
+      {
+       "id": "la_face_facade_intro",
+       "k": "step",
+       "t": "The boss is Facade — a grinning face that surfaces in the floor itself. It flings floor tiles, then pots, and later opens pits beneath you. You can't sword it; you have to bomb it.",
+       "stuck": "Equip Bombs. Facade is immune to the sword — only bombs hurt it. Keep moving so the holes it opens under your feet don't drop you through. Roc's Feather helps you hop the pits."
+      },
+      {
+       "id": "la_face_facade_bomb",
+       "k": "step",
+       "t": "When Facade's face shows on the floor, set a Bomb right on top of it and step back before it goes off — the blast has to land on the face. Repeat each time it reappears; a handful of clean hits ends the fight.",
+       "stuck": "Drop the Bomb the instant the face surfaces, then back away from the flying tiles and pots. If you have Magic Powder, light the two torches in the room first — it turns the Sparks into fairies for a free heal before the fight."
+      },
+      {
+       "id": "la_face_heart",
+       "k": "loot",
+       "t": "When Facade is defeated, a Heart Container appears. Walk into it to extend your life bar."
+      },
+      {
+       "id": "la_face_coral_triangle",
+       "k": "reward",
+       "t": "Step into the light to claim the sixth Instrument of the Sirens — the Coral Triangle. Six down, two to go before you can play the Ballad of the Wind Fish.",
+       "items": [
+        {
+         "name": "Coral Triangle",
+         "cat": "key",
+         "note": "The sixth Instrument of the Sirens — the Face Shrine's trophy."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "la_eagle",
+   "name": "Eagle's Tower",
+   "sub": "Dungeon 7 — the Organ of Evening Calm",
+   "champion": "Organ of Evening Calm",
+   "tagline": "Topple four pillars to bring the roof — and the boss — down to you.",
+   "sections": [
+    {
+     "id": "la_eagle_climb",
+     "name": "Up the Tower",
+     "sub": "Unlock the tower with the Bird Key, then take the Mirror Shield",
+     "steps": [
+      {
+       "id": "la_eagle_key",
+       "k": "step",
+       "t": "Before you can enter, you need the BIRD KEY. It sits deep in a cave in Tal Tal Heights, across pits you can only cross with the Flying Rooster. If you haven't revived the Rooster yet, play the Frog's Song of Soul at the weathercock in Mabe Village to bring it back, then carry it over the gaps to reach the key.",
+       "stuck": "Hold the Flying Rooster (lift it like a pot) and walk off the ledge — it flaps and floats you across the pits. Inside the Tal Tal Heights cave, ride it over the broken floor to the chest with the Bird Key."
+      },
+      {
+       "id": "la_eagle_find",
+       "k": "step",
+       "t": "Take the Bird Key to Eagle's Tower in the northeast mountains. Lift the rock beside the tower and drop the key into the keyhole — the whole tower spins around to reveal its entrance. Climb the steps and head inside. This is Dungeon 7.",
+       "stuck": "The keyhole is a stone slot at the tower's base, hidden under a liftable rock on the left. Set the Bird Key in it and the tower rotates so the door faces you."
+      },
+      {
+       "id": "la_eagle_warn_layout",
+       "k": "tip",
+       "t": "This dungeon is a vertical stack of floors. The whole puzzle is about collapsing the top floor down so you can reach the roof — keep that goal in mind as you explore."
+      },
+      {
+       "id": "la_eagle_shield",
+       "k": "loot",
+       "t": "Find the chest holding the Mirror Shield — the dungeon's main item. It reflects the lasers fired by Beamos statues (and other beams the small shield can't stop), which lets you cross rooms the old shield couldn't.",
+       "items": [
+        {
+         "name": "Mirror Shield",
+         "cat": "shield",
+         "note": "Reflects Beamos lasers and beams the basic shield can't block. Also needed later to enter Turtle Rock."
+        }
+       ]
+      },
+      {
+       "id": "la_eagle_equip_shield",
+       "k": "tip",
+       "t": "Equip the Mirror Shield to one of your two item buttons. You'll lean on it hard during the rooftop boss to keep from being blown off the edge."
+      }
+     ]
+    },
+    {
+     "id": "la_eagle_pillars",
+     "name": "The Four Pillars",
+     "sub": "Smash the supports with the Iron Ball",
+     "steps": [
+      {
+       "id": "la_eagle_ball",
+       "k": "step",
+       "t": "Find the big Iron Ball on the upper floors. Walk into it to lift and carry it, then throw it — it's the only thing heavy enough to break the tower's support pillars.",
+       "stuck": "Press the action button while standing against the Iron Ball to pick it up. You move slowly and can't use items while holding it. Stand facing a pillar and press the button again to hurl the ball into it. It drops where it lands, so go pick it back up for the next one."
+      },
+      {
+       "id": "la_eagle_smash",
+       "k": "step",
+       "t": "FOUR support pillars hold the top floor up — two per floor across two levels. Carry the Iron Ball to each, throw it to smash the pillar, then fetch the ball and repeat until all four are broken.",
+       "stuck": "After you break a pillar, the ball stays in that room — grab it again. Some pillars sit behind locked doors or puzzles, so clear the floor first. When all four are gone, the top floor caves in."
+      },
+      {
+       "id": "la_eagle_grim",
+       "k": "step",
+       "t": "On the way up you'll fight the mini-boss Grim Creeper. He stays out of reach and summons six Big Keese (bats) that swoop at you one at a time. Defeat all six and he flees — this same Grim Creeper comes back for the rooftop boss fight.",
+       "stuck": "The Keese attack in the order they appeared. Cut down each one as it dives — your sword works fine. You don't hit Grim Creeper himself here; clearing all six bats ends the round and opens the way onward."
+      },
+      {
+       "id": "la_eagle_collapse",
+       "k": "tip",
+       "t": "Once all four pillars are smashed, the floor above caves in, opening the gap you climb through to reach the roof. If you can't get up, you've missed a pillar — go back and find it."
+      }
+     ]
+    },
+    {
+     "id": "la_eagle_boss",
+     "name": "The Evil Eagle",
+     "sub": "Rooftop boss — the Organ of Evening Calm",
+     "reward": "Organ of Evening Calm",
+     "steps": [
+      {
+       "id": "la_eagle_roof",
+       "k": "step",
+       "t": "Climb to the open roof. Grim Creeper returns riding the Evil Eagle, a huge bird that circles offscreen and swoops across the rooftop at you. There are no walls up here — the real danger is being knocked off."
+      },
+      {
+       "id": "la_eagle_fight",
+       "k": "step",
+       "t": "The Evil Eagle's weak point is its BEAK. Hit the beak with a ranged weapon as it swoops — the Bow, Boomerang, Hookshot, or Magic Rod all reach it (the Magic Rod hits hardest, arrows next). Stay near the center of the roof so you have room to react both ways.",
+       "stuck": "When the eagle dives straight across, line up and strike its beak as it passes. Sword swings only connect if it comes low enough, so a ranged item is far more reliable here."
+      },
+      {
+       "id": "la_eagle_wind",
+       "k": "step",
+       "t": "Sometimes the eagle hovers in a corner and flaps a gust of wind and feathers at you, trying to blow you off the edge. Raise the Mirror Shield and HOLD toward the eagle to brace against the wind — do NOT get pushed off. If you fall off the roof, the eagle recovers some health, so blocking this attack is what wins the fight.",
+       "stuck": "The moment it stops to flap, point your shield directly at it and hold. Tap the wind back, then go back to hitting the beak on its next swoop."
+      },
+      {
+       "id": "la_eagle_kill",
+       "k": "step",
+       "t": "Keep hitting the beak on each swoop and shielding the wind attacks. After enough beak hits, the Evil Eagle goes down and the Heart Container appears."
+      },
+      {
+       "id": "la_eagle_heart",
+       "k": "loot",
+       "t": "Grab the Heart Container the boss leaves behind — it permanently raises your maximum hearts."
+      },
+      {
+       "id": "la_eagle_instrument",
+       "k": "reward",
+       "t": "Step into the chamber beyond and claim the seventh Instrument of the Sirens: the Organ of Evening Calm. Seven of eight are now yours — only one Instrument remains.",
+       "items": [
+        {
+         "name": "Organ of Evening Calm",
+         "cat": "key",
+         "note": "The seventh Instrument of the Sirens — its melody helps wake the Wind Fish."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "la_turtle",
+   "name": "Turtle Rock",
+   "sub": "Dungeon 8 — the Thunder Drum",
+   "champion": "Thunder Drum",
+   "tagline": "Crack the mountain turtle's shell, then brave fire with a rod.",
+   "kind": "region",
+   "sections": [
+    {
+     "id": "la_turtle_wake",
+     "name": "Waking the Turtle",
+     "sub": "The peak of the Tal Tal Mountains",
+     "steps": [
+      {
+       "id": "la_turtle_climb",
+       "k": "step",
+       "t": "Work your way up the Tal Tal Heights to the very peak. The giant stone turtle sits at the top, its huge head blocking the way forward. It looks like solid rock — that's the sleeping guardian of the eighth dungeon."
+      },
+      {
+       "id": "la_turtle_play_ocarina",
+       "k": "step",
+       "t": "Stand right in front of the turtle's head and play the Ocarina. Choose the Frog's Song of Soul (the song you learned from Mamu). The turtle wakes up — but it won't just let you in. Its head rears up and the fight begins.",
+       "stuck": "Equip the Ocarina to one of your two item buttons and press it while facing the head. When the song list appears, pick the Frog's Song of Soul — not Manbo's Mambo or the Ballad of the Wind Fish. If nothing happens, step closer so you're directly below the head before you play. Don't have the song? Mamu teaches it for 300 Rupees in the Signpost Maze, after you have the Hookshot."
+      },
+      {
+       "id": "la_turtle_headfight",
+       "k": "step",
+       "t": "The woken head bobs left and right, then dashes at you. Sidestep the dash so it slams its head into the rock and stuns itself — then drop a Bomb right by its head to crack the stone shell. Repeat until the shell falls off and the face is exposed, then slash the bare face with your sword until the head is beaten and the mouth opens into the dungeon.",
+       "stuck": "In the Switch remake the head keeps its rocky shell when it wakes, so your sword can't hurt it yet — you MUST break the shell with Bombs first. Stand a little to one side, wait for the head to charge and hit the wall, and only then lay a Bomb against it (Roc's Feather helps you hop the head's swing). After the shell is gone, switch back to the sword and cut the face; if the head lifts into the air, jump with Roc's Feather and slash it up there."
+      },
+      {
+       "id": "la_turtle_enter",
+       "k": "step",
+       "t": "Walk into the turtle's open mouth to enter Turtle Rock. Inside is a maze of lava, ice, and fire — bring full hearts before you go in."
+      }
+     ]
+    },
+    {
+     "id": "la_turtle_rod",
+     "name": "Into the Fire",
+     "sub": "Find the Magic Rod",
+     "steps": [
+      {
+       "id": "la_turtle_explore",
+       "k": "step",
+       "t": "Push deeper through the dungeon, clearing each room of enemies to open the locked doors. Collect Small Keys as you go and use them on the locked doors that block your path forward."
+      },
+      {
+       "id": "la_turtle_smallkey",
+       "k": "loot",
+       "t": "Grab the Small Keys hidden in chests and under defeated enemies. You'll need several to reach the dungeon item room.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Opens one locked door inside Turtle Rock."
+        }
+       ]
+      },
+      {
+       "id": "la_turtle_get_rod",
+       "k": "loot",
+       "t": "In the dungeon-item chest you'll find the Magic Rod. It shoots a jet of fire — it lights torches from a distance, burns away ice that blocks your path, and is the key to beating this dungeon's boss.",
+       "stuck": "The Magic Rod chest sits up a short flight of steps, reached after you clear the mini-boss Blaino's room. Open the big chest to claim it, then assign the Magic Rod to one of your two item buttons so you can fire it.",
+       "items": [
+        {
+         "name": "Magic Rod",
+         "cat": "item",
+         "note": "Shoots fire; lights torches, burns the ice blocking your path, and damages the boss Hot Head."
+        }
+       ]
+      },
+      {
+       "id": "la_turtle_torches",
+       "k": "tip",
+       "t": "From here on, use the Magic Rod to light unlit torches and to burn the blocks of ice that wall off rooms — several areas only open once the torches are lit or the ice is gone. Fire the rod at each target from a safe distance."
+      },
+      {
+       "id": "la_turtle_burn",
+       "k": "tip",
+       "t": "The Magic Rod's fire also makes short work of the dungeon's enemies at range. Swap the rod onto a button when a room is crowded, and keep your shield handy for the projectiles."
+      },
+      {
+       "id": "la_turtle_bosskey",
+       "k": "loot",
+       "t": "Find the Nightmare Key (the big ornate key) and use it on the boss door near the back of the dungeon.",
+       "items": [
+        {
+         "name": "Nightmare Key",
+         "cat": "key",
+         "note": "Opens the boss door at the end of Turtle Rock."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "la_turtle_boss",
+     "name": "The Nightmare: Hot Head",
+     "sub": "Fire against fire",
+     "reward": "The Thunder Drum — the eighth and final Instrument",
+     "steps": [
+      {
+       "id": "la_turtle_enter_boss",
+       "k": "step",
+       "t": "Step through the boss door into a room of lava. The Nightmare here is Hot Head — a flaming face that leaps up out of the lava, splashes fire as it lands, and dives back under to hide."
+      },
+      {
+       "id": "la_turtle_fight",
+       "k": "step",
+       "t": "Equip the Magic Rod. Each time Hot Head leaps from the lava, hit it with the rod's fire. After enough hits its outer flames break away and it shrinks, then it starts skimming fast across the lava — keep firing whenever it surfaces.",
+       "stuck": "Only strike Hot Head while it's risen above the lava — shots miss while it's submerged. The fire it splashes always lands diagonally, so stand directly in front of its face (or right behind/beside it) and the splash falls harmlessly to your sides. Use the Magic Rod for safe ranged hits; the sword works too but forces you up against the lava. After several hits it shrinks and speeds up — stay near the center and keep landing rod shots until it's gone."
+      },
+      {
+       "id": "la_turtle_get_drum",
+       "k": "reward",
+       "t": "Hot Head bursts apart and dies. Cross to the Heart Container, then take the Thunder Drum — the eighth and final Instrument of the Sirens. Every Instrument is now yours.",
+       "items": [
+        {
+         "name": "Thunder Drum",
+         "cat": "key",
+         "note": "The eighth and final Instrument of the Sirens."
+        }
+       ]
+      },
+      {
+       "id": "la_turtle_heart",
+       "k": "loot",
+       "t": "Grab the Heart Container that appears after the boss to permanently raise your maximum hearts.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Permanently adds one heart to your life bar."
+        }
+       ]
+      },
+      {
+       "id": "la_turtle_next",
+       "k": "tip",
+       "t": "With all eight Instruments collected, head for the Wind Fish's Egg atop Mt. Tamaranch. Play the Ballad of the Wind Fish in front of the Egg to open the way to the finale."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "la_windfish",
+   "name": "The Wind Fish's Egg",
+   "sub": "The finale — waking the dream",
+   "champion": null,
+   "tagline": "Eight songs at the egg, a gauntlet of shadow-bosses, and a goodbye.",
+   "sections": [
+    {
+     "id": "la_windfish_egg",
+     "name": "The Egg Opens",
+     "sub": "All eight Instruments, atop Mt. Tamaranch",
+     "steps": [
+      {
+       "id": "la_windfish_prep",
+       "k": "tip",
+       "t": "Before you go: refill on Fairies, Hearts, Magic Powder, and arrows, and have your Sword equipped. The fight ahead is one long gauntlet with no shop in between, and several forms need a specific tool (Powder, then Bow), so stock up now."
+      },
+      {
+       "id": "la_windfish_climb",
+       "k": "step",
+       "t": "Travel to Mt. Tamaranch, the mountain in the center of the island. Climb to the very top, where the giant Egg of the Wind Fish rests."
+      },
+      {
+       "id": "la_windfish_play",
+       "k": "step",
+       "t": "Stand right in front of the Egg and play your Ocarina. With all eight Instruments of the Sirens gathered, Link plays the Ballad of the Wind Fish — and the Egg cracks open.",
+       "stuck": "You must already hold all eight Instruments of the Sirens (one from each dungeon) for this to work. If nothing happens, you're missing one — go back and finish any dungeon you skipped. Equip the Ocarina to a button, face the Egg, and press it; Link plays the Ballad automatically."
+      },
+      {
+       "id": "la_windfish_enter",
+       "k": "step",
+       "t": "Step into the opening at the top of the Egg. Inside is a maze of dark, identical rooms."
+      },
+      {
+       "id": "la_windfish_maze",
+       "k": "step",
+       "t": "Pick the doorway at the far side of each room to move on. Only one sequence of doors leads to the hole in the floor at the heart of the Egg; the wrong door just loops you back, so it's safe to keep trying.",
+       "stuck": "The correct route is RANDOM for each save file. The hint is the book \"The Dark Secrets and Mysteries of Koholint\" in the Mabe Village library — read it with the Magnifying Lens to get YOUR eight directions, then follow them. (A commonly-seen sequence is Right, Up, Right, Up, Left, Up, Left, Up — try it, but trust the book if it differs.) The correct room has a hole down to the boss; you'll hear a chime when you reach it."
+      }
+     ]
+    },
+    {
+     "id": "la_windfish_nightmares",
+     "name": "The Nightmares",
+     "sub": "Six shadow-forms in a row — beat each in turn",
+     "reward": "The Wind Fish stirs",
+     "steps": [
+      {
+       "id": "la_windfish_gauntlet_tip",
+       "k": "tip",
+       "t": "This is one continuous fight against the Nightmares. The shadow cycles through six shapes — echoes of bosses you (and a hero before you) have faced — and each shape has its own weak point and tool. You keep all your Hearts between forms, so there's no break; pace yourself and keep a Fairy in reserve."
+      },
+      {
+       "id": "la_windfish_blob",
+       "k": "step",
+       "t": "Form 1 — a giant black blob (a Zol). Your Sword does nothing to it. Sprinkle Magic Powder on it; do this about three times and it changes shape.",
+       "stuck": "Equip Magic Powder. When the blob lands near you, toss Powder onto it — the Sword passes right through. Roughly three hits of Powder ends this form, so make sure you brought enough."
+      },
+      {
+       "id": "la_windfish_deflect",
+       "k": "step",
+       "t": "Form 2 — a robed wizard's shadow (Agahnim) that flings glowing energy balls at you. Swing your Sword the instant a ball reaches you to knock it straight back into him.",
+       "stuck": "Stand in line with the wizard and time a Sword swing to bat each energy ball back at him — like tennis. About four returned hits drop this form. Some of his projectiles can't be reflected — just dodge those rather than swinging."
+      },
+      {
+       "id": "la_windfish_worm",
+       "k": "step",
+       "t": "Form 3 — a fast worm (Moldorm) that whips around the room. Only the tip of its tail takes damage; chase the back end and slash it.",
+       "stuck": "Ignore the head — strike the very tip of the tail with your Sword, like the Tail Cave boss but quicker. It can shove you toward the edges, so keep your back away from open pits and keep chasing the tail."
+      },
+      {
+       "id": "la_windfish_ganon",
+       "k": "step",
+       "t": "Form 4 — a horned shadow (Ganon) that throws fire-bats, then hurls a trident. Dodge the bats and the trident, then close in and hit him with your Sword while he's open.",
+       "stuck": "Don't trade blows during his attacks. Sidestep the swarm of fire-bats, then jump or step clear of the thrown trident; the moment it leaves his hands he's exposed — rush in and land Sword hits (about five) before he recovers."
+      },
+      {
+       "id": "la_windfish_lanmola",
+       "k": "step",
+       "t": "Form 5 — a darting sand-worm (Lanmola) that streaks across the floor leaving a trail. Hit its head with your Sword as it surfaces; the Boomerang or Magic Rod also work well here.",
+       "stuck": "It only hurts you by touching you, but it's fast. Strike its head with the Sword as it passes, or throw the Boomerang to tag it from a distance. About five hits ends this form."
+      },
+      {
+       "id": "la_windfish_dethl",
+       "k": "reward",
+       "t": "Final form — Dethl: a dark mass with two spiked arms and a single great eye that opens between attacks. Use the Roc's Feather to jump its sweeping arms, and strike the eye with the Bow (arrows) or Boomerang each time it opens, until it bursts. With its fall, the last note rings out and the Wind Fish at last begins to wake.",
+       "stuck": "The body is shielded except when the central eye opens. Stay low, in front of it, and JUMP its spiked arms with the Roc's Feather. When the eye opens, fire an arrow (the cleanest option) or throw the Boomerang at it, then jump the next sweep. It speeds up as it weakens — keep the jump-then-shoot rhythm."
+      }
+     ]
+    },
+    {
+     "id": "la_windfish_waking",
+     "name": "Waking the Dream",
+     "sub": "The Ballad, and a goodbye",
+     "steps": [
+      {
+       "id": "la_windfish_ending_tip",
+       "k": "tip",
+       "t": "The fighting is over. From here, just let it play — there are no more buttons to press but the ones the moment asks for. Be ready for a bittersweet farewell."
+      },
+      {
+       "id": "la_windfish_ballad",
+       "k": "step",
+       "t": "Stand before the Wind Fish and play the Ballad of the Wind Fish one last time. The whole island — Koholint, and everyone on it — is the Wind Fish's dream, and your song is what finally wakes it."
+      },
+      {
+       "id": "la_windfish_farewell",
+       "k": "step",
+       "t": "Watch the ending through to the very last screen. You've woken the Wind Fish and the dream of Koholint gently comes to an end — hold onto what it meant, especially Marin.",
+       "stuck": "Don't skip past the credits — stay until the final scene fades. There is a quiet moment after the credits that completes the goodbye, and on most versions it changes if you finished the whole game without ever dying."
+      },
+      {
+       "id": "la_windfish_done",
+       "k": "tip",
+       "t": "That's the whole adventure. Thank you for playing it through — Koholint was only a dream, but it was a kind one."
+      }
+     ]
+    }
+   ],
+   "kind": "region"
   }
  ],
  "SHRINES": [],
@@ -33242,6 +34498,21 @@ const LA = {
    "name": "Sword",
    "glyph": "sword",
    "step": "la_beach_1"
+  },
+  {
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "step": "la_tail_feather"
+  },
+  {
+   "name": "Power Bracelet",
+   "glyph": "champion",
+   "step": "la_bottle_powerbracelet"
+  },
+  {
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "step": "la_catfish_hookshot"
   }
  ],
  "CHAMPIONS": [
@@ -33249,49 +34520,49 @@ const LA = {
    "name": "Full Moon Cello",
    "from": "Tail Cave",
    "note": "The first Instrument of the Sirens, won from Tail Cave beneath the eastern hills.",
-   "step": null
+   "step": "la_tail_cello"
   },
   {
    "name": "Conch Horn",
    "from": "Bottle Grotto",
    "note": "The second Instrument, won from Bottle Grotto in the Goponga Swamp area.",
-   "step": null
+   "step": "la_bottle_conchhorn"
   },
   {
    "name": "Sea Lily's Bell",
    "from": "Key Cavern",
    "note": "The third Instrument, won from the Key Cavern near Ukuku Prairie.",
-   "step": null
+   "step": "la_key_bell"
   },
   {
    "name": "Surf Harp",
    "from": "Angler's Tunnel",
    "note": "The fourth Instrument, won from Angler's Tunnel inside Tal Tal Heights.",
-   "step": null
+   "step": "la_angler_harp"
   },
   {
    "name": "Wind Marimba",
    "from": "Catfish's Maw",
    "note": "The fifth Instrument, won from Catfish's Maw on the eastern coast.",
-   "step": null
+   "step": "la_catfish_marimba"
   },
   {
    "name": "Coral Triangle",
    "from": "Face Shrine",
    "note": "The sixth Instrument, won from the Face Shrine in the eastern desert.",
-   "step": null
+   "step": "la_face_coral_triangle"
   },
   {
    "name": "Organ of Evening Calm",
    "from": "Eagle's Tower",
    "note": "The seventh Instrument, won from Eagle's Tower high on Tal Tal Mountains.",
-   "step": null
+   "step": "la_eagle_instrument"
   },
   {
    "name": "Thunder Drum",
    "from": "Turtle Rock",
    "note": "The eighth and final Instrument, won from Turtle Rock at the mountain's peak.",
-   "step": null
+   "step": "la_turtle_get_drum"
   }
  ],
  "CATS": [
