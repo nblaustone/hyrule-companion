@@ -1,0 +1,67 @@
+{
+ "_note": "Link's Awakening (game 6, Game Boy 1993) static bundle fields. assemble-la.mjs merges these with walkthrough.json (REGIONS) into app-data.json. Empty datasets degrade gracefully like TotK/OoT/MM v1. This game is set on KOHOLINT, not Hyrule — there is no Triforce and no Ganon. The whole island is the dream of the sleeping Wind Fish; to go home, Link gathers the 8 Instruments of the Sirens (the 'Stones & Medallions' analog) and plays the Ballad of the Wind Fish to wake it. Bittersweet by design.",
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Instruments",
+  "regionBanner": "Dungeon",
+  "worldName": "Koholint"
+ },
+ "guideSegs": [["runes", "Items"], ["tips", "Tips"], ["settings", "Settings"]],
+ "postRegionId": "la_windfish",
+ "CATS": [
+  { "id": "sword", "name": "Swords", "glyph": "sword" },
+  { "id": "shield", "name": "Shields", "glyph": "shield" },
+  { "id": "bow", "name": "Bow & Bombs", "glyph": "bow" },
+  { "id": "song", "name": "Ocarina Songs", "glyph": "stasis" },
+  { "id": "item", "name": "Items & Tools", "glyph": "bag" },
+  { "id": "key", "name": "Key Items", "glyph": "key" },
+  { "id": "material", "name": "Trades & Collectibles", "glyph": "gem" }
+ ],
+ "RUNES": [
+  { "id": "sword", "name": "Sword", "glyph": "sword", "from": "Lying on the south beach where Marin found you — your first task is to get it back.", "what": "Your main weapon. At full health it shoots a sword beam, and you can later upgrade it to the L-2 Sword at the Seashell Mansion.", "tip": "You can only hold two items at once (A and B buttons), so the Sword usually shares your hands with Roc's Feather early on." },
+  { "id": "rocs_feather", "name": "Roc's Feather", "glyph": "leaf", "from": "Found in Tail Cave, the first dungeon.", "what": "Lets Link jump — over pits, spikes, and small gaps. Pair it with the Pegasus Boots to long-jump.", "tip": "Jumping is core to nearly every dungeon here. Feather + Boots together clears gaps neither can alone." },
+  { "id": "power_bracelet", "name": "Power Bracelet", "glyph": "champion", "from": "Found in Bottle Grotto, the second dungeon.", "what": "Lets you lift pots, skulls, and rocks and hurl them at enemies and switches.", "tip": "Many blocked paths are just a liftable rock away once you have this." },
+  { "id": "hookshot", "name": "Hookshot", "glyph": "magnesis", "from": "Found in Catfish's Maw, the fifth dungeon.", "what": "Fires a chain that grabs distant blocks to pull you across pits, and stuns or drags enemies.", "tip": "A late-but-mighty tool — it trivializes several earlier rooms if you revisit them." },
+  { "id": "ocarina", "name": "Ocarina", "glyph": "stasis", "from": "Won from a trade / found in the village — you learn three songs for it.", "what": "Plays three melodies: the Ballad of the Wind Fish (the goal song), Manbo's Mambo (a warp), and the Frog's Song of Soul.", "tip": "The Ballad of the Wind Fish is needed to calm Marin and to finish the game. Guard it." }
+ ],
+ "CHAMPIONS": [
+  { "name": "Full Moon Cello", "from": "Tail Cave", "note": "The first Instrument of the Sirens, won from Tail Cave beneath the eastern hills." },
+  { "name": "Conch Horn", "from": "Bottle Grotto", "note": "The second Instrument, won from Bottle Grotto in the Goponga Swamp area." },
+  { "name": "Sea Lily's Bell", "from": "Key Cavern", "note": "The third Instrument, won from the Key Cavern near Ukuku Prairie." },
+  { "name": "Surf Harp", "from": "Angler's Tunnel", "note": "The fourth Instrument, won from Angler's Tunnel inside Tal Tal Heights." },
+  { "name": "Wind Marimba", "from": "Catfish's Maw", "note": "The fifth Instrument, won from Catfish's Maw on the eastern coast." },
+  { "name": "Coral Triangle", "from": "Face Shrine", "note": "The sixth Instrument, won from the Face Shrine in the eastern desert." },
+  { "name": "Organ of Evening Calm", "from": "Eagle's Tower", "note": "The seventh Instrument, won from Eagle's Tower high on Tal Tal Mountains." },
+  { "name": "Thunder Drum", "from": "Turtle Rock", "note": "The eighth and final Instrument, won from Turtle Rock at the mountain's peak." }
+ ],
+ "ROADMAP": [
+  { "id": "instruments", "name": "The Eight Instruments", "sub": "To wake the Wind Fish", "note": "Each of the island's eight dungeons holds one Instrument of the Sirens. Play all eight together at the Egg atop Mt. Tamaranch to rouse the sleeping Wind Fish — and end the dream.", "reward": "The way home" },
+  { "id": "trade", "name": "The Trading Quest", "sub": "A long swap chain", "note": "Start with a Yoshi Doll from the Trendy Game and trade it islander to islander, item by item. The final swap earns the Magnifying Lens, which reveals a hidden truth.", "reward": "Magnifying Lens" },
+  { "id": "seashells", "name": "Secret Seashells", "sub": "Twenty-six hidden shells", "note": "Hidden under bushes, in caves, and buried in the sand (use the Shovel). Collect enough and the Seashell Mansion rewards you with a far stronger sword.", "reward": "L-2 Sword" },
+  { "id": "hearts", "name": "Pieces of Heart", "sub": "Four = one Heart Container", "note": "Twelve are scattered across Koholint. Every four add a full heart to your life meter.", "reward": "More hearts" }
+ ],
+ "TIPS": [
+  { "id": "dream", "name": "A dream you must end", "items": [
+   "Koholint Island is the dream of the sleeping Wind Fish. To go home, Link must wake it — by gathering the eight Instruments of the Sirens and playing the Ballad of the Wind Fish at the Egg on the mountain.",
+   "It's bittersweet on purpose: waking the Wind Fish means the island and everyone on it fade away. The game leans into that, so it's okay to slow down and enjoy Koholint first.",
+   "There's no Hyrule, no Triforce, and no Ganon here — just one island, one song, and a long sleep to break."
+  ] },
+  { "id": "tools", "name": "Only two buttons", "items": [
+   "You can equip just TWO items at once (to A and B), so you'll swap constantly through the menu. Sword + Roc's Feather is the pair you'll use most early on.",
+   "Pegasus Boots (hold to dash) + Roc's Feather lets you long-jump wide gaps. The Power Bracelet lifts pots and rocks; the Hookshot crosses pits and stuns enemies.",
+   "Bombs and the Bow combine — drop a Bomb and shoot it, or 'bomb-arrow' tough foes for big damage. The Magic Rod burns enemies and lights torches."
+  ] },
+  { "id": "songs", "name": "Three ocarina songs", "items": [
+   "You learn three melodies: the Ballad of the Wind Fish (the goal song), Manbo's Mambo (warps you to a set spot), and the Frog's Song of Soul (revives and powers certain things).",
+   "Owl statues across the island give hints when you hold the right item, and the Telephone Booths replay your current goal if you forget where to go.",
+   "Save often — the game can be paused/saved from the menu, and bottomless-pit falls or boss deaths send you back to the last save or dungeon entrance."
+  ] }
+ ],
+ "WORLD": { "upgrades": [], "systems": [], "fairies": [] },
+ "COLLECTIBLES": [
+  { "id": "hearts", "label": "Pieces of Heart", "total": 12, "glyph": "heart", "note": "Every 4 make a full Heart Container." },
+  { "id": "seashells", "label": "Secret Seashells", "total": 26, "glyph": "gem", "note": "Hidden across Koholint; collect enough to claim a stronger sword at the Seashell Mansion." }
+ ]
+}

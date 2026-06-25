@@ -1,0 +1,407 @@
+{
+ "id": "alttp",
+ "label": "A Link to the Past",
+ "short": "ALttP",
+ "REGIONS": [
+  {
+   "id": "alttp_intro",
+   "name": "A Stormy Night & the Sanctuary",
+   "sub": "Main Quest — Hyrule Castle",
+   "kind": "region",
+   "tagline": "A telepathic plea, a dying uncle, and a princess in the castle dungeon.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "alttp_intro_s_wake",
+     "name": "Zelda's Call",
+     "sub": "Out into the rain",
+     "reward": null,
+     "steps": [
+      {
+       "id": "alttp_wake_1",
+       "k": "step",
+       "t": "A thunderstorm wakes you in the dead of night. Princess Zelda's voice reaches your mind: she is locked in the castle dungeon and begs for help. Your uncle takes up his sword, tells you to stay in bed, and slips out into the rain."
+      },
+      {
+       "id": "alttp_wake_2",
+       "k": "tip",
+       "t": "This is the prologue — three hearts and no weapon yet. Follow your uncle; everything you need is just ahead."
+      },
+      {
+       "id": "alttp_wake_3",
+       "k": "step",
+       "t": "Get up and leave the house. Head north toward Hyrule Castle through the rainy field, slipping past the patrolling guards.",
+       "stuck": "From your house, go up and around the castle moat toward the north side. You're looking for the way your uncle took, not the locked front gate."
+      },
+      {
+       "id": "alttp_wake_4",
+       "k": "step",
+       "t": "At the castle's edge, find the hidden entrance your uncle used — a hole in the ground behind the bushes that drops into an underground passage.",
+       "stuck": "On the north-east side of the castle grounds, look for a lone bush by the wall. Pull it (or step into the gap) to reveal a stairway down into the passage."
+      }
+     ]
+    },
+    {
+     "id": "alttp_intro_s_castle",
+     "name": "Into Hyrule Castle",
+     "sub": "Your first sword",
+     "reward": "Fighter's Sword & Shield",
+     "steps": [
+      {
+       "id": "alttp_castle_1",
+       "k": "reward",
+       "t": "In the passage you find your uncle, badly wounded. With his last strength he gives you his sword and shield and tells you to save the princess.",
+       "items": [
+        {
+         "name": "Fighter's Sword",
+         "cat": "sword",
+         "note": "Your uncle's blade — your starting weapon. Swing with the sword button; hold it to charge a Spin Attack."
+        },
+        {
+         "name": "Fighter's Shield",
+         "cat": "shield",
+         "note": "Blocks arrows and shoves back some enemies when you walk into them facing forward."
+        }
+       ]
+      },
+      {
+       "id": "alttp_castle_2",
+       "k": "tip",
+       "t": "Tap an enemy before it taps you — with only three hearts, two careless hits can end you. Slash bushes and pots for hearts and Rupees as you go."
+      },
+      {
+       "id": "alttp_castle_3",
+       "k": "step",
+       "t": "Climb up into the castle. Cut through the soldiers floor by floor, opening chests for Rupees, Bombs, Arrows, and a small key."
+      },
+      {
+       "id": "alttp_castle_4",
+       "k": "loot",
+       "t": "Open the chest holding the Lamp — it lights dark rooms and burns bushes and torches. You'll need it constantly.",
+       "items": [
+        {
+         "name": "Lamp",
+         "cat": "item",
+         "note": "Lights pitch-black rooms and ignites torches and bushes; uses a little magic per flick."
+        }
+       ]
+      },
+      {
+       "id": "alttp_castle_5",
+       "k": "step",
+       "t": "Reach the prison block, defeat the guards, and unlock Princess Zelda's cell with the key you found. She joins and follows you.",
+       "stuck": "The cell key comes from a chest / a guard on the dungeon level just before the cells. Stand on the cell door and it opens once you hold the key."
+      }
+     ]
+    },
+    {
+     "id": "alttp_intro_s_sanctuary",
+     "name": "The Hidden Sanctuary",
+     "sub": "Safe — and the real quest begins",
+     "reward": "The three Pendants goal",
+     "steps": [
+      {
+       "id": "alttp_sanc_1",
+       "k": "step",
+       "t": "Zelda knows a secret way out. In the throne room, pull the hidden lever behind the back wall to open a stairway down into the castle's depths.",
+       "stuck": "Walk up to the back-right of the throne room and pull the wall ornament that looks like a torch/lever; the wall slides open onto a dark staircase."
+      },
+      {
+       "id": "alttp_sanc_2",
+       "k": "warn",
+       "t": "The basement passage is dark (keep the Lamp handy) and crawling with rats and spike traps. Keep Zelda close — if she lags behind, pause and let her catch up."
+      },
+      {
+       "id": "alttp_sanc_3",
+       "k": "reward",
+       "t": "Climb out into the Sanctuary. The loyal priest takes Zelda into hiding and explains the danger: the wizard Agahnim has bewitched the king and means to break the ancient seal that holds Ganon."
+      },
+      {
+       "id": "alttp_sanc_4",
+       "k": "step",
+       "t": "Your path is set. To stop Agahnim you need the legendary Master Sword — and to claim it you must gather the three Pendants of Virtue from the Eastern Palace, the Desert Palace, and the mountain Tower of Hera."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "master_sword",
+   "name": "Master Sword",
+   "glyph": "sword",
+   "from": "Drawn from its pedestal in the Lost Woods once you hold all three Pendants of Virtue.",
+   "what": "The blade of evil's bane — stronger than your uncle's sword, and at full health it fires a sword beam across the screen.",
+   "tip": "Two later upgrades, the Tempered Sword and the Golden Sword, make it hit even harder. Hold the button to charge a Spin Attack."
+  },
+  {
+   "id": "pegasus_boots",
+   "name": "Pegasus Boots",
+   "glyph": "stasis",
+   "from": "A gift from the dying soldier / found early once you have the means — hold the dash button to charge.",
+   "what": "Hold A to sprint, then crash through certain weak walls and bushes and stab with a charging thrust.",
+   "tip": "Boots + a few other items combine: dash into cracked walls, knock down stakes, or cross long runs you couldn't walk."
+  },
+  {
+   "id": "moon_pearl",
+   "name": "Moon Pearl",
+   "glyph": "orb",
+   "from": "The reward inside the Tower of Hera, the third Pendant dungeon.",
+   "what": "Keeps you in Link's true form in the Dark World. Without it, crossing over turns you into a helpless pink bunny.",
+   "tip": "Get this before exploring the Dark World freely — it's what makes the second map survivable."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "Found in the Palace of Darkness, the first Dark World dungeon.",
+   "what": "Fires a chain that grabs posts and pulls you across gaps and water — and yanks or stuns many enemies.",
+   "tip": "If a ledge or chest sits across a pit, the Hookshot is almost always the answer."
+  },
+  {
+   "id": "magic_mirror",
+   "name": "Magic Mirror",
+   "glyph": "cryonis",
+   "from": "Given by the lost maiden on Death Mountain.",
+   "what": "Warps you from the Dark World back to the matching spot in the Light World — the core trick for crossing between worlds.",
+   "tip": "Reach a place in one world, mirror to the other, move, and cross back to reach spots that look impossible."
+  },
+  {
+   "id": "lamp",
+   "name": "Lamp",
+   "glyph": "stasis",
+   "from": "A chest inside Hyrule Castle during the opening rescue.",
+   "what": "Lights dark rooms and burns bushes and torches; many dungeons are pitch-black until you light their torches.",
+   "tip": "If a room is dark and you're taking hits from nothing, light the wall torches with the Lamp."
+  }
+ ],
+ "STATUS_RUNES": [],
+ "CHAMPIONS": [
+  {
+   "name": "Pendant of Courage",
+   "from": "Eastern Palace",
+   "note": "Won by clearing the Eastern Palace — one of the three Pendants of Virtue you need to claim the Master Sword.",
+   "step": null
+  },
+  {
+   "name": "Pendant of Power",
+   "from": "Desert Palace",
+   "note": "Won by clearing the Desert Palace in the southwest — the second Pendant of Virtue.",
+   "step": null
+  },
+  {
+   "name": "Pendant of Wisdom",
+   "from": "Tower of Hera",
+   "note": "Won atop the Tower of Hera on Death Mountain — the third Pendant, plus the Moon Pearl.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Palace of Darkness",
+   "from": "Palace of Darkness",
+   "note": "The first rescued Maiden, sealed in a crystal. Seven crystals open the bridge to Ganon's Tower.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Swamp Palace",
+   "from": "Swamp Palace",
+   "note": "The second Maiden freed from her crystal prison in the southern swamp.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Skull Woods",
+   "from": "Skull Woods",
+   "note": "The third Maiden, freed from the dungeon hidden in the dark forest of skulls.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Thieves' Town",
+   "from": "Thieves' Town",
+   "note": "The fourth Maiden, freed from the village of thieves.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Ice Palace",
+   "from": "Ice Palace",
+   "note": "The fifth Maiden, freed from the frozen island dungeon in the south.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Misery Mire",
+   "from": "Misery Mire",
+   "note": "The sixth Maiden, freed from the swamp dungeon opened by the Ether (or Quake) Medallion.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Turtle Rock",
+   "from": "Turtle Rock",
+   "note": "The seventh and final Maiden, freed from the dungeon atop Dark Death Mountain.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "armor",
+   "name": "Mail",
+   "glyph": "armor"
+  },
+  {
+   "id": "bow",
+   "name": "Bow & Projectiles",
+   "glyph": "bow"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Materials",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "pendants",
+   "name": "The Three Pendants",
+   "sub": "Key to the Master Sword",
+   "note": "Courage, Power, and Wisdom — won from the Eastern Palace, the Desert Palace, and the Tower of Hera. Carry all three to the Lost Woods pedestal to draw the Master Sword.",
+   "reward": "Master Sword"
+  },
+  {
+   "id": "crystals",
+   "name": "The Seven Crystals",
+   "sub": "Seven trapped Maidens",
+   "note": "Each Dark World dungeon ends with a Maiden sealed in a crystal. Free all seven to open the bridge to Ganon's Tower and the final fight.",
+   "reward": "Ganon's Tower"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Twenty-four are hidden across both worlds in caves, minigames, and corners. Every four extend your life by a full heart, up to twenty.",
+   "reward": "More hearts"
+  },
+  {
+   "id": "bottles",
+   "name": "The Four Magic Bottles",
+   "sub": "Your lifesavers",
+   "note": "Bottles hold fairies, potions, or bees. A bottled fairy automatically revives you when you fall — finding all four is worth the detours.",
+   "reward": "Survival"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "twoworlds",
+   "name": "Two worlds, one map",
+   "items": [
+    "Hyrule has a bright Light World and a twisted Dark World laid over the exact same map. The Magic Mirror warps you from Dark back to Light; special tiles and the Mirror are how you cross between them.",
+    "A spot you can't reach in one world can often be reached by crossing to the other world, walking to the matching place, and crossing back.",
+    "The Moon Pearl (from the Tower of Hera) keeps you in Link's form in the Dark World. Without it you become a helpless pink bunny over there — get it before exploring freely."
+   ]
+  },
+  {
+   "id": "sword",
+   "name": "Sword, then Master Sword",
+   "items": [
+    "Your uncle gives you your first sword in the castle. The Master Sword waits in the Lost Woods once you hold all three Pendants — it's stronger and fires a beam when your hearts are full.",
+    "Later upgrades (the Tempered Sword from the dwarf smiths, then the Golden Sword) raise its power again.",
+    "Hold the sword button to charge a Spin Attack that hits all around you — perfect for crowds and tougher rooms."
+   ]
+  },
+  {
+   "id": "tools",
+   "name": "Tools open the map",
+   "items": [
+    "Most new areas are gated by an item: the Pegasus Boots dash, the Hookshot pulls you across gaps, the Hammer pounds stakes, the Flippers let you swim, the Titan's Mitt lifts dark heavy rocks.",
+    "If a screen looks impassable, you're usually missing the tool a dungeon ahead will give you — note it and come back.",
+    "Magic items (Fire/Ice Rod, the Cane of Somaria, the capes, the medallions) drain your green magic meter; magic jars and the Magic Potion refill it. The Magic Cape turns you invisible and walks through some hazards."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 24,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container — up to 20 hearts of life."
+  },
+  {
+   "id": "bottles",
+   "label": "Magic Bottles",
+   "total": 4,
+   "glyph": "pot",
+   "note": "Found and traded for across Hyrule; a bottled fairy revives you the moment you fall."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Pendants & Crystals",
+  "regionBanner": "Dungeon",
+  "worldName": "Hyrule"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "alttp_ganon"
+}

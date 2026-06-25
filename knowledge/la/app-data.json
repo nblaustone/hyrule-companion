@@ -1,0 +1,391 @@
+{
+ "id": "la",
+ "label": "Link's Awakening",
+ "short": "LA",
+ "REGIONS": [
+  {
+   "id": "la_intro",
+   "name": "Washed Ashore on Koholint",
+   "sub": "Main Quest — Mabe Village",
+   "kind": "region",
+   "tagline": "A shipwreck, a girl's song, and an island that shouldn't exist.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "la_intro_s_wake",
+     "name": "Marin's Song",
+     "sub": "Waking in Mabe Village",
+     "reward": null,
+     "steps": [
+      {
+       "id": "la_wake_1",
+       "k": "step",
+       "t": "Your ship is wrecked in a storm and you wash ashore. You wake in a cozy house in Mabe Village — a girl named Marin found you on the beach, and her father Tarin is downstairs. Your sword is gone."
+      },
+      {
+       "id": "la_wake_2",
+       "k": "tip",
+       "t": "Koholint is a small island you can explore freely. Talk to everyone, read the Owl statues, and use the Telephone Booths — they all nudge you toward your next step if you get lost."
+      },
+      {
+       "id": "la_wake_3",
+       "k": "step",
+       "t": "Head downstairs and out. Make your way south out of Mabe Village toward the beach where Marin found you."
+      }
+     ]
+    },
+    {
+     "id": "la_intro_s_beach",
+     "name": "Your Sword on the Sand",
+     "sub": "And a mysterious Owl",
+     "reward": "Sword",
+     "steps": [
+      {
+       "id": "la_beach_1",
+       "k": "loot",
+       "t": "Walk the shoreline until you find your Sword lying on the sand. Pick it up — now you can fight, cut bushes, and (at full health) fire a sword beam.",
+       "items": [
+        {
+         "name": "Sword",
+         "cat": "sword",
+         "note": "Your main weapon. Shoots a beam at full hearts; later upgradeable to the L-2 Sword at the Seashell Mansion."
+        }
+       ],
+       "stuck": "From Mabe Village go south to the beach, then walk west along the water's edge. The Sword sits on the sand near the breaking waves; step onto it to grab it."
+      },
+      {
+       "id": "la_beach_2",
+       "k": "reward",
+       "t": "As you take up the Sword, a great Owl appears. It tells you the only way off the island is to wake the Wind Fish — and to do that you must first explore the Mysterious Forest."
+      },
+      {
+       "id": "la_beach_3",
+       "k": "step",
+       "t": "Back in the village, stop by the Town Tool Shop and pick up a Shield (it blocks attacks and shoves some enemies back). Grab Rupees from bushes and pots if you're short.",
+       "items": [
+        {
+         "name": "Shield",
+         "cat": "shield",
+         "note": "Hold it up to block; walk forward into weaker enemies to bump them back. Watch for Like Likes that can eat it."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "la_intro_s_forest",
+     "name": "Into the Mysterious Forest",
+     "sub": "The key to the first dungeon",
+     "reward": "Tail Key",
+     "steps": [
+      {
+       "id": "la_forest_1",
+       "k": "step",
+       "t": "Go to the Mysterious Forest, north-west of Mabe Village. Wind through its screens — cutting bushes and fighting Moblins — toward the witch's hut on the far side."
+      },
+      {
+       "id": "la_forest_2",
+       "k": "step",
+       "t": "Find the Toadstool deep in the forest and carry it to the witch Syrup. She grinds it into Magic Powder — sprinkle it to light torches, stun enemies, and reveal hidden things.",
+       "items": [
+        {
+         "name": "Magic Powder",
+         "cat": "item",
+         "note": "A pinch lights torches, stuns or transforms some enemies, and exposes hidden secrets. It's a limited supply — refill from Syrup."
+        }
+       ],
+       "stuck": "The Toadstool is in the north-west of the forest. Pick it up and don't drop it; bring it to Syrup's hut in the north-east, and she makes the Magic Powder for you."
+      },
+      {
+       "id": "la_forest_3",
+       "k": "step",
+       "t": "A foul-smelling raccoon blocks the forest path. Sprinkle Magic Powder on it — it's poor Tarin, transformed. He turns back to normal and the way clears.",
+       "stuck": "Equip the Magic Powder to A or B, stand right next to the raccoon, and use it to break the spell."
+      },
+      {
+       "id": "la_forest_4",
+       "k": "reward",
+       "t": "Beyond the cleared path, open the chest to claim the Tail Key — it unlocks Tail Cave, the island's first dungeon and the home of the first Instrument.",
+       "items": [
+        {
+         "name": "Tail Key",
+         "cat": "key",
+         "note": "Opens the locked Tail Cave at the foot of the eastern hills. Carry it there to begin Dungeon 1."
+        }
+       ]
+      },
+      {
+       "id": "la_forest_5",
+       "k": "step",
+       "t": "Take the Tail Key east to the locked Tail Cave below the mountains. Your quest is now set: clear eight dungeons, gather the eight Instruments of the Sirens, and play them to wake the Wind Fish."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "sword",
+   "name": "Sword",
+   "glyph": "sword",
+   "from": "Lying on the south beach where Marin found you — your first task is to get it back.",
+   "what": "Your main weapon. At full health it shoots a sword beam, and you can later upgrade it to the L-2 Sword at the Seashell Mansion.",
+   "tip": "You can only hold two items at once (A and B buttons), so the Sword usually shares your hands with Roc's Feather early on."
+  },
+  {
+   "id": "rocs_feather",
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "from": "Found in Tail Cave, the first dungeon.",
+   "what": "Lets Link jump — over pits, spikes, and small gaps. Pair it with the Pegasus Boots to long-jump.",
+   "tip": "Jumping is core to nearly every dungeon here. Feather + Boots together clears gaps neither can alone."
+  },
+  {
+   "id": "power_bracelet",
+   "name": "Power Bracelet",
+   "glyph": "champion",
+   "from": "Found in Bottle Grotto, the second dungeon.",
+   "what": "Lets you lift pots, skulls, and rocks and hurl them at enemies and switches.",
+   "tip": "Many blocked paths are just a liftable rock away once you have this."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "Found in Catfish's Maw, the fifth dungeon.",
+   "what": "Fires a chain that grabs distant blocks to pull you across pits, and stuns or drags enemies.",
+   "tip": "A late-but-mighty tool — it trivializes several earlier rooms if you revisit them."
+  },
+  {
+   "id": "ocarina",
+   "name": "Ocarina",
+   "glyph": "stasis",
+   "from": "Won from a trade / found in the village — you learn three songs for it.",
+   "what": "Plays three melodies: the Ballad of the Wind Fish (the goal song), Manbo's Mambo (a warp), and the Frog's Song of Soul.",
+   "tip": "The Ballad of the Wind Fish is needed to calm Marin and to finish the game. Guard it."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Sword",
+   "glyph": "sword",
+   "step": "la_beach_1"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Full Moon Cello",
+   "from": "Tail Cave",
+   "note": "The first Instrument of the Sirens, won from Tail Cave beneath the eastern hills.",
+   "step": null
+  },
+  {
+   "name": "Conch Horn",
+   "from": "Bottle Grotto",
+   "note": "The second Instrument, won from Bottle Grotto in the Goponga Swamp area.",
+   "step": null
+  },
+  {
+   "name": "Sea Lily's Bell",
+   "from": "Key Cavern",
+   "note": "The third Instrument, won from the Key Cavern near Ukuku Prairie.",
+   "step": null
+  },
+  {
+   "name": "Surf Harp",
+   "from": "Angler's Tunnel",
+   "note": "The fourth Instrument, won from Angler's Tunnel inside Tal Tal Heights.",
+   "step": null
+  },
+  {
+   "name": "Wind Marimba",
+   "from": "Catfish's Maw",
+   "note": "The fifth Instrument, won from Catfish's Maw on the eastern coast.",
+   "step": null
+  },
+  {
+   "name": "Coral Triangle",
+   "from": "Face Shrine",
+   "note": "The sixth Instrument, won from the Face Shrine in the eastern desert.",
+   "step": null
+  },
+  {
+   "name": "Organ of Evening Calm",
+   "from": "Eagle's Tower",
+   "note": "The seventh Instrument, won from Eagle's Tower high on Tal Tal Mountains.",
+   "step": null
+  },
+  {
+   "name": "Thunder Drum",
+   "from": "Turtle Rock",
+   "note": "The eighth and final Instrument, won from Turtle Rock at the mountain's peak.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "bow",
+   "name": "Bow & Bombs",
+   "glyph": "bow"
+  },
+  {
+   "id": "song",
+   "name": "Ocarina Songs",
+   "glyph": "stasis"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Trades & Collectibles",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "instruments",
+   "name": "The Eight Instruments",
+   "sub": "To wake the Wind Fish",
+   "note": "Each of the island's eight dungeons holds one Instrument of the Sirens. Play all eight together at the Egg atop Mt. Tamaranch to rouse the sleeping Wind Fish — and end the dream.",
+   "reward": "The way home"
+  },
+  {
+   "id": "trade",
+   "name": "The Trading Quest",
+   "sub": "A long swap chain",
+   "note": "Start with a Yoshi Doll from the Trendy Game and trade it islander to islander, item by item. The final swap earns the Magnifying Lens, which reveals a hidden truth.",
+   "reward": "Magnifying Lens"
+  },
+  {
+   "id": "seashells",
+   "name": "Secret Seashells",
+   "sub": "Twenty-six hidden shells",
+   "note": "Hidden under bushes, in caves, and buried in the sand (use the Shovel). Collect enough and the Seashell Mansion rewards you with a far stronger sword.",
+   "reward": "L-2 Sword"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Twelve are scattered across Koholint. Every four add a full heart to your life meter.",
+   "reward": "More hearts"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "dream",
+   "name": "A dream you must end",
+   "items": [
+    "Koholint Island is the dream of the sleeping Wind Fish. To go home, Link must wake it — by gathering the eight Instruments of the Sirens and playing the Ballad of the Wind Fish at the Egg on the mountain.",
+    "It's bittersweet on purpose: waking the Wind Fish means the island and everyone on it fade away. The game leans into that, so it's okay to slow down and enjoy Koholint first.",
+    "There's no Hyrule, no Triforce, and no Ganon here — just one island, one song, and a long sleep to break."
+   ]
+  },
+  {
+   "id": "tools",
+   "name": "Only two buttons",
+   "items": [
+    "You can equip just TWO items at once (to A and B), so you'll swap constantly through the menu. Sword + Roc's Feather is the pair you'll use most early on.",
+    "Pegasus Boots (hold to dash) + Roc's Feather lets you long-jump wide gaps. The Power Bracelet lifts pots and rocks; the Hookshot crosses pits and stuns enemies.",
+    "Bombs and the Bow combine — drop a Bomb and shoot it, or 'bomb-arrow' tough foes for big damage. The Magic Rod burns enemies and lights torches."
+   ]
+  },
+  {
+   "id": "songs",
+   "name": "Three ocarina songs",
+   "items": [
+    "You learn three melodies: the Ballad of the Wind Fish (the goal song), Manbo's Mambo (warps you to a set spot), and the Frog's Song of Soul (revives and powers certain things).",
+    "Owl statues across the island give hints when you hold the right item, and the Telephone Booths replay your current goal if you forget where to go.",
+    "Save often — the game can be paused/saved from the menu, and bottomless-pit falls or boss deaths send you back to the last save or dungeon entrance."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 12,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container."
+  },
+  {
+   "id": "seashells",
+   "label": "Secret Seashells",
+   "total": 26,
+   "glyph": "gem",
+   "note": "Hidden across Koholint; collect enough to claim a stronger sword at the Seashell Mansion."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Instruments",
+  "regionBanner": "Dungeon",
+  "worldName": "Koholint"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "la_windfish"
+}

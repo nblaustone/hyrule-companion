@@ -1,0 +1,54 @@
+[
+ {
+  "id": "alttp_intro",
+  "name": "A Stormy Night & the Sanctuary",
+  "sub": "Main Quest — Hyrule Castle",
+  "kind": "region",
+  "tagline": "A telepathic plea, a dying uncle, and a princess in the castle dungeon.",
+  "champion": null,
+  "sections": [
+   {
+    "id": "alttp_intro_s_wake",
+    "name": "Zelda's Call",
+    "sub": "Out into the rain",
+    "reward": null,
+    "steps": [
+     { "id": "alttp_wake_1", "k": "step", "t": "A thunderstorm wakes you in the dead of night. Princess Zelda's voice reaches your mind: she is locked in the castle dungeon and begs for help. Your uncle takes up his sword, tells you to stay in bed, and slips out into the rain." },
+     { "id": "alttp_wake_2", "k": "tip", "t": "This is the prologue — three hearts and no weapon yet. Follow your uncle; everything you need is just ahead." },
+     { "id": "alttp_wake_3", "k": "step", "t": "Get up and leave the house. Head north toward Hyrule Castle through the rainy field, slipping past the patrolling guards.", "stuck": "From your house, go up and around the castle moat toward the north side. You're looking for the way your uncle took, not the locked front gate." },
+     { "id": "alttp_wake_4", "k": "step", "t": "At the castle's edge, find the hidden entrance your uncle used — a hole in the ground behind the bushes that drops into an underground passage.", "stuck": "On the north-east side of the castle grounds, look for a lone bush by the wall. Pull it (or step into the gap) to reveal a stairway down into the passage." }
+    ]
+   },
+   {
+    "id": "alttp_intro_s_castle",
+    "name": "Into Hyrule Castle",
+    "sub": "Your first sword",
+    "reward": "Fighter's Sword & Shield",
+    "steps": [
+     { "id": "alttp_castle_1", "k": "reward", "t": "In the passage you find your uncle, badly wounded. With his last strength he gives you his sword and shield and tells you to save the princess.", "items": [
+        { "name": "Fighter's Sword", "cat": "sword", "note": "Your uncle's blade — your starting weapon. Swing with the sword button; hold it to charge a Spin Attack." },
+        { "name": "Fighter's Shield", "cat": "shield", "note": "Blocks arrows and shoves back some enemies when you walk into them facing forward." }
+     ] },
+     { "id": "alttp_castle_2", "k": "tip", "t": "Tap an enemy before it taps you — with only three hearts, two careless hits can end you. Slash bushes and pots for hearts and Rupees as you go." },
+     { "id": "alttp_castle_3", "k": "step", "t": "Climb up into the castle. Cut through the soldiers floor by floor, opening chests for Rupees, Bombs, Arrows, and a small key." },
+     { "id": "alttp_castle_4", "k": "loot", "t": "Open the chest holding the Lamp — it lights dark rooms and burns bushes and torches. You'll need it constantly.", "items": [
+        { "name": "Lamp", "cat": "item", "note": "Lights pitch-black rooms and ignites torches and bushes; uses a little magic per flick." }
+     ] },
+     { "id": "alttp_castle_5", "k": "step", "t": "Reach the prison block, defeat the guards, and unlock Princess Zelda's cell with the key you found. She joins and follows you.", "stuck": "The cell key comes from a chest / a guard on the dungeon level just before the cells. Stand on the cell door and it opens once you hold the key." }
+    ]
+   },
+   {
+    "id": "alttp_intro_s_sanctuary",
+    "name": "The Hidden Sanctuary",
+    "sub": "Safe — and the real quest begins",
+    "reward": "The three Pendants goal",
+    "steps": [
+     { "id": "alttp_sanc_1", "k": "step", "t": "Zelda knows a secret way out. In the throne room, pull the hidden lever behind the back wall to open a stairway down into the castle's depths.", "stuck": "Walk up to the back-right of the throne room and pull the wall ornament that looks like a torch/lever; the wall slides open onto a dark staircase." },
+     { "id": "alttp_sanc_2", "k": "warn", "t": "The basement passage is dark (keep the Lamp handy) and crawling with rats and spike traps. Keep Zelda close — if she lags behind, pause and let her catch up." },
+     { "id": "alttp_sanc_3", "k": "reward", "t": "Climb out into the Sanctuary. The loyal priest takes Zelda into hiding and explains the danger: the wizard Agahnim has bewitched the king and means to break the ancient seal that holds Ganon." },
+     { "id": "alttp_sanc_4", "k": "step", "t": "Your path is set. To stop Agahnim you need the legendary Master Sword — and to claim it you must gather the three Pendants of Virtue from the Eastern Palace, the Desert Palace, and the mountain Tower of Hera." }
+    ]
+   }
+  ]
+ }
+]

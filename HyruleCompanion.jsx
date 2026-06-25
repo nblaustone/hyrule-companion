@@ -30910,5 +30910,823 @@ const MM = {
   "cover": "moon"
  }
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM };
+const ALTTP = {
+ "id": "alttp",
+ "label": "A Link to the Past",
+ "short": "ALttP",
+ "REGIONS": [
+  {
+   "id": "alttp_intro",
+   "name": "A Stormy Night & the Sanctuary",
+   "sub": "Main Quest — Hyrule Castle",
+   "kind": "region",
+   "tagline": "A telepathic plea, a dying uncle, and a princess in the castle dungeon.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "alttp_intro_s_wake",
+     "name": "Zelda's Call",
+     "sub": "Out into the rain",
+     "reward": null,
+     "steps": [
+      {
+       "id": "alttp_wake_1",
+       "k": "step",
+       "t": "A thunderstorm wakes you in the dead of night. Princess Zelda's voice reaches your mind: she is locked in the castle dungeon and begs for help. Your uncle takes up his sword, tells you to stay in bed, and slips out into the rain."
+      },
+      {
+       "id": "alttp_wake_2",
+       "k": "tip",
+       "t": "This is the prologue — three hearts and no weapon yet. Follow your uncle; everything you need is just ahead."
+      },
+      {
+       "id": "alttp_wake_3",
+       "k": "step",
+       "t": "Get up and leave the house. Head north toward Hyrule Castle through the rainy field, slipping past the patrolling guards.",
+       "stuck": "From your house, go up and around the castle moat toward the north side. You're looking for the way your uncle took, not the locked front gate."
+      },
+      {
+       "id": "alttp_wake_4",
+       "k": "step",
+       "t": "At the castle's edge, find the hidden entrance your uncle used — a hole in the ground behind the bushes that drops into an underground passage.",
+       "stuck": "On the north-east side of the castle grounds, look for a lone bush by the wall. Pull it (or step into the gap) to reveal a stairway down into the passage."
+      }
+     ]
+    },
+    {
+     "id": "alttp_intro_s_castle",
+     "name": "Into Hyrule Castle",
+     "sub": "Your first sword",
+     "reward": "Fighter's Sword & Shield",
+     "steps": [
+      {
+       "id": "alttp_castle_1",
+       "k": "reward",
+       "t": "In the passage you find your uncle, badly wounded. With his last strength he gives you his sword and shield and tells you to save the princess.",
+       "items": [
+        {
+         "name": "Fighter's Sword",
+         "cat": "sword",
+         "note": "Your uncle's blade — your starting weapon. Swing with the sword button; hold it to charge a Spin Attack."
+        },
+        {
+         "name": "Fighter's Shield",
+         "cat": "shield",
+         "note": "Blocks arrows and shoves back some enemies when you walk into them facing forward."
+        }
+       ]
+      },
+      {
+       "id": "alttp_castle_2",
+       "k": "tip",
+       "t": "Tap an enemy before it taps you — with only three hearts, two careless hits can end you. Slash bushes and pots for hearts and Rupees as you go."
+      },
+      {
+       "id": "alttp_castle_3",
+       "k": "step",
+       "t": "Climb up into the castle. Cut through the soldiers floor by floor, opening chests for Rupees, Bombs, Arrows, and a small key."
+      },
+      {
+       "id": "alttp_castle_4",
+       "k": "loot",
+       "t": "Open the chest holding the Lamp — it lights dark rooms and burns bushes and torches. You'll need it constantly.",
+       "items": [
+        {
+         "name": "Lamp",
+         "cat": "item",
+         "note": "Lights pitch-black rooms and ignites torches and bushes; uses a little magic per flick."
+        }
+       ]
+      },
+      {
+       "id": "alttp_castle_5",
+       "k": "step",
+       "t": "Reach the prison block, defeat the guards, and unlock Princess Zelda's cell with the key you found. She joins and follows you.",
+       "stuck": "The cell key comes from a chest / a guard on the dungeon level just before the cells. Stand on the cell door and it opens once you hold the key."
+      }
+     ]
+    },
+    {
+     "id": "alttp_intro_s_sanctuary",
+     "name": "The Hidden Sanctuary",
+     "sub": "Safe — and the real quest begins",
+     "reward": "The three Pendants goal",
+     "steps": [
+      {
+       "id": "alttp_sanc_1",
+       "k": "step",
+       "t": "Zelda knows a secret way out. In the throne room, pull the hidden lever behind the back wall to open a stairway down into the castle's depths.",
+       "stuck": "Walk up to the back-right of the throne room and pull the wall ornament that looks like a torch/lever; the wall slides open onto a dark staircase."
+      },
+      {
+       "id": "alttp_sanc_2",
+       "k": "warn",
+       "t": "The basement passage is dark (keep the Lamp handy) and crawling with rats and spike traps. Keep Zelda close — if she lags behind, pause and let her catch up."
+      },
+      {
+       "id": "alttp_sanc_3",
+       "k": "reward",
+       "t": "Climb out into the Sanctuary. The loyal priest takes Zelda into hiding and explains the danger: the wizard Agahnim has bewitched the king and means to break the ancient seal that holds Ganon."
+      },
+      {
+       "id": "alttp_sanc_4",
+       "k": "step",
+       "t": "Your path is set. To stop Agahnim you need the legendary Master Sword — and to claim it you must gather the three Pendants of Virtue from the Eastern Palace, the Desert Palace, and the mountain Tower of Hera."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "master_sword",
+   "name": "Master Sword",
+   "glyph": "sword",
+   "from": "Drawn from its pedestal in the Lost Woods once you hold all three Pendants of Virtue.",
+   "what": "The blade of evil's bane — stronger than your uncle's sword, and at full health it fires a sword beam across the screen.",
+   "tip": "Two later upgrades, the Tempered Sword and the Golden Sword, make it hit even harder. Hold the button to charge a Spin Attack."
+  },
+  {
+   "id": "pegasus_boots",
+   "name": "Pegasus Boots",
+   "glyph": "stasis",
+   "from": "A gift from the dying soldier / found early once you have the means — hold the dash button to charge.",
+   "what": "Hold A to sprint, then crash through certain weak walls and bushes and stab with a charging thrust.",
+   "tip": "Boots + a few other items combine: dash into cracked walls, knock down stakes, or cross long runs you couldn't walk."
+  },
+  {
+   "id": "moon_pearl",
+   "name": "Moon Pearl",
+   "glyph": "orb",
+   "from": "The reward inside the Tower of Hera, the third Pendant dungeon.",
+   "what": "Keeps you in Link's true form in the Dark World. Without it, crossing over turns you into a helpless pink bunny.",
+   "tip": "Get this before exploring the Dark World freely — it's what makes the second map survivable."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "Found in the Palace of Darkness, the first Dark World dungeon.",
+   "what": "Fires a chain that grabs posts and pulls you across gaps and water — and yanks or stuns many enemies.",
+   "tip": "If a ledge or chest sits across a pit, the Hookshot is almost always the answer."
+  },
+  {
+   "id": "magic_mirror",
+   "name": "Magic Mirror",
+   "glyph": "cryonis",
+   "from": "Given by the lost maiden on Death Mountain.",
+   "what": "Warps you from the Dark World back to the matching spot in the Light World — the core trick for crossing between worlds.",
+   "tip": "Reach a place in one world, mirror to the other, move, and cross back to reach spots that look impossible."
+  },
+  {
+   "id": "lamp",
+   "name": "Lamp",
+   "glyph": "stasis",
+   "from": "A chest inside Hyrule Castle during the opening rescue.",
+   "what": "Lights dark rooms and burns bushes and torches; many dungeons are pitch-black until you light their torches.",
+   "tip": "If a room is dark and you're taking hits from nothing, light the wall torches with the Lamp."
+  }
+ ],
+ "STATUS_RUNES": [],
+ "CHAMPIONS": [
+  {
+   "name": "Pendant of Courage",
+   "from": "Eastern Palace",
+   "note": "Won by clearing the Eastern Palace — one of the three Pendants of Virtue you need to claim the Master Sword.",
+   "step": null
+  },
+  {
+   "name": "Pendant of Power",
+   "from": "Desert Palace",
+   "note": "Won by clearing the Desert Palace in the southwest — the second Pendant of Virtue.",
+   "step": null
+  },
+  {
+   "name": "Pendant of Wisdom",
+   "from": "Tower of Hera",
+   "note": "Won atop the Tower of Hera on Death Mountain — the third Pendant, plus the Moon Pearl.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Palace of Darkness",
+   "from": "Palace of Darkness",
+   "note": "The first rescued Maiden, sealed in a crystal. Seven crystals open the bridge to Ganon's Tower.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Swamp Palace",
+   "from": "Swamp Palace",
+   "note": "The second Maiden freed from her crystal prison in the southern swamp.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Skull Woods",
+   "from": "Skull Woods",
+   "note": "The third Maiden, freed from the dungeon hidden in the dark forest of skulls.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Thieves' Town",
+   "from": "Thieves' Town",
+   "note": "The fourth Maiden, freed from the village of thieves.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Ice Palace",
+   "from": "Ice Palace",
+   "note": "The fifth Maiden, freed from the frozen island dungeon in the south.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Misery Mire",
+   "from": "Misery Mire",
+   "note": "The sixth Maiden, freed from the swamp dungeon opened by the Ether (or Quake) Medallion.",
+   "step": null
+  },
+  {
+   "name": "Crystal — Turtle Rock",
+   "from": "Turtle Rock",
+   "note": "The seventh and final Maiden, freed from the dungeon atop Dark Death Mountain.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "armor",
+   "name": "Mail",
+   "glyph": "armor"
+  },
+  {
+   "id": "bow",
+   "name": "Bow & Projectiles",
+   "glyph": "bow"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Materials",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "pendants",
+   "name": "The Three Pendants",
+   "sub": "Key to the Master Sword",
+   "note": "Courage, Power, and Wisdom — won from the Eastern Palace, the Desert Palace, and the Tower of Hera. Carry all three to the Lost Woods pedestal to draw the Master Sword.",
+   "reward": "Master Sword"
+  },
+  {
+   "id": "crystals",
+   "name": "The Seven Crystals",
+   "sub": "Seven trapped Maidens",
+   "note": "Each Dark World dungeon ends with a Maiden sealed in a crystal. Free all seven to open the bridge to Ganon's Tower and the final fight.",
+   "reward": "Ganon's Tower"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Twenty-four are hidden across both worlds in caves, minigames, and corners. Every four extend your life by a full heart, up to twenty.",
+   "reward": "More hearts"
+  },
+  {
+   "id": "bottles",
+   "name": "The Four Magic Bottles",
+   "sub": "Your lifesavers",
+   "note": "Bottles hold fairies, potions, or bees. A bottled fairy automatically revives you when you fall — finding all four is worth the detours.",
+   "reward": "Survival"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "twoworlds",
+   "name": "Two worlds, one map",
+   "items": [
+    "Hyrule has a bright Light World and a twisted Dark World laid over the exact same map. The Magic Mirror warps you from Dark back to Light; special tiles and the Mirror are how you cross between them.",
+    "A spot you can't reach in one world can often be reached by crossing to the other world, walking to the matching place, and crossing back.",
+    "The Moon Pearl (from the Tower of Hera) keeps you in Link's form in the Dark World. Without it you become a helpless pink bunny over there — get it before exploring freely."
+   ]
+  },
+  {
+   "id": "sword",
+   "name": "Sword, then Master Sword",
+   "items": [
+    "Your uncle gives you your first sword in the castle. The Master Sword waits in the Lost Woods once you hold all three Pendants — it's stronger and fires a beam when your hearts are full.",
+    "Later upgrades (the Tempered Sword from the dwarf smiths, then the Golden Sword) raise its power again.",
+    "Hold the sword button to charge a Spin Attack that hits all around you — perfect for crowds and tougher rooms."
+   ]
+  },
+  {
+   "id": "tools",
+   "name": "Tools open the map",
+   "items": [
+    "Most new areas are gated by an item: the Pegasus Boots dash, the Hookshot pulls you across gaps, the Hammer pounds stakes, the Flippers let you swim, the Titan's Mitt lifts dark heavy rocks.",
+    "If a screen looks impassable, you're usually missing the tool a dungeon ahead will give you — note it and come back.",
+    "Magic items (Fire/Ice Rod, the Cane of Somaria, the capes, the medallions) drain your green magic meter; magic jars and the Magic Potion refill it. The Magic Cape turns you invisible and walks through some hazards."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 24,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container — up to 20 hearts of life."
+  },
+  {
+   "id": "bottles",
+   "label": "Magic Bottles",
+   "total": 4,
+   "glyph": "pot",
+   "note": "Found and traded for across Hyrule; a bottled fairy revives you the moment you fall."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Pendants & Crystals",
+  "regionBanner": "Dungeon",
+  "worldName": "Hyrule"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "alttp_ganon",
+ "meta": {
+  "console": "Super Nintendo",
+  "consoleShort": "SNES",
+  "consoleRank": 2,
+  "year": 1991,
+  "era": "Era of Light and Dark",
+  "accent": "#6f93e0",
+  "accent2": "#1b2a4a",
+  "cover": "triforce"
+ }
+};
+const LA = {
+ "id": "la",
+ "label": "Link's Awakening",
+ "short": "LA",
+ "REGIONS": [
+  {
+   "id": "la_intro",
+   "name": "Washed Ashore on Koholint",
+   "sub": "Main Quest — Mabe Village",
+   "kind": "region",
+   "tagline": "A shipwreck, a girl's song, and an island that shouldn't exist.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "la_intro_s_wake",
+     "name": "Marin's Song",
+     "sub": "Waking in Mabe Village",
+     "reward": null,
+     "steps": [
+      {
+       "id": "la_wake_1",
+       "k": "step",
+       "t": "Your ship is wrecked in a storm and you wash ashore. You wake in a cozy house in Mabe Village — a girl named Marin found you on the beach, and her father Tarin is downstairs. Your sword is gone."
+      },
+      {
+       "id": "la_wake_2",
+       "k": "tip",
+       "t": "Koholint is a small island you can explore freely. Talk to everyone, read the Owl statues, and use the Telephone Booths — they all nudge you toward your next step if you get lost."
+      },
+      {
+       "id": "la_wake_3",
+       "k": "step",
+       "t": "Head downstairs and out. Make your way south out of Mabe Village toward the beach where Marin found you."
+      }
+     ]
+    },
+    {
+     "id": "la_intro_s_beach",
+     "name": "Your Sword on the Sand",
+     "sub": "And a mysterious Owl",
+     "reward": "Sword",
+     "steps": [
+      {
+       "id": "la_beach_1",
+       "k": "loot",
+       "t": "Walk the shoreline until you find your Sword lying on the sand. Pick it up — now you can fight, cut bushes, and (at full health) fire a sword beam.",
+       "items": [
+        {
+         "name": "Sword",
+         "cat": "sword",
+         "note": "Your main weapon. Shoots a beam at full hearts; later upgradeable to the L-2 Sword at the Seashell Mansion."
+        }
+       ],
+       "stuck": "From Mabe Village go south to the beach, then walk west along the water's edge. The Sword sits on the sand near the breaking waves; step onto it to grab it."
+      },
+      {
+       "id": "la_beach_2",
+       "k": "reward",
+       "t": "As you take up the Sword, a great Owl appears. It tells you the only way off the island is to wake the Wind Fish — and to do that you must first explore the Mysterious Forest."
+      },
+      {
+       "id": "la_beach_3",
+       "k": "step",
+       "t": "Back in the village, stop by the Town Tool Shop and pick up a Shield (it blocks attacks and shoves some enemies back). Grab Rupees from bushes and pots if you're short.",
+       "items": [
+        {
+         "name": "Shield",
+         "cat": "shield",
+         "note": "Hold it up to block; walk forward into weaker enemies to bump them back. Watch for Like Likes that can eat it."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "la_intro_s_forest",
+     "name": "Into the Mysterious Forest",
+     "sub": "The key to the first dungeon",
+     "reward": "Tail Key",
+     "steps": [
+      {
+       "id": "la_forest_1",
+       "k": "step",
+       "t": "Go to the Mysterious Forest, north-west of Mabe Village. Wind through its screens — cutting bushes and fighting Moblins — toward the witch's hut on the far side."
+      },
+      {
+       "id": "la_forest_2",
+       "k": "step",
+       "t": "Find the Toadstool deep in the forest and carry it to the witch Syrup. She grinds it into Magic Powder — sprinkle it to light torches, stun enemies, and reveal hidden things.",
+       "items": [
+        {
+         "name": "Magic Powder",
+         "cat": "item",
+         "note": "A pinch lights torches, stuns or transforms some enemies, and exposes hidden secrets. It's a limited supply — refill from Syrup."
+        }
+       ],
+       "stuck": "The Toadstool is in the north-west of the forest. Pick it up and don't drop it; bring it to Syrup's hut in the north-east, and she makes the Magic Powder for you."
+      },
+      {
+       "id": "la_forest_3",
+       "k": "step",
+       "t": "A foul-smelling raccoon blocks the forest path. Sprinkle Magic Powder on it — it's poor Tarin, transformed. He turns back to normal and the way clears.",
+       "stuck": "Equip the Magic Powder to A or B, stand right next to the raccoon, and use it to break the spell."
+      },
+      {
+       "id": "la_forest_4",
+       "k": "reward",
+       "t": "Beyond the cleared path, open the chest to claim the Tail Key — it unlocks Tail Cave, the island's first dungeon and the home of the first Instrument.",
+       "items": [
+        {
+         "name": "Tail Key",
+         "cat": "key",
+         "note": "Opens the locked Tail Cave at the foot of the eastern hills. Carry it there to begin Dungeon 1."
+        }
+       ]
+      },
+      {
+       "id": "la_forest_5",
+       "k": "step",
+       "t": "Take the Tail Key east to the locked Tail Cave below the mountains. Your quest is now set: clear eight dungeons, gather the eight Instruments of the Sirens, and play them to wake the Wind Fish."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "sword",
+   "name": "Sword",
+   "glyph": "sword",
+   "from": "Lying on the south beach where Marin found you — your first task is to get it back.",
+   "what": "Your main weapon. At full health it shoots a sword beam, and you can later upgrade it to the L-2 Sword at the Seashell Mansion.",
+   "tip": "You can only hold two items at once (A and B buttons), so the Sword usually shares your hands with Roc's Feather early on."
+  },
+  {
+   "id": "rocs_feather",
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "from": "Found in Tail Cave, the first dungeon.",
+   "what": "Lets Link jump — over pits, spikes, and small gaps. Pair it with the Pegasus Boots to long-jump.",
+   "tip": "Jumping is core to nearly every dungeon here. Feather + Boots together clears gaps neither can alone."
+  },
+  {
+   "id": "power_bracelet",
+   "name": "Power Bracelet",
+   "glyph": "champion",
+   "from": "Found in Bottle Grotto, the second dungeon.",
+   "what": "Lets you lift pots, skulls, and rocks and hurl them at enemies and switches.",
+   "tip": "Many blocked paths are just a liftable rock away once you have this."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "Found in Catfish's Maw, the fifth dungeon.",
+   "what": "Fires a chain that grabs distant blocks to pull you across pits, and stuns or drags enemies.",
+   "tip": "A late-but-mighty tool — it trivializes several earlier rooms if you revisit them."
+  },
+  {
+   "id": "ocarina",
+   "name": "Ocarina",
+   "glyph": "stasis",
+   "from": "Won from a trade / found in the village — you learn three songs for it.",
+   "what": "Plays three melodies: the Ballad of the Wind Fish (the goal song), Manbo's Mambo (a warp), and the Frog's Song of Soul.",
+   "tip": "The Ballad of the Wind Fish is needed to calm Marin and to finish the game. Guard it."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Sword",
+   "glyph": "sword",
+   "step": "la_beach_1"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Full Moon Cello",
+   "from": "Tail Cave",
+   "note": "The first Instrument of the Sirens, won from Tail Cave beneath the eastern hills.",
+   "step": null
+  },
+  {
+   "name": "Conch Horn",
+   "from": "Bottle Grotto",
+   "note": "The second Instrument, won from Bottle Grotto in the Goponga Swamp area.",
+   "step": null
+  },
+  {
+   "name": "Sea Lily's Bell",
+   "from": "Key Cavern",
+   "note": "The third Instrument, won from the Key Cavern near Ukuku Prairie.",
+   "step": null
+  },
+  {
+   "name": "Surf Harp",
+   "from": "Angler's Tunnel",
+   "note": "The fourth Instrument, won from Angler's Tunnel inside Tal Tal Heights.",
+   "step": null
+  },
+  {
+   "name": "Wind Marimba",
+   "from": "Catfish's Maw",
+   "note": "The fifth Instrument, won from Catfish's Maw on the eastern coast.",
+   "step": null
+  },
+  {
+   "name": "Coral Triangle",
+   "from": "Face Shrine",
+   "note": "The sixth Instrument, won from the Face Shrine in the eastern desert.",
+   "step": null
+  },
+  {
+   "name": "Organ of Evening Calm",
+   "from": "Eagle's Tower",
+   "note": "The seventh Instrument, won from Eagle's Tower high on Tal Tal Mountains.",
+   "step": null
+  },
+  {
+   "name": "Thunder Drum",
+   "from": "Turtle Rock",
+   "note": "The eighth and final Instrument, won from Turtle Rock at the mountain's peak.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "bow",
+   "name": "Bow & Bombs",
+   "glyph": "bow"
+  },
+  {
+   "id": "song",
+   "name": "Ocarina Songs",
+   "glyph": "stasis"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Trades & Collectibles",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "instruments",
+   "name": "The Eight Instruments",
+   "sub": "To wake the Wind Fish",
+   "note": "Each of the island's eight dungeons holds one Instrument of the Sirens. Play all eight together at the Egg atop Mt. Tamaranch to rouse the sleeping Wind Fish — and end the dream.",
+   "reward": "The way home"
+  },
+  {
+   "id": "trade",
+   "name": "The Trading Quest",
+   "sub": "A long swap chain",
+   "note": "Start with a Yoshi Doll from the Trendy Game and trade it islander to islander, item by item. The final swap earns the Magnifying Lens, which reveals a hidden truth.",
+   "reward": "Magnifying Lens"
+  },
+  {
+   "id": "seashells",
+   "name": "Secret Seashells",
+   "sub": "Twenty-six hidden shells",
+   "note": "Hidden under bushes, in caves, and buried in the sand (use the Shovel). Collect enough and the Seashell Mansion rewards you with a far stronger sword.",
+   "reward": "L-2 Sword"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Twelve are scattered across Koholint. Every four add a full heart to your life meter.",
+   "reward": "More hearts"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "dream",
+   "name": "A dream you must end",
+   "items": [
+    "Koholint Island is the dream of the sleeping Wind Fish. To go home, Link must wake it — by gathering the eight Instruments of the Sirens and playing the Ballad of the Wind Fish at the Egg on the mountain.",
+    "It's bittersweet on purpose: waking the Wind Fish means the island and everyone on it fade away. The game leans into that, so it's okay to slow down and enjoy Koholint first.",
+    "There's no Hyrule, no Triforce, and no Ganon here — just one island, one song, and a long sleep to break."
+   ]
+  },
+  {
+   "id": "tools",
+   "name": "Only two buttons",
+   "items": [
+    "You can equip just TWO items at once (to A and B), so you'll swap constantly through the menu. Sword + Roc's Feather is the pair you'll use most early on.",
+    "Pegasus Boots (hold to dash) + Roc's Feather lets you long-jump wide gaps. The Power Bracelet lifts pots and rocks; the Hookshot crosses pits and stuns enemies.",
+    "Bombs and the Bow combine — drop a Bomb and shoot it, or 'bomb-arrow' tough foes for big damage. The Magic Rod burns enemies and lights torches."
+   ]
+  },
+  {
+   "id": "songs",
+   "name": "Three ocarina songs",
+   "items": [
+    "You learn three melodies: the Ballad of the Wind Fish (the goal song), Manbo's Mambo (warps you to a set spot), and the Frog's Song of Soul (revives and powers certain things).",
+    "Owl statues across the island give hints when you hold the right item, and the Telephone Booths replay your current goal if you forget where to go.",
+    "Save often — the game can be paused/saved from the menu, and bottomless-pit falls or boss deaths send you back to the last save or dungeon entrance."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 12,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container."
+  },
+  {
+   "id": "seashells",
+   "label": "Secret Seashells",
+   "total": 26,
+   "glyph": "gem",
+   "note": "Hidden across Koholint; collect enough to claim a stronger sword at the Seashell Mansion."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Instruments",
+  "regionBanner": "Dungeon",
+  "worldName": "Koholint"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "la_windfish",
+ "meta": {
+  "console": "Game Boy",
+  "consoleShort": "Game Boy",
+  "consoleRank": 3,
+  "year": 1993,
+  "era": "A Dream of Koholint",
+  "accent": "#9bbc0f",
+  "accent2": "#1e2a10",
+  "cover": "windfish"
+ }
+};
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA };
 /* GEN:DATA:END */

@@ -1,0 +1,55 @@
+[
+ {
+  "id": "la_intro",
+  "name": "Washed Ashore on Koholint",
+  "sub": "Main Quest — Mabe Village",
+  "kind": "region",
+  "tagline": "A shipwreck, a girl's song, and an island that shouldn't exist.",
+  "champion": null,
+  "sections": [
+   {
+    "id": "la_intro_s_wake",
+    "name": "Marin's Song",
+    "sub": "Waking in Mabe Village",
+    "reward": null,
+    "steps": [
+     { "id": "la_wake_1", "k": "step", "t": "Your ship is wrecked in a storm and you wash ashore. You wake in a cozy house in Mabe Village — a girl named Marin found you on the beach, and her father Tarin is downstairs. Your sword is gone." },
+     { "id": "la_wake_2", "k": "tip", "t": "Koholint is a small island you can explore freely. Talk to everyone, read the Owl statues, and use the Telephone Booths — they all nudge you toward your next step if you get lost." },
+     { "id": "la_wake_3", "k": "step", "t": "Head downstairs and out. Make your way south out of Mabe Village toward the beach where Marin found you." }
+    ]
+   },
+   {
+    "id": "la_intro_s_beach",
+    "name": "Your Sword on the Sand",
+    "sub": "And a mysterious Owl",
+    "reward": "Sword",
+    "steps": [
+     { "id": "la_beach_1", "k": "loot", "t": "Walk the shoreline until you find your Sword lying on the sand. Pick it up — now you can fight, cut bushes, and (at full health) fire a sword beam.", "items": [
+        { "name": "Sword", "cat": "sword", "note": "Your main weapon. Shoots a beam at full hearts; later upgradeable to the L-2 Sword at the Seashell Mansion." }
+     ], "stuck": "From Mabe Village go south to the beach, then walk west along the water's edge. The Sword sits on the sand near the breaking waves; step onto it to grab it." },
+     { "id": "la_beach_2", "k": "reward", "t": "As you take up the Sword, a great Owl appears. It tells you the only way off the island is to wake the Wind Fish — and to do that you must first explore the Mysterious Forest." },
+     { "id": "la_beach_3", "k": "step", "t": "Back in the village, stop by the Town Tool Shop and pick up a Shield (it blocks attacks and shoves some enemies back). Grab Rupees from bushes and pots if you're short.", "items": [
+        { "name": "Shield", "cat": "shield", "note": "Hold it up to block; walk forward into weaker enemies to bump them back. Watch for Like Likes that can eat it." }
+     ] }
+    ]
+   },
+   {
+    "id": "la_intro_s_forest",
+    "name": "Into the Mysterious Forest",
+    "sub": "The key to the first dungeon",
+    "reward": "Tail Key",
+    "steps": [
+     { "id": "la_forest_1", "k": "step", "t": "Go to the Mysterious Forest, north-west of Mabe Village. Wind through its screens — cutting bushes and fighting Moblins — toward the witch's hut on the far side." },
+     { "id": "la_forest_2", "k": "step", "t": "Find the Toadstool deep in the forest and carry it to the witch Syrup. She grinds it into Magic Powder — sprinkle it to light torches, stun enemies, and reveal hidden things.", "items": [
+        { "name": "Magic Powder", "cat": "item", "note": "A pinch lights torches, stuns or transforms some enemies, and exposes hidden secrets. It's a limited supply — refill from Syrup." }
+     ], "stuck": "The Toadstool is in the north-west of the forest. Pick it up and don't drop it; bring it to Syrup's hut in the north-east, and she makes the Magic Powder for you." },
+     { "id": "la_forest_3", "k": "step", "t": "A foul-smelling raccoon blocks the forest path. Sprinkle Magic Powder on it — it's poor Tarin, transformed. He turns back to normal and the way clears.", "stuck": "Equip the Magic Powder to A or B, stand right next to the raccoon, and use it to break the spell." },
+     { "id": "la_forest_4", "k": "reward", "t": "Beyond the cleared path, open the chest to claim the Tail Key — it unlocks Tail Cave, the island's first dungeon and the home of the first Instrument.", "items": [
+        { "name": "Tail Key", "cat": "key", "note": "Opens the locked Tail Cave at the foot of the eastern hills. Carry it there to begin Dungeon 1." }
+     ] },
+     { "id": "la_forest_5", "k": "step", "t": "Take the Tail Key east to the locked Tail Cave below the mountains. Your quest is now set: clear eight dungeons, gather the eight Instruments of the Sirens, and play them to wake the Wind Fish." }
+    ]
+   }
+  ]
+ }
+]
