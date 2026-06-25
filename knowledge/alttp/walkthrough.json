@@ -13,10 +13,28 @@
     "sub": "Out into the rain",
     "reward": null,
     "steps": [
-     { "id": "alttp_wake_1", "k": "step", "t": "A thunderstorm wakes you in the dead of night. Princess Zelda's voice reaches your mind: she is locked in the castle dungeon and begs for help. Your uncle takes up his sword, tells you to stay in bed, and slips out into the rain." },
-     { "id": "alttp_wake_2", "k": "tip", "t": "This is the prologue — three hearts and no weapon yet. Follow your uncle; everything you need is just ahead." },
-     { "id": "alttp_wake_3", "k": "step", "t": "Get up and leave the house. Head north toward Hyrule Castle through the rainy field, slipping past the patrolling guards.", "stuck": "From your house, go up and around the castle moat toward the north side. You're looking for the way your uncle took, not the locked front gate." },
-     { "id": "alttp_wake_4", "k": "step", "t": "At the castle's edge, find the hidden entrance your uncle used — a hole in the ground behind the bushes that drops into an underground passage.", "stuck": "On the north-east side of the castle grounds, look for a lone bush by the wall. Pull it (or step into the gap) to reveal a stairway down into the passage." }
+     {
+      "id": "alttp_wake_1",
+      "k": "step",
+      "t": "A thunderstorm wakes you in the dead of night. Princess Zelda's voice reaches your mind: she is locked in the castle dungeon and begs for help. Your uncle takes up his sword, tells you to stay in bed, and slips out into the rain."
+     },
+     {
+      "id": "alttp_wake_2",
+      "k": "tip",
+      "t": "This is the prologue — three hearts and no weapon yet. Follow your uncle; everything you need is just ahead."
+     },
+     {
+      "id": "alttp_wake_3",
+      "k": "step",
+      "t": "Get up and leave the house. Head north toward Hyrule Castle through the rainy field, slipping past the patrolling guards.",
+      "stuck": "From your house, go up and around the castle moat toward the north side. You're looking for the way your uncle took, not the locked front gate."
+     },
+     {
+      "id": "alttp_wake_4",
+      "k": "step",
+      "t": "At the castle's edge, find the hidden entrance your uncle used — a hole in the ground behind the bushes that drops into an underground passage.",
+      "stuck": "On the north-east side of the castle grounds, look for a lone bush by the wall. Pull it (or step into the gap) to reveal a stairway down into the passage."
+     }
     ]
    },
    {
@@ -25,16 +43,51 @@
     "sub": "Your first sword",
     "reward": "Fighter's Sword & Shield",
     "steps": [
-     { "id": "alttp_castle_1", "k": "reward", "t": "In the passage you find your uncle, badly wounded. With his last strength he gives you his sword and shield and tells you to save the princess.", "items": [
-        { "name": "Fighter's Sword", "cat": "sword", "note": "Your uncle's blade — your starting weapon. Swing with the sword button; hold it to charge a Spin Attack." },
-        { "name": "Fighter's Shield", "cat": "shield", "note": "Blocks arrows and shoves back some enemies when you walk into them facing forward." }
-     ] },
-     { "id": "alttp_castle_2", "k": "tip", "t": "Tap an enemy before it taps you — with only three hearts, two careless hits can end you. Slash bushes and pots for hearts and Rupees as you go." },
-     { "id": "alttp_castle_3", "k": "step", "t": "Climb up into the castle. Cut through the soldiers floor by floor, opening chests for Rupees, Bombs, Arrows, and a small key." },
-     { "id": "alttp_castle_4", "k": "loot", "t": "Open the chest holding the Lamp — it lights dark rooms and burns bushes and torches. You'll need it constantly.", "items": [
-        { "name": "Lamp", "cat": "item", "note": "Lights pitch-black rooms and ignites torches and bushes; uses a little magic per flick." }
-     ] },
-     { "id": "alttp_castle_5", "k": "step", "t": "Reach the prison block, defeat the guards, and unlock Princess Zelda's cell with the key you found. She joins and follows you.", "stuck": "The cell key comes from a chest / a guard on the dungeon level just before the cells. Stand on the cell door and it opens once you hold the key." }
+     {
+      "id": "alttp_castle_1",
+      "k": "reward",
+      "t": "In the passage you find your uncle, badly wounded. With his last strength he gives you his sword and shield and tells you to save the princess.",
+      "items": [
+       {
+        "name": "Fighter's Sword",
+        "cat": "sword",
+        "note": "Your uncle's blade — your starting weapon. Swing with the sword button; hold it to charge a Spin Attack."
+       },
+       {
+        "name": "Fighter's Shield",
+        "cat": "shield",
+        "note": "Blocks arrows and shoves back some enemies when you walk into them facing forward."
+       }
+      ]
+     },
+     {
+      "id": "alttp_castle_2",
+      "k": "tip",
+      "t": "Tap an enemy before it taps you — with only three hearts, two careless hits can end you. Slash bushes and pots for hearts and Rupees as you go."
+     },
+     {
+      "id": "alttp_castle_3",
+      "k": "step",
+      "t": "Climb up into the castle. Cut through the soldiers floor by floor, opening chests for Rupees, Bombs, Arrows, and a small key."
+     },
+     {
+      "id": "alttp_castle_4",
+      "k": "loot",
+      "t": "Open the chest holding the Lamp — it lights dark rooms and burns bushes and torches. You'll need it constantly.",
+      "items": [
+       {
+        "name": "Lamp",
+        "cat": "item",
+        "note": "Lights pitch-black rooms and ignites torches and bushes; uses a little magic per flick."
+       }
+      ]
+     },
+     {
+      "id": "alttp_castle_5",
+      "k": "step",
+      "t": "Reach the prison block, defeat the guards, and unlock Princess Zelda's cell with the key you found. She joins and follows you.",
+      "stuck": "The cell key comes from a chest / a guard on the dungeon level just before the cells. Stand on the cell door and it opens once you hold the key."
+     }
     ]
    },
    {
@@ -43,12 +96,1720 @@
     "sub": "Safe — and the real quest begins",
     "reward": "The three Pendants goal",
     "steps": [
-     { "id": "alttp_sanc_1", "k": "step", "t": "Zelda knows a secret way out. In the throne room, pull the hidden lever behind the back wall to open a stairway down into the castle's depths.", "stuck": "Walk up to the back-right of the throne room and pull the wall ornament that looks like a torch/lever; the wall slides open onto a dark staircase." },
-     { "id": "alttp_sanc_2", "k": "warn", "t": "The basement passage is dark (keep the Lamp handy) and crawling with rats and spike traps. Keep Zelda close — if she lags behind, pause and let her catch up." },
-     { "id": "alttp_sanc_3", "k": "reward", "t": "Climb out into the Sanctuary. The loyal priest takes Zelda into hiding and explains the danger: the wizard Agahnim has bewitched the king and means to break the ancient seal that holds Ganon." },
-     { "id": "alttp_sanc_4", "k": "step", "t": "Your path is set. To stop Agahnim you need the legendary Master Sword — and to claim it you must gather the three Pendants of Virtue from the Eastern Palace, the Desert Palace, and the mountain Tower of Hera." }
+     {
+      "id": "alttp_sanc_1",
+      "k": "step",
+      "t": "Zelda knows a secret way out. In the throne room, pull the hidden lever behind the back wall to open a stairway down into the castle's depths.",
+      "stuck": "Walk up to the back-right of the throne room and pull the wall ornament that looks like a torch/lever; the wall slides open onto a dark staircase."
+     },
+     {
+      "id": "alttp_sanc_2",
+      "k": "warn",
+      "t": "The basement passage is dark (keep the Lamp handy) and crawling with rats and spike traps. Keep Zelda close — if she lags behind, pause and let her catch up."
+     },
+     {
+      "id": "alttp_sanc_3",
+      "k": "reward",
+      "t": "Climb out into the Sanctuary. The loyal priest takes Zelda into hiding and explains the danger: the wizard Agahnim has bewitched the king and means to break the ancient seal that holds Ganon."
+     },
+     {
+      "id": "alttp_sanc_4",
+      "k": "step",
+      "t": "Your path is set. To stop Agahnim you need the legendary Master Sword — and to claim it you must gather the three Pendants of Virtue from the Eastern Palace, the Desert Palace, and the mountain Tower of Hera."
+     }
     ]
    }
   ]
+ },
+ {
+  "id": "alttp_ep",
+  "name": "The Eastern Palace",
+  "sub": "Pendant of Courage",
+  "champion": "Pendant of Courage",
+  "tagline": "The first Pendant of Virtue, a Bow to claim it, and the boots that earn you a dash.",
+  "sections": [
+   {
+    "id": "alttp_ep_prep",
+    "name": "Find Sahasrahla",
+    "sub": "Kakariko cottage, then his hideout by the palace",
+    "steps": [
+     {
+      "id": "alttp_ep_to_kak",
+      "k": "step",
+      "t": "After the Sanctuary, the map marks Sahasrahla's cottage in Kakariko Village. He's the village elder and the wise man who'll set you toward the first Pendant. Head west across the Light World to reach the town.",
+      "stuck": "From the Sanctuary, go south then west across Hyrule. Kakariko is the large town with the chickens (Cuccos), the weathervane, and the well."
+     },
+     {
+      "id": "alttp_ep_find_elder",
+      "k": "step",
+      "t": "Go into Sahasrahla's cottage — but he isn't home. You'll find his wife instead. She tells you the elder has gone into hiding; she can't help directly.",
+      "stuck": "His cottage is the marked house in Kakariko. Talk to the woman inside (his wife) to learn he's left, then look around the village for someone who knows where he went."
+     },
+     {
+      "id": "alttp_ep_grandson",
+      "k": "step",
+      "t": "Elsewhere in the village, find Sahasrahla's grandson. He marks the location of Sahasrahla's Hideout on your map — a sunken house far to the east, near the Eastern Palace.",
+      "stuck": "The grandson is a boy wandering Kakariko. Talk to him and a new spot appears on your map by the far-eastern palace; that's where the elder is really waiting."
+     },
+     {
+      "id": "alttp_ep_to_hideout",
+      "k": "step",
+      "t": "Travel east across Hyrule Field to the hideout the grandson marked. Sahasrahla is inside. He tells you the legend and asks you to retrieve the Pendant of Courage from the nearby Eastern Palace as proof of your courage.",
+      "stuck": "Head east toward the rising sun. The hideout is a small house set in a sunken pit a short way west of the big palace; step down into it and talk to the old man."
+     },
+     {
+      "id": "alttp_ep_to_palace",
+      "k": "step",
+      "t": "Leave the hideout and go to the Eastern Palace just to the east — the large stone building at the eastern edge of the map. Enter through the grand front steps.",
+      "stuck": "From Sahasrahla's hideout, the palace is the big stone structure a little farther east. You can't miss the wide front entrance."
+     }
+    ]
+   },
+   {
+    "id": "alttp_ep_dungeon",
+    "name": "Inside the Eastern Palace",
+    "sub": "Dark rooms and the Bow",
+    "reward": "Bow",
+    "steps": [
+     {
+      "id": "alttp_ep_lamp",
+      "k": "tip",
+      "t": "Several rooms here are pitch dark. Use your Lamp on the unlit torches to light the room — this reveals enemies, switches, and safe footing. Keep the Lamp handy throughout."
+     },
+     {
+      "id": "alttp_ep_small_key",
+      "k": "loot",
+      "t": "Work through the early rooms. Clearing every enemy in a sealed room, or stepping on hidden floor switches, opens its exit and turns up chests — including a Small Key for a locked door deeper in.",
+      "stuck": "If a room's doors are barred, kill every enemy or find the floor switch (sometimes under a pot you can lift). The first locked door needs a Small Key from the rooms just past the entrance.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens one locked door inside the Eastern Palace."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ep_bow",
+      "k": "reward",
+      "t": "Reach the large treasure chest and open it to claim the Bow — the dungeon's main item. Arrows let you hit eye-switches across gaps and make the boss far quicker to kill.",
+      "stuck": "The Bow chest sits in a large room past the dark areas, reached by pushing blocks and taking the stairs. If a chest won't open, clear the room's enemies first. You start with some Arrows; buy more in town if you run low.",
+      "items": [
+       {
+        "name": "Bow",
+        "cat": "bow",
+        "note": "Fires Arrows to hit distant eye-switches and weak points — the fast way to drop the Armos Knights boss."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ep_eye_switch",
+      "k": "step",
+      "t": "Use the Bow on the eye-shaped switches around the dungeon. Shooting one closes the eye, which drops a bridge or opens a path you can't reach on foot. This is how you push toward the boss door.",
+      "stuck": "Look for an open 'eye' on a wall. Fire one Arrow at it to make it blink shut — that flips the matching bridge or gate so you can cross."
+     },
+     {
+      "id": "alttp_ep_big_key",
+      "k": "loot",
+      "t": "Find the Big Key before the boss. With it, open the large ornate lock on the boss door at the top of the dungeon.",
+      "stuck": "The Big Key chest is in the upper rooms — often revealed by a hidden floor switch after you clear the enemies. If a tall door with a fancy gold lock won't open, you still need the Big Key; backtrack and search the rooms you skipped.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the Eastern Palace boss door."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "alttp_ep_boss",
+    "name": "Boss: Armos Knights",
+    "sub": "Six statues, one red finisher",
+    "reward": "Pendant of Courage",
+    "steps": [
+     {
+      "id": "alttp_ep_boss_open",
+      "k": "step",
+      "t": "Enter the boss room. Six stone Armos Knights wake up and start bouncing — first circling, then lining up at the top and hopping straight down at you. Keep moving so a hop never lands on Link.",
+      "stuck": "Tuck into the bottom-right corner facing up. From there you can fire Arrows at the statues as they circle, and you're clear of the line when they drop down the screen."
+     },
+     {
+      "id": "alttp_ep_boss_arrows",
+      "k": "step",
+      "t": "Shoot the statues with the Bow — about three Arrows kills each one. Stay in the corner and rattle off arrows as they pass; you can tag several in a row. (The sword works too, but it takes many hits per statue and is far slower.)",
+      "stuck": "All six can be damaged at any time — you don't need to wait for a flash. Hold position in the corner and keep firing; whittle them down one at a time while you sidestep the hops."
+     },
+     {
+      "id": "alttp_ep_boss_redmask",
+      "k": "step",
+      "t": "When only one statue is left, it turns red and starts jumping straight at Link, trying to stomp him. Keep circling and finish it — a few more Arrows, or sword strikes right after it lands, will do it.",
+      "stuck": "The red one tracks you, so keep moving the whole time. Shoot it as you dodge, or strike with the sword the instant it touches down, then back off before its next hop."
+     },
+     {
+      "id": "alttp_ep_pendant",
+      "k": "reward",
+      "t": "With all six Armos Knights destroyed, a Heart Container and the first Pendant of Virtue appear. Grab the Heart Container, then touch the Pendant of Courage — the first of three you'll need for the Master Sword. Collecting it warps you outside the palace.",
+      "stuck": "Walk into the Heart Container for a permanent health boost, then step onto the glowing Pendant to claim it. You're sent back outside automatically afterward.",
+      "items": [
+       {
+        "name": "Pendant of Courage",
+        "cat": "key",
+        "note": "The first of three Pendants of Virtue. Collect all three to claim the Master Sword in the Lost Woods."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ep_boots",
+      "k": "reward",
+      "t": "Return to Sahasrahla in his hideout. Pleased that you passed the test, he gives you the Pegasus Boots — a family heirloom of the wise men. Hold the dash button to charge, then run: you'll smash bushes, ram crackable walls and rocks, and stun enemies.",
+      "stuck": "Go back to the sunken hideout west of the palace and talk to the elder. Once you have the Boots, hold the assigned dash button until Link braces, then release to sprint into whatever's ahead.",
+      "items": [
+       {
+        "name": "Pegasus Boots",
+        "cat": "item",
+        "note": "Given by Sahasrahla after the Pendant of Courage. Hold to charge, then dash: smash bushes, stun foes, and crack certain weak walls and rocks by ramming them."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ep_next",
+      "k": "tip",
+      "t": "Sahasrahla points you onward: the next goal is the Desert Palace in the southwest for the Pendant of Power. You'll need a few more tools to reach and clear it — he'll keep guiding you."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "alttp_dp",
+  "name": "The Desert Palace",
+  "sub": "Pendant of Power",
+  "champion": "Pendant of Power",
+  "tagline": "Read the desert tablet, lift the rocks, take the second Pendant.",
+  "kind": "region",
+  "sections": [
+   {
+    "id": "alttp_dp_book",
+    "name": "Get the Book of Mudora",
+    "sub": "Kakariko Library",
+    "reward": "Book of Mudora",
+    "steps": [
+     {
+      "id": "alttp_dp_lib",
+      "k": "step",
+      "t": "Go to the Library (the House of Books) in the southern part of Kakariko Village — the building with the open-book sign over the door.",
+      "stuck": "It's in the lower (southern) portion of Kakariko, just north of the Quarreling Brothers' house. Look for the sign shaped like an open book and walk in the front door."
+     },
+     {
+      "id": "alttp_dp_dash",
+      "k": "loot",
+      "t": "Inside, the Book of Mudora sits on top of a tall bookcase, out of reach. Equip the Pegasus Boots and dash straight into that bookcase to shake the book loose onto the floor, then pick it up.",
+      "stuck": "Stand a few steps back from the shelf, hold the dash button until Link's feet spark, then run full-speed into the shelf. The book drops to the floor — walk over it to grab it.",
+      "items": [
+       {
+        "name": "Book of Mudora",
+        "cat": "item",
+        "note": "Reads the ancient Hylian stone tablets — including the one that opens the Desert Palace (and later the medallion tablets and the Master Sword pedestal)."
+       }
+      ]
+     },
+     {
+      "id": "alttp_dp_warn_boots",
+      "k": "warn",
+      "t": "No Pegasus Boots yet? Sahasrahla gives them to you earlier in the adventure. You can't knock the book down without a dash, so come back once you have the Boots."
+     }
+    ]
+   },
+   {
+    "id": "alttp_dp_enter",
+    "name": "Open the Desert Palace",
+    "sub": "Southwest desert",
+    "steps": [
+     {
+      "id": "alttp_dp_travel",
+      "k": "step",
+      "t": "Travel to the southwest corner of the map — the Desert of Mystery. The palace entrance is at the north edge of the desert, with a row of statues and a stone tablet out front.",
+      "stuck": "Head to the bottom-left of the overworld until the grass turns to sand, then follow the desert up to the ruined building with the tablet standing before it."
+     },
+     {
+      "id": "alttp_dp_read",
+      "k": "step",
+      "t": "Stand in front of the stone tablet and read it with the Book of Mudora. The ancient words make the statues slide aside, opening the way in — then walk through the doorway.",
+      "stuck": "Equip the Book of Mudora to a button, face the tablet, and press that button. The blockade in front of the entrance moves out of the way on its own; just step inside."
+     }
+    ]
+   },
+   {
+    "id": "alttp_dp_inside",
+    "name": "Inside the Desert Palace",
+    "sub": "The Power Glove",
+    "reward": "Power Glove",
+    "steps": [
+     {
+      "id": "alttp_dp_torches",
+      "k": "tip",
+      "t": "Some rooms are dark. Use the Lamp to light the wall torches as you enter so you can see the floor switches and gaps (lighting the right torches is also what opens the boss door later).",
+      "stuck": "Equip the Lamp and tap toward an unlit torch to set it alight. In dark rooms, light a couple of torches first so the room comes into view."
+     },
+     {
+      "id": "alttp_dp_bigkey",
+      "k": "loot",
+      "t": "Work through the rooms collecting the small keys and the Big Key. Keep moving past the Beamos statues — their spinning beam can't be destroyed.",
+      "stuck": "Beamos statues rotate and fire a beam you cannot kill — just stay out of its line so it never sweeps across you. Spend small keys on the locked doors and save the Big Key for the gold lock.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the dungeon's gold-locked doors — the big treasure chest and the path toward the boss."
+       }
+      ]
+     },
+     {
+      "id": "alttp_dp_glove",
+      "k": "reward",
+      "t": "Open the big chest (behind the Big-Key door) for the Power Glove — the Desert Palace's main item.",
+      "stuck": "The big chest sits behind a gold (Big-Key) lock. Once you have the Big Key, open that door and the chest inside holds the glove.",
+      "items": [
+       {
+        "name": "Power Glove",
+        "cat": "item",
+        "note": "Lets Link lift the light-colored rocks scattered around Hyrule — and clears the rocks blocking the route to the upper floor and the boss here."
+       }
+      ]
+     },
+     {
+      "id": "alttp_dp_lift",
+      "k": "step",
+      "t": "With the Power Glove, lift the light-colored rocks that were blocking the way. Clear the path up to the boss door and step inside.",
+      "stuck": "Stand right against a light rock and press the action button to pick it up, then throw it aside. A line of these rocks was sealing the route to the upper floor and the boss."
+     }
+    ]
+   },
+   {
+    "id": "alttp_dp_boss",
+    "name": "Boss: Lanmolas",
+    "sub": "Three sand worms",
+    "reward": "Pendant of Power",
+    "steps": [
+     {
+      "id": "alttp_dp_boss_fight",
+      "k": "step",
+      "t": "Three sand worms (Lanmolas) burrow under the floor and erupt up out of the sand. When a head pops out, slash it — each worm goes down after enough hits to its head.",
+      "stuck": "Watch for the shifting sand and rising dust to spot where one is about to surface, then be next to that spot ready to swing. Hit only the head. A charged spin attack lands a strong hit and knocks you back from the rock spray."
+     },
+     {
+      "id": "alttp_dp_boss_dmg",
+      "k": "warn",
+      "t": "Touching an erupting worm hurts you, and each one flings rocks outward as it surfaces — the last worm left gets faster and throws rocks in more directions. Circle the edges of the room and strike only when a head is exposed.",
+      "stuck": "Don't camp in the center. Keep moving so a worm doesn't burst up right under you, and time your swing for the instant a head is up."
+     },
+     {
+      "id": "alttp_dp_pendant",
+      "k": "reward",
+      "t": "With all three worms defeated, a Heart Container appears along with the Pendant of Power — grab both. This is the second of the three Pendants.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "item",
+        "note": "Refills your hearts and adds one to your maximum."
+       },
+       {
+        "name": "Pendant of Power",
+        "cat": "key",
+        "note": "The Desert Palace trophy — the second Pendant. All three are needed to claim the Master Sword."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "alttp_toh",
+  "name": "Death Mountain & the Tower of Hera",
+  "sub": "Pendant of Wisdom",
+  "champion": "Pendant of Wisdom",
+  "tagline": "A long climb, a lost old man, and the Moon Pearl.",
+  "sections": [
+   {
+    "id": "alttp_toh_climb",
+    "name": "The Climb up Death Mountain",
+    "sub": "From Kakariko to the dark caves",
+    "steps": [
+     {
+      "id": "alttp_toh_prereq",
+      "k": "warn",
+      "t": "Before you start: you need the Power Glove (from the Desert Palace) to lift the rocks that block the climb, and the Lamp for the dark caves. Without the Power Glove you can't get up Death Mountain at all.",
+      "stuck": "The Power Glove is the Desert Palace's dungeon item. If boulders are stopping your path up the mountain and you can't lift them, go finish the Desert Palace first, then come back."
+     },
+     {
+      "id": "alttp_toh_north",
+      "k": "step",
+      "t": "From Kakariko Village, head north and up to the foot of Death Mountain — the tall peak in the northwest of Hyrule. Climb the steps and ledges, lifting any rocks in your way, until you reach the cave mouth set into the slope.",
+      "stuck": "Work your way up the ledges in the northwest. Use the Power Glove to lift rocks that block the path. The way in is a cave mouth in the rock face partway up."
+     },
+     {
+      "id": "alttp_toh_lamp",
+      "k": "tip",
+      "t": "The caves up here are pitch dark. Press the button you've set the Lamp to so Link lights it — without the Lamp you'll be feeling around blind and bumping into walls."
+     },
+     {
+      "id": "alttp_toh_dark_cave",
+      "k": "step",
+      "t": "Go through the dark cave. Light it with the Lamp if you need to see, then take the exit on the far side to pop out higher on the mountain.",
+      "stuck": "Tap a wall torch with the Lamp lit to reveal the room. Head to the far side and take the opening onward; keep going up and you'll surface on a higher ledge of Death Mountain."
+     }
+    ]
+   },
+   {
+    "id": "alttp_toh_oldman",
+    "name": "The Lost Old Man",
+    "sub": "Escort him to safety for the Magic Mirror",
+    "reward": "Magic Mirror",
+    "steps": [
+     {
+      "id": "alttp_toh_find_man",
+      "k": "step",
+      "t": "In the caves you'll meet a frightened old man who has lost his way. Walk up to him and he'll ask you to lead him safely up to the house on the mountain.",
+      "stuck": "He's just inside the cave on the mountainside. Touch him to start the escort — from then on he follows you."
+     },
+     {
+      "id": "alttp_toh_escort",
+      "k": "step",
+      "t": "Lead the old man up to the next safe cave. Go slowly and stay close so he keeps up, follow the path he points you toward, and don't drop off ledges he can't follow. If you get too far ahead he stops following — just come back and pick him up.",
+      "stuck": "Don't sprint ahead; he trails a step behind. Take the path through the caves and across the slope (watch for falling boulders) to the marked cave door. Reaching it ends the escort."
+     },
+     {
+      "id": "alttp_toh_mirror",
+      "k": "reward",
+      "t": "Safe at the cave, the old man thanks you and hands over the Magic Mirror as your reward.",
+      "items": [
+       {
+        "name": "Magic Mirror",
+        "cat": "item",
+        "note": "Use it later to warp from the Dark World back to the matching spot in the Light World — your escape hatch once things get strange."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "alttp_toh_totower",
+    "name": "Reaching the Tower",
+    "sub": "The Spectacle Rock warp trick",
+    "steps": [
+     {
+      "id": "alttp_toh_warp_tile",
+      "k": "step",
+      "t": "To reach the Tower of Hera you have to cross over using the Magic Mirror. Head to the area near Spectacle Rock and step onto the warp tile (a circle of stones) — it sends you to the Dark World, where for now you'll be turned into a helpless creature.",
+      "stuck": "The warp tile is the ring of stones up near Spectacle Rock (the rock shaped like a pair of glasses). Just step into the middle of it to be carried to the Dark World."
+     },
+     {
+      "id": "alttp_toh_mirror_back",
+      "k": "step",
+      "t": "In the Dark World, walk west a short way until you find a flat spot, then use the Magic Mirror. It warps you back to the Light World — landing you on top of Spectacle Rock, on the ledge that leads to the tower.",
+      "stuck": "You can't walk to the tower in the normal world — the rock is in the way. Crossing to the Dark World and mirroring back is how you 'cheat' onto the high ledge. Use the Mirror from the open ground just west of where you warped in."
+     },
+     {
+      "id": "alttp_toh_to_entrance",
+      "k": "step",
+      "t": "Now on the high ledge, drop down to the north and walk over to the Tower of Hera — the lone spire at the summit — and go inside.",
+      "stuck": "From where the Mirror dropped you, hop off the ledge to the north and head right to the tower door."
+     }
+    ]
+   },
+   {
+    "id": "alttp_toh_tower",
+    "name": "Tower of Hera",
+    "sub": "The Moon Pearl and Moldorm",
+    "reward": "Pendant of Wisdom",
+    "steps": [
+     {
+      "id": "alttp_toh_enter",
+      "k": "step",
+      "t": "Enter the Tower of Hera and start climbing. It's a tall, open dungeon — work upward floor by floor, grabbing the Small Key and Big Key as you find them.",
+      "stuck": "Climb steadily. You'll need the Big Key before the top: it opens both the big chest with the dungeon item and the boss door."
+     },
+     {
+      "id": "alttp_toh_smallkey",
+      "k": "loot",
+      "t": "Grab the Small Key you find on the way up to open the locked door blocking your climb.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens one locked door in this tower."
+       }
+      ]
+     },
+     {
+      "id": "alttp_toh_bigkey",
+      "k": "loot",
+      "t": "In a torch-lit room, light all four torches with the Lamp — a hidden chest appears holding the Big Key.",
+      "stuck": "If a room looks empty but has unlit torches, light every one with the Lamp. The Big Key chest only appears once all four are burning.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Unlocks the big treasure chest and the boss room in the Tower of Hera."
+       }
+      ]
+     },
+     {
+      "id": "alttp_toh_moonpearl",
+      "k": "loot",
+      "t": "Reach the big ornate chest and open it with the Big Key to claim this tower's prize: the Moon Pearl.",
+      "stuck": "The chest sits below, reached by dropping through a hole near the central Bumper. Step on the star/crystal switch to open the hole, drop down to the platform with the chest, dodge the spark circling it, and open it (needs the Big Key).",
+      "items": [
+       {
+        "name": "Moon Pearl",
+        "cat": "key",
+        "note": "Keeps Link in his normal form in the Dark World instead of being turned into a helpless creature — essential before you ever go there."
+       }
+      ]
+     },
+     {
+      "id": "alttp_toh_boss_intro",
+      "k": "warn",
+      "t": "The top floor is the boss: Moldorm, a big wriggling worm. The real danger is the floor — its edges are wide open, and getting bumped can knock you clean off. If you fall, you drop a floor AND Moldorm's health fully resets, so you'll have to climb back and start the fight over. Take it slow."
+     },
+     {
+      "id": "alttp_toh_boss",
+      "k": "step",
+      "t": "Beat Moldorm. Its only weak spot is the tip of its tail — chase it and strike the tail-end with your sword while keeping away from the open edges of the platform.",
+      "stuck": "Hit the very TIP of the tail, not the head or body — striking anything else just knocks Link back toward the rim. Moldorm speeds up and thrashes after each hit, so back off, wait for the tail to swing toward the center, then strike. It takes several solid tail hits."
+     },
+     {
+      "id": "alttp_toh_pendant",
+      "k": "reward",
+      "t": "With Moldorm defeated, a Heart Container appears and the second pendant is yours — the Pendant of Wisdom.",
+      "items": [
+       {
+        "name": "Pendant of Wisdom",
+        "cat": "key",
+        "note": "The second of the three pendants you need to claim the Master Sword."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "alttp_ms",
+  "name": "The Master Sword & the Castle Tower",
+  "sub": "Drawing the blade, and Agahnim",
+  "champion": null,
+  "tagline": "Three pendants earn the legendary sword — and a wizard to test it on.",
+  "sections": [
+   {
+    "id": "alttp_ms_s_blade",
+    "name": "Drawing the Master Sword",
+    "sub": "Into the Lost Woods, to the pedestal",
+    "reward": "The Master Sword",
+    "steps": [
+     {
+      "id": "alttp_ms_check",
+      "k": "tip",
+      "t": "Before you set out, open your menu and confirm you're holding all three Pendants of Virtue (Courage from the Eastern Palace, Power from the Desert Palace, Wisdom from the Tower of Hera). The pedestal only releases the sword when you have all three."
+     },
+     {
+      "id": "alttp_ms_woods",
+      "k": "step",
+      "t": "Travel to the far northwest of the map and enter the Lost Woods — the patch of forest north of Kakariko Village. Make your way to the woods' northwest corner and go through the log tunnel there; it leads into the foggy Sacred Grove where the pedestal sits.",
+      "stuck": "The pedestal is in the Sacred Grove, reached only through the log tunnel at the very northwest corner of the Lost Woods. You don't have to solve any maze inside the grove — just get to that northwesternmost log and walk through it into the misty clearing with the sword in the stone."
+     },
+     {
+      "id": "alttp_ms_pull",
+      "k": "reward",
+      "t": "Walk up to the pedestal and pull the Master Sword free. With all three pendants, the legendary blade is yours — it's stronger than the Fighter's Sword and can deflect magic. (The inscription on the stone is written in the ancient Hylian read by the Book of Mudora, but you don't need the Book to pull the sword — only the three pendants.)",
+      "stuck": "Stand directly below the pedestal, facing up into it, and the game pulls the sword automatically once you're close. If nothing happens, you're missing a pendant — re-check the three dungeons.",
+      "items": [
+       {
+        "name": "Master Sword",
+        "cat": "sword",
+        "note": "The legendary blade, drawn once you hold all three Pendants of Virtue. Hits harder than the Fighter's Sword, and — crucial for what's next — can knock Agahnim's magic back at him AND break the barrier sealing his tower."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ms_zelda",
+      "k": "tip",
+      "t": "As you take the sword, Zelda reaches you telepathically: the castle is in danger and you must come at once. That's your cue — head for Hyrule Castle."
+     }
+    ]
+   },
+   {
+    "id": "alttp_ms_s_tower",
+    "name": "Storming the Castle Tower",
+    "sub": "Break the barrier, climb to Agahnim",
+    "steps": [
+     {
+      "id": "alttp_ms_enter",
+      "k": "step",
+      "t": "Return to Hyrule Castle in the center of the map. The tower entrance is sealed by a glowing magic barrier — walk up to it and SWING THE MASTER SWORD at the barrier to dispel it, then go in. (Only the Master Sword can break it; that's why you needed the blade first.)",
+      "stuck": "Enter the castle, then make your way to the tower door on the upper part of the castle. You'll see a shimmering energy barrier across it. Don't look for another way around — just slash the barrier with your sword and it vanishes, opening the tower."
+     },
+     {
+      "id": "alttp_ms_climb",
+      "k": "step",
+      "t": "Climb the Castle Tower floor by floor. Fight through soldiers (sword, spear, and bow types) and cross the narrow catwalks. On the dark floors you can't see — light the wall torches with your Lamp to reveal the room and the way up.",
+      "stuck": "If a floor is pitch black, equip the Lamp and light the torches on the walls to see. Watch for archer soldiers on the thin walkways over pits, and near the top you may need to push a statue aside to clear the stairs upward."
+     },
+     {
+      "id": "alttp_ms_heart",
+      "k": "tip",
+      "t": "Top off your hearts and check your bottles before the final door. Once you step into the top room there's no leaving until the fight is over."
+     }
+    ]
+   },
+   {
+    "id": "alttp_ms_s_agahnim",
+    "name": "Agahnim, the Dark Wizard",
+    "sub": "Deflect his magic to win",
+    "steps": [
+     {
+      "id": "alttp_ms_meet",
+      "k": "step",
+      "t": "At the top you find Agahnim with Princess Zelda. He banishes her into the Dark World and turns to face you — the boss fight begins.",
+      "stuck": "Don't panic when Zelda vanishes; you can't stop it. Focus on the wizard. The room is small, so keep moving to stay out of his line of fire."
+     },
+     {
+      "id": "alttp_ms_deflect",
+      "k": "step",
+      "t": "Agahnim can't be hurt by normal sword swings — striking his body just shocks you. Instead, when he hurls a glowing ball of magic at you, swing your sword right as it reaches you to bat it straight back into him. Each deflected ball wounds him.",
+      "stuck": "Line yourself up so you're directly in front of Agahnim along one of the four directions, then slash as the ball is about to hit Link (not early) so the rebound flies straight back at him. The Bug-Catching Net also works to scoop and fling his magic if you'd rather.",
+      "items": []
+     },
+     {
+      "id": "alttp_ms_lightning",
+      "k": "warn",
+      "t": "Watch for his lightning attack: when he stops in the center near the top of the room, he drops bolts that you CANNOT deflect. Get out of the middle — slide to the side or into a corner of the room — until it passes, then resume returning his energy balls. He also flings spreading blue magic that scatters when it hits a wall; just dodge those."
+     },
+     {
+      "id": "alttp_ms_fall",
+      "k": "step",
+      "t": "Keep deflecting his energy balls until Agahnim collapses. He fights you alone here in the castle, so there's nothing to do but return his magic and dodge the lightning. The wizard is beaten — but as he falls, a portal opens.",
+      "stuck": "If he keeps shrugging off your hits, you're swinging at his body instead of returning his magic. Stop chasing him with the blade — only attack by knocking his energy balls back into him."
+     },
+     {
+      "id": "alttp_ms_dark",
+      "k": "reward",
+      "t": "Agahnim's last spell pulls you through the portal into the Dark World — a twisted mirror of Hyrule — depositing you atop its Pyramid. There's no escaping back yet, but a whole new half of the quest begins here.",
+      "stuck": "You stay in Link's normal human form (not transformed into a helpless creature) because you're carrying the Moon Pearl you found in the Tower of Hera — it shields you from the Dark World's curse. Being trapped here is intended, not a failure: finding the way home and freeing the seven maidens is the next leg of the adventure.",
+      "items": []
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "alttp_pod",
+  "name": "Palace of Darkness",
+  "sub": "The first Maiden",
+  "champion": "Crystal — Palace of Darkness",
+  "tagline": "Into the Dark World — and the first crystal.",
+  "sections": [
+   {
+    "id": "alttp_pod_s_prep",
+    "name": "Before You Go In",
+    "sub": "Get human, bring rupees",
+    "steps": [
+     {
+      "id": "alttp_pod_prep_pearl",
+      "k": "warn",
+      "t": "You need the Moon Pearl. Without it, stepping into the Dark World turns you into a pink bunny who can't attack or use items. With it, you stay human over there. Do not head for the dungeon without it."
+     },
+     {
+      "id": "alttp_pod_prep_rupees",
+      "k": "tip",
+      "t": "Bring at least 110 rupees. A greedy monkey named Kiki gates this palace: 10 rupees to get him to follow you through the maze, then 100 more to open the locked door. If you arrive short on rupees you can't even get inside."
+     },
+     {
+      "id": "alttp_pod_prep_arrows",
+      "k": "tip",
+      "t": "Top up arrows before you go. Inside, several barred doors and a hidden passage are opened by shooting eye-switches and a statue's eye with the Bow, so it helps to have a stock — but the boss itself can be finished with your sword, so don't panic if you run low."
+     },
+     {
+      "id": "alttp_pod_prep_warp",
+      "k": "step",
+      "t": "Cross into the Dark World in the northeast. The Palace of Darkness sits where the Eastern Palace stood in the Light World, so mirror in (or warp in) near that old Eastern Palace area and you'll arrive right beside it — as your human self, thanks to the Moon Pearl.",
+      "stuck": "From the Dark World copy of the Eastern Palace area, head into the maze of thorns/brush around the palace. You can't reach the door directly — that's what Kiki is for (next step)."
+     },
+     {
+      "id": "alttp_pod_prep_kiki",
+      "k": "step",
+      "t": "Work through the brush maze until a monkey, Kiki, appears and asks for 10 rupees to tag along. Pay him and he'll follow you to the palace. At the door he'll demand 100 rupees more; pay that and he hops up and hits a high switch, opening the sealed entrance.",
+      "stuck": "If Kiki runs off, you probably took a hit while he was following — go back, find him in the maze, and pay the 10 rupees again. He won't open the door until you reach it with him AND hand over the 100 rupees."
+     }
+    ]
+   },
+   {
+    "id": "alttp_pod_s_inside",
+    "name": "Inside the Palace",
+    "sub": "Find the Magic Hammer",
+    "reward": "Magic Hammer",
+    "steps": [
+     {
+      "id": "alttp_pod_in_enter",
+      "k": "step",
+      "t": "Enter the palace. The early rooms throw spike traps, shelled Hardhat Beetles, and switch puzzles at you — shoot eye-switches (and one statue's eye) with the Bow to drop barred walls, and keep pressing inward.",
+      "stuck": "Some rooms here are pitch dark. Light a torch or use the Lamp to see, then look for the eye-switch or statue eye to shoot."
+     },
+     {
+      "id": "alttp_pod_in_eyes",
+      "k": "tip",
+      "t": "Many doors here are held shut by glowing eye-switches on the walls. An arrow closes the eye and drops the bars — and one wall only moves after you shoot a statue's eye. This is why a stock of arrows helps in this dungeon; keep some in reserve."
+     },
+     {
+      "id": "alttp_pod_in_bigkey",
+      "k": "loot",
+      "t": "Work through the small-key doors and grab the Big Key from its chest. You'll need it for the locked rooms deeper in and for the boss door.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the big golden-locked doors and the boss room in this dungeon only."
+       }
+      ]
+     },
+     {
+      "id": "alttp_pod_in_hammer",
+      "k": "reward",
+      "t": "Find the big chest holding the dungeon's prize: the Magic Hammer. From now on you can pound down the stakes that block paths and stun enemies with a swing.",
+      "items": [
+       {
+        "name": "Magic Hammer",
+        "cat": "item",
+        "note": "The Palace of Darkness dungeon item. Pounds stakes flat, flips Hardhat Beetles, and cracks the boss's mask. Keep it handy for the rest of the dungeon."
+       }
+      ]
+     },
+     {
+      "id": "alttp_pod_in_stakes",
+      "k": "step",
+      "t": "Use the Hammer to flatten the stakes blocking the way forward, then work toward the boss door. Pound Hardhat Beetles with the Hammer too — your sword just bounces off their shells.",
+      "stuck": "Stuck at a row of stakes/pegs? That's the Hammer's job. Swing it (not the sword) on each one to drive it into the floor and clear the path."
+     }
+    ]
+   },
+   {
+    "id": "alttp_pod_s_boss",
+    "name": "Boss: Helmasaur King",
+    "sub": "Crack the mask, hit the face",
+    "reward": "Crystal — Palace of Darkness",
+    "steps": [
+     {
+      "id": "alttp_pod_boss_open",
+      "k": "warn",
+      "t": "Open the boss door with the Big Key. The Helmasaur King is a big armored lizard that swings its spiked tail and spits a fireball that splits into a spread of bouncing fireballs. Have the Hammer (and ideally some bombs) ready before stepping in."
+     },
+     {
+      "id": "alttp_pod_boss_mask",
+      "k": "step",
+      "t": "First break the bony mask covering its face. Get in front of it and swing the Magic Hammer at the mask (bombs against its face work too) until it shatters and exposes the face beneath. It takes several solid hits.",
+      "stuck": "Hammer the mask directly from the front — keep at it, it takes many hits to crack. Prefer distance? Drop bombs right against its face instead. Your sword and arrows won't break the mask."
+     },
+     {
+      "id": "alttp_pod_boss_jewel",
+      "k": "step",
+      "t": "Once the mask is off, attack the exposed face with your sword — slash it whenever you're close. (Arrows work on it too if you'd rather stay back.) Keep circling to dodge the tail swipe and the bouncing fireballs while you land hits.",
+      "stuck": "The bare face is the only weak spot now. Swing the sword at it up close — it only takes a handful of hits. If you want range, arrows also damage it. Sidestep the slow bouncing fireballs and the tail between attacks, and don't panic if it takes a couple of passes."
+     },
+     {
+      "id": "alttp_pod_boss_clear",
+      "k": "reward",
+      "t": "With the Helmasaur King defeated, grab the Heart Container it leaves and touch the crystal that drops in to free the first Maiden — sealed inside it — and earn your first Dark World Crystal.",
+      "items": [
+       {
+        "name": "Crystal — Palace of Darkness",
+        "cat": "key",
+        "note": "The first of seven Crystals. Each holds a rescued Maiden; collect them all to break into Ganon's Tower. One down, six to go."
+       }
+      ]
+     },
+     {
+      "id": "alttp_pod_boss_next",
+      "k": "tip",
+      "t": "Touching the crystal refills your health and magic and warps you outside, pointing you toward the next region. The Hammer also opens up new shortcuts back in the Light World now. The hunt for the remaining Maidens begins."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "alttp_swamp",
+  "name": "Swamp Palace",
+  "sub": "The second Maiden",
+  "champion": "Crystal — Swamp Palace",
+  "tagline": "Buy the Flippers, drain the swamp, hook across, free the second Maiden.",
+  "sections": [
+   {
+    "id": "alttp_swamp_s_prep",
+    "name": "Get the Flippers first",
+    "sub": "You can't reach the palace without swimming",
+    "reward": "Flippers — you can now swim across deep water",
+    "steps": [
+     {
+      "id": "alttp_swamp_prep_zora",
+      "k": "step",
+      "t": "Back in the Light World, head to Zora's Waterfall in the far northeast corner of the map, above the Eastern Palace area. Talk to the giant King Zora sitting in the pool.",
+      "stuck": "Zora's Waterfall is the pool at the very top-right of the Light World map. Walk up the east coast and step down the small ledges to reach the water, then go to King Zora — the huge fish-king floating in the pool."
+     },
+     {
+      "id": "alttp_swamp_prep_buy",
+      "k": "reward",
+      "t": "King Zora offers to sell you the Flippers for 500 rupees. Pay him — this is one of the most important items in the game. Now you can dive into and swim across any deep water.",
+      "stuck": "Short on rupees? Cut grass, lift rocks, and open chests around Hyrule. 500 is a lot this early, but you must have the Flippers — the Swamp Palace is the first dungeon that requires swimming to reach.",
+      "items": [
+       {
+        "name": "Flippers",
+        "cat": "item",
+        "note": "Stand at the edge of deep water and walk in to dive and swim. Required to reach and clear the Swamp Palace."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "alttp_swamp_s_entry",
+    "name": "Draining the swamp",
+    "sub": "A Light World floodgate opens the Dark World door",
+    "steps": [
+     {
+      "id": "alttp_swamp_entry_locate",
+      "k": "tip",
+      "t": "The Swamp Palace sits in the flooded swamp in the southern Dark World, near the Bomb Shop (the Dark World twin of Link's House). Its door is flooded — you must lower the water before you can walk in. You need the Magic Hammer (from the Dark Palace) to smash the stakes by the swamp warp tile that block the way down here.",
+      "stuck": "The palace is in the south-center swamp of the Dark World. If wooden stakes block your path to it, hammer them down. If the door is underwater when you arrive, you haven't drained it yet — do the floodgate trick first."
+     },
+     {
+      "id": "alttp_swamp_entry_lever",
+      "k": "step",
+      "t": "In the LIGHT World, go to the small building (the Swamp Ruins) on the same map spot as the Dark World palace. Inside, push the CENTER block UP, then push one of the side blocks ASIDE so you can pass north. In the next room are two levers on the far wall — pull the one on the RIGHT to open the floodgate and drain the swamp.",
+      "stuck": "You can't reach the levers until you clear the blocks: shove the middle block up first, then slide a side block out of the way, and walk through the gap. There are TWO levers — the RIGHT one opens the floodgate. (A floating Anti-Fairy drifts in this room; just avoid it.) Draining here lowers the water on the Dark World side too."
+     },
+     {
+      "id": "alttp_swamp_entry_mirror",
+      "k": "step",
+      "t": "Leave the building and use the Magic Mirror (or take the nearby swamp portal) to cross back to the Dark World. The swamp water is now down, exposing the palace door. Walk in.",
+      "stuck": "Mirror from the spot by the drained Light World swamp so you land right next to the Dark World palace, or use the swamp warp portal nearby. With the floodgate open the water stays low — head to the entrance and go inside."
+     }
+    ]
+   },
+   {
+    "id": "alttp_swamp_s_dungeon",
+    "name": "Inside the Swamp Palace",
+    "sub": "Find the Hookshot, then reach Arrghus",
+    "reward": "Hookshot — pull yourself across gaps and stun enemies",
+    "steps": [
+     {
+      "id": "alttp_swamp_dun_water",
+      "k": "tip",
+      "t": "This whole dungeon is built around raising and lowering water with switches. Watch the level: high water lets you float up to higher doors and chests, low water opens the way to lower rooms.",
+      "stuck": "Pull the wall levers (or step on switches) to change the water level. If a path looks blocked, flip the water the other way — almost every puzzle here is 'change the water height to reach the next door.'"
+     },
+     {
+      "id": "alttp_swamp_dun_key",
+      "k": "step",
+      "t": "Work down through the early rooms, fighting enemies and grabbing the Small Keys and the Big Key you'll need to open the locked doors and the Big Chest deeper in.",
+      "stuck": "Pull levers to drop the water, then descend into the lower flooded section and follow it. Clear rooms and open chests for keys — you need the Big Key to open the Big Chest that holds the Hookshot."
+     },
+     {
+      "id": "alttp_swamp_dun_hookshot",
+      "k": "reward",
+      "t": "Reach the platform in the center of the dungeon and open the Big Chest to get the Hookshot — the Swamp Palace's signature item. Fire it to pull yourself across gaps, grab far chests, and stun or pull enemies from a distance.",
+      "stuck": "The Hookshot is in the Big Chest on the central platform (you need the Big Key to open it). Once you have it, aim and fire at a far block, post, chest, or enemy and Link reels himself to it. You'll lean on it constantly from here on.",
+      "items": [
+       {
+        "name": "Hookshot",
+        "cat": "item",
+        "note": "Fires a grappling chain: pulls you across gaps and over water, grabs distant chests, and stuns or pulls enemies. Essential for the rest of this dungeon and the game."
+       }
+      ]
+     },
+     {
+      "id": "alttp_swamp_dun_backtrack",
+      "k": "step",
+      "t": "Use the Hookshot to cross the gaps you couldn't pass before, hit far switches, and grab the last chests. Then head for the boss door — the Big Key opens it.",
+      "stuck": "Hook across the water to far ledges to throw switches and collect anything you missed. The boss door takes the Big Key — make sure you've already opened the Big Chest, since the same Big Key serves both."
+     }
+    ]
+   },
+   {
+    "id": "alttp_swamp_s_boss",
+    "name": "Boss: Arrghus",
+    "sub": "Hook off the spike-balls, then strike the core",
+    "reward": "Crystal — Swamp Palace (the second Maiden is freed)",
+    "steps": [
+     {
+      "id": "alttp_swamp_boss_strip",
+      "k": "step",
+      "t": "Arrghus floats inside a ring of orbiting spiky balls (Arrgi). Fire the Hookshot at one to yank it off and pull it toward you — it lands stunned, so slash it with your sword (a couple of hits) to destroy it. Repeat until every spike-ball is gone.",
+      "stuck": "Aim the Hookshot straight at an outer spike-ball and fire to pull one off; it drops in front of you stunned, then cut it down with your sword. Keep your distance — Arrghus sometimes spins the remaining balls out in a wide circle, so don't crowd it."
+     },
+     {
+      "id": "alttp_swamp_boss_eye",
+      "k": "step",
+      "t": "Once the spike-balls are gone, the bare Arrghus turns reddish and leaps high into the air to crash down on you. Watch its shadow, dodge clear, then close in and slash the soft body with your sword — a Spin Attack hits hardest. Repeat until it's defeated.",
+      "stuck": "After it's stripped, Arrghus jumps off-screen and slams down where its shadow lands — run or swim out from under it, then rush in and hit the soft center, ideally with a charged Spin Attack, before it leaps again. A few solid hits finish it."
+     },
+     {
+      "id": "alttp_swamp_boss_heart",
+      "k": "loot",
+      "t": "Grab the Heart Container that appears where Arrghus fell to permanently extend your life bar.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "item",
+        "note": "Adds one full heart to your maximum life. Every dungeon boss drops one — always collect it."
+       }
+      ]
+     },
+     {
+      "id": "alttp_swamp_boss_crystal",
+      "k": "reward",
+      "t": "Step into the light beyond the boss to free the second Maiden, sealed inside the crystal. Claim the Crystal — Swamp Palace. Two down on the path to Ganon's Tower.",
+      "items": [
+       {
+        "name": "Crystal — Swamp Palace",
+        "cat": "key",
+        "note": "The second of seven Maiden crystals. Collecting all seven unseals the way to Ganon's Tower."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "alttp_skull",
+  "name": "Skull Woods",
+  "sub": "The third Maiden",
+  "champion": "Crystal — Skull Woods",
+  "tagline": "A forest of giant skulls you drop in and out of — and the Fire Rod.",
+  "sections": [
+   {
+    "id": "alttp_skull_s_find",
+    "name": "Reaching the Woods",
+    "sub": "Find the Skeleton Forest in the Dark World",
+    "steps": [
+     {
+      "id": "alttp_skull_find_warp",
+      "k": "step",
+      "t": "In the Dark World, head to the Skeleton Forest north / northwest of the Village of Outcasts. This forest of giant skulls is the Dark World twin of the Light World's Lost Woods, and the dungeon sprawls underneath almost all of it.",
+      "stuck": "You reach it by walking through the Dark World (you'll need the Moon Pearl to keep your form there) — head up and to the left from the Village of Outcasts. The Magic Mirror sends you the other way (Dark → Light), so don't try to mirror in; just walk to the skulls."
+     },
+     {
+      "id": "alttp_skull_find_skulls",
+      "k": "tip",
+      "t": "The dungeon isn't one building — it's several giant skulls scattered across the forest. You enter through a skull's mouth, drop down inside, then pop back out of a different skull. The forest itself is the maze."
+     },
+     {
+      "id": "alttp_skull_find_enter",
+      "k": "step",
+      "t": "Walk into the mouth of a big skull to head inside. From here you'll keep hopping between the underground rooms and the surface to reach the deeper parts.",
+      "stuck": "Line Link up so he faces straight into the dark mouth, then walk forward — you'll be pulled in. Some skulls only open from one side, so circle around if walking in doesn't work."
+     }
+    ]
+   },
+   {
+    "id": "alttp_skull_s_dungeon",
+    "name": "Through the Skulls",
+    "sub": "Drop between rooms and claim the Fire Rod",
+    "reward": "Fire Rod",
+    "steps": [
+     {
+      "id": "alttp_skull_dun_drop",
+      "k": "step",
+      "t": "Inside, look for holes in the floor and drop through them to reach lower rooms. Dropping down — and going back out one skull to enter the next — is how you move forward here. When a room dead-ends, find a pit and fall.",
+      "stuck": "When you exit a skull back onto the surface, walk to a different skull and go in again. Leaving and re-entering through other skulls IS the route — you're meant to come back to the surface. Watch the ceiling too: Wallmasters can drop and drag you back to the start of a room."
+     },
+     {
+      "id": "alttp_skull_dun_keys",
+      "k": "loot",
+      "t": "Grab Small Keys from chests as you go and use them on the locked doors blocking the path deeper in.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens one locked door inside Skull Woods. Pick up every key you find — you'll need them to reach the dungeon item and the boss."
+       }
+      ]
+     },
+     {
+      "id": "alttp_skull_dun_minimoldorm",
+      "k": "optional",
+      "t": "The room with the Fire Rod chest is guarded by two Mini-Moldorms — fast little wriggling worms. Clear them (sword works fine) and the way to the chest opens.",
+      "stuck": "Bomb a wall or pull the lever in this area to open the path if the room looks sealed, then deal with the two Mini-Moldorms before grabbing the chest."
+     },
+     {
+      "id": "alttp_skull_dun_firerod",
+      "k": "reward",
+      "t": "Open the big chest to claim the Fire Rod — the prize of Skull Woods.",
+      "items": [
+       {
+        "name": "Fire Rod",
+        "cat": "item",
+        "note": "Shoots a burst of flame that scorches enemies and lights torches. Costs magic to fire. You need it to clear obstacles deeper in the dungeon and to open the final skull leading to the boss."
+       }
+      ]
+     },
+     {
+      "id": "alttp_skull_dun_torches",
+      "k": "tip",
+      "t": "Stuck in a dark room? Use the Lamp (or a Fire Rod blast) to light the wall torches — that often reveals the way forward or makes a chest appear."
+     },
+     {
+      "id": "alttp_skull_dun_bigkey",
+      "k": "loot",
+      "t": "Find the Big Key, then head for the boss door deeper in the dungeon.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the large ornate boss door in Skull Woods. One per dungeon."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "alttp_skull_s_boss",
+    "name": "Mothula",
+    "sub": "The giant moth on the spike floor",
+    "reward": "Crystal — Skull Woods",
+    "steps": [
+     {
+      "id": "alttp_skull_boss_enter",
+      "k": "warn",
+      "t": "The whole boss floor slides around and is patrolled by moving spike traps that hurt on contact. You have to keep moving the entire fight — and bring spare hearts and a potion."
+     },
+     {
+      "id": "alttp_skull_boss_mothula",
+      "k": "step",
+      "t": "Mothula is a giant moth that flutters around the room and fires beams in groups of three. Hit it with your sword — the sword does the MOST damage and costs no magic — staying on the move so the sliding floor and spikes never catch you.",
+      "stuck": "The sword is the most reliable weapon here. If you'd rather hang back, the Fire Rod also works (about 8 blasts, but it drains magic fast — bring a green/blue potion), and the Magic Hammer is a quick option (about 4 solid hits). Whatever you use, keep circling to dodge the spike traps and back off when Mothula dives instead of trading hits."
+     },
+     {
+      "id": "alttp_skull_boss_crystal",
+      "k": "reward",
+      "t": "With Mothula defeated, step into the light and free the trapped Maiden — collect the Crystal.",
+      "items": [
+       {
+        "name": "Crystal — Skull Woods",
+        "cat": "key",
+        "note": "One of the seven Crystals, each holding a Maiden freed from the Dark World. Keep gathering Crystals to break the barrier around Ganon's Tower."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "alttp_thieves",
+  "name": "Thieves' Town",
+  "sub": "The fourth Maiden",
+  "champion": "Crystal — Thieves' Town",
+  "tagline": "The Village of Outcasts hides a dungeon — and the Titan's Mitt.",
+  "sections": [
+   {
+    "id": "alttp_thieves_s_enter",
+    "name": "Into the Village of Outcasts",
+    "sub": "Finding the hidden entrance",
+    "steps": [
+     {
+      "id": "alttp_thieves_enter_1",
+      "k": "step",
+      "t": "From the Dark World, head to the Village of Outcasts in the far west — the Dark World version of Kakariko, full of thieves. You reach it with the Moon Pearl (to stay yourself in the Dark World) and the Hookshot to cross the gaps into the village.",
+      "stuck": "If you're stuck in the Light World, warp over with the Magic Mirror, or take a Dark World portal. The village sits on the western side of the Dark World map, where Kakariko is in the Light World."
+     },
+     {
+      "id": "alttp_thieves_enter_2",
+      "k": "step",
+      "t": "Head to the large gargoyle statue near the center of the village. It holds a big trident — that trident is what's sealing the dungeon entrance.",
+      "stuck": "It's the tall statue topped by a gargoyle holding a trident. Walk up to the front of it; you'll grab the trident to pull it free."
+     },
+     {
+      "id": "alttp_thieves_enter_3",
+      "k": "step",
+      "t": "Stand in front of the statue and pull the gargoyle's trident loose to open the staircase into Thieves' Town. You need the Power Glove's strength to pull it. Head down to start the dungeon.",
+      "stuck": "Face the statue and hold the action button to grab and pull the trident (not the statue itself). If nothing happens, you don't have enough lifting strength yet — you need at least the Power Glove."
+     }
+    ]
+   },
+   {
+    "id": "alttp_thieves_s_dungeon",
+    "name": "Through Thieves' Town",
+    "sub": "The Titan's Mitt and the trapped girl",
+    "reward": "Titan's Mitt — lift the heavy dark rocks",
+    "steps": [
+     {
+      "id": "alttp_thieves_dun_1",
+      "k": "step",
+      "t": "Work down through the early rooms, clearing thieves with your sword. Watch for one-way doors and pits — take it slow.",
+      "stuck": "Many rooms have crystal switches (orange/blue) that raise and lower colored blocks. Hit a switch with your sword (or boomerang) to flip which barriers are up before you cross."
+     },
+     {
+      "id": "alttp_thieves_dun_2",
+      "k": "step",
+      "t": "Find the big-chest room. The moment you enter, a ring of floor tiles starts crumbling away — act fast: pound the bobbing pegs (the moles) flat with the Magic Hammer to reach the chest in the center.",
+      "stuck": "Stand on a peg/mole and hit it with the Magic Hammer to drive it down so you can stand there. Move quickly before the floor gives way; if you fall through, just come back up and try again."
+     },
+     {
+      "id": "alttp_thieves_dun_3",
+      "k": "loot",
+      "t": "Open the big chest to claim the Titan's Mitt — this upgrades your Power Glove so you can now lift the big black rocks.",
+      "items": [
+       {
+        "name": "Titan's Mitt",
+        "cat": "item",
+        "note": "Upgrades the Power Glove. Now you can lift the large black/dark rocks (and skulls) that blocked paths all over both worlds — backtrack later for goodies."
+       }
+      ]
+     },
+     {
+      "id": "alttp_thieves_dun_4",
+      "k": "tip",
+      "t": "With the Titan's Mitt, the heavy black rocks across the map are now liftable. You don't need to chase them now — just remember that a lot of sealed-off paths just opened up."
+     },
+     {
+      "id": "alttp_thieves_dun_5",
+      "k": "step",
+      "t": "Find the jail cell where a girl is locked up. Open the cell, grab the small key from the chest inside, and talk to her — she'll start following you out.",
+      "stuck": "Use a small key (or lift the blocks) to get into the cell. There's a treasure chest in the cell with a small key in it — grab it. Walk into the girl to make her follow."
+     },
+     {
+      "id": "alttp_thieves_dun_6",
+      "k": "step",
+      "t": "Lead the girl down toward the boss room. She won't take damage from enemies, so the only real risk is leaving her behind — make sure she's still trailing you through each doorway.",
+      "stuck": "If she stops following after a screen change, walk back and touch her again. Keep heading toward the large door at the bottom of the dungeon."
+     },
+     {
+      "id": "alttp_thieves_dun_7",
+      "k": "warn",
+      "t": "The boss won't appear until the girl is exposed to sunlight in the boss room. On the floor above, drop a Bomb on the cracked, sunlit patch of floor to blow a hole — light then shines down into the room below.",
+      "stuck": "Stand on the cracked tile where light is shining, set a Bomb, then immediately pick it up and toss it onto the crack. When it blows, a beam of light pours into the boss room beneath."
+     }
+    ]
+   },
+   {
+    "id": "alttp_thieves_s_boss",
+    "name": "Blind the Thief",
+    "sub": "Boss — and the fourth Crystal",
+    "reward": "Crystal — Thieves' Town",
+    "steps": [
+     {
+      "id": "alttp_thieves_boss_1",
+      "k": "step",
+      "t": "Bring the girl into the lit boss room. Exposed to the light, she's revealed as Blind the Thief in disguise — the fight begins.",
+      "stuck": "The trap springs on its own once she's standing in the shaft of light you opened with the Bomb. Ready your sword the instant the cutscene ends."
+     },
+     {
+      "id": "alttp_thieves_boss_2",
+      "k": "step",
+      "t": "Blind hovers along the top, then the bottom, of the room, spitting laser beams. His HEAD is the weak point — wait for him to drop to the bottom (his head is in reach there) and slash the head with your sword.",
+      "stuck": "Don't chase him while he's at the top — it's hard to reach his head. Hang back, dodge the beams, and strike when he comes down low. The Magic Cape (lets you hit while invisible) or the Cane of Byrna (walk into him while its aura damages him) makes this much safer if you have them."
+     },
+     {
+      "id": "alttp_thieves_boss_3",
+      "k": "step",
+      "t": "After a few solid hits, his head detaches and floats around the room shooting beams — and a brand-new head grows on the body. Keep hitting the head on the body; this can happen up to three times.",
+      "stuck": "Always target the head currently on the body — that's what counts. The detached heads just harass you; dodge their beams and stay on the live head."
+     },
+     {
+      "id": "alttp_thieves_boss_4",
+      "k": "step",
+      "t": "Keep striking the head on the body until Blind goes down. Once the body is destroyed, the floating heads vanish too.",
+      "stuck": "Low on hearts? Drink a potion or release a bottled Fairy. Keep prioritizing the head on the body — the loose heads can't be killed and don't matter."
+     },
+     {
+      "id": "alttp_thieves_boss_5",
+      "k": "reward",
+      "t": "With Blind beaten, grab the Crystal he leaves behind — the fourth Maiden is freed. Four of seven Crystals collected.",
+      "items": [
+       {
+        "name": "Crystal — Thieves' Town",
+        "cat": "key",
+        "note": "The fourth of seven Crystals. Each frees a Maiden sealed by Agahnim; collect all seven to open the way to Ganon's Tower."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "alttp_ice",
+  "name": "Ice Palace",
+  "sub": "The fifth Maiden",
+  "champion": "Crystal — Ice Palace",
+  "tagline": "A frozen tower in the southern sea, melted with fire.",
+  "kind": "region",
+  "sections": [
+   {
+    "id": "alttp_ice_s_reach",
+    "name": "Reaching the Frozen Island",
+    "sub": "Crossing to the southern sea of the Dark World",
+    "steps": [
+     {
+      "id": "alttp_ice_check_gear",
+      "k": "warn",
+      "t": "You need the Flippers (to swim to the island), the Titan's Mitt (to lift the heavy rock that reveals the portal), and the Moon Pearl (to keep your form in the Dark World). You'll also want the Fire Rod for the ice blocks inside and the boss. Don't attempt the Ice Palace without them."
+     },
+     {
+      "id": "alttp_ice_lake_hylia",
+      "k": "step",
+      "t": "In the Light World, travel to Lake Hylia in the far south (the Flute warp point near the lake is the quick way). Swim out to the small central island — the one with the Pond of Happiness."
+     },
+     {
+      "id": "alttp_ice_lift_rock",
+      "k": "step",
+      "t": "On that island, lift the large dark rock with the Titan's Mitt. Underneath is a warp portal to the Dark World. Step onto it and you'll arrive right beside the Ice Palace on the frozen Dark World island.",
+      "stuck": "The rock is the heavy gray kind only the Titan's Mitt can pick up — the basic Power Glove won't budge it. Stand next to it and press the lift button. Once it's gone, the warp tile underneath drops you straight to the Dark World version of this island. (This is a portal, not the Magic Mirror.)"
+     },
+     {
+      "id": "alttp_ice_enter",
+      "k": "step",
+      "t": "Walk to the blue tower on the icy island and step inside to begin the Ice Palace."
+     }
+    ]
+   },
+   {
+    "id": "alttp_ice_s_climb",
+    "name": "Down Through the Ice",
+    "sub": "Melting blocks and minding slippery floors",
+    "reward": "Blue Mail",
+    "steps": [
+     {
+      "id": "alttp_ice_slippery_warn",
+      "k": "warn",
+      "t": "Many floors here are slick ice — Link slides until he hits a wall. Tap movement in short bursts rather than holding a direction, and line up your slides so you stop where you want."
+     },
+     {
+      "id": "alttp_ice_firerod_blocks",
+      "k": "tip",
+      "t": "Throughout the palace, ice blocks bar your path. Hit them with the Fire Rod to melt them away. Keep your magic topped up — refill from pots and grass if you run low."
+     },
+     {
+      "id": "alttp_ice_descend",
+      "k": "step",
+      "t": "The Ice Palace runs downward, not up. Work your way down floor by floor, melting ice blocks with the Fire Rod and flipping switches and crystal switches to open the way."
+     },
+     {
+      "id": "alttp_ice_big_key",
+      "k": "loot",
+      "t": "Find the Big Key as you descend — it's needed for the locked door and the big chest holding the dungeon item.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the Big Key door in this dungeon and the big chest holding the Blue Mail."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ice_blue_mail",
+      "k": "reward",
+      "t": "Open the big chest (it needs the Big Key) to claim the Blue Mail — the dungeon's prize. It takes effect the moment you grab it: from now on you take half the damage you did before.",
+      "items": [
+       {
+        "name": "Blue Mail",
+        "cat": "armor",
+        "note": "Better armor — halves all damage taken (upgrade from the Green Tunic). A big survivability boost for the rest of the game."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ice_bottom",
+      "k": "step",
+      "t": "Keep working down to the lowest floor. Push blocks onto switches, lift what you can, and drop through the hole near the bottom to reach the boss.",
+      "stuck": "At the bottom there's a block you must shove into a hole to open the route down to the boss — push the southernmost movable block into the gap, then drop through. If ice is boxing you in, melt it with the Fire Rod first, then push."
+     }
+    ]
+   },
+   {
+    "id": "alttp_ice_s_boss",
+    "name": "Kholdstare",
+    "sub": "Boss — the eye in the ice",
+    "reward": "Crystal — Ice Palace",
+    "steps": [
+     {
+      "id": "alttp_ice_boss_prep",
+      "k": "tip",
+      "t": "Before entering, top up your magic — breaking the ice takes a lot of Fire Rod shots. If you have the Bombos Medallion it cracks the shell in one cast (and saves your magic for the eyes). The Blue Mail you just got makes this fight much safer."
+     },
+     {
+      "id": "alttp_ice_melt_shell",
+      "k": "step",
+      "t": "Kholdstare appears as a giant block of ice. Use fire to melt the shell away: about eight Fire Rod shots, or a single Bombos Medallion. The sword can't touch the frozen shell.",
+      "stuck": "Keep hitting the ice with the Fire Rod — it takes roughly eight hits to shatter it completely, so don't expect it to break after one or two. One Bombos Medallion does it instantly if you'd rather not spend the magic. Watch for icicles starting to fall as the shell weakens."
+     },
+     {
+      "id": "alttp_ice_three_eyes",
+      "k": "step",
+      "t": "The shell breaks into three floating eyeball creatures wrapped in frost. Hit each one — the Fire Rod is very effective here, and your sword works too — while dodging the icicles raining from above.",
+      "stuck": "The three eyes drift around the room and icicles fall, shattering into shards that slide across the floor. Stay moving to dodge the falling-ice shadows, and focus one eye down at a time. The Fire Rod kills them fast (a few hits each); if you're out of magic, the sword finishes them — keep at it until all three are gone."
+     },
+     {
+      "id": "alttp_ice_crystal",
+      "k": "reward",
+      "t": "With Kholdstare gone, grab the Heart Container, then step into the light to rescue the fifth Maiden and claim her Crystal.",
+      "items": [
+       {
+        "name": "Crystal — Ice Palace",
+        "cat": "key",
+        "note": "The fifth of seven Crystals. Collect all seven to break the barrier around Ganon's Tower."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "alttp_mire",
+  "name": "Misery Mire",
+  "sub": "The sixth Maiden",
+  "champion": "Crystal — Misery Mire",
+  "tagline": "A medallion calms the swamp; a cane builds your path.",
+  "kind": "region",
+  "sections": [
+   {
+    "id": "alttp_mire_s_open",
+    "name": "Opening the Mire",
+    "sub": "Learn the Ether Medallion, then reveal the entrance",
+    "reward": null,
+    "steps": [
+     {
+      "id": "alttp_mire_ether",
+      "k": "loot",
+      "t": "In the Light World on Death Mountain, cross the bridge WEST of the Tower of Hera to find a stone tablet. Stand on it and read it with the Book of Mudora — Link raises the Master Sword to the sky, the spell fires, and the Ether Medallion drops into your hands.",
+      "stuck": "The tablet is just west of the Tower of Hera, across a short bridge. You need the Book of Mudora AND the Master Sword. Stand facing the tablet and use the Book: Link automatically holds the Master Sword aloft to cast the spell and learn Ether.",
+      "items": [
+       {
+        "name": "Ether Medallion",
+        "cat": "item",
+        "note": "A lightning spell cast with magic power. You'll cast it on the symbol outside Misery Mire to reveal the dungeon — and in regular fights it damages/freezes every enemy on screen."
+       }
+      ]
+     },
+     {
+      "id": "alttp_mire_travel",
+      "k": "step",
+      "t": "Head to the Dark World swamp in the far southwest. The easiest route: in the Light World, play the Flute to warp point 6 (the desert), lift the black rock there with the Titan's Mitt to expose a warp tile, and step on it to cross into the Dark World right by Misery Mire.",
+      "stuck": "From the Light World, use the Flute and pick warp spot 6 over the desert. Walk to the lone dark rock, lift it with the Titan's Mitt to reveal the warp tile, then step on the tile. You'll arrive in the Dark World swamp at the dungeon's doorstep."
+     },
+     {
+      "id": "alttp_mire_cast",
+      "k": "step",
+      "t": "At Misery Mire, stand on the lightning symbol on the ground in front of the entrance and cast the Ether Medallion. The storm clears and the dungeon entrance rises out of the flooded ground — walk inside.",
+      "stuck": "Stand directly on the medallion symbol etched in front of the door, then use the Ether Medallion from your item slot. The weather calms and the entrance appears; if nothing happens, you're not standing on the symbol."
+     },
+     {
+      "id": "alttp_mire_bring",
+      "k": "tip",
+      "t": "Come stocked: full magic for the Cane and Fire Rod, plenty of arrows (you'll want them for the boss), and a fairy or two in bottles. This dungeon is built around the Cane of Somaria you're about to find, so don't panic if early rooms feel blocked."
+     }
+    ]
+   },
+   {
+    "id": "alttp_mire_s_dungeon",
+    "name": "Inside Misery Mire",
+    "sub": "Find the Cane of Somaria and reach the boss",
+    "reward": "Cane of Somaria",
+    "steps": [
+     {
+      "id": "alttp_mire_torches",
+      "k": "step",
+      "t": "In the first big room (the compass room), light all four torches to clear the blocking tiles and open the way. Use the Fire Rod, or the Lantern if you're conserving magic.",
+      "stuck": "Light each unlit torch with the Fire Rod, or stand next to one and use the Lantern. Tuck into a doorway if hazards swarm you. Once all four are lit, the blocking tiles vanish and you can move on."
+     },
+     {
+      "id": "alttp_mire_cane",
+      "k": "reward",
+      "t": "Work through the rooms to the big chest. To reach it, Hookshot onto the block across the gap, then run north fast before the floor crumbles. Open the big chest for the Cane of Somaria — the item this dungeon is built around.",
+      "stuck": "Aim the Hookshot at the block across the pit to pull yourself over, then immediately dash north — the floor falls away if you dawdle, and you'll just respawn to retry. The big chest at the top holds the Cane.",
+      "items": [
+       {
+        "name": "Cane of Somaria",
+        "cat": "item",
+        "note": "Creates an orange block you can push, pull, pick up and throw, or ride across gaps. Use the Cane again on an existing block to detonate it into four bullets. Many Misery Mire puzzles need its block set on a switch."
+       }
+      ]
+     },
+     {
+      "id": "alttp_mire_blocks",
+      "k": "step",
+      "t": "Use the Cane of Somaria to solve the switch puzzles: spawn a block, then carry it onto the floor switch you can't reach, or detonate it to fire bullets at a distant switch.",
+      "stuck": "Press the Cane button to spawn a block in front of you. Pick it up and set it on a switch to hold it down, or press the Cane again to blow the block apart into four bullets that can trip a far-off switch."
+     },
+     {
+      "id": "alttp_mire_bigkey",
+      "k": "loot",
+      "t": "Collect the small keys and the Big Key as you go, opening locked doors toward the back of the dungeon. The Big Key opens the path to the boss.",
+      "stuck": "Big Key doors have a fancier, gold keyhole. If a door won't open, you're still missing the Big Key — backtrack through the conveyor/torch rooms you haven't fully explored.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the gold Big-Key doors and the gate to the boss room. One per dungeon."
+       }
+      ]
+     },
+     {
+      "id": "alttp_mire_bombwall",
+      "k": "tip",
+      "t": "Cracked walls and odd dead ends often hide bombable passages or pushable blocks. If you feel boxed in, bomb suspicious walls or push statues."
+     }
+    ]
+   },
+   {
+    "id": "alttp_mire_s_boss",
+    "name": "Vitreous",
+    "sub": "The eyeball swarm — and the Crystal",
+    "reward": "Crystal — Misery Mire",
+    "steps": [
+     {
+      "id": "alttp_mire_boss_small",
+      "k": "step",
+      "t": "Vitreous is a cluster of eyeballs floating in goo. First, clear out the small eyes that swim toward you — slash them down with your sword, or charge a Spin Attack to hit several at once.",
+      "stuck": "The little eyes lunge across the floor at you. Swing the moment one closes in, and keep moving. A charged Spin Attack sweeps multiple eyes in one go and thins the swarm fast."
+     },
+     {
+      "id": "alttp_mire_boss_lightning",
+      "k": "warn",
+      "t": "When the big eye flashes white, it's about to fire forking lightning — immediately run to the left or right edge of the room to dodge it. Getting greedy here is how the fight goes wrong."
+     },
+     {
+      "id": "alttp_mire_boss_big",
+      "k": "step",
+      "t": "Once the small eyes are cleared, the large eye rises and bounces toward you. The fastest kill: stand directly SOUTH of it and fire arrows northward — about 8 arrows finishes it. Sword hits work too, but take far longer.",
+      "stuck": "Line up directly below the big eye and shoot arrows straight up at it (~8 will do it), backing off whenever it flashes for lightning. No arrows? Slash it as it lunges past, then retreat before the next charge."
+     },
+     {
+      "id": "alttp_mire_heart",
+      "k": "loot",
+      "t": "When Vitreous falls, grab the Heart Container it leaves behind to permanently extend your life bar.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "item",
+        "note": "Adds one full heart to your maximum life. Every dungeon boss drops one."
+       }
+      ]
+     },
+     {
+      "id": "alttp_mire_crystal",
+      "k": "reward",
+      "t": "Step into the light to free the sixth Maiden and claim her crystal. Six down — only Turtle Rock remains before Ganon's Tower.",
+      "items": [
+       {
+        "name": "Crystal — Misery Mire",
+        "cat": "key",
+        "note": "The sixth of seven crystals holding the trapped Maidens. Collect all seven to break into Ganon's Tower."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "alttp_turtle",
+  "name": "Turtle Rock",
+  "sub": "The seventh Maiden",
+  "champion": "Crystal — Turtle Rock",
+  "tagline": "The last dungeon — fire, ice, and a three-headed turtle-dragon.",
+  "sections": [
+   {
+    "id": "alttp_turtle_open",
+    "name": "Opening the Turtle",
+    "sub": "Dark Death Mountain summit",
+    "steps": [
+     {
+      "id": "alttp_turtle_t_gear",
+      "k": "warn",
+      "t": "This is the final dungeon — pack everything. You need the Cane of Somaria, both the Fire Rod and the Ice Rod, plenty of magic, and a strong sword. Bring full hearts and a fairy bottle (or a Medicine of Magic) if you have one."
+     },
+     {
+      "id": "alttp_turtle_t_quake",
+      "k": "loot",
+      "t": "Make sure you have the Quake Medallion. It is earned in the DARK World at the Lake of Ill Omen — the lake in the far northeast, where Zora's lake sits in the Light World. Throw a skull into the ring of stones in the water to wake the Catfish, and it hands over the medallion to be left alone.",
+      "stuck": "The Lake of Ill Omen is in the northeast of the DARK World (same spot as Zora's lake in the Light World). A sign warns against throwing things into the circle of stones — do it anyway: lift a nearby skull and toss it into the ring. The Catfish surfaces and gives you the Quake Medallion.",
+      "items": [
+       {
+        "name": "Quake Medallion",
+        "cat": "item",
+        "note": "Cast it to open Turtle Rock's entrance. Costs magic, so top up your meter first."
+       }
+      ]
+     },
+     {
+      "id": "alttp_turtle_climb",
+      "k": "step",
+      "t": "Reach the summit above Dark Death Mountain and find the turtle-shaped rock with the Quake symbol etched on the ground in front of its head.",
+      "stuck": "Use the Magic Mirror to drop to the Light World on Death Mountain, then either flute to the nearest point or hammer the three wooden spikes (start bottom-right, go counter-clockwise) to reveal a warp tile that drops you right on top of Turtle Rock."
+     },
+     {
+      "id": "alttp_turtle_quake_cast",
+      "k": "step",
+      "t": "Stand on the Quake symbol tile in front of the turtle's head and cast the Quake Medallion. The head collapses into a staircase, opening Turtle Rock.",
+      "stuck": "Open your item menu, equip the Quake Medallion to a button, stand on the medallion-shaped symbol on the ground, and press that button. If nothing happens, your magic is too low — refill at a fairy or with magic jars and try again."
+     }
+    ]
+   },
+   {
+    "id": "alttp_turtle_dungeon",
+    "name": "Inside Turtle Rock",
+    "sub": "Rails, lasers, and the Mirror Shield",
+    "reward": "Mirror Shield",
+    "steps": [
+     {
+      "id": "alttp_turtle_somaria_rails",
+      "k": "step",
+      "t": "The early rooms are crossed on a moving block you ride along rails. Tap the Cane of Somaria on the question-mark tile to make the block, then tap again to set it rolling and to flip it at junctions so it carries you the right way.",
+      "stuck": "Use the Cane of Somaria on the ?-tile where the track begins to spawn the block. Press the cane button again to start it moving; press once more at a fork to change its direction. Stand on the block while it moves and step off at the far ledge."
+     },
+     {
+      "id": "alttp_turtle_pipes",
+      "k": "step",
+      "t": "Watch for the spike-traps and the pipe tubes that shoot you across rooms. Time your runs between the moving spikes and let the pipes carry you forward.",
+      "stuck": "Pipes drag you automatically — you only steer at the openings. Wait for spike traps to pass, then dash through; the Cane of Byrna or the Magic Cape can shield you if you keep getting hit."
+     },
+     {
+      "id": "alttp_turtle_firerod",
+      "k": "step",
+      "t": "Use the Fire Rod to light torches and clear the rooms that stay dark or blocked on your way deeper in.",
+      "stuck": "Several rooms open only when every torch is lit — sweep the room with the Fire Rod. Save some magic; you will still need both rods at the boss."
+     },
+     {
+      "id": "alttp_turtle_chest",
+      "k": "reward",
+      "t": "Find the big treasure chest and claim the dungeon item: the Mirror Shield. It deflects the energy beams the Laser Eyes fire that your old shield cannot block.",
+      "stuck": "The big-chest room is partway through the dungeon, past one of the rail puzzles. Open it with the Big Key. Equip the Mirror Shield right away and the beam-shooting statues stop being a threat — just face their fire.",
+      "items": [
+       {
+        "name": "Mirror Shield",
+        "cat": "shield",
+        "note": "Deflects energy beams and lasers the wooden/red shields can't. Auto-blocks when you stand still and face the source."
+       }
+      ]
+     },
+     {
+      "id": "alttp_turtle_laser_bridge",
+      "k": "step",
+      "t": "Cross the room of laser-firing eyes by holding still and letting the Mirror Shield bounce the beams, advancing only when the lasers are aimed away from you.",
+      "stuck": "Face the laser eyes and stand put — the Mirror Shield reflects their beams. Move forward in short steps between volleys, re-facing the lasers each time you pause."
+     },
+     {
+      "id": "alttp_turtle_bigkey",
+      "k": "step",
+      "t": "Use the small keys and the Big Key to work toward the boss door. Refill your magic at a fairy or with magic jars before you step through — lift the pots in the last room to top off.",
+      "stuck": "If a door won't open you're missing a key — backtrack and check chests and under pots. The boss room sits behind the Big Key door; Trinexx eats a lot of magic, so enter with a full meter."
+     }
+    ]
+   },
+   {
+    "id": "alttp_turtle_boss",
+    "name": "Trinexx",
+    "sub": "The three-headed turtle-dragon",
+    "reward": "Crystal — Turtle Rock",
+    "steps": [
+     {
+      "id": "alttp_turtle_boss_intro",
+      "k": "warn",
+      "t": "Trinexx has three heads: a RED fire-breathing head, a BLUE ice-breathing head, and a center rock head. The two side heads must be shut down before you can hurt the body — and the trick is the OPPOSITE rod: ice on the fire head, fire on the ice head."
+     },
+     {
+      "id": "alttp_turtle_boss_freeze",
+      "k": "step",
+      "t": "Hit the RED fire-breathing head with the ICE ROD to stun it, then slash it with your sword until it recovers. Keep clear of its flame trail along the floor.",
+      "stuck": "The red head spits flames and leaves a burning trail. Blast it with the Ice Rod (not the Fire Rod) to freeze and stun it, then chop with the sword. Repeat until it's gone."
+     },
+     {
+      "id": "alttp_turtle_boss_burn",
+      "k": "step",
+      "t": "Hit the BLUE ice-breathing head with the FIRE ROD to stun it, then sword it down. It lays permanent ice on the floor, so deal with it first if it's blocking you.",
+      "stuck": "The blue head breathes frost that leaves ice underfoot. Burn it with the Fire Rod (not the Ice Rod) to stun it, then strike with the sword. Many players kill the blue head first to stop the ice buildup."
+     },
+     {
+      "id": "alttp_turtle_boss_body",
+      "k": "step",
+      "t": "With both side heads destroyed, Trinexx sheds its shell and becomes a snake-like body that floats around the room. Hit its glowing center orb with the sword whenever you get an opening.",
+      "stuck": "Once both side heads are dealt with, the shell explodes and the central body whips around in an oval. Dodge its lunges and strike the flashing orb in the middle of its body — a few solid hits finish it."
+     },
+     {
+      "id": "alttp_turtle_crystal",
+      "k": "reward",
+      "t": "Trinexx falls. Step into the light to free the seventh and final Maiden and claim the last crystal — Crystal — Turtle Rock. Every Maiden is now rescued.",
+      "items": [
+       {
+        "name": "Crystal — Turtle Rock",
+        "cat": "key",
+        "note": "The seventh and last crystal. With all seven, the path to Ganon's Tower opens."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "alttp_ganon",
+  "name": "Ganon's Tower & Ganon",
+  "sub": "The final battle",
+  "champion": null,
+  "tagline": "Seven crystals open the bridge. Climb the tower, end the curse.",
+  "sections": [
+   {
+    "id": "alttp_ganon_s_bridge",
+    "name": "The Bridge Appears",
+    "sub": "Prep, then cross to Dark Death Mountain",
+    "steps": [
+     {
+      "id": "alttp_ganon_prep",
+      "k": "tip",
+      "t": "Before you go in, stock up: full hearts, plenty of Magic (blue/green potions), bombs, and arrows. There are no shops inside the tower, so this is your last chance to prepare. The Golden Sword (from throwing your sword to the Pyramid fairy) makes the finale much easier."
+     },
+     {
+      "id": "alttp_ganon_silver",
+      "k": "loot",
+      "t": "Get the Silver Arrows BEFORE the tower — they are the ONLY thing that can finish Ganon, and they are NOT inside Ganon's Tower. On the Pyramid of Power's lowest level there is a cracked wall you can only break with a Super Bomb. Blow it open, drop into the Mysterious Pond, and throw your Bow & Arrows into the fountain. Answer the Great Fairy honestly and she upgrades them to Silver Arrows.",
+      "stuck": "The Super Bomb is sold at the Dark World bomb shop for 100 rupees only after you've cleared the Ice Palace and Misery Mire. Carry it carefully to the Pyramid's lowest-level cracked wall (it has a short fuse). After the wall opens, throw your BOW (your arrows) into the pool — throwing your sword instead gets the Golden Sword, a separate upgrade.",
+      "items": [
+       {
+        "name": "Silver Arrows",
+        "cat": "bow",
+        "note": "Required to defeat Ganon. From the Great Fairy in the Pyramid of Power, not the tower. Fire them with your bow once Ganon is stunned in the final fight."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ganon_crystals",
+      "k": "step",
+      "t": "With all seven crystals collected, a glowing bridge stretches from the Pyramid up to Ganon's Tower atop Dark Death Mountain in the Dark World. Make your way there and cross it.",
+      "stuck": "The Pyramid of Power is the big stepped structure in the east-central Dark World. The shimmering bridge to the tower only forms once all seven crystals are in hand; if it isn't there, you're missing a crystal."
+     },
+     {
+      "id": "alttp_ganon_enter",
+      "k": "step",
+      "t": "Walk across the bridge to the tower entrance and step inside to begin the climb.",
+      "stuck": "The tower sits at the very top of Dark Death Mountain. If you haven't been up here, take the Dark World mountain route or use a Magic Mirror swap from the Light World peak to reach the Dark World summit."
+     }
+    ]
+   },
+   {
+    "id": "alttp_ganon_s_tower",
+    "name": "Climbing Ganon's Tower",
+    "sub": "Up the floors to Agahnim",
+    "steps": [
+     {
+      "id": "alttp_ganon_climb",
+      "k": "step",
+      "t": "Work your way up floor by floor. Each level mixes room puzzles with packs of tough enemies and a few mini-boss fights — clear rooms to open locked doors and keep pushing upward.",
+      "stuck": "Several rooms hide their exit behind a switch or a full enemy clear. If a door won't open, look for a crystal switch (hit it with your sword or an arrow) or kill every enemy in the room. Bombable cracked walls hide some shortcuts."
+     },
+     {
+      "id": "alttp_ganon_redmail",
+      "k": "loot",
+      "t": "Inside the tower, find the chest holding the Red Mail (push the block beside it to reach the chest). It cuts the damage you take even further than the Blue Mail — it auto-equips the moment you grab it.",
+      "items": [
+       {
+        "name": "Red Mail",
+        "cat": "armor",
+        "note": "Best armor in the game — quarters incoming damage. Auto-equips when you grab it."
+       }
+      ]
+     },
+     {
+      "id": "alttp_ganon_topdoor",
+      "k": "step",
+      "t": "Reach the top floor and pass through the final door into Agahnim's chamber.",
+      "stuck": "The top room is gated behind the tower's last big lock. Use the Big Key on the big locked door; small keys you find on each floor open the rest."
+     }
+    ]
+   },
+   {
+    "id": "alttp_ganon_s_agahnim",
+    "name": "Agahnim's Rematch",
+    "sub": "Deflect his magic — again",
+    "reward": "Ganon breaks free",
+    "steps": [
+     {
+      "id": "alttp_ganon_aga_loop",
+      "k": "step",
+      "t": "Agahnim throws orbs of magic at you. Swing your sword as each orb reaches you to knock it back at him — just like your first duel. Land enough deflected hits to wear him down.",
+      "stuck": "Don't try to dodge and rush him — you can't hurt him directly. Stand a little back, watch the orb, and swing your sword the instant it arrives to bat it home. Reflect the blue energy orbs; let the lightning bolts pass and just move out of their way."
+     },
+     {
+      "id": "alttp_ganon_aga_doubles",
+      "k": "step",
+      "t": "This time he splits into three — himself plus two decoy clones. Only the REAL Agahnim can be hurt, and his orbs are the ones to bat back. The real one is the figure casting the darkest shadow.",
+      "stuck": "Pick out the copy with the darkest shadow — that's the genuine Agahnim — and line yourself up across from him to reflect his orbs. The decoys can't be damaged, so a deflected orb only counts when it hits the true caster; he goes down after enough clean reflects."
+     },
+     {
+      "id": "alttp_ganon_aga_beaten",
+      "k": "reward",
+      "t": "With Agahnim destroyed, the spirit of Ganon tears free from the priest's body, transforms into a great winged bat-beast, and flees down toward the Pyramid of Power.",
+      "stuck": "After the cutscene, play the Flute to summon the bird, which drops you at the top of the Pyramid. A Ganon-shaped hole has opened there — step into it to begin the final battle."
+     }
+    ]
+   },
+   {
+    "id": "alttp_ganon_s_ganon",
+    "name": "Ganon",
+    "sub": "The final fight in the dark",
+    "reward": "The nightmare ends",
+    "steps": [
+     {
+      "id": "alttp_ganon_arena",
+      "k": "warn",
+      "t": "The fight is in the dark pit beneath the Pyramid, and Ganon is fast. He swings and hurls his trident and summons swarms of fire bats — keep moving, and don't let the bats or the floor edges (you can fall) corner you."
+     },
+     {
+      "id": "alttp_ganon_torches",
+      "k": "step",
+      "t": "After you've struck Ganon enough early on, he blows out the lights and the room goes dark. Light the four corner torches with the Fire Rod (or your Lamp) so you can see him, and relight them whenever he snuffs them again.",
+      "stuck": "Touch each torch with a Fire Rod blast or by tapping the Lamp near it. You need the light to track Ganon's charges and to aim — fighting blind is how players lose this fight."
+     },
+     {
+      "id": "alttp_ganon_sword",
+      "k": "step",
+      "t": "Hit Ganon with your sword whenever you get an opening. After a solid strike he turns blue and freezes for a moment — stunned and vulnerable.",
+      "stuck": "Slash him as he stomps toward you, then back off before he throws the trident. The Golden Sword stuns him fastest. Wait for the blue flash — that's your cue to fire."
+     },
+     {
+      "id": "alttp_ganon_silvershot",
+      "k": "step",
+      "t": "The instant Ganon turns blue, switch to your bow and fire a Silver Arrow straight into him. This is the only thing that truly damages him.",
+      "stuck": "Have the bow ready before he stuns so you don't fumble the menu. One Silver Arrow per stun window — aim and shoot fast, because the opening is brief."
+     },
+     {
+      "id": "alttp_ganon_repeat",
+      "k": "step",
+      "t": "Repeat the cycle — relight torches, sword him until he turns blue, then a Silver Arrow. It takes four Silver Arrow hits in total to bring him down.",
+      "stuck": "If you run low on Magic for the Fire Rod, use the Lamp for the torches and save your arrows for the stun shots. Four clean Silver Arrows finish him."
+     },
+     {
+      "id": "alttp_ganon_win",
+      "k": "reward",
+      "t": "With the fourth Silver Arrow, Ganon is undone, the Triforce is freed, and Hyrule's curse lifts. You wake from the nightmare — the kingdom is saved. Congratulations, hero.",
+      "stuck": "If Ganon survives a shot, just keep the rhythm going — torches lit, sword to stun, Silver Arrow — and the next clean arrow finishes him."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
  }
 ]
