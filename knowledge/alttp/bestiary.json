@@ -1,0 +1,186 @@
+{
+ "basics": [
+  {
+   "title": "Sword Swings & the Spin Attack",
+   "body": "Tap the sword button for a quick slash — that is your bread and butter against almost everything. Hold the button down to charge a glowing Spin Attack, then release to hit every enemy around you at once. The Spin Attack hits all around you and does more damage than a normal swing, but the wind-up leaves you briefly open, so charge it when you have a moment of space."
+  },
+  {
+   "title": "Blocking with the Shield",
+   "body": "Your shield automatically blocks most projectiles (rocks, arrows, fireballs) coming from the direction you are facing — you do not press a button, you just have to be facing the threat while not swinging. The starter Fighter's Shield stops basic shots; the Red Shield and the Mirror Shield block more, including some magic and certain fireballs. You cannot block while attacking, so against ranged enemies, face them and advance behind your shield, then strike."
+  },
+  {
+   "title": "Deflecting Magic",
+   "body": "Some enemies and Agahnim himself fire magic energy balls at you. With the right timing you can swing your sword the instant a ball reaches you to knock it back — this is exactly how you damage Agahnim, by returning his own energy ball into his face (the Bug-Catching Net can deflect it too). Lightning and certain spread attacks cannot be reflected, so learn which attack is coming and only try to bat back the deflectable ones; otherwise dodge."
+  },
+  {
+   "title": "The Magic Meter & Magic Items",
+   "body": "The green Magic meter is the fuel for your special items — the Fire Rod, Ice Rod, Lamp, Cane of Byrna, the Bombos/Ether/Quake medallions, and the Magic Cape all drain it. When it runs dry those items stop working until you refill. Green magic jars (and the half-magic upgrade from a Great Fairy) restore it, so don't burn your whole meter on trash mobs — save it for puzzles and bosses where a Fire Rod or medallion ends a fight fast. Green and Blue Potions also refill magic."
+  },
+  {
+   "title": "Bottled Fairies as Auto-Revives",
+   "body": "Empty bottles can hold a caught fairy. If you run out of hearts while carrying a bottled fairy, it is released automatically and revives you with several hearts — a free second life. Always try to enter a boss room with at least one fairy in a bottle as your safety net, and refill bottles at fairy fountains or by catching fairies in the field before a tough fight. A bee or good bee in a bottle, released near a boss, will also chip away at it for you."
+  },
+  {
+   "title": "Bombs & the Two Worlds",
+   "body": "Bombs blow up enemies and, crucially, blast open cracked or suspicious walls to reveal hidden rooms and shortcuts — if a wall looks slightly different, try a bomb. The other core tool is the Magic Mirror: it warps you from the Dark World back to the matching spot in the Light World. Because the two worlds overlap geographically, you use the Mirror constantly to solve obstacles that are blocked in one world but passable in the other."
+  }
+ ],
+ "enemies": [
+  {
+   "name": "Soldier (Guard)",
+   "tier": "common",
+   "tactic": "Castle and town guards come in sword, spear, and bow flavors; circle to their side or back and slash, since spear and shield guards block frontal hits. Bow guards stay at range — close the gap behind your shield and cut them down.",
+   "drops": "Hearts, rupees, occasionally bombs or arrows"
+  },
+  {
+   "name": "Green/Blue/Red Soldier variants",
+   "tier": "common",
+   "tactic": "Color signals toughness: green ones rush you, blue ones carry shields you must flank, and red spear soldiers (plus the heavier ball-and-chain troopers) hit harder and need more swings. Use the Spin Attack when several swarm you at once.",
+   "drops": "Hearts, rupees"
+  },
+  {
+   "name": "Octorok",
+   "tier": "common",
+   "tactic": "Land-dwelling octopus enemies that spit rocks at you from a distance. Face them so your shield eats the rock, then walk in and slash — a couple of hits kills them.",
+   "drops": "Hearts, rupees"
+  },
+  {
+   "name": "Moblin",
+   "tier": "common",
+   "tactic": "Pig-faced spear throwers (Dark World) that hurl trident spears across the screen. Block the spears with your shield while approaching, or sidestep and rush in for sword hits.",
+   "drops": "Hearts, arrows, rupees"
+  },
+  {
+   "name": "Keese",
+   "tier": "common",
+   "tactic": "Erratic flying bats that flutter unpredictably. A single sword swing kills one; a charged Spin Attack clears a whole swarm. Watch for the fire-trailing variants that leave a damaging flame.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Zora",
+   "tier": "common",
+   "tactic": "Fish-creatures that surface from water to spit fireballs, then dive again — common in Zora's River and Lake Hylia. Block the fireballs with your shield and strike when one surfaces close enough, or pick them off with arrows.",
+   "drops": "Hearts, rupees"
+  },
+  {
+   "name": "Stalfos",
+   "tier": "common",
+   "tactic": "Skeleton soldiers that hop around and sometimes throw their own bones. Hit them with the sword; some collapse and rebuild themselves, so finish the pile quickly or use a bomb to scatter them for good.",
+   "drops": "Hearts, occasionally arrows"
+  },
+  {
+   "name": "Wizzrobe",
+   "tier": "common",
+   "tactic": "Robed mages (Misery Mire and Ganon's Tower) that phase in, fire a magic blast, then vanish before you can reach them. They appear and shoot in a set pattern from fixed spots — line up where one will reappear and swing the instant it materializes; arrows also catch them between phases.",
+   "drops": "Hearts, magic jars"
+  },
+  {
+   "name": "Helmasaur",
+   "tier": "common",
+   "tactic": "Small armored lizards with a face mask, the lesser cousins of the Helmasaur King. Their face is shielded, so hit them from the side or rear with the sword, or use a bomb to blow off the mask and expose them.",
+   "drops": "Hearts, rupees"
+  },
+  {
+   "name": "Goriya",
+   "tier": "common",
+   "tactic": "These mirror your movement — when you walk up they walk down, when you go left they go right, making them hard to line up. Green Goriyas die to the sword; Red Goriyas move faster, spit an unblockable fireball when you face them, and can usually only be hurt by arrows. Strike from an angle they can't mirror, or shoot them.",
+   "drops": "Hearts, rupees"
+  },
+  {
+   "name": "Hardhat Beetle",
+   "tier": "common",
+   "tactic": "Tiny helmeted beetles you cannot kill with the sword — every hit just shoves them backward (and knocks you back too). The trick is to knock them into a pit or off a ledge, so steer them toward a gap rather than wasting swings.",
+   "drops": "None reliably"
+  },
+  {
+   "name": "Rope",
+   "tier": "common",
+   "tactic": "Fast snakes that suddenly charge in a straight line toward you when you line up with them. Stay off their axis, then slash as they zip past; a couple of hits finishes them.",
+   "drops": "Hearts, rupees"
+  },
+  {
+   "name": "Armos Knights",
+   "tier": "boss",
+   "tactic": "Six animated statues that bounce around the room in patterns, then the last one turns red and charges once only it remains. Pick them off one at a time with arrows or the sword and keep moving so a charging statue does not corner you.",
+   "drops": "Heart Container, Pendant of Courage (first dungeon, Eastern Palace)",
+   "battle": "Bring a decent stock of arrows and a fairy in a bottle. The six statues hop around in formation; the safest approach is to back into a corner or the bottom edge of the room and fire arrows to destroy them one by one (the sword works too, but arrows let you stay clear of their bounce paths). As you kill each one the rest speed up, and when a single statue is left it turns red and charges straight at you repeatedly — sidestep each charge and hit it on the pass. There is no special weak spot; the whole statue takes damage. Keep circling, don't get sandwiched between two bouncing statues, and the last red one falls after a few clean hits."
+  },
+  {
+   "name": "Lanmolas",
+   "tier": "boss",
+   "tactic": "Three sand-burrowing worms that erupt from the floor, spraying rocks, then dive back down. Their weak point is the head — strike it with the sword while it is above ground before it submerges.",
+   "drops": "Heart Container, Pendant of Power (Desert Palace)",
+   "battle": "Bring your sword (the Spin Attack helps) and a fairy in a bottle. The three worms tunnel under the sand and burst up one at a time, scattering rocks as they emerge — block or dodge the rocks. The only vulnerable part is the head as it rises; rush to wherever a worm pops up and slash the head before it dives again. Watch the small dirt mounds that telegraph where the next worm will surface so you can be standing there ready to swing. Damage all three over repeated emergences; keep moving so a fresh worm doesn't erupt directly underneath you."
+  },
+  {
+   "name": "Moldorm",
+   "tier": "boss",
+   "tactic": "A wriggling worm whose only weak point is the glowing tail tip at the very end of its body. Hit the tail repeatedly — but beware: its body knocks you back hard, and falling off the ledge resets the whole fight.",
+   "drops": "Heart Container (Tower of Hera)",
+   "battle": "Bring patience more than items — the danger here is the room, not the boss. Moldorm thrashes around a small platform with open edges; its swinging body shoves you with huge knockback, and if you tumble off the ledge you must climb back up while Moldorm fully heals. Chase the flashing tail tip and tap it with the sword, but immediately back off after each hit so the recoil doesn't fling you into the pit. Stay near the center, never let yourself get pinned against an edge, and accept that a few small clean hits beats one greedy combo that knocks you off. After enough tail strikes it dies."
+  },
+  {
+   "name": "Agahnim",
+   "tier": "boss",
+   "tactic": "The dark wizard teleports around and fires a blue energy ball at you. Swing your sword the instant it reaches you to deflect it back into his face — that returned magic is the only thing that hurts him (the Bug-Catching Net works too). Dodge his lightning and his unblockable spread of small energy balls; only the single blue orb can be batted back.",
+   "drops": "Story progression — defeating him in Hyrule Castle's tower sends Link to the Dark World",
+   "battle": "Enter with full hearts and a bottled fairy. Agahnim teleports around the room and casts a few things: a single blue energy ball you CAN deflect, a ring/spread of smaller energy balls that scatter and CANNOT be reflected (dodge them), and a lightning bolt (he only fires it from the top-center facing down — slide to the east or west wall to avoid it). The core loop is to face him and time a sword swing to reflect his blue ball straight back; each returned ball stuns and damages him. There is no melee weak point you can reach; the whole fight is reflecting his own magic. When you face him again in Ganon's Tower he makes two transparent copies of himself — only the solid one is real, but a copy's deflected ball can still be sent into the true Agahnim, and he drops the lightning attack there."
+  },
+  {
+   "name": "Helmasaur King",
+   "tier": "boss",
+   "tactic": "A giant armored Helmasaur with an invulnerable face mask. Crack the mask with the Magic Hammer (many hits) or about five well-placed bombs, then attack the exposed green gem on its forehead with the sword or arrows — Silver Arrows can one-shot it. Avoid its swinging tail and the fireballs that split into spreading flames.",
+   "drops": "Heart Container, Crystal (Palace of Darkness — first Dark World dungeon)",
+   "battle": "Bring the Magic Hammer, bombs, and arrows, plus a fairy in a bottle. Phase one is all about breaking the mask: get close when the tail isn't sweeping and pound the mask with the Hammer (it takes many strikes), or drop bombs at its face — about five solid bomb hits shatters it from a safer distance. Meanwhile it spits fireballs that break apart diagonally, so stand at right angles to the shots and keep the shield up. Once the mask cracks off, its weak point — the green gem on its forehead — is exposed; hit it with the sword or arrows (Silver Arrows do extra damage and can end it in a hit or two). Keep circling to avoid the tail and the spreading flames."
+  },
+  {
+   "name": "Arrghus",
+   "tier": "boss",
+   "tactic": "A floating eye surrounded by a cloud of small puffball orbs. Use the Hookshot to drag the little orbs off it one at a time and slash them, then attack the bare central eye with the sword while dodging its slow descents.",
+   "drops": "Heart Container, Crystal (Swamp Palace)",
+   "battle": "Bring the Hookshot (essential), your sword, and a bottled fairy. Arrghus hides behind a shell of small puffball orbs that protect it — you cannot hurt the boss while they're attached. Fire the Hookshot to yank the orbs away one by one; each one you pull off, kill with a sword slash. Once the protective orbs are stripped, the exposed central eye rises up and then drops down toward you to attack — stay clear of where it lands, then rush in and slash the eye repeatedly. It will try to regather orbs, so keep them down and hammer the eye whenever it's vulnerable. The weak point is the bare eye after the orbs are cleared."
+  },
+  {
+   "name": "Mothula",
+   "tier": "boss",
+   "tactic": "A giant moth that flies around a room whose floor tilts and slides you around, while it fires beams and sliding spike traps cross the floor. The fast, reliable answer is to rush it with the Fire Rod (fall back on the sword or arrows if your magic runs out). One of the game's more hectic fights.",
+   "drops": "Heart Container, Crystal (Skull Woods)",
+   "battle": "Bring a full Magic meter for the Fire Rod, a Green or Blue Potion to top it up, and a bottled fairy — this fight is chaotic. Mothula flits around the chamber shooting a triple-beam attack (one beam straight down, two diagonal), the floor tilts and slides you toward the edges, and spike traps slide across the room. The best technique most guides agree on is to be aggressive: the Fire Rod takes about 8 hits to kill it, so burn it down quickly before the tilting floor and projectiles wear you down. If your magic empties, switch to the sword (the Fire Rod is roughly twice the Master Sword's damage). There's no trick weak spot — its whole body takes damage. A bee or good bee released from a bottle will help chew through it too."
+  },
+  {
+   "name": "Blind the Thief",
+   "tier": "boss",
+   "tactic": "A head-on-a-body that slides along the top and bottom of the room firing lasers and fireballs. Strike the head; when hit enough, the head detaches and floats free while a new one grows, and the loose heads keep shooting. Keep slashing each head until all are destroyed.",
+   "drops": "Heart Container, Crystal (Thieves' Town)",
+   "battle": "Bring your sword and a bottled fairy. You reveal this boss by leading the rescued maiden into the lit room — the maiden IS Blind in disguise, and bright light makes him transform. Blind glides along the top and bottom walls, firing a sweeping laser or small fireballs — keep moving to avoid them. Attack the head, its weak point. After enough hits the head pops off and floats around the room shooting at you while a fresh head sprouts on the body, so now you're dodging multiple flying heads. Prioritize slashing each head as it comes near and don't let yourself get pinned between the body and a loose head. Destroy all the heads to win."
+  },
+  {
+   "name": "Kholdstare",
+   "tier": "boss",
+   "tactic": "An eye frozen inside a block of ice. Melt the ice with the Fire Rod (or the Bombos Medallion), then fight the eyes that split out, dodging the ice blocks that fall from above. Sword strikes plus Fire Rod blasts bring it down.",
+   "drops": "Heart Container, Crystal (Ice Palace)",
+   "battle": "Bring the Fire Rod (with a healthy Magic meter) and a bottled fairy. Kholdstare starts encased in a giant ice block — melt it with the Fire Rod (about eight hits), or the Bombos Medallion cracks it instantly if you have one. Once freed it splits into three floating eyes that drift around the room while ice blocks rain down from the ceiling. Focus on one eye at a time, mostly using sword strikes with Fire Rod blasts to speed each one up, and keep moving to avoid the falling ice. The eyes are the weak point; clear all three to win. Bring extra magic refills if you can, since the Fire Rod makes both phases far faster."
+  },
+  {
+   "name": "Vitreous",
+   "tier": "boss",
+   "tactic": "A large eye floating in a swamp, surrounded by many small eyeballs that detach and lunge at you. Fend off or shoot the small eyes, then put arrows into the giant eye to finish it.",
+   "drops": "Heart Container, Crystal (Misery Mire)",
+   "battle": "Bring a full quiver of arrows, your sword for defense, and a bottled fairy. Vitreous is a big eye sitting in a swamp of smaller eyeballs that break off and charge at you, and it also fires a branching lightning bolt. Stay near the lower wall and slash rapidly to fend off the small eyes as they lunge, or pick them off with arrows from range. The main target is the giant eye itself: a safe line is to stand at the bottom of the room and fire arrows straight up at it — repeated arrow hits will destroy it. Watch for the lightning attack and reposition so it doesn't catch you."
+  },
+  {
+   "name": "Trinexx",
+   "tier": "boss",
+   "tactic": "A three-headed creature: a fire (red) head, an ice (blue) head, and a central rock head. Freeze the fire head with the Ice Rod and burn the ice head with the Fire Rod to stun them, then slash each with the sword to destroy it. With both side heads gone, strike the flashing segment in the middle of its exposed serpentine body.",
+   "drops": "Heart Container, Crystal (Turtle Rock)",
+   "battle": "Bring BOTH the Fire Rod and the Ice Rod with as much magic as you can carry, plus a bottled fairy — this is the last dungeon boss and a real test. Trinexx attacks with a fire-breathing red head and an ice-breathing blue head; the central rock head lunges out like a snake to ram you. Use the opposite element on each side head: hit the RED (fire) head with the ICE Rod and the BLUE (ice) head with the FIRE Rod to freeze/stun it, then slash that head with the sword to destroy it. To save magic, one rod shot to stun followed by sword hits works fine. With both side heads gone, the shell breaks and the body becomes a thrashing rock serpent that whips around the room; its only weak point now is the flashing segment in the middle of its body — chase it and land sword strikes on that spot whenever it's exposed."
+  },
+  {
+   "name": "Ganon",
+   "tier": "boss",
+   "tactic": "The final boss warps around throwing his trident and summoning fire bats. Wear him down with the sword through several phases; in the final dark phase, relight the torches (Lamp or Fire Rod) to make him visible, stun him with the sword, then finish each opening with a Silver Arrow.",
+   "drops": "Victory — the Triforce",
+   "battle": "Bring Silver Arrows (required to finish him), the Lamp or Fire Rod to relight torches, plenty of magic and arrows, and ideally a bottled fairy or two. Ganon teleports around the arena and hurls his trident like a boomerang while sending out rings of fireballs that become fire bats — dodge these and sneak in sword slashes between attacks. As he takes damage he collapses the edges of the floor and sends fire bats in spiral patterns, so footing gets tighter. In the final phase he plunges the room into darkness and turns invisible, warping around shooting fire: relight the torches with your Lamp (or Fire Rod) to make him reappear, hit him with the sword to stun him, then immediately shoot a Silver Arrow into him. Land four Silver Arrows over the course of this phase to defeat him. (Without Silver Arrows he can also be worn down by roughly a dozen Spin Attacks with a strong sword, but the Silver Arrows are the intended finish.)"
+  }
+ ]
+}

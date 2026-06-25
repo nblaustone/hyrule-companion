@@ -1,0 +1,236 @@
+{
+ "items": [
+  {
+   "id": "sword",
+   "name": "Sword",
+   "glyph": "sword",
+   "from": "Washed up on Toronbo Shores — walk onto the beach southeast of Mabe Village and a voice tells you to grab it. (The sword is free on the beach in every version.)",
+   "what": "Your main weapon. Swing it with the attack button, or hold it down to charge a Spin Attack that hits all around you. At full hearts the basic sword does NOT shoot beams — that is the L-2 upgrade.",
+   "tip": "Hold the button to charge the Spin Attack while you walk; release it in a crowd. You can't really do anything on the island until you fetch this sword first."
+  },
+  {
+   "id": "l2-sword",
+   "name": "L-2 Sword (Koholint Sword)",
+   "glyph": "sword",
+   "from": "Bring enough Secret Seashells to the Seashell Mansion in Ukuku Prairie and step on the pedestal. The original Game Boy/DX needs 20 seashells; the Switch remake needs 40.",
+   "what": "A free upgrade that doubles your sword's damage. When your hearts are full it fires a Sword Beam with every swing — ranged damage at no cost.",
+   "tip": "Totally optional but a huge power spike. Pick up Secret Seashells as you explore (dig spots, cut bushes, dungeon chests) and you'll hit the count naturally."
+  },
+  {
+   "id": "shield",
+   "name": "Shield",
+   "glyph": "shield",
+   "from": "You start with a basic shield; the Town Tool Shop in Mabe Village sells a replacement if you lose it.",
+   "what": "Hold it up to block enemy attacks and most projectiles. With the Pegasus Boots you can dash forward shield-first to knock some enemies back.",
+   "tip": "If a Like Like swallows you, mash buttons to escape fast or it eats your shield — then you have to buy another at the Town Tool Shop."
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "The dungeon item of Eagle's Tower, the SEVENTH dungeon.",
+   "what": "An upgraded shield that, on top of normal blocking, reflects fire and beam attacks (like Beamos lasers) back at the enemy.",
+   "tip": "You'll use it inside Eagle's Tower itself to bounce beams. Keep it equipped — it also helps you hold your ground in the windy boss fight."
+  },
+  {
+   "id": "bow",
+   "name": "Bow",
+   "glyph": "bow",
+   "from": "Bought at the Town Tool Shop in Mabe Village for 980 Rupees (or stolen, if you're feeling brave).",
+   "what": "Fires arrows at range. Each shot costs one arrow from your stock; refill arrows from grass, pots, drops, or the shop.",
+   "tip": "Great for hitting switches and enemies from safety. It's pricey but a required item to finish the game, so save up for it."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "Bought at the Town Tool Shop, found in chests, or dropped by enemies. You carry a stock that refills like arrows.",
+   "what": "Set a bomb to blow open cracked walls and floors, reveal hidden passages, and damage enemies and bosses. Hidden rooms all over Koholint sit behind bombable walls.",
+   "tip": "If a wall or block looks suspicious or out of place, drop a bomb next to it. You can also equip Bombs + Bow together to 'arrow-bomb' for a stronger combined shot."
+  },
+  {
+   "id": "magic-powder",
+   "name": "Magic Powder",
+   "glyph": "bag",
+   "from": "From the witch Syrup's hut — first fetch the Toadstool from the Mysterious Woods, bring it to her, and she grinds it into powder. Refill it by buying more from her.",
+   "what": "Sprinkle a pinch in front of you. It lights torches, harms or transforms certain enemies, and is the only way past a few specific foes.",
+   "tip": "Its first big use is sprinkling it on Tarin (turned into a raccoon in the woods) to clear the path to the Tail Key. Stock is limited, so don't waste it."
+  },
+  {
+   "id": "rocs-feather",
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "from": "The dungeon item of Tail Cave, the very first dungeon.",
+   "what": "Lets Link jump. Hop over pits, spikes, and gaps, and leap over low enemies. Pair it with the Pegasus Boots for a long running jump.",
+   "tip": "This is THE platforming item — many 'how do I cross that?' moments are just 'equip the Feather and jump.' Feather + Pegasus Boots clears the widest gaps."
+  },
+  {
+   "id": "pegasus-boots",
+   "name": "Pegasus Boots",
+   "glyph": "armor",
+   "from": "The dungeon item of Key Cavern, the THIRD dungeon.",
+   "what": "Hold the assigned button to charge, then dash in a straight line at high speed. The dash breaks through certain bushes and rocks, stuns or knocks back enemies, and lets you clear wide gaps when combined with Roc's Feather.",
+   "tip": "Dashing into some trees shakes loose items or secrets. Charge while moving so the dash fires the instant you let go."
+  },
+  {
+   "id": "power-bracelet",
+   "name": "Power Bracelet (L-1)",
+   "glyph": "armor",
+   "from": "The dungeon item of Bottle Grotto, the SECOND dungeon.",
+   "what": "Lets you lift and throw small rocks, pots, bushes, and skulls. Throwing a held object damages enemies and clears blocked paths.",
+   "tip": "Many overworld rocks that blocked you earlier can now be picked up and tossed — backtrack to clear them and reach new areas and seashells."
+  },
+  {
+   "id": "power-bracelet-l2",
+   "name": "Power Bracelet L-2",
+   "glyph": "armor",
+   "from": "The dungeon item of Face Shrine, the SIXTH dungeon.",
+   "what": "An upgraded bracelet that lets you lift the big, heavy stones the L-1 bracelet can't budge, opening still more paths and secrets.",
+   "tip": "After you get it, revisit large boulders you couldn't lift before — several hide seashells, fairies, or shortcuts."
+  },
+  {
+   "id": "shovel",
+   "name": "Shovel",
+   "glyph": "armor",
+   "from": "Bought at the Town Tool Shop in Mabe Village for 200 Rupees.",
+   "what": "Dig in soft ground. Digging turns up Rupees, hearts, and Secret Seashells, and it's required to uncover certain buried items — including the Slime Key under the owl statue in Pothole Field.",
+   "tip": "Dig the suspicious bare-dirt patches and spots an owl statue hints about. It's the only way to get the Slime Key, so don't skip it."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "The dungeon item of Catfish's Maw, the FIFTH dungeon.",
+   "what": "Fires a chain-grapple straight ahead. It grabs distant blocks and posts to pull Link across gaps, snags far-off items, and yanks or stuns enemies.",
+   "tip": "Use it to cross pits with no platforms and to grab chests on islands you can't walk to. Equip it with the Feather to chain a grapple into a jump."
+  },
+  {
+   "id": "magic-rod",
+   "name": "Magic Rod",
+   "glyph": "orb",
+   "from": "The dungeon item of Turtle Rock, the EIGHTH and final dungeon.",
+   "what": "Shoots a burst of fire forward. It lights things, melts certain icy obstacles, and is a strong damage option against the toughest late-game enemies.",
+   "tip": "You get it in the last dungeon, so it's mostly for the endgame gauntlet and final boss — keep it on a use button for the finale."
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "leaf",
+   "from": "Optional. With the Magnifying Lens, an unseen Goriya appears in a cave on Toronbo Shores; he trades the Boomerang for an item in your B slot. (This is the final step of the trading sequence.)",
+   "what": "Thrown weapon that flies out, damages or stuns enemies, slices bushes, grabs distant items, and returns to you. It can hit some foes the sword can't reach.",
+   "tip": "He takes the item you offer in trade, so hand over something replaceable like the Shovel (you can buy another). In the Switch remake you can later buy your old item back for 300 Rupees. Purely optional but handy."
+  },
+  {
+   "id": "ocarina",
+   "name": "Ocarina",
+   "glyph": "stasis",
+   "from": "Found in a chest inside the Dream Shrine in Mabe Village (use the Feather to navigate the maze).",
+   "what": "Your instrument for playing the island's three songs. On its own it does nothing — each song you learn is played through the Ocarina for a different effect.",
+   "tip": "Get this before hunting for the song teachers; you can't learn or use any song without the Ocarina."
+  },
+  {
+   "id": "flippers",
+   "name": "Flippers",
+   "glyph": "armor",
+   "from": "The dungeon item of Angler's Tunnel, the FOURTH dungeon.",
+   "what": "Let Link swim in deep water and dive underwater to reach sunken chests, new shores, and items at the bottom of ponds.",
+   "tip": "Once you can swim, revisit every body of water you had to walk around — sunken chests, seashells, and shortcuts open up across the whole map."
+  },
+  {
+   "id": "piece-of-power",
+   "name": "Piece of Power",
+   "glyph": "heart",
+   "from": "A temporary pickup dropped by enemies or found in some areas (the music changes while it's active).",
+   "what": "A short-lived attack buff: while it lasts your sword does extra damage and sends enemies flying, and Link moves faster. It wears off after a while or when you change areas.",
+   "tip": "Not something you keep — grab one right before a tough fight or boss to burn it down fast."
+  },
+  {
+   "id": "guardian-acorn",
+   "name": "Guardian Acorn",
+   "glyph": "heart",
+   "from": "A temporary pickup dropped by enemies (the music changes while it's active).",
+   "what": "A short-lived defense buff: it reduces the damage Link takes for the next few hits, then wears off.",
+   "tip": "Defensive twin of the Piece of Power — handy when you're low on hearts and pushing through a dangerous room."
+  },
+  {
+   "id": "tail-key",
+   "name": "Tail Key",
+   "glyph": "key",
+   "from": "Found in a chest in the Mysterious Forest (west of Mabe Village), reached after clearing Tarin from the path.",
+   "what": "A key that opens the locked entrance to Tail Cave, the first dungeon.",
+   "tip": "This is the very first key-gate of the game — if you can't get into the first dungeon, you're missing this. Use Magic Powder on the raccoon Tarin to reach the chest."
+  },
+  {
+   "id": "slime-key",
+   "name": "Slime Key",
+   "glyph": "key",
+   "from": "Return Prince Richard's five Golden Leaves (found in and around Kanalet Castle), then dig with the Shovel under the owl statue in Pothole Field to unearth the key.",
+   "what": "Opens the entrance to Key Cavern, the third dungeon.",
+   "tip": "You must do the Golden Leaves errand AND dig for it — having the Shovel isn't enough until Richard opens the way to Pothole Field."
+  },
+  {
+   "id": "angler-key",
+   "name": "Angler Key",
+   "glyph": "key",
+   "from": "Dropped by the Desert Lanmola (sand-worm) in the Yarna Desert, in the southeast of the island. (You reach the desert by waking the sleeping Walrus with the Ballad of the Wind Fish.)",
+   "what": "Opens the way into Angler's Tunnel, the fourth dungeon, by dropping the key into the waterfall keyhole on the Tal Tal cliffs.",
+   "tip": "Fight carefully in the open desert — the Lanmola bursts out of the sand. After you have the key, take it to the waterfall to open the path."
+  },
+  {
+   "id": "face-key",
+   "name": "Face Key",
+   "glyph": "key",
+   "from": "Dropped by the Armos Knight you battle at the Southern Face Shrine, in the Ancient Ruins.",
+   "what": "Opens the entrance to Face Shrine, the SIXTH dungeon.",
+   "tip": "The shrine puzzle ends in the Armos fight; clear it and the key is yours, then take it to Face Shrine."
+  },
+  {
+   "id": "bird-key",
+   "name": "Bird Key",
+   "glyph": "key",
+   "from": "Deep in a cave in Tal Tal Heights. To reach it you must revive the Flying Rooster (play the Frog's Song of Soul at the Mabe Village weather vane) and use its flight to cross the cave's pits.",
+   "what": "Opens the entrance to Eagle's Tower, the seventh dungeon (it rotates the tower to reveal the way in).",
+   "tip": "You need BOTH the Frog's Song of Soul and the revived rooster first — without the rooster's flight you can't cross the gaps to the key."
+  },
+  {
+   "id": "magnifying-lens",
+   "name": "Magnifying Lens",
+   "glyph": "book",
+   "from": "The 14th item of the trading sequence: trade the Mermaid's Scale onto the Mermaid Statue in Martha's Bay to open a hidden chest holding the Lens.",
+   "what": "Lets you see hidden things: it reveals the true path through the Wind Fish's Egg (needed to finish the game), makes the 'Dark Secrets and Mysteries of Koholint' book in the Library readable, and shows the unseen Goriya who trades you the Boomerang. In DX/Switch it also reveals a hidden enemy in a photo/Animal Village.",
+   "tip": "Reading the Library book (with the Lens) reveals the Egg's path. The Lens is near the END of the trade chain — one step before the Boomerang."
+  },
+  {
+   "id": "instruments-of-the-sirens",
+   "name": "The 8 Instruments of the Sirens",
+   "glyph": "champion",
+   "from": "One is found at the end of each of the eight dungeons: Full Moon Cello, Conch Horn, Sea Lily's Bell, Surf Harp, Wind Marimba, Coral Triangle, Organ of Evening Calm, and Thunder Drum.",
+   "what": "The eight magical instruments you collect across the whole quest. With all eight, you play the Ballad of the Wind Fish on them at the Wind Fish's Egg to wake the Wind Fish — the goal of the game.",
+   "tip": "Each dungeon = one instrument, so they double as your progress tracker. Eight instruments means you're ready for the ending."
+  },
+  {
+   "id": "ballad-of-the-wind-fish",
+   "name": "Ballad of the Wind Fish",
+   "glyph": "stasis",
+   "from": "Taught by Marin — find her around Mabe Village early on and ask her to teach you the song.",
+   "what": "The island's central melody. Played with all eight Instruments of the Sirens, it wakes the Wind Fish. On the overworld it also wakes the sleeping Walrus blocking the way to the Yarna Desert.",
+   "tip": "Learn it as soon as you can — you'll need it to get past the Walrus toward the desert, long before the finale."
+  },
+  {
+   "id": "manbos-mambo",
+   "name": "Manbo's Mambo",
+   "glyph": "stasis",
+   "from": "Taught by Manbo, a fish in a pond reached by diving (you need the Flippers). It's learned after Angler's Tunnel.",
+   "what": "A warp song. Played on the overworld it whisks Link to Manbo's Pond, near Crazy Tracy's. Played inside a dungeon, it returns you to that dungeon's entrance. (In the Switch remake it can warp to any open Warp Hole.)",
+   "tip": "Use it to quickly bail out of a dungeon or as a fast-travel point — a real time-saver for backtracking."
+  },
+  {
+   "id": "frogs-song-of-soul",
+   "name": "Frog's Song of Soul",
+   "glyph": "stasis",
+   "from": "Taught by Mamu (and his frog chorus) for 300 Rupees, beneath the Signpost Maze in Ukuku Prairie — read the signs in the right order to drain the pond and reach him.",
+   "what": "Brings certain dead or inanimate things to life. You need it to revive the Flying Rooster at the Mabe Village weather vane, which in turn lets you reach the Bird Key and Eagle's Tower.",
+   "tip": "Required for progress, not optional. Have 300 Rupees ready before you visit Mamu, and learn it before the late game."
+  }
+ ]
+}

@@ -1,0 +1,175 @@
+{
+ "basics": [
+  {
+   "title": "Sword swing & the Spin Attack",
+   "body": "Tap the sword button to swing in the direction you face; most common foes die in a hit or two. Hold the button until Link flashes and flickers, then release to unleash a Spin Attack that sweeps a full circle around you. The Spin Attack is your panic button when you're surrounded, and it's a safe way to break grass and pots from any side."
+  },
+  {
+   "title": "The Shield bump-block (and Like Likes)",
+   "body": "Equip and hold the Shield to face down enemies and block or bump back anything that runs into you head-on, including Octorok rocks and Moblin arrows. The upgraded Mirror Shield (found later) also reflects beam attacks. Watch out for Like Likes: if one swallows you it will eat your Shield, so kill it fast (a few sword hits) and you'll get the Shield back."
+  },
+  {
+   "title": "Roc's Feather: jumping & the long-jump",
+   "body": "Roc's Feather (from Tail Cave, the first dungeon) lets Link jump straight up, hopping over pits, floor spikes, and low attacks. It's the single most useful movement item in the game. Equip the Pegasus Boots in the other slot, dash, then jump mid-dash for a long running leap that clears wide gaps and is needed for several dungeon and overworld jumps."
+  },
+  {
+   "title": "The two-item-button limit & swapping",
+   "body": "Koholint's curse: you can only equip TWO items at a time, on the A and B buttons. Sword, Shield, Feather, Bombs, Bow, Hookshot, Power Bracelet, Magic Rod, Ocarina — all share those two slots, so you'll pause and re-equip constantly. Get used to opening the menu to swap (e.g. Sword+Shield for fights, Feather+Boots for platforming, Bombs+Bow for bosses). The DX/Switch versions let you set the Power Bracelet and a couple of items to dedicated buttons so they don't hog a slot."
+  },
+  {
+   "title": "Bombs + Bow combos",
+   "body": "Bombs are thrown or set down and explode after a beat — great for cracked walls, bomb-eating enemies, and bosses like Facade. With both equipped you can pull off the classic combo: drop or fire a Bomb and shoot an Arrow at the same instant so they hit together for big damage (very strong against tough single targets). Bombs also hurt Link, so back away after placing one."
+  },
+  {
+   "title": "Pieces of Power & Guardian Acorns",
+   "body": "Some enemies drop two special buffs. A Piece of Power (the spinning item that plays a jingle) makes Link temporarily stronger: he flashes, moves faster, and does extra sword damage — sprint into a boss room with one and the fight is half over. A Guardian Acorn reduces the damage you take for a while. Both are temporary, wear off over time, and are worth grabbing right before a hard fight."
+  }
+ ],
+ "enemies": [
+  {
+   "name": "Octorok",
+   "tier": "common",
+   "tactic": "Land-walking octopus that stops and spits a rock at you in a straight line. Sidestep the rock (or block it with the Shield) and close in for a sword hit or two.",
+   "drops": "Hearts, Rupees"
+  },
+  {
+   "name": "Moblin",
+   "tier": "common",
+   "tactic": "Bulldog-faced grunt; the spear ones jab in melee and the bow ones fire arrows across the screen. Raise the Shield to stop arrows, then circle to its side and slash. Moblins guard areas early on, including the approach to Tail Cave.",
+   "drops": "Hearts, Rupees, occasionally arrows"
+  },
+  {
+   "name": "Zol / Gel",
+   "tier": "common",
+   "tactic": "A Zol is a green blob that splits into two small Gels when you hit it; Gels are quick and hop onto Link to nibble at him. Use a Spin Attack to clear the splits in one go, or just swat each Gel before it latches on.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Keese",
+   "tier": "common",
+   "tactic": "A small bat that flutters erratically and dive-bombs. One sword swing kills it — wait for it to approach rather than chasing its jittery flight. Fire Keese variants leave a brief flame, so don't stand where one dies.",
+   "drops": "Hearts (rarely)"
+  },
+  {
+   "name": "Pols Voice",
+   "tier": "common",
+   "tactic": "A big-eared rabbit-thing that bounces around and is immune to your sword. Once you have the Ocarina, playing it (the Ballad of the Wind Fish) kills it instantly; before that, hit it with an Arrow, drop a Bomb on it, or pick up and throw a pot at it.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Like Like",
+   "tier": "common",
+   "tactic": "A tubular muncher that sucks Link in and eats your Shield (and can swallow Rupees). Hit it rapidly with the sword to kill it before it digests your gear — you recover the Shield when it dies. Keep your distance and poke.",
+   "drops": "Hearts, your eaten Shield back"
+  },
+  {
+   "name": "Stalfos",
+   "tier": "common",
+   "tactic": "A skeletal swordsman. The blue ones just take a few sword hits; the orange/jumping ones leap away when you attack, so bait the jump and strike as they land, or use Bombs. They appear in dungeons, sometimes in groups.",
+   "drops": "Hearts, Rupees"
+  },
+  {
+   "name": "Spark",
+   "tier": "common",
+   "tactic": "An electric ball that endlessly circles the wall (or a block) clockwise or counter-clockwise. The sword and most items don't work on it — time your movement to slip past, or jump it with Roc's Feather. The Boomerang is the one thing that kills it (it turns into a Fairy). Touching it shocks and stuns you.",
+   "drops": "None usually (Boomerang turns it into a Fairy)"
+  },
+  {
+   "name": "Crow / Pairo",
+   "tier": "common",
+   "tactic": "A bird that perches asleep until you get close, then swoops at you fast. Wake it, sidestep the first dive, and slash on its way past — or shoot it with an Arrow before it launches. Often nests near trees and bushes.",
+   "drops": "Hearts (rarely)"
+  },
+  {
+   "name": "Shy Guy / Mask-Mimic",
+   "tier": "common",
+   "tactic": "Masked foe that mirrors your movement in the opposite direction, so a head-on sword swing tends to whiff. Beat it with a Spin Attack, an Arrow, or a Bomb. (Called Mask-Mimic before the Switch remake.) Found in Bottle Grotto and Face Shrine.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Sea Urchin",
+   "tier": "common",
+   "tactic": "A spiny ball that sits still on beaches and dungeon floors; you only get hurt if you walk onto its spikes. A single sword slash kills it, or run it down with a Pegasus Boots dash-attack — or just walk around it.",
+   "drops": "None usually"
+  },
+  {
+   "name": "Hinox",
+   "tier": "mini-boss",
+   "tactic": "A one-eyed ogre in Bottle Grotto that lunges to grab Link and hurl him into a wall, and occasionally lobs Bombs. Dodge the grab, then punish.",
+   "battle": "Equip Sword + Shield. Hinox telegraphs a forward lunge to grab you — sidestep it so he whiffs, then immediately slash his flank two or three times before he recovers. If he throws a Bomb, walk around it. Don't get pinned in a corner where the grab is unavoidable; keep an escape lane open and just repeat dodge-then-slash. A handful of clean counters drops him."
+  },
+  {
+   "name": "Dodongo Snakes",
+   "tier": "mini-boss",
+   "tactic": "A pair of snakes in Key Cavern that are unharmed by the sword — they only die by eating Bombs. Feed them.",
+   "battle": "Equip Bombs. Set or throw a Bomb directly in front of a snake's mouth as it advances; it gulps the Bomb and takes the blast from the inside. Each snake needs about two to three swallowed Bombs. Deal with them one at a time and keep moving so the second snake doesn't ram you while you bait the first."
+  },
+  {
+   "name": "Grim Creeper",
+   "tier": "mini-boss",
+   "tactic": "A skeletal commander in Eagle's Tower who summons a squadron of Battle Bats that charge you in shifting formations. Survive the swarm, then he flees (and returns later as part of the Evil Eagle fight).",
+   "battle": "Equip Sword + Shield. Back into a wall or corner so the bats can only come at you from the front. Each Battle Bat charges in a straight line — swing your sword to cut down each one as it reaches you, and keep the Shield up between swings to bump back any you mistime. Once you clear the formation the Grim Creeper retreats; you don't kill him here, you just outlast the bats."
+  },
+  {
+   "name": "Blaino",
+   "tier": "mini-boss",
+   "tactic": "A boxing kangaroo in Turtle Rock who throws straight punches that can knock you all the way back to the dungeon entrance. Stay off his horizontal line and counter.",
+   "battle": "Equip Sword + Shield. Blaino punches straight along whatever row you share with him, so attack from ABOVE or BELOW his line, never head-on. Slip to his flank, land a couple of sword hits, then retreat before he turns to face you. Roc's Feather can hop a telegraphed haymaker. A Piece of Power makes this trivial. Patience beats him — a bad trade can literally eject you from the dungeon."
+  },
+  {
+   "name": "Moldorm",
+   "tier": "boss",
+   "tactic": "Tail Cave's nightmare: a giant worm that whips around a pit-edged room. Only its tail tip is vulnerable, and it speeds up as it's hurt.",
+   "battle": "Equip Sword + Shield. The room has bottomless edges, so your real enemy is getting knocked off — move deliberately. Ignore the head and body (touching them just bumps you around) and chase the glowing tail tip, slashing it whenever you can line up behind it. Each hit makes Moldorm faster and more frantic, so for the final hits use the Shield to avoid being shoved into a pit and take the tail when it slows at a turn. Around four hits to the tail ends it."
+  },
+  {
+   "name": "Genie",
+   "tier": "boss",
+   "tactic": "Bottle Grotto's nightmare: a fire-throwing spirit that hides inside a bottle. Break the bottle first, then attack the exposed Genie.",
+   "battle": "Equip Sword + Shield (Power Bracelet for the throw phase). Phase 1: you can't touch the Genie while it lobs fireballs, so dodge them; when it dives back into its bottle, strike the bottle with your sword to stun it, then pick it up with the Power Bracelet and hurl it against a wall. About three throws shatters the bottle. Phase 2: the Genie floats free, swirls around to confuse you and throws bigger fireballs — right after it throws, it's open, so rush in and slash it. Repeat until it bursts."
+  },
+  {
+   "name": "Slime Eye",
+   "tier": "boss",
+   "tactic": "Key Cavern's nightmare: a huge eyeball clinging to the ceiling. Knock it down, then split it with a dash.",
+   "battle": "Equip Pegasus Boots + Sword. First, charge the back wall with the Boots dash to shake Slime Eye off the ceiling onto the floor. While it's grounded, hit it with a Boots dash-attack (run + sword) to split the giant eye into two smaller eyes. Now switch to normal sword swings and cut down each smaller eye — they move more, so use the Shield to block bumps between hits. Clearing both halves wins."
+  },
+  {
+   "name": "Angler Fish",
+   "tier": "boss",
+   "tactic": "Angler's Tunnel's nightmare: a big fish swimming up and down with a glowing lure dangling in front of its head. The lure light is the weak point.",
+   "battle": "Equip Sword + Shield (Roc's Feather optional for the rocks). Angler Fish patrols vertically, spits smaller fish at you, and rams the wall to drop rocks from the ceiling — sidestep the falling rocks and the spat fish. Position yourself in front of its face and repeatedly slash the hanging lure light (not the body). Keep slashing the light between its passes; enough hits to the lure and the Angler Fish goes down."
+  },
+  {
+   "name": "Slime Eel",
+   "tier": "boss",
+   "tactic": "Catfish's Maw's nightmare: an eel that pokes its head out of two wall holes and lashes a long tail. Reel the head in with the Hookshot, then slash its exposed spot.",
+   "battle": "Equip Hookshot + Sword. Stand as FAR from the wall as the room allows. When the eel's head emerges, fire the Hookshot to snag it and drag it out, exposing the vulnerable spot — slash it before it retracts. Jump the sweeping tail with timing (or just keep your distance south of it). Beware the decoy heads that pop out, bounce, and self-destruct — don't waste the Hookshot on those. Several head-snags finish it."
+  },
+  {
+   "name": "Facade",
+   "tier": "boss",
+   "tactic": "Face Shrine's nightmare: a face in the floor that flings the room's tiles and pots at you and opens pits beneath your feet. It takes no sword damage — bomb its face.",
+   "battle": "Equip Bombs + Sword (or Bombs + Shield). Facade itself can't be hit with the blade; you damage it by setting Bombs directly on its face in the center of the floor. The hazard is staying alive: it throws floor tiles at you, then the outer pots, and opens holes that drop you to the room below. Keep moving to dodge the projectiles and watch for the floor opening up, but every few moments plant a Bomb on its face. A few Bombs detonating on it ends the fight."
+  },
+  {
+   "name": "Evil Eagle (with the Grim Creeper)",
+   "tier": "boss",
+   "tactic": "Eagle's Tower's nightmare: a giant eagle fought on a side-scrolling rooftop, the Grim Creeper riding it. It swoops at varying heights, blows gusts of wind, and throws razor feathers.",
+   "battle": "Climb to the rooftop arena WITHOUT falling back down a screen (falling restarts the fight). Good loadout: Bow (or Hookshot) + Shield; you fight on a narrow platform, so don't get blown off. When the eagle swoops, block or slash the dive; raise the Shield to deflect the thrown feathers, and dash toward the center against the wind gusts so they don't sweep you off the edge. Then hit it — Bow or a charged Spin Attack drops it fastest; Hookshot or Boomerang take more hits. A Piece of Power makes it very quick. The Grim Creeper falls with the eagle."
+  },
+  {
+   "name": "Hot Head",
+   "tier": "boss",
+   "tactic": "Turtle Rock's nightmare: a flaming head bobbing in a pool of lava, splashing fire diagonally each time it dives. It's vulnerable only to the Magic Rod.",
+   "battle": "Equip the Magic Rod (this fight needs it) + Shield or Feather. The lava splash shoots out diagonally where Hot Head lands, so position yourself out of the diagonal lines to stay safe. Time a Magic Rod shot for when Hot Head leaps out of the lava — enough hits crack its fiery shell down to a smaller bald head. It then bounces around faster, but only takes a couple more Magic Rod shots after the shell is gone, so keep landing hits and it'll burn out."
+  },
+  {
+   "name": "Nightmares / DethL gauntlet",
+   "tier": "boss",
+   "tactic": "The Wind Fish's Egg final boss: the Nightmares fight you through six back-to-back forms — a giant Zol blob, a shadow of Agahnim, Moldorm, a shadow of Ganon, a shadow of Lanmola, then the true eye DethL. Each form dies into the next; survive all six to wake the Wind Fish.",
+   "battle": "Bring full hearts, fairies/potion, and plan to SWAP items between forms. Form 1 (giant Zol): only Magic Powder hurts it — sprinkle Powder on it as it lands, about three times. Form 2 (Agahnim shadow): it teleports and fires projectiles; swing your sword to bat the large magic projectile back into it, a handful of times, while dodging the smaller blasts. Form 3 (Moldorm): same as Tail Cave — hit the tail tip; a Spin Attack while it's slow, or a ranged weapon like the Boomerang for the fast final hits, helps. Form 4 (Ganon shadow): it spins a trident, summons bats (jump them with Roc's Feather), then throws the trident — after the throw, circle to line up and hit it with a Spin Attack or a Pegasus Boots dash. Form 5 (Lanmola shadow): it darts around and vanishes/reappears trying to ram you — dodge and strike when it surfaces (Spin Attack, Hookshot, Bombs, or Boomerang all work). Form 6 (DethL, the eye): equip Roc's Feather + Bow (Boomerang also works). Stay in front of the central eye, hop over its spiked arms with the Feather, and when the eye OPENS, fire into it; repeat. It speeds up after about half its health, and around sixteen shots to the open eye finishes the Nightmares for good.",
+   "drops": "Victory — the Wind Fish awakens"
+  }
+ ]
+}

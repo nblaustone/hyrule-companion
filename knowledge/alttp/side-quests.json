@@ -1,0 +1,188 @@
+{
+ "regions": [
+  {
+   "region": "Bottles & the Bottle Vendor",
+   "quests": [
+    {
+     "name": "Bottle 1 — The Bottle Vendor",
+     "giver": "Bottle Salesman",
+     "location": "Kakariko Village (Light World), on a carpet just west of the village weathervane",
+     "reward": "Empty Bottle (1 of 4)",
+     "oneLine": "Buy your first bottle from the salesman sitting on a carpet in Kakariko Village.",
+     "how": "Early on, find the man sitting on a small carpet in Kakariko Village (just west of the weathervane) and pay 100 Rupees for an empty Bottle. Bottles let you carry fairies, potions, or caught items, so grab this as soon as you can afford it. He only sells one, so the other three bottles come from elsewhere."
+    },
+    {
+     "name": "Bottle 2 — The Tavern Chest",
+     "location": "Kakariko Village tavern (Light World), in the southeastern part of the village, via a separate back entrance",
+     "reward": "Empty Bottle (2 of 4)",
+     "oneLine": "A free bottle hides in a chest in the back room of the Kakariko tavern.",
+     "how": "Go to the tavern building in the southeastern part of Kakariko Village. The front is the bar, but there is a separate entrance that leads to a back room. Open the treasure chest in there to claim the Bottle."
+    },
+    {
+     "name": "Bottle 3 — The Man Under the Bridge",
+     "giver": "Hobo under the bridge",
+     "location": "Lake Hylia area (Light World), under the bridge over the channel northeast of the lake — needs Zora's Flippers",
+     "reward": "Empty Bottle (3 of 4)",
+     "oneLine": "Once you can swim, talk to the man hiding under the bridge northeast of Lake Hylia for a bottle.",
+     "how": "First get Zora's Flippers (buy them from the King of Zora in Zora's Domain) so you can swim. Head to the channel northeast of Lake Hylia, swim up to the bridge that crosses it, and swim underneath. Talk to the hobo tucked under the bridge and he hands you a Bottle."
+    },
+    {
+     "name": "Bottle 4 — The Locked Chest & the Desert Man",
+     "giver": "Man by the desert sign ('don't tell anyone')",
+     "location": "Chest in the ruined house SE of the Village of Outcasts (Dark World); opened by a man at the desert entrance (Light World)",
+     "reward": "Empty Bottle (4 of 4)",
+     "oneLine": "Carry a locked chest out of the Dark World and a secretive man at the desert opens it for your last bottle.",
+     "how": "You need the Titan's Mitt (from Thieves' Town) to reach the ruined house southeast of the Village of Outcasts in the Dark World. Inside is a locked chest you can't open — pick it up and carry it, then use the Magic Mirror to return to the Light World. Walk west to the desert entrance and find the man sitting by a sign; promise to keep his secret and he unlocks the chest, giving you the fourth Bottle."
+    }
+   ]
+  },
+  {
+   "region": "Upgrades & Fountains",
+   "quests": [
+    {
+     "name": "Halve Your Magic — The Mad Batter",
+     "giver": "Mad Batter",
+     "location": "Altar in a well/cave next to the Dwarven Swordsmiths' Smithery, east of Kakariko Village (Light World)",
+     "reward": "Magic cost cut in half (½ meter) — effectively doubles how long your magic lasts",
+     "oneLine": "Sprinkle Magic Powder on a hidden altar to make the Mad Batter cut all your magic costs in half.",
+     "how": "First get Magic Powder: take the Magic Mushroom from the Lost Woods to the witch's hut (the Magic Shop) and her helper turns it into Magic Powder. The Mad Batter's altar is in a well next to the Swordsmiths' Smithery (east of Kakariko) — smash the stake blocking the entrance with the Magic Hammer (or use the Magic Mirror from the matching Dark World spot) and drop in. Sprinkle Magic Powder on the altar; the Mad Batter pops out and 'curses' your magic meter with a ½ symbol — which actually means every magic item now costs half as much."
+    },
+    {
+     "name": "Tempered Sword — Reunite the Smiths",
+     "giver": "Dwarven Swordsmiths",
+     "location": "Rescue the frog-smith from the Dark World (south of the Village of Outcasts); temper at the Smithery east of Kakariko Village (Light World)",
+     "reward": "Tempered Sword (Master Sword Lv. 3, double damage)",
+     "oneLine": "Free the lost dwarf smith from the Dark World so the brothers can reforge your Master Sword stronger.",
+     "how": "In the Dark World, south of the Village of Outcasts, move the dark rocks (Titan's Mitt) to find a frog hopping in place — this is one of the two swordsmith brothers, cursed. Pick him up and carry him to a nearby warp, returning him to the Smithery in the Light World (east of Kakariko Village). Reunited, the brothers offer to temper your Master Sword for just 10 Rupees; pay, leave and re-enter, and collect the upgraded Tempered Sword."
+    },
+    {
+     "name": "Golden Sword — The Mysterious Pond",
+     "giver": "Cursed Fairy",
+     "location": "Mysterious Pond inside the Pyramid of Power (Dark World) — needs the Super Bomb",
+     "reward": "Golden Sword (Master Sword Lv. 4, the strongest sword)",
+     "oneLine": "Blow open the Pyramid with a Super Bomb and toss your Tempered Sword to the fairy for the Golden Sword.",
+     "how": "After rescuing the swordsmith (and clearing the Ice Palace and Misery Mire), buy the Super Bomb (100 Rupees) from the Dark World Bomb Shop. Carry it to the crack in the side of the Pyramid of Power and let it blow a hole, then enter to find the Mysterious Pond. Throw your Tempered Sword into the pond; when the Cursed Fairy asks if it's yours, answer honestly 'yes' and she rewards your honesty with the Golden Sword."
+    },
+    {
+     "name": "Red Shield — Waterfall of Wishing",
+     "giver": "Great Fairy",
+     "location": "Cave behind the Waterfall of Wishing, north/northeast of Lake Hylia (Light World) — needs Zora's Flippers",
+     "reward": "Red Shield (better shield) — plus other gifts for honesty",
+     "oneLine": "Throw your shield into the fairy's pond and answer honestly to get the better Red Shield.",
+     "how": "Swim to the waterfall north of Lake Hylia (you need Zora's Flippers) and walk into the falling water to enter the fairy's cave. Throw an item into the pond — toss in your Fighter's Shield and answer the fairy's honesty question truthfully, and she upgrades it to the Red Shield. (You can also toss in a Boomerang for the Magical Boomerang, or a Bottle to have it filled with a magic-restoring potion.)"
+    },
+    {
+     "name": "Pond of Happiness — Bomb & Arrow Capacity",
+     "giver": "Pond fairy",
+     "location": "Cave on the small island in the middle of Lake Hylia (Light World) — needs Zora's Flippers",
+     "reward": "Increased maximum Bombs and Arrows",
+     "oneLine": "Donate Rupees to the Lake Hylia pond to raise how many bombs and arrows you can carry.",
+     "how": "Get Zora's Flippers and swim to the small island in the center of Lake Hylia, then enter the cave to reach the Pond of Happiness. Throw Rupees into the pond; once your donations total 100 Rupees a fairy appears and raises your Bomb or Arrow capacity (by 5). Keep donating to max out both (up to 50 Bombs and 70 Arrows)."
+    }
+   ]
+  },
+  {
+   "region": "Medallions & Tablet Secrets",
+   "quests": [
+    {
+     "name": "Ether Medallion",
+     "location": "Green tablet across the bridge just west of the Tower of Hera, atop Death Mountain (Light World)",
+     "reward": "Ether Medallion (freezes/damages on-screen enemies; can reveal some hidden things)",
+     "oneLine": "Read the mountaintop tablet with the Book of Mudora and raise the Master Sword to learn Ether.",
+     "how": "You need both the Book of Mudora (from the Library in Kakariko) and the Master Sword. Climb to the Tower of Hera on Death Mountain and cross the bridge to its left (west) to reach a dead end with a green tablet. Read it with the Book and Link automatically raises the Master Sword skyward, learning the Ether spell and gaining the medallion."
+    },
+    {
+     "name": "Bombos Medallion",
+     "location": "Tablet on a cliff at the south edge of the Desert of Mystery (Light World), reached via the Dark World + Magic Mirror",
+     "reward": "Bombos Medallion (engulfs the screen in fire)",
+     "oneLine": "Mirror down from the Dark World swamp to a desert cliff, then read the tablet to learn Bombos.",
+     "how": "You need the Book of Mudora and the Master Sword. The tablet sits on a cliff at the bottom of the desert that you can't walk to directly — instead go to the matching spot in the Dark World (head west from the swamp/Swamp Palace area) and use the Magic Mirror to warp onto the cliff in the Light World. Read the tablet with the Book; Link raises the Master Sword and learns Bombos."
+    },
+    {
+     "name": "Quake Medallion",
+     "giver": "Catfish",
+     "location": "Lake of Ill Omen, in the ring of stones (Dark World)",
+     "reward": "Quake Medallion (turns enemies into helpless blobs; required to enter Turtle Rock)",
+     "oneLine": "Throw something into the Catfish's ring of stones in the Dark World and he hands over Quake.",
+     "how": "Go to the Lake of Ill Omen in the Dark World and find the circle of stones in the water (a nearby sign warns you not to throw anything in). Throw an object — a skull works — into the center of the ring. The grumpy Catfish surfaces and gives you the Quake Medallion to be left alone. This is NOT a tablet, so you don't need the Book here — but you do need the Master Sword to actually cast Quake."
+    },
+    {
+     "name": "Magic Cape",
+     "location": "Under the northeast grave of the Light World Graveyard (east of Kakariko), behind heavy rocks",
+     "reward": "Magic Cape (turns Link invisible and lets him pass enemies/hazards while worn)",
+     "oneLine": "Mirror behind the heavy rocks in the graveyard, then dash the right gravestone to drop into the Magic Cape's tomb.",
+     "how": "You need the Pegasus Boots, plus a way past the heavy rocks around the northeast grave: stand on the matching rock pile in the Dark World graveyard and use the Magic Mirror to warp in front of that grave in the Light World (the Titan's Mitt also lets you lift the rocks directly). Dash into the gravestone with the Pegasus Boots to knock it loose, revealing a staircase, and go down to the chest holding the Magic Cape. While worn it makes Link invisible and lets him pass enemies and hazards unharmed (it drains magic, so it pairs well with the Mad Batter's ½ magic)."
+    },
+    {
+     "name": "Cane of Byrna",
+     "location": "Cave in the cliff of the Dark World's Death Mountain, on a ledge south of Ganon's Tower",
+     "reward": "Cane of Byrna (spinning barrier of invincibility)",
+     "oneLine": "Reach a hidden Death Mountain cave and clear its spike maze for a protective magic cane.",
+     "how": "On the Dark World side of Death Mountain, jump from the ledge just south of the warp tile/Ganon's Tower to reach the cave entrance. Inside, use the Magic Hammer on the mole-like enemies, then use the Magic Cape to cross the floor spikes safely; lift the stone blocking the way with the Titan's Mitt to reach the chest. The Cane of Byrna surrounds Link with whirling orbs that block all damage while active (at the cost of magic)."
+    }
+   ]
+  },
+  {
+   "region": "Minigames",
+   "quests": [
+    {
+     "name": "The Digging Game",
+     "giver": "Game owner",
+     "location": "Fenced field on the southwest edge of the Village of Outcasts (Dark World)",
+     "reward": "Rupees, magic jars, and a Piece of Heart",
+     "oneLine": "Pay to dig frantically for 30 seconds in a Dark World field hiding a Piece of Heart.",
+     "how": "Pay the owner 80 Rupees and you get 30 seconds to dig as many holes as you can in the fenced field (if you don't have a shovel, he lends you one). Most holes give Rupees or magic jars, but a Piece of Heart can turn up — you generally need to dig a lot of holes in a single round for a chance at it, so keep paying and digging until you find it."
+    },
+    {
+     "name": "The Treasure Chest Game",
+     "giver": "Shop owner",
+     "location": "House in the Village of Outcasts (Dark World)",
+     "reward": "Rupees, bombs, arrows, hearts — and one rare Piece of Heart",
+     "oneLine": "Pay 20 Rupees to open two of sixteen chests, hoping to hit the Piece of Heart.",
+     "how": "Enter the gambling house in the Village of Outcasts. For 20 Rupees you may open two of the sixteen treasure chests; most hold Rupees, bombs, arrows, or a heart, and the chests reshuffle each visit. One round hides a Piece of Heart — since the entry is cheap, just keep playing until you finally win the heart."
+    },
+    {
+     "name": "The Flute & the Bird Shortcut",
+     "giver": "Flute Boy (Haunted Grove)",
+     "location": "Flute Boy in the Dark World Haunted Grove; flute buried in the Light World Haunted Grove; activated at Kakariko's weathervane",
+     "reward": "The Flute (fast-travel) + the Shovel; unlocks the warp bird",
+     "oneLine": "Borrow a shovel to dig up a boy's buried flute, then play it to summon a bird that warps you around Hyrule.",
+     "how": "Visit the Haunted Grove in the Dark World and talk to the Flute Boy (now transformed); he lends you his Shovel and asks you to recover the flute he buried in the Light World. Warp to the Light World, go to the northwest (top-left) corner of the Haunted Grove, and dig in the flowers to find the Flute. Then stand on the weathervane in the center of Kakariko Village and play the Flute — a bird bursts out, and from then on playing the Flute summons it to whisk you to eight warp points across the Light World."
+    }
+   ]
+  },
+  {
+   "region": "Notable Pieces of Heart",
+   "quests": [
+    {
+     "name": "Lost Woods Thieves' Den Heart",
+     "location": "Hidden hole under a 3×3 square of bushes, northeast end of the Lost Woods (Light World)",
+     "reward": "Piece of Heart",
+     "oneLine": "Cut the center of a bush square in the Lost Woods to drop into a thieves' storeroom with a Piece of Heart.",
+     "how": "Toward the northeast end of the Lost Woods, find a 3×3 square of bushes just above a tree stump. Cut the bushes with your sword to expose a hole in the center, then drop through it into the thieves' den storeroom. The Piece of Heart is stashed there — no fight required."
+    },
+    {
+     "name": "Desert Cliff Heart",
+     "location": "Cliff in the northeast of the Desert of Mystery (Light World), reached with the Magic Mirror from the Dark World",
+     "reward": "Piece of Heart",
+     "oneLine": "Mirror onto an unreachable desert cliff, then solve a small block puzzle in the cave for a Piece of Heart.",
+     "how": "Go to the alcove in the Dark World swamp/Misery Mire area and use the Magic Mirror to warp onto the otherwise-unreachable cliff in the northeast of the Desert of Mystery. Lift the small rock blocking the cave there, head inside, and solve the block-pushing puzzle to reach the Piece of Heart."
+    },
+    {
+     "name": "Spectacle Rock Heart (Light World)",
+     "location": "Ledge near Spectacle Rock atop Death Mountain (Light World)",
+     "reward": "Piece of Heart",
+     "oneLine": "Jump off the ledge by Spectacle Rock and slip into a lower cave for a Piece of Heart.",
+     "how": "At the top of Death Mountain, go east toward Spectacle Rock. Just south of the cave entrance into Spectacle Rock, jump off the ledge (stay on the left side of the rock ridge) so you land at a small door below. Enter and head north to reach the Piece of Heart. (A separate Piece of Heart sits literally on TOP of Spectacle Rock — that one is reached in the Dark World via the Magic Mirror.)"
+    },
+    {
+     "name": "Swamp Ruins Floodgate Heart",
+     "location": "Drained pool outside the Swamp Ruins, near the dam at the southern Light World",
+     "reward": "Piece of Heart",
+     "oneLine": "Drain the pool by the Swamp Ruins, then grab the Piece of Heart left in the empty basin.",
+     "how": "Head to the Swamp Ruins by the dam at the south of the Light World. Go inside and pull the right-hand lever to open the floodgate and drain the pool outside. Step back out to the now-empty pool and collect the Piece of Heart sitting in it."
+    }
+   ]
+  }
+ ]
+}

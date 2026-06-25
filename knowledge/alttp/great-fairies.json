@@ -1,0 +1,34 @@
+{
+ "fairies": [
+  {
+   "name": "Great Fairy of the Pyramid (the Cursed Fairy)",
+   "region": "Pyramid of Power — Dark World",
+   "location": "Reach her late, once Ganon's Tower is your goal. First clear the Ice Palace and Misery Mire (the 5th and 6th Crystals) — this makes the Dark World bomb shop start selling the Super Bomb for 100 rupees (that shop sits where Link's house stood in the Light World). Buy the Super Bomb, walk it to the Pyramid of Power in the center of the map, and set it down next to the cracked wall on the pyramid's lower level to blow open her hidden fountain. Bring your sword and your Bow & Arrows.",
+   "cost": "The big upgrade fountain. Toss in your SWORD and she returns it upgraded one tier — so the Tempered Sword comes back as the GOLDEN SWORD (the strongest sword: 2x the Tempered Sword's damage, 4x the Master Sword's). Toss in your BOW & ARROWS and she returns the SILVER ARROWS — far stronger, and required to land the final blow on Ganon (stun him first, then hit him with a Silver Arrow). No rupee fee at the fountain — you only spend the items you throw in (plus the 100-rupee Super Bomb to get inside). NOTE: she upgrades whatever sword tier you bring, so the Golden Sword needs the Tempered Sword first — and the Tempered Sword comes from the reunited dwarven smiths (they forge Master → Tempered for 10 rupees)."
+  },
+  {
+   "name": "Waterfall of Wishing Fairy",
+   "region": "Northeast Light World — between the Magic Shop and Zora's River",
+   "location": "In the northeastern Light World, head toward the Magic Shop; lift the large boulder on the east side of the shop with the Power Gloves, then swim up the center of the waterfall to reach the hidden pond. You need Zora's Flippers to swim in (the Flippers themselves are bought from the Zora king for 500 rupees — that fee is for the Flippers, not an entrance charge). Bring the item you want upgraded, and answer honestly when she asks if you threw it in.",
+   "cost": "Toss in your BOOMERANG → she returns the MAGICAL BOOMERANG (flies farther and faster). Toss in your Fighter's Shield → the RED SHIELD (also blocks fireballs). Toss in an empty bottle → it comes back filled with a green (magic-restoring) potion. Answer her honestly and she returns your item upgraded; lie or throw the wrong thing and she just hands it back unchanged. She does NOT raise bomb or arrow capacity (that's the Pond of Happiness) — no rupee cost beyond the items you throw."
+  },
+  {
+   "name": "Pond of Happiness (Venus, Queen of Fairies)",
+   "region": "Lake Hylia island — Light World",
+   "location": "On the large island in the middle of Lake Hylia (south-central Light World), inside a cave — you need Zora's Flippers to swim out to it. Bring a good rupee stockpile. This is the ONLY source of bomb and arrow capacity — not the Waterfall of Wishing, despite the rumor.",
+   "cost": "Donate rupees to raise how many bombs/arrows you can carry. Throw in 100 rupees and Venus appears; each 100-rupee donation buys +5 bombs OR +5 arrows (you choose which). Keep returning and donating to climb all the way to 50 bombs and 70 arrows (the final step on each side adds +10 instead of +5). Maxing both costs about 1,400 rupees total. Cost is purely rupees — no items needed."
+  },
+  {
+   "name": "The Mad Batter (magic-meter upgrade)",
+   "region": "Well by the swordsmiths, between Hyrule Castle and Kakariko — Light World",
+   "location": "At the well near the dwarven Swordsmiths' smithery. A stake blocks the hole — pound it flat with the Magic Hammer to drop in (or stand on the matching spot in the Dark World and use the Magic Mirror to fall through). You must already have the Magic Powder. Inside, walk up to the altar and sprinkle Magic Powder on it to summon him.",
+   "cost": "He casts a spell that HALVES your magic consumption — every magic item (Fire Rod, Magic Cape, etc.) now drains half as much from your meter, effectively doubling how much magic you have. Free: the only 'cost' is having the Magic Powder and a way in (Magic Hammer or Magic Mirror)."
+  },
+  {
+   "name": "Fairy Fountains (ordinary healing fairies)",
+   "region": "All over both the Light World and Dark World",
+   "location": "Scattered green fountains, usually hidden behind a bombable wall or under a liftable rock/bush — watch for cracked walls and out-of-place rocks. They become plentiful once you have bombs and the Power Gloves.",
+   "cost": "Step in and the fairies fully restore your hearts. They do NOT upgrade anything and cost nothing — they're free top-ups, not an equipment fountain. (You can also dip an empty bottle to catch a fairy and carry it as an auto-revive.)"
+  }
+ ]
+}

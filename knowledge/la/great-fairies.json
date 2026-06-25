@@ -1,0 +1,34 @@
+{
+ "fairies": [
+  {
+   "name": "Great Fairy Fountain — Mysterious Forest",
+   "region": "Mysterious Forest",
+   "location": "In the eastern part of the Mysterious Forest. From Mabe Village, head into the forest and work east; the fountain cave sits across the wall right by the Li'l Devil's cave (the Li'l Devil's altar is just west of it, under a rock you lift with the Power Bracelet). This is the ONE fountain that needs NO Bombs, so it's the first you can use.",
+   "cost": "Touch the Great Fairy to fully refill all of Link's hearts. Free, repeatable."
+  },
+  {
+   "name": "Great Fairy Fountain — Ukuku Prairie",
+   "region": "Ukuku Prairie",
+   "location": "Northeast of the Ukuku Prairie Warp Point, by the tree where you get the Honeycomb. Bomb the cracked wall to open the cave. Requires Bombs.",
+   "cost": "Touch the Great Fairy for a full-hearts heal. Free, repeatable."
+  },
+  {
+   "name": "Great Fairy Fountain — Ancient Ruins (near the Face Shrine)",
+   "region": "Ancient Ruins / Face Shrine",
+   "location": "On the northwest side of the Face Shrine landmass, below the Rapids Ride. Work through the boulder-and-bush maze north of the Ancient Ruins; bomb the cracked wall in the rock face to enter the cave. Requires Bombs.",
+   "cost": "Touch the Great Fairy for a full-hearts heal. Free, repeatable."
+  },
+  {
+   "name": "Great Fairy Fountain — Eastern Tal Tal Mountain Range",
+   "region": "Tal Tal Mountain Range",
+   "location": "In the far-eastern Tal Tal Mountains, by the eastern-mountain Warp Point on the way to Level 7 – Eagle's Tower. Bomb the breakable wall to the left of the warp point to open the cave. Requires Bombs — handy right before Eagle's Tower.",
+   "cost": "Touch the Great Fairy for a full-hearts heal. Free, repeatable."
+  },
+  {
+   "name": "Fairy Queen (Color Dungeon)",
+   "region": "Color Dungeon (DX & Switch versions only)",
+   "location": "DX and Switch ONLY — NOT in the original 1993 Game Boy game (added in the 1998 Game Boy Color DX release, and kept in the 2019 Switch remake). It's reached through the Cemetery just north of Ukuku Prairie: after getting the Pegasus Boots, ram the library bookshelf in Mabe Village to drop the red hint book, then push the five gravestones in the southeast corner of the Cemetery in the order/direction it describes to open the stairs. (You need the Power Bracelet to get this far.) Clear the dungeon to meet the Fairy Queen in the final room.",
+   "cost": "Does NOT heal. She grants a permanent tunic upgrade — pick the Red Mail (a.k.a. Red Clothes; your sword deals more damage) or the Blue Mail (Blue Clothes; you take half damage). You can re-clear the dungeon and speak to her again any time to swap which tunic is active."
+  }
+ ]
+}

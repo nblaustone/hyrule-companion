@@ -1921,7 +1921,7 @@ function EnemiesView({ data, terms }) {
       {basics.length > 0 && (
         <div className="panel combat-basics">
           <button className="cb-head" onClick={() => setShowBasics((s) => !s)} aria-expanded={showBasics}>
-            <span className="cb-head-l"><span className="inv-glyph" style={{ color: "var(--orange)" }}><Glyph name="sword" size={16} /></span>Combat Basics — the 7 things that make fights click</span>
+            <span className="cb-head-l"><span className="inv-glyph" style={{ color: "var(--orange)" }}><Glyph name="sword" size={16} /></span>Combat Basics — the {basics.length} things that make fights click</span>
             <span className={"chev" + (showBasics ? " chev-open" : "")}>›</span>
           </button>
           {showBasics && (
@@ -32734,7 +32734,190 @@ const ALTTP = {
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "Soldier (Guard)",
+    "tier": "common",
+    "tactic": "Castle and town guards come in sword, spear, and bow flavors; circle to their side or back and slash, since spear and shield guards block frontal hits. Bow guards stay at range — close the gap behind your shield and cut them down.",
+    "drops": "Hearts, rupees, occasionally bombs or arrows"
+   },
+   {
+    "name": "Green/Blue/Red Soldier variants",
+    "tier": "common",
+    "tactic": "Color signals toughness: green ones rush you, blue ones carry shields you must flank, and red spear soldiers (plus the heavier ball-and-chain troopers) hit harder and need more swings. Use the Spin Attack when several swarm you at once.",
+    "drops": "Hearts, rupees"
+   },
+   {
+    "name": "Octorok",
+    "tier": "common",
+    "tactic": "Land-dwelling octopus enemies that spit rocks at you from a distance. Face them so your shield eats the rock, then walk in and slash — a couple of hits kills them.",
+    "drops": "Hearts, rupees"
+   },
+   {
+    "name": "Moblin",
+    "tier": "common",
+    "tactic": "Pig-faced spear throwers (Dark World) that hurl trident spears across the screen. Block the spears with your shield while approaching, or sidestep and rush in for sword hits.",
+    "drops": "Hearts, arrows, rupees"
+   },
+   {
+    "name": "Keese",
+    "tier": "common",
+    "tactic": "Erratic flying bats that flutter unpredictably. A single sword swing kills one; a charged Spin Attack clears a whole swarm. Watch for the fire-trailing variants that leave a damaging flame.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Zora",
+    "tier": "common",
+    "tactic": "Fish-creatures that surface from water to spit fireballs, then dive again — common in Zora's River and Lake Hylia. Block the fireballs with your shield and strike when one surfaces close enough, or pick them off with arrows.",
+    "drops": "Hearts, rupees"
+   },
+   {
+    "name": "Stalfos",
+    "tier": "common",
+    "tactic": "Skeleton soldiers that hop around and sometimes throw their own bones. Hit them with the sword; some collapse and rebuild themselves, so finish the pile quickly or use a bomb to scatter them for good.",
+    "drops": "Hearts, occasionally arrows"
+   },
+   {
+    "name": "Wizzrobe",
+    "tier": "common",
+    "tactic": "Robed mages (Misery Mire and Ganon's Tower) that phase in, fire a magic blast, then vanish before you can reach them. They appear and shoot in a set pattern from fixed spots — line up where one will reappear and swing the instant it materializes; arrows also catch them between phases.",
+    "drops": "Hearts, magic jars"
+   },
+   {
+    "name": "Helmasaur",
+    "tier": "common",
+    "tactic": "Small armored lizards with a face mask, the lesser cousins of the Helmasaur King. Their face is shielded, so hit them from the side or rear with the sword, or use a bomb to blow off the mask and expose them.",
+    "drops": "Hearts, rupees"
+   },
+   {
+    "name": "Goriya",
+    "tier": "common",
+    "tactic": "These mirror your movement — when you walk up they walk down, when you go left they go right, making them hard to line up. Green Goriyas die to the sword; Red Goriyas move faster, spit an unblockable fireball when you face them, and can usually only be hurt by arrows. Strike from an angle they can't mirror, or shoot them.",
+    "drops": "Hearts, rupees"
+   },
+   {
+    "name": "Hardhat Beetle",
+    "tier": "common",
+    "tactic": "Tiny helmeted beetles you cannot kill with the sword — every hit just shoves them backward (and knocks you back too). The trick is to knock them into a pit or off a ledge, so steer them toward a gap rather than wasting swings.",
+    "drops": "None reliably"
+   },
+   {
+    "name": "Rope",
+    "tier": "common",
+    "tactic": "Fast snakes that suddenly charge in a straight line toward you when you line up with them. Stay off their axis, then slash as they zip past; a couple of hits finishes them.",
+    "drops": "Hearts, rupees"
+   },
+   {
+    "name": "Armos Knights",
+    "tier": "boss",
+    "tactic": "Six animated statues that bounce around the room in patterns, then the last one turns red and charges once only it remains. Pick them off one at a time with arrows or the sword and keep moving so a charging statue does not corner you.",
+    "drops": "Heart Container, Pendant of Courage (first dungeon, Eastern Palace)",
+    "battle": "Bring a decent stock of arrows and a fairy in a bottle. The six statues hop around in formation; the safest approach is to back into a corner or the bottom edge of the room and fire arrows to destroy them one by one (the sword works too, but arrows let you stay clear of their bounce paths). As you kill each one the rest speed up, and when a single statue is left it turns red and charges straight at you repeatedly — sidestep each charge and hit it on the pass. There is no special weak spot; the whole statue takes damage. Keep circling, don't get sandwiched between two bouncing statues, and the last red one falls after a few clean hits."
+   },
+   {
+    "name": "Lanmolas",
+    "tier": "boss",
+    "tactic": "Three sand-burrowing worms that erupt from the floor, spraying rocks, then dive back down. Their weak point is the head — strike it with the sword while it is above ground before it submerges.",
+    "drops": "Heart Container, Pendant of Power (Desert Palace)",
+    "battle": "Bring your sword (the Spin Attack helps) and a fairy in a bottle. The three worms tunnel under the sand and burst up one at a time, scattering rocks as they emerge — block or dodge the rocks. The only vulnerable part is the head as it rises; rush to wherever a worm pops up and slash the head before it dives again. Watch the small dirt mounds that telegraph where the next worm will surface so you can be standing there ready to swing. Damage all three over repeated emergences; keep moving so a fresh worm doesn't erupt directly underneath you."
+   },
+   {
+    "name": "Moldorm",
+    "tier": "boss",
+    "tactic": "A wriggling worm whose only weak point is the glowing tail tip at the very end of its body. Hit the tail repeatedly — but beware: its body knocks you back hard, and falling off the ledge resets the whole fight.",
+    "drops": "Heart Container (Tower of Hera)",
+    "battle": "Bring patience more than items — the danger here is the room, not the boss. Moldorm thrashes around a small platform with open edges; its swinging body shoves you with huge knockback, and if you tumble off the ledge you must climb back up while Moldorm fully heals. Chase the flashing tail tip and tap it with the sword, but immediately back off after each hit so the recoil doesn't fling you into the pit. Stay near the center, never let yourself get pinned against an edge, and accept that a few small clean hits beats one greedy combo that knocks you off. After enough tail strikes it dies."
+   },
+   {
+    "name": "Agahnim",
+    "tier": "boss",
+    "tactic": "The dark wizard teleports around and fires a blue energy ball at you. Swing your sword the instant it reaches you to deflect it back into his face — that returned magic is the only thing that hurts him (the Bug-Catching Net works too). Dodge his lightning and his unblockable spread of small energy balls; only the single blue orb can be batted back.",
+    "drops": "Story progression — defeating him in Hyrule Castle's tower sends Link to the Dark World",
+    "battle": "Enter with full hearts and a bottled fairy. Agahnim teleports around the room and casts a few things: a single blue energy ball you CAN deflect, a ring/spread of smaller energy balls that scatter and CANNOT be reflected (dodge them), and a lightning bolt (he only fires it from the top-center facing down — slide to the east or west wall to avoid it). The core loop is to face him and time a sword swing to reflect his blue ball straight back; each returned ball stuns and damages him. There is no melee weak point you can reach; the whole fight is reflecting his own magic. When you face him again in Ganon's Tower he makes two transparent copies of himself — only the solid one is real, but a copy's deflected ball can still be sent into the true Agahnim, and he drops the lightning attack there."
+   },
+   {
+    "name": "Helmasaur King",
+    "tier": "boss",
+    "tactic": "A giant armored Helmasaur with an invulnerable face mask. Crack the mask with the Magic Hammer (many hits) or about five well-placed bombs, then attack the exposed green gem on its forehead with the sword or arrows — Silver Arrows can one-shot it. Avoid its swinging tail and the fireballs that split into spreading flames.",
+    "drops": "Heart Container, Crystal (Palace of Darkness — first Dark World dungeon)",
+    "battle": "Bring the Magic Hammer, bombs, and arrows, plus a fairy in a bottle. Phase one is all about breaking the mask: get close when the tail isn't sweeping and pound the mask with the Hammer (it takes many strikes), or drop bombs at its face — about five solid bomb hits shatters it from a safer distance. Meanwhile it spits fireballs that break apart diagonally, so stand at right angles to the shots and keep the shield up. Once the mask cracks off, its weak point — the green gem on its forehead — is exposed; hit it with the sword or arrows (Silver Arrows do extra damage and can end it in a hit or two). Keep circling to avoid the tail and the spreading flames."
+   },
+   {
+    "name": "Arrghus",
+    "tier": "boss",
+    "tactic": "A floating eye surrounded by a cloud of small puffball orbs. Use the Hookshot to drag the little orbs off it one at a time and slash them, then attack the bare central eye with the sword while dodging its slow descents.",
+    "drops": "Heart Container, Crystal (Swamp Palace)",
+    "battle": "Bring the Hookshot (essential), your sword, and a bottled fairy. Arrghus hides behind a shell of small puffball orbs that protect it — you cannot hurt the boss while they're attached. Fire the Hookshot to yank the orbs away one by one; each one you pull off, kill with a sword slash. Once the protective orbs are stripped, the exposed central eye rises up and then drops down toward you to attack — stay clear of where it lands, then rush in and slash the eye repeatedly. It will try to regather orbs, so keep them down and hammer the eye whenever it's vulnerable. The weak point is the bare eye after the orbs are cleared."
+   },
+   {
+    "name": "Mothula",
+    "tier": "boss",
+    "tactic": "A giant moth that flies around a room whose floor tilts and slides you around, while it fires beams and sliding spike traps cross the floor. The fast, reliable answer is to rush it with the Fire Rod (fall back on the sword or arrows if your magic runs out). One of the game's more hectic fights.",
+    "drops": "Heart Container, Crystal (Skull Woods)",
+    "battle": "Bring a full Magic meter for the Fire Rod, a Green or Blue Potion to top it up, and a bottled fairy — this fight is chaotic. Mothula flits around the chamber shooting a triple-beam attack (one beam straight down, two diagonal), the floor tilts and slides you toward the edges, and spike traps slide across the room. The best technique most guides agree on is to be aggressive: the Fire Rod takes about 8 hits to kill it, so burn it down quickly before the tilting floor and projectiles wear you down. If your magic empties, switch to the sword (the Fire Rod is roughly twice the Master Sword's damage). There's no trick weak spot — its whole body takes damage. A bee or good bee released from a bottle will help chew through it too."
+   },
+   {
+    "name": "Blind the Thief",
+    "tier": "boss",
+    "tactic": "A head-on-a-body that slides along the top and bottom of the room firing lasers and fireballs. Strike the head; when hit enough, the head detaches and floats free while a new one grows, and the loose heads keep shooting. Keep slashing each head until all are destroyed.",
+    "drops": "Heart Container, Crystal (Thieves' Town)",
+    "battle": "Bring your sword and a bottled fairy. You reveal this boss by leading the rescued maiden into the lit room — the maiden IS Blind in disguise, and bright light makes him transform. Blind glides along the top and bottom walls, firing a sweeping laser or small fireballs — keep moving to avoid them. Attack the head, its weak point. After enough hits the head pops off and floats around the room shooting at you while a fresh head sprouts on the body, so now you're dodging multiple flying heads. Prioritize slashing each head as it comes near and don't let yourself get pinned between the body and a loose head. Destroy all the heads to win."
+   },
+   {
+    "name": "Kholdstare",
+    "tier": "boss",
+    "tactic": "An eye frozen inside a block of ice. Melt the ice with the Fire Rod (or the Bombos Medallion), then fight the eyes that split out, dodging the ice blocks that fall from above. Sword strikes plus Fire Rod blasts bring it down.",
+    "drops": "Heart Container, Crystal (Ice Palace)",
+    "battle": "Bring the Fire Rod (with a healthy Magic meter) and a bottled fairy. Kholdstare starts encased in a giant ice block — melt it with the Fire Rod (about eight hits), or the Bombos Medallion cracks it instantly if you have one. Once freed it splits into three floating eyes that drift around the room while ice blocks rain down from the ceiling. Focus on one eye at a time, mostly using sword strikes with Fire Rod blasts to speed each one up, and keep moving to avoid the falling ice. The eyes are the weak point; clear all three to win. Bring extra magic refills if you can, since the Fire Rod makes both phases far faster."
+   },
+   {
+    "name": "Vitreous",
+    "tier": "boss",
+    "tactic": "A large eye floating in a swamp, surrounded by many small eyeballs that detach and lunge at you. Fend off or shoot the small eyes, then put arrows into the giant eye to finish it.",
+    "drops": "Heart Container, Crystal (Misery Mire)",
+    "battle": "Bring a full quiver of arrows, your sword for defense, and a bottled fairy. Vitreous is a big eye sitting in a swamp of smaller eyeballs that break off and charge at you, and it also fires a branching lightning bolt. Stay near the lower wall and slash rapidly to fend off the small eyes as they lunge, or pick them off with arrows from range. The main target is the giant eye itself: a safe line is to stand at the bottom of the room and fire arrows straight up at it — repeated arrow hits will destroy it. Watch for the lightning attack and reposition so it doesn't catch you."
+   },
+   {
+    "name": "Trinexx",
+    "tier": "boss",
+    "tactic": "A three-headed creature: a fire (red) head, an ice (blue) head, and a central rock head. Freeze the fire head with the Ice Rod and burn the ice head with the Fire Rod to stun them, then slash each with the sword to destroy it. With both side heads gone, strike the flashing segment in the middle of its exposed serpentine body.",
+    "drops": "Heart Container, Crystal (Turtle Rock)",
+    "battle": "Bring BOTH the Fire Rod and the Ice Rod with as much magic as you can carry, plus a bottled fairy — this is the last dungeon boss and a real test. Trinexx attacks with a fire-breathing red head and an ice-breathing blue head; the central rock head lunges out like a snake to ram you. Use the opposite element on each side head: hit the RED (fire) head with the ICE Rod and the BLUE (ice) head with the FIRE Rod to freeze/stun it, then slash that head with the sword to destroy it. To save magic, one rod shot to stun followed by sword hits works fine. With both side heads gone, the shell breaks and the body becomes a thrashing rock serpent that whips around the room; its only weak point now is the flashing segment in the middle of its body — chase it and land sword strikes on that spot whenever it's exposed."
+   },
+   {
+    "name": "Ganon",
+    "tier": "boss",
+    "tactic": "The final boss warps around throwing his trident and summoning fire bats. Wear him down with the sword through several phases; in the final dark phase, relight the torches (Lamp or Fire Rod) to make him visible, stun him with the sword, then finish each opening with a Silver Arrow.",
+    "drops": "Victory — the Triforce",
+    "battle": "Bring Silver Arrows (required to finish him), the Lamp or Fire Rod to relight torches, plenty of magic and arrows, and ideally a bottled fairy or two. Ganon teleports around the arena and hurls his trident like a boomerang while sending out rings of fireballs that become fire bats — dodge these and sneak in sword slashes between attacks. As he takes damage he collapses the edges of the floor and sends fire bats in spiral patterns, so footing gets tighter. In the final phase he plunges the room into darkness and turns invisible, warping around shooting fire: relight the torches with your Lamp (or Fire Rod) to make him reappear, hit him with the sword to stun him, then immediately shoot a Silver Arrow into him. Land four Silver Arrows over the course of this phase to defeat him. (Without Silver Arrows he can also be worn down by roughly a dozen Spin Attacks with a strong sword, but the Silver Arrows are the intended finish.)"
+   }
+  ],
+  "basics": [
+   {
+    "title": "Sword Swings & the Spin Attack",
+    "body": "Tap the sword button for a quick slash — that is your bread and butter against almost everything. Hold the button down to charge a glowing Spin Attack, then release to hit every enemy around you at once. The Spin Attack hits all around you and does more damage than a normal swing, but the wind-up leaves you briefly open, so charge it when you have a moment of space."
+   },
+   {
+    "title": "Blocking with the Shield",
+    "body": "Your shield automatically blocks most projectiles (rocks, arrows, fireballs) coming from the direction you are facing — you do not press a button, you just have to be facing the threat while not swinging. The starter Fighter's Shield stops basic shots; the Red Shield and the Mirror Shield block more, including some magic and certain fireballs. You cannot block while attacking, so against ranged enemies, face them and advance behind your shield, then strike."
+   },
+   {
+    "title": "Deflecting Magic",
+    "body": "Some enemies and Agahnim himself fire magic energy balls at you. With the right timing you can swing your sword the instant a ball reaches you to knock it back — this is exactly how you damage Agahnim, by returning his own energy ball into his face (the Bug-Catching Net can deflect it too). Lightning and certain spread attacks cannot be reflected, so learn which attack is coming and only try to bat back the deflectable ones; otherwise dodge."
+   },
+   {
+    "title": "The Magic Meter & Magic Items",
+    "body": "The green Magic meter is the fuel for your special items — the Fire Rod, Ice Rod, Lamp, Cane of Byrna, the Bombos/Ether/Quake medallions, and the Magic Cape all drain it. When it runs dry those items stop working until you refill. Green magic jars (and the half-magic upgrade from a Great Fairy) restore it, so don't burn your whole meter on trash mobs — save it for puzzles and bosses where a Fire Rod or medallion ends a fight fast. Green and Blue Potions also refill magic."
+   },
+   {
+    "title": "Bottled Fairies as Auto-Revives",
+    "body": "Empty bottles can hold a caught fairy. If you run out of hearts while carrying a bottled fairy, it is released automatically and revives you with several hearts — a free second life. Always try to enter a boss room with at least one fairy in a bottle as your safety net, and refill bottles at fairy fountains or by catching fairies in the field before a tough fight. A bee or good bee in a bottle, released near a boss, will also chip away at it for you."
+   },
+   {
+    "title": "Bombs & the Two Worlds",
+    "body": "Bombs blow up enemies and, crucially, blast open cracked or suspicious walls to reveal hidden rooms and shortcuts — if a wall looks slightly different, try a bomb. The other core tool is the Magic Mirror: it warps you from the Dark World back to the matching spot in the Light World. Because the two worlds overlap geographically, you use the Mirror constantly to solve obstacles that are blocked in one world but passable in the other."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -32752,61 +32935,578 @@ const ALTTP = {
  },
  "ECONOMY": null,
  "COMPENDIUM": [],
- "SIDE_QUESTS": [],
+ "SIDE_QUESTS": [
+  {
+   "region": "Bottles & the Bottle Vendor",
+   "quests": [
+    {
+     "id": "bottle-1-the-bottle-vendor",
+     "name": "Bottle 1 — The Bottle Vendor",
+     "giver": "Bottle Salesman",
+     "location": "Kakariko Village (Light World), on a carpet just west of the village weathervane",
+     "reward": "Empty Bottle (1 of 4)",
+     "oneLine": "Buy your first bottle from the salesman sitting on a carpet in Kakariko Village.",
+     "how": "Early on, find the man sitting on a small carpet in Kakariko Village (just west of the weathervane) and pay 100 Rupees for an empty Bottle. Bottles let you carry fairies, potions, or caught items, so grab this as soon as you can afford it. He only sells one, so the other three bottles come from elsewhere."
+    },
+    {
+     "id": "bottle-2-the-tavern-chest",
+     "name": "Bottle 2 — The Tavern Chest",
+     "location": "Kakariko Village tavern (Light World), in the southeastern part of the village, via a separate back entrance",
+     "reward": "Empty Bottle (2 of 4)",
+     "oneLine": "A free bottle hides in a chest in the back room of the Kakariko tavern.",
+     "how": "Go to the tavern building in the southeastern part of Kakariko Village. The front is the bar, but there is a separate entrance that leads to a back room. Open the treasure chest in there to claim the Bottle."
+    },
+    {
+     "id": "bottle-3-the-man-under-the-bridge",
+     "name": "Bottle 3 — The Man Under the Bridge",
+     "giver": "Hobo under the bridge",
+     "location": "Lake Hylia area (Light World), under the bridge over the channel northeast of the lake — needs Zora's Flippers",
+     "reward": "Empty Bottle (3 of 4)",
+     "oneLine": "Once you can swim, talk to the man hiding under the bridge northeast of Lake Hylia for a bottle.",
+     "how": "First get Zora's Flippers (buy them from the King of Zora in Zora's Domain) so you can swim. Head to the channel northeast of Lake Hylia, swim up to the bridge that crosses it, and swim underneath. Talk to the hobo tucked under the bridge and he hands you a Bottle."
+    },
+    {
+     "id": "bottle-4-the-locked-chest-the-desert-man",
+     "name": "Bottle 4 — The Locked Chest & the Desert Man",
+     "giver": "Man by the desert sign ('don't tell anyone')",
+     "location": "Chest in the ruined house SE of the Village of Outcasts (Dark World); opened by a man at the desert entrance (Light World)",
+     "reward": "Empty Bottle (4 of 4)",
+     "oneLine": "Carry a locked chest out of the Dark World and a secretive man at the desert opens it for your last bottle.",
+     "how": "You need the Titan's Mitt (from Thieves' Town) to reach the ruined house southeast of the Village of Outcasts in the Dark World. Inside is a locked chest you can't open — pick it up and carry it, then use the Magic Mirror to return to the Light World. Walk west to the desert entrance and find the man sitting by a sign; promise to keep his secret and he unlocks the chest, giving you the fourth Bottle."
+    }
+   ]
+  },
+  {
+   "region": "Upgrades & Fountains",
+   "quests": [
+    {
+     "id": "halve-your-magic-the-mad-batter",
+     "name": "Halve Your Magic — The Mad Batter",
+     "giver": "Mad Batter",
+     "location": "Altar in a well/cave next to the Dwarven Swordsmiths' Smithery, east of Kakariko Village (Light World)",
+     "reward": "Magic cost cut in half (½ meter) — effectively doubles how long your magic lasts",
+     "oneLine": "Sprinkle Magic Powder on a hidden altar to make the Mad Batter cut all your magic costs in half.",
+     "how": "First get Magic Powder: take the Magic Mushroom from the Lost Woods to the witch's hut (the Magic Shop) and her helper turns it into Magic Powder. The Mad Batter's altar is in a well next to the Swordsmiths' Smithery (east of Kakariko) — smash the stake blocking the entrance with the Magic Hammer (or use the Magic Mirror from the matching Dark World spot) and drop in. Sprinkle Magic Powder on the altar; the Mad Batter pops out and 'curses' your magic meter with a ½ symbol — which actually means every magic item now costs half as much."
+    },
+    {
+     "id": "tempered-sword-reunite-the-smiths",
+     "name": "Tempered Sword — Reunite the Smiths",
+     "giver": "Dwarven Swordsmiths",
+     "location": "Rescue the frog-smith from the Dark World (south of the Village of Outcasts); temper at the Smithery east of Kakariko Village (Light World)",
+     "reward": "Tempered Sword (Master Sword Lv. 3, double damage)",
+     "oneLine": "Free the lost dwarf smith from the Dark World so the brothers can reforge your Master Sword stronger.",
+     "how": "In the Dark World, south of the Village of Outcasts, move the dark rocks (Titan's Mitt) to find a frog hopping in place — this is one of the two swordsmith brothers, cursed. Pick him up and carry him to a nearby warp, returning him to the Smithery in the Light World (east of Kakariko Village). Reunited, the brothers offer to temper your Master Sword for just 10 Rupees; pay, leave and re-enter, and collect the upgraded Tempered Sword."
+    },
+    {
+     "id": "golden-sword-the-mysterious-pond",
+     "name": "Golden Sword — The Mysterious Pond",
+     "giver": "Cursed Fairy",
+     "location": "Mysterious Pond inside the Pyramid of Power (Dark World) — needs the Super Bomb",
+     "reward": "Golden Sword (Master Sword Lv. 4, the strongest sword)",
+     "oneLine": "Blow open the Pyramid with a Super Bomb and toss your Tempered Sword to the fairy for the Golden Sword.",
+     "how": "After rescuing the swordsmith (and clearing the Ice Palace and Misery Mire), buy the Super Bomb (100 Rupees) from the Dark World Bomb Shop. Carry it to the crack in the side of the Pyramid of Power and let it blow a hole, then enter to find the Mysterious Pond. Throw your Tempered Sword into the pond; when the Cursed Fairy asks if it's yours, answer honestly 'yes' and she rewards your honesty with the Golden Sword."
+    },
+    {
+     "id": "red-shield-waterfall-of-wishing",
+     "name": "Red Shield — Waterfall of Wishing",
+     "giver": "Great Fairy",
+     "location": "Cave behind the Waterfall of Wishing, north/northeast of Lake Hylia (Light World) — needs Zora's Flippers",
+     "reward": "Red Shield (better shield) — plus other gifts for honesty",
+     "oneLine": "Throw your shield into the fairy's pond and answer honestly to get the better Red Shield.",
+     "how": "Swim to the waterfall north of Lake Hylia (you need Zora's Flippers) and walk into the falling water to enter the fairy's cave. Throw an item into the pond — toss in your Fighter's Shield and answer the fairy's honesty question truthfully, and she upgrades it to the Red Shield. (You can also toss in a Boomerang for the Magical Boomerang, or a Bottle to have it filled with a magic-restoring potion.)"
+    },
+    {
+     "id": "pond-of-happiness-bomb-arrow-capacity",
+     "name": "Pond of Happiness — Bomb & Arrow Capacity",
+     "giver": "Pond fairy",
+     "location": "Cave on the small island in the middle of Lake Hylia (Light World) — needs Zora's Flippers",
+     "reward": "Increased maximum Bombs and Arrows",
+     "oneLine": "Donate Rupees to the Lake Hylia pond to raise how many bombs and arrows you can carry.",
+     "how": "Get Zora's Flippers and swim to the small island in the center of Lake Hylia, then enter the cave to reach the Pond of Happiness. Throw Rupees into the pond; once your donations total 100 Rupees a fairy appears and raises your Bomb or Arrow capacity (by 5). Keep donating to max out both (up to 50 Bombs and 70 Arrows)."
+    }
+   ]
+  },
+  {
+   "region": "Medallions & Tablet Secrets",
+   "quests": [
+    {
+     "id": "ether-medallion",
+     "name": "Ether Medallion",
+     "location": "Green tablet across the bridge just west of the Tower of Hera, atop Death Mountain (Light World)",
+     "reward": "Ether Medallion (freezes/damages on-screen enemies; can reveal some hidden things)",
+     "oneLine": "Read the mountaintop tablet with the Book of Mudora and raise the Master Sword to learn Ether.",
+     "how": "You need both the Book of Mudora (from the Library in Kakariko) and the Master Sword. Climb to the Tower of Hera on Death Mountain and cross the bridge to its left (west) to reach a dead end with a green tablet. Read it with the Book and Link automatically raises the Master Sword skyward, learning the Ether spell and gaining the medallion."
+    },
+    {
+     "id": "bombos-medallion",
+     "name": "Bombos Medallion",
+     "location": "Tablet on a cliff at the south edge of the Desert of Mystery (Light World), reached via the Dark World + Magic Mirror",
+     "reward": "Bombos Medallion (engulfs the screen in fire)",
+     "oneLine": "Mirror down from the Dark World swamp to a desert cliff, then read the tablet to learn Bombos.",
+     "how": "You need the Book of Mudora and the Master Sword. The tablet sits on a cliff at the bottom of the desert that you can't walk to directly — instead go to the matching spot in the Dark World (head west from the swamp/Swamp Palace area) and use the Magic Mirror to warp onto the cliff in the Light World. Read the tablet with the Book; Link raises the Master Sword and learns Bombos."
+    },
+    {
+     "id": "quake-medallion",
+     "name": "Quake Medallion",
+     "giver": "Catfish",
+     "location": "Lake of Ill Omen, in the ring of stones (Dark World)",
+     "reward": "Quake Medallion (turns enemies into helpless blobs; required to enter Turtle Rock)",
+     "oneLine": "Throw something into the Catfish's ring of stones in the Dark World and he hands over Quake.",
+     "how": "Go to the Lake of Ill Omen in the Dark World and find the circle of stones in the water (a nearby sign warns you not to throw anything in). Throw an object — a skull works — into the center of the ring. The grumpy Catfish surfaces and gives you the Quake Medallion to be left alone. This is NOT a tablet, so you don't need the Book here — but you do need the Master Sword to actually cast Quake."
+    },
+    {
+     "id": "magic-cape",
+     "name": "Magic Cape",
+     "location": "Under the northeast grave of the Light World Graveyard (east of Kakariko), behind heavy rocks",
+     "reward": "Magic Cape (turns Link invisible and lets him pass enemies/hazards while worn)",
+     "oneLine": "Mirror behind the heavy rocks in the graveyard, then dash the right gravestone to drop into the Magic Cape's tomb.",
+     "how": "You need the Pegasus Boots, plus a way past the heavy rocks around the northeast grave: stand on the matching rock pile in the Dark World graveyard and use the Magic Mirror to warp in front of that grave in the Light World (the Titan's Mitt also lets you lift the rocks directly). Dash into the gravestone with the Pegasus Boots to knock it loose, revealing a staircase, and go down to the chest holding the Magic Cape. While worn it makes Link invisible and lets him pass enemies and hazards unharmed (it drains magic, so it pairs well with the Mad Batter's ½ magic)."
+    },
+    {
+     "id": "cane-of-byrna",
+     "name": "Cane of Byrna",
+     "location": "Cave in the cliff of the Dark World's Death Mountain, on a ledge south of Ganon's Tower",
+     "reward": "Cane of Byrna (spinning barrier of invincibility)",
+     "oneLine": "Reach a hidden Death Mountain cave and clear its spike maze for a protective magic cane.",
+     "how": "On the Dark World side of Death Mountain, jump from the ledge just south of the warp tile/Ganon's Tower to reach the cave entrance. Inside, use the Magic Hammer on the mole-like enemies, then use the Magic Cape to cross the floor spikes safely; lift the stone blocking the way with the Titan's Mitt to reach the chest. The Cane of Byrna surrounds Link with whirling orbs that block all damage while active (at the cost of magic)."
+    }
+   ]
+  },
+  {
+   "region": "Minigames",
+   "quests": [
+    {
+     "id": "the-digging-game",
+     "name": "The Digging Game",
+     "giver": "Game owner",
+     "location": "Fenced field on the southwest edge of the Village of Outcasts (Dark World)",
+     "reward": "Rupees, magic jars, and a Piece of Heart",
+     "oneLine": "Pay to dig frantically for 30 seconds in a Dark World field hiding a Piece of Heart.",
+     "how": "Pay the owner 80 Rupees and you get 30 seconds to dig as many holes as you can in the fenced field (if you don't have a shovel, he lends you one). Most holes give Rupees or magic jars, but a Piece of Heart can turn up — you generally need to dig a lot of holes in a single round for a chance at it, so keep paying and digging until you find it."
+    },
+    {
+     "id": "the-treasure-chest-game",
+     "name": "The Treasure Chest Game",
+     "giver": "Shop owner",
+     "location": "House in the Village of Outcasts (Dark World)",
+     "reward": "Rupees, bombs, arrows, hearts — and one rare Piece of Heart",
+     "oneLine": "Pay 20 Rupees to open two of sixteen chests, hoping to hit the Piece of Heart.",
+     "how": "Enter the gambling house in the Village of Outcasts. For 20 Rupees you may open two of the sixteen treasure chests; most hold Rupees, bombs, arrows, or a heart, and the chests reshuffle each visit. One round hides a Piece of Heart — since the entry is cheap, just keep playing until you finally win the heart."
+    },
+    {
+     "id": "the-flute-the-bird-shortcut",
+     "name": "The Flute & the Bird Shortcut",
+     "giver": "Flute Boy (Haunted Grove)",
+     "location": "Flute Boy in the Dark World Haunted Grove; flute buried in the Light World Haunted Grove; activated at Kakariko's weathervane",
+     "reward": "The Flute (fast-travel) + the Shovel; unlocks the warp bird",
+     "oneLine": "Borrow a shovel to dig up a boy's buried flute, then play it to summon a bird that warps you around Hyrule.",
+     "how": "Visit the Haunted Grove in the Dark World and talk to the Flute Boy (now transformed); he lends you his Shovel and asks you to recover the flute he buried in the Light World. Warp to the Light World, go to the northwest (top-left) corner of the Haunted Grove, and dig in the flowers to find the Flute. Then stand on the weathervane in the center of Kakariko Village and play the Flute — a bird bursts out, and from then on playing the Flute summons it to whisk you to eight warp points across the Light World."
+    }
+   ]
+  },
+  {
+   "region": "Notable Pieces of Heart",
+   "quests": [
+    {
+     "id": "lost-woods-thieves-den-heart",
+     "name": "Lost Woods Thieves' Den Heart",
+     "location": "Hidden hole under a 3×3 square of bushes, northeast end of the Lost Woods (Light World)",
+     "reward": "Piece of Heart",
+     "oneLine": "Cut the center of a bush square in the Lost Woods to drop into a thieves' storeroom with a Piece of Heart.",
+     "how": "Toward the northeast end of the Lost Woods, find a 3×3 square of bushes just above a tree stump. Cut the bushes with your sword to expose a hole in the center, then drop through it into the thieves' den storeroom. The Piece of Heart is stashed there — no fight required."
+    },
+    {
+     "id": "desert-cliff-heart",
+     "name": "Desert Cliff Heart",
+     "location": "Cliff in the northeast of the Desert of Mystery (Light World), reached with the Magic Mirror from the Dark World",
+     "reward": "Piece of Heart",
+     "oneLine": "Mirror onto an unreachable desert cliff, then solve a small block puzzle in the cave for a Piece of Heart.",
+     "how": "Go to the alcove in the Dark World swamp/Misery Mire area and use the Magic Mirror to warp onto the otherwise-unreachable cliff in the northeast of the Desert of Mystery. Lift the small rock blocking the cave there, head inside, and solve the block-pushing puzzle to reach the Piece of Heart."
+    },
+    {
+     "id": "spectacle-rock-heart-light-world",
+     "name": "Spectacle Rock Heart (Light World)",
+     "location": "Ledge near Spectacle Rock atop Death Mountain (Light World)",
+     "reward": "Piece of Heart",
+     "oneLine": "Jump off the ledge by Spectacle Rock and slip into a lower cave for a Piece of Heart.",
+     "how": "At the top of Death Mountain, go east toward Spectacle Rock. Just south of the cave entrance into Spectacle Rock, jump off the ledge (stay on the left side of the rock ridge) so you land at a small door below. Enter and head north to reach the Piece of Heart. (A separate Piece of Heart sits literally on TOP of Spectacle Rock — that one is reached in the Dark World via the Magic Mirror.)"
+    },
+    {
+     "id": "swamp-ruins-floodgate-heart",
+     "name": "Swamp Ruins Floodgate Heart",
+     "location": "Drained pool outside the Swamp Ruins, near the dam at the southern Light World",
+     "reward": "Piece of Heart",
+     "oneLine": "Drain the pool by the Swamp Ruins, then grab the Piece of Heart left in the empty basin.",
+     "how": "Head to the Swamp Ruins by the dam at the south of the Light World. Go inside and pull the right-hand lever to open the floodgate and drain the pool outside. Step back out to the now-empty pool and collect the Piece of Heart sitting in it."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Great Fairy of the Pyramid (the Cursed Fairy)",
+   "region": "Pyramid of Power — Dark World",
+   "location": "Reach her late, once Ganon's Tower is your goal. First clear the Ice Palace and Misery Mire (the 5th and 6th Crystals) — this makes the Dark World bomb shop start selling the Super Bomb for 100 rupees (that shop sits where Link's house stood in the Light World). Buy the Super Bomb, walk it to the Pyramid of Power in the center of the map, and set it down next to the cracked wall on the pyramid's lower level to blow open her hidden fountain. Bring your sword and your Bow & Arrows.",
+   "cost": "The big upgrade fountain. Toss in your SWORD and she returns it upgraded one tier — so the Tempered Sword comes back as the GOLDEN SWORD (the strongest sword: 2x the Tempered Sword's damage, 4x the Master Sword's). Toss in your BOW & ARROWS and she returns the SILVER ARROWS — far stronger, and required to land the final blow on Ganon (stun him first, then hit him with a Silver Arrow). No rupee fee at the fountain — you only spend the items you throw in (plus the 100-rupee Super Bomb to get inside). NOTE: she upgrades whatever sword tier you bring, so the Golden Sword needs the Tempered Sword first — and the Tempered Sword comes from the reunited dwarven smiths (they forge Master → Tempered for 10 rupees)."
+  },
+  {
+   "name": "Waterfall of Wishing Fairy",
+   "region": "Northeast Light World — between the Magic Shop and Zora's River",
+   "location": "In the northeastern Light World, head toward the Magic Shop; lift the large boulder on the east side of the shop with the Power Gloves, then swim up the center of the waterfall to reach the hidden pond. You need Zora's Flippers to swim in (the Flippers themselves are bought from the Zora king for 500 rupees — that fee is for the Flippers, not an entrance charge). Bring the item you want upgraded, and answer honestly when she asks if you threw it in.",
+   "cost": "Toss in your BOOMERANG → she returns the MAGICAL BOOMERANG (flies farther and faster). Toss in your Fighter's Shield → the RED SHIELD (also blocks fireballs). Toss in an empty bottle → it comes back filled with a green (magic-restoring) potion. Answer her honestly and she returns your item upgraded; lie or throw the wrong thing and she just hands it back unchanged. She does NOT raise bomb or arrow capacity (that's the Pond of Happiness) — no rupee cost beyond the items you throw."
+  },
+  {
+   "name": "Pond of Happiness (Venus, Queen of Fairies)",
+   "region": "Lake Hylia island — Light World",
+   "location": "On the large island in the middle of Lake Hylia (south-central Light World), inside a cave — you need Zora's Flippers to swim out to it. Bring a good rupee stockpile. This is the ONLY source of bomb and arrow capacity — not the Waterfall of Wishing, despite the rumor.",
+   "cost": "Donate rupees to raise how many bombs/arrows you can carry. Throw in 100 rupees and Venus appears; each 100-rupee donation buys +5 bombs OR +5 arrows (you choose which). Keep returning and donating to climb all the way to 50 bombs and 70 arrows (the final step on each side adds +10 instead of +5). Maxing both costs about 1,400 rupees total. Cost is purely rupees — no items needed."
+  },
+  {
+   "name": "The Mad Batter (magic-meter upgrade)",
+   "region": "Well by the swordsmiths, between Hyrule Castle and Kakariko — Light World",
+   "location": "At the well near the dwarven Swordsmiths' smithery. A stake blocks the hole — pound it flat with the Magic Hammer to drop in (or stand on the matching spot in the Dark World and use the Magic Mirror to fall through). You must already have the Magic Powder. Inside, walk up to the altar and sprinkle Magic Powder on it to summon him.",
+   "cost": "He casts a spell that HALVES your magic consumption — every magic item (Fire Rod, Magic Cape, etc.) now drains half as much from your meter, effectively doubling how much magic you have. Free: the only 'cost' is having the Magic Powder and a way in (Magic Hammer or Magic Mirror)."
+  },
+  {
+   "name": "Fairy Fountains (ordinary healing fairies)",
+   "region": "All over both the Light World and Dark World",
+   "location": "Scattered green fountains, usually hidden behind a bombable wall or under a liftable rock/bush — watch for cracked walls and out-of-place rocks. They become plentiful once you have bombs and the Power Gloves.",
+   "cost": "Step in and the fairies fully restore your hearts. They do NOT upgrade anything and cost nothing — they're free top-ups, not an equipment fountain. (You can also dip an empty bottle to catch a fairy and carry it as an auto-revive.)"
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
  "KOROKS": null,
  "RUNES": [
   {
-   "id": "master_sword",
+   "id": "fighters-sword",
+   "name": "Fighter's Sword",
+   "glyph": "sword",
+   "from": "Given by your Uncle in the secret passage under your house at the very start, after you reach him in Hyrule Castle's sewers.",
+   "what": "Your first sword (Lv1). Slash with the attack button; hold it down to charge a Spin Attack that hits all around you.",
+   "tip": "At full hearts your sword fires a beam across the screen — a free ranged attack. Keep your hearts topped up to use it."
+  },
+  {
+   "id": "master-sword",
    "name": "Master Sword",
    "glyph": "sword",
-   "from": "Drawn from its pedestal in the Lost Woods once you hold all three Pendants of Virtue.",
-   "what": "The blade of evil's bane — stronger than your uncle's sword, and at full health it fires a sword beam across the screen.",
-   "tip": "Two later upgrades, the Tempered Sword and the Golden Sword, make it hit even harder. Hold the button to charge a Spin Attack."
+   "from": "Pulled from the pedestal in the Lost Woods after you collect all 3 Pendants of Virtue (from the Eastern Palace, Desert Palace, and Tower of Hera).",
+   "what": "The legendary blade (Lv2), twice as strong as the Fighter's Sword. It can harm Ganon and is your key into the Dark World story.",
+   "tip": "You cannot draw it until all three Pendants are in hand — getting them is the whole first half of the game."
   },
   {
-   "id": "pegasus_boots",
-   "name": "Pegasus Boots",
-   "glyph": "stasis",
-   "from": "A gift from the dying soldier / found early once you have the means — hold the dash button to charge.",
-   "what": "Hold A to sprint, then crash through certain weak walls and bushes and stab with a charging thrust.",
-   "tip": "Boots + a few other items combine: dash into cracked walls, knock down stakes, or cross long runs you couldn't walk."
+   "id": "tempered-sword",
+   "name": "Tempered Sword",
+   "glyph": "sword",
+   "from": "Reunite the two dwarven blacksmiths: free the one trapped in the Dark World (a frog hiding behind dark rocks south of Kakariko) and lead him back to the Smithery east of Kakariko. The reunited smiths then temper your Master Sword for 10 rupees.",
+   "what": "An upgraded Master Sword (Lv3) that does even more damage. A pure power boost — same controls.",
+   "tip": "You must free the lost smith in the Dark World first; once both are back at the forge, they upgrade your blade cheaply."
   },
   {
-   "id": "moon_pearl",
-   "name": "Moon Pearl",
-   "glyph": "orb",
-   "from": "The reward inside the Tower of Hera, the third Pendant dungeon.",
-   "what": "Keeps you in Link's true form in the Dark World. Without it, crossing over turns you into a helpless pink bunny.",
-   "tip": "Get this before exploring the Dark World freely — it's what makes the second map survivable."
+   "id": "golden-sword",
+   "name": "Golden Sword",
+   "glyph": "sword",
+   "from": "Take a Super Bomb to the Pyramid of Power and detonate it on the big crack to open the hidden fairy pond. Throw your sword into the pond and the Great Fairy returns it as the Golden Sword.",
+   "what": "The strongest sword (Lv4), dealing the most damage in the game. The blade you'll want for the final battle.",
+   "tip": "You need a Super Bomb (bought in the Dark World bomb shop) to open the pond — without it the fountain stays sealed."
+  },
+  {
+   "id": "fighters-shield",
+   "name": "Fighter's Shield",
+   "glyph": "shield",
+   "from": "Found early in Hyrule Castle / given near the start of your quest.",
+   "what": "A basic shield. Walk toward enemies to automatically block ordinary projectiles like arrows and rocks.",
+   "tip": "Like-Likes and some enemies can swallow your shield — get it back from them or buy a new one if it disappears."
+  },
+  {
+   "id": "red-shield",
+   "name": "Red Shield",
+   "glyph": "shield",
+   "from": "Bought for 500 rupees at the Dark World Shield Shop near the Village of Outcasts (or won by tossing your Fighter's Shield into the Waterfall of Wishing pond).",
+   "what": "A stronger shield that blocks fireballs in addition to normal projectiles.",
+   "tip": "A worthwhile upgrade before the Dark World dungeons, where fire-spitting enemies are common."
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "Big Chest in Turtle Rock (the 7th Dark World dungeon) — use the Cane of Somaria to make a platform across the gap to reach it.",
+   "what": "The best shield. It reflects laser beams (like Wall-eye lasers) back at enemies, on top of blocking everything the Red Shield does.",
+   "tip": "Great for Turtle Rock's laser hallways — though it's optional, not required to finish the dungeon or the game."
+  },
+  {
+   "id": "green-mail",
+   "name": "Green Mail (Green Tunic)",
+   "glyph": "armor",
+   "from": "Your starting outfit — worn from the very beginning of the game.",
+   "what": "Your default clothing. Offers no extra defense; it's the baseline all mail upgrades improve on.",
+   "tip": "You'll automatically swap to better-colored mail when you find it — no menu needed."
+  },
+  {
+   "id": "blue-mail",
+   "name": "Blue Mail",
+   "glyph": "armor",
+   "from": "Big Chest in the Ice Palace (the Dark World dungeon on the island in southern Lake Hylia).",
+   "what": "Armor upgrade that halves the damage you take compared to the Green Mail.",
+   "tip": "A big survivability boost for the back half of the game — grab it during the Ice Palace."
+  },
+  {
+   "id": "red-mail",
+   "name": "Red Mail",
+   "glyph": "armor",
+   "from": "Found in a Big-Key chest in Ganon's Tower (the final dungeon).",
+   "what": "The best armor, reducing damage to a quarter of normal. The strongest defense in the game.",
+   "tip": "It's late, but it makes the final climb and the Ganon fight far more forgiving — open every chest in Ganon's Tower."
+  },
+  {
+   "id": "bow-arrows",
+   "name": "Bow & Arrows",
+   "glyph": "bow",
+   "from": "Found in the Eastern Palace (the first dungeon).",
+   "what": "Fires arrows at range. Arrows draw from your arrow supply and are great for distant or flying enemies and hitting eye-switches.",
+   "tip": "The Eastern Palace boss (the Armos Knights) needs the Bow — the dungeon hands it to you just before you need it."
+  },
+  {
+   "id": "silver-arrows",
+   "name": "Silver Arrows",
+   "glyph": "bow",
+   "from": "Take a Super Bomb to the Pyramid of Power, blow open the crack to reveal the hidden fairy pond, then throw your Bow into the pond and the Great Fairy upgrades it to the Silver Arrows.",
+   "what": "Special arrows that are the ONLY thing able to finish off Ganon in his final form.",
+   "tip": "Don't waste them on regular enemies — you specifically need them to deal the killing blows to Ganon."
+  },
+  {
+   "id": "blue-boomerang",
+   "name": "Boomerang (Blue)",
+   "glyph": "leaf",
+   "from": "Found in a chest inside Hyrule Castle, in the rooms near where you rescue Princess Zelda.",
+   "what": "A throwing weapon that stuns most enemies and flies back to you, also grabbing distant items and hitting switches.",
+   "tip": "It rarely kills but it stuns — use it to freeze a tough enemy for a moment, then close in with your sword."
+  },
+  {
+   "id": "magical-boomerang",
+   "name": "Magical Boomerang (Red)",
+   "glyph": "leaf",
+   "from": "Throw the Blue Boomerang into the Waterfall of Wishing pond and the fairies upgrade it (you can also obtain a red one from a chest in the Village of Outcasts if you skipped the blue one).",
+   "what": "An upgraded boomerang that flies faster and farther than the blue one.",
+   "tip": "Toss your Blue Boomerang into the Waterfall of Wishing (north of Zora's Domain) to trade up."
   },
   {
    "id": "hookshot",
    "name": "Hookshot",
    "glyph": "magnesis",
-   "from": "Found in the Palace of Darkness, the first Dark World dungeon.",
-   "what": "Fires a chain that grabs posts and pulls you across gaps and water — and yanks or stuns many enemies.",
-   "tip": "If a ledge or chest sits across a pit, the Hookshot is almost always the answer."
+   "from": "Big Chest in the Swamp Palace (a Dark World dungeon).",
+   "what": "Shoots a grappling hook that latches onto blocks/chests/torches and pulls you across gaps. Also stuns or hits enemies along its path and grabs distant items.",
+   "tip": "It crosses pits and water you otherwise couldn't — when a ledge looks unreachable, look for a post or chest to hook."
   },
   {
-   "id": "magic_mirror",
-   "name": "Magic Mirror",
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "Bought in shops, dropped by enemies, found in pots and chests, or dug up. You carry a bomb supply.",
+   "what": "Throw or drop a bomb to blow open cracked walls, stun/damage enemies, and reveal hidden passages.",
+   "tip": "Bomb suspicious cracked or oddly-colored walls — many secret rooms, rupees, and Heart Pieces hide behind them."
+  },
+  {
+   "id": "magic-hammer",
+   "name": "Magic Hammer (M. Hammer)",
+   "glyph": "sword",
+   "from": "Big Chest in the Palace of Darkness (the first Dark World dungeon).",
+   "what": "A giant hammer that pounds in those stubborn 'Hammer Pegs' blocking paths and smashes certain enemies (and the Helmasaur King's mask).",
+   "tip": "You need it to break the Helmasaur King's face armor — and to flatten the Moles guarding the Cane of Byrna cave."
+  },
+  {
+   "id": "fire-rod",
+   "name": "Fire Rod",
+   "glyph": "orb",
+   "from": "Big Chest in Skull Woods (a Dark World dungeon).",
+   "what": "Shoots a bolt of fire that burns enemies and lights torches. Uses magic power (your green magic meter).",
+   "tip": "Great against ice-themed and plant enemies; light dark-room torches with it instead of fumbling for the Lamp."
+  },
+  {
+   "id": "ice-rod",
+   "name": "Ice Rod",
    "glyph": "cryonis",
-   "from": "Given by the lost maiden on Death Mountain.",
-   "what": "Warps you from the Dark World back to the matching spot in the Light World — the core trick for crossing between worlds.",
-   "tip": "Reach a place in one world, mirror to the other, move, and cross back to reach spots that look impossible."
+   "from": "In a cave east of Lake Hylia (Light World) — bomb the loose rocks beside the cave entrance to reveal it. Not in a dungeon.",
+   "what": "Fires a freezing beam that encases enemies in ice. Uses magic power.",
+   "tip": "Freeze an enemy solid, then hit it with your sword to shatter it — handy for crowds and certain bosses."
   },
   {
    "id": "lamp",
    "name": "Lamp",
+   "glyph": "orb",
+   "from": "Found in a chest in your house at the very start of the game.",
+   "what": "Lights up dark rooms and lets you light torches to open doors. Uses a little magic each time you light it.",
+   "tip": "In a pitch-black dungeon room, light the wall torches with the Lamp — it often unlocks the door or reveals the path."
+  },
+  {
+   "id": "bug-catching-net",
+   "name": "Bug-Catching Net",
+   "glyph": "leaf",
+   "from": "Lent by the sick Bug-Catching Kid in his house in east Kakariko Village — you must have at least one empty Bottle first.",
+   "what": "Catches bugs, bees, and fairies to put in Bottles. A bottled fairy is an emergency revive; bottled bees can help you fight. It can also swat away certain magic projectiles.",
+   "tip": "Net a fairy and store it in a Bottle — if you die, it pops out and revives you with several hearts."
+  },
+  {
+   "id": "book-of-mudora",
+   "name": "Book of Mudora",
+   "glyph": "book",
+   "from": "In the library south of Kakariko Village — dash into the bookshelf with the Pegasus Boots to knock it down, then grab it.",
+   "what": "Lets you read the ancient Hylian language on tablets and stone monuments — needed to open the Desert Palace and to read the medallion tablets.",
+   "tip": "You need the Pegasus Boots to shake it loose, and you need the Book to read the tablet that opens the Desert Palace."
+  },
+  {
+   "id": "cane-of-somaria",
+   "name": "Cane of Somaria",
+   "glyph": "orb",
+   "from": "Big Chest in Misery Mire (a Dark World dungeon).",
+   "what": "Conjures a red block you can push, ride as a platform, or detonate into projectiles. Some puzzles and the Mirror Shield chest in Turtle Rock require it.",
+   "tip": "Use it to make a stepping-stone over gaps and on switch puzzles — and to reach the Mirror Shield in Turtle Rock."
+  },
+  {
+   "id": "cane-of-byrna",
+   "name": "Cane of Byrna",
    "glyph": "stasis",
-   "from": "A chest inside Hyrule Castle during the opening rescue.",
-   "what": "Lights dark rooms and burns bushes and torches; many dungeons are pitch-black until you light their torches.",
-   "tip": "If a room is dark and you're taking hits from nothing, light the wall torches with the Lamp."
+   "from": "A cave in the cliffs of western Death Mountain in the Dark World (south of Ganon's Tower) — drop down onto the ledge to reach the entrance.",
+   "what": "Surrounds you with a spinning ring of light that blocks all damage while active. Drains your magic power continuously.",
+   "tip": "It makes you briefly invincible — useful to cross spike floors or tank a tough attack, but watch your magic meter."
+  },
+  {
+   "id": "magic-cape",
+   "name": "Magic Cape",
+   "glyph": "stasis",
+   "from": "In a passage under a tombstone in the Light World Graveyard (near Kakariko) — dash into the tombstone with the Pegasus Boots to slide it back; you may need the Titan's Mitt (or the Magic Mirror) to reach the grave behind the dark rocks.",
+   "what": "Turns you invisible and intangible while worn, letting you pass through enemies, beams, and even spike floors unharmed. Drains magic.",
+   "tip": "Save it for spike-filled rooms or to slip past tough enemies; it sips magic, so don't leave it on the whole time."
+  },
+  {
+   "id": "magic-mirror",
+   "name": "Magic Mirror",
+   "glyph": "magnesis",
+   "from": "Given by the Lost Old Man on Death Mountain after you escort him from his cave to his cabin.",
+   "what": "Warps you from the Dark World back to the matching spot in the Light World — and sets a return portal to come back. The key to traveling between the two worlds.",
+   "tip": "Use it constantly: cross a Dark World obstacle, mirror to the Light World to reach a blocked Light World spot, then mirror back."
+  },
+  {
+   "id": "pegasus-boots",
+   "name": "Pegasus Boots",
+   "glyph": "stasis",
+   "from": "Given by the elder Sahasrahla after you clear the Eastern Palace and bring him the Pendant of Courage.",
+   "what": "Hold the dash button to charge, then sprint in a straight line. The dash can ram enemies, break certain walls/bushes, and shake items loose (like the Book of Mudora).",
+   "tip": "Dash into suspicious bushes, statues, and bookshelves — many secrets only appear when you ram them."
+  },
+  {
+   "id": "power-glove",
+   "name": "Power Glove",
+   "glyph": "champion",
+   "from": "Big-Key chest in the Desert Palace (the second dungeon).",
+   "what": "Lets you lift and throw light gray rocks that previously blocked your way, opening new paths.",
+   "tip": "Once you have it, go back and lift the gray rocks that blocked you earlier — including the one to reach King Zora for the Flippers."
+  },
+  {
+   "id": "titans-mitt",
+   "name": "Titan's Mitt",
+   "glyph": "champion",
+   "from": "Big Chest in Thieves' Town (a Dark World dungeon).",
+   "what": "Upgrades the Power Glove so you can lift the heavy DARK-colored rocks too, opening even more paths.",
+   "tip": "After getting it, revisit dark boulders you couldn't budge — several lead to caves, fairies, and the dwarven smiths."
+  },
+  {
+   "id": "flippers",
+   "name": "Zora's Flippers",
+   "glyph": "cryonis",
+   "from": "Bought from King Zora in the northeastern Light World for 500 rupees — reach his pond by lifting the rock blocking the path with the Power Glove.",
+   "what": "Let you swim in deep water instead of being pushed back. Opens up lakes, moats, and watery shortcuts.",
+   "tip": "Worth the 500 rupees — many Heart Pieces and a few caves are only reachable by swimming."
+  },
+  {
+   "id": "moon-pearl",
+   "name": "Moon Pearl",
+   "glyph": "gem",
+   "from": "Found in the Tower of Hera (the third pendant dungeon, atop Death Mountain).",
+   "what": "Keeps you in your normal human form in the Dark World instead of being turned into a helpless bunny. Required to function in the Dark World.",
+   "tip": "Without it the Dark World transforms you and you can't use items — so it's effectively your passport into the Dark World."
+  },
+  {
+   "id": "magic-bottle",
+   "name": "Magic Bottle (Empty Bottle)",
+   "glyph": "bag",
+   "from": "Four exist: bought for 100 rupees from a merchant in Kakariko, a chest in the Kakariko tavern, from the man under the bridge near Lake Hylia, and a chest in the Dark World Smithery (taken to the man near the Desert of Mystery to open).",
+   "what": "Storage jars that hold fairies, bees, or potions (red = health, blue = health+magic, green = magic). A fairy in a bottle auto-revives you on death.",
+   "tip": "Always keep at least one bottle holding a fairy as an emergency revive — it's the best safety net in the game."
+  },
+  {
+   "id": "magic-powder",
+   "name": "Magic Powder",
+   "glyph": "bag",
+   "from": "Take the Mushroom from the Lost Woods to the witch's hut (Magic Shop), leave and return, and her helper hands you the powder.",
+   "what": "Sprinkle it to transform certain enemies (Anti-Fairies become health fairies; Buzz Blobs become Cukemen) and to summon the Mad Batter for a magic-meter upgrade. Uses magic.",
+   "tip": "Pick the Mushroom in the Lost Woods early and take it to the witch — the powder is needed for a couple of specific spots."
+  },
+  {
+   "id": "shovel",
+   "name": "Shovel",
+   "glyph": "key",
+   "from": "Lent by the Flute Boy (now a creature in the Dark World's Haunted Grove) so you can dig up his buried Flute in the Light World.",
+   "what": "Dig in patches of soft ground to uncover buried rupees, Heart Pieces, and — most importantly — the Flute.",
+   "tip": "Dig in the northwest flowers of the Light World Haunted Grove to unearth the buried Flute."
+  },
+  {
+   "id": "flute",
+   "name": "Flute (Ocarina)",
+   "glyph": "leaf",
+   "from": "Dug up with the Shovel in the Light World Haunted Grove, then 'activated' by playing it at the weathervane in Kakariko's square, which releases the warp bird.",
+   "what": "Play it to summon a giant bird that flies you instantly to several warp spots across the Light World — fast travel. (It only works in the Light World.)",
+   "tip": "Once the bird is awakened, the Flute saves huge amounts of walking — set off to a far region in seconds."
+  },
+  {
+   "id": "bombos-medallion",
+   "name": "Bombos Medallion",
+   "glyph": "orb",
+   "from": "Stand on the marked spot on the Plains of Ruins in the Light World (reached by using the Magic Mirror from near Misery Mire in the Dark World) and read the monolith with the Book of Mudora. Optional, not required.",
+   "what": "Casts a screen-wide wave of fire that damages all enemies on screen. Uses a lot of magic.",
+   "tip": "A panic button for crowded rooms — but it drains your magic meter fast, so save it for emergencies."
+  },
+  {
+   "id": "ether-medallion",
+   "name": "Ether Medallion",
+   "glyph": "cryonis",
+   "from": "On a ledge/bridge northwest of the Tower of Hera on Death Mountain — read the tablet there with the Book of Mudora, then raise the Master Sword to claim it.",
+   "what": "Casts a screen-wide freezing blast that damages all enemies. Also required to clear the storm and open the entrance to Misery Mire.",
+   "tip": "You MUST cast Ether at the Misery Mire entrance to open that dungeon — it isn't just an attack."
+  },
+  {
+   "id": "quake-medallion",
+   "name": "Quake Medallion",
+   "glyph": "orb",
+   "from": "At the Lake of Ill Omen (Dark World) — throw a rock or item into the circle of stones to wake the Catfish, who gives you the medallion.",
+   "what": "Casts a screen-wide earthquake that damages all enemies. It's also required to open the entrance to Turtle Rock.",
+   "tip": "You MUST use Quake at the Turtle Rock entrance to open the dungeon — you can't get in without it."
+  },
+  {
+   "id": "piece-of-heart",
+   "name": "Piece of Heart",
+   "glyph": "heart",
+   "from": "Scattered all over both worlds — hidden in caves, dug up, won at minigames, behind bombable walls, and given as rewards. There are 24 in total.",
+   "what": "Collect 4 Pieces of Heart to gain one full new Heart Container, extending your maximum life.",
+   "tip": "Bomb cracked walls, dig odd-looking patches, and dash into things — most Pieces are tucked behind small secrets."
+  },
+  {
+   "id": "pendants-of-virtue",
+   "name": "Pendants of Virtue (×3)",
+   "glyph": "gem",
+   "from": "Pendant of Courage (Eastern Palace), Pendant of Power (Desert Palace), and Pendant of Wisdom (Tower of Hera) — one from each Light World dungeon.",
+   "what": "The three sacred pendants. Collecting all three lets you draw the Master Sword from its pedestal in the Lost Woods.",
+   "tip": "Getting these three is the goal of the whole first act — once you have them, head to the Lost Woods for the sword."
+  },
+  {
+   "id": "crystals",
+   "name": "Crystals (×7)",
+   "glyph": "gem",
+   "from": "One earned for clearing each of the 7 Dark World dungeons, by rescuing the Maiden sealed inside its boss room.",
+   "what": "Each crystal frees a captive Maiden. Collecting all seven breaks the barrier around Ganon's Tower so you can confront Ganon.",
+   "tip": "Each of the seven Dark World dungeons ends with a Maiden and her crystal — collect all seven to reach Ganon."
   }
  ],
  "STATUS_RUNES": [
@@ -33021,6 +33721,18 @@ const ALTTP = {
   [
    "tips",
    "Tips"
+  ],
+  [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
   ],
   [
    "settings",
@@ -34426,7 +35138,179 @@ const LA = {
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "Octorok",
+    "tier": "common",
+    "tactic": "Land-walking octopus that stops and spits a rock at you in a straight line. Sidestep the rock (or block it with the Shield) and close in for a sword hit or two.",
+    "drops": "Hearts, Rupees"
+   },
+   {
+    "name": "Moblin",
+    "tier": "common",
+    "tactic": "Bulldog-faced grunt; the spear ones jab in melee and the bow ones fire arrows across the screen. Raise the Shield to stop arrows, then circle to its side and slash. Moblins guard areas early on, including the approach to Tail Cave.",
+    "drops": "Hearts, Rupees, occasionally arrows"
+   },
+   {
+    "name": "Zol / Gel",
+    "tier": "common",
+    "tactic": "A Zol is a green blob that splits into two small Gels when you hit it; Gels are quick and hop onto Link to nibble at him. Use a Spin Attack to clear the splits in one go, or just swat each Gel before it latches on.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Keese",
+    "tier": "common",
+    "tactic": "A small bat that flutters erratically and dive-bombs. One sword swing kills it — wait for it to approach rather than chasing its jittery flight. Fire Keese variants leave a brief flame, so don't stand where one dies.",
+    "drops": "Hearts (rarely)"
+   },
+   {
+    "name": "Pols Voice",
+    "tier": "common",
+    "tactic": "A big-eared rabbit-thing that bounces around and is immune to your sword. Once you have the Ocarina, playing it (the Ballad of the Wind Fish) kills it instantly; before that, hit it with an Arrow, drop a Bomb on it, or pick up and throw a pot at it.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Like Like",
+    "tier": "common",
+    "tactic": "A tubular muncher that sucks Link in and eats your Shield (and can swallow Rupees). Hit it rapidly with the sword to kill it before it digests your gear — you recover the Shield when it dies. Keep your distance and poke.",
+    "drops": "Hearts, your eaten Shield back"
+   },
+   {
+    "name": "Stalfos",
+    "tier": "common",
+    "tactic": "A skeletal swordsman. The blue ones just take a few sword hits; the orange/jumping ones leap away when you attack, so bait the jump and strike as they land, or use Bombs. They appear in dungeons, sometimes in groups.",
+    "drops": "Hearts, Rupees"
+   },
+   {
+    "name": "Spark",
+    "tier": "common",
+    "tactic": "An electric ball that endlessly circles the wall (or a block) clockwise or counter-clockwise. The sword and most items don't work on it — time your movement to slip past, or jump it with Roc's Feather. The Boomerang is the one thing that kills it (it turns into a Fairy). Touching it shocks and stuns you.",
+    "drops": "None usually (Boomerang turns it into a Fairy)"
+   },
+   {
+    "name": "Crow / Pairo",
+    "tier": "common",
+    "tactic": "A bird that perches asleep until you get close, then swoops at you fast. Wake it, sidestep the first dive, and slash on its way past — or shoot it with an Arrow before it launches. Often nests near trees and bushes.",
+    "drops": "Hearts (rarely)"
+   },
+   {
+    "name": "Shy Guy / Mask-Mimic",
+    "tier": "common",
+    "tactic": "Masked foe that mirrors your movement in the opposite direction, so a head-on sword swing tends to whiff. Beat it with a Spin Attack, an Arrow, or a Bomb. (Called Mask-Mimic before the Switch remake.) Found in Bottle Grotto and Face Shrine.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Sea Urchin",
+    "tier": "common",
+    "tactic": "A spiny ball that sits still on beaches and dungeon floors; you only get hurt if you walk onto its spikes. A single sword slash kills it, or run it down with a Pegasus Boots dash-attack — or just walk around it.",
+    "drops": "None usually"
+   },
+   {
+    "name": "Hinox",
+    "tier": "mini-boss",
+    "tactic": "A one-eyed ogre in Bottle Grotto that lunges to grab Link and hurl him into a wall, and occasionally lobs Bombs. Dodge the grab, then punish.",
+    "battle": "Equip Sword + Shield. Hinox telegraphs a forward lunge to grab you — sidestep it so he whiffs, then immediately slash his flank two or three times before he recovers. If he throws a Bomb, walk around it. Don't get pinned in a corner where the grab is unavoidable; keep an escape lane open and just repeat dodge-then-slash. A handful of clean counters drops him."
+   },
+   {
+    "name": "Dodongo Snakes",
+    "tier": "mini-boss",
+    "tactic": "A pair of snakes in Key Cavern that are unharmed by the sword — they only die by eating Bombs. Feed them.",
+    "battle": "Equip Bombs. Set or throw a Bomb directly in front of a snake's mouth as it advances; it gulps the Bomb and takes the blast from the inside. Each snake needs about two to three swallowed Bombs. Deal with them one at a time and keep moving so the second snake doesn't ram you while you bait the first."
+   },
+   {
+    "name": "Grim Creeper",
+    "tier": "mini-boss",
+    "tactic": "A skeletal commander in Eagle's Tower who summons a squadron of Battle Bats that charge you in shifting formations. Survive the swarm, then he flees (and returns later as part of the Evil Eagle fight).",
+    "battle": "Equip Sword + Shield. Back into a wall or corner so the bats can only come at you from the front. Each Battle Bat charges in a straight line — swing your sword to cut down each one as it reaches you, and keep the Shield up between swings to bump back any you mistime. Once you clear the formation the Grim Creeper retreats; you don't kill him here, you just outlast the bats."
+   },
+   {
+    "name": "Blaino",
+    "tier": "mini-boss",
+    "tactic": "A boxing kangaroo in Turtle Rock who throws straight punches that can knock you all the way back to the dungeon entrance. Stay off his horizontal line and counter.",
+    "battle": "Equip Sword + Shield. Blaino punches straight along whatever row you share with him, so attack from ABOVE or BELOW his line, never head-on. Slip to his flank, land a couple of sword hits, then retreat before he turns to face you. Roc's Feather can hop a telegraphed haymaker. A Piece of Power makes this trivial. Patience beats him — a bad trade can literally eject you from the dungeon."
+   },
+   {
+    "name": "Moldorm",
+    "tier": "boss",
+    "tactic": "Tail Cave's nightmare: a giant worm that whips around a pit-edged room. Only its tail tip is vulnerable, and it speeds up as it's hurt.",
+    "battle": "Equip Sword + Shield. The room has bottomless edges, so your real enemy is getting knocked off — move deliberately. Ignore the head and body (touching them just bumps you around) and chase the glowing tail tip, slashing it whenever you can line up behind it. Each hit makes Moldorm faster and more frantic, so for the final hits use the Shield to avoid being shoved into a pit and take the tail when it slows at a turn. Around four hits to the tail ends it."
+   },
+   {
+    "name": "Genie",
+    "tier": "boss",
+    "tactic": "Bottle Grotto's nightmare: a fire-throwing spirit that hides inside a bottle. Break the bottle first, then attack the exposed Genie.",
+    "battle": "Equip Sword + Shield (Power Bracelet for the throw phase). Phase 1: you can't touch the Genie while it lobs fireballs, so dodge them; when it dives back into its bottle, strike the bottle with your sword to stun it, then pick it up with the Power Bracelet and hurl it against a wall. About three throws shatters the bottle. Phase 2: the Genie floats free, swirls around to confuse you and throws bigger fireballs — right after it throws, it's open, so rush in and slash it. Repeat until it bursts."
+   },
+   {
+    "name": "Slime Eye",
+    "tier": "boss",
+    "tactic": "Key Cavern's nightmare: a huge eyeball clinging to the ceiling. Knock it down, then split it with a dash.",
+    "battle": "Equip Pegasus Boots + Sword. First, charge the back wall with the Boots dash to shake Slime Eye off the ceiling onto the floor. While it's grounded, hit it with a Boots dash-attack (run + sword) to split the giant eye into two smaller eyes. Now switch to normal sword swings and cut down each smaller eye — they move more, so use the Shield to block bumps between hits. Clearing both halves wins."
+   },
+   {
+    "name": "Angler Fish",
+    "tier": "boss",
+    "tactic": "Angler's Tunnel's nightmare: a big fish swimming up and down with a glowing lure dangling in front of its head. The lure light is the weak point.",
+    "battle": "Equip Sword + Shield (Roc's Feather optional for the rocks). Angler Fish patrols vertically, spits smaller fish at you, and rams the wall to drop rocks from the ceiling — sidestep the falling rocks and the spat fish. Position yourself in front of its face and repeatedly slash the hanging lure light (not the body). Keep slashing the light between its passes; enough hits to the lure and the Angler Fish goes down."
+   },
+   {
+    "name": "Slime Eel",
+    "tier": "boss",
+    "tactic": "Catfish's Maw's nightmare: an eel that pokes its head out of two wall holes and lashes a long tail. Reel the head in with the Hookshot, then slash its exposed spot.",
+    "battle": "Equip Hookshot + Sword. Stand as FAR from the wall as the room allows. When the eel's head emerges, fire the Hookshot to snag it and drag it out, exposing the vulnerable spot — slash it before it retracts. Jump the sweeping tail with timing (or just keep your distance south of it). Beware the decoy heads that pop out, bounce, and self-destruct — don't waste the Hookshot on those. Several head-snags finish it."
+   },
+   {
+    "name": "Facade",
+    "tier": "boss",
+    "tactic": "Face Shrine's nightmare: a face in the floor that flings the room's tiles and pots at you and opens pits beneath your feet. It takes no sword damage — bomb its face.",
+    "battle": "Equip Bombs + Sword (or Bombs + Shield). Facade itself can't be hit with the blade; you damage it by setting Bombs directly on its face in the center of the floor. The hazard is staying alive: it throws floor tiles at you, then the outer pots, and opens holes that drop you to the room below. Keep moving to dodge the projectiles and watch for the floor opening up, but every few moments plant a Bomb on its face. A few Bombs detonating on it ends the fight."
+   },
+   {
+    "name": "Evil Eagle (with the Grim Creeper)",
+    "tier": "boss",
+    "tactic": "Eagle's Tower's nightmare: a giant eagle fought on a side-scrolling rooftop, the Grim Creeper riding it. It swoops at varying heights, blows gusts of wind, and throws razor feathers.",
+    "battle": "Climb to the rooftop arena WITHOUT falling back down a screen (falling restarts the fight). Good loadout: Bow (or Hookshot) + Shield; you fight on a narrow platform, so don't get blown off. When the eagle swoops, block or slash the dive; raise the Shield to deflect the thrown feathers, and dash toward the center against the wind gusts so they don't sweep you off the edge. Then hit it — Bow or a charged Spin Attack drops it fastest; Hookshot or Boomerang take more hits. A Piece of Power makes it very quick. The Grim Creeper falls with the eagle."
+   },
+   {
+    "name": "Hot Head",
+    "tier": "boss",
+    "tactic": "Turtle Rock's nightmare: a flaming head bobbing in a pool of lava, splashing fire diagonally each time it dives. It's vulnerable only to the Magic Rod.",
+    "battle": "Equip the Magic Rod (this fight needs it) + Shield or Feather. The lava splash shoots out diagonally where Hot Head lands, so position yourself out of the diagonal lines to stay safe. Time a Magic Rod shot for when Hot Head leaps out of the lava — enough hits crack its fiery shell down to a smaller bald head. It then bounces around faster, but only takes a couple more Magic Rod shots after the shell is gone, so keep landing hits and it'll burn out."
+   },
+   {
+    "name": "Nightmares / DethL gauntlet",
+    "tier": "boss",
+    "tactic": "The Wind Fish's Egg final boss: the Nightmares fight you through six back-to-back forms — a giant Zol blob, a shadow of Agahnim, Moldorm, a shadow of Ganon, a shadow of Lanmola, then the true eye DethL. Each form dies into the next; survive all six to wake the Wind Fish.",
+    "battle": "Bring full hearts, fairies/potion, and plan to SWAP items between forms. Form 1 (giant Zol): only Magic Powder hurts it — sprinkle Powder on it as it lands, about three times. Form 2 (Agahnim shadow): it teleports and fires projectiles; swing your sword to bat the large magic projectile back into it, a handful of times, while dodging the smaller blasts. Form 3 (Moldorm): same as Tail Cave — hit the tail tip; a Spin Attack while it's slow, or a ranged weapon like the Boomerang for the fast final hits, helps. Form 4 (Ganon shadow): it spins a trident, summons bats (jump them with Roc's Feather), then throws the trident — after the throw, circle to line up and hit it with a Spin Attack or a Pegasus Boots dash. Form 5 (Lanmola shadow): it darts around and vanishes/reappears trying to ram you — dodge and strike when it surfaces (Spin Attack, Hookshot, Bombs, or Boomerang all work). Form 6 (DethL, the eye): equip Roc's Feather + Bow (Boomerang also works). Stay in front of the central eye, hop over its spiked arms with the Feather, and when the eye OPENS, fire into it; repeat. It speeds up after about half its health, and around sixteen shots to the open eye finishes the Nightmares for good.",
+    "drops": "Victory — the Wind Fish awakens"
+   }
+  ],
+  "basics": [
+   {
+    "title": "Sword swing & the Spin Attack",
+    "body": "Tap the sword button to swing in the direction you face; most common foes die in a hit or two. Hold the button until Link flashes and flickers, then release to unleash a Spin Attack that sweeps a full circle around you. The Spin Attack is your panic button when you're surrounded, and it's a safe way to break grass and pots from any side."
+   },
+   {
+    "title": "The Shield bump-block (and Like Likes)",
+    "body": "Equip and hold the Shield to face down enemies and block or bump back anything that runs into you head-on, including Octorok rocks and Moblin arrows. The upgraded Mirror Shield (found later) also reflects beam attacks. Watch out for Like Likes: if one swallows you it will eat your Shield, so kill it fast (a few sword hits) and you'll get the Shield back."
+   },
+   {
+    "title": "Roc's Feather: jumping & the long-jump",
+    "body": "Roc's Feather (from Tail Cave, the first dungeon) lets Link jump straight up, hopping over pits, floor spikes, and low attacks. It's the single most useful movement item in the game. Equip the Pegasus Boots in the other slot, dash, then jump mid-dash for a long running leap that clears wide gaps and is needed for several dungeon and overworld jumps."
+   },
+   {
+    "title": "The two-item-button limit & swapping",
+    "body": "Koholint's curse: you can only equip TWO items at a time, on the A and B buttons. Sword, Shield, Feather, Bombs, Bow, Hookshot, Power Bracelet, Magic Rod, Ocarina — all share those two slots, so you'll pause and re-equip constantly. Get used to opening the menu to swap (e.g. Sword+Shield for fights, Feather+Boots for platforming, Bombs+Bow for bosses). The DX/Switch versions let you set the Power Bracelet and a couple of items to dedicated buttons so they don't hog a slot."
+   },
+   {
+    "title": "Bombs + Bow combos",
+    "body": "Bombs are thrown or set down and explode after a beat — great for cracked walls, bomb-eating enemies, and bosses like Facade. With both equipped you can pull off the classic combo: drop or fire a Bomb and shoot an Arrow at the same instant so they hit together for big damage (very strong against tough single targets). Bombs also hurt Link, so back away after placing one."
+   },
+   {
+    "title": "Pieces of Power & Guardian Acorns",
+    "body": "Some enemies drop two special buffs. A Piece of Power (the spinning item that plays a jingle) makes Link temporarily stronger: he flashes, moves faster, and does extra sword damage — sprint into a boss room with one and the fight is half over. A Guardian Acorn reduces the damage you take for a while. Both are temporary, wear off over time, and are worth grabbing right before a hard fight."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -34444,9 +35328,203 @@ const LA = {
  },
  "ECONOMY": null,
  "COMPENDIUM": [],
- "SIDE_QUESTS": [],
+ "SIDE_QUESTS": [
+  {
+   "region": "The Trading Quest",
+   "quests": [
+    {
+     "id": "the-trading-quest-yoshi-doll-magnifying-lens",
+     "name": "The Trading Quest (Yoshi Doll → Magnifying Lens)",
+     "giver": "Many islanders, in a fixed chain",
+     "location": "All across Koholint Island",
+     "reward": "Magnifying Lens (lets you read the library book and reach the Boomerang trade; needed to finish the game)",
+     "oneLine": "A long swap chain that loops the whole island and ends with the Magnifying Lens you need to finish the game.",
+     "how": "Win the Yoshi Doll at the Trendy Game crane in Mabe Village, then trade it forward in this exact order: 1) Yoshi Doll → Mamasha, the Quadruplets' mother in Mabe Village, for the Ribbon; 2) Ribbon → the small Chain Chomp (CiaoCiao) in the doghouse by BowWow for Dog Food; 3) Dog Food → Sale the crocodile at his banana-tree house on Toronbo Shores for Bananas; 4) Bananas → the monkey east of Kanalet Castle (it builds a bridge) for a Stick; 5) Stick → Tarin, staring at a beehive in the forest east of Mabe Village (available after you clear Key Cavern, the third dungeon), for the Honeycomb; 6) Honeycomb → the bear chef in the southeast house of Animal Village for a Pineapple; 7) Pineapple → Papahl, starving in a cave in Goponga Swamp (east of Bottle Grotto), for a Hibiscus; 8) Hibiscus → Christine, the goat woman in northeast Animal Village, for a Letter; 9) Letter → Mr. Write, the letter-writing hermit north of the Mysterious Forest, for a Broom. Then keep going: 10) Broom → Grandma Ulrira (the old woman by Ulrira's house in Mabe Village) for a Fishing Hook; 11) Fishing Hook → the Fisherman on his boat at Martha's Bay for a Necklace; 12) Necklace → Martha the Mermaid in the bay for a Scale; 13) place the Scale on the Mermaid Statue, which slides aside to reveal the Magnifying Lens. Many trades unlock only after you reach that part of the world, so just keep the chain moving as you explore."
+    }
+   ]
+  },
+  {
+   "region": "Secret Seashells & the Sword",
+   "quests": [
+    {
+     "id": "collect-the-secret-seashells",
+     "name": "Collect the Secret Seashells",
+     "location": "Hidden all over Koholint (dug up, cut from bushes, under rocks, won in games)",
+     "reward": "Progress toward the Seashell Mansion sword upgrade",
+     "oneLine": "Scattered shells are the island's main collectible — gather enough to claim a stronger sword.",
+     "how": "Seashells hide everywhere: slash bushes and tall grass, lift or bomb rocks, dig with the Shovel on suspicious patches, and check minigame prizes. There are 26 in the Game Boy and DX versions, and 50 in the Switch remake. Some need later items (Power Bracelet, Flippers, Pegasus Boots, Hookshot) to reach, so it's fine to backtrack once you're stronger."
+    },
+    {
+     "id": "seashell-mansion-the-upgraded-sword",
+     "name": "Seashell Mansion — the upgraded sword",
+     "giver": "Seashell Mansion",
+     "location": "Ukuku Prairie, east of Mabe Village near Kanalet Castle",
+     "reward": "L-2 Sword (the Koholint Sword in the Switch remake), which deals double damage",
+     "oneLine": "Turn in enough Secret Seashells at the Seashell Mansion to upgrade your sword.",
+     "how": "Bring your shells to the Seashell Mansion. Reach 20 shells (Game Boy / DX) or 40 shells (Switch) and the mansion drops the upgraded sword (the L-2 Sword; called the Koholint Sword in the remake), which hits twice as hard. In the Game Boy versions the mansion also hands out a bonus shell at 5 and again at 10, so it's worth dropping in early."
+    }
+   ]
+  },
+  {
+   "region": "Minigames",
+   "quests": [
+    {
+     "id": "trendy-game-crane",
+     "name": "Trendy Game (crane)",
+     "giver": "Trendy Gamester",
+     "location": "Southeastern Mabe Village",
+     "reward": "Yoshi Doll (starts the Trading Quest), plus rupees/Magic Powder/Shield/Heart (and a Piece of Heart in the Switch remake)",
+     "oneLine": "A 10-rupee claw-crane game whose center prize, the Yoshi Doll, kicks off the entire trading chain.",
+     "how": "Pay 10 rupees and steer the crane over a prize on the conveyor, then drop the claw. Line up early — the claw drifts in the direction it's moving, so release a hair before the item. Snag the Yoshi Doll sitting off the belt in the middle to begin the Trading Quest; the game also gives out rupees, Magic Powder, a Shield, or a Heart, and the Switch remake adds a Piece of Heart (and collectible figures)."
+    },
+    {
+     "id": "fishing-pond",
+     "name": "Fishing Pond",
+     "giver": "Fisherman",
+     "location": "Northwest corner of Mabe Village",
+     "reward": "A Piece of Heart, plus rupees per fish",
+     "oneLine": "Pay to fish a small pond; catching the big fish earns a Piece of Heart.",
+     "how": "Pay 10 rupees, dangle the line, and reel the opposite way the fish pulls. Small fish pay a few rupees; the big 'lunkers' pay more. Land your first lunker to get a Piece of Heart. The Switch remake adds more fish and rewards an extra Piece of Heart for landing a large enough catch."
+    },
+    {
+     "id": "rapids-ride-raft-course-switch-remake",
+     "name": "Rapids Ride (raft course) — Switch remake",
+     "giver": "Raft Shop owner",
+     "location": "Raft Shop near the Tal Tal Heights warp",
+     "reward": "Two Pieces of Heart",
+     "oneLine": "A whitewater raft course you rent into — one Piece of Heart is hidden on the route, another for a fast time.",
+     "how": "This fully fleshed-out ride is the Switch remake's version (the original Game Boy / DX raft section is much simpler). Rent the raft to start the downhill run. One Piece of Heart sits on a small island you reach by hugging the route's edge and Hookshotting across; another is awarded for a fast finish, where well-aimed Hookshot grabs speed you up."
+    }
+   ]
+  },
+  {
+   "region": "Songs & Companions",
+   "quests": [
+    {
+     "id": "learn-the-ballad-of-the-wind-fish",
+     "name": "Learn the Ballad of the Wind Fish",
+     "giver": "Marin",
+     "location": "Mabe Village square (or Animal Village later), once you have the Ocarina",
+     "reward": "Ballad of the Wind Fish",
+     "oneLine": "Marin teaches you the island's signature song once you have the Ocarina.",
+     "how": "Find the Ocarina, then talk to Marin (by the Mabe Village square, or in Animal Village later) and she teaches you the Ballad of the Wind Fish. You'll need it to wake the sleeping Walrus and, ultimately, to open the Wind Fish's Egg after you collect all eight Instruments of the Sirens."
+    },
+    {
+     "id": "marin-and-the-walrus",
+     "name": "Marin and the Walrus",
+     "giver": "Marin / the Walrus",
+     "location": "South of Animal Village (path to Yarna Desert)",
+     "reward": "Opens the path to Yarna Desert",
+     "oneLine": "Bring Marin to the lazy Walrus so she can sing it awake and clear the road to the desert.",
+     "how": "A Walrus snoozes across the path south of Animal Village. Talk to Marin in Animal Village so she follows you, lead her to the Walrus, and she sings the Ballad of the Wind Fish. The Walrus dances awake and flops into the water, opening the way to Yarna Desert. Afterward Marin stays in the Animal Village square singing to the animals."
+    },
+    {
+     "id": "learn-manbo-s-mambo-the-frog-s-song-of-soul",
+     "name": "Learn Manbo's Mambo & the Frog's Song of Soul",
+     "giver": "Manbo the fish / Mamu the frog",
+     "location": "Manbo: pond near Yarna Desert (after the Flippers). Mamu: the Signpost Maze south of Animal Village (after the Hookshot)",
+     "reward": "Two ocarina songs (warp-to-water; revive/awaken)",
+     "oneLine": "Two optional ocarina tunes round out your three songs.",
+     "how": "After the Flippers (from Angler's Tunnel) swim to Manbo in his pond and he teaches Manbo's Mambo, which warps you to a watery spot. After the Hookshot (from Catfish's Maw), solve the Signpost Maze puzzle and visit Mamu's frog choir — he charges 300 rupees to perform the Frog's Song of Soul, which revives or awakens things. The Frog's Song is what brings the stone Rooster back to life, and later wakes the head of Turtle Rock so you can fight it open as the eighth dungeon."
+    },
+    {
+     "id": "rescue-bowwow",
+     "name": "Rescue BowWow",
+     "giver": "Madam MeowMeow",
+     "location": "Moblin Cave, off Koholint Prairie",
+     "reward": "BowWow as a temporary companion (eats Goponga Flowers to open Bottle Grotto)",
+     "oneLine": "Madam MeowMeow's chain-chomp 'dog' BowWow is kidnapped by Moblins — go get it back.",
+     "how": "After Tail Cave, you learn BowWow was snatched by Moblins. Use Roc's Feather to cross the pits into the Moblin Cave. Inside, raise your shield against the sword-Moblins to push them back, then strike; clear the rooms and free BowWow at the back. Walk BowWow to Goponga Swamp, where it chomps through the flowers blocking the way to Bottle Grotto, the second dungeon."
+    }
+   ]
+  },
+  {
+   "region": "Collectibles & Heart Pieces",
+   "quests": [
+    {
+     "id": "pieces-of-heart",
+     "name": "Pieces of Heart",
+     "location": "All over Koholint (caves, minigames, hidden ledges, gifts)",
+     "reward": "Every 4 pieces = one full extra Heart Container",
+     "oneLine": "Quarter-heart pickups scattered across the island add up to extra life.",
+     "how": "Collect Pieces of Heart wherever they hide — minigame prizes (Trendy Game, Fishing Pond, Rapids Ride), out-of-the-way cave chests, ledges reached with the Hookshot or Roc's Feather, and a few given by characters. Four pieces complete one new Heart Container. Tools like the Power Bracelet, Pegasus Boots, and Flippers unlock several, so revisit once you have them."
+    },
+    {
+     "id": "the-stone-rooster",
+     "name": "The Stone Rooster",
+     "giver": "(awakened with the Frog's Song of Soul)",
+     "location": "In a cave under the Mabe Village weather vane",
+     "reward": "The Flying Rooster lifts you over gaps and opens the Tal Tal Mountain Range route",
+     "oneLine": "Revive the stone rooster to gain a flying lift up into the northeastern mountains.",
+     "how": "Once you've learned the Frog's Song of Soul, play it beside the remains in the cave under the Mabe Village weather vane. The blue Flying Rooster comes to life and follows you; grab it to be carried over pits and across gaps. Its main purpose is to reach the upper Tal Tal Mountain Range and Eagle's Tower, the sixth dungeon. (The original Game Boy version has no Rooster — it was added in DX and kept in later versions.)"
+    },
+    {
+     "id": "the-ghost-s-last-request",
+     "name": "The Ghost's last request",
+     "giver": "The Ghost (Nakura)",
+     "location": "Joins you after Angler's Tunnel; House by the Bay near Toronbo Shores; then its grave by the Cemetery",
+     "reward": "A Secret Seashell (and, in the Switch remake, a Fairy Bottle)",
+     "oneLine": "A wandering ghost asks to be taken home and then to its grave to rest.",
+     "how": "After Angler's Tunnel (the fifth dungeon) a ghost starts following you. First lead it to its old House by the Bay near Toronbo Shores, then escort it to its grave by the Cemetery so it can rest. A Secret Seashell waits under a jar inside the house; in the Switch remake the ghost also gives you a Fairy Bottle."
+    }
+   ]
+  },
+  {
+   "region": "DX / Switch extras",
+   "quests": [
+    {
+     "id": "color-dungeon-dx-switch",
+     "name": "Color Dungeon (DX / Switch)",
+     "location": "Cemetery (revealed under tombstones)",
+     "reward": "The Red Mail (more attack) or Blue Mail (more defense)",
+     "oneLine": "A bonus color-themed dungeon added in DX that grants a power-up tunic.",
+     "how": "This dungeon doesn't exist in the original 1993 Game Boy release — it was added in the DX remake and kept on Switch. Read the hint about the tombstone order (in DX, dash into the library bookshelves with the Pegasus Boots until a book drops), then push the tombstones in the Cemetery in the right order to open the entrance. Beat the boss and the Fairy Queen lets you choose the Red Mail (more attack) or Blue Mail (more defense) — re-clear the dungeon to switch."
+    },
+    {
+     "id": "photographer-s-album-the-travels-of-link-dx",
+     "name": "Photographer's album — 'The Travels of Link' (DX)",
+     "giver": "The Photographer (a mouse)",
+     "location": "Photo Shop, Mabe Village area (photos taken across the island)",
+     "reward": "Up to 12 commemorative photos in an album",
+     "oneLine": "A DX-only collectible: a roving photographer snaps 12 pictures of your adventure.",
+     "how": "This is a DX/Switch-only extra (not in the 1993 Game Boy game). The Photographer pops up at set moments and places to take a picture — for example walking to the cliff edge with Marin, or returning to the ghost's grave after laying it to rest. Several photos are time- or event-specific and can be permanently missed, so trigger them when prompted; all 12 collect into 'The Travels of Link' album you can view at the Photo Shop."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Great Fairy Fountain — Mysterious Forest",
+   "region": "Mysterious Forest",
+   "location": "In the eastern part of the Mysterious Forest. From Mabe Village, head into the forest and work east; the fountain cave sits across the wall right by the Li'l Devil's cave (the Li'l Devil's altar is just west of it, under a rock you lift with the Power Bracelet). This is the ONE fountain that needs NO Bombs, so it's the first you can use.",
+   "cost": "Touch the Great Fairy to fully refill all of Link's hearts. Free, repeatable."
+  },
+  {
+   "name": "Great Fairy Fountain — Ukuku Prairie",
+   "region": "Ukuku Prairie",
+   "location": "Northeast of the Ukuku Prairie Warp Point, by the tree where you get the Honeycomb. Bomb the cracked wall to open the cave. Requires Bombs.",
+   "cost": "Touch the Great Fairy for a full-hearts heal. Free, repeatable."
+  },
+  {
+   "name": "Great Fairy Fountain — Ancient Ruins (near the Face Shrine)",
+   "region": "Ancient Ruins / Face Shrine",
+   "location": "On the northwest side of the Face Shrine landmass, below the Rapids Ride. Work through the boulder-and-bush maze north of the Ancient Ruins; bomb the cracked wall in the rock face to enter the cave. Requires Bombs.",
+   "cost": "Touch the Great Fairy for a full-hearts heal. Free, repeatable."
+  },
+  {
+   "name": "Great Fairy Fountain — Eastern Tal Tal Mountain Range",
+   "region": "Tal Tal Mountain Range",
+   "location": "In the far-eastern Tal Tal Mountains, by the eastern-mountain Warp Point on the way to Level 7 – Eagle's Tower. Bomb the breakable wall to the left of the warp point to open the cave. Requires Bombs — handy right before Eagle's Tower.",
+   "cost": "Touch the Great Fairy for a full-hearts heal. Free, repeatable."
+  },
+  {
+   "name": "Fairy Queen (Color Dungeon)",
+   "region": "Color Dungeon (DX & Switch versions only)",
+   "location": "DX and Switch ONLY — NOT in the original 1993 Game Boy game (added in the 1998 Game Boy Color DX release, and kept in the 2019 Switch remake). It's reached through the Cemetery just north of Ukuku Prairie: after getting the Pegasus Boots, ram the library bookshelf in Mabe Village to drop the red hint book, then push the five gravestones in the southeast corner of the Cemetery in the order/direction it describes to open the stairs. (You need the Power Bracelet to get this far.) Clear the dungeon to meet the Fairy Queen in the final room.",
+   "cost": "Does NOT heal. She grants a permanent tunic upgrade — pick the Red Mail (a.k.a. Red Clothes; your sword deals more damage) or the Blue Mail (Blue Clothes; you take half damage). You can re-clear the dungeon and speak to her again any time to swap which tunic is active."
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
@@ -34456,41 +35534,233 @@ const LA = {
    "id": "sword",
    "name": "Sword",
    "glyph": "sword",
-   "from": "Lying on the south beach where Marin found you — your first task is to get it back.",
-   "what": "Your main weapon. At full health it shoots a sword beam, and you can later upgrade it to the L-2 Sword at the Seashell Mansion.",
-   "tip": "You can only hold two items at once (A and B buttons), so the Sword usually shares your hands with Roc's Feather early on."
+   "from": "Washed up on Toronbo Shores — walk onto the beach southeast of Mabe Village and a voice tells you to grab it. (The sword is free on the beach in every version.)",
+   "what": "Your main weapon. Swing it with the attack button, or hold it down to charge a Spin Attack that hits all around you. At full hearts the basic sword does NOT shoot beams — that is the L-2 upgrade.",
+   "tip": "Hold the button to charge the Spin Attack while you walk; release it in a crowd. You can't really do anything on the island until you fetch this sword first."
   },
   {
-   "id": "rocs_feather",
+   "id": "l2-sword",
+   "name": "L-2 Sword (Koholint Sword)",
+   "glyph": "sword",
+   "from": "Bring enough Secret Seashells to the Seashell Mansion in Ukuku Prairie and step on the pedestal. The original Game Boy/DX needs 20 seashells; the Switch remake needs 40.",
+   "what": "A free upgrade that doubles your sword's damage. When your hearts are full it fires a Sword Beam with every swing — ranged damage at no cost.",
+   "tip": "Totally optional but a huge power spike. Pick up Secret Seashells as you explore (dig spots, cut bushes, dungeon chests) and you'll hit the count naturally."
+  },
+  {
+   "id": "shield",
+   "name": "Shield",
+   "glyph": "shield",
+   "from": "You start with a basic shield; the Town Tool Shop in Mabe Village sells a replacement if you lose it.",
+   "what": "Hold it up to block enemy attacks and most projectiles. With the Pegasus Boots you can dash forward shield-first to knock some enemies back.",
+   "tip": "If a Like Like swallows you, mash buttons to escape fast or it eats your shield — then you have to buy another at the Town Tool Shop."
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "The dungeon item of Eagle's Tower, the SEVENTH dungeon.",
+   "what": "An upgraded shield that, on top of normal blocking, reflects fire and beam attacks (like Beamos lasers) back at the enemy.",
+   "tip": "You'll use it inside Eagle's Tower itself to bounce beams. Keep it equipped — it also helps you hold your ground in the windy boss fight."
+  },
+  {
+   "id": "bow",
+   "name": "Bow",
+   "glyph": "bow",
+   "from": "Bought at the Town Tool Shop in Mabe Village for 980 Rupees (or stolen, if you're feeling brave).",
+   "what": "Fires arrows at range. Each shot costs one arrow from your stock; refill arrows from grass, pots, drops, or the shop.",
+   "tip": "Great for hitting switches and enemies from safety. It's pricey but a required item to finish the game, so save up for it."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "Bought at the Town Tool Shop, found in chests, or dropped by enemies. You carry a stock that refills like arrows.",
+   "what": "Set a bomb to blow open cracked walls and floors, reveal hidden passages, and damage enemies and bosses. Hidden rooms all over Koholint sit behind bombable walls.",
+   "tip": "If a wall or block looks suspicious or out of place, drop a bomb next to it. You can also equip Bombs + Bow together to 'arrow-bomb' for a stronger combined shot."
+  },
+  {
+   "id": "magic-powder",
+   "name": "Magic Powder",
+   "glyph": "bag",
+   "from": "From the witch Syrup's hut — first fetch the Toadstool from the Mysterious Woods, bring it to her, and she grinds it into powder. Refill it by buying more from her.",
+   "what": "Sprinkle a pinch in front of you. It lights torches, harms or transforms certain enemies, and is the only way past a few specific foes.",
+   "tip": "Its first big use is sprinkling it on Tarin (turned into a raccoon in the woods) to clear the path to the Tail Key. Stock is limited, so don't waste it."
+  },
+  {
+   "id": "rocs-feather",
    "name": "Roc's Feather",
    "glyph": "leaf",
-   "from": "Found in Tail Cave, the first dungeon.",
-   "what": "Lets Link jump — over pits, spikes, and small gaps. Pair it with the Pegasus Boots to long-jump.",
-   "tip": "Jumping is core to nearly every dungeon here. Feather + Boots together clears gaps neither can alone."
+   "from": "The dungeon item of Tail Cave, the very first dungeon.",
+   "what": "Lets Link jump. Hop over pits, spikes, and gaps, and leap over low enemies. Pair it with the Pegasus Boots for a long running jump.",
+   "tip": "This is THE platforming item — many 'how do I cross that?' moments are just 'equip the Feather and jump.' Feather + Pegasus Boots clears the widest gaps."
   },
   {
-   "id": "power_bracelet",
-   "name": "Power Bracelet",
-   "glyph": "champion",
-   "from": "Found in Bottle Grotto, the second dungeon.",
-   "what": "Lets you lift pots, skulls, and rocks and hurl them at enemies and switches.",
-   "tip": "Many blocked paths are just a liftable rock away once you have this."
+   "id": "pegasus-boots",
+   "name": "Pegasus Boots",
+   "glyph": "armor",
+   "from": "The dungeon item of Key Cavern, the THIRD dungeon.",
+   "what": "Hold the assigned button to charge, then dash in a straight line at high speed. The dash breaks through certain bushes and rocks, stuns or knocks back enemies, and lets you clear wide gaps when combined with Roc's Feather.",
+   "tip": "Dashing into some trees shakes loose items or secrets. Charge while moving so the dash fires the instant you let go."
+  },
+  {
+   "id": "power-bracelet",
+   "name": "Power Bracelet (L-1)",
+   "glyph": "armor",
+   "from": "The dungeon item of Bottle Grotto, the SECOND dungeon.",
+   "what": "Lets you lift and throw small rocks, pots, bushes, and skulls. Throwing a held object damages enemies and clears blocked paths.",
+   "tip": "Many overworld rocks that blocked you earlier can now be picked up and tossed — backtrack to clear them and reach new areas and seashells."
+  },
+  {
+   "id": "power-bracelet-l2",
+   "name": "Power Bracelet L-2",
+   "glyph": "armor",
+   "from": "The dungeon item of Face Shrine, the SIXTH dungeon.",
+   "what": "An upgraded bracelet that lets you lift the big, heavy stones the L-1 bracelet can't budge, opening still more paths and secrets.",
+   "tip": "After you get it, revisit large boulders you couldn't lift before — several hide seashells, fairies, or shortcuts."
+  },
+  {
+   "id": "shovel",
+   "name": "Shovel",
+   "glyph": "armor",
+   "from": "Bought at the Town Tool Shop in Mabe Village for 200 Rupees.",
+   "what": "Dig in soft ground. Digging turns up Rupees, hearts, and Secret Seashells, and it's required to uncover certain buried items — including the Slime Key under the owl statue in Pothole Field.",
+   "tip": "Dig the suspicious bare-dirt patches and spots an owl statue hints about. It's the only way to get the Slime Key, so don't skip it."
   },
   {
    "id": "hookshot",
    "name": "Hookshot",
    "glyph": "magnesis",
-   "from": "Found in Catfish's Maw, the fifth dungeon.",
-   "what": "Fires a chain that grabs distant blocks to pull you across pits, and stuns or drags enemies.",
-   "tip": "A late-but-mighty tool — it trivializes several earlier rooms if you revisit them."
+   "from": "The dungeon item of Catfish's Maw, the FIFTH dungeon.",
+   "what": "Fires a chain-grapple straight ahead. It grabs distant blocks and posts to pull Link across gaps, snags far-off items, and yanks or stuns enemies.",
+   "tip": "Use it to cross pits with no platforms and to grab chests on islands you can't walk to. Equip it with the Feather to chain a grapple into a jump."
+  },
+  {
+   "id": "magic-rod",
+   "name": "Magic Rod",
+   "glyph": "orb",
+   "from": "The dungeon item of Turtle Rock, the EIGHTH and final dungeon.",
+   "what": "Shoots a burst of fire forward. It lights things, melts certain icy obstacles, and is a strong damage option against the toughest late-game enemies.",
+   "tip": "You get it in the last dungeon, so it's mostly for the endgame gauntlet and final boss — keep it on a use button for the finale."
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "leaf",
+   "from": "Optional. With the Magnifying Lens, an unseen Goriya appears in a cave on Toronbo Shores; he trades the Boomerang for an item in your B slot. (This is the final step of the trading sequence.)",
+   "what": "Thrown weapon that flies out, damages or stuns enemies, slices bushes, grabs distant items, and returns to you. It can hit some foes the sword can't reach.",
+   "tip": "He takes the item you offer in trade, so hand over something replaceable like the Shovel (you can buy another). In the Switch remake you can later buy your old item back for 300 Rupees. Purely optional but handy."
   },
   {
    "id": "ocarina",
    "name": "Ocarina",
    "glyph": "stasis",
-   "from": "Won from a trade / found in the village — you learn three songs for it.",
-   "what": "Plays three melodies: the Ballad of the Wind Fish (the goal song), Manbo's Mambo (a warp), and the Frog's Song of Soul.",
-   "tip": "The Ballad of the Wind Fish is needed to calm Marin and to finish the game. Guard it."
+   "from": "Found in a chest inside the Dream Shrine in Mabe Village (use the Feather to navigate the maze).",
+   "what": "Your instrument for playing the island's three songs. On its own it does nothing — each song you learn is played through the Ocarina for a different effect.",
+   "tip": "Get this before hunting for the song teachers; you can't learn or use any song without the Ocarina."
+  },
+  {
+   "id": "flippers",
+   "name": "Flippers",
+   "glyph": "armor",
+   "from": "The dungeon item of Angler's Tunnel, the FOURTH dungeon.",
+   "what": "Let Link swim in deep water and dive underwater to reach sunken chests, new shores, and items at the bottom of ponds.",
+   "tip": "Once you can swim, revisit every body of water you had to walk around — sunken chests, seashells, and shortcuts open up across the whole map."
+  },
+  {
+   "id": "piece-of-power",
+   "name": "Piece of Power",
+   "glyph": "heart",
+   "from": "A temporary pickup dropped by enemies or found in some areas (the music changes while it's active).",
+   "what": "A short-lived attack buff: while it lasts your sword does extra damage and sends enemies flying, and Link moves faster. It wears off after a while or when you change areas.",
+   "tip": "Not something you keep — grab one right before a tough fight or boss to burn it down fast."
+  },
+  {
+   "id": "guardian-acorn",
+   "name": "Guardian Acorn",
+   "glyph": "heart",
+   "from": "A temporary pickup dropped by enemies (the music changes while it's active).",
+   "what": "A short-lived defense buff: it reduces the damage Link takes for the next few hits, then wears off.",
+   "tip": "Defensive twin of the Piece of Power — handy when you're low on hearts and pushing through a dangerous room."
+  },
+  {
+   "id": "tail-key",
+   "name": "Tail Key",
+   "glyph": "key",
+   "from": "Found in a chest in the Mysterious Forest (west of Mabe Village), reached after clearing Tarin from the path.",
+   "what": "A key that opens the locked entrance to Tail Cave, the first dungeon.",
+   "tip": "This is the very first key-gate of the game — if you can't get into the first dungeon, you're missing this. Use Magic Powder on the raccoon Tarin to reach the chest."
+  },
+  {
+   "id": "slime-key",
+   "name": "Slime Key",
+   "glyph": "key",
+   "from": "Return Prince Richard's five Golden Leaves (found in and around Kanalet Castle), then dig with the Shovel under the owl statue in Pothole Field to unearth the key.",
+   "what": "Opens the entrance to Key Cavern, the third dungeon.",
+   "tip": "You must do the Golden Leaves errand AND dig for it — having the Shovel isn't enough until Richard opens the way to Pothole Field."
+  },
+  {
+   "id": "angler-key",
+   "name": "Angler Key",
+   "glyph": "key",
+   "from": "Dropped by the Desert Lanmola (sand-worm) in the Yarna Desert, in the southeast of the island. (You reach the desert by waking the sleeping Walrus with the Ballad of the Wind Fish.)",
+   "what": "Opens the way into Angler's Tunnel, the fourth dungeon, by dropping the key into the waterfall keyhole on the Tal Tal cliffs.",
+   "tip": "Fight carefully in the open desert — the Lanmola bursts out of the sand. After you have the key, take it to the waterfall to open the path."
+  },
+  {
+   "id": "face-key",
+   "name": "Face Key",
+   "glyph": "key",
+   "from": "Dropped by the Armos Knight you battle at the Southern Face Shrine, in the Ancient Ruins.",
+   "what": "Opens the entrance to Face Shrine, the SIXTH dungeon.",
+   "tip": "The shrine puzzle ends in the Armos fight; clear it and the key is yours, then take it to Face Shrine."
+  },
+  {
+   "id": "bird-key",
+   "name": "Bird Key",
+   "glyph": "key",
+   "from": "Deep in a cave in Tal Tal Heights. To reach it you must revive the Flying Rooster (play the Frog's Song of Soul at the Mabe Village weather vane) and use its flight to cross the cave's pits.",
+   "what": "Opens the entrance to Eagle's Tower, the seventh dungeon (it rotates the tower to reveal the way in).",
+   "tip": "You need BOTH the Frog's Song of Soul and the revived rooster first — without the rooster's flight you can't cross the gaps to the key."
+  },
+  {
+   "id": "magnifying-lens",
+   "name": "Magnifying Lens",
+   "glyph": "book",
+   "from": "The 14th item of the trading sequence: trade the Mermaid's Scale onto the Mermaid Statue in Martha's Bay to open a hidden chest holding the Lens.",
+   "what": "Lets you see hidden things: it reveals the true path through the Wind Fish's Egg (needed to finish the game), makes the 'Dark Secrets and Mysteries of Koholint' book in the Library readable, and shows the unseen Goriya who trades you the Boomerang. In DX/Switch it also reveals a hidden enemy in a photo/Animal Village.",
+   "tip": "Reading the Library book (with the Lens) reveals the Egg's path. The Lens is near the END of the trade chain — one step before the Boomerang."
+  },
+  {
+   "id": "instruments-of-the-sirens",
+   "name": "The 8 Instruments of the Sirens",
+   "glyph": "champion",
+   "from": "One is found at the end of each of the eight dungeons: Full Moon Cello, Conch Horn, Sea Lily's Bell, Surf Harp, Wind Marimba, Coral Triangle, Organ of Evening Calm, and Thunder Drum.",
+   "what": "The eight magical instruments you collect across the whole quest. With all eight, you play the Ballad of the Wind Fish on them at the Wind Fish's Egg to wake the Wind Fish — the goal of the game.",
+   "tip": "Each dungeon = one instrument, so they double as your progress tracker. Eight instruments means you're ready for the ending."
+  },
+  {
+   "id": "ballad-of-the-wind-fish",
+   "name": "Ballad of the Wind Fish",
+   "glyph": "stasis",
+   "from": "Taught by Marin — find her around Mabe Village early on and ask her to teach you the song.",
+   "what": "The island's central melody. Played with all eight Instruments of the Sirens, it wakes the Wind Fish. On the overworld it also wakes the sleeping Walrus blocking the way to the Yarna Desert.",
+   "tip": "Learn it as soon as you can — you'll need it to get past the Walrus toward the desert, long before the finale."
+  },
+  {
+   "id": "manbos-mambo",
+   "name": "Manbo's Mambo",
+   "glyph": "stasis",
+   "from": "Taught by Manbo, a fish in a pond reached by diving (you need the Flippers). It's learned after Angler's Tunnel.",
+   "what": "A warp song. Played on the overworld it whisks Link to Manbo's Pond, near Crazy Tracy's. Played inside a dungeon, it returns you to that dungeon's entrance. (In the Switch remake it can warp to any open Warp Hole.)",
+   "tip": "Use it to quickly bail out of a dungeon or as a fast-travel point — a real time-saver for backtracking."
+  },
+  {
+   "id": "frogs-song-of-soul",
+   "name": "Frog's Song of Soul",
+   "glyph": "stasis",
+   "from": "Taught by Mamu (and his frog chorus) for 300 Rupees, beneath the Signpost Maze in Ukuku Prairie — read the signs in the right order to drain the pond and reach him.",
+   "what": "Brings certain dead or inanimate things to life. You need it to revive the Flying Rooster at the Mabe Village weather vane, which in turn lets you reach the Bird Key and Eagle's Tower.",
+   "tip": "Required for progress, not optional. Have 300 Rupees ready before you visit Mamu, and learn it before the late game."
   }
  ],
  "STATUS_RUNES": [
@@ -34693,6 +35963,18 @@ const LA = {
   [
    "tips",
    "Tips"
+  ],
+  [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
   ],
   [
    "settings",

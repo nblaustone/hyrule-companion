@@ -1,0 +1,332 @@
+{
+ "items": [
+  {
+   "id": "fighters-sword",
+   "name": "Fighter's Sword",
+   "glyph": "sword",
+   "from": "Given by your Uncle in the secret passage under your house at the very start, after you reach him in Hyrule Castle's sewers.",
+   "what": "Your first sword (Lv1). Slash with the attack button; hold it down to charge a Spin Attack that hits all around you.",
+   "tip": "At full hearts your sword fires a beam across the screen — a free ranged attack. Keep your hearts topped up to use it."
+  },
+  {
+   "id": "master-sword",
+   "name": "Master Sword",
+   "glyph": "sword",
+   "from": "Pulled from the pedestal in the Lost Woods after you collect all 3 Pendants of Virtue (from the Eastern Palace, Desert Palace, and Tower of Hera).",
+   "what": "The legendary blade (Lv2), twice as strong as the Fighter's Sword. It can harm Ganon and is your key into the Dark World story.",
+   "tip": "You cannot draw it until all three Pendants are in hand — getting them is the whole first half of the game."
+  },
+  {
+   "id": "tempered-sword",
+   "name": "Tempered Sword",
+   "glyph": "sword",
+   "from": "Reunite the two dwarven blacksmiths: free the one trapped in the Dark World (a frog hiding behind dark rocks south of Kakariko) and lead him back to the Smithery east of Kakariko. The reunited smiths then temper your Master Sword for 10 rupees.",
+   "what": "An upgraded Master Sword (Lv3) that does even more damage. A pure power boost — same controls.",
+   "tip": "You must free the lost smith in the Dark World first; once both are back at the forge, they upgrade your blade cheaply."
+  },
+  {
+   "id": "golden-sword",
+   "name": "Golden Sword",
+   "glyph": "sword",
+   "from": "Take a Super Bomb to the Pyramid of Power and detonate it on the big crack to open the hidden fairy pond. Throw your sword into the pond and the Great Fairy returns it as the Golden Sword.",
+   "what": "The strongest sword (Lv4), dealing the most damage in the game. The blade you'll want for the final battle.",
+   "tip": "You need a Super Bomb (bought in the Dark World bomb shop) to open the pond — without it the fountain stays sealed."
+  },
+  {
+   "id": "fighters-shield",
+   "name": "Fighter's Shield",
+   "glyph": "shield",
+   "from": "Found early in Hyrule Castle / given near the start of your quest.",
+   "what": "A basic shield. Walk toward enemies to automatically block ordinary projectiles like arrows and rocks.",
+   "tip": "Like-Likes and some enemies can swallow your shield — get it back from them or buy a new one if it disappears."
+  },
+  {
+   "id": "red-shield",
+   "name": "Red Shield",
+   "glyph": "shield",
+   "from": "Bought for 500 rupees at the Dark World Shield Shop near the Village of Outcasts (or won by tossing your Fighter's Shield into the Waterfall of Wishing pond).",
+   "what": "A stronger shield that blocks fireballs in addition to normal projectiles.",
+   "tip": "A worthwhile upgrade before the Dark World dungeons, where fire-spitting enemies are common."
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "Big Chest in Turtle Rock (the 7th Dark World dungeon) — use the Cane of Somaria to make a platform across the gap to reach it.",
+   "what": "The best shield. It reflects laser beams (like Wall-eye lasers) back at enemies, on top of blocking everything the Red Shield does.",
+   "tip": "Great for Turtle Rock's laser hallways — though it's optional, not required to finish the dungeon or the game."
+  },
+  {
+   "id": "green-mail",
+   "name": "Green Mail (Green Tunic)",
+   "glyph": "armor",
+   "from": "Your starting outfit — worn from the very beginning of the game.",
+   "what": "Your default clothing. Offers no extra defense; it's the baseline all mail upgrades improve on.",
+   "tip": "You'll automatically swap to better-colored mail when you find it — no menu needed."
+  },
+  {
+   "id": "blue-mail",
+   "name": "Blue Mail",
+   "glyph": "armor",
+   "from": "Big Chest in the Ice Palace (the Dark World dungeon on the island in southern Lake Hylia).",
+   "what": "Armor upgrade that halves the damage you take compared to the Green Mail.",
+   "tip": "A big survivability boost for the back half of the game — grab it during the Ice Palace."
+  },
+  {
+   "id": "red-mail",
+   "name": "Red Mail",
+   "glyph": "armor",
+   "from": "Found in a Big-Key chest in Ganon's Tower (the final dungeon).",
+   "what": "The best armor, reducing damage to a quarter of normal. The strongest defense in the game.",
+   "tip": "It's late, but it makes the final climb and the Ganon fight far more forgiving — open every chest in Ganon's Tower."
+  },
+  {
+   "id": "bow-arrows",
+   "name": "Bow & Arrows",
+   "glyph": "bow",
+   "from": "Found in the Eastern Palace (the first dungeon).",
+   "what": "Fires arrows at range. Arrows draw from your arrow supply and are great for distant or flying enemies and hitting eye-switches.",
+   "tip": "The Eastern Palace boss (the Armos Knights) needs the Bow — the dungeon hands it to you just before you need it."
+  },
+  {
+   "id": "silver-arrows",
+   "name": "Silver Arrows",
+   "glyph": "bow",
+   "from": "Take a Super Bomb to the Pyramid of Power, blow open the crack to reveal the hidden fairy pond, then throw your Bow into the pond and the Great Fairy upgrades it to the Silver Arrows.",
+   "what": "Special arrows that are the ONLY thing able to finish off Ganon in his final form.",
+   "tip": "Don't waste them on regular enemies — you specifically need them to deal the killing blows to Ganon."
+  },
+  {
+   "id": "blue-boomerang",
+   "name": "Boomerang (Blue)",
+   "glyph": "leaf",
+   "from": "Found in a chest inside Hyrule Castle, in the rooms near where you rescue Princess Zelda.",
+   "what": "A throwing weapon that stuns most enemies and flies back to you, also grabbing distant items and hitting switches.",
+   "tip": "It rarely kills but it stuns — use it to freeze a tough enemy for a moment, then close in with your sword."
+  },
+  {
+   "id": "magical-boomerang",
+   "name": "Magical Boomerang (Red)",
+   "glyph": "leaf",
+   "from": "Throw the Blue Boomerang into the Waterfall of Wishing pond and the fairies upgrade it (you can also obtain a red one from a chest in the Village of Outcasts if you skipped the blue one).",
+   "what": "An upgraded boomerang that flies faster and farther than the blue one.",
+   "tip": "Toss your Blue Boomerang into the Waterfall of Wishing (north of Zora's Domain) to trade up."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "Big Chest in the Swamp Palace (a Dark World dungeon).",
+   "what": "Shoots a grappling hook that latches onto blocks/chests/torches and pulls you across gaps. Also stuns or hits enemies along its path and grabs distant items.",
+   "tip": "It crosses pits and water you otherwise couldn't — when a ledge looks unreachable, look for a post or chest to hook."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "Bought in shops, dropped by enemies, found in pots and chests, or dug up. You carry a bomb supply.",
+   "what": "Throw or drop a bomb to blow open cracked walls, stun/damage enemies, and reveal hidden passages.",
+   "tip": "Bomb suspicious cracked or oddly-colored walls — many secret rooms, rupees, and Heart Pieces hide behind them."
+  },
+  {
+   "id": "magic-hammer",
+   "name": "Magic Hammer (M. Hammer)",
+   "glyph": "sword",
+   "from": "Big Chest in the Palace of Darkness (the first Dark World dungeon).",
+   "what": "A giant hammer that pounds in those stubborn 'Hammer Pegs' blocking paths and smashes certain enemies (and the Helmasaur King's mask).",
+   "tip": "You need it to break the Helmasaur King's face armor — and to flatten the Moles guarding the Cane of Byrna cave."
+  },
+  {
+   "id": "fire-rod",
+   "name": "Fire Rod",
+   "glyph": "orb",
+   "from": "Big Chest in Skull Woods (a Dark World dungeon).",
+   "what": "Shoots a bolt of fire that burns enemies and lights torches. Uses magic power (your green magic meter).",
+   "tip": "Great against ice-themed and plant enemies; light dark-room torches with it instead of fumbling for the Lamp."
+  },
+  {
+   "id": "ice-rod",
+   "name": "Ice Rod",
+   "glyph": "cryonis",
+   "from": "In a cave east of Lake Hylia (Light World) — bomb the loose rocks beside the cave entrance to reveal it. Not in a dungeon.",
+   "what": "Fires a freezing beam that encases enemies in ice. Uses magic power.",
+   "tip": "Freeze an enemy solid, then hit it with your sword to shatter it — handy for crowds and certain bosses."
+  },
+  {
+   "id": "lamp",
+   "name": "Lamp",
+   "glyph": "orb",
+   "from": "Found in a chest in your house at the very start of the game.",
+   "what": "Lights up dark rooms and lets you light torches to open doors. Uses a little magic each time you light it.",
+   "tip": "In a pitch-black dungeon room, light the wall torches with the Lamp — it often unlocks the door or reveals the path."
+  },
+  {
+   "id": "bug-catching-net",
+   "name": "Bug-Catching Net",
+   "glyph": "leaf",
+   "from": "Lent by the sick Bug-Catching Kid in his house in east Kakariko Village — you must have at least one empty Bottle first.",
+   "what": "Catches bugs, bees, and fairies to put in Bottles. A bottled fairy is an emergency revive; bottled bees can help you fight. It can also swat away certain magic projectiles.",
+   "tip": "Net a fairy and store it in a Bottle — if you die, it pops out and revives you with several hearts."
+  },
+  {
+   "id": "book-of-mudora",
+   "name": "Book of Mudora",
+   "glyph": "book",
+   "from": "In the library south of Kakariko Village — dash into the bookshelf with the Pegasus Boots to knock it down, then grab it.",
+   "what": "Lets you read the ancient Hylian language on tablets and stone monuments — needed to open the Desert Palace and to read the medallion tablets.",
+   "tip": "You need the Pegasus Boots to shake it loose, and you need the Book to read the tablet that opens the Desert Palace."
+  },
+  {
+   "id": "cane-of-somaria",
+   "name": "Cane of Somaria",
+   "glyph": "orb",
+   "from": "Big Chest in Misery Mire (a Dark World dungeon).",
+   "what": "Conjures a red block you can push, ride as a platform, or detonate into projectiles. Some puzzles and the Mirror Shield chest in Turtle Rock require it.",
+   "tip": "Use it to make a stepping-stone over gaps and on switch puzzles — and to reach the Mirror Shield in Turtle Rock."
+  },
+  {
+   "id": "cane-of-byrna",
+   "name": "Cane of Byrna",
+   "glyph": "stasis",
+   "from": "A cave in the cliffs of western Death Mountain in the Dark World (south of Ganon's Tower) — drop down onto the ledge to reach the entrance.",
+   "what": "Surrounds you with a spinning ring of light that blocks all damage while active. Drains your magic power continuously.",
+   "tip": "It makes you briefly invincible — useful to cross spike floors or tank a tough attack, but watch your magic meter."
+  },
+  {
+   "id": "magic-cape",
+   "name": "Magic Cape",
+   "glyph": "stasis",
+   "from": "In a passage under a tombstone in the Light World Graveyard (near Kakariko) — dash into the tombstone with the Pegasus Boots to slide it back; you may need the Titan's Mitt (or the Magic Mirror) to reach the grave behind the dark rocks.",
+   "what": "Turns you invisible and intangible while worn, letting you pass through enemies, beams, and even spike floors unharmed. Drains magic.",
+   "tip": "Save it for spike-filled rooms or to slip past tough enemies; it sips magic, so don't leave it on the whole time."
+  },
+  {
+   "id": "magic-mirror",
+   "name": "Magic Mirror",
+   "glyph": "magnesis",
+   "from": "Given by the Lost Old Man on Death Mountain after you escort him from his cave to his cabin.",
+   "what": "Warps you from the Dark World back to the matching spot in the Light World — and sets a return portal to come back. The key to traveling between the two worlds.",
+   "tip": "Use it constantly: cross a Dark World obstacle, mirror to the Light World to reach a blocked Light World spot, then mirror back."
+  },
+  {
+   "id": "pegasus-boots",
+   "name": "Pegasus Boots",
+   "glyph": "stasis",
+   "from": "Given by the elder Sahasrahla after you clear the Eastern Palace and bring him the Pendant of Courage.",
+   "what": "Hold the dash button to charge, then sprint in a straight line. The dash can ram enemies, break certain walls/bushes, and shake items loose (like the Book of Mudora).",
+   "tip": "Dash into suspicious bushes, statues, and bookshelves — many secrets only appear when you ram them."
+  },
+  {
+   "id": "power-glove",
+   "name": "Power Glove",
+   "glyph": "champion",
+   "from": "Big-Key chest in the Desert Palace (the second dungeon).",
+   "what": "Lets you lift and throw light gray rocks that previously blocked your way, opening new paths.",
+   "tip": "Once you have it, go back and lift the gray rocks that blocked you earlier — including the one to reach King Zora for the Flippers."
+  },
+  {
+   "id": "titans-mitt",
+   "name": "Titan's Mitt",
+   "glyph": "champion",
+   "from": "Big Chest in Thieves' Town (a Dark World dungeon).",
+   "what": "Upgrades the Power Glove so you can lift the heavy DARK-colored rocks too, opening even more paths.",
+   "tip": "After getting it, revisit dark boulders you couldn't budge — several lead to caves, fairies, and the dwarven smiths."
+  },
+  {
+   "id": "flippers",
+   "name": "Zora's Flippers",
+   "glyph": "cryonis",
+   "from": "Bought from King Zora in the northeastern Light World for 500 rupees — reach his pond by lifting the rock blocking the path with the Power Glove.",
+   "what": "Let you swim in deep water instead of being pushed back. Opens up lakes, moats, and watery shortcuts.",
+   "tip": "Worth the 500 rupees — many Heart Pieces and a few caves are only reachable by swimming."
+  },
+  {
+   "id": "moon-pearl",
+   "name": "Moon Pearl",
+   "glyph": "gem",
+   "from": "Found in the Tower of Hera (the third pendant dungeon, atop Death Mountain).",
+   "what": "Keeps you in your normal human form in the Dark World instead of being turned into a helpless bunny. Required to function in the Dark World.",
+   "tip": "Without it the Dark World transforms you and you can't use items — so it's effectively your passport into the Dark World."
+  },
+  {
+   "id": "magic-bottle",
+   "name": "Magic Bottle (Empty Bottle)",
+   "glyph": "bag",
+   "from": "Four exist: bought for 100 rupees from a merchant in Kakariko, a chest in the Kakariko tavern, from the man under the bridge near Lake Hylia, and a chest in the Dark World Smithery (taken to the man near the Desert of Mystery to open).",
+   "what": "Storage jars that hold fairies, bees, or potions (red = health, blue = health+magic, green = magic). A fairy in a bottle auto-revives you on death.",
+   "tip": "Always keep at least one bottle holding a fairy as an emergency revive — it's the best safety net in the game."
+  },
+  {
+   "id": "magic-powder",
+   "name": "Magic Powder",
+   "glyph": "bag",
+   "from": "Take the Mushroom from the Lost Woods to the witch's hut (Magic Shop), leave and return, and her helper hands you the powder.",
+   "what": "Sprinkle it to transform certain enemies (Anti-Fairies become health fairies; Buzz Blobs become Cukemen) and to summon the Mad Batter for a magic-meter upgrade. Uses magic.",
+   "tip": "Pick the Mushroom in the Lost Woods early and take it to the witch — the powder is needed for a couple of specific spots."
+  },
+  {
+   "id": "shovel",
+   "name": "Shovel",
+   "glyph": "key",
+   "from": "Lent by the Flute Boy (now a creature in the Dark World's Haunted Grove) so you can dig up his buried Flute in the Light World.",
+   "what": "Dig in patches of soft ground to uncover buried rupees, Heart Pieces, and — most importantly — the Flute.",
+   "tip": "Dig in the northwest flowers of the Light World Haunted Grove to unearth the buried Flute."
+  },
+  {
+   "id": "flute",
+   "name": "Flute (Ocarina)",
+   "glyph": "leaf",
+   "from": "Dug up with the Shovel in the Light World Haunted Grove, then 'activated' by playing it at the weathervane in Kakariko's square, which releases the warp bird.",
+   "what": "Play it to summon a giant bird that flies you instantly to several warp spots across the Light World — fast travel. (It only works in the Light World.)",
+   "tip": "Once the bird is awakened, the Flute saves huge amounts of walking — set off to a far region in seconds."
+  },
+  {
+   "id": "bombos-medallion",
+   "name": "Bombos Medallion",
+   "glyph": "orb",
+   "from": "Stand on the marked spot on the Plains of Ruins in the Light World (reached by using the Magic Mirror from near Misery Mire in the Dark World) and read the monolith with the Book of Mudora. Optional, not required.",
+   "what": "Casts a screen-wide wave of fire that damages all enemies on screen. Uses a lot of magic.",
+   "tip": "A panic button for crowded rooms — but it drains your magic meter fast, so save it for emergencies."
+  },
+  {
+   "id": "ether-medallion",
+   "name": "Ether Medallion",
+   "glyph": "cryonis",
+   "from": "On a ledge/bridge northwest of the Tower of Hera on Death Mountain — read the tablet there with the Book of Mudora, then raise the Master Sword to claim it.",
+   "what": "Casts a screen-wide freezing blast that damages all enemies. Also required to clear the storm and open the entrance to Misery Mire.",
+   "tip": "You MUST cast Ether at the Misery Mire entrance to open that dungeon — it isn't just an attack."
+  },
+  {
+   "id": "quake-medallion",
+   "name": "Quake Medallion",
+   "glyph": "orb",
+   "from": "At the Lake of Ill Omen (Dark World) — throw a rock or item into the circle of stones to wake the Catfish, who gives you the medallion.",
+   "what": "Casts a screen-wide earthquake that damages all enemies. It's also required to open the entrance to Turtle Rock.",
+   "tip": "You MUST use Quake at the Turtle Rock entrance to open the dungeon — you can't get in without it."
+  },
+  {
+   "id": "piece-of-heart",
+   "name": "Piece of Heart",
+   "glyph": "heart",
+   "from": "Scattered all over both worlds — hidden in caves, dug up, won at minigames, behind bombable walls, and given as rewards. There are 24 in total.",
+   "what": "Collect 4 Pieces of Heart to gain one full new Heart Container, extending your maximum life.",
+   "tip": "Bomb cracked walls, dig odd-looking patches, and dash into things — most Pieces are tucked behind small secrets."
+  },
+  {
+   "id": "pendants-of-virtue",
+   "name": "Pendants of Virtue (×3)",
+   "glyph": "gem",
+   "from": "Pendant of Courage (Eastern Palace), Pendant of Power (Desert Palace), and Pendant of Wisdom (Tower of Hera) — one from each Light World dungeon.",
+   "what": "The three sacred pendants. Collecting all three lets you draw the Master Sword from its pedestal in the Lost Woods.",
+   "tip": "Getting these three is the goal of the whole first act — once you have them, head to the Lost Woods for the sword."
+  },
+  {
+   "id": "crystals",
+   "name": "Crystals (×7)",
+   "glyph": "gem",
+   "from": "One earned for clearing each of the 7 Dark World dungeons, by rescuing the Maiden sealed inside its boss room.",
+   "what": "Each crystal frees a captive Maiden. Collecting all seven breaks the barrier around Ganon's Tower so you can confront Ganon.",
+   "tip": "Each of the seven Dark World dungeons ends with a Maiden and her crystal — collect all seven to reach Ganon."
+  }
+ ]
+}

@@ -1,0 +1,151 @@
+{
+ "regions": [
+  {
+   "region": "The Trading Quest",
+   "quests": [
+    {
+     "name": "The Trading Quest (Yoshi Doll → Magnifying Lens)",
+     "giver": "Many islanders, in a fixed chain",
+     "location": "All across Koholint Island",
+     "reward": "Magnifying Lens (lets you read the library book and reach the Boomerang trade; needed to finish the game)",
+     "oneLine": "A long swap chain that loops the whole island and ends with the Magnifying Lens you need to finish the game.",
+     "how": "Win the Yoshi Doll at the Trendy Game crane in Mabe Village, then trade it forward in this exact order: 1) Yoshi Doll → Mamasha, the Quadruplets' mother in Mabe Village, for the Ribbon; 2) Ribbon → the small Chain Chomp (CiaoCiao) in the doghouse by BowWow for Dog Food; 3) Dog Food → Sale the crocodile at his banana-tree house on Toronbo Shores for Bananas; 4) Bananas → the monkey east of Kanalet Castle (it builds a bridge) for a Stick; 5) Stick → Tarin, staring at a beehive in the forest east of Mabe Village (available after you clear Key Cavern, the third dungeon), for the Honeycomb; 6) Honeycomb → the bear chef in the southeast house of Animal Village for a Pineapple; 7) Pineapple → Papahl, starving in a cave in Goponga Swamp (east of Bottle Grotto), for a Hibiscus; 8) Hibiscus → Christine, the goat woman in northeast Animal Village, for a Letter; 9) Letter → Mr. Write, the letter-writing hermit north of the Mysterious Forest, for a Broom. Then keep going: 10) Broom → Grandma Ulrira (the old woman by Ulrira's house in Mabe Village) for a Fishing Hook; 11) Fishing Hook → the Fisherman on his boat at Martha's Bay for a Necklace; 12) Necklace → Martha the Mermaid in the bay for a Scale; 13) place the Scale on the Mermaid Statue, which slides aside to reveal the Magnifying Lens. Many trades unlock only after you reach that part of the world, so just keep the chain moving as you explore."
+    }
+   ]
+  },
+  {
+   "region": "Secret Seashells & the Sword",
+   "quests": [
+    {
+     "name": "Collect the Secret Seashells",
+     "location": "Hidden all over Koholint (dug up, cut from bushes, under rocks, won in games)",
+     "reward": "Progress toward the Seashell Mansion sword upgrade",
+     "oneLine": "Scattered shells are the island's main collectible — gather enough to claim a stronger sword.",
+     "how": "Seashells hide everywhere: slash bushes and tall grass, lift or bomb rocks, dig with the Shovel on suspicious patches, and check minigame prizes. There are 26 in the Game Boy and DX versions, and 50 in the Switch remake. Some need later items (Power Bracelet, Flippers, Pegasus Boots, Hookshot) to reach, so it's fine to backtrack once you're stronger."
+    },
+    {
+     "name": "Seashell Mansion — the upgraded sword",
+     "giver": "Seashell Mansion",
+     "location": "Ukuku Prairie, east of Mabe Village near Kanalet Castle",
+     "reward": "L-2 Sword (the Koholint Sword in the Switch remake), which deals double damage",
+     "oneLine": "Turn in enough Secret Seashells at the Seashell Mansion to upgrade your sword.",
+     "how": "Bring your shells to the Seashell Mansion. Reach 20 shells (Game Boy / DX) or 40 shells (Switch) and the mansion drops the upgraded sword (the L-2 Sword; called the Koholint Sword in the remake), which hits twice as hard. In the Game Boy versions the mansion also hands out a bonus shell at 5 and again at 10, so it's worth dropping in early."
+    }
+   ]
+  },
+  {
+   "region": "Minigames",
+   "quests": [
+    {
+     "name": "Trendy Game (crane)",
+     "giver": "Trendy Gamester",
+     "location": "Southeastern Mabe Village",
+     "reward": "Yoshi Doll (starts the Trading Quest), plus rupees/Magic Powder/Shield/Heart (and a Piece of Heart in the Switch remake)",
+     "oneLine": "A 10-rupee claw-crane game whose center prize, the Yoshi Doll, kicks off the entire trading chain.",
+     "how": "Pay 10 rupees and steer the crane over a prize on the conveyor, then drop the claw. Line up early — the claw drifts in the direction it's moving, so release a hair before the item. Snag the Yoshi Doll sitting off the belt in the middle to begin the Trading Quest; the game also gives out rupees, Magic Powder, a Shield, or a Heart, and the Switch remake adds a Piece of Heart (and collectible figures)."
+    },
+    {
+     "name": "Fishing Pond",
+     "giver": "Fisherman",
+     "location": "Northwest corner of Mabe Village",
+     "reward": "A Piece of Heart, plus rupees per fish",
+     "oneLine": "Pay to fish a small pond; catching the big fish earns a Piece of Heart.",
+     "how": "Pay 10 rupees, dangle the line, and reel the opposite way the fish pulls. Small fish pay a few rupees; the big 'lunkers' pay more. Land your first lunker to get a Piece of Heart. The Switch remake adds more fish and rewards an extra Piece of Heart for landing a large enough catch."
+    },
+    {
+     "name": "Rapids Ride (raft course) — Switch remake",
+     "giver": "Raft Shop owner",
+     "location": "Raft Shop near the Tal Tal Heights warp",
+     "reward": "Two Pieces of Heart",
+     "oneLine": "A whitewater raft course you rent into — one Piece of Heart is hidden on the route, another for a fast time.",
+     "how": "This fully fleshed-out ride is the Switch remake's version (the original Game Boy / DX raft section is much simpler). Rent the raft to start the downhill run. One Piece of Heart sits on a small island you reach by hugging the route's edge and Hookshotting across; another is awarded for a fast finish, where well-aimed Hookshot grabs speed you up."
+    }
+   ]
+  },
+  {
+   "region": "Songs & Companions",
+   "quests": [
+    {
+     "name": "Learn the Ballad of the Wind Fish",
+     "giver": "Marin",
+     "location": "Mabe Village square (or Animal Village later), once you have the Ocarina",
+     "reward": "Ballad of the Wind Fish",
+     "oneLine": "Marin teaches you the island's signature song once you have the Ocarina.",
+     "how": "Find the Ocarina, then talk to Marin (by the Mabe Village square, or in Animal Village later) and she teaches you the Ballad of the Wind Fish. You'll need it to wake the sleeping Walrus and, ultimately, to open the Wind Fish's Egg after you collect all eight Instruments of the Sirens."
+    },
+    {
+     "name": "Marin and the Walrus",
+     "giver": "Marin / the Walrus",
+     "location": "South of Animal Village (path to Yarna Desert)",
+     "reward": "Opens the path to Yarna Desert",
+     "oneLine": "Bring Marin to the lazy Walrus so she can sing it awake and clear the road to the desert.",
+     "how": "A Walrus snoozes across the path south of Animal Village. Talk to Marin in Animal Village so she follows you, lead her to the Walrus, and she sings the Ballad of the Wind Fish. The Walrus dances awake and flops into the water, opening the way to Yarna Desert. Afterward Marin stays in the Animal Village square singing to the animals."
+    },
+    {
+     "name": "Learn Manbo's Mambo & the Frog's Song of Soul",
+     "giver": "Manbo the fish / Mamu the frog",
+     "location": "Manbo: pond near Yarna Desert (after the Flippers). Mamu: the Signpost Maze south of Animal Village (after the Hookshot)",
+     "reward": "Two ocarina songs (warp-to-water; revive/awaken)",
+     "oneLine": "Two optional ocarina tunes round out your three songs.",
+     "how": "After the Flippers (from Angler's Tunnel) swim to Manbo in his pond and he teaches Manbo's Mambo, which warps you to a watery spot. After the Hookshot (from Catfish's Maw), solve the Signpost Maze puzzle and visit Mamu's frog choir — he charges 300 rupees to perform the Frog's Song of Soul, which revives or awakens things. The Frog's Song is what brings the stone Rooster back to life, and later wakes the head of Turtle Rock so you can fight it open as the eighth dungeon."
+    },
+    {
+     "name": "Rescue BowWow",
+     "giver": "Madam MeowMeow",
+     "location": "Moblin Cave, off Koholint Prairie",
+     "reward": "BowWow as a temporary companion (eats Goponga Flowers to open Bottle Grotto)",
+     "oneLine": "Madam MeowMeow's chain-chomp 'dog' BowWow is kidnapped by Moblins — go get it back.",
+     "how": "After Tail Cave, you learn BowWow was snatched by Moblins. Use Roc's Feather to cross the pits into the Moblin Cave. Inside, raise your shield against the sword-Moblins to push them back, then strike; clear the rooms and free BowWow at the back. Walk BowWow to Goponga Swamp, where it chomps through the flowers blocking the way to Bottle Grotto, the second dungeon."
+    }
+   ]
+  },
+  {
+   "region": "Collectibles & Heart Pieces",
+   "quests": [
+    {
+     "name": "Pieces of Heart",
+     "location": "All over Koholint (caves, minigames, hidden ledges, gifts)",
+     "reward": "Every 4 pieces = one full extra Heart Container",
+     "oneLine": "Quarter-heart pickups scattered across the island add up to extra life.",
+     "how": "Collect Pieces of Heart wherever they hide — minigame prizes (Trendy Game, Fishing Pond, Rapids Ride), out-of-the-way cave chests, ledges reached with the Hookshot or Roc's Feather, and a few given by characters. Four pieces complete one new Heart Container. Tools like the Power Bracelet, Pegasus Boots, and Flippers unlock several, so revisit once you have them."
+    },
+    {
+     "name": "The Stone Rooster",
+     "giver": "(awakened with the Frog's Song of Soul)",
+     "location": "In a cave under the Mabe Village weather vane",
+     "reward": "The Flying Rooster lifts you over gaps and opens the Tal Tal Mountain Range route",
+     "oneLine": "Revive the stone rooster to gain a flying lift up into the northeastern mountains.",
+     "how": "Once you've learned the Frog's Song of Soul, play it beside the remains in the cave under the Mabe Village weather vane. The blue Flying Rooster comes to life and follows you; grab it to be carried over pits and across gaps. Its main purpose is to reach the upper Tal Tal Mountain Range and Eagle's Tower, the sixth dungeon. (The original Game Boy version has no Rooster — it was added in DX and kept in later versions.)"
+    },
+    {
+     "name": "The Ghost's last request",
+     "giver": "The Ghost (Nakura)",
+     "location": "Joins you after Angler's Tunnel; House by the Bay near Toronbo Shores; then its grave by the Cemetery",
+     "reward": "A Secret Seashell (and, in the Switch remake, a Fairy Bottle)",
+     "oneLine": "A wandering ghost asks to be taken home and then to its grave to rest.",
+     "how": "After Angler's Tunnel (the fifth dungeon) a ghost starts following you. First lead it to its old House by the Bay near Toronbo Shores, then escort it to its grave by the Cemetery so it can rest. A Secret Seashell waits under a jar inside the house; in the Switch remake the ghost also gives you a Fairy Bottle."
+    }
+   ]
+  },
+  {
+   "region": "DX / Switch extras",
+   "quests": [
+    {
+     "name": "Color Dungeon (DX / Switch)",
+     "location": "Cemetery (revealed under tombstones)",
+     "reward": "The Red Mail (more attack) or Blue Mail (more defense)",
+     "oneLine": "A bonus color-themed dungeon added in DX that grants a power-up tunic.",
+     "how": "This dungeon doesn't exist in the original 1993 Game Boy release — it was added in the DX remake and kept on Switch. Read the hint about the tombstone order (in DX, dash into the library bookshelves with the Pegasus Boots until a book drops), then push the tombstones in the Cemetery in the right order to open the entrance. Beat the boss and the Fairy Queen lets you choose the Red Mail (more attack) or Blue Mail (more defense) — re-clear the dungeon to switch."
+    },
+    {
+     "name": "Photographer's album — 'The Travels of Link' (DX)",
+     "giver": "The Photographer (a mouse)",
+     "location": "Photo Shop, Mabe Village area (photos taken across the island)",
+     "reward": "Up to 12 commemorative photos in an album",
+     "oneLine": "A DX-only collectible: a roving photographer snaps 12 pictures of your adventure.",
+     "how": "This is a DX/Switch-only extra (not in the 1993 Game Boy game). The Photographer pops up at set moments and places to take a picture — for example walking to the cliff edge with Marin, or returning to the ghost's grave after laying it to rest. Several photos are time- or event-specific and can be permanently missed, so trigger them when prompted; all 12 collect into 'The Travels of Link' album you can view at the Photo Shop."
+    }
+   ]
+  }
+ ]
+}
