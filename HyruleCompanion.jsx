@@ -602,12 +602,103 @@ export default function HyruleCompanion() {
   if (!gloaded) return null;
   return <HyruleGame key={game} game={game} setGame={setGame} games={GAMES} />;
 }
-function GamePicker({ games, game, setGame }) {
-  const ids = Object.keys(games);
-  if (ids.length < 2) return null;
+/* Original-SVG game emblems for the shelf (re-drawn geometry — no Nintendo assets; ADR 0003). */
+function GameCover({ kind, accent }) {
+  const a = accent || "var(--cyan)";
+  const motif = ({
+    slate: (<><rect x="20" y="13" width="24" height="48" rx="6" fill="none" stroke={a} strokeWidth="2.4" /><circle cx="32" cy="34" r="8" fill="none" stroke={a} strokeWidth="2.4" /><circle cx="32" cy="34" r="2.4" fill={a} /><path d="M32 42 L32 53" stroke={a} strokeWidth="2.4" /><path d="M27 48 L37 48" stroke={a} strokeWidth="2.4" /></>),
+    tears: (<><path d="M32 12 C41 30 47 39 47 47 a15 15 0 1 1 -30 0 C17 39 23 30 32 12 Z" fill="none" stroke={a} strokeWidth="2.4" /><circle cx="32" cy="47" r="4.5" fill={a} /></>),
+    ocarina: (<><ellipse cx="29" cy="42" rx="18" ry="12" fill="none" stroke={a} strokeWidth="2.4" /><circle cx="22" cy="42" r="2" fill={a} /><circle cx="29" cy="40" r="2" fill={a} /><circle cx="36" cy="42" r="2" fill={a} /><path d="M46 37 q9 -3 7 -13" fill="none" stroke={a} strokeWidth="2.4" /></>),
+    moon: (<><circle cx="32" cy="37" r="19" fill="none" stroke={a} strokeWidth="2.4" /><path d="M24 31 q3.5 5 0 10 M40 31 q-3.5 5 0 10" stroke={a} strokeWidth="2.4" fill="none" /><path d="M24 49 q8 6 16 0" stroke={a} strokeWidth="2.4" fill="none" /></>),
+    triforce: (<><path d="M32 13 L41 30 L23 30 Z" fill="none" stroke={a} strokeWidth="2.4" /><path d="M23 31 L32 48 L14 48 Z" fill="none" stroke={a} strokeWidth="2.4" /><path d="M41 31 L50 48 L32 48 Z" fill="none" stroke={a} strokeWidth="2.4" /></>),
+    windfish: (<><path d="M12 52 q20 -34 40 0 Z" fill="none" stroke={a} strokeWidth="2.4" /><ellipse cx="32" cy="40" rx="9.5" ry="12" fill="none" stroke={a} strokeWidth="2.4" /><path d="M28 38 q4 -3 8 0" stroke={a} strokeWidth="2" fill="none" /></>),
+  })[kind] || <circle cx="32" cy="37" r="15" fill="none" stroke={a} strokeWidth="2.4" />;
+  return (<svg viewBox="0 0 64 72" width="100%" height="100%" aria-hidden>{motif}</svg>);
+}
+
+/* The Status-tab "Now playing" banner — taps open the game shelf. */
+function GameSwitchTrigger({ G, onOpen }) {
+  const m = G.meta || {};
   return (
-    <div className="game-picker">
-      {ids.map((id) => (<button key={id} className={"game-pill" + (id === game ? " game-pill-on" : "")} onClick={() => setGame(id)}>{games[id].short}</button>))}
+    <button className="game-now" onClick={onOpen} style={{ "--ga": m.accent || "var(--cyan)", "--gb": m.accent2 || "#16323a" }}>
+      <span className="game-now-cover"><GameCover kind={m.cover} accent={m.accent} /></span>
+      <span className="game-now-body">
+        <span className="game-now-k">Now playing</span>
+        <span className="game-now-title">{G.label}</span>
+        <span className="game-now-sub">{m.consoleShort || ""}{m.year ? " · " + m.year : ""}</span>
+      </span>
+      <span className="game-now-switch">Switch game ›</span>
+    </button>
+  );
+}
+
+/* The console/era game-select shelf — a full-screen overlay (portaled to body). Groups the games
+   by console (consoleRank order), each a rich card with cover art + that game's saved progress %
+   (read straight from <id>:progress, since only the active game lives in component state). */
+function GameShelf({ games, game, setGame, onClose }) {
+  const [prog, setProg] = useState({});
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const out = {};
+      for (const id of Object.keys(games)) {
+        let p = {};
+        try { const raw = await store.get(id + ":progress"); if (raw) p = JSON.parse(raw); } catch (e) {}
+        let total = 0, done = 0;
+        for (const reg of games[id].REGIONS || []) for (const sec of reg.sections || []) for (const st of sec.steps || [])
+          if (CHECKABLE.has(st.k)) { total++; if (p[st.id]) done++; }
+        out[id] = { total, done, pct: total ? Math.round((done / total) * 100) : 0 };
+      }
+      if (!cancelled) setProg(out);
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  const groups = [];
+  for (const id of Object.keys(games)) {
+    const m = games[id].meta || {};
+    const key = m.console || "Other";
+    let grp = groups.find((g) => g.key === key);
+    if (!grp) { grp = { key, rank: m.consoleRank ?? 99, items: [] }; groups.push(grp); }
+    grp.items.push(id);
+  }
+  groups.sort((a, b) => a.rank - b.rank);
+  groups.forEach((g) => g.items.sort((a, b) => (games[a].meta?.year || 0) - (games[b].meta?.year || 0)));
+
+  return portal(
+    <div className="shelf-overlay" onClick={onClose}>
+      <div className="shelf" onClick={(e) => e.stopPropagation()}>
+        <div className="shelf-bar">
+          <span className="shelf-title">Choose your adventure</span>
+          <button className="shelf-x" onClick={onClose} aria-label="Close">✕</button>
+        </div>
+        <div className="shelf-scroll">
+          {groups.map((grp) => (
+            <div className="shelf-group" key={grp.key}>
+              <div className="shelf-group-h">{grp.key}</div>
+              <div className="shelf-cards">
+                {grp.items.map((id) => {
+                  const g = games[id]; const m = g.meta || {}; const pr = prog[id] || { pct: 0, done: 0, total: 0 };
+                  const on = id === game;
+                  return (
+                    <button key={id} className={"shelf-card" + (on ? " shelf-card-on" : "")}
+                      style={{ "--ga": m.accent || "var(--cyan)", "--gb": m.accent2 || "#16323a" }}
+                      onClick={() => { setGame(id); onClose(); }}>
+                      <span className="shelf-cover"><GameCover kind={m.cover} accent={m.accent} /></span>
+                      <span className="shelf-card-body">
+                        <span className="shelf-card-title">{g.label}</span>
+                        <span className="shelf-card-sub">{m.consoleShort || grp.key}{m.year ? " · " + m.year : ""}</span>
+                        <span className="shelf-card-bar"><span style={{ width: Math.max(3, pr.pct) + "%" }} /></span>
+                        <span className="shelf-card-pct">{on ? "▶ Now playing · " : ""}{pr.pct}% · {pr.done}/{pr.total}</span>
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -641,6 +732,7 @@ function HyruleGame({ game, setGame, games }) {
   const [userBooks, setUserBooks] = useState([]);    // v12: imported on-device books index (hyrule:books); page blobs live in IndexedDB
   const [bookBusy, setBookBusy] = useState(null);    // v12: import status {name,done,total} | {name,error}
   const [searchOpen, setSearchOpen] = useState(false);
+  const [shelfOpen, setShelfOpen] = useState(false); // game-select shelf overlay (console/era)
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
@@ -936,11 +1028,14 @@ function HyruleGame({ game, setGame, games }) {
           <div><div className="kicker">Sheikah Slate · Adventure Log</div><h1 className="title">Hyrule Companion</h1></div>
         </div>
         <div className="topbar-r">
+          {Object.keys(games).length > 1 && <button className="game-switch" onClick={() => setShelfOpen(true)} aria-label="Switch game" style={{ "--ga": G.meta?.accent || "var(--cyan)" }}><span className="game-switch-dot" /><span>{G.short}</span><span className="game-switch-chev">▾</span></button>}
           {resumeTarget && <button className="resume-trigger" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)} aria-label={"Resume — you're here: " + resumeTarget.secName}><Glyph name="pin" size={15} /><span>Resume</span></button>}
           <button className="search-trigger" onClick={() => { setSearchOpen(true); }} aria-label="Search everything"><Glyph name="search" size={18} /></button>
           <div className="region-chip">{pct}%</div>
         </div>
       </header>
+
+      {shelfOpen && <GameShelf games={games} game={game} setGame={setGame} onClose={() => setShelfOpen(false)} />}
 
       {searchOpen && (
         <SearchOverlay query={gquery} setQuery={setGquery} onClose={() => setSearchOpen(false)}
@@ -957,7 +1052,7 @@ function HyruleGame({ game, setGame, games }) {
       <main className="body" key={tab}>
         {!loaded ? (<div className="loading">Syncing the Slate…</div>) : tab === "status" ? (
           <div className="status">
-            <GamePicker games={games} game={game} setGame={setGame} />
+            {Object.keys(games).length > 1 && <GameSwitchTrigger G={G} onOpen={() => setShelfOpen(true)} />}
             <div className="hero">
               <div className="hero-ring" style={{ background: `conic-gradient(var(--cyan) ${pct * 3.6}deg, rgba(255,255,255,0.07) 0deg)` }}>
                 <div className="hero-ring-in"><span className="hero-pct">{pct}%</span><span className="hero-pct-l">Overall</span></div>
@@ -2824,9 +2919,36 @@ function StyleBlock() {
 .toggle-on{background:rgba(95,214,226,0.22);border-color:rgba(95,214,226,0.55);}
 .toggle-on .toggle-knob{transform:translateX(19px);background:var(--cyan);}
 .spoiler-hint{font-family:'Inter',sans-serif;font-size:13px;color:var(--cyan-dim);background:rgba(95,214,226,0.07);border:1px dashed rgba(95,214,226,0.35);border-radius:7px;padding:1px 9px;margin-left:6px;cursor:pointer;letter-spacing:.2px;}
-.game-picker{display:flex;gap:7px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:13px;padding:5px;margin:0 0 16px;}
-.game-pill{flex:1;font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:14px;color:var(--parch-dim);background:none;border:none;border-radius:9px;padding:9px 8px;cursor:pointer;letter-spacing:.3px;}
-.game-pill-on{color:var(--abyss);background:linear-gradient(180deg,var(--cyan),var(--cyan-dim));box-shadow:0 2px 10px rgba(95,214,226,0.25);}
+/* --- game shelf (console/era game-select) --- */
+.game-switch{display:inline-flex;align-items:center;gap:6px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;letter-spacing:.5px;color:var(--parch);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);border-radius:999px;padding:5px 10px 5px 9px;cursor:pointer;}
+.game-switch-dot{width:8px;height:8px;border-radius:50%;background:var(--ga,var(--cyan));box-shadow:0 0 6px var(--ga,var(--cyan));}
+.game-switch-chev{font-size:9px;color:var(--parch-dim);margin-left:-1px;}
+.game-now{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:linear-gradient(120deg,var(--gb,#16323a),#0c181c 78%);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:10px 13px;margin:0 0 16px;cursor:pointer;}
+.game-now-cover{width:40px;height:50px;flex:none;display:flex;align-items:center;justify-content:center;}
+.game-now-body{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0;}
+.game-now-k{font-family:'Rajdhani',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ga,var(--cyan));}
+.game-now-title{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:15px;color:var(--parch);line-height:1.1;}
+.game-now-sub{font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.5px;color:var(--parch-dim);}
+.game-now-switch{font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.5px;color:var(--parch-dim);white-space:nowrap;align-self:center;}
+.shelf-overlay{position:fixed;inset:0;z-index:60;background:rgba(5,12,15,0.88);backdrop-filter:blur(7px);display:flex;flex-direction:column;animation:fadeIn .2s ease;}
+.shelf{margin:0 auto;width:100%;max-width:560px;max-height:100%;display:flex;flex-direction:column;}
+.shelf-bar{display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 12px;flex:none;}
+.shelf-title{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:17px;color:var(--parch);letter-spacing:.5px;}
+.shelf-x{font-size:17px;color:var(--parch-dim);background:none;border:none;cursor:pointer;padding:6px 8px;line-height:1;}
+.shelf-scroll{overflow-y:auto;padding:4px 16px calc(28px + env(safe-area-inset-bottom,0px));}
+.shelf-group{margin-bottom:20px;}
+.shelf-group-h{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--parch-dim);margin:0 0 10px 2px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px;}
+.shelf-cards{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.shelf-card{display:flex;flex-direction:column;text-align:left;background:#0e1d22;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:0;overflow:hidden;cursor:pointer;}
+.shelf-card-on{border-color:var(--ga,var(--cyan));box-shadow:0 0 0 1px var(--ga,var(--cyan)),0 6px 18px rgba(0,0,0,0.45);}
+.shelf-cover{height:72px;display:flex;align-items:center;justify-content:center;padding:9px;background:radial-gradient(circle at 50% 40%,var(--gb,#16323a),transparent 72%);}
+.shelf-cover svg{width:46px;height:58px;}
+.shelf-card-body{padding:9px 11px 11px;display:flex;flex-direction:column;gap:3px;}
+.shelf-card-title{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:12.5px;line-height:1.18;color:var(--parch);}
+.shelf-card-sub{font-family:'Rajdhani',sans-serif;font-size:10.5px;letter-spacing:.5px;color:var(--parch-dim);}
+.shelf-card-bar{display:block;height:4px;border-radius:2px;background:rgba(255,255,255,0.1);overflow:hidden;margin-top:5px;}
+.shelf-card-bar>span{display:block;height:100%;background:var(--ga,var(--cyan));border-radius:2px;}
+.shelf-card-pct{font-family:'Rajdhani',sans-serif;font-size:9.5px;letter-spacing:.4px;color:var(--ga,var(--cyan));}
 /* --- v10: cooking tool (pot simulator, guardrails, goal finder, cookbook) --- */
 .pot-slots{display:flex;gap:6px;margin:2px 0 12px;}
 .pot-slot{flex:1;min-width:0;height:58px;border-radius:12px;border:1.5px dashed rgba(95,214,226,0.25);background:rgba(95,214,226,0.03);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;padding:4px;position:relative;transition:all .2s;}
@@ -2894,7 +3016,7 @@ function StyleBlock() {
 @keyframes stepsIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
 .body{animation:fadeIn .24s ease;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}} /* opacity-only: a transform here would become the containing block for the fixed readers (.bk-reader/.lore-reader) and break them */
-.reg-row:active,.regchip:active,.seg-btn:active,.tab:active,.item:active,.big-link:active,.hero-cont:active,.resume-trigger:active,.search-trigger:active,.game-pill:active,.card-head:active,.srch-item:active,.set-row:active{transform:scale(.975);}
+.reg-row:active,.regchip:active,.seg-btn:active,.tab:active,.item:active,.big-link:active,.hero-cont:active,.resume-trigger:active,.search-trigger:active,.game-switch:active,.game-now:active,.shelf-card:active,.card-head:active,.srch-item:active,.set-row:active{transform:scale(.975);}
 .step-hl{animation:stephl 2.2s ease;border-radius:10px;}
 @keyframes stephl{0%,100%{background:transparent;}14%{background:rgba(240,144,42,0.17);}55%{background:rgba(240,144,42,0.10);}}
 /* Resume — "you're here" (topbar + hero) */
@@ -23720,7 +23842,17 @@ const TOTK = {
    "y": 264,
    "n": "Lightning"
   }
- ]
+ ],
+ "meta": {
+  "console": "Nintendo Switch",
+  "consoleShort": "Switch",
+  "consoleRank": 0,
+  "year": 2023,
+  "era": "Era of the Wilds",
+  "accent": "#9bd16a",
+  "accent2": "#23341a",
+  "cover": "tears"
+ }
 };
 const OOT = {
  "id": "oot",
@@ -27475,7 +27607,17 @@ const OOT = {
    "Settings"
   ]
  ],
- "postRegionId": "oot_ganon"
+ "postRegionId": "oot_ganon",
+ "meta": {
+  "console": "Nintendo 64",
+  "consoleShort": "N64",
+  "consoleRank": 1,
+  "year": 1998,
+  "era": "Era of the Hero of Time",
+  "accent": "#e3c34a",
+  "accent2": "#352c12",
+  "cover": "ocarina"
+ }
 };
 const MM = {
  "id": "mm",
@@ -30756,7 +30898,17 @@ const MM = {
    "Settings"
   ]
  ],
- "postRegionId": "mm_moon"
+ "postRegionId": "mm_moon",
+ "meta": {
+  "console": "Nintendo 64",
+  "consoleShort": "N64",
+  "consoleRank": 1,
+  "year": 2000,
+  "era": "Era of the Hero of Time",
+  "accent": "#b07be0",
+  "accent2": "#2c1d3e",
+  "cover": "moon"
+ }
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM };
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM };
 /* GEN:DATA:END */
