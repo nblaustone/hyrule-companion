@@ -2358,13 +2358,18 @@ function CompendiumView({ data }) {
   const [activeCat, setActiveCat] = useState("all");
   const [open, setOpen] = useState(null);
   const items = data || [];
+  // Columns auto-hide when empty, so listing every game's categories here is safe (BotW/OoT/MM are
+  // unaffected by the classic-game cats sword/song/key). Order = display order.
   const COLS = [
     { id: "weapon", name: "Weapons", glyph: "sword" },
+    { id: "sword", name: "Swords", glyph: "sword" },
     { id: "bow", name: "Bows", glyph: "bow" },
     { id: "shield", name: "Shields", glyph: "shield" },
     { id: "armor", name: "Armor", glyph: "armor" },
     { id: "item", name: "Items", glyph: "bag" },
+    { id: "song", name: "Songs", glyph: "stasis" },
     { id: "mask", name: "Masks", glyph: "mask" },
+    { id: "key", name: "Key Items", glyph: "key" },
     { id: "material", name: "Materials", glyph: "gem" },
     { id: "creature", name: "Creatures", glyph: "leaf" },
   ];
@@ -2405,7 +2410,7 @@ function CompendiumView({ data }) {
                   <div className="comp-badges">
                     {Number.isFinite(it.power) && <span className="comp-badge">{sn} {it.power}</span>}
                     {Number.isFinite(it.durability) && <span className="comp-badge">Durability {it.durability}</span>}
-                    {["material", "creature", "item", "mask"].includes(c.id) && it.type && <span className="comp-badge">{it.type}</span>}
+                    {it.type && !Number.isFinite(it.power) && <span className="comp-badge">{it.type}</span>}
                     {Number.isFinite(it.sell) && <span className="comp-badge">Sell {it.sell}</span>}
                     {it.set && it.set !== "standalone" && <span className="comp-badge comp-badge-set">{it.set}</span>}
                   </div>
@@ -32934,7 +32939,337 @@ const ALTTP = {
   "fairies": []
  },
  "ECONOMY": null,
- "COMPENDIUM": [],
+ "COMPENDIUM": [
+  {
+   "name": "Fighter's Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Link's starting blade and the weakest sword (1 damage per hit). Like every sword in the game, it fires a sword beam across the screen when Link is at full health. It pairs with the Fighter's Shield as your basic loadout.",
+   "where": "Given to you near the start: Link's Uncle hands it (and the Fighter's Shield) to you in the secret passage beneath Hyrule Castle, right after you find him wounded."
+  },
+  {
+   "name": "Master Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The legendary blade, twice as strong as the Fighter's Sword (2 damage). It harms enemies the Fighter's Sword can't and is the key that lets Link travel between the Light and Dark Worlds. Like all swords it shoots a beam at full health.",
+   "where": "Pull it from the Pedestal of Time deep in the Lost Woods. The pedestal only releases it once you've collected all three Pendants of Virtue — Courage from the Eastern Palace (Armos Knights), Power from the Desert Palace (Lanmolas), and Wisdom from the Tower of Hera (Moldorm)."
+  },
+  {
+   "name": "Tempered Sword",
+   "cat": "sword",
+   "type": "Sword (upgrade)",
+   "effect": "The first Master Sword upgrade — double the Master Sword's power (4 damage). Functions identically otherwise (sword beam at full health).",
+   "where": "First free the Cursed Dwarven Swordsmith: in the Dark World, use the Titan's Mitt to lift the rock trapping him south of the Village of Outcasts, then talk to him so he follows you. Return to the Light World and lead him to the smithy near Kakariko Village to reunite the two blacksmith brothers. Leave and come back, and they'll temper your sword for 10 Rupees."
+  },
+  {
+   "name": "Golden Sword",
+   "cat": "sword",
+   "type": "Sword (upgrade)",
+   "effect": "The strongest sword in the game — twice the Tempered Sword's power (8 damage), four times the Master Sword's. Not required to beat the game, but it makes every fight far faster.",
+   "where": "After earning the 5th and 6th Crystals (Ice Palace + Misery Mire) and rescuing the blacksmith, buy a Super Bomb (100 Rupees) from the Bomb Shop in the Dark World (where Link's House stands in the Light World). Walk it to the cracked wall of the Pyramid of Power and detonate it there. Inside the opened fairy pond, the fairy upgrades your Tempered Sword to the Golden Sword."
+  },
+  {
+   "name": "Fighter's Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "Your starting shield. Blocks ordinary enemy projectiles (arrows, rocks, spears) when you face the source, but cannot stop fireballs. Some enemies (notably Like Likes) can eat it, so guard it carefully.",
+   "where": "Given to you alongside the Fighter's Sword by Link's Uncle in the passage beneath Hyrule Castle at the start of the game."
+  },
+  {
+   "name": "Red Shield",
+   "cat": "shield",
+   "type": "Shield (upgrade)",
+   "effect": "An upgraded shield (sometimes called the \"Fire Shield\") that does everything the Fighter's Shield does AND blocks weak fireballs, such as those spat by River Zoras. It can still be eaten by certain enemies.",
+   "where": "Buy it for 500 Rupees at the hidden Dark World Shield Shop east of the Village of Outcasts — the shop is fenced in, so you must hop a maze of fences to reach it. (The GBA remake lowered the price to 70 Rupees.) Alternatively, throw your current shield into the Waterfall of Wishing pond and answer the Great Fairy honestly to receive a Red Shield."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield (upgrade)",
+   "effect": "The best shield in the game. It does everything the Red Shield does and also reflects beam/energy attacks — including Laser Eyes and Wizzrobe blasts. (It does NOT stop a Beamos beam.) It can still be stolen by shield-eating enemies.",
+   "where": "Found in the Big Chest inside Turtle Rock, the Dark World's seventh dungeon in the Death Mountain region. You'll need it to survive that dungeon's laser-heavy rooms."
+  },
+  {
+   "name": "Green Mail",
+   "cat": "armor",
+   "type": "Tunic",
+   "effect": "Link's default green tunic. It provides no damage reduction — it's simply the baseline. Every hit deals full damage while you wear it.",
+   "where": "Worn from the very beginning of the game; you start with it. It's replaced automatically when you pick up the Blue or Red Mail."
+  },
+  {
+   "name": "Blue Mail",
+   "cat": "armor",
+   "type": "Tunic (upgrade)",
+   "effect": "A blue tunic that halves all damage Link takes (you lose half a heart where you'd normally lose a full one). A major survivability boost for the back half of the game.",
+   "where": "Found in a chest on an upper floor of the Ice Palace, the Dark World dungeon on the southeastern island near Lake Hylia."
+  },
+  {
+   "name": "Red Mail",
+   "cat": "armor",
+   "type": "Tunic (upgrade)",
+   "effect": "The strongest armor, a red tunic that reduces incoming damage to one quarter of normal — half again as protective as the Blue Mail. Essential for the brutal final stretch.",
+   "where": "Found in a chest on the first floor of Ganon's Tower, the Dark World's final dungeon atop Death Mountain (accessible only after collecting all seven Crystals)."
+  },
+  {
+   "name": "Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Fires arrows at range, letting you hit distant switches, eyeball targets, and enemies you can't reach with the sword. Arrows are a consumable resource. Some enemies and puzzles can only be solved with arrows.",
+   "where": "The Big Chest reward of the Eastern Palace, the first dungeon, in the far east of the Light World. Restock arrows from pots, grass, and shops."
+  },
+  {
+   "name": "Silver Bow",
+   "cat": "bow",
+   "type": "Bow (upgrade)",
+   "effect": "Your bow loaded with Silver Arrows. Silver Arrows are far more damaging than normal arrows and are the ONLY weapon that can finish Ganon in his final, flashing form (it takes several Silver-Arrow hits, not one), making this upgrade required to complete the game.",
+   "where": "Blow open the Pyramid of Power's cracked wall with a Super Bomb, then toss your Bow into the fairy pond inside. The fairy returns it carrying Silver Arrows. (Reaching the Super Bomb requires the 5th and 6th Crystals and the rescued blacksmith.)"
+  },
+  {
+   "name": "Lamp",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lights dark rooms and can ignite torches and bushes. The very first key tool, and needed to see in unlit dungeon rooms.",
+   "where": "Found in a chest inside Link's House at the start of the game (reached after the rainy intro)."
+  },
+  {
+   "name": "Magic Hammer",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Pounds down stakes/pegs blocking your path and is the only way to flatten the burrowing Moles (Hardhat Beetles). Also flips and stuns some enemies.",
+   "where": "Found in the Big Chest in the Palace of Darkness (Dark Palace), the first Dark World dungeon."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a chain that grabs onto blocks, torches, or chests to pull Link across gaps and pits, and stuns or pulls in some enemies. A core traversal tool.",
+   "where": "Found in the Big Chest in the Swamp Palace, the second Dark World dungeon."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Throwable explosives that open cracked walls, reveal hidden passages, and damage enemies. You carry a stock (upgradeable) rather than a single item.",
+   "where": "Available from early on; bombs are bought from shops, dropped by enemies, or found in pots and chests throughout the game."
+  },
+  {
+   "name": "Fire Rod",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Shoots a jet of flame that burns enemies and lights torches from a distance. Consumes magic power per shot.",
+   "where": "Found in the Big Chest in Skull Woods, the third Dark World dungeon."
+  },
+  {
+   "name": "Ice Rod",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a freezing beam that encases enemies in ice. Consumes magic power per shot and is key to certain bosses (e.g. Mothula).",
+   "where": "In a cave on the east/north-east shore of Lake Hylia (Light World) — bomb the loose pile of rocks beside the visible cave entrance to open the way in."
+  },
+  {
+   "name": "Bug-Catching Net",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Catches fairies and bees to store in an Empty Bottle, and can deflect some projectiles back at enemies. Essential for stocking a bottle with a free-revive fairy.",
+   "where": "Borrowed for free from the sick boy bedridden in a house in Kakariko Village — you must already have at least one Empty Bottle before he lends it to you."
+  },
+  {
+   "name": "Magic Powder",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Sprinkled powder that transforms certain enemies (e.g. a Buzz Blob into a talking Cukeman), wakes the Mad Batter, and can light some things. Consumes magic power.",
+   "where": "Take the Magic Mushroom from the Lost Woods to the witch Syrup at the Magic Shop (north-east Hyrule); her assistant turns it into Magic Powder."
+  },
+  {
+   "name": "Pegasus Boots",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Hold the dash button to charge and sprint in a straight line, breaking through certain bushes and stunning enemies on impact. Needed to reach several dash-only areas.",
+   "where": "Given by Sahasrahla after you clear the Eastern Palace and show him the Pendant of Courage."
+  },
+  {
+   "name": "Power Glove",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link lift and throw small grey rocks blocking paths and hidden stairs. The first of two lifting upgrades.",
+   "where": "Found in the Big Chest in the Desert Palace (Light World), in the far north-west corner of the first floor."
+  },
+  {
+   "name": "Titan's Mitt",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Upgrades the Power Glove so Link can also lift heavy dark/black rocks, opening even more blocked routes.",
+   "where": "Found in the Big Chest in Thieves' Town, the fourth Dark World dungeon."
+  },
+  {
+   "name": "Flippers",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Let Link swim across deep water instead of being blocked at the edge. Opens up lakes and water routes.",
+   "where": "Bought from King Zora for 500 rupees at Zora's Waterfall, in the north-east corner of the Light World."
+  },
+  {
+   "name": "Magic Mirror",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Warps Link from the Dark World back to the matching spot in the Light World, leaving a portal to return. The key tool for puzzling between the two worlds.",
+   "where": "Given by the Lost Old Man after you escort him safely through the Death Mountain caves to his cabin."
+  },
+  {
+   "name": "Magic Cape",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Turns Link invisible and intangible while worn — he passes through enemies and damaging traps (like spikes) unharmed. Continuously drains magic power.",
+   "where": "Found in a passage under a gravestone in the Graveyard (lift the heavy dark rocks with the Titan's Mitt, or arrive via the Magic Mirror)."
+  },
+  {
+   "name": "Cane of Somaria",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Conjures a movable red block out of thin air to weigh down switches, cross gaps, or be shattered into projectiles. Consumes magic power.",
+   "where": "Found in the Big Chest in Misery Mire, the sixth Dark World dungeon."
+  },
+  {
+   "name": "Cane of Byrna",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Creates a spinning force field that makes Link briefly invincible and damages enemies that touch him; drains magic continuously while active. Completely optional.",
+   "where": "Optional. In a spike cave on the Dark World's Death Mountain, south of Ganon's Tower — clear the Moles with the Hammer, cross the floor spikes with the Magic Cape, then lift the block with the Power Glove to reach the chest."
+  },
+  {
+   "name": "Boomerang (Blue)",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Thrown weapon that stuns enemies and grabs distant items/rupees, returning to Link. The basic version with shorter range.",
+   "where": "Found in a chest inside Hyrule Castle during the opening rescue of Princess Zelda."
+  },
+  {
+   "name": "Magical Boomerang (Red)",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "An upgraded boomerang that flies the full width of the screen before returning; otherwise stuns enemies and retrieves distant items like the blue one.",
+   "where": "At the Waterfall of Wishing (near Zora's Waterfall, reached after the Flippers) — toss the Blue Boomerang into the pond and answer the great fairy honestly to get the upgrade."
+  },
+  {
+   "name": "Shovel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Digs up patches of soft earth to uncover buried rupees, hearts, and the Flute. Used during the Flute side-quest.",
+   "where": "Given by the Flute Boy (transformed into a creature) in the Dark World's Haunted Grove, south-west of Link's House."
+  },
+  {
+   "name": "Flute (Ocarina)",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Plays a tune that summons a giant bird to fast-travel Link between fixed warp points across the Light World. A major time-saver.",
+   "where": "Dug up with the Shovel among the flowers in the north-west of the Light World's Haunted Grove; then play it at the weathercock (bird statue) in Kakariko Village to awaken the bird."
+  },
+  {
+   "name": "Empty Bottle",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A reusable container for potions, fairies, or bees — a stored fairy revives Link automatically on death. Up to four can be collected.",
+   "where": "Four total: bought from the salesman in Kakariko Village; in a chest in a hidden room behind a Kakariko house; from the man under the bridge north of Lake Hylia; and a locked chest from the Dark World (Titan's Mitt) opened by the man near the desert sign in the Light World."
+  },
+  {
+   "name": "Bombos Medallion",
+   "cat": "item",
+   "type": "Medallion",
+   "effect": "Optional. Casts a screen-clearing fire spell that surrounds Link with pillars of flame and damages most on-screen enemies. Consumes a large chunk of magic; it opens no dungeon.",
+   "where": "Optional. In the Light World, read the large stone tablet on the cliff south-west of the Desert of Mystery with the Book of Mudora (reach the ledge via the Dark World swamp portal and the Magic Mirror)."
+  },
+  {
+   "name": "Ether Medallion",
+   "cat": "item",
+   "type": "Medallion",
+   "effect": "Casts a screen-wide lightning blast that strikes all enemies and freezes survivors as if hit by the Ice Rod; it also briefly reveals invisible platforms (used in Turtle Rock). It is what opens the entrance to Misery Mire. Consumes a large chunk of magic.",
+   "where": "Read the green tablet across the bridge just west of the Tower of Hera on Death Mountain, using the Book of Mudora."
+  },
+  {
+   "name": "Quake Medallion",
+   "cat": "item",
+   "type": "Medallion",
+   "effect": "Shakes the ground with a shockwave that damages enemies or turns them into slimes, and is what opens the entrance to Turtle Rock. Consumes a large chunk of magic.",
+   "where": "At the Lake of Ill Omen (Dark World, the counterpart of Zora's Waterfall), throw a skull/object into the ring of stones in the water to summon the Catfish, who gives you the medallion."
+  },
+  {
+   "name": "Book of Mudora",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Translates the ancient Hylian writing on stone tablets, which is how you learn the medallion spells and read the Desert Palace entrance plaque.",
+   "where": "Found on a bookshelf in the Library in eastern Kakariko Village — dash the bookshelf with the Pegasus Boots to knock the book down."
+  },
+  {
+   "name": "Half Magic",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A permanent upgrade that halves the magic cost of every magic-using item (rods, capes, medallions, etc.), effectively doubling your magic meter.",
+   "where": "Granted by the Mad Batter: enter the well east of Kakariko (near the Smithy) by pounding its peg with the Magic Hammer, then sprinkle Magic Powder on the bowl to summon him."
+  },
+  {
+   "name": "Pendant of Courage",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "One of the three Pendants of Virtue. Collecting all three lets Link pull the Master Sword from its pedestal in the Lost Woods.",
+   "where": "Reward for clearing the Eastern Palace, the first Light World dungeon."
+  },
+  {
+   "name": "Pendant of Power",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "One of the three Pendants of Virtue. All three together unlock the Master Sword in the Lost Woods.",
+   "where": "Reward for clearing the Desert Palace, the second Light World dungeon."
+  },
+  {
+   "name": "Pendant of Wisdom",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "One of the three Pendants of Virtue. All three together unlock the Master Sword in the Lost Woods.",
+   "where": "Reward for clearing the Tower of Hera on Death Mountain, the third Light World dungeon."
+  },
+  {
+   "name": "Moon Pearl",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "Keeps Link in his normal human form (instead of a pink bunny) while in the Dark World, letting him use items and fight there. Essential before exploring the Dark World.",
+   "where": "Found in the Big Chest in the Tower of Hera on Death Mountain (the dungeon that also gives the Pendant of Wisdom)."
+  },
+  {
+   "name": "The 7 Crystals",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "Seven maidens sealed in crystals, one freed at the end of each Dark World dungeon. Collecting all seven opens the way to Ganon's Tower and the final battle.",
+   "where": "One earned for clearing each of the seven Dark World dungeons: Palace of Darkness, Swamp Palace, Skull Woods, Thieves' Town, Ice Palace, Misery Mire, and Turtle Rock."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "A quarter of a Heart Container. Collect four Pieces of Heart and your maximum life increases by one full heart.",
+   "where": "Hidden throughout both worlds — in caves, under rocks, as minigame/side-quest rewards, and in secret spots (24 in total in the original SNES game)."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "Permanently adds one full heart to Link's maximum life and refills his health when obtained.",
+   "where": "Awarded for defeating each major dungeon boss; additional full hearts come from completing sets of four Pieces of Heart."
+  },
+  {
+   "name": "Rupees",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "The game's money, used to buy bombs, arrows, potions, the Flippers, and more. Green = 1, blue = 5, red = 20, plus larger denominations.",
+   "where": "Dropped by enemies, found in pots/chests/grass, dug up with the Shovel, and rewarded for minigames and side-quests."
+  },
+  {
+   "name": "Magic Potions",
+   "cat": "material",
+   "type": "Consumable",
+   "effect": "Potions stored in bottles. Red restores all hearts, green refills all magic, and blue restores both hearts and magic — a vital safety net for tough dungeons.",
+   "where": "Bought or brewed at the Magic Shop / Witch's Hut in north-east Hyrule and poured into your Empty Bottles to carry."
+  }
+ ],
  "SIDE_QUESTS": [
   {
    "region": "Bottles & the Bottle Vendor",
@@ -35327,7 +35662,288 @@ const LA = {
   "fairies": []
  },
  "ECONOMY": null,
- "COMPENDIUM": [],
+ "COMPENDIUM": [
+  {
+   "name": "Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Your basic weapon — swing it to cut grass, break pots, and fight enemies. At full health it fires a sword beam straight ahead, so a healthy Link can hit foes from a distance; take any damage and the beam stops until you heal. Like every tool, it occupies one of your two item buttons.",
+   "where": "Lying on Toronbo Shores, the beach south of Mabe Village where you wash up. After waking in Marin's house, head to the beach and go right; raise your Shield to push past the Sea Urchins, then grab the Sword resting in the sand by the water. The Owl appears and points you onward to the Mysterious Woods."
+  },
+  {
+   "name": "L-2 Sword",
+   "cat": "sword",
+   "type": "Sword (upgrade)",
+   "effect": "The upgraded sword: it deals double the damage of the starting Sword and, like the original, fires a sword beam when Link is at full health. It replaces your old Sword on the same item button — you don't carry both.",
+   "where": "Reward from the Spirit of the Mansion at Seashell Mansion in Ukuku Prairie (east of Kanalet Castle). In the original Game Boy / DX version, bring 20 of the 26 Secret Seashells and step onto the pedestal to receive the L-2 Sword. In the Nintendo Switch remake this reward is renamed the Koholint Sword and the requirement is raised to 40 of the 50 Seashells (same 2x-damage, full-health-beam blade)."
+  },
+  {
+   "name": "Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "Hold its button to block attacks and push back foes that bump into you — handy for shoving Sea Urchins aside and flipping Spiked Beetles onto their backs. It blocks ordinary projectiles, but cannot stop fire or energy beams (you need the Mirror Shield for those). As equipped gear it uses one of your two item buttons.",
+   "where": "Bought at the Town Tool Shop in Mabe Village early on for 20 Rupees. If a Like Like swallows your Shield, you must buy a replacement to get it back."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield (upgrade)",
+   "effect": "An upgraded shield that does everything the regular Shield does and also reflects what the plain Shield can't — bounce fireballs, energy beams, and certain boss attacks back at the attacker. It replaces your old Shield on the same button.",
+   "where": "Found in a treasure chest inside Eagle's Tower, the seventh dungeon. You need it afterward to reflect the Flame Fountain's fireballs and reach Turtle Rock, the final dungeon."
+  },
+  {
+   "name": "Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Fires Arrows to hit distant enemies and switches, and combines with Bombs (the bomb-arrow trick) for big damage. Arrows are a consumable resource you buy or find, and the Bow takes one of your two item buttons — so you'll often swap it in only when you need ranged attacks. It's required to clear Turtle Rock, the final dungeon.",
+   "where": "Purchased at the Town Tool Shop in Mabe Village for a steep 980 Rupees — but it only appears in the shop after you've bought the Deluxe Shovel (200 Rupees) there first. You can technically steal shop goods, but doing so brands Link 'THIEF' for the rest of the game and the shopkeeper kills you on your next visit — buying it is the honest route."
+  },
+  {
+   "name": "Roc's Feather",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link jump. A tap clears small gaps, spikes, and pits, and lets you hop over enemies; it's required to cross many ledges and to reach things a step out of reach. Combine it with the Pegasus Boots for a longer running leap.",
+   "where": "The dungeon item of Tail Cave, the first dungeon (Level 1), east of Mabe Village. Found in a chest inside."
+  },
+  {
+   "name": "Pegasus Boots",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Hold the equipped button to charge, then dash in a straight line. The dash smashes through cracked blocks and certain bushes, stuns or knocks back foes, and—paired with Roc's Feather—produces a long running jump. You stop only when you hit something.",
+   "where": "The dungeon item of Key Cavern (Level 3), the dungeon near Richard's Villa in the Ukuku Prairie / Pothole Field area. Found in a chest inside."
+  },
+  {
+   "name": "Power Bracelet (L-1)",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link lift and carry small objects—pots, skulls, and the lighter rocks—and throw them at enemies or onto switches. Required to clear blocked paths and to grab certain stones in your way. (Level 1 of two.)",
+   "where": "The dungeon item of Bottle Grotto (Level 2), in the Goponga Swamp area north of Mabe Village. Found in a chest inside."
+  },
+  {
+   "name": "Power Bracelet L-2 (Powerful Bracelet)",
+   "cat": "item",
+   "type": "Tool (upgrade)",
+   "effect": "The upgraded grip: now Link can lift and toss the large, heavy stones and statues the L-1 bracelet couldn't budge, opening paths blocked by big boulders and heavy elephant statues. It simply replaces the L-1 bracelet—you keep all the L-1 abilities plus the heavier lifts.",
+   "where": "The dungeon item of Face Shrine (Level 6), the desert dungeon. Found in a chest inside (it's needed to finish that dungeon)."
+  },
+  {
+   "name": "Shovel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Dig in soft ground to uncover buried items—Rupees, Hearts, the occasional Secret Seashell, and one key trade-sequence item. It's also the tool that pops a few hidden enemies out of the dirt.",
+   "where": "Bought from the Town Tool Shop in Mabe Village for 200 Rupees early in the game (one of the first useful purchases, available after Tail Cave)."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a spring-loaded grappling hook on a chain. It grabs distant switches, pulls Link across gaps to anchor blocks, snags far-off items, and stuns or kills many enemies at range. A core dungeon-traversal tool.",
+   "where": "The dungeon item of Catfish's Maw (Level 5), the dungeon at Martha's Bay. Found in a chest inside."
+  },
+  {
+   "name": "Magic Rod",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Shoots a jet of fire straight ahead, burning enemies, melting ice blocks, and lighting torches from a distance. One of the strongest offensive items in the game—and the tool you need to beat its own dungeon's boss.",
+   "where": "The dungeon item of Turtle Rock (Level 8), the final dungeon on Tal Tal Mountain Range; obtained from the chest after the mini-boss Blaino, then used to defeat the dungeon's Nightmare boss, Hot Head."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Tool (optional)",
+   "effect": "Thrown weapon that flies out and returns, stunning or defeating weaker enemies and grabbing distant items/Rupees on the way back. Powerful for its tier, but optional—and getting it costs you whatever you trade away.",
+   "where": "Optional trade: with the Magnifying Lens, bomb the cracked wall on Toronbo Shores to enter the cave and trade the Secret Goriya the item in your B slot for the Boomerang. He refuses leveled gear (sword, shield, bracelet), ammo items (powder, bombs, bow), and the Ocarina. In the Switch remake you can later pay Rupees to swap back and keep both."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool (ammo)",
+   "effect": "Place a timed explosive to blow open cracked walls, expose hidden caves and stairs, and damage enemies and bosses. Ammo is limited—your capacity can be expanded—so plan your blasts.",
+   "where": "Bought from the Town Tool Shop in Mabe Village; also found in dungeon chests and as enemy drops. Practically required for progression (many hidden passages are bomb-only)."
+  },
+  {
+   "name": "Magic Powder",
+   "cat": "item",
+   "type": "Tool (ammo)",
+   "effect": "Sprinkle magic powder to light torches, transform certain enemies, and harm others; some foes drop bonus items when sprinkled. Most notably, it turns the raccoon back into Tarin so the Mysterious Forest stops looping. Ammo is limited and refills from drops or refills.",
+   "where": "First obtained by taking the Toadstool found in the Mysterious Forest to Syrup the Witch (in her hut near Koholint Prairie), who turns it into Magic Powder; afterward she sells refills. Capacity can be increased."
+  },
+  {
+   "name": "Flippers",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Let Link swim in deep water and dive beneath the surface, instead of just wading in the shallows. They open up the large water areas of Koholint and are required to reach several dungeons and seashells.",
+   "where": "The dungeon item of Angler's Tunnel (Level 4), found in a chest inside the dungeon."
+  },
+  {
+   "name": "Magnifying Lens",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A reading lens that reveals hidden text and unseen things: it lets you read the tiny print in the Library book that solves the final egg maze, and it makes certain invisible characters (the Secret Zora, the Secret Goriya) appear so you can interact and trade with them.",
+   "where": "The final item of the trading sequence. Use the Mermaid's Scale to move the Mermaid Statue in Martha's Bay, revealing a staircase down to the chest holding the Lens."
+  },
+  {
+   "name": "Ocarina",
+   "cat": "item",
+   "type": "Instrument",
+   "effect": "Link's flute. Once you learn songs, it plays three tunes (see below) used to warp around the island, solve puzzles, wake the Walrus, and reach hidden areas. The instrument itself is the prerequisite for learning any song.",
+   "where": "Found in the Dream Shrine in Mabe Village—sleep on the bed inside to enter the dream and claim it. (The Trendy Game's prize is the Yoshi Doll, not the Ocarina.)"
+  },
+  {
+   "name": "Ballad of the Wind Fish",
+   "cat": "song",
+   "type": "Song",
+   "effect": "The central melody of the island. It's needed to wake the sleeping Walrus blocking the way to Animal Village / Yarna Desert, and it ties into the game's ending; story-critical rather than a utility warp.",
+   "where": "Taught by Marin once you have the Ocarina—she sings it to you (commonly at Animal Village or by the Mabe Village weathercock as the story advances)."
+  },
+  {
+   "name": "Manbo's Mambo",
+   "cat": "song",
+   "type": "Song",
+   "effect": "A warp song: play it on the overworld to teleport instantly to Manbo's Pond (near Crazy Tracy's hut); played inside a dungeon it returns you to that dungeon's entrance. A big time-saver for crossing the island.",
+   "where": "Learned from Manbo the fish: after getting the Flippers in Angler's Tunnel (Level 4), leave the dungeon, hop in the water and swim left into the cave, where the giant fish and his fellows teach you the song."
+  },
+  {
+   "name": "Frog's Song of Soul",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Awakens/reanimates certain 'sleeping' characters and machines—most notably it brings the Flying Rooster back to life so it can carry Link over pits (needed to reach the Bird Key), and it animates other helpers for puzzles.",
+   "where": "Learned from Mamu in the Signpost Maze in Ukuku Prairie (southeast of Mabe Village). You need the Hookshot (from Catfish's Maw, Level 5) to reach the maze, ~300 Rupees on hand, and you must navigate by following each signpost's direction exactly."
+  },
+  {
+   "name": "Full Moon Cello",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 1st of the 8 Instruments of the Sirens. Each instrument is a required story item—collecting all eight lets you wake the Wind Fish at the Egg. The Cello itself has no field use; it's a progress gate.",
+   "where": "Reward for clearing Tail Cave (Level 1)."
+  },
+  {
+   "name": "Conch Horn",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 2nd of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Bottle Grotto (Level 2)."
+  },
+  {
+   "name": "Sea Lily's Bell",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 3rd of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Key Cavern (Level 3)."
+  },
+  {
+   "name": "Surf Harp",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 4th of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Angler's Tunnel (Level 4)."
+  },
+  {
+   "name": "Wind Marimba",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 5th of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Catfish's Maw (Level 5)."
+  },
+  {
+   "name": "Coral Triangle",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 6th of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Face Shrine (Level 6)."
+  },
+  {
+   "name": "Organ of Evening Calm",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 7th of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Eagle's Tower (Level 7)."
+  },
+  {
+   "name": "Thunder Drum",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 8th and final Instrument of the Sirens. With all eight, you play them at the Egg to wake the Wind Fish and reach the finale. No field use; it's the last progress gate.",
+   "where": "Reward for clearing Turtle Rock (Level 8), the final dungeon."
+  },
+  {
+   "name": "Tail Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that opens the locked entrance to the first dungeon, Tail Cave. Single-use story key, not a normal small key.",
+   "where": "In a chest in the Mysterious Forest—reachable only after you sprinkle Magic Powder on the raccoon (the transformed Tarin) to stop the forest from looping. Use the key on the Tail Cave keyhole east of Mabe Village."
+  },
+  {
+   "name": "Slime Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that unlocks access to Key Cavern (Level 3). Single-use story key for opening that dungeon's entrance.",
+   "where": "Dig with the Shovel beneath the owl statue in Pothole Field (Ukuku Prairie) to unearth it, then use it on the Key Cavern keyhole."
+  },
+  {
+   "name": "Angler Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that opens Angler's Tunnel (Level 4). Single-use story key for that dungeon's entrance up on Tal Tal Heights.",
+   "where": "Dropped by the Lanmola enemy you fight in Yarna Desert; carry it to the Angler's Tunnel keyhole behind the waterfall on Tal Tal Heights."
+  },
+  {
+   "name": "Face Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that unlocks Face Shrine (Level 6) in the desert. Single-use story key for that dungeon's entrance.",
+   "where": "Dropped by the Armos Knight in the Ancient Ruins (the southern desert ruins); take the Face Key to the Face Shrine keyhole."
+  },
+  {
+   "name": "Bird Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that opens Eagle's Tower (Level 7) on the mountain. Single-use story key for that dungeon's entrance.",
+   "where": "In a cave deep in Tal Tal Heights that you can only reach by reviving the Flying Rooster (play Frog's Song of Soul) and using it to fly over the pits; then use the key at the Eagle's Tower keyhole."
+  },
+  {
+   "name": "Secret Seashell",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "Hidden collectibles scattered across Koholint (dug up, dropped, bought, or found in chests). Turn in 20 of them at the Seashell Mansion and you're rewarded with the upgraded Koholint Sword (a stronger blade that fires sword beams at full health). Some are also needed for 100% completion.",
+   "where": "Found island-wide: buried (Shovel), in bushes/rocks, in chests, and as minigame prizes. Turn them in at the Seashell Mansion north of Mabe Village once you reach 20 (the original/DX have 26 total; the Switch remake has 50, but 20 still earns the sword)."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Collectible (buff)",
+   "effect": "A quarter of a Heart Container. Collect four Pieces of Heart and your maximum life goes up by one full heart, increasing how much damage you can take.",
+   "where": "Scattered across Koholint—hidden in caves, won at minigames (Trendy Game, fishing), found in tricky spots, and a couple tied to the trade sequence. Several are DX/Switch-only additions versus the original."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Collectible (buff)",
+   "effect": "Immediately raises Link's maximum life by one full heart (and refills your health). The big, dependable life upgrades of the game.",
+   "where": "Awarded for defeating each dungeon's Nightmare boss (one Heart Container per boss across the eight dungeons)."
+  },
+  {
+   "name": "Piece of Power",
+   "cat": "material",
+   "type": "Pickup (buff)",
+   "effect": "A temporary power-up: while active, Link's sword deals about double damage, he moves ~25% faster, and his hits knock enemies back harder, with a brief invincibility flash on pickup. The boost ends after you take damage (a few hits), leave the overworld, or time runs out.",
+   "where": "Dropped by enemies on a hidden kill counter (scales with how many Heart Containers you have). A random combat drop, not a fixed pickup."
+  },
+  {
+   "name": "Guardian Acorn",
+   "cat": "material",
+   "type": "Pickup (buff)",
+   "effect": "A temporary defensive power-up: while active, Link takes half damage. Like the Piece of Power, the effect ends after you take several hits or leave the area. If a Guardian Acorn and a Piece of Power are both due on the same kill, the Acorn drops.",
+   "where": "Dropped by enemies on a hidden kill counter that resets whenever you get hit—so it favors fighting cleanly. A random combat drop, not a fixed pickup."
+  },
+  {
+   "name": "Rupees",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "Koholint's money. Spend Rupees at the Town Tool Shop (Bow, Bombs, Shovel, Magic Powder refills, shields), the witch, the photo shop, the Trendy Game, and on the trade-sequence buy-backs. Green = 1, blue = 5, red = 20, and larger values exist; your wallet has a cap.",
+   "where": "Earned everywhere: cutting grass, smashing pots, defeating enemies, opening chests, digging, and winning minigames. Watch out for the shop—stealing from it brands you THIEF for the rest of the game."
+  }
+ ],
  "SIDE_QUESTS": [
   {
    "region": "The Trading Quest",

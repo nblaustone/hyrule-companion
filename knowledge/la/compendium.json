@@ -1,0 +1,284 @@
+{
+ "items": [
+  {
+   "name": "Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Your basic weapon — swing it to cut grass, break pots, and fight enemies. At full health it fires a sword beam straight ahead, so a healthy Link can hit foes from a distance; take any damage and the beam stops until you heal. Like every tool, it occupies one of your two item buttons.",
+   "where": "Lying on Toronbo Shores, the beach south of Mabe Village where you wash up. After waking in Marin's house, head to the beach and go right; raise your Shield to push past the Sea Urchins, then grab the Sword resting in the sand by the water. The Owl appears and points you onward to the Mysterious Woods."
+  },
+  {
+   "name": "L-2 Sword",
+   "cat": "sword",
+   "type": "Sword (upgrade)",
+   "effect": "The upgraded sword: it deals double the damage of the starting Sword and, like the original, fires a sword beam when Link is at full health. It replaces your old Sword on the same item button — you don't carry both.",
+   "where": "Reward from the Spirit of the Mansion at Seashell Mansion in Ukuku Prairie (east of Kanalet Castle). In the original Game Boy / DX version, bring 20 of the 26 Secret Seashells and step onto the pedestal to receive the L-2 Sword. In the Nintendo Switch remake this reward is renamed the Koholint Sword and the requirement is raised to 40 of the 50 Seashells (same 2x-damage, full-health-beam blade)."
+  },
+  {
+   "name": "Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "Hold its button to block attacks and push back foes that bump into you — handy for shoving Sea Urchins aside and flipping Spiked Beetles onto their backs. It blocks ordinary projectiles, but cannot stop fire or energy beams (you need the Mirror Shield for those). As equipped gear it uses one of your two item buttons.",
+   "where": "Bought at the Town Tool Shop in Mabe Village early on for 20 Rupees. If a Like Like swallows your Shield, you must buy a replacement to get it back."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield (upgrade)",
+   "effect": "An upgraded shield that does everything the regular Shield does and also reflects what the plain Shield can't — bounce fireballs, energy beams, and certain boss attacks back at the attacker. It replaces your old Shield on the same button.",
+   "where": "Found in a treasure chest inside Eagle's Tower, the seventh dungeon. You need it afterward to reflect the Flame Fountain's fireballs and reach Turtle Rock, the final dungeon."
+  },
+  {
+   "name": "Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Fires Arrows to hit distant enemies and switches, and combines with Bombs (the bomb-arrow trick) for big damage. Arrows are a consumable resource you buy or find, and the Bow takes one of your two item buttons — so you'll often swap it in only when you need ranged attacks. It's required to clear Turtle Rock, the final dungeon.",
+   "where": "Purchased at the Town Tool Shop in Mabe Village for a steep 980 Rupees — but it only appears in the shop after you've bought the Deluxe Shovel (200 Rupees) there first. You can technically steal shop goods, but doing so brands Link 'THIEF' for the rest of the game and the shopkeeper kills you on your next visit — buying it is the honest route."
+  },
+  {
+   "name": "Roc's Feather",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link jump. A tap clears small gaps, spikes, and pits, and lets you hop over enemies; it's required to cross many ledges and to reach things a step out of reach. Combine it with the Pegasus Boots for a longer running leap.",
+   "where": "The dungeon item of Tail Cave, the first dungeon (Level 1), east of Mabe Village. Found in a chest inside."
+  },
+  {
+   "name": "Pegasus Boots",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Hold the equipped button to charge, then dash in a straight line. The dash smashes through cracked blocks and certain bushes, stuns or knocks back foes, and—paired with Roc's Feather—produces a long running jump. You stop only when you hit something.",
+   "where": "The dungeon item of Key Cavern (Level 3), the dungeon near Richard's Villa in the Ukuku Prairie / Pothole Field area. Found in a chest inside."
+  },
+  {
+   "name": "Power Bracelet (L-1)",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link lift and carry small objects—pots, skulls, and the lighter rocks—and throw them at enemies or onto switches. Required to clear blocked paths and to grab certain stones in your way. (Level 1 of two.)",
+   "where": "The dungeon item of Bottle Grotto (Level 2), in the Goponga Swamp area north of Mabe Village. Found in a chest inside."
+  },
+  {
+   "name": "Power Bracelet L-2 (Powerful Bracelet)",
+   "cat": "item",
+   "type": "Tool (upgrade)",
+   "effect": "The upgraded grip: now Link can lift and toss the large, heavy stones and statues the L-1 bracelet couldn't budge, opening paths blocked by big boulders and heavy elephant statues. It simply replaces the L-1 bracelet—you keep all the L-1 abilities plus the heavier lifts.",
+   "where": "The dungeon item of Face Shrine (Level 6), the desert dungeon. Found in a chest inside (it's needed to finish that dungeon)."
+  },
+  {
+   "name": "Shovel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Dig in soft ground to uncover buried items—Rupees, Hearts, the occasional Secret Seashell, and one key trade-sequence item. It's also the tool that pops a few hidden enemies out of the dirt.",
+   "where": "Bought from the Town Tool Shop in Mabe Village for 200 Rupees early in the game (one of the first useful purchases, available after Tail Cave)."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a spring-loaded grappling hook on a chain. It grabs distant switches, pulls Link across gaps to anchor blocks, snags far-off items, and stuns or kills many enemies at range. A core dungeon-traversal tool.",
+   "where": "The dungeon item of Catfish's Maw (Level 5), the dungeon at Martha's Bay. Found in a chest inside."
+  },
+  {
+   "name": "Magic Rod",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Shoots a jet of fire straight ahead, burning enemies, melting ice blocks, and lighting torches from a distance. One of the strongest offensive items in the game—and the tool you need to beat its own dungeon's boss.",
+   "where": "The dungeon item of Turtle Rock (Level 8), the final dungeon on Tal Tal Mountain Range; obtained from the chest after the mini-boss Blaino, then used to defeat the dungeon's Nightmare boss, Hot Head."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Tool (optional)",
+   "effect": "Thrown weapon that flies out and returns, stunning or defeating weaker enemies and grabbing distant items/Rupees on the way back. Powerful for its tier, but optional—and getting it costs you whatever you trade away.",
+   "where": "Optional trade: with the Magnifying Lens, bomb the cracked wall on Toronbo Shores to enter the cave and trade the Secret Goriya the item in your B slot for the Boomerang. He refuses leveled gear (sword, shield, bracelet), ammo items (powder, bombs, bow), and the Ocarina. In the Switch remake you can later pay Rupees to swap back and keep both."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool (ammo)",
+   "effect": "Place a timed explosive to blow open cracked walls, expose hidden caves and stairs, and damage enemies and bosses. Ammo is limited—your capacity can be expanded—so plan your blasts.",
+   "where": "Bought from the Town Tool Shop in Mabe Village; also found in dungeon chests and as enemy drops. Practically required for progression (many hidden passages are bomb-only)."
+  },
+  {
+   "name": "Magic Powder",
+   "cat": "item",
+   "type": "Tool (ammo)",
+   "effect": "Sprinkle magic powder to light torches, transform certain enemies, and harm others; some foes drop bonus items when sprinkled. Most notably, it turns the raccoon back into Tarin so the Mysterious Forest stops looping. Ammo is limited and refills from drops or refills.",
+   "where": "First obtained by taking the Toadstool found in the Mysterious Forest to Syrup the Witch (in her hut near Koholint Prairie), who turns it into Magic Powder; afterward she sells refills. Capacity can be increased."
+  },
+  {
+   "name": "Flippers",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Let Link swim in deep water and dive beneath the surface, instead of just wading in the shallows. They open up the large water areas of Koholint and are required to reach several dungeons and seashells.",
+   "where": "The dungeon item of Angler's Tunnel (Level 4), found in a chest inside the dungeon."
+  },
+  {
+   "name": "Magnifying Lens",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A reading lens that reveals hidden text and unseen things: it lets you read the tiny print in the Library book that solves the final egg maze, and it makes certain invisible characters (the Secret Zora, the Secret Goriya) appear so you can interact and trade with them.",
+   "where": "The final item of the trading sequence. Use the Mermaid's Scale to move the Mermaid Statue in Martha's Bay, revealing a staircase down to the chest holding the Lens."
+  },
+  {
+   "name": "Ocarina",
+   "cat": "item",
+   "type": "Instrument",
+   "effect": "Link's flute. Once you learn songs, it plays three tunes (see below) used to warp around the island, solve puzzles, wake the Walrus, and reach hidden areas. The instrument itself is the prerequisite for learning any song.",
+   "where": "Found in the Dream Shrine in Mabe Village—sleep on the bed inside to enter the dream and claim it. (The Trendy Game's prize is the Yoshi Doll, not the Ocarina.)"
+  },
+  {
+   "name": "Ballad of the Wind Fish",
+   "cat": "song",
+   "type": "Song",
+   "effect": "The central melody of the island. It's needed to wake the sleeping Walrus blocking the way to Animal Village / Yarna Desert, and it ties into the game's ending; story-critical rather than a utility warp.",
+   "where": "Taught by Marin once you have the Ocarina—she sings it to you (commonly at Animal Village or by the Mabe Village weathercock as the story advances)."
+  },
+  {
+   "name": "Manbo's Mambo",
+   "cat": "song",
+   "type": "Song",
+   "effect": "A warp song: play it on the overworld to teleport instantly to Manbo's Pond (near Crazy Tracy's hut); played inside a dungeon it returns you to that dungeon's entrance. A big time-saver for crossing the island.",
+   "where": "Learned from Manbo the fish: after getting the Flippers in Angler's Tunnel (Level 4), leave the dungeon, hop in the water and swim left into the cave, where the giant fish and his fellows teach you the song."
+  },
+  {
+   "name": "Frog's Song of Soul",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Awakens/reanimates certain 'sleeping' characters and machines—most notably it brings the Flying Rooster back to life so it can carry Link over pits (needed to reach the Bird Key), and it animates other helpers for puzzles.",
+   "where": "Learned from Mamu in the Signpost Maze in Ukuku Prairie (southeast of Mabe Village). You need the Hookshot (from Catfish's Maw, Level 5) to reach the maze, ~300 Rupees on hand, and you must navigate by following each signpost's direction exactly."
+  },
+  {
+   "name": "Full Moon Cello",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 1st of the 8 Instruments of the Sirens. Each instrument is a required story item—collecting all eight lets you wake the Wind Fish at the Egg. The Cello itself has no field use; it's a progress gate.",
+   "where": "Reward for clearing Tail Cave (Level 1)."
+  },
+  {
+   "name": "Conch Horn",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 2nd of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Bottle Grotto (Level 2)."
+  },
+  {
+   "name": "Sea Lily's Bell",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 3rd of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Key Cavern (Level 3)."
+  },
+  {
+   "name": "Surf Harp",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 4th of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Angler's Tunnel (Level 4)."
+  },
+  {
+   "name": "Wind Marimba",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 5th of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Catfish's Maw (Level 5)."
+  },
+  {
+   "name": "Coral Triangle",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 6th of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Face Shrine (Level 6)."
+  },
+  {
+   "name": "Organ of Evening Calm",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 7th of the 8 Instruments of the Sirens—a required story item toward awakening the Wind Fish. No field use; it marks dungeon completion.",
+   "where": "Reward for clearing Eagle's Tower (Level 7)."
+  },
+  {
+   "name": "Thunder Drum",
+   "cat": "key",
+   "type": "Instrument of the Sirens",
+   "effect": "The 8th and final Instrument of the Sirens. With all eight, you play them at the Egg to wake the Wind Fish and reach the finale. No field use; it's the last progress gate.",
+   "where": "Reward for clearing Turtle Rock (Level 8), the final dungeon."
+  },
+  {
+   "name": "Tail Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that opens the locked entrance to the first dungeon, Tail Cave. Single-use story key, not a normal small key.",
+   "where": "In a chest in the Mysterious Forest—reachable only after you sprinkle Magic Powder on the raccoon (the transformed Tarin) to stop the forest from looping. Use the key on the Tail Cave keyhole east of Mabe Village."
+  },
+  {
+   "name": "Slime Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that unlocks access to Key Cavern (Level 3). Single-use story key for opening that dungeon's entrance.",
+   "where": "Dig with the Shovel beneath the owl statue in Pothole Field (Ukuku Prairie) to unearth it, then use it on the Key Cavern keyhole."
+  },
+  {
+   "name": "Angler Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that opens Angler's Tunnel (Level 4). Single-use story key for that dungeon's entrance up on Tal Tal Heights.",
+   "where": "Dropped by the Lanmola enemy you fight in Yarna Desert; carry it to the Angler's Tunnel keyhole behind the waterfall on Tal Tal Heights."
+  },
+  {
+   "name": "Face Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that unlocks Face Shrine (Level 6) in the desert. Single-use story key for that dungeon's entrance.",
+   "where": "Dropped by the Armos Knight in the Ancient Ruins (the southern desert ruins); take the Face Key to the Face Shrine keyhole."
+  },
+  {
+   "name": "Bird Key",
+   "cat": "key",
+   "type": "Dungeon key",
+   "effect": "A special key that opens Eagle's Tower (Level 7) on the mountain. Single-use story key for that dungeon's entrance.",
+   "where": "In a cave deep in Tal Tal Heights that you can only reach by reviving the Flying Rooster (play Frog's Song of Soul) and using it to fly over the pits; then use the key at the Eagle's Tower keyhole."
+  },
+  {
+   "name": "Secret Seashell",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "Hidden collectibles scattered across Koholint (dug up, dropped, bought, or found in chests). Turn in 20 of them at the Seashell Mansion and you're rewarded with the upgraded Koholint Sword (a stronger blade that fires sword beams at full health). Some are also needed for 100% completion.",
+   "where": "Found island-wide: buried (Shovel), in bushes/rocks, in chests, and as minigame prizes. Turn them in at the Seashell Mansion north of Mabe Village once you reach 20 (the original/DX have 26 total; the Switch remake has 50, but 20 still earns the sword)."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Collectible (buff)",
+   "effect": "A quarter of a Heart Container. Collect four Pieces of Heart and your maximum life goes up by one full heart, increasing how much damage you can take.",
+   "where": "Scattered across Koholint—hidden in caves, won at minigames (Trendy Game, fishing), found in tricky spots, and a couple tied to the trade sequence. Several are DX/Switch-only additions versus the original."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Collectible (buff)",
+   "effect": "Immediately raises Link's maximum life by one full heart (and refills your health). The big, dependable life upgrades of the game.",
+   "where": "Awarded for defeating each dungeon's Nightmare boss (one Heart Container per boss across the eight dungeons)."
+  },
+  {
+   "name": "Piece of Power",
+   "cat": "material",
+   "type": "Pickup (buff)",
+   "effect": "A temporary power-up: while active, Link's sword deals about double damage, he moves ~25% faster, and his hits knock enemies back harder, with a brief invincibility flash on pickup. The boost ends after you take damage (a few hits), leave the overworld, or time runs out.",
+   "where": "Dropped by enemies on a hidden kill counter (scales with how many Heart Containers you have). A random combat drop, not a fixed pickup."
+  },
+  {
+   "name": "Guardian Acorn",
+   "cat": "material",
+   "type": "Pickup (buff)",
+   "effect": "A temporary defensive power-up: while active, Link takes half damage. Like the Piece of Power, the effect ends after you take several hits or leave the area. If a Guardian Acorn and a Piece of Power are both due on the same kill, the Acorn drops.",
+   "where": "Dropped by enemies on a hidden kill counter that resets whenever you get hit—so it favors fighting cleanly. A random combat drop, not a fixed pickup."
+  },
+  {
+   "name": "Rupees",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "Koholint's money. Spend Rupees at the Town Tool Shop (Bow, Bombs, Shovel, Magic Powder refills, shields), the witch, the photo shop, the Trendy Game, and on the trade-sequence buy-backs. Green = 1, blue = 5, red = 20, and larger values exist; your wallet has a cap.",
+   "where": "Earned everywhere: cutting grass, smashing pots, defeating enemies, opening chests, digging, and winning minigames. Watch out for the shop—stealing from it brands you THIEF for the rest of the game."
+  }
+ ]
+}
