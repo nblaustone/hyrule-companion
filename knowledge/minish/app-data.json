@@ -1,0 +1,355 @@
+{
+ "id": "minish",
+ "label": "The Minish Cap",
+ "short": "Minish",
+ "REGIONS": [
+  {
+   "id": "minish_intro",
+   "name": "The Picori Festival",
+   "sub": "Main Quest — Hyrule Town & the Minish Woods",
+   "kind": "region",
+   "tagline": "A shattered blade, a petrified princess, and a grumpy talking cap.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "minish_intro_s_festival",
+     "name": "The Festival",
+     "sub": "Vaati's curse",
+     "reward": null,
+     "steps": [
+      {
+       "id": "minish_fest_1",
+       "k": "step",
+       "t": "It's the Picori Festival in Hyrule Town, held once a century when the tiny Picori (Minish) are said to visit. You and your friend Princess Zelda explore the fair and watch the sword tournament.",
+       "items": []
+      },
+      {
+       "id": "minish_fest_2",
+       "k": "warn",
+       "t": "The tournament's winner, a sorcerer named Vaati, smashes the sacred Picori Blade to open the Bound Chest — then turns Princess Zelda to stone when she tries to stop him."
+      },
+      {
+       "id": "minish_fest_3",
+       "k": "step",
+       "t": "At Hyrule Castle, the grieving King asks you to find the Picori, who alone can reforge the broken Picori Blade and undo Zelda's petrification. Your quest begins.",
+       "stuck": "Talk to the King fully in the throne room. He sends you to your grandfather, the swordsmith, to get a blade before you set out."
+      }
+     ]
+    },
+    {
+     "id": "minish_intro_s_ezlo",
+     "name": "Smith's Sword & Ezlo",
+     "sub": "A sword, and a cap that talks",
+     "reward": "Smith's Sword & Ezlo",
+     "steps": [
+      {
+       "id": "minish_ezlo_1",
+       "k": "reward",
+       "t": "Visit your grandfather Smith at home. He gives you the Smith's Sword and points you toward the Minish Woods, west of town, where the Picori are said to live.",
+       "items": [
+        {
+         "name": "Smith's Sword",
+         "cat": "sword",
+         "note": "Your first blade. Slash, and hold the button to charge a Spin Attack. It will be reforged into the Four Sword once you gather the Elements."
+        }
+       ]
+      },
+      {
+       "id": "minish_ezlo_2",
+       "k": "step",
+       "t": "Head west out of Hyrule Town into the Minish Woods. Cut the bushes and fight the green ChuChus along the path deeper into the forest.",
+       "stuck": "Leave town by the west gate and follow the forest path. If a way is blocked, slash the bushes and look for the trodden trail leading further in."
+      },
+      {
+       "id": "minish_ezlo_3",
+       "k": "reward",
+       "t": "You find a small green creature shaped like a bird-cap being menaced by a monster. Save him — he's Ezlo, who perches on your head, and he'll be your guide. With Ezlo, you can shrink to Minish size at special portals.",
+       "items": [
+        {
+         "name": "Ezlo",
+         "cat": "item",
+         "note": "The talking cap (really a cursed Minish sage). Wear him to SHRINK at Minish Portals, and later to glide. He also gives hints throughout the journey."
+        }
+       ],
+       "stuck": "Beat the monster threatening the cap, then talk to Ezlo. From now on he rides on your head; press the assigned button at a glowing stump/portal to shrink down."
+      }
+     ]
+    },
+    {
+     "id": "minish_intro_s_shrink",
+     "name": "Into the Minish",
+     "sub": "Shrink down, find the first Element",
+     "reward": "The Four Elements goal",
+     "steps": [
+      {
+       "id": "minish_shrink_1",
+       "k": "step",
+       "t": "Find a Minish Portal in the woods — a glowing stump or hole. With Ezlo on your head, step onto it to shrink to the size of the Picori. The forest floor becomes a vast new world.",
+       "stuck": "Look for a tree stump ringed with light (or a small swirl on the ground). Stand on it with Ezlo equipped and you shrink; puddles become ponds and pebbles become boulders."
+      },
+      {
+       "id": "minish_shrink_2",
+       "k": "step",
+       "t": "Tiny now, make your way through the giant-sized grass and across the leaf bridges to Minish Village. Talk to the Minish — their Elder, Festari, will help you.",
+       "stuck": "Follow the path of Minish houses (acorn caps and stumps) deeper into the woods. Cross fallen leaves used as bridges; the village is the cluster of little doorways."
+      },
+      {
+       "id": "minish_shrink_3",
+       "k": "step",
+       "t": "Festari tells you the Picori Blade can be reforged with the power of the four Elements. He opens the way to the first one. Your goal is set: gather the Earth, Fire, Water, and Wind Elements.",
+       "stuck": "Speak with Elder Festari in Minish Village; he directs you to the Deepwood Shrine, the first dungeon, where the Earth Element waits."
+      },
+      {
+       "id": "minish_shrink_4",
+       "k": "step",
+       "t": "Make your way to the Deepwood Shrine — a giant barrel/house deep in the woods that, at Minish size, is a full dungeon. Inside lies the Earth Element."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "ezlo",
+   "name": "Ezlo",
+   "glyph": "mask",
+   "from": "A strange talking cap you rescue early on — really the Minish sage Ezlo, cursed into hat form.",
+   "what": "Worn on Link's head, Ezlo lets you SHRINK to Minish size at special stumps and portals, and later spreads into a glider. He also advises you throughout.",
+   "tip": "Whenever you see a Minish Portal (a glowing stump or hole), wear Ezlo and step in to shrink — a whole tiny world opens up underfoot."
+  },
+  {
+   "id": "four_sword",
+   "name": "Four Sword",
+   "glyph": "sword",
+   "from": "Reforged from the Smith's Sword / Picori Blade once you gather all four Elements (forged at the Elemental Sanctuary).",
+   "what": "The legendary blade that seals Vaati. Its signature power: create copies of Link to push heavy blocks and fight together.",
+   "tip": "Stand on the special tiles and hold the sword to spawn Link clones — needed for several four-way switch puzzles."
+  },
+  {
+   "id": "gust_jar",
+   "name": "Gust Jar",
+   "glyph": "stasis",
+   "from": "The Deepwood Shrine dungeon item.",
+   "what": "Sucks in air to pull objects, vacuum up dust and Mysterious Shells, drain some enemies, and reel yourself along.",
+   "tip": "Use it to pull far chests and to suck up the cobwebs and dust blocking Minish-sized passages."
+  },
+  {
+   "id": "cane_of_pacci",
+   "name": "Cane of Pacci",
+   "glyph": "stasis",
+   "from": "The Cave of Flames dungeon item.",
+   "what": "Flips objects and enemies upside-down, and launches Link up out of certain holes.",
+   "tip": "Flip an overturned pot or a beetle to expose its weak side; cane a hole to spring up to a higher floor."
+  },
+  {
+   "id": "mole_mitts",
+   "name": "Mole Mitts",
+   "glyph": "champion",
+   "from": "The Fortress of Winds dungeon item.",
+   "what": "Dig through soft dirt walls and floors to carve new paths.",
+   "tip": "Dig where the ground looks soft or cracked — they open shortcuts and reveal buried rooms."
+  },
+  {
+   "id": "rocs_cape",
+   "name": "Roc's Cape",
+   "glyph": "leaf",
+   "from": "The Palace of Winds dungeon item.",
+   "what": "Lets Link jump and glide over gaps, spikes, and enemies — the upgrade to the Pegasus Boots' reach.",
+   "tip": "Press to leap; you can cross wide chasms and dodge attacks by hopping clean over them."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Smith's Sword",
+   "glyph": "sword",
+   "step": "minish_ezlo_1"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Earth Element",
+   "from": "Deepwood Shrine",
+   "note": "The first of the four Elements, won from the Deepwood Shrine deep in the Minish Woods.",
+   "step": null
+  },
+  {
+   "name": "Fire Element",
+   "from": "Cave of Flames",
+   "note": "The second Element, won from the Cave of Flames inside Mount Crenel.",
+   "step": null
+  },
+  {
+   "name": "Water Element",
+   "from": "Temple of Droplets",
+   "note": "The third Element, won from the frozen Temple of Droplets beneath Lake Hylia.",
+   "step": null
+  },
+  {
+   "name": "Wind Element",
+   "from": "Palace of Winds",
+   "note": "The fourth and last Element, won from the Palace of Winds high in the Cloud Tops — completing the Four Sword.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "bow",
+   "name": "Bow & Projectiles",
+   "glyph": "bow"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Kinstones & Collectibles",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "elements",
+   "name": "The Four Elements",
+   "sub": "To reforge the Four Sword",
+   "note": "Earth, Fire, Water, and Wind — won from the Deepwood Shrine, the Cave of Flames, the Temple of Droplets, and the Palace of Winds. Infuse them into the blade at the Elemental Sanctuary to forge the Four Sword.",
+   "reward": "Four Sword"
+  },
+  {
+   "id": "kinstones",
+   "name": "Kinstone Fusions",
+   "sub": "A hundred lucky matches",
+   "note": "Carry Kinstone halves and fuse them with townsfolk and creatures (hold the right one and a green beam links you). The 100 fusions open chests, bridges, Heart Pieces, and secret caves all over Hyrule.",
+   "reward": "Hidden rewards"
+  },
+  {
+   "id": "figurines",
+   "name": "Figurine Collection",
+   "sub": "Mysterious Shells",
+   "note": "Spend the Mysterious Shells you gather (and vacuum up with the Gust Jar) on the figurine gachapon to complete the gallery of every character and enemy.",
+   "reward": "136 figurines"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Forty-four are hidden across Hyrule — many behind Kinstone fusions or only reachable while Minish-sized.",
+   "reward": "More hearts"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "shrink",
+   "name": "Shrinking with Ezlo",
+   "items": [
+    "Wear Ezlo and step onto a Minish Portal (glowing stumps, jars, holes) to shrink to the size of the tiny Picori. At that scale, puddles are lakes and a book is a building — whole hidden routes open up.",
+    "Minish-sized, you can slip through cracks and grates, climb tiny ladders, and talk to the Minish, who give hints and help. Many puzzles need you to shrink, cross, then return to normal size.",
+    "Ezlo also narrates and nudges — if you're lost, he often hints at the next step."
+   ]
+  },
+  {
+   "id": "kinstone",
+   "name": "Kinstone fusion",
+   "items": [
+    "Collect Kinstone halves (green, blue, red, gold) from grass, chests, and enemies. When an NPC or creature has a glowing thought-bubble, talk to them and FUSE a matching half — a green beam links your worlds and triggers an event somewhere in Hyrule.",
+    "Fusions open chests, raise bridges, sprout beanstalks, and reveal Heart Pieces. There are 100 in all — fuse with everyone you meet.",
+    "Gold Kinstones are rare and tied to specific big rewards; keep an eye out for who wants them."
+   ]
+  },
+  {
+   "id": "forge",
+   "name": "Reforging the blade",
+   "items": [
+    "Vaati shattered the Picori Blade. You collect the four Elements and infuse them into the sword at the Elemental Sanctuary, upgrading it (White Sword → Four Sword) along the way.",
+    "The finished Four Sword can split Link into copies — stand on the marked tiles and hold the sword to spawn clones for block and switch puzzles.",
+    "Picolyte (bought in town) and bottled fairies help you survive the tougher dungeons."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 44,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container — many hidden behind Kinstone fusions or only reachable while Minish-sized."
+  },
+  {
+   "id": "kinstones",
+   "label": "Kinstone Fusions",
+   "total": 100,
+   "glyph": "gem",
+   "note": "Match Kinstone halves with townsfolk and creatures to trigger 100 events across Hyrule."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Elements",
+  "regionBanner": "Dungeon",
+  "worldName": "Hyrule"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "minish_vaati"
+}

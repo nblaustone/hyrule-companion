@@ -1,0 +1,52 @@
+{
+ "fairies": [
+  {
+   "name": "Great Fairy of Magic (Big Octo — Two-Eye Reef)",
+   "region": "Two-Eye Reef (sea chart D7) — the only Great Fairy hidden inside a Big Octo whirlpool, not an island fountain. It sits one square south of Southern Fairy Island.",
+   "location": "Sail to Two-Eye Reef (square D7), one square south of Southern Fairy Island. Look for the ring of circling seagulls that marks a Big Octo; sail into it and it pulls you into a whirlpool. Pop all FOUR of the Big Octo's eyes (Arrows, Bombs, or the Boomerang work). When the 4-eye Big Octo dies, a Great Fairy rises from the water. No special chart needed — just sail there.",
+   "cost": "GRANTS: a doubled Magic Meter — your magic bar is twice as large, so you can use the Deku Leaf, Hookshot, and magic Arrows far longer. (This is the only Magic upgrade in the game.)"
+  },
+  {
+   "name": "Great Fairy of the Wallet (Outset Island)",
+   "region": "Outset Island (sea chart B7) — Link's home island, southern end of the map. The fairy lives in the Forest of Fairies atop the western cliff.",
+   "location": "Come back once you have the Deku Leaf and Bombs. Climb to the cliff on Outset; the bridge to the Forest of Fairies is broken, so glide across the gap with the Deku Leaf. Inside the forest, bomb the rock covering the fairy hole, then drop in.",
+   "cost": "GRANTS: a bigger Rupee Wallet. The grant is order-dependent across the two wallet fairies (this one and Northern Fairy Island) — whichever you reach FIRST raises your cap from 500 to 1,000 rupees; whichever you reach SECOND raises it to the 5,000-rupee maximum."
+  },
+  {
+   "name": "Great Fairy of the Wallet (Northern Fairy Island)",
+   "region": "Northern Fairy Island (sea chart C1) — top edge of the map, two squares east of the Forsaken Fortress.",
+   "location": "Sail to Northern Fairy Island and walk straight into the giant shell — the entrance is unblocked, so NO tool is needed — then drop down to the fairy fountain.",
+   "cost": "GRANTS: a bigger Rupee Wallet (the other half of the wallet pair). Order-dependent — FIRST wallet fairy reached = 1,000-rupee cap, SECOND = 5,000-rupee cap. (Outset + Northern together give you 1,000 then 5,000, in whichever order you do them.)"
+  },
+  {
+   "name": "Great Fairy of Bombs (Southern Fairy Island)",
+   "region": "Southern Fairy Island (sea chart D6) — south-central area, five squares south of Windfall Island (and a Ballad of Gales warp point).",
+   "location": "Requires Bombs. The shell entrance is blocked by wooden boards — blow them open with a Bomb (a Fire Arrow also burns them away, if you have it), then drop into the hole to the fairy fountain.",
+   "cost": "GRANTS: a bigger Bomb Bag. Order-dependent with the Eastern bomb fairy — the FIRST bomb fairy you reach raises your bag from 30 to 60 Bombs; the SECOND raises it to the 99-Bomb maximum."
+  },
+  {
+   "name": "Great Fairy of Bombs (Eastern Fairy Island)",
+   "region": "Eastern Fairy Island (sea chart E3) — east-central area.",
+   "location": "Requires Bombs. A large boulder blocks the giant shell — destroy it with a Bomb (a cannon shot from the King of Red Lions also works), then drop through the hole into the fairy fountain.",
+   "cost": "GRANTS: a bigger Bomb Bag (the other half of the bomb pair). Order-dependent — FIRST bomb fairy = 60 Bombs, SECOND = 99-Bomb maximum."
+  },
+  {
+   "name": "Great Fairy of Arrows (Thorned Fairy Island)",
+   "region": "Thorned Fairy Island (sea chart G4) — eastern edge of the map.",
+   "location": "Requires the Skull Hammer (obtained later in the game). Pound the wooden stakes blocking the shell with the Skull Hammer to drop the wall of thorns, then head inside to the fairy fountain.",
+   "cost": "GRANTS: a bigger Quiver. Order-dependent with the Western arrow fairy — the FIRST quiver fairy you reach raises you from 30 to 60 arrows; the SECOND raises you to the 99-arrow maximum."
+  },
+  {
+   "name": "Great Fairy of Arrows (Western Fairy Island)",
+   "region": "Western Fairy Island (sea chart A3) — far west edge of the map.",
+   "location": "Requires the Skull Hammer. Pound the stake with the Skull Hammer; this snuffs out the ring of flames blocking the entrance, then head inside to the fairy fountain.",
+   "cost": "GRANTS: a bigger Quiver (the other half of the arrow pair). Order-dependent — FIRST quiver fairy = 60 arrows, SECOND = 99-arrow maximum."
+  },
+  {
+   "name": "The Fairy Queen (Queen of Fairies)",
+   "region": "Mother & Child Isles (sea chart B2) — the small 'Child' isle sits beside the large 'Mother' isle, which is itself a giant fairy fountain ringed by an impassable rock wall.",
+   "location": "Reachable ONLY by warping in with the Ballad of Gales (the song the wind-spirit frog Cyclos teaches you) — it drops you straight inside the Mother isle; you cannot sail in normally. She won't appear until AFTER you have rescued your sister Aryll from the Forsaken Fortress.",
+   "cost": "GRANTS: Fire Arrows AND Ice Arrows together — she empowers your Hero's Bow to shoot flame and ice (each draws on your magic; both deal double a normal arrow's damage). HONEST NOTE: the Fairy Queen does NOT give Light Arrows — those are the dungeon item found in a chest inside Ganon's Tower (after the second Phantom Ganon fight), not a Fairy Queen reward. The Fire Arrows she gives are what you'll need next to reach the Power Bracelets at Fire Mountain and the Iron Boots at Ice Ring Isle."
+  }
+ ]
+}

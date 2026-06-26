@@ -1,0 +1,181 @@
+{
+ "regions": [
+  {
+   "region": "Charts, Treasure & the Triforce",
+   "quests": [
+    {
+     "name": "Salvaging Treasure with the Grappling Hook",
+     "giver": "(no NPC — taught by the Treasure Charts you find)",
+     "location": "All over the Great Sea (sunken chests marked by Treasure Charts)",
+     "reward": "Rupees, Pieces of Heart, bottles, special charts",
+     "oneLine": "Treasure Charts mark sunken chests on the sea floor that you haul up with the King of Red Lions' Grappling Hook to claim the loot inside.",
+     "how": "A Treasure Chart shows one lit-up grid square of the Great Sea; sail to that square and look for a spiraling ring of light on the water's surface. Stop the boat over it and drop the Grappling Hook straight down — it'll catch the sunken chest and reel it up. You need the Grappling Hook from Dragon Roost Cavern first. There are dozens of Treasure Charts; rewards range from a few rupees to Pieces of Heart and even other useful charts."
+    },
+    {
+     "name": "Tingle — Deciphering Triforce Charts",
+     "giver": "Tingle (freed from the Windfall Island jail)",
+     "location": "Windfall Island jail → later contacted to decode charts",
+     "reward": "Blank Triforce Charts turned into usable maps; the Tingle Tuner (GameCube only, needs a GBA link)",
+     "oneLine": "The map-obsessed Tingle translates your blank Triforce Charts into usable maps — for a steep fee each.",
+     "how": "Early on, free Tingle from the cell in the Windfall jail by stepping on the hidden switch. In the GameCube version he gives you the Tingle Tuner and his island's location. Later, the Triforce Charts you collect are unreadable until Tingle deciphers them — each costs 398 Rupees. In the original GameCube game all 8 Triforce shards come from charts, so deciphering the full set runs 3,184 Rupees (grab a bigger Wallet first). In Wind Waker HD only 3 charts need deciphering (1,194 Rupees total) because the other five shards are found directly as physical shards."
+    },
+    {
+     "name": "The Triforce of Courage — 8 Shards",
+     "giver": "(the King of Red Lions sets the quest after the Master Sword's power is restored)",
+     "location": "Eight scattered points across the Great Sea (sunken, on the Ghost Ship, in caves, etc.)",
+     "reward": "The complete Triforce of Courage (opens the way to confront Ganondorf)",
+     "oneLine": "The game's big endgame fetch quest: gather all eight Triforce of Courage shards.",
+     "how": "After the two new sages are awakened and the Master Sword regains its full power, the King of Red Lions tasks you with finding the eight Triforce Shards. In the GameCube version each comes from a Triforce Chart (from dungeons, the Ghost Ship, the Savage Labyrinth, the Cabana cave, etc.) that Tingle must decipher; then you sail to the marked square and salvage the shard from the sea floor with the Grappling Hook. In Wind Waker HD, five shards are simply found as physical shards and only three still come as charts — a much shorter hunt. Collecting all eight assembles the Triforce of Courage."
+    },
+    {
+     "name": "The Ghost Ship & its Chart",
+     "giver": "(no NPC — the Ghost Ship Chart, found on Diamond Steppe Island)",
+     "location": "Diamond Steppe Island (the chart) → the roaming Ghost Ship",
+     "reward": "A Triforce Chart (GameCube) / Triforce Shard (HD) aboard the Ghost Ship",
+     "oneLine": "A spectral ship roams the sea by the phases of the moon, but you can only board it once you hold the chart that tracks it.",
+     "how": "First get the Ghost Ship Chart from the top of Diamond Steppe Island — Hookshot up to the peak, then navigate the Warp Jar maze to the chest. The chart shows which square the Ghost Ship sits in for each moon phase; the current phase glows when you read it at night. Sail to that square at night and steer into the ship to board (without the chart it simply vanishes). Inside, clear the monsters below deck, then open the chest for the Triforce Chart (a Triforce Shard in HD)."
+    }
+   ]
+  },
+  {
+   "region": "Pictographs & the Nintendo Gallery",
+   "quests": [
+    {
+     "name": "The Picto Box",
+     "giver": "(found item)",
+     "location": "Windfall Island — the crawlspace inside Tingle's jail cell",
+     "reward": "Picto Box (black-and-white camera, holds 1 photo at a time)",
+     "oneLine": "Your first camera, hidden in a crawlspace maze inside Windfall's jail, is the start of the whole photography questline.",
+     "how": "On Windfall Island, free Tingle from the jail cell (step on the hidden switch), then shift the crate in his cell to reveal a crawlspace. Wind through the small maze to a chest holding the Picto Box. It only takes black-and-white photos and stores a single picture, but it's required before you can earn the color Deluxe version."
+    },
+    {
+     "name": "Lenzo's Research Assistant (→ Deluxe Picto Box)",
+     "giver": "Lenzo, the pictographer — Windfall Island (his shop, camera sign over the door)",
+     "location": "Windfall Island",
+     "reward": "Deluxe Picto Box (color photos)",
+     "oneLine": "Become Lenzo's photo assistant, ace his three assignments, and earn the color camera the figurine quest demands.",
+     "how": "Show Lenzo your Picto Box and agree to assist him; he sets three photo tasks: snap Garrickson, the hopeless love-letter writer, mailing a letter at the postbox; photograph Gossack in the Cafe Bar with a frightened face (startle him first — break a nearby pot); and capture Linda and Anton the moment they exchange loving glances outside Lenzo's shop. Deliver all three. In the GameCube version Lenzo then also needs a Forest Firefly (catch one in a bottle in the Forest Haven) before he upgrades you to the Deluxe Picto Box; HD drops the firefly step."
+    },
+    {
+     "name": "The Nintendo Gallery — Carlov's Figurines",
+     "giver": "Carlov, the sculptor",
+     "location": "A small island just north of the Forest Haven (glide in from the Forest Haven's high exit with the Deku Leaf)",
+     "reward": "Sculpted figurines of characters/enemies; completing the whole gallery is the marquee 100% reward",
+     "oneLine": "Photograph every character and creature in the game with the Deluxe Picto Box, and Carlov sculpts each one into a figurine for his gallery.",
+     "how": "Reach the Nintendo Gallery by gliding from the Forest Haven's high exit with the Deku Leaf onto the platform island, then drop through the hatch. Show Carlov clear, full-color pictographs (use the Deluxe Picto Box and frame the subject so 'OK' appears) and he sculpts a figurine — but only one per in-game day, so use the Song of Passing or sail around to let time pass. It's famously demanding: some characters and bosses appear only once, so on a single playthrough it's easy to miss a few; a full gallery is one of the hardest collectibles in the game and is most reliably finished across a Second Quest, where your photos carry over."
+    }
+   ]
+  },
+  {
+   "region": "Windfall Island",
+   "quests": [
+    {
+     "name": "The Auction",
+     "giver": "Zunari / the auction house",
+     "location": "Windfall Island — the Auction House (Zunari rents the ground floor), at night",
+     "reward": "Pieces of Heart, Treasure Charts #18 and #38, a Joy Pendant; the Swift Sail (HD only)",
+     "oneLine": "A nightly bidding war for rare prizes — outbid the townsfolk to walk away with charts, a heart piece, and (in HD) the game-changing Swift Sail.",
+     "how": "After dark, enter the Windfall Auction House and talk to Zunari to join. The four prizes rotate across nights: Treasure Charts #18 and #38, a Piece of Heart, and a Joy Pendant — return on different nights to win the ones you want. Fill your gauge by tapping to bid; a big over-bid (10%+, or doubling near the end) stuns the other bidders, and bidding 999 Rupees auto-wins. Bring plenty of rupees. In Wind Waker HD the auction can also offer the Swift Sail, which makes your boat far faster and keeps the wind at your back — well worth chasing."
+    },
+    {
+     "name": "Maggie & Moe — the Love Letters",
+     "giver": "Maggie (and the Rito postman Ilari) — Windfall Island",
+     "location": "Windfall Island (Maggie's house, the Cafe Bar, the postbox)",
+     "oneLine": "Play matchmaker between Maggie and her Moblin pen-pal Moe while her greedy father sabotages their mail.",
+     "reward": "Piece of Heart",
+     "how": "Maggie, mistreated by her money-grubbing father, gives you a love letter for Moe — a Moblin from the Forsaken Fortress. Drop it in the Windfall postbox and wait until the next day. Return to Maggie's house to find her father arguing with the Rito postman Ilari, who is holding Moe's reply but can't deliver it. Once that's over, find Ilari in the Cafe Bar; he asks you to hand-deliver Moe's letter to Maggie. Give it to her (she sweetly misreads Moe's 'I want to eat you for dinner' as devotion) and she rewards you with a Piece of Heart."
+    },
+    {
+     "name": "Salvatore's 'Sinking Ships' Minigame",
+     "giver": "Salvatore — Windfall Island (north end)",
+     "location": "Windfall Island",
+     "reward": "Piece of Heart (first win), then Treasure Chart #7 (second win), and Treasure Chart #23 for setting the record",
+     "oneLine": "A battleship-style guessing game: sink the three hidden squids on the grid with as few cannonballs as possible for heart and chart rewards.",
+     "how": "Pay 10 rupees and play Salvatore's 8×8 grid game, firing cannonballs to sink three hidden squid pods (sized 2, 3 and 4 squares). You have 24 cannonballs. Sink all three within that limit and Salvatore hands over a Piece of Heart the first time. Win again and you get Treasure Chart #7. Set the record by clearing it in 20 cannonballs or fewer and you earn Treasure Chart #23, which leads to another Piece of Heart near Diamond Steppe Island."
+    },
+    {
+     "name": "The Bomb Shop (Bomb-Master Cannon)",
+     "giver": "Cannon, the bomb-shop owner — Windfall Island",
+     "location": "Windfall Island",
+     "reward": "Access to buy Bombs; far cheaper prices after the story event",
+     "oneLine": "Windfall's gouging bomb monopoly drops its prices once pirates teach its owner a lesson.",
+     "how": "Bomb-Master Cannon runs the Great Sea's only early bomb shop and charges outrageous prices. You don't truly need to buy here once you find the Bombs in a dungeon, but as the story advances Tetra's pirates raid the shop and tie up Cannon, after which he reopens with much cheaper, reasonable prices — a handy restock stop."
+    },
+    {
+     "name": "Tott & the Song of Passing",
+     "giver": "Tott — Windfall Island (dancing by a gravestone near the jail)",
+     "location": "Windfall Island",
+     "reward": "The Song of Passing (instantly switch day↔night)",
+     "oneLine": "A dancing islander teaches you the conductor's song that flips day and night in an instant — a quality-of-life essential.",
+     "how": "Find Tott dancing in front of the gravestone next to the jail on Windfall and watch his moves. Conduct the Wind Waker back at him to learn the Song of Passing, which instantly swaps day for night (or vice-versa). It isn't strictly a 'quest,' but it's the song every timed/night activity — the auction, the Ghost Ship, the figurine pacing — relies on, so grab it early."
+    },
+    {
+     "name": "The Cabana Deed → Private Oasis",
+     "giver": "Mrs. Marie — Mrs. Marie's School of Joy, Windfall Island",
+     "location": "Windfall Island → Private Oasis (southeast of the map, near Outset)",
+     "reward": "Cabana Deed → entry to the Cabana (a Triforce Chart in GC / Triforce Shard in HD waits in the cave inside); 40 Joy Pendants later earns the Hero's Charm (GC) / Treasure Chart #45 (HD)",
+     "oneLine": "Collect Joy Pendants for the schoolteacher to earn the deed to your own island cabana — which hides a Triforce reward.",
+     "how": "Give Mrs. Marie 20 Joy Pendants (dropped by Bokoblins/Miniblins; smaller counts net lesser gifts) and she hands you the Cabana Deed to the Private Oasis. Sail there and show the deed to get inside the Cabana; a secret cave within holds a Triforce Chart (a Triforce Shard in Wind Waker HD), feeding straight into the Triforce hunt. Keep collecting and 40 Joy Pendants earns a bonus — the Hero's Charm in the GameCube version, or Treasure Chart #45 in HD. This quest is in both versions."
+    }
+   ]
+  },
+  {
+   "region": "Combat & the Sea",
+   "quests": [
+    {
+     "name": "The Savage Labyrinth (Outset Island)",
+     "giver": "(no NPC — a hidden cave)",
+     "location": "Outset Island — under the forest, reached via the cliff ledge",
+     "reward": "A Triforce Chart (GC) / Triforce Shard (HD) on floor 30; a Piece of Heart on floor 50 (Hero's Charm in HD)",
+     "oneLine": "A brutal 50-floor combat gauntlet under Outset Island, with a Triforce reward halfway down and a heart-prize at the bottom.",
+     "how": "On Outset, reach the ledge (Deku Leaf or Hookshot) and use the Power Bracelets to lift the Stone Head blocking the entrance. Inside is a non-stop fight down 50 rooms of enemies, with recovery items only every tenth floor. Clear the first 30 floors for the chest holding a Triforce Chart (a Triforce Shard in HD). Push through all 50 floors for the final reward — a Piece of Heart in the GameCube version, or the Hero's Charm (shows enemy HP) in Wind Waker HD."
+    },
+    {
+     "name": "Beedle's Shop Ship & the Membership Card",
+     "giver": "Beedle",
+     "location": "His Shop Ship, anchored at various islands across the Great Sea",
+     "reward": "Bombs/Bait/Hyoi Pears/etc.; Silver membership (Complimentary ID) and Gold membership (Fill-Up Coupon)",
+     "oneLine": "The floating merchant rewards loyal customers with a points card that unlocks free heart/magic refills.",
+     "how": "Beedle's Shop Ship floats near many islands (look for the sail with the eye). Every item you buy earns one membership point. Reach 30 points for Silver membership — he mails you the Complimentary ID, which refills your hearts when redeemed. Reach 60 points for Gold membership — he mails the Fill-Up Coupon, a one-time top-up of all your consumables including hearts and magic. (On random 'Point Days' purchases earn points five times as fast.)"
+    },
+    {
+     "name": "Light the Windfall Lighthouse & Windmill",
+     "giver": "(environmental — needs Fire Arrows; Kreeb gives one heart)",
+     "location": "Windfall Island",
+     "reward": "Two Pieces of Heart",
+     "oneLine": "Relight Windfall's lighthouse and windmill with Fire Arrows to open up a couple of hidden heart rewards.",
+     "how": "Once you have the Bow and Fire Arrows, do this at night. Climb behind Salvatore's to start the windmill, ride it up and shoot a Fire Arrow into its hub — then talk to Kreeb (the man in the yellow hat by the windmill/Ferris wheel) for a Piece of Heart. Separately, ride a cart up to the lighthouse and shoot a Fire Arrow into it to relight it; a chest then appears on a small islet you can reach with the Deku Leaf — open it (at night) for a second Piece of Heart."
+    }
+   ]
+  },
+  {
+   "region": "Koroks & Misc",
+   "quests": [
+    {
+     "name": "Grow the Koroks' Forests (the Withered Trees)",
+     "giver": "The Koroks / the Great Deku Tree — the Forest Haven",
+     "location": "Forest Haven → eight far-flung islands across the Great Sea",
+     "reward": "Piece of Heart",
+     "oneLine": "Carry magical Forest Water across the sea to revive eight withered Korok saplings before it goes stale.",
+     "how": "After the Forbidden Woods and the Korok Ceremony, the Koroks scatter to plant saplings — but eight have withered. Fill a bottle with Forest Water from the spring in the Forest Haven and fly to each withered tree (Cliff Plateau Isles, Shark Island, Private Oasis, Eastern Fairy Island, Star Island, Greatfish Isle, Needle Rock Isle, and the Mother & Child Isles), watering each in turn. The Forest Water reverts to ordinary water after 20 minutes (30 in HD), so warp efficiently with the Ballad of Gales and refill as needed — if seven or fewer are watered when it runs out, the trees re-wither. Water the last one and it sprouts a full tree, dropping a Piece of Heart."
+    },
+    {
+     "name": "Hollo's Blue Potion (Boko Baba Seeds)",
+     "giver": "Hollo — Hollo's Forest Potion Shop, the Forest Haven",
+     "location": "Forest Haven",
+     "reward": "Blue Potion (refills hearts AND magic)",
+     "oneLine": "Bring the potion-maker the right monster seeds and he'll brew a full heart-and-magic restorative for you.",
+     "how": "Visit Hollo in the Forest Haven; he needs Boko Baba Seeds to make his Blue Potion. Gather four Boko Baba Seeds (they drop from the Boko Baba plants in the Forbidden Woods) and bring them back with an empty bottle. Hollo then brews a Blue Potion that fully restores both your health and magic — return with more seeds whenever you want a refill."
+    },
+    {
+     "name": "The Great Fairies & the Fairy Queen",
+     "giver": "Great Fairies / the Fairy Queen",
+     "location": "Great Fairy fountains scattered around the Great Sea; the Fairy Queen at the Mother & Child Isles",
+     "reward": "Wallet, Quiver, Bomb Bag and Magic Meter upgrades from the Great Fairies; Fire & Ice Arrows from the Fairy Queen",
+     "oneLine": "Open the Great Fairy fountains hidden behind bombable walls and barriers for permanent upgrades to your wallet, bags and magic — and visit the Fairy Queen for the elemental arrows.",
+     "how": "Several islands hide Great Fairy fountains behind bombable walls, boarded doors, or hard-to-reach ledges — bomb or climb your way in. Each Great Fairy grants a lasting upgrade: bigger Wallets (1,000 then 5,000 rupees), a larger Quiver, and a larger Bomb Bag. The Magic Meter upgrade is earned by beating the Big Octo at Two-Eye Reef. Separately, the Fairy Queen — reached at the Mother & Child Isles via the Ballad of Gales — grants the Fire and Ice Arrows once you wield the Master Sword. (Light Arrows come from the story near the end, not a fountain.) Several of these are easy to miss, so sweep the corners of the map."
+    }
+   ]
+  }
+ ]
+}

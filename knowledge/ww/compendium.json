@@ -1,0 +1,375 @@
+{
+ "items": [
+  {
+   "name": "Hero's Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Your starting blade, part of the green Hero's Clothes. Used for basic slashes, the spin attack, the jump (back-slip) counterattack, and the parry/dodge attacks Orca teaches you. It carries the early game until the Master Sword replaces it.",
+   "where": "Given by Orca on Outset Island after he senses danger and finishes a short sword-fighting lesson, near the very start of the adventure."
+  },
+  {
+   "name": "Master Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The legendary blade of evil's bane. It is found POWERLESS — its two guardian Sages (Laruto and Fado) are dead, so it has lost its power to repel evil and barely hurts Ganondorf at first. Its strength is restored in two stages by awakening their successors, Medli and Makar, so they can pray again; only then can it harm Ganondorf and shatter the barrier to Ganon's Tower.",
+   "where": "Pulled from a hidden basement chamber beneath Hyrule Castle. Drawing it actually UNFREEZES time in the castle and lifts the seal that had been weakening Ganondorf's magic. Its true power is then restored across the Earth Temple (Medli) and Wind Temple (Makar)."
+  },
+  {
+   "name": "Hero's Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "Your basic shield for blocking attacks and deflecting projectiles. Holding it up guards against most enemy blows and pairs with the sword. It is later replaced in your inventory by the Mirror Shield.",
+   "where": "A family heirloom reluctantly handed to you by your Grandma on Outset Island before you set sail."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "An upgraded shield that blocks like the Hero's Shield but can also reflect beams of light. The reflection solves light puzzles and is used to expose and stun the Earth Temple's boss, Jalhalla, by bouncing light onto him. It permanently replaces the Hero's Shield.",
+   "where": "Found in a large chest in the Earth Temple, which appears after defeating the room's three Stalfos."
+  },
+  {
+   "name": "Hero's Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "A bow that fires ordinary arrows to hit distant switches, eyes, and enemies. It is the foundation of the arrow line — later the same bow gains Fire, Ice, and Light Arrows. Arrow ammo is tracked by your quiver, which can be expanded by Great Fairies.",
+   "where": "The dungeon item of the Tower of the Gods (the third dungeon), obtained from a chest; its arrows are then required to defeat the boss, Gohdan."
+  },
+  {
+   "name": "Fire Arrows",
+   "cat": "bow",
+   "type": "Bow upgrade",
+   "effect": "Lets the Hero's Bow fire flaming arrows. They melt the ice encasing Ice Ring Isle (to reach the Iron Boots), light torches, and burn the curtains and certain enemies in the Earth Temple. Firing them costs Magic and draws from the normal arrow supply.",
+   "where": "Granted by the Fairy Queen at Mother & Child Isles — reachable by warping there with the Ballad of Gales — together with the Ice Arrows."
+  },
+  {
+   "name": "Ice Arrows",
+   "cat": "bow",
+   "type": "Bow upgrade",
+   "effect": "Lets the Hero's Bow fire freezing arrows. They freeze the lava of Fire Mountain solid (to reach the Power Bracelets), freeze enemies, and can create temporary ice footing. Firing them costs Magic and shares the normal arrow supply.",
+   "where": "Granted by the Fairy Queen at Mother & Child Isles (reached with the Ballad of Gales), together with the Fire Arrows."
+  },
+  {
+   "name": "Light Arrows",
+   "cat": "bow",
+   "type": "Bow upgrade",
+   "effect": "The final and most powerful arrow upgrade for the Hero's Bow, firing arrows of sacred light that devastate evil and one-shot many lesser foes. They are essential for the final battle. Each shot costs a large amount of Magic.",
+   "where": "Found in a chest in Ganon's Tower near the endgame, appearing after you navigate the Phantom Ganon maze just before the final confrontation."
+  },
+  {
+   "name": "Telescope",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link zoom in and look across the sea or at distant objects. Your first item, used in the intro to spot the giant bird carrying a girl over Outset.",
+   "where": "Given by your little sister Aryll as a birthday present at the start of the game on Outset Island."
+  },
+  {
+   "name": "Sail",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Raises the King of Red Lions' sail to catch the wind and travel the Great Sea. Combine with the Wind Waker's Wind's Requiem to steer the wind into the sail.",
+   "where": "Bought from Zunari's shop on Windfall Island for 80 Rupees; required before the boat will leave Windfall."
+  },
+  {
+   "name": "Swift Sail",
+   "cat": "item",
+   "type": "Tool (HD-only)",
+   "effect": "An upgraded sail that nearly doubles boat speed AND automatically swings the wind to your heading, so you rarely need the Wind Waker while sailing. A major quality-of-life boost.",
+   "where": "HD ONLY (Wii U). Won at Zunari's night auction on Windfall Island (bidding from 100 Rupees, expect ~300), available after clearing Dragon Roost Cavern. Does not exist in the original GameCube or NSO version."
+  },
+  {
+   "name": "Wind Waker",
+   "cat": "item",
+   "type": "Conductor's Baton",
+   "effect": "The magic conductor's baton at the heart of the game. Conduct it to play songs that change the wind, warp across the sea, control statues, and command allies. Songs are entered by setting a tempo and matching note prompts.",
+   "where": "Given by the pirate captain Tetra after Link is launched into the Forsaken Fortress and reaches Windfall; you receive it as you set out to sea."
+  },
+  {
+   "name": "Grappling Hook",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Swing across gaps, climb to high ledges, and 'grapple' enemies and treasure to steal items (it can pull spoils off monsters). Also used to haul sunken treasure up from the boat.",
+   "where": "Found in a chest inside Dragon Roost Cavern, the game's first dungeon."
+  },
+  {
+   "name": "Deku Leaf",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A giant leaf that creates a gust of wind to push objects/sails or, while airborne, lets Link glide long distances and float on updrafts. Gliding and gusts both drain the Magic meter.",
+   "where": "Found at the top of the Great Deku Tree in the Forest Haven (reached by leaping between Boko Buds and using the Grappling Hook), before entering the Forbidden Woods dungeon."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Thrown weapon that stuns enemies, cuts ropes/vines, and hits switches. You can lock onto and tag up to five targets at once to strike them in sequence.",
+   "where": "Found in a chest inside the Forbidden Woods dungeon, after defeating a mini-boss."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Explosives that blast cracked walls and rocks, damage enemies, and are loaded into the King of Red Lions' cannon to sink ships and break sea obstacles.",
+   "where": "The cannon is mounted on the King of Red Lions before the Tower of the Gods; bomb supply is bought/restocked from Beedle's Shop Ship and other merchants."
+  },
+  {
+   "name": "Skull Hammer",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A heavy hammer that pounds stakes/pegs into the ground, smashes through certain enemies' guards, and stuns foes with a shockwave. Slow but very powerful.",
+   "where": "Found in a chest that appears after defeating Phantom Ganon in the courtyard on Link's second visit to the Forsaken Fortress."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a chain-mounted hook to pull Link to wooden targets and chests, or to yank distant objects/enemies toward you. Used to cross gaps and reach high spots.",
+   "where": "Found in a chest inside the Wind Temple (appears after clearing a room of enemies, including an orange Wizzrobe)."
+  },
+  {
+   "name": "Iron Boots",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Heavy boots that anchor Link against strong wind, let him sink and walk underwater, and weigh down certain switches. Equip and unequip as needed.",
+   "where": "Found in a cave on Ice Ring Isle. Reaching them requires the Fire & Ice Arrows from the Fairy Queen (Mother & Child Isles) to melt the ice."
+  },
+  {
+   "name": "Power Bracelets",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Grant the strength to lift and throw heavy black stone slabs and large rocks blocking your path.",
+   "where": "Found inside Fire Mountain, accessible only after you obtain the Fire & Ice Arrows from the Fairy Queen."
+  },
+  {
+   "name": "Picto Box",
+   "cat": "item",
+   "type": "Camera",
+   "effect": "A camera that takes still black-and-white photos (pictographs). Used for trading quests, figurine collecting, and identifying people. Holds 3 pictographs at a time.",
+   "where": "Found in a chest reached through a crawl-hole maze inside the Town Jail on Windfall Island, after freeing Tingle."
+  },
+  {
+   "name": "Deluxe Picto Box",
+   "cat": "item",
+   "type": "Camera (upgrade)",
+   "effect": "Upgrades the Picto Box to take full-COLOR pictographs, needed to photograph creatures/people for the Nintendo Gallery figurines. Holds 3 photos in the original, 12 in HD (where Link can also take selfies with nine expressions).",
+   "where": "Reward from Lenzo on Windfall Island after working as his assistant. In the original you must also bring him a Forest Firefly (caught in a Bottle at Forest Haven) as a final step; HD skips that step."
+  },
+  {
+   "name": "Magic Armor",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Creates a magic barrier that blocks all damage while active, but steadily drains the Magic meter; protection ends when magic runs out.",
+   "where": "Given by Zunari on Windfall after completing the island-flower trading sequence: make a Merchant's Oath with all three Goron wandering merchants (Mother & Child Isles, Greatfish Isle, Bomb Island), trading Town Flower → Sea Flower → Exotic Flower."
+  },
+  {
+   "name": "Hero's Charm",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A charm that displays an enemy's remaining HP as a number above its head when worn. Toggled on/off from the inventory; it does not use one of the three item buttons.",
+   "where": "Original/Switch Online: give Mrs. Marie on Windfall a total of 40 Joy Pendants (the extra 20 after the Cabana Deed). HD: found in the chest on floor 51 of the Savage Labyrinth (Outset Island), where the original has a Piece of Heart."
+  },
+  {
+   "name": "Tingle Tuner",
+   "cat": "item",
+   "type": "Tool (original-only)",
+   "effect": "A Game Boy Advance link-up item: a second player using a connected GBA could control Tingle to drop bombs, heal, and help solve puzzles. Single-player use is limited.",
+   "where": "ORIGINAL GameCube ONLY. Given by Tingle after Link frees him from the Windfall Island jail (press the hidden switch behind the vases). Replaced by the Tingle Bottle in HD."
+  },
+  {
+   "name": "Tingle Bottle",
+   "cat": "item",
+   "type": "Tool (HD-only)",
+   "effect": "Replaces the Tingle Tuner in HD. Toss it into the sea to send a message or screenshot to other players (via Miiverse), and find Tingle Statues using ordinary bombs rather than the Tuner.",
+   "where": "HD ONLY (Wii U). Gifted by Tingle after you free him from the Windfall jail. Does not exist in the GameCube original."
+  },
+  {
+   "name": "Bait Bag",
+   "cat": "item",
+   "type": "Bag",
+   "effect": "Holds All-Purpose Bait and Hyoi Pears. Feed bait to fish to fill in the Sea Chart and get hints; Hyoi Pears let Link control a seagull to hit distant switches.",
+   "where": "Purchased from Beedle's Shop Ship (the traveling sea merchant) for 20 Rupees."
+  },
+  {
+   "name": "Delivery Bag",
+   "cat": "item",
+   "type": "Bag",
+   "effect": "Stores letters and items for the island trading/delivery sidequests (such as the Note to Mom and various love-letter deliveries).",
+   "where": "Given by Quill, the Rito postman, on Dragon Roost Island."
+  },
+  {
+   "name": "Spoils Bag",
+   "cat": "item",
+   "type": "Bag",
+   "effect": "Stores the 'spoils' that enemies drop (Joy Pendants, Skull Necklaces, Golden Feathers, Knight's Crests, etc.) so you can trade them later.",
+   "where": "Given by Niko aboard Tetra's pirate ship after you complete his rope-swinging challenge."
+  },
+  {
+   "name": "Empty Bottle",
+   "cat": "item",
+   "type": "Bottle",
+   "effect": "Reusable container that holds fairies, potions, water, soup, and various pickups. Link can carry up to four bottles, each holding one thing at a time.",
+   "where": "Four total across the game: (1) tossed to you by Medli on Dragon Roost Island; (2) inside the submarine on Bomb Island (clear the Bokoblins); (3) bought from Masked Beedle's special Shop Ship near Rock Spire Isle for 500 Rupees; (4) recovered by following Mila on Windfall Island at night."
+  },
+  {
+   "name": "Wind's Requiem",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Changes the direction of the wind, which is essential for sailing efficiently and aiming the sail. The first and most-used Wind Waker song.",
+   "where": "Learned by playing the stone tablet at the Wind Shrine on the cliff above Dragon Roost Island; Zephos appears afterward."
+  },
+  {
+   "name": "Ballad of Gales",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Summons a cyclone that warps the King of Red Lions instantly to any of the sea's warp points you've unlocked, saving long sailing trips.",
+   "where": "Learned from Cyclos: shoot the spinning frog-god Cyclos with the Hero's Bow when he appears in a cyclone on the Great Sea."
+  },
+  {
+   "name": "Command Melody",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Lets Link project his spirit into and take control of a nearby statue or ally (Medli, Makar, the Tower's servant statues) to solve puzzles while his own body stands still.",
+   "where": "Learned from a stone tablet that appears inside the Tower of the Gods after returning a Servant of the Tower statue to its column."
+  },
+  {
+   "name": "Song of Passing",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Instantly switches between day and night (and back), useful for night-only events, shops, and enemies tied to the time of day.",
+   "where": "Learned from the dancer Tott on Windfall Island."
+  },
+  {
+   "name": "Earth God's Lyric",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Awakens Medli as the Sage of Earth so the power to repel evil is restored to the Master Sword; also used in duets with Medli to solve Earth Temple puzzles.",
+   "where": "Learned from a stone tablet inside the cave on Headstone Island; the Zora sage Laruto appears, directing you to awaken Medli with it."
+  },
+  {
+   "name": "Wind God's Aria",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Awakens Makar as the Sage of Wind so the Master Sword's power is restored; also used in duets with Makar to solve Wind Temple puzzles.",
+   "where": "Learned from a stone tablet inside the cave on Gale Isle; play it for Makar (in the secret cavern behind the waterfall at Forest Haven) to awaken him."
+  },
+  {
+   "name": "Din's Pearl",
+   "cat": "key",
+   "type": "Pearl",
+   "effect": "One of the three Goddess Pearls. Placed on its triangle island, the three pearls fire beams that raise the Tower of the Gods from the sea.",
+   "where": "Given by Prince Komali on Dragon Roost Island after Link clears Dragon Roost Cavern and Komali finds his courage."
+  },
+  {
+   "name": "Farore's Pearl",
+   "cat": "key",
+   "type": "Pearl",
+   "effect": "One of the three Goddess Pearls used to summon the Tower of the Gods.",
+   "where": "Given by the Great Deku Tree in the Forest Haven after Link rescues Makar from the Forbidden Woods dungeon."
+  },
+  {
+   "name": "Nayru's Pearl",
+   "cat": "key",
+   "type": "Pearl",
+   "effect": "The third Goddess Pearl needed to raise the Tower of the Gods.",
+   "where": "Given by the water spirit Jabun, found in a hidden grotto on Outset Island after Link bombs open the rock blocking it."
+  },
+  {
+   "name": "Medli (Sage of Earth)",
+   "cat": "key",
+   "type": "Awakened Sage",
+   "effect": "The Rito attendant awakened as the Sage of Earth. Her prayers restore one half of the Master Sword's lost power; she partners with Link to clear the Earth Temple.",
+   "where": "Awakened on Headstone Island by playing the Earth God's Lyric to her; you then guide her through the Earth Temple."
+  },
+  {
+   "name": "Makar (Sage of Wind)",
+   "cat": "key",
+   "type": "Awakened Sage",
+   "effect": "The Korok violinist awakened as the Sage of Wind. His prayers restore the other half of the Master Sword's power; he partners with Link to clear the Wind Temple.",
+   "where": "Awakened at Forest Haven by playing the Wind God's Aria to him; you then guide him through the Wind Temple."
+  },
+  {
+   "name": "Triforce of Courage",
+   "cat": "key",
+   "type": "Triforce",
+   "effect": "Link's sacred relic, formed when all eight Triforce Shards are reunited. It marks him as the chosen hero and is needed to enter the final confrontation with Ganondorf.",
+   "where": "Assembled by collecting all 8 Triforce Shards from across the Great Sea and presenting them to the King of Red Lions / Daphnes."
+  },
+  {
+   "name": "Triforce Shard",
+   "cat": "material",
+   "type": "Triforce Piece",
+   "effect": "One of the eight golden pieces that combine into the Triforce of Courage.",
+   "where": "Eight scattered across the Great Sea. Original: all 8 are salvaged from the sea using deciphered Triforce Charts. HD: only 3 still require Triforce Charts; the other 5 are placed directly in island chests."
+  },
+  {
+   "name": "Treasure Chart",
+   "cat": "material",
+   "type": "Chart",
+   "effect": "A map marking the spot of a sunken treasure (Rupees, Heart Pieces, charts, or upgrades). Sail to the marked tile and use the Grappling Hook from the boat to haul up the chest.",
+   "where": "Dozens are scattered across the game in dungeon chests, on islands, sold by merchants, and dredged from the sea; they do not need deciphering."
+  },
+  {
+   "name": "Triforce Chart",
+   "cat": "material",
+   "type": "Chart",
+   "effect": "A special chart pointing to a sunken Triforce Shard. Unreadable until deciphered, after which it reveals the salvage spot for one shard.",
+   "where": "Found via island puzzles and dungeons, then deciphered by Tingle for ~398 Rupees each. Original has 8 such charts; HD keeps only 3 (the other shards are direct chests)."
+  },
+  {
+   "name": "Sea Chart",
+   "cat": "material",
+   "type": "Chart",
+   "effect": "The master map of the entire Great Sea, dividing it into a 7x7 grid of 49 island squares. Lets you navigate and is filled in with island names as you explore.",
+   "where": "Given by the King of Red Lions early in the adventure as you first set out across the Great Sea."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Heart Piece",
+   "effect": "A quarter of a Heart Container. Collect four Pieces of Heart to gain one full extra heart of life on your gauge.",
+   "where": "Found across the Great Sea: hidden on islands, won at minigames, dredged from treasure charts, and given as quest rewards (44 total)."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Heart Container",
+   "effect": "Permanently adds one full heart to Link's maximum life gauge.",
+   "where": "Awarded for defeating each dungeon's boss (Gohma, Kalle Demos, Jalhalla, Molgera, etc.)."
+  },
+  {
+   "name": "Joy Pendant",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "A heart-shaped trinket dropped by Bokoblins and other foes; stored in the Spoils Bag. Traded to Mrs. Marie on Windfall for rewards and used in figurine/sidequest trades.",
+   "where": "Dropped by defeated Bokoblins (and similar enemies); collect with the Grappling Hook or pick up after a kill."
+  },
+  {
+   "name": "Skull Necklace",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "A bone necklace dropped by Moblins (the large spear-wielding pigs); a tradeable spoil stored in the Spoils Bag, exchanged for Rupees or rewards with certain islanders.",
+   "where": "Dropped by defeated Moblins, or grappled from them; occasionally found in chests."
+  },
+  {
+   "name": "Golden Feather",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "A rare feather dropped by certain flying foes; a valuable tradeable spoil kept in the Spoils Bag (give 20 to Hoskit on Dragon Roost for a reward).",
+   "where": "Dropped by Peahats, Kargarocs, and winged Mothulas; grapple them or collect after a kill."
+  },
+  {
+   "name": "Knight's Crest",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "A crest dropped by Darknuts, the game's toughest swordsmen. Collect ten and bring them to Orca on Outset Island to learn the Hurricane Spin sword technique.",
+   "where": "Dropped by defeated Darknuts (and found in some chests); grapple them off a helmetless Darknut."
+  },
+  {
+   "name": "Green Chu Jelly",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "Jelly dropped by Green ChuChus, stored in the Spoils Bag. Brought to Doc Bandam on Windfall Island to unlock and brew Green Potion (magic-restoring).",
+   "where": "Dropped by Green ChuChus (or grappled from them), abundant at Forest Haven and inside the Forbidden Woods."
+  }
+ ]
+}

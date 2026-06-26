@@ -1398,7 +1398,179 @@
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "Bokoblin",
+    "tier": "common",
+    "tactic": "The basic grunt — a couple of sword slashes, or wait for the A-prompt and Parry to drop it in one move. Knock its stick or sword loose and steal it for extra reach.",
+    "drops": "Sometimes its weapon; nothing else notable"
+   },
+   {
+    "name": "Bokoblin Archer",
+    "tier": "common",
+    "tactic": "Bokoblins posted with bows snipe from walls and towers, especially in the Forsaken Fortress. Close the gap fast (roll toward them) or pick them off first with your own bow or the Boomerang so they don't chip you while you fight melee foes.",
+    "drops": "Occasionally a weapon"
+   },
+   {
+    "name": "Moblin",
+    "tier": "common",
+    "tactic": "Big pig-faced brute with a spear and much more reach than a Bokoblin. Target it, bait a thrust, then parry or roll behind to strike — or steal its spear, one of the best reach weapons in the game. Several patrol the Forsaken Fortress.",
+    "drops": "Its spear when disarmed"
+   },
+   {
+    "name": "Miniblin",
+    "tier": "common",
+    "tactic": "Tiny imps that swarm in endless numbers, jabbing with little tridents and shrieking 'Kee-kee!'. Individually trivial (one hit each) but the danger is being mobbed — keep moving, sweep with spin attacks, and don't get cornered.",
+    "drops": "None"
+   },
+   {
+    "name": "ChuChu",
+    "tier": "common",
+    "tactic": "Gelatinous blobs in several colors: Green and Red are standard (a slash or two kills them; Green can melt into a puddle to dodge). Blue and Yellow are electrified — don't slash them directly; stun first with the Boomerang or an arrow, then finish. Yellow ones also hold arrows.",
+    "drops": "Chu Jelly (Green/Red/Blue by color); Yellow drops Red Jelly + arrows. Take jelly to Doc Bandam on Windfall to brew potions"
+   },
+   {
+    "name": "Keese",
+    "tier": "common",
+    "tactic": "Small bats that flutter erratically and dive at Link, sometimes carrying fire or ice. A single sword swing, a Boomerang toss, or an arrow drops one. Clear them before they distract you during a bigger fight; targeting makes the swing connect.",
+    "drops": "None"
+   },
+   {
+    "name": "Peahat",
+    "tier": "common",
+    "tactic": "Floating spinning plant-creatures with a leafy top. While the blades whirl they're protected; wait for the spinning to stop (or hit them with the Boomerang/arrows), then slash. The Deku Leaf's gust can also knock them around.",
+    "drops": "None"
+   },
+   {
+    "name": "Boko Baba",
+    "tier": "common",
+    "tactic": "Carnivorous plants on stalks in the Forbidden Woods that snap at Link. Slash the bulb to kill it; cutting one yields a Boko Baba Seed, and the stalk can leave a usable Bokoblin-style stick.",
+    "drops": "Boko Baba Seed; sometimes a stick"
+   },
+   {
+    "name": "Magtail",
+    "tier": "common",
+    "tactic": "Armored centipede-like crawlers found in fiery caverns, notably Dragon Roost Cavern. Their shell shrugs off sword hits — strike the eye when they rear up to attack, or hit the eye with the Grappling Hook to make them curl into a ball. Curled, they can be picked up and set on switches.",
+    "drops": "None"
+   },
+   {
+    "name": "Wizzrobe",
+    "tier": "common",
+    "tactic": "Robed casters that teleport in, summon other monsters, and fire magic before vanishing. Target one and rush it the instant it appears — a couple of hits banish it. Killing the Wizzrobe stops the reinforcements it keeps spawning, so prioritize it.",
+    "drops": "None"
+   },
+   {
+    "name": "Stalfos",
+    "tier": "common",
+    "tactic": "Reanimated skeletons that block and counter. Parry when prompted to knock them apart, then — important — they reassemble unless you destroy the scattered skull. Smash or pick up the bouncing skull before it pulls the bones back together.",
+    "drops": "None"
+   },
+   {
+    "name": "ReDead",
+    "tier": "common",
+    "tactic": "Mummified horrors in dark dungeons (notably the Earth Temple) that freeze Link with a scream, then climb on and bite. If it shrieks, mash buttons and roll the stick to break free, or pre-empt it: sneak up and hit it before it screams, or use Light Arrows to wipe it instantly.",
+    "drops": "None"
+   },
+   {
+    "name": "Floormaster",
+    "tier": "common",
+    "tactic": "Pale crawling hands that drop from the ceiling and grab Link — if one grabs you it hauls you a short way back (often to the room's entrance). Slash it quickly; a hit splits it into three small hands, so kill those fast before they regroup into a full one.",
+    "drops": "None"
+   },
+   {
+    "name": "Seahat",
+    "tier": "common",
+    "tactic": "Flying ray-like sea pests that buzz the King of Red Lions and dive at you while sailing. Knock them down with the Boomerang or an arrow, or blast them with the boat's Cannon before they reach you. Annoying in groups but individually weak.",
+    "drops": "None"
+   },
+   {
+    "name": "Darknut",
+    "tier": "mini-boss",
+    "tactic": "Heavily armored knights — the toughest standard enemy. You can't hurt the armored body, so Parry each time it attacks to knock off pieces of armor, then attack the exposed warrior underneath.",
+    "drops": "Sometimes drops its sword (a strong reach weapon)",
+    "battle": "Bring full hearts and ideally a bottled Fairy; the Master Sword and patience are enough. Darknuts have a sword and shield and block everything head-on, so never trade blows. Z/L-target and watch for the A-prompt: each clean Parry strips off a piece of its armor (cape/back plate first, then the rest) — parrying does NOT kill it from behind in one hit, it un-armors it. You can also slash its armor to wear pieces off, and knocking off back armor passes that damage to its health. Once it's stripped to its undershirt it dies in a few hits but moves faster and more aggressively, so keep rolling and back-hopping its heavy swings. The Boomerang can stun it for free stabs, and you can grab its dropped sword for reach. Take them one at a time when several appear."
+   },
+   {
+    "name": "Big Octo",
+    "tier": "mini-boss",
+    "tactic": "Enormous whirlpool-octopus encountered at sea (find it by a ring of seagulls); its current drags your boat toward the middle. Defeat it by hitting every one of its eyes before you reach the center.",
+    "battle": "Have the Bow with plenty of arrows (the Cannon and Boomerang also hit the eyes — the Cannon and Boomerang kill an eye in one shot, an arrow takes three hits per eye). Big Octos sit at fixed spots on the Great Sea and come in 4-eye, 8-eye, and 12-eye sizes. When the swirling current grabs the King of Red Lions, ready your weapon and clear every glowing eye on all sides before you're pulled to the center — if you fail it spits you to the edge of the sea sector and you start over. Clearing one rewards, by size, the freed Great Fairy doubling your Magic meter (the 4-eye one), 100 Rupees, or a Piece of Heart — fished up afterward with the crane. It's an aiming test, not a melee fight; carry spare arrows so you don't run dry mid-whirlpool."
+   },
+   {
+    "name": "Gohma",
+    "tier": "boss",
+    "tactic": "Armored arthropod boss of Dragon Roost Cavern, hanging beneath Valoo's tail. Drop the ceiling on it with the Grappling Hook to crack its shell, then attack its exposed eye.",
+    "battle": "Bring the Grappling Hook (the dungeon item) and your sword; full hearts help. Gohma's body is sheathed in tough armor, so don't bother swinging at it at first. When Gohma traps you in its claws and inhales, Z/L-target Valoo's glowing tail dangling from the ceiling, fire the Grappling Hook to grab it, and swing — a sheet of rock crashes down onto Gohma and cracks its shell. Do this three times to shatter the armor and expose the big eye. Now target the eye and fire the Grappling Hook at it to reel Gohma in and stun it, then slash the eye repeatedly with your sword. Repeat the eye phase a couple of times and Gohma explodes, granting a Heart Container. Land on the upper wooden platforms between hits — Gohma can't reach you there, though it will try to burn them."
+   },
+   {
+    "name": "Kalle Demos",
+    "tier": "boss",
+    "tactic": "Giant carnivorous plant (a huge Boko Baba) of the Forbidden Woods, hanging from the ceiling by vine-tentacles that hide its flower core. Cut the vines to drop it, then strike the exposed bulb.",
+    "battle": "Bring the Boomerang (the dungeon item) plus your sword; the Grappling Hook can also sever vines. Kalle Demos dangles from green tentacles anchoring it to the ceiling while barbed vines pop from the floor — keep moving so they can't whip you (they glow just before they strike). Use the Boomerang to slice the ceiling-vines: lock onto several at once to cut multiple per throw. Once the anchor vines are cut the plant crashes down and its red flower core opens — rush in and slash the core hard, then back out before the petals snap shut (that bite hurts a lot). It re-anchors and the cycle repeats. Secret one-shot: if you bottled Forest Water from the Forest Haven, pour it on Kalle Demos after dropping it to kill it instantly. Win for a Heart Container."
+   },
+   {
+    "name": "Gohdan",
+    "tier": "boss",
+    "tactic": "Stone-idol guardian of the Tower of the Gods — a floating head flanked by two giant hands. Shoot the hands and the eyes with the Bow, then bomb the open mouth.",
+    "battle": "Bring the Bow and Bombs (both found in the Tower of the Gods). Each of Gohdan's two hands has an eye — shoot each hand-eye twice with the Bow to make that hand go limp so it can no longer punch, grab, or shove you off the platform. With both hands down, Gohdan's two head-eyes open; shoot each of those twice as well. The head then slumps to the floor with its mouth gaping — throw a Bomb straight into the mouth. Repeat the whole cycle (hands, eyes, bomb) three times total to win. Dodge its fireballs by running, and if you run out of arrows Gohdan conveniently sneezes out ten more, so you'll never be stranded. Rewards a Heart Container and the Master Sword chamber below."
+   },
+   {
+    "name": "Helmaroc King",
+    "tier": "boss",
+    "tactic": "The huge masked bird that kidnapped Aryll, fought atop the Forsaken Fortress. Its iron mask blocks your sword — crack it with the Skull Hammer, then finish with the blade.",
+    "battle": "You need the Skull Hammer (won earlier on this return trip) plus the Master Sword and full hearts; bottle a Fairy first. Phase one is a chase up the tower's spiral ramp as water rises and the bird smashes the stairs — roll to move fast and jump or Grappling-Hook the gaps; at the top the Helmaroc shoves its head through the doorway, so Skull-Hammer its mask to send it plummeting. On the rooftop, bait its diving beak peck by strafing at medium range, then dodge so the beak sticks in the floor. Run up and slam the mask with the Skull Hammer — about four or five good blows shatter it. With the mask broken the exposed head is now vulnerable to the Master Sword (and Hammer/arrows); Z/L-target and slash to finish it. If it hovers and kicks up a gale, move toward it or perpendicular to the wind, not away. Victory yields a Heart Container."
+   },
+   {
+    "name": "Jalhalla",
+    "tier": "boss",
+    "tactic": "Colossal Poe boss of the Earth Temple, made of many smaller Poes. Pin it with reflected sunlight using the Mirror Shield, then hurl its solid body into the wall spikes.",
+    "battle": "You need the Mirror Shield (the Earth Temple item) and the Power Bracelets; the sword finishes the job. Jalhalla is intangible until lit — stand in a column of sunlight pouring into the room, raise the Mirror Shield, and angle the beam onto it. Held in the light, the giant Poe solidifies and drops. Immediately lift it with the Power Bracelets and throw it into one of the spike-columns on the walls; it bursts into a swarm of small Poes. Draw your sword and cut down as many as you can (one or two hits each) — but only about five can be killed per cycle, and if even one Poe survives it reforms the whole boss. Repeat: light it, throw it, slash the Poes. Late in the fight the sunlight pillars start vanishing, so move quickly to keep a beam on it. Defeat it for a Heart Container."
+   },
+   {
+    "name": "Molgera",
+    "tier": "boss",
+    "tactic": "Giant sandworm boss of the Wind Temple that burrows through the sand floor. Hookshot its exposed tongue to yank it down, then sword the tongue.",
+    "battle": "Bring the Hookshot (the Wind Temple item) and your sword, with full hearts. Watch the sand for a dark shifting patch — that's where Molgera will surface. When it pops up with its mouth gaping and the red-purple tongue showing, Z/L-target the tongue and fire the Hookshot at it to drag the beast down to your level, then slash the tongue rapidly with the Master Sword. Don't linger right in front of the open mouth or it'll suck you in and swallow you for a couple hearts of damage. After it's hurt it spawns three Molgera larvae — Hookshot and cut each out of the sand (they drop hearts and magic), or stay on the boss. Also watch for Molgera leaping airborne to crash down on you; roll aside when it flies. About three full tongue-Hookshot-and-slash cycles finishes it, granting a Heart Container."
+   },
+   {
+    "name": "Puppet Ganon",
+    "tier": "boss",
+    "tactic": "A marionette of Ganon fought in Ganon's Tower, in three escalating forms (puppet, spider, snake). Each form has a glowing orb weak point you destroy with Light Arrows.",
+    "battle": "You must have the Light Arrows (given by Zelda before this fight) plus the Boomerang and Bombs. Form 1 — Marionette: it dangles from strings; use the Boomerang to cut the strings (especially the one holding up the tail), and once the tail drops, Light-Arrow the orb on the tail. It re-strings itself and you repeat — three orb hits total. Form 2 — Spider (Bug-Ganon): it climbs the ceiling and crashes down on your spot; use the shallow water on the floor as a mirror to read where it'll land, dodge clear, then Light-Arrow the blue orb on its underside, three times. Form 3 — Snake/Worm: it slithers fast and erratically, speeding up each time you hit the tail orb; stun it first — a Bomb to the head, or a Light Arrow/sword hit to the face makes it pause — then quickly Light-Arrow the tail-tip orb. Down all three forms to clear the puppet and proceed to Ganondorf."
+   },
+   {
+    "name": "Ganondorf",
+    "tier": "boss",
+    "tactic": "The true final boss, dueled atop Ganon's Tower alongside Princess Zelda. He blocks normal attacks — you win through Parries, Zelda's Light Arrows, and finally a reflected Light Arrow off the Mirror Shield.",
+    "battle": "Bring the Master Sword (re-powered by the sages Medli and Makar), the Mirror Shield, full hearts, and a bottled Fairy. Early on, Zelda fires Light Arrows at Ganondorf while you fight; you open him up by Parrying his sword attacks (or pressuring him until his guard drops to trigger a parry), then unload with the Master Sword — and a Light Arrow that connects stuns him the same way, so let Zelda create openings. After Zelda is knocked out and revived, she asks you to deflect her Light Arrows: catch one on the Mirror Shield and bounce it into Ganondorf. The reflected arrow paralyzes him — run up, and at the Finishing Blow prompt Link leaps and drives the Master Sword into Ganondorf's forehead, turning him to stone. Keep the Fairy in reserve for his big combos."
+   }
+  ],
+  "basics": [
+   {
+    "title": "Z/L-Target, then circle",
+    "body": "Press L (GameCube) or ZL/L (Wii U HD) to lock onto the nearest enemy — the camera fixes on it and Link keeps facing it while you sidestep. Locked on, you can roll around a foe to its back, do a jumping side-strike, or hop straight back to dodge. Untargeted swinging is for crowds; for any single dangerous enemy, target first and learn its rhythm."
+   },
+   {
+    "title": "The Parry counter — your opening button",
+    "body": "While you're Z/L-targeting an enemy and an A-button prompt flashes (Link's sword glints) just as the foe is about to strike, hit A for a Parry: Link rolls behind or vaults over the enemy and counters. This is the heart of Wind Waker combat. A clean parry instantly kills weak foes like Bokoblins, and against tougher enemies it creates the opening — on a Darknut each parry knocks off a piece of armor (it does NOT kill from behind in one hit). Watch for the flash and tap A the instant it appears."
+   },
+   {
+    "title": "Steal a weapon for reach and power",
+    "body": "Knock a Bokoblin or Moblin's weapon out of its hands (a few hits, or it drops one when stunned) and stand over the loose weapon to pick it up with A. Boko sticks, Moblin spears, and Darknut swords give Link far more reach than his sword — a Moblin's spear in particular lets you poke enemies from a safe distance. Borrowed weapons break or are dropped over time, but grabbing one mid-fight can turn a tough group fast."
+   },
+   {
+    "title": "Deku Leaf + the Magic meter",
+    "body": "The Deku Leaf (won at the Forest Haven, before you enter the Forbidden Woods) does two jobs and both drain the green Magic meter: swing it as a melee gust to shove light enemies (Bokoblins, Boko Babas) off ledges or to flip switches, and hold it open after a jump to glide on rising gusts. Magic refills from green jars and grass, and the meter can be doubled later by a Great Fairy. Don't burn it all gliding if a fight's coming."
+   },
+   {
+    "title": "Bottled Fairies, soup, and healing",
+    "body": "Carry a Fairy in a bottle and it works as an auto-revive — if Link's hearts hit zero, the Fairy bursts out and restores eight hearts instead of a Game Over, so always keep one bottled before a boss. Touching a bottled Fairy below full health also heals eight hearts. Grandma's Elixir Soup (after you cure her) heals all hearts AND magic and doubles your attack power until you take a hit — each bottle holds two servings. Otherwise grab dropped hearts or refill bottles at fairy fountains."
+   },
+   {
+    "title": "Sailing combat and the boat's cannon",
+    "body": "At sea you fight from the King of Red Lions. Airborne pests like Seahats you knock down with the Boomerang or arrows; sea enemies and gun-platforms you blow up with the boat's Cannon (aim with the reticle and fire). A Big Octo is the deep-sea exception — its whirlpool drags you in and you must hit every one of its eyes (Bow, Cannon, or Boomerang) before you reach the center. Mind the wind: you can't sail against it, so set your heading with the Wind Waker's 'Wind's Requiem' before a chase."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -1415,62 +1587,928 @@
   "fairies": []
  },
  "ECONOMY": null,
- "COMPENDIUM": [],
- "SIDE_QUESTS": [],
+ "COMPENDIUM": [
+  {
+   "name": "Hero's Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Your starting blade, part of the green Hero's Clothes. Used for basic slashes, the spin attack, the jump (back-slip) counterattack, and the parry/dodge attacks Orca teaches you. It carries the early game until the Master Sword replaces it.",
+   "where": "Given by Orca on Outset Island after he senses danger and finishes a short sword-fighting lesson, near the very start of the adventure."
+  },
+  {
+   "name": "Master Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The legendary blade of evil's bane. It is found POWERLESS — its two guardian Sages (Laruto and Fado) are dead, so it has lost its power to repel evil and barely hurts Ganondorf at first. Its strength is restored in two stages by awakening their successors, Medli and Makar, so they can pray again; only then can it harm Ganondorf and shatter the barrier to Ganon's Tower.",
+   "where": "Pulled from a hidden basement chamber beneath Hyrule Castle. Drawing it actually UNFREEZES time in the castle and lifts the seal that had been weakening Ganondorf's magic. Its true power is then restored across the Earth Temple (Medli) and Wind Temple (Makar)."
+  },
+  {
+   "name": "Hero's Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "Your basic shield for blocking attacks and deflecting projectiles. Holding it up guards against most enemy blows and pairs with the sword. It is later replaced in your inventory by the Mirror Shield.",
+   "where": "A family heirloom reluctantly handed to you by your Grandma on Outset Island before you set sail."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "An upgraded shield that blocks like the Hero's Shield but can also reflect beams of light. The reflection solves light puzzles and is used to expose and stun the Earth Temple's boss, Jalhalla, by bouncing light onto him. It permanently replaces the Hero's Shield.",
+   "where": "Found in a large chest in the Earth Temple, which appears after defeating the room's three Stalfos."
+  },
+  {
+   "name": "Hero's Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "A bow that fires ordinary arrows to hit distant switches, eyes, and enemies. It is the foundation of the arrow line — later the same bow gains Fire, Ice, and Light Arrows. Arrow ammo is tracked by your quiver, which can be expanded by Great Fairies.",
+   "where": "The dungeon item of the Tower of the Gods (the third dungeon), obtained from a chest; its arrows are then required to defeat the boss, Gohdan."
+  },
+  {
+   "name": "Fire Arrows",
+   "cat": "bow",
+   "type": "Bow upgrade",
+   "effect": "Lets the Hero's Bow fire flaming arrows. They melt the ice encasing Ice Ring Isle (to reach the Iron Boots), light torches, and burn the curtains and certain enemies in the Earth Temple. Firing them costs Magic and draws from the normal arrow supply.",
+   "where": "Granted by the Fairy Queen at Mother & Child Isles — reachable by warping there with the Ballad of Gales — together with the Ice Arrows."
+  },
+  {
+   "name": "Ice Arrows",
+   "cat": "bow",
+   "type": "Bow upgrade",
+   "effect": "Lets the Hero's Bow fire freezing arrows. They freeze the lava of Fire Mountain solid (to reach the Power Bracelets), freeze enemies, and can create temporary ice footing. Firing them costs Magic and shares the normal arrow supply.",
+   "where": "Granted by the Fairy Queen at Mother & Child Isles (reached with the Ballad of Gales), together with the Fire Arrows."
+  },
+  {
+   "name": "Light Arrows",
+   "cat": "bow",
+   "type": "Bow upgrade",
+   "effect": "The final and most powerful arrow upgrade for the Hero's Bow, firing arrows of sacred light that devastate evil and one-shot many lesser foes. They are essential for the final battle. Each shot costs a large amount of Magic.",
+   "where": "Found in a chest in Ganon's Tower near the endgame, appearing after you navigate the Phantom Ganon maze just before the final confrontation."
+  },
+  {
+   "name": "Telescope",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link zoom in and look across the sea or at distant objects. Your first item, used in the intro to spot the giant bird carrying a girl over Outset.",
+   "where": "Given by your little sister Aryll as a birthday present at the start of the game on Outset Island."
+  },
+  {
+   "name": "Sail",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Raises the King of Red Lions' sail to catch the wind and travel the Great Sea. Combine with the Wind Waker's Wind's Requiem to steer the wind into the sail.",
+   "where": "Bought from Zunari's shop on Windfall Island for 80 Rupees; required before the boat will leave Windfall."
+  },
+  {
+   "name": "Swift Sail",
+   "cat": "item",
+   "type": "Tool (HD-only)",
+   "effect": "An upgraded sail that nearly doubles boat speed AND automatically swings the wind to your heading, so you rarely need the Wind Waker while sailing. A major quality-of-life boost.",
+   "where": "HD ONLY (Wii U). Won at Zunari's night auction on Windfall Island (bidding from 100 Rupees, expect ~300), available after clearing Dragon Roost Cavern. Does not exist in the original GameCube or NSO version."
+  },
+  {
+   "name": "Wind Waker",
+   "cat": "item",
+   "type": "Conductor's Baton",
+   "effect": "The magic conductor's baton at the heart of the game. Conduct it to play songs that change the wind, warp across the sea, control statues, and command allies. Songs are entered by setting a tempo and matching note prompts.",
+   "where": "Given by the pirate captain Tetra after Link is launched into the Forsaken Fortress and reaches Windfall; you receive it as you set out to sea."
+  },
+  {
+   "name": "Grappling Hook",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Swing across gaps, climb to high ledges, and 'grapple' enemies and treasure to steal items (it can pull spoils off monsters). Also used to haul sunken treasure up from the boat.",
+   "where": "Found in a chest inside Dragon Roost Cavern, the game's first dungeon."
+  },
+  {
+   "name": "Deku Leaf",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A giant leaf that creates a gust of wind to push objects/sails or, while airborne, lets Link glide long distances and float on updrafts. Gliding and gusts both drain the Magic meter.",
+   "where": "Found at the top of the Great Deku Tree in the Forest Haven (reached by leaping between Boko Buds and using the Grappling Hook), before entering the Forbidden Woods dungeon."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Thrown weapon that stuns enemies, cuts ropes/vines, and hits switches. You can lock onto and tag up to five targets at once to strike them in sequence.",
+   "where": "Found in a chest inside the Forbidden Woods dungeon, after defeating a mini-boss."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Explosives that blast cracked walls and rocks, damage enemies, and are loaded into the King of Red Lions' cannon to sink ships and break sea obstacles.",
+   "where": "The cannon is mounted on the King of Red Lions before the Tower of the Gods; bomb supply is bought/restocked from Beedle's Shop Ship and other merchants."
+  },
+  {
+   "name": "Skull Hammer",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A heavy hammer that pounds stakes/pegs into the ground, smashes through certain enemies' guards, and stuns foes with a shockwave. Slow but very powerful.",
+   "where": "Found in a chest that appears after defeating Phantom Ganon in the courtyard on Link's second visit to the Forsaken Fortress."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a chain-mounted hook to pull Link to wooden targets and chests, or to yank distant objects/enemies toward you. Used to cross gaps and reach high spots.",
+   "where": "Found in a chest inside the Wind Temple (appears after clearing a room of enemies, including an orange Wizzrobe)."
+  },
+  {
+   "name": "Iron Boots",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Heavy boots that anchor Link against strong wind, let him sink and walk underwater, and weigh down certain switches. Equip and unequip as needed.",
+   "where": "Found in a cave on Ice Ring Isle. Reaching them requires the Fire & Ice Arrows from the Fairy Queen (Mother & Child Isles) to melt the ice."
+  },
+  {
+   "name": "Power Bracelets",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Grant the strength to lift and throw heavy black stone slabs and large rocks blocking your path.",
+   "where": "Found inside Fire Mountain, accessible only after you obtain the Fire & Ice Arrows from the Fairy Queen."
+  },
+  {
+   "name": "Picto Box",
+   "cat": "item",
+   "type": "Camera",
+   "effect": "A camera that takes still black-and-white photos (pictographs). Used for trading quests, figurine collecting, and identifying people. Holds 3 pictographs at a time.",
+   "where": "Found in a chest reached through a crawl-hole maze inside the Town Jail on Windfall Island, after freeing Tingle."
+  },
+  {
+   "name": "Deluxe Picto Box",
+   "cat": "item",
+   "type": "Camera (upgrade)",
+   "effect": "Upgrades the Picto Box to take full-COLOR pictographs, needed to photograph creatures/people for the Nintendo Gallery figurines. Holds 3 photos in the original, 12 in HD (where Link can also take selfies with nine expressions).",
+   "where": "Reward from Lenzo on Windfall Island after working as his assistant. In the original you must also bring him a Forest Firefly (caught in a Bottle at Forest Haven) as a final step; HD skips that step."
+  },
+  {
+   "name": "Magic Armor",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Creates a magic barrier that blocks all damage while active, but steadily drains the Magic meter; protection ends when magic runs out.",
+   "where": "Given by Zunari on Windfall after completing the island-flower trading sequence: make a Merchant's Oath with all three Goron wandering merchants (Mother & Child Isles, Greatfish Isle, Bomb Island), trading Town Flower → Sea Flower → Exotic Flower."
+  },
+  {
+   "name": "Hero's Charm",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A charm that displays an enemy's remaining HP as a number above its head when worn. Toggled on/off from the inventory; it does not use one of the three item buttons.",
+   "where": "Original/Switch Online: give Mrs. Marie on Windfall a total of 40 Joy Pendants (the extra 20 after the Cabana Deed). HD: found in the chest on floor 51 of the Savage Labyrinth (Outset Island), where the original has a Piece of Heart."
+  },
+  {
+   "name": "Tingle Tuner",
+   "cat": "item",
+   "type": "Tool (original-only)",
+   "effect": "A Game Boy Advance link-up item: a second player using a connected GBA could control Tingle to drop bombs, heal, and help solve puzzles. Single-player use is limited.",
+   "where": "ORIGINAL GameCube ONLY. Given by Tingle after Link frees him from the Windfall Island jail (press the hidden switch behind the vases). Replaced by the Tingle Bottle in HD."
+  },
+  {
+   "name": "Tingle Bottle",
+   "cat": "item",
+   "type": "Tool (HD-only)",
+   "effect": "Replaces the Tingle Tuner in HD. Toss it into the sea to send a message or screenshot to other players (via Miiverse), and find Tingle Statues using ordinary bombs rather than the Tuner.",
+   "where": "HD ONLY (Wii U). Gifted by Tingle after you free him from the Windfall jail. Does not exist in the GameCube original."
+  },
+  {
+   "name": "Bait Bag",
+   "cat": "item",
+   "type": "Bag",
+   "effect": "Holds All-Purpose Bait and Hyoi Pears. Feed bait to fish to fill in the Sea Chart and get hints; Hyoi Pears let Link control a seagull to hit distant switches.",
+   "where": "Purchased from Beedle's Shop Ship (the traveling sea merchant) for 20 Rupees."
+  },
+  {
+   "name": "Delivery Bag",
+   "cat": "item",
+   "type": "Bag",
+   "effect": "Stores letters and items for the island trading/delivery sidequests (such as the Note to Mom and various love-letter deliveries).",
+   "where": "Given by Quill, the Rito postman, on Dragon Roost Island."
+  },
+  {
+   "name": "Spoils Bag",
+   "cat": "item",
+   "type": "Bag",
+   "effect": "Stores the 'spoils' that enemies drop (Joy Pendants, Skull Necklaces, Golden Feathers, Knight's Crests, etc.) so you can trade them later.",
+   "where": "Given by Niko aboard Tetra's pirate ship after you complete his rope-swinging challenge."
+  },
+  {
+   "name": "Empty Bottle",
+   "cat": "item",
+   "type": "Bottle",
+   "effect": "Reusable container that holds fairies, potions, water, soup, and various pickups. Link can carry up to four bottles, each holding one thing at a time.",
+   "where": "Four total across the game: (1) tossed to you by Medli on Dragon Roost Island; (2) inside the submarine on Bomb Island (clear the Bokoblins); (3) bought from Masked Beedle's special Shop Ship near Rock Spire Isle for 500 Rupees; (4) recovered by following Mila on Windfall Island at night."
+  },
+  {
+   "name": "Wind's Requiem",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Changes the direction of the wind, which is essential for sailing efficiently and aiming the sail. The first and most-used Wind Waker song.",
+   "where": "Learned by playing the stone tablet at the Wind Shrine on the cliff above Dragon Roost Island; Zephos appears afterward."
+  },
+  {
+   "name": "Ballad of Gales",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Summons a cyclone that warps the King of Red Lions instantly to any of the sea's warp points you've unlocked, saving long sailing trips.",
+   "where": "Learned from Cyclos: shoot the spinning frog-god Cyclos with the Hero's Bow when he appears in a cyclone on the Great Sea."
+  },
+  {
+   "name": "Command Melody",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Lets Link project his spirit into and take control of a nearby statue or ally (Medli, Makar, the Tower's servant statues) to solve puzzles while his own body stands still.",
+   "where": "Learned from a stone tablet that appears inside the Tower of the Gods after returning a Servant of the Tower statue to its column."
+  },
+  {
+   "name": "Song of Passing",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Instantly switches between day and night (and back), useful for night-only events, shops, and enemies tied to the time of day.",
+   "where": "Learned from the dancer Tott on Windfall Island."
+  },
+  {
+   "name": "Earth God's Lyric",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Awakens Medli as the Sage of Earth so the power to repel evil is restored to the Master Sword; also used in duets with Medli to solve Earth Temple puzzles.",
+   "where": "Learned from a stone tablet inside the cave on Headstone Island; the Zora sage Laruto appears, directing you to awaken Medli with it."
+  },
+  {
+   "name": "Wind God's Aria",
+   "cat": "song",
+   "type": "Song",
+   "effect": "Awakens Makar as the Sage of Wind so the Master Sword's power is restored; also used in duets with Makar to solve Wind Temple puzzles.",
+   "where": "Learned from a stone tablet inside the cave on Gale Isle; play it for Makar (in the secret cavern behind the waterfall at Forest Haven) to awaken him."
+  },
+  {
+   "name": "Din's Pearl",
+   "cat": "key",
+   "type": "Pearl",
+   "effect": "One of the three Goddess Pearls. Placed on its triangle island, the three pearls fire beams that raise the Tower of the Gods from the sea.",
+   "where": "Given by Prince Komali on Dragon Roost Island after Link clears Dragon Roost Cavern and Komali finds his courage."
+  },
+  {
+   "name": "Farore's Pearl",
+   "cat": "key",
+   "type": "Pearl",
+   "effect": "One of the three Goddess Pearls used to summon the Tower of the Gods.",
+   "where": "Given by the Great Deku Tree in the Forest Haven after Link rescues Makar from the Forbidden Woods dungeon."
+  },
+  {
+   "name": "Nayru's Pearl",
+   "cat": "key",
+   "type": "Pearl",
+   "effect": "The third Goddess Pearl needed to raise the Tower of the Gods.",
+   "where": "Given by the water spirit Jabun, found in a hidden grotto on Outset Island after Link bombs open the rock blocking it."
+  },
+  {
+   "name": "Medli (Sage of Earth)",
+   "cat": "key",
+   "type": "Awakened Sage",
+   "effect": "The Rito attendant awakened as the Sage of Earth. Her prayers restore one half of the Master Sword's lost power; she partners with Link to clear the Earth Temple.",
+   "where": "Awakened on Headstone Island by playing the Earth God's Lyric to her; you then guide her through the Earth Temple."
+  },
+  {
+   "name": "Makar (Sage of Wind)",
+   "cat": "key",
+   "type": "Awakened Sage",
+   "effect": "The Korok violinist awakened as the Sage of Wind. His prayers restore the other half of the Master Sword's power; he partners with Link to clear the Wind Temple.",
+   "where": "Awakened at Forest Haven by playing the Wind God's Aria to him; you then guide him through the Wind Temple."
+  },
+  {
+   "name": "Triforce of Courage",
+   "cat": "key",
+   "type": "Triforce",
+   "effect": "Link's sacred relic, formed when all eight Triforce Shards are reunited. It marks him as the chosen hero and is needed to enter the final confrontation with Ganondorf.",
+   "where": "Assembled by collecting all 8 Triforce Shards from across the Great Sea and presenting them to the King of Red Lions / Daphnes."
+  },
+  {
+   "name": "Triforce Shard",
+   "cat": "material",
+   "type": "Triforce Piece",
+   "effect": "One of the eight golden pieces that combine into the Triforce of Courage.",
+   "where": "Eight scattered across the Great Sea. Original: all 8 are salvaged from the sea using deciphered Triforce Charts. HD: only 3 still require Triforce Charts; the other 5 are placed directly in island chests."
+  },
+  {
+   "name": "Treasure Chart",
+   "cat": "material",
+   "type": "Chart",
+   "effect": "A map marking the spot of a sunken treasure (Rupees, Heart Pieces, charts, or upgrades). Sail to the marked tile and use the Grappling Hook from the boat to haul up the chest.",
+   "where": "Dozens are scattered across the game in dungeon chests, on islands, sold by merchants, and dredged from the sea; they do not need deciphering."
+  },
+  {
+   "name": "Triforce Chart",
+   "cat": "material",
+   "type": "Chart",
+   "effect": "A special chart pointing to a sunken Triforce Shard. Unreadable until deciphered, after which it reveals the salvage spot for one shard.",
+   "where": "Found via island puzzles and dungeons, then deciphered by Tingle for ~398 Rupees each. Original has 8 such charts; HD keeps only 3 (the other shards are direct chests)."
+  },
+  {
+   "name": "Sea Chart",
+   "cat": "material",
+   "type": "Chart",
+   "effect": "The master map of the entire Great Sea, dividing it into a 7x7 grid of 49 island squares. Lets you navigate and is filled in with island names as you explore.",
+   "where": "Given by the King of Red Lions early in the adventure as you first set out across the Great Sea."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Heart Piece",
+   "effect": "A quarter of a Heart Container. Collect four Pieces of Heart to gain one full extra heart of life on your gauge.",
+   "where": "Found across the Great Sea: hidden on islands, won at minigames, dredged from treasure charts, and given as quest rewards (44 total)."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Heart Container",
+   "effect": "Permanently adds one full heart to Link's maximum life gauge.",
+   "where": "Awarded for defeating each dungeon's boss (Gohma, Kalle Demos, Jalhalla, Molgera, etc.)."
+  },
+  {
+   "name": "Joy Pendant",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "A heart-shaped trinket dropped by Bokoblins and other foes; stored in the Spoils Bag. Traded to Mrs. Marie on Windfall for rewards and used in figurine/sidequest trades.",
+   "where": "Dropped by defeated Bokoblins (and similar enemies); collect with the Grappling Hook or pick up after a kill."
+  },
+  {
+   "name": "Skull Necklace",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "A bone necklace dropped by Moblins (the large spear-wielding pigs); a tradeable spoil stored in the Spoils Bag, exchanged for Rupees or rewards with certain islanders.",
+   "where": "Dropped by defeated Moblins, or grappled from them; occasionally found in chests."
+  },
+  {
+   "name": "Golden Feather",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "A rare feather dropped by certain flying foes; a valuable tradeable spoil kept in the Spoils Bag (give 20 to Hoskit on Dragon Roost for a reward).",
+   "where": "Dropped by Peahats, Kargarocs, and winged Mothulas; grapple them or collect after a kill."
+  },
+  {
+   "name": "Knight's Crest",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "A crest dropped by Darknuts, the game's toughest swordsmen. Collect ten and bring them to Orca on Outset Island to learn the Hurricane Spin sword technique.",
+   "where": "Dropped by defeated Darknuts (and found in some chests); grapple them off a helmetless Darknut."
+  },
+  {
+   "name": "Green Chu Jelly",
+   "cat": "material",
+   "type": "Spoil",
+   "effect": "Jelly dropped by Green ChuChus, stored in the Spoils Bag. Brought to Doc Bandam on Windfall Island to unlock and brew Green Potion (magic-restoring).",
+   "where": "Dropped by Green ChuChus (or grappled from them), abundant at Forest Haven and inside the Forbidden Woods."
+  }
+ ],
+ "SIDE_QUESTS": [
+  {
+   "region": "Charts, Treasure & the Triforce",
+   "quests": [
+    {
+     "id": "salvaging-treasure-with-the-grappling-hook",
+     "name": "Salvaging Treasure with the Grappling Hook",
+     "giver": "(no NPC — taught by the Treasure Charts you find)",
+     "location": "All over the Great Sea (sunken chests marked by Treasure Charts)",
+     "reward": "Rupees, Pieces of Heart, bottles, special charts",
+     "oneLine": "Treasure Charts mark sunken chests on the sea floor that you haul up with the King of Red Lions' Grappling Hook to claim the loot inside.",
+     "how": "A Treasure Chart shows one lit-up grid square of the Great Sea; sail to that square and look for a spiraling ring of light on the water's surface. Stop the boat over it and drop the Grappling Hook straight down — it'll catch the sunken chest and reel it up. You need the Grappling Hook from Dragon Roost Cavern first. There are dozens of Treasure Charts; rewards range from a few rupees to Pieces of Heart and even other useful charts."
+    },
+    {
+     "id": "tingle-deciphering-triforce-charts",
+     "name": "Tingle — Deciphering Triforce Charts",
+     "giver": "Tingle (freed from the Windfall Island jail)",
+     "location": "Windfall Island jail → later contacted to decode charts",
+     "reward": "Blank Triforce Charts turned into usable maps; the Tingle Tuner (GameCube only, needs a GBA link)",
+     "oneLine": "The map-obsessed Tingle translates your blank Triforce Charts into usable maps — for a steep fee each.",
+     "how": "Early on, free Tingle from the cell in the Windfall jail by stepping on the hidden switch. In the GameCube version he gives you the Tingle Tuner and his island's location. Later, the Triforce Charts you collect are unreadable until Tingle deciphers them — each costs 398 Rupees. In the original GameCube game all 8 Triforce shards come from charts, so deciphering the full set runs 3,184 Rupees (grab a bigger Wallet first). In Wind Waker HD only 3 charts need deciphering (1,194 Rupees total) because the other five shards are found directly as physical shards."
+    },
+    {
+     "id": "the-triforce-of-courage-8-shards",
+     "name": "The Triforce of Courage — 8 Shards",
+     "giver": "(the King of Red Lions sets the quest after the Master Sword's power is restored)",
+     "location": "Eight scattered points across the Great Sea (sunken, on the Ghost Ship, in caves, etc.)",
+     "reward": "The complete Triforce of Courage (opens the way to confront Ganondorf)",
+     "oneLine": "The game's big endgame fetch quest: gather all eight Triforce of Courage shards.",
+     "how": "After the two new sages are awakened and the Master Sword regains its full power, the King of Red Lions tasks you with finding the eight Triforce Shards. In the GameCube version each comes from a Triforce Chart (from dungeons, the Ghost Ship, the Savage Labyrinth, the Cabana cave, etc.) that Tingle must decipher; then you sail to the marked square and salvage the shard from the sea floor with the Grappling Hook. In Wind Waker HD, five shards are simply found as physical shards and only three still come as charts — a much shorter hunt. Collecting all eight assembles the Triforce of Courage."
+    },
+    {
+     "id": "the-ghost-ship-its-chart",
+     "name": "The Ghost Ship & its Chart",
+     "giver": "(no NPC — the Ghost Ship Chart, found on Diamond Steppe Island)",
+     "location": "Diamond Steppe Island (the chart) → the roaming Ghost Ship",
+     "reward": "A Triforce Chart (GameCube) / Triforce Shard (HD) aboard the Ghost Ship",
+     "oneLine": "A spectral ship roams the sea by the phases of the moon, but you can only board it once you hold the chart that tracks it.",
+     "how": "First get the Ghost Ship Chart from the top of Diamond Steppe Island — Hookshot up to the peak, then navigate the Warp Jar maze to the chest. The chart shows which square the Ghost Ship sits in for each moon phase; the current phase glows when you read it at night. Sail to that square at night and steer into the ship to board (without the chart it simply vanishes). Inside, clear the monsters below deck, then open the chest for the Triforce Chart (a Triforce Shard in HD)."
+    }
+   ]
+  },
+  {
+   "region": "Pictographs & the Nintendo Gallery",
+   "quests": [
+    {
+     "id": "the-picto-box",
+     "name": "The Picto Box",
+     "giver": "(found item)",
+     "location": "Windfall Island — the crawlspace inside Tingle's jail cell",
+     "reward": "Picto Box (black-and-white camera, holds 1 photo at a time)",
+     "oneLine": "Your first camera, hidden in a crawlspace maze inside Windfall's jail, is the start of the whole photography questline.",
+     "how": "On Windfall Island, free Tingle from the jail cell (step on the hidden switch), then shift the crate in his cell to reveal a crawlspace. Wind through the small maze to a chest holding the Picto Box. It only takes black-and-white photos and stores a single picture, but it's required before you can earn the color Deluxe version."
+    },
+    {
+     "id": "lenzo-s-research-assistant-deluxe-picto-box",
+     "name": "Lenzo's Research Assistant (→ Deluxe Picto Box)",
+     "giver": "Lenzo, the pictographer — Windfall Island (his shop, camera sign over the door)",
+     "location": "Windfall Island",
+     "reward": "Deluxe Picto Box (color photos)",
+     "oneLine": "Become Lenzo's photo assistant, ace his three assignments, and earn the color camera the figurine quest demands.",
+     "how": "Show Lenzo your Picto Box and agree to assist him; he sets three photo tasks: snap Garrickson, the hopeless love-letter writer, mailing a letter at the postbox; photograph Gossack in the Cafe Bar with a frightened face (startle him first — break a nearby pot); and capture Linda and Anton the moment they exchange loving glances outside Lenzo's shop. Deliver all three. In the GameCube version Lenzo then also needs a Forest Firefly (catch one in a bottle in the Forest Haven) before he upgrades you to the Deluxe Picto Box; HD drops the firefly step."
+    },
+    {
+     "id": "the-nintendo-gallery-carlov-s-figurines",
+     "name": "The Nintendo Gallery — Carlov's Figurines",
+     "giver": "Carlov, the sculptor",
+     "location": "A small island just north of the Forest Haven (glide in from the Forest Haven's high exit with the Deku Leaf)",
+     "reward": "Sculpted figurines of characters/enemies; completing the whole gallery is the marquee 100% reward",
+     "oneLine": "Photograph every character and creature in the game with the Deluxe Picto Box, and Carlov sculpts each one into a figurine for his gallery.",
+     "how": "Reach the Nintendo Gallery by gliding from the Forest Haven's high exit with the Deku Leaf onto the platform island, then drop through the hatch. Show Carlov clear, full-color pictographs (use the Deluxe Picto Box and frame the subject so 'OK' appears) and he sculpts a figurine — but only one per in-game day, so use the Song of Passing or sail around to let time pass. It's famously demanding: some characters and bosses appear only once, so on a single playthrough it's easy to miss a few; a full gallery is one of the hardest collectibles in the game and is most reliably finished across a Second Quest, where your photos carry over."
+    }
+   ]
+  },
+  {
+   "region": "Windfall Island",
+   "quests": [
+    {
+     "id": "the-auction",
+     "name": "The Auction",
+     "giver": "Zunari / the auction house",
+     "location": "Windfall Island — the Auction House (Zunari rents the ground floor), at night",
+     "reward": "Pieces of Heart, Treasure Charts #18 and #38, a Joy Pendant; the Swift Sail (HD only)",
+     "oneLine": "A nightly bidding war for rare prizes — outbid the townsfolk to walk away with charts, a heart piece, and (in HD) the game-changing Swift Sail.",
+     "how": "After dark, enter the Windfall Auction House and talk to Zunari to join. The four prizes rotate across nights: Treasure Charts #18 and #38, a Piece of Heart, and a Joy Pendant — return on different nights to win the ones you want. Fill your gauge by tapping to bid; a big over-bid (10%+, or doubling near the end) stuns the other bidders, and bidding 999 Rupees auto-wins. Bring plenty of rupees. In Wind Waker HD the auction can also offer the Swift Sail, which makes your boat far faster and keeps the wind at your back — well worth chasing."
+    },
+    {
+     "id": "maggie-moe-the-love-letters",
+     "name": "Maggie & Moe — the Love Letters",
+     "giver": "Maggie (and the Rito postman Ilari) — Windfall Island",
+     "location": "Windfall Island (Maggie's house, the Cafe Bar, the postbox)",
+     "oneLine": "Play matchmaker between Maggie and her Moblin pen-pal Moe while her greedy father sabotages their mail.",
+     "reward": "Piece of Heart",
+     "how": "Maggie, mistreated by her money-grubbing father, gives you a love letter for Moe — a Moblin from the Forsaken Fortress. Drop it in the Windfall postbox and wait until the next day. Return to Maggie's house to find her father arguing with the Rito postman Ilari, who is holding Moe's reply but can't deliver it. Once that's over, find Ilari in the Cafe Bar; he asks you to hand-deliver Moe's letter to Maggie. Give it to her (she sweetly misreads Moe's 'I want to eat you for dinner' as devotion) and she rewards you with a Piece of Heart."
+    },
+    {
+     "id": "salvatore-s-sinking-ships-minigame",
+     "name": "Salvatore's 'Sinking Ships' Minigame",
+     "giver": "Salvatore — Windfall Island (north end)",
+     "location": "Windfall Island",
+     "reward": "Piece of Heart (first win), then Treasure Chart #7 (second win), and Treasure Chart #23 for setting the record",
+     "oneLine": "A battleship-style guessing game: sink the three hidden squids on the grid with as few cannonballs as possible for heart and chart rewards.",
+     "how": "Pay 10 rupees and play Salvatore's 8×8 grid game, firing cannonballs to sink three hidden squid pods (sized 2, 3 and 4 squares). You have 24 cannonballs. Sink all three within that limit and Salvatore hands over a Piece of Heart the first time. Win again and you get Treasure Chart #7. Set the record by clearing it in 20 cannonballs or fewer and you earn Treasure Chart #23, which leads to another Piece of Heart near Diamond Steppe Island."
+    },
+    {
+     "id": "the-bomb-shop-bomb-master-cannon",
+     "name": "The Bomb Shop (Bomb-Master Cannon)",
+     "giver": "Cannon, the bomb-shop owner — Windfall Island",
+     "location": "Windfall Island",
+     "reward": "Access to buy Bombs; far cheaper prices after the story event",
+     "oneLine": "Windfall's gouging bomb monopoly drops its prices once pirates teach its owner a lesson.",
+     "how": "Bomb-Master Cannon runs the Great Sea's only early bomb shop and charges outrageous prices. You don't truly need to buy here once you find the Bombs in a dungeon, but as the story advances Tetra's pirates raid the shop and tie up Cannon, after which he reopens with much cheaper, reasonable prices — a handy restock stop."
+    },
+    {
+     "id": "tott-the-song-of-passing",
+     "name": "Tott & the Song of Passing",
+     "giver": "Tott — Windfall Island (dancing by a gravestone near the jail)",
+     "location": "Windfall Island",
+     "reward": "The Song of Passing (instantly switch day↔night)",
+     "oneLine": "A dancing islander teaches you the conductor's song that flips day and night in an instant — a quality-of-life essential.",
+     "how": "Find Tott dancing in front of the gravestone next to the jail on Windfall and watch his moves. Conduct the Wind Waker back at him to learn the Song of Passing, which instantly swaps day for night (or vice-versa). It isn't strictly a 'quest,' but it's the song every timed/night activity — the auction, the Ghost Ship, the figurine pacing — relies on, so grab it early."
+    },
+    {
+     "id": "the-cabana-deed-private-oasis",
+     "name": "The Cabana Deed → Private Oasis",
+     "giver": "Mrs. Marie — Mrs. Marie's School of Joy, Windfall Island",
+     "location": "Windfall Island → Private Oasis (southeast of the map, near Outset)",
+     "reward": "Cabana Deed → entry to the Cabana (a Triforce Chart in GC / Triforce Shard in HD waits in the cave inside); 40 Joy Pendants later earns the Hero's Charm (GC) / Treasure Chart #45 (HD)",
+     "oneLine": "Collect Joy Pendants for the schoolteacher to earn the deed to your own island cabana — which hides a Triforce reward.",
+     "how": "Give Mrs. Marie 20 Joy Pendants (dropped by Bokoblins/Miniblins; smaller counts net lesser gifts) and she hands you the Cabana Deed to the Private Oasis. Sail there and show the deed to get inside the Cabana; a secret cave within holds a Triforce Chart (a Triforce Shard in Wind Waker HD), feeding straight into the Triforce hunt. Keep collecting and 40 Joy Pendants earns a bonus — the Hero's Charm in the GameCube version, or Treasure Chart #45 in HD. This quest is in both versions."
+    }
+   ]
+  },
+  {
+   "region": "Combat & the Sea",
+   "quests": [
+    {
+     "id": "the-savage-labyrinth-outset-island",
+     "name": "The Savage Labyrinth (Outset Island)",
+     "giver": "(no NPC — a hidden cave)",
+     "location": "Outset Island — under the forest, reached via the cliff ledge",
+     "reward": "A Triforce Chart (GC) / Triforce Shard (HD) on floor 30; a Piece of Heart on floor 50 (Hero's Charm in HD)",
+     "oneLine": "A brutal 50-floor combat gauntlet under Outset Island, with a Triforce reward halfway down and a heart-prize at the bottom.",
+     "how": "On Outset, reach the ledge (Deku Leaf or Hookshot) and use the Power Bracelets to lift the Stone Head blocking the entrance. Inside is a non-stop fight down 50 rooms of enemies, with recovery items only every tenth floor. Clear the first 30 floors for the chest holding a Triforce Chart (a Triforce Shard in HD). Push through all 50 floors for the final reward — a Piece of Heart in the GameCube version, or the Hero's Charm (shows enemy HP) in Wind Waker HD."
+    },
+    {
+     "id": "beedle-s-shop-ship-the-membership-card",
+     "name": "Beedle's Shop Ship & the Membership Card",
+     "giver": "Beedle",
+     "location": "His Shop Ship, anchored at various islands across the Great Sea",
+     "reward": "Bombs/Bait/Hyoi Pears/etc.; Silver membership (Complimentary ID) and Gold membership (Fill-Up Coupon)",
+     "oneLine": "The floating merchant rewards loyal customers with a points card that unlocks free heart/magic refills.",
+     "how": "Beedle's Shop Ship floats near many islands (look for the sail with the eye). Every item you buy earns one membership point. Reach 30 points for Silver membership — he mails you the Complimentary ID, which refills your hearts when redeemed. Reach 60 points for Gold membership — he mails the Fill-Up Coupon, a one-time top-up of all your consumables including hearts and magic. (On random 'Point Days' purchases earn points five times as fast.)"
+    },
+    {
+     "id": "light-the-windfall-lighthouse-windmill",
+     "name": "Light the Windfall Lighthouse & Windmill",
+     "giver": "(environmental — needs Fire Arrows; Kreeb gives one heart)",
+     "location": "Windfall Island",
+     "reward": "Two Pieces of Heart",
+     "oneLine": "Relight Windfall's lighthouse and windmill with Fire Arrows to open up a couple of hidden heart rewards.",
+     "how": "Once you have the Bow and Fire Arrows, do this at night. Climb behind Salvatore's to start the windmill, ride it up and shoot a Fire Arrow into its hub — then talk to Kreeb (the man in the yellow hat by the windmill/Ferris wheel) for a Piece of Heart. Separately, ride a cart up to the lighthouse and shoot a Fire Arrow into it to relight it; a chest then appears on a small islet you can reach with the Deku Leaf — open it (at night) for a second Piece of Heart."
+    }
+   ]
+  },
+  {
+   "region": "Koroks & Misc",
+   "quests": [
+    {
+     "id": "grow-the-koroks-forests-the-withered-trees",
+     "name": "Grow the Koroks' Forests (the Withered Trees)",
+     "giver": "The Koroks / the Great Deku Tree — the Forest Haven",
+     "location": "Forest Haven → eight far-flung islands across the Great Sea",
+     "reward": "Piece of Heart",
+     "oneLine": "Carry magical Forest Water across the sea to revive eight withered Korok saplings before it goes stale.",
+     "how": "After the Forbidden Woods and the Korok Ceremony, the Koroks scatter to plant saplings — but eight have withered. Fill a bottle with Forest Water from the spring in the Forest Haven and fly to each withered tree (Cliff Plateau Isles, Shark Island, Private Oasis, Eastern Fairy Island, Star Island, Greatfish Isle, Needle Rock Isle, and the Mother & Child Isles), watering each in turn. The Forest Water reverts to ordinary water after 20 minutes (30 in HD), so warp efficiently with the Ballad of Gales and refill as needed — if seven or fewer are watered when it runs out, the trees re-wither. Water the last one and it sprouts a full tree, dropping a Piece of Heart."
+    },
+    {
+     "id": "hollo-s-blue-potion-boko-baba-seeds",
+     "name": "Hollo's Blue Potion (Boko Baba Seeds)",
+     "giver": "Hollo — Hollo's Forest Potion Shop, the Forest Haven",
+     "location": "Forest Haven",
+     "reward": "Blue Potion (refills hearts AND magic)",
+     "oneLine": "Bring the potion-maker the right monster seeds and he'll brew a full heart-and-magic restorative for you.",
+     "how": "Visit Hollo in the Forest Haven; he needs Boko Baba Seeds to make his Blue Potion. Gather four Boko Baba Seeds (they drop from the Boko Baba plants in the Forbidden Woods) and bring them back with an empty bottle. Hollo then brews a Blue Potion that fully restores both your health and magic — return with more seeds whenever you want a refill."
+    },
+    {
+     "id": "the-great-fairies-the-fairy-queen",
+     "name": "The Great Fairies & the Fairy Queen",
+     "giver": "Great Fairies / the Fairy Queen",
+     "location": "Great Fairy fountains scattered around the Great Sea; the Fairy Queen at the Mother & Child Isles",
+     "reward": "Wallet, Quiver, Bomb Bag and Magic Meter upgrades from the Great Fairies; Fire & Ice Arrows from the Fairy Queen",
+     "oneLine": "Open the Great Fairy fountains hidden behind bombable walls and barriers for permanent upgrades to your wallet, bags and magic — and visit the Fairy Queen for the elemental arrows.",
+     "how": "Several islands hide Great Fairy fountains behind bombable walls, boarded doors, or hard-to-reach ledges — bomb or climb your way in. Each Great Fairy grants a lasting upgrade: bigger Wallets (1,000 then 5,000 rupees), a larger Quiver, and a larger Bomb Bag. The Magic Meter upgrade is earned by beating the Big Octo at Two-Eye Reef. Separately, the Fairy Queen — reached at the Mother & Child Isles via the Ballad of Gales — grants the Fire and Ice Arrows once you wield the Master Sword. (Light Arrows come from the story near the end, not a fountain.) Several of these are easy to miss, so sweep the corners of the map."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Great Fairy of Magic (Big Octo — Two-Eye Reef)",
+   "region": "Two-Eye Reef (sea chart D7) — the only Great Fairy hidden inside a Big Octo whirlpool, not an island fountain. It sits one square south of Southern Fairy Island.",
+   "location": "Sail to Two-Eye Reef (square D7), one square south of Southern Fairy Island. Look for the ring of circling seagulls that marks a Big Octo; sail into it and it pulls you into a whirlpool. Pop all FOUR of the Big Octo's eyes (Arrows, Bombs, or the Boomerang work). When the 4-eye Big Octo dies, a Great Fairy rises from the water. No special chart needed — just sail there.",
+   "cost": "GRANTS: a doubled Magic Meter — your magic bar is twice as large, so you can use the Deku Leaf, Hookshot, and magic Arrows far longer. (This is the only Magic upgrade in the game.)"
+  },
+  {
+   "name": "Great Fairy of the Wallet (Outset Island)",
+   "region": "Outset Island (sea chart B7) — Link's home island, southern end of the map. The fairy lives in the Forest of Fairies atop the western cliff.",
+   "location": "Come back once you have the Deku Leaf and Bombs. Climb to the cliff on Outset; the bridge to the Forest of Fairies is broken, so glide across the gap with the Deku Leaf. Inside the forest, bomb the rock covering the fairy hole, then drop in.",
+   "cost": "GRANTS: a bigger Rupee Wallet. The grant is order-dependent across the two wallet fairies (this one and Northern Fairy Island) — whichever you reach FIRST raises your cap from 500 to 1,000 rupees; whichever you reach SECOND raises it to the 5,000-rupee maximum."
+  },
+  {
+   "name": "Great Fairy of the Wallet (Northern Fairy Island)",
+   "region": "Northern Fairy Island (sea chart C1) — top edge of the map, two squares east of the Forsaken Fortress.",
+   "location": "Sail to Northern Fairy Island and walk straight into the giant shell — the entrance is unblocked, so NO tool is needed — then drop down to the fairy fountain.",
+   "cost": "GRANTS: a bigger Rupee Wallet (the other half of the wallet pair). Order-dependent — FIRST wallet fairy reached = 1,000-rupee cap, SECOND = 5,000-rupee cap. (Outset + Northern together give you 1,000 then 5,000, in whichever order you do them.)"
+  },
+  {
+   "name": "Great Fairy of Bombs (Southern Fairy Island)",
+   "region": "Southern Fairy Island (sea chart D6) — south-central area, five squares south of Windfall Island (and a Ballad of Gales warp point).",
+   "location": "Requires Bombs. The shell entrance is blocked by wooden boards — blow them open with a Bomb (a Fire Arrow also burns them away, if you have it), then drop into the hole to the fairy fountain.",
+   "cost": "GRANTS: a bigger Bomb Bag. Order-dependent with the Eastern bomb fairy — the FIRST bomb fairy you reach raises your bag from 30 to 60 Bombs; the SECOND raises it to the 99-Bomb maximum."
+  },
+  {
+   "name": "Great Fairy of Bombs (Eastern Fairy Island)",
+   "region": "Eastern Fairy Island (sea chart E3) — east-central area.",
+   "location": "Requires Bombs. A large boulder blocks the giant shell — destroy it with a Bomb (a cannon shot from the King of Red Lions also works), then drop through the hole into the fairy fountain.",
+   "cost": "GRANTS: a bigger Bomb Bag (the other half of the bomb pair). Order-dependent — FIRST bomb fairy = 60 Bombs, SECOND = 99-Bomb maximum."
+  },
+  {
+   "name": "Great Fairy of Arrows (Thorned Fairy Island)",
+   "region": "Thorned Fairy Island (sea chart G4) — eastern edge of the map.",
+   "location": "Requires the Skull Hammer (obtained later in the game). Pound the wooden stakes blocking the shell with the Skull Hammer to drop the wall of thorns, then head inside to the fairy fountain.",
+   "cost": "GRANTS: a bigger Quiver. Order-dependent with the Western arrow fairy — the FIRST quiver fairy you reach raises you from 30 to 60 arrows; the SECOND raises you to the 99-arrow maximum."
+  },
+  {
+   "name": "Great Fairy of Arrows (Western Fairy Island)",
+   "region": "Western Fairy Island (sea chart A3) — far west edge of the map.",
+   "location": "Requires the Skull Hammer. Pound the stake with the Skull Hammer; this snuffs out the ring of flames blocking the entrance, then head inside to the fairy fountain.",
+   "cost": "GRANTS: a bigger Quiver (the other half of the arrow pair). Order-dependent — FIRST quiver fairy = 60 arrows, SECOND = 99-arrow maximum."
+  },
+  {
+   "name": "The Fairy Queen (Queen of Fairies)",
+   "region": "Mother & Child Isles (sea chart B2) — the small 'Child' isle sits beside the large 'Mother' isle, which is itself a giant fairy fountain ringed by an impassable rock wall.",
+   "location": "Reachable ONLY by warping in with the Ballad of Gales (the song the wind-spirit frog Cyclos teaches you) — it drops you straight inside the Mother isle; you cannot sail in normally. She won't appear until AFTER you have rescued your sister Aryll from the Forsaken Fortress.",
+   "cost": "GRANTS: Fire Arrows AND Ice Arrows together — she empowers your Hero's Bow to shoot flame and ice (each draws on your magic; both deal double a normal arrow's damage). HONEST NOTE: the Fairy Queen does NOT give Light Arrows — those are the dungeon item found in a chest inside Ganon's Tower (after the second Phantom Ganon fight), not a Fairy Queen reward. The Fire Arrows she gives are what you'll need next to reach the Power Bracelets at Fire Mountain and the Iron Boots at Ice Ring Isle."
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
  "KOROKS": null,
  "RUNES": [
   {
-   "id": "wind_waker",
-   "name": "Wind Waker",
-   "glyph": "stasis",
-   "from": "The conductor's baton entrusted to Link early in the adventure — the relic that commands the wind.",
-   "what": "Conduct songs in 3/4 or other time to work magic: change the wind's direction, warp across the sea, control statues and companions, and call the elements. Sailing depends on it.",
-   "tip": "Learn the Wind's Requiem first (it turns the wind your way so your sail always pushes you forward). The Ballad of Gales later warps you between islands instantly."
+   "id": "heros-sword",
+   "name": "Hero's Sword",
+   "glyph": "sword",
+   "from": "Given by Orca on Outset Island at the start, after you complete his short sword-training lesson.",
+   "what": "Your starting blade and main melee weapon. Combos, thrusts, spins, and parries all come from it.",
+   "tip": "Hold the attack to charge a Spin Attack, and learn the Parry (the context attack that triggers when an enemy is about to strike) early — it one-shots many foes. Bring Orca 10 Knight's Crests later and he teaches the Hurricane Spin."
   },
   {
-   "id": "master_sword",
+   "id": "master-sword",
    "name": "Master Sword",
    "glyph": "sword",
-   "from": "Drawn in the flooded Hyrule beneath the sea after passing the Tower of the Gods with all three Pearls.",
-   "what": "The blade of evil's bane — but it begins POWERLESS. You must awaken the two Sages (Medli and Makar) to restore its full strength.",
-   "tip": "Don't be alarmed when it can't hurt Ganondorf at first — the Earth and Wind Temples fix that."
+   "from": "Pulled from the pedestal in Hyrule (beneath the Great Sea) after you place the 3 Goddess Pearls to raise the Tower of the Gods and clear it.",
+   "what": "The legendary Blade of Evil's Bane. It starts powerless and must be restored before it can truly hurt Ganondorf.",
+   "tip": "Don't panic when it feels weak at first — that's the story. You restore its power by awakening the two new sages."
   },
   {
-   "id": "deku_leaf",
-   "name": "Deku Leaf",
-   "glyph": "leaf",
-   "from": "Taken from the Great Deku Tree in the Forest Haven.",
-   "what": "Fan a gust to spin propellers and shove enemies, or hold it to glide on updrafts across long gaps. Uses your Magic meter.",
-   "tip": "Jump off a high ledge and hold the Leaf to soar — refill Magic from grass and pots when it runs low."
+   "id": "master-sword-restored",
+   "name": "Master Sword (Restored)",
+   "glyph": "sword",
+   "from": "Restored in two stages: awaken Medli as the Earth Sage (Earth Temple, via the Earth God's Lyric) and Makar as the Wind Sage (Wind Temple, via the Wind God's Aria). Their prayers return the sword's power.",
+   "what": "The fully powered Master Sword — now able to repel Ganondorf's magic and land the finishing blow.",
+   "tip": "You must complete BOTH the Earth and Wind Temples to fully power it; only then can the final battle be won."
   },
   {
-   "id": "grappling_hook",
+   "id": "heros-shield",
+   "name": "Hero's Shield",
+   "glyph": "shield",
+   "from": "A family heirloom given by your Grandma on Outset Island early on.",
+   "what": "Your starting shield. Blocks attacks and, with good timing, sets up parry counters.",
+   "tip": "Hold the shield to block; pair a held block with the parry prompt to stagger enemies for a free hit."
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "Won from the chest at the top of the miniboss room in the Earth Temple, after defeating the three Stalfos. (The temple is reached from Headstone Island with Medli.)",
+   "what": "Reflects beams of light. Bounces sunlight or enemy light attacks to stun foes, burn away curtains of darkness, and solve light puzzles.",
+   "tip": "Aim reflected light to clear the darkness and freeze the floating Poes in the Earth Temple — it's the key to the whole dungeon."
+  },
+  {
+   "id": "wind-waker",
+   "name": "Wind Waker",
+   "glyph": "stasis",
+   "from": "Given by the King of Red Lions the first time you reach Dragon Roost Island (after the Forsaken Fortress flings you out to sea).",
+   "what": "A magic conductor's baton. You wave it in 3/4, 4/4, or 6/8 time to play songs that control wind, weather, statues, and people.",
+   "tip": "Learn the conducting rhythm — you set the tempo first (3/4, 4/4, 6/8) then play the up/down/left/right notes. The Wind's Requiem is your first song."
+  },
+  {
+   "id": "winds-requiem",
+   "name": "Wind's Requiem",
+   "glyph": "stasis",
+   "from": "Learned from a stone tablet at the back of Dragon Roost Island; the Wind God Zephos appears as you play it. Notes: Up, Left, Right.",
+   "what": "Lets you change the direction of the wind at will. Essential for sailing where you want.",
+   "tip": "This is THE song you'll use constantly on the GameCube version — set the wind behind your sail before every voyage. (HD's Swift Sail makes this far less of a chore.)"
+  },
+  {
+   "id": "ballad-of-gales",
+   "name": "Ballad of Gales",
+   "glyph": "stasis",
+   "from": "Taught by the wind spirit Cyclos after you shoot him with three arrows while he spins as a tornado on the sea.",
+   "what": "Summons a cyclone that warps you instantly to any of the sea's warp points — the game's fast-travel system.",
+   "tip": "Grab this as soon as you can. Warping across the Great Sea saves enormous sailing time."
+  },
+  {
+   "id": "command-melody",
+   "name": "Command Melody",
+   "glyph": "stasis",
+   "from": "Learned from a stone tablet inside the Tower of the Gods.",
+   "what": "Lets your spirit leave Link's body to take control of statues, and later to puppet Medli and Makar so they help you through their temples.",
+   "tip": "While 'commanding,' Link's body stands defenseless — clear nearby enemies first, and don't stray too far or control breaks."
+  },
+  {
+   "id": "song-of-passing",
+   "name": "Song of Passing",
+   "glyph": "stasis",
+   "from": "Taught by Tott, the dancer on Windfall Island, when you show him the Wind Waker. It's the one optional song.",
+   "what": "Instantly switches day to night and night to day.",
+   "tip": "Use it to trigger night-only events (ghost ship, certain shops/quests) or to skip back to daytime — the only song you can finish the game without."
+  },
+  {
+   "id": "earth-gods-lyric",
+   "name": "Earth God's Lyric",
+   "glyph": "stasis",
+   "from": "Learned from the stone tablet inside the cave on Headstone Island (reachable once you have the Power Bracelets). Playing it summons the spirit of Laruto, the former Earth Sage.",
+   "what": "A song used to awaken Medli as the new Earth Sage and, after the Earth Temple, restore one half of the Master Sword's power.",
+   "tip": "Play it for Medli, then command her to play along at the marked spots in the Earth Temple — that's how the dungeon progresses."
+  },
+  {
+   "id": "wind-gods-aria",
+   "name": "Wind God's Aria",
+   "glyph": "stasis",
+   "from": "Learned from the stone tablet inside the cave on Gale Isle. Playing it summons the spirit of Fado, the former Wind Sage.",
+   "what": "A song used to awaken Makar as the new Wind Sage and, after the Wind Temple, restore the other half of the Master Sword's power.",
+   "tip": "Like the Earth song, conduct Makar to play it at the Wind Temple's harp pedestals to power the sword."
+  },
+  {
+   "id": "grappling-hook",
    "name": "Grappling Hook",
    "glyph": "magnesis",
-   "from": "Borrowed from Tetra's pirates / found on Dragon Roost.",
-   "what": "Swing across gaps from hook targets, climb to ledges, and steal items (and treasure) from enemies and from the masts of ships.",
-   "tip": "It doubles as a way to pull loot off some enemies — and it's how you swing over Dragon Roost's chasms."
+   "from": "Received from Medli inside Dragon Roost Cavern (the first major dungeon) after you rescue her.",
+   "what": "Swings you across gaps on grapple points, and 'fishes' items/spoils off enemies and up from the ocean floor.",
+   "tip": "You can grapple-steal from enemies (and pull treasure from the sea floor) — it's how you farm spoils like Skull Necklaces and Joy Pendants."
   },
   {
-   "id": "hero_bow",
+   "id": "deku-leaf",
+   "name": "Deku Leaf",
+   "glyph": "leaf",
+   "from": "Given by the Great Deku Tree at the Forest Haven (it's at the top of the tree — climb the Baba Buds to reach it).",
+   "what": "A giant leaf: glide on updrafts to cross gaps, and swing it to blast a gust of wind (uses magic) to push objects, spin fans, and stagger foes.",
+   "tip": "Gliding drains your Magic Meter — land to refill, and ride updrafts to stay airborne longer."
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "magnesis",
+   "from": "Found in the Forbidden Woods (the dungeon on the isle beside Forest Haven), after defeating the miniboss Mothula.",
+   "what": "Stuns enemies, cuts ropes/vines, and can target up to five points at once to hit switches or enemies in sequence.",
+   "tip": "Lock on and drag the aim to mark several targets in one throw — great for flipping multiple switches together."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "Won from the chest in Niko's second rope-swinging challenge aboard Tetra's pirate ship (docked at Windfall Island).",
+   "what": "Explosives. Blow open cracked walls and weak floors on foot, and fire Bombs from the boat's cannon to sink enemy ships and break sea obstacles.",
+   "tip": "In HD, regular Bombs can also activate the Tingle Statues (no Tingle Tuner needed). Watch your bomb count and refill at shops."
+  },
+  {
+   "id": "heros-bow",
    "name": "Hero's Bow",
    "glyph": "bow",
-   "from": "Found in the Tower of the Gods.",
-   "what": "Fires arrows at range; later gains Fire, Ice, and Light Arrows for elemental puzzles and the strongest foes.",
-   "tip": "Light Arrows are the key to the final battles — save them for Ganondorf and certain bosses."
+   "from": "Found in the Tower of the Gods (the fourth dungeon), in the chest that appears after the Gohdan boss / Darknut fight.",
+   "what": "A bow for ranged attacks: hit distant switches, eyes, and enemy weak points. Later upgraded with elemental arrows.",
+   "tip": "Arrows are your answer to far-off eye switches and flying foes — keep your quiver stocked (upgrade it via the Great Fairies)."
+  },
+  {
+   "id": "fire-arrows",
+   "name": "Fire Arrows",
+   "glyph": "bow",
+   "from": "Granted by the Fairy Queen at Mother & Child Isles (warp in via the Ballad of Gales). She won't unlock them until you've rescued Aryll from the Forsaken Fortress.",
+   "what": "Arrows that ignite — light torches, melt ice, and burn certain enemies. They use magic per shot.",
+   "tip": "Use them to thaw Ice Ring Isle's frozen shell to reach the Iron Boots, and to light far torches you can't reach with a flame."
+  },
+  {
+   "id": "ice-arrows",
+   "name": "Ice Arrows",
+   "glyph": "bow",
+   "from": "Granted by the Fairy Queen at Mother & Child Isles alongside the Fire Arrows (warp in via the Ballad of Gales, after rescuing Aryll).",
+   "what": "Arrows that freeze: turn enemies into ice blocks (then shatter them) and freeze the lava plume so you can enter Fire Mountain. Cost magic per shot.",
+   "tip": "Freeze a foe and hit it again to shatter it instantly — and freeze Fire Mountain's lava spout to drop inside for the Power Bracelets."
+  },
+  {
+   "id": "light-arrows",
+   "name": "Light Arrows",
+   "glyph": "bow",
+   "from": "Found in Ganon's Tower near the endgame, after the Illusion Room puzzle and beating Phantom Ganon a second time (a power of the goddesses).",
+   "what": "Pure light arrows that devastate evil — they're the key weapon against Puppet Ganon in the final dungeon.",
+   "tip": "Save magic for them against Puppet Ganon: hit its glowing weak spot in each form. (Against Ganondorf himself you parry with the Master Sword while Zelda fires the Light Arrows.)"
+  },
+  {
+   "id": "skull-hammer",
+   "name": "Skull Hammer",
+   "glyph": "magnesis",
+   "from": "Found in the Forsaken Fortress on your second visit, in the chest that appears after you defeat Phantom Ganon there.",
+   "what": "A massive hammer: pound stakes/switches into the ground, smash heavy enemies' guards, and break cracked floors with a ground-shaking slam.",
+   "tip": "It's slow but unblockable — great against shielded Darknuts (knock them off their feet) and for the peg switches in the Wind Temple."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "Found in the Wind Temple (reached from Gale Isle with Makar), after defeating the miniboss Wizzrobe.",
+   "what": "Fires a chain that latches onto targets/chests to pull you across gaps, or yanks light objects (and stunned enemies) toward you.",
+   "tip": "Aim at the wooden targets and grapple chests throughout the Wind Temple — it's the dungeon's main traversal tool."
+  },
+  {
+   "id": "iron-boots",
+   "name": "Iron Boots",
+   "glyph": "armor",
+   "from": "Found in a cave on Ice Ring Isle (melt the icy shell with a Fire Arrow, then reach the chest before time runs out).",
+   "what": "Heavy boots that anchor you against strong winds and let you walk on certain surfaces without being blown away or knocked back.",
+   "tip": "Equip them to push through the howling gales at Gale Isle and in the Wind Temple, and to stand your ground against wind-blasting enemies."
+  },
+  {
+   "id": "power-bracelets",
+   "name": "Power Bracelets",
+   "glyph": "armor",
+   "from": "Found inside Fire Mountain (the volcano), which you enter by freezing its lava plume with an Ice Arrow, then clearing the timed enemy room.",
+   "what": "Strength gauntlets that let you lift huge black stones and gravestone-shaped Bomb Flowers blocking your path.",
+   "tip": "After getting these, revisit blocked spots — several optional caves and chart areas need a lifted stone or a thrown Bomb Flower."
   },
   {
    "id": "sail",
    "name": "Sail",
+   "glyph": "leaf",
+   "from": "Bought from Zunari's shop on Windfall Island for 80 Rupees early on (you need it to set out for Dragon Roost).",
+   "what": "Rigs the King of Red Lions for sea travel, catching the wind to carry you across the Great Sea.",
+   "tip": "On GameCube, keep the wind at your back with the Wind's Requiem — the sail only pushes you when wind direction matches your heading."
+  },
+  {
+   "id": "swift-sail",
+   "name": "Swift Sail",
+   "glyph": "leaf",
+   "from": "HD remaster only. Won at the Windfall Island auction (a paid bid) in The Wind Waker HD.",
+   "what": "An upgraded sail that roughly doubles boat speed and auto-aligns the wind to always blow you forward — no need to keep re-conducting the wind.",
+   "tip": "This is the single biggest HD quality-of-life upgrade — get it as soon as the auction lets you. (It does not exist on GameCube.)"
+  },
+  {
+   "id": "telescope",
+   "name": "Telescope",
+   "glyph": "scroll",
+   "from": "Loaned by your sister Aryll on Outset Island at the very start as a birthday gift.",
+   "what": "Lets you zoom in to scout distant islands, ships, birds, and faraway events across the sea.",
+   "tip": "Use it to spot the giant bird that kidnaps Aryll in the intro — and later to read distant signposts and find far-off lookouts."
+  },
+  {
+   "id": "picto-box",
+   "name": "Picto Box",
+   "glyph": "scroll",
+   "from": "Found on Windfall Island, in a chest at the end of the tunnel maze behind Tingle's jail cell (free Tingle first, then crawl through the hole behind the crate).",
+   "what": "A camera that snaps black-and-white pictographs. Holds up to 3 (12 in HD). Photos are used for trades, the Nintendo Gallery figurines, and quests.",
+   "tip": "Photograph people and creatures for the Nintendo Gallery sidequest — and snap the right faces for the Windfall love-letter and other quests."
+  },
+  {
+   "id": "deluxe-picto-box",
+   "name": "Deluxe Picto Box",
+   "glyph": "scroll",
+   "from": "Upgraded by Lenzo on Windfall after his Research Assistant quest: on GameCube, also bring him a Forest Firefly caught in a bottle at the Forest Haven; in HD, just finishing the assistant quest is enough.",
+   "what": "Takes full-color pictographs (the basic box is black-and-white only). Required to photograph everything for the Nintendo Gallery.",
+   "tip": "You need color photos for every Nintendo Gallery figurine — many subjects only appear in specific weather, time, or islands, so plan your shots."
+  },
+  {
+   "id": "magic-armor",
+   "name": "Magic Armor",
+   "glyph": "armor",
+   "from": "Given by Zunari on Windfall after the Island Trading sidequest (trade Town Flower → Sea Flower → Exotic Flower with the traveling merchants).",
+   "what": "While you have Magic, it absorbs all damage (draining your Magic Meter instead of hearts). If your magic runs out while you're being hit, you take heavy damage.",
+   "tip": "Great for tough fights — but if your Magic empties mid-hit it backfires hard. Keep magic topped up or unequip it when low."
+  },
+  {
+   "id": "heros-charm",
+   "name": "Hero's Charm",
+   "glyph": "mask",
+   "from": "GameCube: give 40 Joy Pendants to Mrs. Marie on Windfall. HD remaster: open the chest on the 50th floor of the Savage Labyrinth (Outset Island).",
+   "what": "A mask that displays an enemy's (and most bosses') remaining health as a life bar when you target them.",
+   "tip": "Hugely useful for judging how close a tough enemy is to dying. (It can't read Puppet Ganon or Ganondorf, who are beaten by special attacks.)"
+  },
+  {
+   "id": "tingle-tuner",
+   "name": "Tingle Tuner",
+   "glyph": "scroll",
+   "from": "GameCube only. Given by Tingle on Windfall after you free him from jail (requires a connected Game Boy Advance via link cable).",
+   "what": "A second-screen helper played on a linked GBA: a friend uses it to drop Tingle Bombs, heal you, reveal maps, and trigger Tingle Statues.",
+   "tip": "This needed a real GBA and a second player, so most solo players skipped it. In HD it was replaced entirely by the Tingle Bottle."
+  },
+  {
+   "id": "tingle-bottle",
+   "name": "Tingle Bottle",
+   "glyph": "scroll",
+   "from": "HD remaster only. Replaces the Tingle Tuner; obtained from Tingle on Windfall after freeing him.",
+   "what": "Lets you write/send messages and pictographs into the sea via Miiverse-style sharing, and they wash up on other players' shores (and theirs on yours).",
+   "tip": "In HD, you can also receive missable pictographs through the bottle — handy for the Nintendo Gallery. (The online service has since shut down, limiting its use.)"
+  },
+  {
+   "id": "bait-bag",
+   "name": "Bait Bag",
    "glyph": "bag",
-   "from": "Bought at the Windfall Island shop early on.",
-   "what": "Hoists on the King of Red Lions so the wind can carry you across the Great Sea. Sailing is most of this game's travel.",
-   "tip": "With the Wind's Requiem to set the wind behind you, you'll cross the map far faster. A later Swift Sail (HD/remaster) speeds it up more."
+   "from": "Bought from Beedle's Shop Ship out on the Great Sea (about 20 Rupees).",
+   "what": "Holds bait (All-Purpose Bait, Hyoi Pears). Feed All-Purpose Bait to Fishmen to map sea squares and get hints; Hyoi Pears let seagulls scout for you.",
+   "tip": "Feed a Fishman in each sea region to fill in your sea chart and learn that area's secret — one of the most useful early buys from Beedle."
+  },
+  {
+   "id": "delivery-bag",
+   "name": "Delivery Bag",
+   "glyph": "bag",
+   "from": "Given by Quill, the Rito postman, on Dragon Roost Island (first used to carry Father's Letter to Prince Komali).",
+   "what": "Stores letters and quest items for the mail/trading sidequests (Father's Letter, the Island Trading flowers, love letters, etc.).",
+   "tip": "It's a quest-item satchel — check it when a sidequest says you're carrying a letter or flower and you can't find it in your normal items."
+  },
+  {
+   "id": "spoils-bag",
+   "name": "Spoils Bag",
+   "glyph": "bag",
+   "from": "Given by Niko aboard Tetra's pirate ship early on, after you pass his first rope-swinging test.",
+   "what": "Holds 'spoils' dropped by enemies — Skull Necklaces, Boko Baba Seeds, Chu Jelly, Joy Pendants, Golden Feathers, Knight's Crests, and more.",
+   "tip": "Spoils are currency for upgrades and trades (e.g., Joy Pendants for the Hero's Charm on GameCube) — grab them with the Grappling Hook."
+  },
+  {
+   "id": "bottle",
+   "name": "Bottle (Empty Bottle)",
+   "glyph": "pot",
+   "from": "Four total: from Medli at Dragon Roost Island; inside the submarine at Bomb Island; from Beedle's Rock Spire Shop Ship (500 Rupees); and from Mila on Windfall at night, after the Forsaken Fortress.",
+   "what": "A reusable container. Fill it with fairies (auto-revive), potions, soup, water (for the Deku sprout), fireflies, or spring water for sidequests.",
+   "tip": "Always keep at least one bottle holding a Fairy — it revives you automatically when you'd otherwise die. Carry healing soup/potion in the others."
   }
  ],
  "STATUS_RUNES": [
@@ -1655,6 +2693,18 @@
   [
    "tips",
    "Tips"
+  ],
+  [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
   ],
   [
    "settings",
