@@ -1,0 +1,57 @@
+[
+ {
+  "id": "ww_intro",
+  "name": "Outset Island & the Pirates",
+  "sub": "Main Quest — a birthday, a stolen sister",
+  "kind": "region",
+  "tagline": "A green tunic, a giant bird, and a talking boat that sets you sailing.",
+  "champion": null,
+  "sections": [
+   {
+    "id": "ww_intro_s_birthday",
+    "name": "A Birthday on Outset",
+    "sub": "The Hero's Clothes",
+    "reward": "Hero's Sword & Telescope",
+    "steps": [
+     { "id": "ww_birth_1", "k": "reward", "t": "It's your birthday on quiet Outset Island. By tradition your Grandma dresses you in the green Hero's Clothes, and your little sister Aryll lends you her treasured Telescope.", "items": [
+        { "name": "Telescope", "cat": "item", "note": "Aryll's spyglass — zoom in on far-off things across the sea. You'll use it to spot the bird in a moment." }
+     ] },
+     { "id": "ww_birth_2", "k": "step", "t": "Visit the swordsman Orca in his house and take his training. Pass his lesson and he entrusts you with a real sword.", "items": [
+        { "name": "Hero's Sword", "cat": "sword", "note": "Your first blade. Z/L-target a foe, then slash; learn the spin attack and the parry counter from Orca." }
+     ], "stuck": "Orca lives in the house with the dock on the south of the village. Talk to him, agree to train, and perform the moves he calls out (thrusts, then a spin) to earn the sword." },
+     { "id": "ww_birth_3", "k": "step", "t": "Climb to the island's tall lookout tower with Aryll. Use the Telescope: a huge bird is flying overhead, chased by cannon fire from a pirate ship." }
+    ]
+   },
+   {
+    "id": "ww_intro_s_bird",
+    "name": "The Bird & the Pirate",
+    "sub": "Aryll is taken",
+    "reward": "Hero's Shield",
+    "steps": [
+     { "id": "ww_bird_1", "k": "step", "t": "A cannon shot knocks a pirate girl out of the bird's claws and into the woods at the top of the island. Hurry up the path and through the Fairy Wood to rescue her from the Bokoblins.", "stuck": "Cut the grass and hop the ledges up the mountain path to the forest. Lock onto the green Bokoblins and slash them; reach the girl (Tetra) at the clearing." },
+     { "id": "ww_bird_2", "k": "warn", "t": "As you free the pirate Tetra, the giant Helmaroc King swoops back down — and snatches your sister Aryll by mistake, carrying her off across the sea." },
+     { "id": "ww_bird_3", "k": "reward", "t": "Determined to save Aryll, you get your Grandma's Hero's Shield, and Tetra's pirates grudgingly agree to carry you toward the Forsaken Fortress, where the bird's master cages stolen girls.", "items": [
+        { "name": "Hero's Shield", "cat": "shield", "note": "Your family shield (press R to raise it). Blocks attacks and lets you parry; a Hylian Shield comes much later." }
+     ] }
+    ]
+   },
+   {
+    "id": "ww_intro_s_krl",
+    "name": "The King of Red Lions",
+    "sub": "Set sail — gather the Pearls",
+    "reward": "Wind Waker & Sail",
+    "steps": [
+     { "id": "ww_krl_1", "k": "step", "t": "At the Forsaken Fortress the pirates catapult you over the wall. Sneak past the swinging searchlights and Moblin guards to the cell block where the captured girls are held.", "stuck": "Stay out of the moving spotlights — step into one and a Moblin hauls you to a cell. Hide behind barrels and time your dashes between beams." },
+     { "id": "ww_krl_2", "k": "warn", "t": "You find Aryll, but the Helmaroc King seizes you and Ganondorf's forces fling you far out into the sea. You wash ashore, alone." },
+     { "id": "ww_krl_3", "k": "reward", "t": "A talking boat — the King of Red Lions — rescues you. He explains the drowned land's legend and your path: to grow strong enough to save Aryll you must gather the three Pearls of the Goddesses. He entrusts you with the Wind Waker, the conductor's baton.", "items": [
+        { "name": "Wind Waker", "cat": "song", "note": "The magic baton. Conduct songs to change the wind, warp the sea, and command statues and companions — the heart of the whole journey." }
+     ] },
+     { "id": "ww_krl_4", "k": "step", "t": "Sail to Windfall Island and buy a Sail at the shop, so the wind can carry the King of Red Lions across the Great Sea.", "items": [
+        { "name": "Sail", "cat": "item", "note": "Hoist it to catch the wind and travel the sea. Pair it with the Wind's Requiem to keep the wind at your back." }
+     ], "stuck": "Windfall is the big town island just east. The Sail is in the shop; gather a few Rupees from pots and grass if you're short." },
+     { "id": "ww_krl_5", "k": "step", "t": "Learn the Wind's Requiem to steer the wind, then set your course. Your first Pearl, Din's Pearl, waits at Dragon Roost Island to the north — home of the bird-folk Rito.", "stuck": "The Wind's Requiem is taught on a small island with a Goddess statue (the cyclone/triangle isle the King points you to). Conduct it to turn the wind any direction you like." }
+    ]
+   }
+  ]
+ }
+]

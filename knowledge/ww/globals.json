@@ -1,0 +1,65 @@
+{
+ "_note": "The Wind Waker (game 8, Nintendo GameCube 2002/2003) static bundle fields. assemble-ww.mjs merges these with walkthrough.json (REGIONS) into app-data.json. Hyrule lies drowned beneath the GREAT SEA; Link sails island to island in the King of Red Lions, conducting the wind with the Wind Waker baton. Trophies (the 'Stones & Medallions' analog): the 3 Pearls of the Goddesses (→ the Tower of the Gods → the Master Sword) and the 2 awakened Sages, Medli & Makar (→ restore the Master Sword's power). The Triforce of Courage's 8 shards are tracked as a collectible. Empty datasets degrade gracefully like the other classic games.",
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items & Songs",
+  "championsLabel": "Pearls & Sages",
+  "regionBanner": "Dungeon",
+  "worldName": "the Great Sea"
+ },
+ "guideSegs": [["runes", "Items"], ["tips", "Tips"], ["settings", "Settings"]],
+ "postRegionId": "ww_ganon",
+ "CATS": [
+  { "id": "sword", "name": "Swords", "glyph": "sword" },
+  { "id": "shield", "name": "Shields", "glyph": "shield" },
+  { "id": "bow", "name": "Bow & Projectiles", "glyph": "bow" },
+  { "id": "song", "name": "Wind Waker Songs", "glyph": "stasis" },
+  { "id": "item", "name": "Items & Tools", "glyph": "bag" },
+  { "id": "key", "name": "Key Items", "glyph": "key" },
+  { "id": "material", "name": "Charts & Treasure", "glyph": "gem" }
+ ],
+ "RUNES": [
+  { "id": "wind_waker", "name": "Wind Waker", "glyph": "stasis", "from": "The conductor's baton entrusted to Link early in the adventure — the relic that commands the wind.", "what": "Conduct songs in 3/4 or other time to work magic: change the wind's direction, warp across the sea, control statues and companions, and call the elements. Sailing depends on it.", "tip": "Learn the Wind's Requiem first (it turns the wind your way so your sail always pushes you forward). The Ballad of Gales later warps you between islands instantly." },
+  { "id": "master_sword", "name": "Master Sword", "glyph": "sword", "from": "Drawn in the flooded Hyrule beneath the sea after passing the Tower of the Gods with all three Pearls.", "what": "The blade of evil's bane — but it begins POWERLESS. You must awaken the two Sages (Medli and Makar) to restore its full strength.", "tip": "Don't be alarmed when it can't hurt Ganondorf at first — the Earth and Wind Temples fix that." },
+  { "id": "deku_leaf", "name": "Deku Leaf", "glyph": "leaf", "from": "Taken from the Great Deku Tree in the Forest Haven.", "what": "Fan a gust to spin propellers and shove enemies, or hold it to glide on updrafts across long gaps. Uses your Magic meter.", "tip": "Jump off a high ledge and hold the Leaf to soar — refill Magic from grass and pots when it runs low." },
+  { "id": "grappling_hook", "name": "Grappling Hook", "glyph": "magnesis", "from": "Borrowed from Tetra's pirates / found on Dragon Roost.", "what": "Swing across gaps from hook targets, climb to ledges, and steal items (and treasure) from enemies and from the masts of ships.", "tip": "It doubles as a way to pull loot off some enemies — and it's how you swing over Dragon Roost's chasms." },
+  { "id": "hero_bow", "name": "Hero's Bow", "glyph": "bow", "from": "Found in the Tower of the Gods.", "what": "Fires arrows at range; later gains Fire, Ice, and Light Arrows for elemental puzzles and the strongest foes.", "tip": "Light Arrows are the key to the final battles — save them for Ganondorf and certain bosses." },
+  { "id": "sail", "name": "Sail", "glyph": "bag", "from": "Bought at the Windfall Island shop early on.", "what": "Hoists on the King of Red Lions so the wind can carry you across the Great Sea. Sailing is most of this game's travel.", "tip": "With the Wind's Requiem to set the wind behind you, you'll cross the map far faster. A later Swift Sail (HD/remaster) speeds it up more." }
+ ],
+ "CHAMPIONS": [
+  { "name": "Din's Pearl", "from": "Dragon Roost Island", "note": "Given by Prince Komali of the Rito after you clear Dragon Roost Cavern — the first Pearl of the Goddesses." },
+  { "name": "Farore's Pearl", "from": "Forest Haven", "note": "Given by the Great Deku Tree after you rescue Makar from the Forbidden Woods — the second Pearl." },
+  { "name": "Nayru's Pearl", "from": "Jabun (Outset Island)", "note": "Given by the spirit Jabun after the King of Red Lions vouches for you — the third Pearl. All three open the Tower of the Gods." },
+  { "name": "Medli, the Earth Sage", "from": "Earth Temple", "note": "Awaken the Rito attendant Medli as the Sage of Earth; her prayer helps restore the Master Sword's power." },
+  { "name": "Makar, the Wind Sage", "from": "Wind Temple", "note": "Awaken the Korok Makar as the Sage of Wind; with both Sages praying, the Master Sword's full power returns." }
+ ],
+ "ROADMAP": [
+  { "id": "pearls", "name": "The Three Pearls", "sub": "Key to the Tower of the Gods", "note": "Din's, Farore's, and Nayru's Pearls — from Dragon Roost, the Forest Haven, and Jabun. Set them on the triangle islands to raise the Tower of the Gods, your path to the Master Sword.", "reward": "Master Sword" },
+  { "id": "sages", "name": "The Two Sages", "sub": "Restore the blade", "note": "The Master Sword rises powerless. Awaken Medli in the Earth Temple and Makar in the Wind Temple to return its full power to repel evil.", "reward": "Master Sword restored" },
+  { "id": "triforce", "name": "The Triforce of Courage", "sub": "Eight scattered shards", "note": "Read the Triforce Charts (Tingle deciphers them), then dredge up the eight shards from the sea floor. Assembled, they let you face Ganondorf.", "reward": "The final battle" },
+  { "id": "hearts", "name": "Pieces of Heart", "sub": "Four = one Heart Container", "note": "Forty-four are scattered across the islands and the sea — in minigames, on charts, and under the waves.", "reward": "More hearts" }
+ ],
+ "TIPS": [
+  { "id": "sail", "name": "Sailing the Great Sea", "items": [
+   "The world is a vast ocean of 49 island squares. You travel by Sail in the King of Red Lions (the talking boat), so the WIND matters — conduct the Wind's Requiem with the Wind Waker to point it where you're going.",
+   "Once you know the Ballad of Gales you can warp instantly between the islands you've visited — a huge time-saver across the open sea.",
+   "Buy and fill out Sea Charts; salvage Treasure Charts mark sunken chests you raise with the Grappling Hook from the King of Red Lions."
+  ] },
+  { "id": "baton", "name": "Conducting with the Wind Waker", "items": [
+   "The Wind Waker is a magic baton: you conduct short melodies to change the wind, warp, command statues, and sync with your Sage companions (Medli and Makar) to solve the Earth and Wind Temples.",
+   "Songs you learn include the Wind's Requiem, the Ballad of Gales, the Command Melody (control a companion/statue), the Earth God's Lyric, the Wind God's Aria, and the Song of Passing (flip day↔night).",
+   "Match the conducting tempo and beat the game shows you; get it right and the magic triggers."
+  ] },
+  { "id": "combat", "name": "Sword, shield & parry", "items": [
+   "Z/L-target a foe to lock on, then circle and strike. When an enemy flashes and an action prompt appears, press it for a Parry — a flashy counter that often one-shots lesser foes.",
+   "You can also steal a Moblin's or Bokoblin's weapon, roll behind a guard, and pick up dropped clubs and spears for extra reach.",
+   "Bottle a Fairy for an automatic revive, and cook/​buy soup and potions for tough stretches."
+  ] }
+ ],
+ "WORLD": { "upgrades": [], "systems": [], "fairies": [] },
+ "COLLECTIBLES": [
+  { "id": "triforce", "label": "Triforce Shards", "total": 8, "glyph": "champion", "note": "The Triforce of Courage, dredged from the sea via Triforce Charts. All 8 open the way to Ganon." },
+  { "id": "hearts", "label": "Pieces of Heart", "total": 44, "glyph": "heart", "note": "Every 4 make a full Heart Container — up to 20 hearts." }
+ ]
+}

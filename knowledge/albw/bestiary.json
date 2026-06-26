@@ -1,0 +1,172 @@
+{
+ "basics": [
+  {
+   "title": "Sword & charged Spin Attack",
+   "body": "Your sword is your bread and butter — tap the button to swing, and hold it to charge a Spin Attack that hits everything around you (great for crowds or for breaking a foe's guard). Z-target (lock on) with L to keep an enemy centred so your swings and dodges always face the right way. Don't just mash; many foes guard, so wait for an opening — after they swing or while they're stunned — then strike."
+  },
+  {
+   "title": "The Shield",
+   "body": "Hold the shield button to block frontal attacks — most basic enemy swings, arrows, and projectiles bounce right off as long as you're facing them. It does nothing against attacks from behind or from above, so keep your front to the threat. Against shielded enemies, a Spin Attack or a bomb can break their guard so your sword can land."
+  },
+  {
+   "title": "The green ENERGY meter (pace it!)",
+   "body": "Almost every item you rent from Ravio — the Bow, Bombs, Fire/Ice/Tornado/Sand Rod, Hookshot, Hammer — and even wall-merging draw from one shared green energy meter, NOT from limited ammo. You'll never 'run out of arrows', but spam an item and the meter empties and locks that item out until it refills — which it does automatically on its own after a moment (purple pots also drop Energy Potions to top it off). So pace yourself: fire, let it recharge a beat, fire again — don't dump the whole bar at once mid-fight."
+  },
+  {
+   "title": "Wall-merge: travel AND dodge",
+   "body": "Ravio's Bracelet lets you press into a wall and slide along it as a flat painting. It's not just for puzzles and shortcuts — it's a defensive tool. Merge into a wall and most attacks pass harmlessly over the spot where you were standing, so you can use it to escape a charge, a beam, or a boss's slam. Several bosses are built around this: merge to bait a punch into the wall, or merge onto a boss's shield to slip behind it. The merge also sips the energy meter, so don't hold it forever."
+  },
+  {
+   "title": "Rented items get repossessed if you DIE",
+   "body": "Ravio's shop lets you RENT items cheaply up front, and you keep using a rented item as long as you like — until you get a Game Over, at which point Ravio's bird Sheerow swoops in and takes back every rented item (you can rent it again, but it's a setback). Once you've collected all three Pendants — or pulled the Master Sword — Ravio lets you BUY items to own them permanently, and bought items survive death. Tip: buy the items you rely on most (Bow, Bombs, Hammer, the Rod a dungeon needs) so a bad fight can't strip your whole kit. The very FIRST item you buy is half-price (a one-time discount), so spend it on something pricey like a Rod."
+  },
+  {
+   "title": "Bottled fairy = auto-revive",
+   "body": "If you catch a fairy in an empty bottle, it sits there until you need it. Take a hit that would drop your hearts to zero and the fairy is automatically released, reviving you with several hearts restored — no menu, no input needed. It's the single best insurance against losing your rented gear, so always head into a tough dungeon or boss with at least one bottled fairy. Bottles also hold potions; a fairy is the one that saves you from a Game Over."
+  }
+ ],
+ "enemies": [
+  {
+   "name": "Soldier (Sword / Spear)",
+   "tier": "common",
+   "tactic": "The standard Hyrule guard — Green ones charge, Blue ones guard with a shield, and Spear Soldiers jab from a distance. Lock on and circle to their side or back; a Spin Attack or a bomb breaks a shielded one's guard so you can finish it.",
+   "drops": "Rupees, sometimes Hearts"
+  },
+  {
+   "name": "Lorule Soldier",
+   "tier": "common",
+   "tactic": "Lorule's tougher reskinned guards — same idea but they hit harder and some flank in pairs. Don't trade blows in the open; lock on, bait a swing, then sidestep and counter, or wall-merge to reset if you get surrounded.",
+   "drops": "Rupees"
+  },
+  {
+   "name": "Octorok",
+   "tier": "common",
+   "tactic": "Octopus-like ground critters in eastern and southern Hyrule that stop to spit a single rock at you. Block the rock with your shield or sidestep it, then close in and slash. Hit them in the gap between spits.",
+   "drops": "Rupees, Hearts"
+  },
+  {
+   "name": "Zora (River Zora)",
+   "tier": "common",
+   "tactic": "Hostile fish-folk that lurk in the water and lob fireballs as you cross (Lorule's version is the same but tougher). Raise your shield toward the water to block the fireballs, or use the Bow to pick them off when they surface. Don't linger on the bank.",
+   "drops": "Rupees"
+  },
+  {
+   "name": "Keese",
+   "tier": "common",
+   "tactic": "Little bats that flit and swoop in clusters. One sword swing or an arrow drops each. Fire Keese and Ice Keese inflict that element, so block or shoot them from range rather than letting them touch you.",
+   "drops": "Nothing reliable"
+  },
+  {
+   "name": "Tektite",
+   "tier": "common",
+   "tactic": "Spider-like hoppers that bounce around erratically (Blue in Hyrule, the stronger Red in Lorule), including over water and ledges. Wait for one to land, then strike — chasing the bounce just wastes swings. Lock on so you stay aimed at it.",
+   "drops": "Rupees, Hearts"
+  },
+  {
+   "name": "Hardhat Beetle",
+   "tier": "common",
+   "tactic": "An armored beetle you can't kill with the sword — it just shrugs your hits off and shoves you toward pits (a real nuisance in the Tower of Hera). Use the Hammer to pound it, or a bomb / the Hookshot to knock it into a hole. Mostly it's a positioning hazard near ledges.",
+   "drops": "Nothing reliable"
+  },
+  {
+   "name": "Bubble (Fire/Ice)",
+   "tier": "common",
+   "tactic": "A flaming or frozen skull that drifts on a fixed path; touching it temporarily disables your sword (Fire) or freezes you (Ice). It's normally indestructible — the trick is to put out its flame with the Tornado Rod, which leaves it open to your sword, or simply wall-merge / dodge past it. Killing it usually isn't necessary.",
+   "drops": "Nothing reliable"
+  },
+  {
+   "name": "Wallmaster",
+   "tier": "common",
+   "tactic": "A giant disembodied hand (Skull Woods, Lorule Castle) that drops from the ceiling to grab you and dump you back at the dungeon's START — a huge time-waster. Watch for its shadow on the floor and step out of it; if it lands, slash it fast before it grabs you.",
+   "drops": "Nothing reliable"
+  },
+  {
+   "name": "Poe / Ghini",
+   "tier": "common",
+   "tactic": "Floating ghosts in graveyards and dark passages that fade in and out, drift through walls, and lunge at you. Lock on and wait for one to materialize and lunge, then slash it during that window. The Lamp/Fire Rod helps light a dark room.",
+   "drops": "Rupees, sometimes Hearts"
+  },
+  {
+   "name": "Wizzrobe (Fire/Ice)",
+   "tier": "common",
+   "tactic": "A robed mage that blinks into view, fires an elemental blast, then vanishes again — only the Fire and Ice variants appear, mostly in late dungeons. Block the blast with your shield, then rush in and hit it in the brief moment it's solid before it teleports. The Bow can also catch it as it appears.",
+   "drops": "Rupees"
+  },
+  {
+   "name": "Hinox",
+   "tier": "mini-boss",
+   "tactic": "A hulking one-eyed brute that lobs bombs at you across the room. Catch or dodge the bombs (you can even pick one up and throw it back), then close in and slash its body; lock on and keep moving so the next bomb misses.",
+   "drops": "Hearts, Rupees; often guards a chest or path"
+  },
+  {
+   "name": "Margomill",
+   "tier": "boss",
+   "tactic": "House of Gales boss — a stack of stone disks with a single eye on top, floating above a pit.",
+   "drops": "Heart Container + Pendant of Wisdom",
+   "battle": "RENT/EQUIP: the Tornado Rod is mandatory here (it's the dungeon item) — bring it plus a bottled fairy. OPENING: the boss's only weak point is the eye on top, which starts out of sword reach. Stand under it and use the Tornado Rod to launch yourself up onto its level, then slash the eye. LOOP: each time you hurt it, it adds disk layers underneath, lifting the eye higher and out of reach. Knock the new disk layers off to shrink it back down, then Tornado-Rod up again and hit the eye. Repeat until it dies. THE CATCH: the body itself doesn't deal much damage, but it shoves you around the floating arena — get bounced off the edge and you fall, so watch its drift and don't fight near the rim. THE MERGE ANGLE: not a wall-merge fight — the Tornado Rod's vertical lift is the whole trick."
+  },
+  {
+   "name": "Moldorm",
+   "tier": "boss",
+   "tactic": "Tower of Hera boss — a giant armored worm that whips around a small open platform.",
+   "drops": "Heart Container + Pendant of Power",
+   "battle": "RENT/EQUIP: just your sword; bring a bottled fairy. WEAK POINT: the glowing red tip at the END of its tail — its head and body are armored and do nothing. LOOP: keep your distance and watch its path, then dart in and slash the red tail-tip when it swings past you. Each successful hit makes Moldorm faster and angrier, so the later hits are the hard ones — stay patient. THE HAZARD: the platform has open edges and Moldorm will try to bump you off — getting knocked off drops you to the floor below (lose progress, climb back). There are recovery hearts along the sides if you're hurt. THE MERGE ANGLE: no wall-merge here; it's pure spacing — read its movement, hit the tail, don't fall off."
+  },
+  {
+   "name": "Gemesaur King",
+   "tier": "boss",
+   "tactic": "Dark Palace boss — an armored dinosaur-beast that can snuff out the room's lights to become invincible.",
+   "drops": "Heart Container + a Sage's portrait",
+   "battle": "RENT/EQUIP: Bombs are essential, plus your Lamp (or Fire Rod) to relight torches; a bottled fairy. OPENING: it wears a hard mask/helmet at first — throw Bombs at it to crack and shatter the armor (the Nice Bombs upgrade does it much faster), exposing the green crystal weak point on its head. LOOP: slash that crystal until it roars and stomps out all the torches, plunging the room into darkness. While dark it's INVINCIBLE and charges to trample you. THE MERGE ANGLE: this is a wall-merge fight — merge into the wall to dodge its blind charges, wait for it to move away, then pop out and use your Lamp/Fire Rod to relight the torches and banish its dark aura. With the lights back on, sword the crystal again. Repeat light-the-room / hit-the-crystal until it falls."
+  },
+  {
+   "name": "Arrghus",
+   "tier": "boss",
+   "tactic": "Swamp Palace boss — a floating eye shielded by a swarm of smaller flying eyes (Arrghi).",
+   "drops": "Heart Container + a Sage's portrait",
+   "battle": "RENT/EQUIP: the Hookshot is the key item; bottled fairy. OPENING: you can't touch the core while it's surrounded by the smaller eyes. Fire the Hookshot to grab one and yank it off toward you, then kill it with a few sword hits. Strip them all off — if you dawdle they slowly drift back, and one occasionally darts at you (just dodge). LOOP: once the shell of eyes is gone, the central eye is exposed and starts leaping around the room and firing a spread of beams that erupt the water where they land — keep moving and slash the core whenever it's near; you'll usually only land a hit or two per pass. THE MERGE ANGLE: not a merge fight — Hookshot to undress it, then sword the eye."
+  },
+  {
+   "name": "Knucklemaster",
+   "tier": "boss",
+   "tactic": "Skull Woods boss — a giant iron-gauntleted fist with a single eye hidden in its palm.",
+   "drops": "Heart Container + a Sage's portrait",
+   "battle": "RENT/EQUIP: nothing special is required — your sword does the damage; bring a bottled fairy. The fight revolves around the wall-merge mechanic. WEAK POINT: the eye in its palm; its armored body is invulnerable, so you can't just hack at it. THE MERGE ANGLE: when the fist clenches and glows it's about to ram/punch — immediately merge into a wall (a Tornado-Rod hop also dodges it). It smashes the WALL instead of you and stuns itself, leaving the palm-eye wide open. Pop out and slash the eye repeatedly while it's dazed. LOOP: repeat the bait-the-punch-into-the-wall, then sword the eye. PHASE 2: after enough hits the hand changes color, speeds up and starts trying to flatten you — keep merging (or hopping) to dodge, still bait its punch into the wall, then strike the eye. WATCH THE FLOOR: its slams shatter the fragile floor tiles, so mind your footing while you reposition between merges."
+  },
+  {
+   "name": "Stalblind",
+   "tier": "boss",
+   "tactic": "Thieves' Hideout boss — a giant skeletal knight with a huge sword and a shield that blocks everything from the front.",
+   "drops": "Heart Container + a Sage's portrait",
+   "battle": "RENT/EQUIP: just your sword; a bottled fairy (its later phases hit hard). OPENING: it holds a shield that deflects all your frontal attacks while it slowly stalks you. THE MERGE ANGLE: this is the signature wall-merge boss — its shield is a surface you can merge into, so wall-merge ONTO the shield. That confuses it; it turns around looking for you and drops its guard, so you slip out behind it and slash its exposed back. LOOP/PHASES: after a couple of back-strikes it discards the shield and goes aggressive with wide, telegraphed sword swipes and spinning attacks — any hit works now, but it's far more dangerous; dodge the swing (vertical slams that stick in the floor buy you a free hit) and counter. FINAL PHASE: it detaches its skull, which floats around spewing dark magic while the headless body keeps slashing — keep avoiding the body's sword and hammer on it until it collapses."
+  },
+  {
+   "name": "Dharkstare",
+   "tier": "boss",
+   "tactic": "Ice Ruins boss — a grinning skull-beast encased in a shell of ice.",
+   "drops": "Heart Container + a Sage's portrait",
+   "battle": "RENT/EQUIP: the Fire Rod is mandatory (it's the dungeon item and the only thing that hurts it through the ice); a bottled fairy. OPENING/WEAK POINT: blast it with the Fire Rod to melt off its ice casing; once melted it drops and flails, and you finish it with the Fire Rod or sword. ITS ATTACK: it fires ice projectiles that form a TRIANGLE on the ground around you — anything caught inside gets frozen and hurt after a beat. Run clear of the triangle before it snaps shut (the Tornado Rod can also lift you away). LOOP: after you damage it, it re-forms its ice shell and the triangle gets bigger and harder to dodge — repeat Fire-Rod-to-melt, then beat it down, until it's destroyed. THE MERGE ANGLE: merging can dodge a ram, but the real answer is Fire Rod + staying out of the triangle."
+  },
+  {
+   "name": "Zaganaga",
+   "tier": "boss",
+   "tactic": "Desert Palace boss — a spiny cactus-worm that burrows through a huge quicksand pit, surfacing on platforms.",
+   "drops": "Heart Container + a Sage's portrait",
+   "battle": "RENT/EQUIP: the Sand Rod is required (it's the dungeon item — you raise sand pillars to cross the quicksand); a bottled fairy. OPENING: Zaganaga dives into the quicksand and pops up on one of the platforms at random. You can't run on quicksand normally, so use the Sand Rod to raise a path of sand blocks toward whichever platform it surfaced on, get close, and slash its exposed EYE (the weak point). HAZARD: while you cross it spits small flying enemies that try to knock you into the quicksand — one sword hit each clears them. PHASE 2: it moves and spawns enemies faster and adds a sweeping sand-blast aimed at you, but it turns slowly — keep circling with the Sand Rod so the beam can't track you, then close and hit the eye. Don't get greedy or the blast knocks you off. Repeat until it dies. THE MERGE ANGLE: not a wall-merge fight — the Sand Rod traversal is the whole puzzle of reaching it."
+  },
+  {
+   "name": "Grinexx",
+   "tier": "boss",
+   "tactic": "Turtle Rock boss — a volcano-shelled turtle that swims in lava beneath a grated platform.",
+   "drops": "Heart Container + a Sage's portrait",
+   "battle": "RENT/EQUIP: the Ice Rod is mandatory (it's the dungeon item and its weakness); a bottled fairy. PHASE 1: it swims in the lava under the floor; watch the holes in the grate and hit its head with the Ice Rod as it passes beneath one. Every so often it does a lava-PILLAR attack that bursts up through the holes — stay off the erupting spots, and you can freeze a column with the Ice Rod. PHASE 2: it hauls itself up onto the grate and attacks directly — keep using the Ice Rod on its head (it reacts when hurt) or sword it. TRICK: freeze a lava column so Grinexx lunges its head into the frozen pillar and stuns itself, then unload sword hits. When it spins around the arena, tuck into a corner until it stops. Keep at it until the shell shatters."
+  },
+  {
+   "name": "Yuga Ganon",
+   "tier": "boss",
+   "tactic": "The finale — Yuga merges with Ganon's power in Lorule Castle, fighting first with a trident, then absorbing the Triforce of Wisdom for a Dead Man's Volley.",
+   "drops": "Ends the game",
+   "battle": "RENT/EQUIP: ideally OWN (don't just rent) your sword-reliant kit and bring 1-2 bottled fairies and lots of hearts/potions — dying here is brutal and you don't want Sheerow stripping rented gear mid-finale. PHASE 1 (Trident): Yuga teleports around the round room and stabs/slashes with his trident; the safe spot is BEHIND him — when he attacks, dodge to his back and slash. As he weakens he double-slashes, hurls and recatches the trident (big damage on contact — avoid its path), and rains energy from the ceiling (just keep moving). PHASE 2 (Dead Man's Volley): he absorbs the Triforce of Wisdom and lobs a big energy ball — swing your sword to bat it back, and rally it until he fails to return it. THE MERGE ANGLE — the finish: Zelda hands you the BOW OF LIGHT. Now merge into the wall, face Yuga (who's also in the wall), and fire a Light Arrow; he tries to block it, which exposes his back, so emerge, get behind him, and strike to force him out of the wall and open to your sword. Repeat the merge-and-Light-Arrow sequence to win."
+  }
+ ]
+}

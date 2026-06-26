@@ -1,0 +1,324 @@
+{
+ "items": [
+  {
+   "id": "ravios-bracelet",
+   "name": "Ravio's Bracelet",
+   "glyph": "magnesis",
+   "from": "Lent by Ravio after he sets up his rental shop in your house. The bracelet's full power awakens during the story (when Yuga turns Link into a painting), letting you merge at will.",
+   "what": "The game's signature move: press toward a wall to merge into it as a flat moving painting, then slide along it to cross gaps, round corners, and reach places you can't walk to. Merging drains the green Energy Gauge.",
+   "tip": "When a room looks like a dead end, try merging into the wall — almost every puzzle here is solved by becoming a painting and sliding to the other side."
+  },
+  {
+   "id": "captains-sword",
+   "name": "Captain's Sword",
+   "glyph": "sword",
+   "from": "Your first sword, picked up at the very start: the blacksmith forges it for the Captain, who leaves it behind on the table, and you set out to deliver it. This same blade is later known as the Forgotten Sword.",
+   "what": "Your starter sword. Basic slash and a charged spin attack (hold to charge, release to swing all around).",
+   "tip": "It's just a starter blade — you'll trade up to the Master Sword once you have all three Pendants of Virtue."
+  },
+  {
+   "id": "forgotten-sword",
+   "name": "Forgotten Sword",
+   "glyph": "sword",
+   "from": "Not a separate weapon — it's the same starter sword the Captain left behind, simply renamed 'Forgotten Sword' later in the story. The blacksmith does NOT re-forge it.",
+   "what": "The early-game sword (slash + charged spin) you carry until you claim the Master Sword.",
+   "tip": "If a guide says 'Captain's Sword' or 'Forgotten Sword,' it means this one starter weapon — there's only one early blade."
+  },
+  {
+   "id": "master-sword",
+   "name": "Master Sword",
+   "glyph": "sword",
+   "from": "Claimed at the pedestal in the Lost Woods once you've collected all 3 Pendants of Virtue.",
+   "what": "The legendary blade — stronger than the starter sword and the key weapon for the story's foes. Fires a sword beam when your hearts are full.",
+   "tip": "Keep your hearts topped up to shoot the ranged sword beam — handy for hitting switches and enemies from safety."
+  },
+  {
+   "id": "master-sword-lv2",
+   "name": "Master Sword Lv2",
+   "glyph": "sword",
+   "from": "Upgraded by the Hyrule blacksmith using 2 chunks of Master Ore.",
+   "what": "The first Master Sword upgrade — it doubles the blade's attack power.",
+   "tip": "Bring 2 Master Ore to the Hyrule blacksmith for this tier; you'll need 2 more (and the Lorule smith) for Lv3."
+  },
+  {
+   "id": "master-sword-lv3",
+   "name": "Master Sword Lv3",
+   "glyph": "sword",
+   "from": "Upgraded by the Lorule blacksmith using 2 more chunks of Master Ore.",
+   "what": "The strongest sword in the game — a second doubling of attack power over Lv2.",
+   "tip": "There are exactly 4 Master Ore in the game; you need all 4 (2 for Lv2 in Hyrule, 2 for Lv3 in Lorule) to reach the top tier."
+  },
+  {
+   "id": "master-ore",
+   "name": "Master Ore",
+   "glyph": "gem",
+   "from": "Four pieces, all in Lorule — the Thieves' Hideout, the Dark Palace, Skull Woods, and a Lorule cave reached through the fissure inside Hyrule's Sanctuary (needs the Titan's Mitt). Found, not rented.",
+   "what": "The upgrade material for the Master Sword. Two ores raise it to Lv2 (Hyrule smith), two more to Lv3 (Lorule smith); each pair doubles its power.",
+   "tip": "Collect all four before upgrading — the smiths take them two at a time, and each tier doubles your damage."
+  },
+  {
+   "id": "shield",
+   "name": "Shield",
+   "glyph": "shield",
+   "from": "A basic piece of starting gear (you can buy one in town). It's plain equipment, not a rental.",
+   "what": "Hold up to block enemy attacks and projectiles. Costs no energy.",
+   "tip": "Holding the shield while standing still blocks most frontal attacks; sidestep against faster foes."
+  },
+  {
+   "id": "bow",
+   "name": "Bow",
+   "glyph": "bow",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Fires arrows at distant enemies, switches, and eyes. Each shot spends green energy instead of consuming arrow ammo — there's no arrow count to manage.",
+   "tip": "Because shots cost energy, not ammo, you can fire freely — just watch the meter; it refills on its own and from Energy Potions."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Lay an explosive that blasts cracked walls, blocks, and enemies. Each bomb spends green energy rather than a bomb count.",
+   "tip": "Look for hairline cracks in walls and floors — a bomb almost always opens a hidden room or shortcut."
+  },
+  {
+   "id": "fire-rod",
+   "name": "Fire Rod",
+   "glyph": "orb",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Shoots a burst of flame that burns enemies, lights torches, and melts ice. Each blast spends green energy.",
+   "tip": "Great against ice-themed enemies and for lighting torches fast."
+  },
+  {
+   "id": "ice-rod",
+   "name": "Ice Rod",
+   "glyph": "cryonis",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Fires a freezing blast that encases enemies in ice and can form ice blocks on water. Each blast spends green energy.",
+   "tip": "Frozen enemies become solid blocks — useful as stepping stones or to halt a foe while you reposition."
+  },
+  {
+   "id": "tornado-rod",
+   "name": "Tornado Rod",
+   "glyph": "leaf",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Whips up a whirlwind that launches Link into the air and flips/stuns nearby enemies. Each use spends green energy.",
+   "tip": "The upward launch reaches high ledges and lets you float down — handy in the House of Gales and for dodging."
+  },
+  {
+   "id": "sand-rod",
+   "name": "Sand Rod",
+   "glyph": "leaf",
+   "from": "Osfala lends you one in the Thieves' Hideout, but Sheerow takes it back the moment you step outside. After you clear the Thieves' Hideout it returns to Ravio's shop, where you rent or buy your own.",
+   "what": "Raises a pillar of sand to lift Link or objects and form moving platforms across sand. Each use spends green energy.",
+   "tip": "Hold the button to extend the sand pillar as it travels — you ride it across gaps you couldn't cross on foot. You'll need it for the Desert Palace."
+  },
+  {
+   "id": "hammer",
+   "name": "Hammer",
+   "glyph": "orb",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "A heavy smash that pounds stakes/pegs into the ground, flattens some enemies, and triggers certain switches. Each swing spends green energy.",
+   "tip": "Look for posts sticking out of the floor — the Hammer pounds them flat to open paths."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Fires a chain that latches onto wooden posts and anchor points to yank Link across, or pulls grabbable items to you. Each use spends green energy.",
+   "tip": "Aim at posts or blocks across a hazard to zip yourself over."
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "leaf",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Throws a returning blade that stuns enemies, grabs distant items, and hits switches — then comes back. Each throw spends green energy.",
+   "tip": "Use it to collect rupees and trip faraway switches without moving."
+  },
+  {
+   "id": "lamp",
+   "name": "Lamp",
+   "glyph": "orb",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Lights dark rooms and ignites torches with a small flame. Each use spends green energy.",
+   "tip": "Light every torch in a dark room — it usually reveals the exit or unlocks a chest."
+  },
+  {
+   "id": "net",
+   "name": "Net",
+   "glyph": "bag",
+   "from": "Rented (or later bought) from Ravio's shop (the Bug Net).",
+   "what": "Swings to catch bugs, fairies, and bees into bottles, and can swat away some projectiles. Catching uses no ammo.",
+   "tip": "Catch a fairy in a bottle — it auto-revives you with hearts if you fall in battle."
+  },
+  {
+   "id": "pegasus-boots",
+   "name": "Pegasus Boots",
+   "glyph": "champion",
+   "from": "Given by the Shady Guy near Kakariko Village — merge into the wall to sneak up behind him, and he hands them over. Equipment you keep, not a rental.",
+   "what": "Hold the dash button to charge at high speed; you can plow through breakable bushes and objects and bump some enemies.",
+   "tip": "Dash into trees and posts — they often shake loose rupees, hearts, or hidden items."
+  },
+  {
+   "id": "power-glove",
+   "name": "Power Glove",
+   "glyph": "armor",
+   "from": "Given by Rosso at the Miner's House (Hyrule, by Death Mountain) after you clear the Eastern Palace. Equipment you keep.",
+   "what": "Lets Link lift and throw small gray rocks he couldn't budge before, clearing blocked paths.",
+   "tip": "Once you have it, revisit spots blocked by liftable rocks — new shortcuts and chests open up."
+  },
+  {
+   "id": "titans-mitt",
+   "name": "Titan's Mitt",
+   "glyph": "armor",
+   "from": "Upgrade of the Power Glove, found in a big chest in the Desert Palace (Lorule). Equipment you keep.",
+   "what": "Lets Link lift the heaviest rocks — the large dark stones the Power Glove can't move.",
+   "tip": "With the Titan's Mitt, go back to any oversized boulders you had to walk around earlier."
+  },
+  {
+   "id": "flippers",
+   "name": "Flippers",
+   "glyph": "fairy",
+   "from": "Reward from Queen Oren of the Zora for returning her stolen Smooth Gem. Equipment you keep.",
+   "what": "Let Link swim in deep water instead of being pushed back at the shore, opening up lakes, rivers, and water routes.",
+   "tip": "After getting the Flippers, swim out to islands and waterways you couldn't reach before — Maiamai and other secrets hide there."
+  },
+  {
+   "id": "bell",
+   "name": "Bell",
+   "glyph": "champion",
+   "from": "Given by Irene (the potion witch's granddaughter) on the bridge after you clear the Eastern Palace.",
+   "what": "Tap it (touch screen) to summon Irene, who flies you instantly to any Weather Vane you've already activated. Free fast-travel.",
+   "tip": "Activate every Weather Vane you pass — each becomes a Bell warp point, saving huge amounts of walking."
+  },
+  {
+   "id": "weather-vane",
+   "name": "Weather Vane",
+   "glyph": "champion",
+   "from": "Scattered across Hyrule and Lorule; press A at one to activate it.",
+   "what": "Save points and fast-travel destinations. Once active, you can warp to it any time using the Bell.",
+   "tip": "Touching a Weather Vane both saves your game and unlocks it as a Bell destination — never walk past one."
+  },
+  {
+   "id": "bottle",
+   "name": "Bottle",
+   "glyph": "pot",
+   "from": "Five total, found across Hyrule and Lorule (one bought in Kakariko, one from the Bird Lover under the bridge, one in Lorule's Vacant House, one from the Great Rupee Fairy, and one more).",
+   "what": "Empty containers you fill with potions, fairies, or bugs/bees. A bottled fairy revives you on death; potions restore hearts or energy.",
+   "tip": "Keep at least one fairy bottled before a boss — it's a free second chance if you run out of hearts."
+  },
+  {
+   "id": "red-potion",
+   "name": "Red Potion",
+   "glyph": "heart",
+   "from": "Bought from the Witch's potion shop (stored in a Bottle).",
+   "what": "Drink to refill a large chunk of your hearts.",
+   "tip": "Stock a Red Potion before long dungeons; it's faster than hunting for heart drops mid-fight."
+  },
+  {
+   "id": "blue-potion",
+   "name": "Blue Potion",
+   "glyph": "heart",
+   "from": "Bought from the Witch's potion shop (stored in a Bottle) — the premium potion.",
+   "what": "Drink to fully restore both your hearts and your green Energy Gauge at once.",
+   "tip": "Save Blue Potion for boss fights — a full heal plus full energy in one gulp can turn a losing fight around."
+  },
+  {
+   "id": "energy-potion",
+   "name": "Energy Potion",
+   "glyph": "orb",
+   "from": "Dropped by purple pots (and some grass/enemies); stored in a Bottle.",
+   "what": "Refills the green Energy Gauge so you can keep using items and wall-merging.",
+   "tip": "When your meter runs low, smash purple pots — they're the reliable on-the-spot energy refill."
+  },
+  {
+   "id": "energy-gauge",
+   "name": "Energy Gauge",
+   "glyph": "orb",
+   "from": "The shop system's shared resource, in play once you start renting items from Ravio.",
+   "what": "The green meter that powers EVERY item and Wall Merge — used in place of separate ammo (arrows, bombs, magic). It refills on its own over time and from Energy Potions.",
+   "tip": "Items don't run out of ammo here — they run out of energy. The meter refills by itself, so pause a beat to recharge instead of hunting for pickups."
+  },
+  {
+   "id": "stamina-scroll",
+   "name": "Stamina Scroll",
+   "glyph": "scroll",
+   "from": "Found in the Ice Ruins dungeon (Lorule).",
+   "what": "Permanently enlarges your Energy Gauge, so you can use more items and merge longer before running dry.",
+   "tip": "A real, lasting upgrade — it makes every item feel more usable."
+  },
+  {
+   "id": "pouch",
+   "name": "Pouch",
+   "glyph": "bag",
+   "from": "Your inventory/equipment menu (touch screen) once Ravio's shop is open.",
+   "what": "Holds your items and shows the Energy Gauge. Items you only RENT can be lost if you fall in battle (Sheerow repossesses them); items you BUY are yours for good.",
+   "tip": "Buy your most-used items outright as soon as you can — bought items can't be taken away when you die, and only bought items can become 'Nice' versions."
+  },
+  {
+   "id": "ravios-shop",
+   "name": "Ravio's Rental Shop",
+   "glyph": "book",
+   "from": "Ravio sets up shop inside your house after lending you the Bracelet.",
+   "what": "Where you RENT items cheaply or, once you hold all three Pendants of Virtue, BUY them to keep. Rentals let you tackle dungeons in any order but are repossessed if you die; purchases are permanent.",
+   "tip": "Rent early to explore and find which items you love, then buy the keepers — every rental is taken at once if you fall in battle."
+  },
+  {
+   "id": "mother-maiamai",
+   "name": "Mother Maiamai",
+   "glyph": "fairy",
+   "from": "Found in a cave near Lake Hylia; she sends you to recover her 100 Lost Maiamai across both worlds.",
+   "what": "For every 10 Lost Maiamai you return, she upgrades one item you OWN into a stronger 'Nice' version. She can't upgrade rented items.",
+   "tip": "Buy an item from Ravio before bringing it to her — she only upgrades items you own, not ones you're renting."
+  },
+  {
+   "id": "lost-maiamai",
+   "name": "Lost Maiamai",
+   "glyph": "fairy",
+   "from": "100 hidden across Hyrule and Lorule (often behind cracked walls, under rocks, or in merge-only spots).",
+   "what": "Collectibles you return to Mother Maiamai. Every 10 buys one 'Nice' item upgrade; returning all 100 earns the Great Spin Attack.",
+   "tip": "Many hide in wall-merge-only nooks and behind bombable cracks — sweep each area with the Bracelet and a Bomb."
+  },
+  {
+   "id": "nice-items",
+   "name": "Nice Items",
+   "glyph": "gem",
+   "from": "Mother Maiamai upgrades, one per 10 Lost Maiamai returned (e.g. Nice Bow, Nice Bombs, Nice Fire Rod, Nice Ice Rod, Nice Tornado Rod, Nice Sand Rod, Nice Hammer, Nice Hookshot, Nice Boomerang).",
+   "what": "Buffed versions of items you own — stronger, larger, or with extra shots/spread.",
+   "tip": "Prioritize upgrading the item you lean on most; the Nice version makes tough fights and puzzles much easier."
+  },
+  {
+   "id": "great-spin-attack",
+   "name": "Great Spin Attack",
+   "glyph": "sword",
+   "from": "Reward from Mother Maiamai for returning all 100 Lost Maiamai.",
+   "what": "A larger, longer-reaching spin attack that hits enemies all around you from much farther out.",
+   "tip": "It's the final Maiamai prize — worth completing the hunt for the big crowd-clearing swing."
+  },
+  {
+   "id": "pendant-of-courage",
+   "name": "Pendant of Courage",
+   "glyph": "gem",
+   "from": "A charm Princess Zelda gives Link early on; Sahasrahla later reveals it is the Pendant of Courage (after the Eastern Palace). NOT a dungeon reward.",
+   "what": "One of the three Pendants of Virtue. All three together let you claim the Master Sword.",
+   "tip": "You already hold this one before the dungeons begin — you just don't learn what it is until after the Eastern Palace."
+  },
+  {
+   "id": "pendant-of-power",
+   "name": "Pendant of Power",
+   "glyph": "gem",
+   "from": "Reward for clearing the Tower of Hera, atop Death Mountain (boss: Moldorm).",
+   "what": "One of the three Pendants of Virtue, needed with the other two to earn the Master Sword.",
+   "tip": "You can tackle the early dungeons in any order thanks to Ravio's rentals — just collect all three pendants."
+  },
+  {
+   "id": "pendant-of-wisdom",
+   "name": "Pendant of Wisdom",
+   "glyph": "gem",
+   "from": "Reward for clearing the House of Gales, in the southeast lake region (boss: Margomill).",
+   "what": "The third Pendant of Virtue. With Courage and Power, it opens the path to the Master Sword in the Lost Woods.",
+   "tip": "The House of Gales leans on the Tornado Rod — rent it before you go in. Once you hold all three pendants, head to the Lost Woods pedestal to pull the Master Sword."
+  }
+ ]
+}

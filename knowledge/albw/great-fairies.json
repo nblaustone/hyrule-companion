@@ -1,0 +1,34 @@
+{
+ "fairies": [
+  {
+   "name": "Mother Maiamai",
+   "region": "Hyrule",
+   "location": "In a cave at Lake Hylia, just southeast of Link's house. The entrance is sealed by a boulder — blow it open with Bombs (rent or buy from Ravio). Inside, Mother Maiamai has lost her 100 baby Maiamai, hidden all over both Hyrule AND Lorule (behind cracked walls, under rocks, in water, on the map's edges). Many need a specific item — Hammer, Bombs, Sand Rod, Ice Rod, wall-merge, etc. — to reach. You don't have to return them in fixed batches; she gives a reward for every 10 you hand in.",
+   "cost": "FREE — she rewards you for bringing back her children. Every 10 Lost Maiamai you return = one item upgraded to its stronger 'Nice' version. It must be an item you BOUGHT from Ravio (only possible after the 3 Pendants), not one you're merely renting. The 9 upgradeable Ravio items: Bow, Bombs, Fire Rod, Ice Rod, Tornado Rod, Hammer, Sand Rod, Boomerang, Hookshot — so 90 Maiamai cover all nine. Nice versions are bigger/stronger: the Nice Bow fires 3 arrows at once; Nice Bombs are about twice as big with twice the power; the Nice Fire Rod's flame pillar is taller, wider and reaches farther; the Nice Ice Rod drops 4 icicles instead of 1; Nice Sand Rod pillars last longer (and puff a line of dust on hard ground); Nice Boomerang/Hookshot travel faster and farther (the Nice Hookshot also deals damage). They still draw from the same recharging Energy Gauge. Return all 100 and she grants the Great Spin — a much larger, stronger spin attack."
+  },
+  {
+   "name": "Great Rupee Fairy",
+   "region": "Lorule",
+   "location": "In a hidden cave in Lorule, northwest of the Bomb Flower Store (the dark-world counterpart of the area where you get the Big Bomb Flower). A large cracked boulder blocks the fountain — clear it with the Big Bomb Flower to open the way. (Lorule is reached by wall-merging through fissures in Hyrule using Ravio's Bracelet.)",
+   "cost": "Toss in Rupees — 50 or 200 at a time. Donations heal your hearts and release a few free fairies along the way. Donate 3,000 Rupees in total and she grows to full size and gives you a Bottle (one of the game's five). After she hands over the Bottle you can no longer donate or see her, so it's a one-time payoff — worth it only if you have Rupees to spare."
+  },
+  {
+   "name": "Hyrule Blacksmith (Master Sword Lv2)",
+   "region": "Hyrule",
+   "location": "The Blacksmith's house in eastern Hyrule, near Hyrule Castle (east of Link's house). Bring him 2 Master Ore. There are 4 Master Ore in the whole game, found in big chests in the Lorule dungeons/areas: Dark Palace, Thieves' Hideout, Skull Woods, and the Lorule Sanctuary. Several (not all) need wall-merge to reach.",
+   "cost": "FREE — no Rupee cost. Give the Hyrule Blacksmith your first 2 Master Ore and he tempers the Master Sword into Master Sword Lv2 (classically nicknamed the 'Tempered Sword'; the blade turns red), DOUBLING its attack power. You need the Master Sword (earned with the 3 Pendants) first."
+  },
+  {
+   "name": "Lorule Blacksmith (Master Sword Lv3)",
+   "region": "Lorule",
+   "location": "The Blacksmith's house in Lorule — the dark-world counterpart, in the same map spot as the Hyrule smithy (reached by wall-merging through a fissure). Bring him the other 2 Master Ore (the first 2 went to the Hyrule smith; 4 exist in total).",
+   "cost": "FREE — no Rupee cost. Give the Lorule Blacksmith the final 2 Master Ore and he forges Master Sword Lv3 (classically nicknamed the 'Golden Sword'; the blade turns gold), DOUBLING the attack power again — the strongest sword in the game. Requires you to have already done the Hyrule Lv2 upgrade."
+  },
+  {
+   "name": "Fairy Fountains (healing)",
+   "region": "Hyrule & Lorule",
+   "location": "Small fairy fountains are tucked in caves across both worlds, several hidden behind obstacles that need Bombs, the Ice Rod, the Sand Rod or the Titan's Mitt to clear. Lorule has its own matching fountains, and small fairy rooms appear inside many dungeons. (Treat specific spots as a 'look for sealed caves' rule rather than a fixed list.)",
+   "cost": "FREE. Touch a fairy here and it refills your hearts; or scoop one into an empty Bottle. A bottled fairy heals you when released — and if you run out of hearts while carrying one, she automatically revives you. These are your everyday 'panic heal': keep a Bottle stocked with a fairy before tough dungeons and bosses."
+  }
+ ]
+}

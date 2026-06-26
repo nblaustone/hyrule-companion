@@ -1,0 +1,270 @@
+{
+ "items": [
+  {
+   "name": "Forgotten Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Link's first and weakest blade — a simple one-handed sword for basic slashes and the spin attack. It carries you until you claim the Master Sword, after which you never need it again.",
+   "where": "Also called the Captain's Sword. The Captain forgets it at the Blacksmith's Forge, and the Blacksmith's wife asks Link to return it. Link follows the Captain to the Sanctuary, but Seres screams and the doors lock; Dampe reveals a secret passage under a grave in the graveyard. Link sneaks in to find Yuga has turned the Captain into a painting — so the sword stays Link's to keep. A found story item, not a Ravio rental."
+  },
+  {
+   "name": "Master Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The legendary sword of evil's bane — far stronger than the Forgotten Sword and the blade you'll use for most of the game. When Link is at full health it fires a sword beam at range.",
+   "where": "Pulled from its pedestal in the Lost Woods after collecting the three Pendants (Power, Wisdom, Courage). A found story item, not rented. Can be upgraded twice with Master Ore."
+  },
+  {
+   "name": "Master Sword Lv2",
+   "cat": "sword",
+   "type": "Sword (upgrade)",
+   "effect": "The first Master Sword upgrade — its attack power is doubled, cutting through tougher Lorule enemies much faster. Still throws a sword beam at full health.",
+   "where": "Take 2 pieces of Master Ore to the Blacksmith's Forge in Hyrule and he reforges the Master Sword into Lv2. The four Master Ore are hidden in Lorule — in the Dark Palace, Skull Woods, and Thieves' Hideout dungeons, plus one under the Lorule Graveyard."
+  },
+  {
+   "name": "Master Sword Lv3",
+   "cat": "sword",
+   "type": "Sword (upgrade)",
+   "effect": "The Master Sword at maximum strength — attack power is doubled again over Lv2 (four times the base sword), the strongest weapon in the game. This is ALBW's equal of A Link to the Past's Golden/Tempered Sword.",
+   "where": "Bring the last 2 pieces of Master Ore to the Blacksmith in Lorule, who forges Lv3. Requires all 4 Master Ore total (2 for Lv2 in Hyrule, 2 for Lv3 in Lorule)."
+  },
+  {
+   "name": "Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "A basic shield held in front of Link (press R) while not attacking — blocks ordinary enemy attacks and non-magic projectiles from the front. Does not protect against fire or magic.",
+   "where": "Bought for 50 Rupees from any Item Shop (the standard village shops, e.g. in Kakariko) — NOT one of Ravio's rentals. Since it's a purchase, it's yours permanently and is never lost on death."
+  },
+  {
+   "name": "Hylian Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "The best shield in the game. On top of normal blocking it deflects fire- and magic-based projectiles (Beamos beams, Lynel fire breath), and it can never be destroyed (even a Like Like can't eat it).",
+   "where": "A found dungeon item — in a chest inside Turtle Rock (Lorule), reached after the Big Key by merging into a wall to push over a grate bridge in the central room. Optional, not required to finish the dungeon; not a Ravio rental."
+  },
+  {
+   "name": "Blue Mail",
+   "cat": "armor",
+   "type": "Armor (tunic)",
+   "effect": "An armor upgrade over the starting green tunic — halves the damage Link takes from every hit. Worn automatically once obtained.",
+   "where": "A found dungeon item. Locations are order-dependent: whichever of the two armor chests you open first (the big chest in the Swamp Palace, or the one in Lorule Castle) gives the Blue Mail; the other then holds the Red Mail. Not rented or upgraded by Maiamai."
+  },
+  {
+   "name": "Red Mail",
+   "cat": "armor",
+   "type": "Armor (tunic)",
+   "effect": "The best armor in the game — cuts incoming damage to a quarter, twice as protective as the Blue Mail and the final defensive upgrade.",
+   "where": "A found dungeon item, in the other of the two armor chests (Lorule Castle's 4th-floor big chest, or the Swamp Palace big chest) — whichever you DIDN'T already open for the Blue Mail. The Lorule Castle chest hides behind an invisible platform revealed by extinguishing the nearby torches. Not rented or upgraded by Maiamai."
+  },
+  {
+   "name": "Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Fires arrows to hit distant enemies, switches, and eyes. Like all of Ravio's gear it draws from the shared green energy meter instead of consuming arrow ammo, so you can keep firing as the meter refills.",
+   "where": "Rented for 50 Rupees from Ravio's Shop (set up in Link's house), then buyable outright for 800 Rupees after the first three Pendants. Returns to Ravio via Sheerow if Link falls while it's only rented. Buy it to keep it permanently and unlock the Nice Bow upgrade."
+  },
+  {
+   "name": "Nice Bow",
+   "cat": "bow",
+   "type": "Bow (Nice upgrade)",
+   "effect": "The Maiamai-upgraded Bow — fires three arrows at once in a small spread, making it easy to hit a target (or several enemies) without precise aim and hitting harder overall. Still runs on the energy meter.",
+   "where": "Upgraded by Mother Maiamai (in the cave behind her grotto) after you have bought the Bow outright from Ravio and returned 10 of her lost Maiamai children. A found upgrade, not rented."
+  },
+  {
+   "name": "Bow of Light",
+   "cat": "bow",
+   "type": "Bow (story item)",
+   "effect": "A sacred bow that fires Light Arrows — the only weapon that can harm Yuga Ganon. While he's merged into a wall, merge into the wall yourself and shoot a Light Arrow at his back to force him out, then strike with the sword; repeat across the fight to win.",
+   "where": "Given to Link by Princess Zelda (through her painting) during the final Yuga Ganon battle, after the descendants of the Seven Sages and the Triforce of Courage are gathered. A one-time story gift, not from Ravio or Maiamai."
+  },
+  {
+   "name": "Ravio's Bracelet",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link merge into walls as a living painting, sliding flat along any surface to cross gaps, slip behind bars, and reach areas no other route allows. It is the game's signature mechanic and is needed almost everywhere.",
+   "where": "Given for free by Ravio early on after he sets up his rental shop inside Link's House; a later story event upgrades it so the merge can also be used in Lorule. Not a rental and not upgraded by Mother Maiamai."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Sets down a bomb that explodes after a moment to blast cracked walls, stun enemies, and hit switches. Draws from the shared green energy meter instead of a finite ammo count, so it recharges automatically.",
+   "where": "Rented or bought from Ravio's Shop. Buy it outright and Mother Maiamai can upgrade it into Nice Bombs, which have a larger blast radius."
+  },
+  {
+   "name": "Fire Rod",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Shoots a burst of flame that burns enemies, lights torches, and melts ice. Costs energy from the shared meter per use.",
+   "where": "Rented or bought from Ravio's Shop. Owned (bought) copies can be upgraded by Mother Maiamai into the Nice Fire Rod, which unleashes a much larger pillar of fire."
+  },
+  {
+   "name": "Ice Rod",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Fires ice that freezes enemies solid (letting you use them as stepping platforms) and can freeze certain surfaces. Uses the shared energy meter.",
+   "where": "Rented or bought from Ravio's Shop. Bring Mother Maiamai 10 Maiamai while you own it and she upgrades it into the Nice Ice Rod, which freezes a wider area."
+  },
+  {
+   "name": "Tornado Rod",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Whips up a small whirlwind that flips over shielded or armored enemies and launches Link upward to reach higher ledges. Drains the shared energy meter.",
+   "where": "Rented or bought from Ravio's Shop (it is NOT a House of Gales dungeon prize — you rent it BEFORE that dungeon, since it's required to enter and clear the House of Gales). If owned, Mother Maiamai upgrades it into the Nice Tornado Rod with a bigger gust."
+  },
+  {
+   "name": "Sand Rod",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Raises pillars of sand out of sand-covered floors, creating platforms and walls and exposing hidden paths. Uses the shared energy meter.",
+   "where": "Rented from Ravio's Shop after clearing the Thieves' Hideout and rescuing Osfala (it is NOT the Desert Palace dungeon item — that dungeon's prize is the Titan's Mitt; the Sand Rod is needed to navigate the Desert Palace). Mother Maiamai can upgrade it into the Nice Sand Rod, which raises wider, longer pillars."
+  },
+  {
+   "name": "Hammer",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Pounds in stakes, flattens enemies, and smashes obstacles. Uses energy from the shared meter on each swing.",
+   "where": "Rented or bought from Ravio's Shop. Buy it and Mother Maiamai can make it the Nice Hammer, with a stronger, wider strike."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a chain that grabs onto posts, chests, and certain enemies, pulling Link across gaps or yanking objects toward him. Costs energy per shot.",
+   "where": "Rented or bought from Ravio's Shop. Owned copies are upgraded by Mother Maiamai into the Nice Hookshot, which has a longer reach."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Thrown to stun enemies, grab distant items, and hit switches before returning to Link. Uses the shared energy meter.",
+   "where": "Rented or bought from Ravio's Shop. Buy it and Mother Maiamai can upgrade it to the Nice Boomerang, which flies a wider arc and pulls in items over a larger area."
+  },
+  {
+   "name": "Lamp",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lights torches to open doors and burns away simple obstacles, and provides light in dark rooms. Uses the shared energy meter.",
+   "where": "Rented or bought from Ravio's Shop. The Lamp does not have a Mother Maiamai 'Nice' upgrade."
+  },
+  {
+   "name": "Net",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Catches small flying creatures like bees and fairies and can swat certain projectiles back at enemies.",
+   "where": "Rented or bought from Ravio's Shop. The Net does not have a 'Nice' upgrade."
+  },
+  {
+   "name": "Pegasus Boots",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Hold the run button to dash at high speed, charging through enemies and breakable objects and crossing long stretches quickly.",
+   "where": "Won from the Shady Guy (the thief) in Kakariko Village: merge into the wall behind him, sneak up, and pop out to scare him into handing them over. Not a rental and has no 'Nice' upgrade. (With the sword equipped while dashing, this enables the Dash Attack.)"
+  },
+  {
+   "name": "Power Glove",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link pick up and throw small rocks and bushes that block paths or hide secrets.",
+   "where": "Given by Rosso at his house (the Miner's House) after you clear the Eastern Palace. A permanent item; later replaced by the stronger Titan's Mitt (no 'Nice' upgrade)."
+  },
+  {
+   "name": "Titan's Mitt",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "An upgraded Power Glove that lets Link lift the largest boulders and dark rocks, opening late-game paths the Power Glove cannot.",
+   "where": "The dungeon item of the Desert Palace (in Lorule). Permanently upgrades the Power Glove; no 'Nice' version."
+  },
+  {
+   "name": "Flippers",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Allow Link to swim across deep water instead of drowning, opening up lakes, rivers, and water routes in both worlds.",
+   "where": "Given by Queen Oren of the Zora after you recover her stolen Smooth Gem (buy it back from the Kakariko street merchant and return it to her in Zora's Domain). Permanent; no 'Nice' upgrade."
+  },
+  {
+   "name": "Bell",
+   "cat": "item",
+   "type": "Warp tool",
+   "effect": "Ring it to summon Irene on her broom and instantly warp to any Weather Vane you have already activated, making travel across Hyrule and Lorule fast and easy.",
+   "where": "Given by Irene (the witch's granddaughter) after you clear the Eastern Palace. Not a rental; no 'Nice' upgrade. Weather Vanes must be touched once to unlock them as warp destinations."
+  },
+  {
+   "name": "Pendants of Virtue",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "The three sacred pendants — the Pendant of Courage, the Pendant of Power, and the Pendant of Wisdom. Collecting all three lets Link claim the Master Sword.",
+   "where": "Each is the reward for clearing one of the three Hyrule dungeons: the Eastern Palace, the House of Gales, and the Tower of Hera. Story key items, not rented or upgraded."
+  },
+  {
+   "name": "Seven Sages",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "Seven descendants of the original Sages, sealed inside paintings by Yuga across Lorule. Rescuing all seven opens the path to the final confrontation with Yuga-Ganon.",
+   "where": "Each Sage is freed by clearing one of the seven Lorule dungeons. They are story objectives tracked in the menu, not items you rent or buy."
+  },
+  {
+   "name": "Bottle",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "An empty bottle that stores one consumable — a potion, fairy, bee, or other item — for use when needed. Multiple bottles let Link carry several lifesaving items at once.",
+   "where": "There are FIVE bottles: from the Kakariko Village street merchant (100 Rupees); from the Bird Lover under the bridge near Lake Hylia (after the Flippers); from the Stranded Man on Death Mountain (deliver him premium milk from Kakariko's milk bar); from a chest in the Vacant House in Lorule (bomb the back wall); and from the Great Rupee Fairy in Lorule's Thieves' Town (donate 3000 Rupees total). Permanent; not rented or upgraded."
+  },
+  {
+   "name": "Lost Maiamai",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "One hundred tiny lost Maiamai children hidden throughout Hyrule and Lorule. Returning them to Mother Maiamai (10 at a time) lets her upgrade your owned items into stronger 'Nice' versions; collecting all 100 unlocks the Great Spin Attack.",
+   "where": "Scattered across both worlds, often revealed by merging into walls, lifting rocks, or using items in the right spot. Carry them back to Mother Maiamai's cave beneath Lake Hylia."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "A quarter of a heart container. Collect four Pieces of Heart and Link's maximum health permanently increases by one full heart.",
+   "where": "Hidden throughout Hyrule and Lorule as exploration rewards, minigame prizes, and quest rewards (28 in all). Permanent collectibles, not rented."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "Instantly adds one full heart to Link's maximum health.",
+   "where": "Awarded for defeating each dungeon's boss. A guaranteed story reward, one per major boss."
+  },
+  {
+   "name": "Master Ore",
+   "cat": "material",
+   "type": "Upgrade material",
+   "effect": "Rare ore used to temper the Master Sword. Two pieces let the Hyrule Blacksmith upgrade it to the stronger Master Sword Lv2 (red); two more let the Lorule Blacksmith forge the Master Sword Lv3 (golden), the strongest sword in the game.",
+   "where": "Four pieces are hidden in Lorule, in big chests inside the Thieves' Hideout, Skull Woods, the Dark Palace, and the Sanctuary of Lorule (reached via the Fissure inside Hyrule's Sanctuary). Take them to the Blacksmith to upgrade."
+  },
+  {
+   "name": "Monster Tail",
+   "cat": "material",
+   "type": "Crafting material",
+   "effect": "A monster drop used as a potion ingredient. Bring 10 to the Witch and she brews a Blue Potion, which refills all of Link's hearts (the best healing potion in the game).",
+   "where": "Dropped by enemies and found in grass, pots, and skulls throughout Hyrule and Lorule. Deliver to the Witch at her hut (she also charges a Rupee fee to brew)."
+  },
+  {
+   "name": "Monster Horn",
+   "cat": "material",
+   "type": "Crafting material",
+   "effect": "A monster drop used as a potion ingredient. Bring 10 to the Witch and she brews a Yellow Potion, which makes Link temporarily invincible to all enemy attacks.",
+   "where": "Dropped by enemies and found in grass, pots, and skulls across both worlds. Deliver to the Witch at her hut."
+  },
+  {
+   "name": "Monster Guts",
+   "cat": "material",
+   "type": "Crafting material",
+   "effect": "A monster drop used as a potion ingredient. Bring 10 to the Witch and she brews a Purple Potion, which damages every nearby enemy when drunk.",
+   "where": "Commonly dropped by enemies and found in grass, pots, and skulls throughout Hyrule and Lorule. Deliver to the Witch at her hut."
+  },
+  {
+   "name": "Rupees",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "The game's money, used to buy and rent items from Ravio, pay the Witch and Blacksmith, and play minigames. Comes in colored values from the green 1-Rupee up to large silver and gold Rupees.",
+   "where": "Found in grass, pots, and chests, dropped by enemies, and won at minigames throughout both worlds. Not rented or upgraded."
+  }
+ ]
+}

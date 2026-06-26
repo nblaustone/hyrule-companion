@@ -38398,7 +38398,176 @@ const ALBW = {
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "Soldier (Sword / Spear)",
+    "tier": "common",
+    "tactic": "The standard Hyrule guard — Green ones charge, Blue ones guard with a shield, and Spear Soldiers jab from a distance. Lock on and circle to their side or back; a Spin Attack or a bomb breaks a shielded one's guard so you can finish it.",
+    "drops": "Rupees, sometimes Hearts"
+   },
+   {
+    "name": "Lorule Soldier",
+    "tier": "common",
+    "tactic": "Lorule's tougher reskinned guards — same idea but they hit harder and some flank in pairs. Don't trade blows in the open; lock on, bait a swing, then sidestep and counter, or wall-merge to reset if you get surrounded.",
+    "drops": "Rupees"
+   },
+   {
+    "name": "Octorok",
+    "tier": "common",
+    "tactic": "Octopus-like ground critters in eastern and southern Hyrule that stop to spit a single rock at you. Block the rock with your shield or sidestep it, then close in and slash. Hit them in the gap between spits.",
+    "drops": "Rupees, Hearts"
+   },
+   {
+    "name": "Zora (River Zora)",
+    "tier": "common",
+    "tactic": "Hostile fish-folk that lurk in the water and lob fireballs as you cross (Lorule's version is the same but tougher). Raise your shield toward the water to block the fireballs, or use the Bow to pick them off when they surface. Don't linger on the bank.",
+    "drops": "Rupees"
+   },
+   {
+    "name": "Keese",
+    "tier": "common",
+    "tactic": "Little bats that flit and swoop in clusters. One sword swing or an arrow drops each. Fire Keese and Ice Keese inflict that element, so block or shoot them from range rather than letting them touch you.",
+    "drops": "Nothing reliable"
+   },
+   {
+    "name": "Tektite",
+    "tier": "common",
+    "tactic": "Spider-like hoppers that bounce around erratically (Blue in Hyrule, the stronger Red in Lorule), including over water and ledges. Wait for one to land, then strike — chasing the bounce just wastes swings. Lock on so you stay aimed at it.",
+    "drops": "Rupees, Hearts"
+   },
+   {
+    "name": "Hardhat Beetle",
+    "tier": "common",
+    "tactic": "An armored beetle you can't kill with the sword — it just shrugs your hits off and shoves you toward pits (a real nuisance in the Tower of Hera). Use the Hammer to pound it, or a bomb / the Hookshot to knock it into a hole. Mostly it's a positioning hazard near ledges.",
+    "drops": "Nothing reliable"
+   },
+   {
+    "name": "Bubble (Fire/Ice)",
+    "tier": "common",
+    "tactic": "A flaming or frozen skull that drifts on a fixed path; touching it temporarily disables your sword (Fire) or freezes you (Ice). It's normally indestructible — the trick is to put out its flame with the Tornado Rod, which leaves it open to your sword, or simply wall-merge / dodge past it. Killing it usually isn't necessary.",
+    "drops": "Nothing reliable"
+   },
+   {
+    "name": "Wallmaster",
+    "tier": "common",
+    "tactic": "A giant disembodied hand (Skull Woods, Lorule Castle) that drops from the ceiling to grab you and dump you back at the dungeon's START — a huge time-waster. Watch for its shadow on the floor and step out of it; if it lands, slash it fast before it grabs you.",
+    "drops": "Nothing reliable"
+   },
+   {
+    "name": "Poe / Ghini",
+    "tier": "common",
+    "tactic": "Floating ghosts in graveyards and dark passages that fade in and out, drift through walls, and lunge at you. Lock on and wait for one to materialize and lunge, then slash it during that window. The Lamp/Fire Rod helps light a dark room.",
+    "drops": "Rupees, sometimes Hearts"
+   },
+   {
+    "name": "Wizzrobe (Fire/Ice)",
+    "tier": "common",
+    "tactic": "A robed mage that blinks into view, fires an elemental blast, then vanishes again — only the Fire and Ice variants appear, mostly in late dungeons. Block the blast with your shield, then rush in and hit it in the brief moment it's solid before it teleports. The Bow can also catch it as it appears.",
+    "drops": "Rupees"
+   },
+   {
+    "name": "Hinox",
+    "tier": "mini-boss",
+    "tactic": "A hulking one-eyed brute that lobs bombs at you across the room. Catch or dodge the bombs (you can even pick one up and throw it back), then close in and slash its body; lock on and keep moving so the next bomb misses.",
+    "drops": "Hearts, Rupees; often guards a chest or path"
+   },
+   {
+    "name": "Margomill",
+    "tier": "boss",
+    "tactic": "House of Gales boss — a stack of stone disks with a single eye on top, floating above a pit.",
+    "drops": "Heart Container + Pendant of Wisdom",
+    "battle": "RENT/EQUIP: the Tornado Rod is mandatory here (it's the dungeon item) — bring it plus a bottled fairy. OPENING: the boss's only weak point is the eye on top, which starts out of sword reach. Stand under it and use the Tornado Rod to launch yourself up onto its level, then slash the eye. LOOP: each time you hurt it, it adds disk layers underneath, lifting the eye higher and out of reach. Knock the new disk layers off to shrink it back down, then Tornado-Rod up again and hit the eye. Repeat until it dies. THE CATCH: the body itself doesn't deal much damage, but it shoves you around the floating arena — get bounced off the edge and you fall, so watch its drift and don't fight near the rim. THE MERGE ANGLE: not a wall-merge fight — the Tornado Rod's vertical lift is the whole trick."
+   },
+   {
+    "name": "Moldorm",
+    "tier": "boss",
+    "tactic": "Tower of Hera boss — a giant armored worm that whips around a small open platform.",
+    "drops": "Heart Container + Pendant of Power",
+    "battle": "RENT/EQUIP: just your sword; bring a bottled fairy. WEAK POINT: the glowing red tip at the END of its tail — its head and body are armored and do nothing. LOOP: keep your distance and watch its path, then dart in and slash the red tail-tip when it swings past you. Each successful hit makes Moldorm faster and angrier, so the later hits are the hard ones — stay patient. THE HAZARD: the platform has open edges and Moldorm will try to bump you off — getting knocked off drops you to the floor below (lose progress, climb back). There are recovery hearts along the sides if you're hurt. THE MERGE ANGLE: no wall-merge here; it's pure spacing — read its movement, hit the tail, don't fall off."
+   },
+   {
+    "name": "Gemesaur King",
+    "tier": "boss",
+    "tactic": "Dark Palace boss — an armored dinosaur-beast that can snuff out the room's lights to become invincible.",
+    "drops": "Heart Container + a Sage's portrait",
+    "battle": "RENT/EQUIP: Bombs are essential, plus your Lamp (or Fire Rod) to relight torches; a bottled fairy. OPENING: it wears a hard mask/helmet at first — throw Bombs at it to crack and shatter the armor (the Nice Bombs upgrade does it much faster), exposing the green crystal weak point on its head. LOOP: slash that crystal until it roars and stomps out all the torches, plunging the room into darkness. While dark it's INVINCIBLE and charges to trample you. THE MERGE ANGLE: this is a wall-merge fight — merge into the wall to dodge its blind charges, wait for it to move away, then pop out and use your Lamp/Fire Rod to relight the torches and banish its dark aura. With the lights back on, sword the crystal again. Repeat light-the-room / hit-the-crystal until it falls."
+   },
+   {
+    "name": "Arrghus",
+    "tier": "boss",
+    "tactic": "Swamp Palace boss — a floating eye shielded by a swarm of smaller flying eyes (Arrghi).",
+    "drops": "Heart Container + a Sage's portrait",
+    "battle": "RENT/EQUIP: the Hookshot is the key item; bottled fairy. OPENING: you can't touch the core while it's surrounded by the smaller eyes. Fire the Hookshot to grab one and yank it off toward you, then kill it with a few sword hits. Strip them all off — if you dawdle they slowly drift back, and one occasionally darts at you (just dodge). LOOP: once the shell of eyes is gone, the central eye is exposed and starts leaping around the room and firing a spread of beams that erupt the water where they land — keep moving and slash the core whenever it's near; you'll usually only land a hit or two per pass. THE MERGE ANGLE: not a merge fight — Hookshot to undress it, then sword the eye."
+   },
+   {
+    "name": "Knucklemaster",
+    "tier": "boss",
+    "tactic": "Skull Woods boss — a giant iron-gauntleted fist with a single eye hidden in its palm.",
+    "drops": "Heart Container + a Sage's portrait",
+    "battle": "RENT/EQUIP: nothing special is required — your sword does the damage; bring a bottled fairy. The fight revolves around the wall-merge mechanic. WEAK POINT: the eye in its palm; its armored body is invulnerable, so you can't just hack at it. THE MERGE ANGLE: when the fist clenches and glows it's about to ram/punch — immediately merge into a wall (a Tornado-Rod hop also dodges it). It smashes the WALL instead of you and stuns itself, leaving the palm-eye wide open. Pop out and slash the eye repeatedly while it's dazed. LOOP: repeat the bait-the-punch-into-the-wall, then sword the eye. PHASE 2: after enough hits the hand changes color, speeds up and starts trying to flatten you — keep merging (or hopping) to dodge, still bait its punch into the wall, then strike the eye. WATCH THE FLOOR: its slams shatter the fragile floor tiles, so mind your footing while you reposition between merges."
+   },
+   {
+    "name": "Stalblind",
+    "tier": "boss",
+    "tactic": "Thieves' Hideout boss — a giant skeletal knight with a huge sword and a shield that blocks everything from the front.",
+    "drops": "Heart Container + a Sage's portrait",
+    "battle": "RENT/EQUIP: just your sword; a bottled fairy (its later phases hit hard). OPENING: it holds a shield that deflects all your frontal attacks while it slowly stalks you. THE MERGE ANGLE: this is the signature wall-merge boss — its shield is a surface you can merge into, so wall-merge ONTO the shield. That confuses it; it turns around looking for you and drops its guard, so you slip out behind it and slash its exposed back. LOOP/PHASES: after a couple of back-strikes it discards the shield and goes aggressive with wide, telegraphed sword swipes and spinning attacks — any hit works now, but it's far more dangerous; dodge the swing (vertical slams that stick in the floor buy you a free hit) and counter. FINAL PHASE: it detaches its skull, which floats around spewing dark magic while the headless body keeps slashing — keep avoiding the body's sword and hammer on it until it collapses."
+   },
+   {
+    "name": "Dharkstare",
+    "tier": "boss",
+    "tactic": "Ice Ruins boss — a grinning skull-beast encased in a shell of ice.",
+    "drops": "Heart Container + a Sage's portrait",
+    "battle": "RENT/EQUIP: the Fire Rod is mandatory (it's the dungeon item and the only thing that hurts it through the ice); a bottled fairy. OPENING/WEAK POINT: blast it with the Fire Rod to melt off its ice casing; once melted it drops and flails, and you finish it with the Fire Rod or sword. ITS ATTACK: it fires ice projectiles that form a TRIANGLE on the ground around you — anything caught inside gets frozen and hurt after a beat. Run clear of the triangle before it snaps shut (the Tornado Rod can also lift you away). LOOP: after you damage it, it re-forms its ice shell and the triangle gets bigger and harder to dodge — repeat Fire-Rod-to-melt, then beat it down, until it's destroyed. THE MERGE ANGLE: merging can dodge a ram, but the real answer is Fire Rod + staying out of the triangle."
+   },
+   {
+    "name": "Zaganaga",
+    "tier": "boss",
+    "tactic": "Desert Palace boss — a spiny cactus-worm that burrows through a huge quicksand pit, surfacing on platforms.",
+    "drops": "Heart Container + a Sage's portrait",
+    "battle": "RENT/EQUIP: the Sand Rod is required (it's the dungeon item — you raise sand pillars to cross the quicksand); a bottled fairy. OPENING: Zaganaga dives into the quicksand and pops up on one of the platforms at random. You can't run on quicksand normally, so use the Sand Rod to raise a path of sand blocks toward whichever platform it surfaced on, get close, and slash its exposed EYE (the weak point). HAZARD: while you cross it spits small flying enemies that try to knock you into the quicksand — one sword hit each clears them. PHASE 2: it moves and spawns enemies faster and adds a sweeping sand-blast aimed at you, but it turns slowly — keep circling with the Sand Rod so the beam can't track you, then close and hit the eye. Don't get greedy or the blast knocks you off. Repeat until it dies. THE MERGE ANGLE: not a wall-merge fight — the Sand Rod traversal is the whole puzzle of reaching it."
+   },
+   {
+    "name": "Grinexx",
+    "tier": "boss",
+    "tactic": "Turtle Rock boss — a volcano-shelled turtle that swims in lava beneath a grated platform.",
+    "drops": "Heart Container + a Sage's portrait",
+    "battle": "RENT/EQUIP: the Ice Rod is mandatory (it's the dungeon item and its weakness); a bottled fairy. PHASE 1: it swims in the lava under the floor; watch the holes in the grate and hit its head with the Ice Rod as it passes beneath one. Every so often it does a lava-PILLAR attack that bursts up through the holes — stay off the erupting spots, and you can freeze a column with the Ice Rod. PHASE 2: it hauls itself up onto the grate and attacks directly — keep using the Ice Rod on its head (it reacts when hurt) or sword it. TRICK: freeze a lava column so Grinexx lunges its head into the frozen pillar and stuns itself, then unload sword hits. When it spins around the arena, tuck into a corner until it stops. Keep at it until the shell shatters."
+   },
+   {
+    "name": "Yuga Ganon",
+    "tier": "boss",
+    "tactic": "The finale — Yuga merges with Ganon's power in Lorule Castle, fighting first with a trident, then absorbing the Triforce of Wisdom for a Dead Man's Volley.",
+    "drops": "Ends the game",
+    "battle": "RENT/EQUIP: ideally OWN (don't just rent) your sword-reliant kit and bring 1-2 bottled fairies and lots of hearts/potions — dying here is brutal and you don't want Sheerow stripping rented gear mid-finale. PHASE 1 (Trident): Yuga teleports around the round room and stabs/slashes with his trident; the safe spot is BEHIND him — when he attacks, dodge to his back and slash. As he weakens he double-slashes, hurls and recatches the trident (big damage on contact — avoid its path), and rains energy from the ceiling (just keep moving). PHASE 2 (Dead Man's Volley): he absorbs the Triforce of Wisdom and lobs a big energy ball — swing your sword to bat it back, and rally it until he fails to return it. THE MERGE ANGLE — the finish: Zelda hands you the BOW OF LIGHT. Now merge into the wall, face Yuga (who's also in the wall), and fire a Light Arrow; he tries to block it, which exposes his back, so emerge, get behind him, and strike to force him out of the wall and open to your sword. Repeat the merge-and-Light-Arrow sequence to win."
+   }
+  ],
+  "basics": [
+   {
+    "title": "Sword & charged Spin Attack",
+    "body": "Your sword is your bread and butter — tap the button to swing, and hold it to charge a Spin Attack that hits everything around you (great for crowds or for breaking a foe's guard). Z-target (lock on) with L to keep an enemy centred so your swings and dodges always face the right way. Don't just mash; many foes guard, so wait for an opening — after they swing or while they're stunned — then strike."
+   },
+   {
+    "title": "The Shield",
+    "body": "Hold the shield button to block frontal attacks — most basic enemy swings, arrows, and projectiles bounce right off as long as you're facing them. It does nothing against attacks from behind or from above, so keep your front to the threat. Against shielded enemies, a Spin Attack or a bomb can break their guard so your sword can land."
+   },
+   {
+    "title": "The green ENERGY meter (pace it!)",
+    "body": "Almost every item you rent from Ravio — the Bow, Bombs, Fire/Ice/Tornado/Sand Rod, Hookshot, Hammer — and even wall-merging draw from one shared green energy meter, NOT from limited ammo. You'll never 'run out of arrows', but spam an item and the meter empties and locks that item out until it refills — which it does automatically on its own after a moment (purple pots also drop Energy Potions to top it off). So pace yourself: fire, let it recharge a beat, fire again — don't dump the whole bar at once mid-fight."
+   },
+   {
+    "title": "Wall-merge: travel AND dodge",
+    "body": "Ravio's Bracelet lets you press into a wall and slide along it as a flat painting. It's not just for puzzles and shortcuts — it's a defensive tool. Merge into a wall and most attacks pass harmlessly over the spot where you were standing, so you can use it to escape a charge, a beam, or a boss's slam. Several bosses are built around this: merge to bait a punch into the wall, or merge onto a boss's shield to slip behind it. The merge also sips the energy meter, so don't hold it forever."
+   },
+   {
+    "title": "Rented items get repossessed if you DIE",
+    "body": "Ravio's shop lets you RENT items cheaply up front, and you keep using a rented item as long as you like — until you get a Game Over, at which point Ravio's bird Sheerow swoops in and takes back every rented item (you can rent it again, but it's a setback). Once you've collected all three Pendants — or pulled the Master Sword — Ravio lets you BUY items to own them permanently, and bought items survive death. Tip: buy the items you rely on most (Bow, Bombs, Hammer, the Rod a dungeon needs) so a bad fight can't strip your whole kit. The very FIRST item you buy is half-price (a one-time discount), so spend it on something pricey like a Rod."
+   },
+   {
+    "title": "Bottled fairy = auto-revive",
+    "body": "If you catch a fairy in an empty bottle, it sits there until you need it. Take a hit that would drop your hearts to zero and the fairy is automatically released, reviving you with several hearts restored — no menu, no input needed. It's the single best insurance against losing your rented gear, so always head into a tough dungeon or boss with at least one bottled fairy. Bottles also hold potions; a fairy is the one that saves you from a Game Over."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -38415,62 +38584,853 @@ const ALBW = {
   "fairies": []
  },
  "ECONOMY": null,
- "COMPENDIUM": [],
- "SIDE_QUESTS": [],
+ "COMPENDIUM": [
+  {
+   "name": "Forgotten Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Link's first and weakest blade — a simple one-handed sword for basic slashes and the spin attack. It carries you until you claim the Master Sword, after which you never need it again.",
+   "where": "Also called the Captain's Sword. The Captain forgets it at the Blacksmith's Forge, and the Blacksmith's wife asks Link to return it. Link follows the Captain to the Sanctuary, but Seres screams and the doors lock; Dampe reveals a secret passage under a grave in the graveyard. Link sneaks in to find Yuga has turned the Captain into a painting — so the sword stays Link's to keep. A found story item, not a Ravio rental."
+  },
+  {
+   "name": "Master Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The legendary sword of evil's bane — far stronger than the Forgotten Sword and the blade you'll use for most of the game. When Link is at full health it fires a sword beam at range.",
+   "where": "Pulled from its pedestal in the Lost Woods after collecting the three Pendants (Power, Wisdom, Courage). A found story item, not rented. Can be upgraded twice with Master Ore."
+  },
+  {
+   "name": "Master Sword Lv2",
+   "cat": "sword",
+   "type": "Sword (upgrade)",
+   "effect": "The first Master Sword upgrade — its attack power is doubled, cutting through tougher Lorule enemies much faster. Still throws a sword beam at full health.",
+   "where": "Take 2 pieces of Master Ore to the Blacksmith's Forge in Hyrule and he reforges the Master Sword into Lv2. The four Master Ore are hidden in Lorule — in the Dark Palace, Skull Woods, and Thieves' Hideout dungeons, plus one under the Lorule Graveyard."
+  },
+  {
+   "name": "Master Sword Lv3",
+   "cat": "sword",
+   "type": "Sword (upgrade)",
+   "effect": "The Master Sword at maximum strength — attack power is doubled again over Lv2 (four times the base sword), the strongest weapon in the game. This is ALBW's equal of A Link to the Past's Golden/Tempered Sword.",
+   "where": "Bring the last 2 pieces of Master Ore to the Blacksmith in Lorule, who forges Lv3. Requires all 4 Master Ore total (2 for Lv2 in Hyrule, 2 for Lv3 in Lorule)."
+  },
+  {
+   "name": "Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "A basic shield held in front of Link (press R) while not attacking — blocks ordinary enemy attacks and non-magic projectiles from the front. Does not protect against fire or magic.",
+   "where": "Bought for 50 Rupees from any Item Shop (the standard village shops, e.g. in Kakariko) — NOT one of Ravio's rentals. Since it's a purchase, it's yours permanently and is never lost on death."
+  },
+  {
+   "name": "Hylian Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "The best shield in the game. On top of normal blocking it deflects fire- and magic-based projectiles (Beamos beams, Lynel fire breath), and it can never be destroyed (even a Like Like can't eat it).",
+   "where": "A found dungeon item — in a chest inside Turtle Rock (Lorule), reached after the Big Key by merging into a wall to push over a grate bridge in the central room. Optional, not required to finish the dungeon; not a Ravio rental."
+  },
+  {
+   "name": "Blue Mail",
+   "cat": "armor",
+   "type": "Armor (tunic)",
+   "effect": "An armor upgrade over the starting green tunic — halves the damage Link takes from every hit. Worn automatically once obtained.",
+   "where": "A found dungeon item. Locations are order-dependent: whichever of the two armor chests you open first (the big chest in the Swamp Palace, or the one in Lorule Castle) gives the Blue Mail; the other then holds the Red Mail. Not rented or upgraded by Maiamai."
+  },
+  {
+   "name": "Red Mail",
+   "cat": "armor",
+   "type": "Armor (tunic)",
+   "effect": "The best armor in the game — cuts incoming damage to a quarter, twice as protective as the Blue Mail and the final defensive upgrade.",
+   "where": "A found dungeon item, in the other of the two armor chests (Lorule Castle's 4th-floor big chest, or the Swamp Palace big chest) — whichever you DIDN'T already open for the Blue Mail. The Lorule Castle chest hides behind an invisible platform revealed by extinguishing the nearby torches. Not rented or upgraded by Maiamai."
+  },
+  {
+   "name": "Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Fires arrows to hit distant enemies, switches, and eyes. Like all of Ravio's gear it draws from the shared green energy meter instead of consuming arrow ammo, so you can keep firing as the meter refills.",
+   "where": "Rented for 50 Rupees from Ravio's Shop (set up in Link's house), then buyable outright for 800 Rupees after the first three Pendants. Returns to Ravio via Sheerow if Link falls while it's only rented. Buy it to keep it permanently and unlock the Nice Bow upgrade."
+  },
+  {
+   "name": "Nice Bow",
+   "cat": "bow",
+   "type": "Bow (Nice upgrade)",
+   "effect": "The Maiamai-upgraded Bow — fires three arrows at once in a small spread, making it easy to hit a target (or several enemies) without precise aim and hitting harder overall. Still runs on the energy meter.",
+   "where": "Upgraded by Mother Maiamai (in the cave behind her grotto) after you have bought the Bow outright from Ravio and returned 10 of her lost Maiamai children. A found upgrade, not rented."
+  },
+  {
+   "name": "Bow of Light",
+   "cat": "bow",
+   "type": "Bow (story item)",
+   "effect": "A sacred bow that fires Light Arrows — the only weapon that can harm Yuga Ganon. While he's merged into a wall, merge into the wall yourself and shoot a Light Arrow at his back to force him out, then strike with the sword; repeat across the fight to win.",
+   "where": "Given to Link by Princess Zelda (through her painting) during the final Yuga Ganon battle, after the descendants of the Seven Sages and the Triforce of Courage are gathered. A one-time story gift, not from Ravio or Maiamai."
+  },
+  {
+   "name": "Ravio's Bracelet",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link merge into walls as a living painting, sliding flat along any surface to cross gaps, slip behind bars, and reach areas no other route allows. It is the game's signature mechanic and is needed almost everywhere.",
+   "where": "Given for free by Ravio early on after he sets up his rental shop inside Link's House; a later story event upgrades it so the merge can also be used in Lorule. Not a rental and not upgraded by Mother Maiamai."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Sets down a bomb that explodes after a moment to blast cracked walls, stun enemies, and hit switches. Draws from the shared green energy meter instead of a finite ammo count, so it recharges automatically.",
+   "where": "Rented or bought from Ravio's Shop. Buy it outright and Mother Maiamai can upgrade it into Nice Bombs, which have a larger blast radius."
+  },
+  {
+   "name": "Fire Rod",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Shoots a burst of flame that burns enemies, lights torches, and melts ice. Costs energy from the shared meter per use.",
+   "where": "Rented or bought from Ravio's Shop. Owned (bought) copies can be upgraded by Mother Maiamai into the Nice Fire Rod, which unleashes a much larger pillar of fire."
+  },
+  {
+   "name": "Ice Rod",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Fires ice that freezes enemies solid (letting you use them as stepping platforms) and can freeze certain surfaces. Uses the shared energy meter.",
+   "where": "Rented or bought from Ravio's Shop. Bring Mother Maiamai 10 Maiamai while you own it and she upgrades it into the Nice Ice Rod, which freezes a wider area."
+  },
+  {
+   "name": "Tornado Rod",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Whips up a small whirlwind that flips over shielded or armored enemies and launches Link upward to reach higher ledges. Drains the shared energy meter.",
+   "where": "Rented or bought from Ravio's Shop (it is NOT a House of Gales dungeon prize — you rent it BEFORE that dungeon, since it's required to enter and clear the House of Gales). If owned, Mother Maiamai upgrades it into the Nice Tornado Rod with a bigger gust."
+  },
+  {
+   "name": "Sand Rod",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Raises pillars of sand out of sand-covered floors, creating platforms and walls and exposing hidden paths. Uses the shared energy meter.",
+   "where": "Rented from Ravio's Shop after clearing the Thieves' Hideout and rescuing Osfala (it is NOT the Desert Palace dungeon item — that dungeon's prize is the Titan's Mitt; the Sand Rod is needed to navigate the Desert Palace). Mother Maiamai can upgrade it into the Nice Sand Rod, which raises wider, longer pillars."
+  },
+  {
+   "name": "Hammer",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Pounds in stakes, flattens enemies, and smashes obstacles. Uses energy from the shared meter on each swing.",
+   "where": "Rented or bought from Ravio's Shop. Buy it and Mother Maiamai can make it the Nice Hammer, with a stronger, wider strike."
+  },
+  {
+   "name": "Hookshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a chain that grabs onto posts, chests, and certain enemies, pulling Link across gaps or yanking objects toward him. Costs energy per shot.",
+   "where": "Rented or bought from Ravio's Shop. Owned copies are upgraded by Mother Maiamai into the Nice Hookshot, which has a longer reach."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Thrown to stun enemies, grab distant items, and hit switches before returning to Link. Uses the shared energy meter.",
+   "where": "Rented or bought from Ravio's Shop. Buy it and Mother Maiamai can upgrade it to the Nice Boomerang, which flies a wider arc and pulls in items over a larger area."
+  },
+  {
+   "name": "Lamp",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lights torches to open doors and burns away simple obstacles, and provides light in dark rooms. Uses the shared energy meter.",
+   "where": "Rented or bought from Ravio's Shop. The Lamp does not have a Mother Maiamai 'Nice' upgrade."
+  },
+  {
+   "name": "Net",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Catches small flying creatures like bees and fairies and can swat certain projectiles back at enemies.",
+   "where": "Rented or bought from Ravio's Shop. The Net does not have a 'Nice' upgrade."
+  },
+  {
+   "name": "Pegasus Boots",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Hold the run button to dash at high speed, charging through enemies and breakable objects and crossing long stretches quickly.",
+   "where": "Won from the Shady Guy (the thief) in Kakariko Village: merge into the wall behind him, sneak up, and pop out to scare him into handing them over. Not a rental and has no 'Nice' upgrade. (With the sword equipped while dashing, this enables the Dash Attack.)"
+  },
+  {
+   "name": "Power Glove",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link pick up and throw small rocks and bushes that block paths or hide secrets.",
+   "where": "Given by Rosso at his house (the Miner's House) after you clear the Eastern Palace. A permanent item; later replaced by the stronger Titan's Mitt (no 'Nice' upgrade)."
+  },
+  {
+   "name": "Titan's Mitt",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "An upgraded Power Glove that lets Link lift the largest boulders and dark rocks, opening late-game paths the Power Glove cannot.",
+   "where": "The dungeon item of the Desert Palace (in Lorule). Permanently upgrades the Power Glove; no 'Nice' version."
+  },
+  {
+   "name": "Flippers",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Allow Link to swim across deep water instead of drowning, opening up lakes, rivers, and water routes in both worlds.",
+   "where": "Given by Queen Oren of the Zora after you recover her stolen Smooth Gem (buy it back from the Kakariko street merchant and return it to her in Zora's Domain). Permanent; no 'Nice' upgrade."
+  },
+  {
+   "name": "Bell",
+   "cat": "item",
+   "type": "Warp tool",
+   "effect": "Ring it to summon Irene on her broom and instantly warp to any Weather Vane you have already activated, making travel across Hyrule and Lorule fast and easy.",
+   "where": "Given by Irene (the witch's granddaughter) after you clear the Eastern Palace. Not a rental; no 'Nice' upgrade. Weather Vanes must be touched once to unlock them as warp destinations."
+  },
+  {
+   "name": "Pendants of Virtue",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "The three sacred pendants — the Pendant of Courage, the Pendant of Power, and the Pendant of Wisdom. Collecting all three lets Link claim the Master Sword.",
+   "where": "Each is the reward for clearing one of the three Hyrule dungeons: the Eastern Palace, the House of Gales, and the Tower of Hera. Story key items, not rented or upgraded."
+  },
+  {
+   "name": "Seven Sages",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "Seven descendants of the original Sages, sealed inside paintings by Yuga across Lorule. Rescuing all seven opens the path to the final confrontation with Yuga-Ganon.",
+   "where": "Each Sage is freed by clearing one of the seven Lorule dungeons. They are story objectives tracked in the menu, not items you rent or buy."
+  },
+  {
+   "name": "Bottle",
+   "cat": "key",
+   "type": "Key item",
+   "effect": "An empty bottle that stores one consumable — a potion, fairy, bee, or other item — for use when needed. Multiple bottles let Link carry several lifesaving items at once.",
+   "where": "There are FIVE bottles: from the Kakariko Village street merchant (100 Rupees); from the Bird Lover under the bridge near Lake Hylia (after the Flippers); from the Stranded Man on Death Mountain (deliver him premium milk from Kakariko's milk bar); from a chest in the Vacant House in Lorule (bomb the back wall); and from the Great Rupee Fairy in Lorule's Thieves' Town (donate 3000 Rupees total). Permanent; not rented or upgraded."
+  },
+  {
+   "name": "Lost Maiamai",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "One hundred tiny lost Maiamai children hidden throughout Hyrule and Lorule. Returning them to Mother Maiamai (10 at a time) lets her upgrade your owned items into stronger 'Nice' versions; collecting all 100 unlocks the Great Spin Attack.",
+   "where": "Scattered across both worlds, often revealed by merging into walls, lifting rocks, or using items in the right spot. Carry them back to Mother Maiamai's cave beneath Lake Hylia."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "A quarter of a heart container. Collect four Pieces of Heart and Link's maximum health permanently increases by one full heart.",
+   "where": "Hidden throughout Hyrule and Lorule as exploration rewards, minigame prizes, and quest rewards (28 in all). Permanent collectibles, not rented."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "Instantly adds one full heart to Link's maximum health.",
+   "where": "Awarded for defeating each dungeon's boss. A guaranteed story reward, one per major boss."
+  },
+  {
+   "name": "Master Ore",
+   "cat": "material",
+   "type": "Upgrade material",
+   "effect": "Rare ore used to temper the Master Sword. Two pieces let the Hyrule Blacksmith upgrade it to the stronger Master Sword Lv2 (red); two more let the Lorule Blacksmith forge the Master Sword Lv3 (golden), the strongest sword in the game.",
+   "where": "Four pieces are hidden in Lorule, in big chests inside the Thieves' Hideout, Skull Woods, the Dark Palace, and the Sanctuary of Lorule (reached via the Fissure inside Hyrule's Sanctuary). Take them to the Blacksmith to upgrade."
+  },
+  {
+   "name": "Monster Tail",
+   "cat": "material",
+   "type": "Crafting material",
+   "effect": "A monster drop used as a potion ingredient. Bring 10 to the Witch and she brews a Blue Potion, which refills all of Link's hearts (the best healing potion in the game).",
+   "where": "Dropped by enemies and found in grass, pots, and skulls throughout Hyrule and Lorule. Deliver to the Witch at her hut (she also charges a Rupee fee to brew)."
+  },
+  {
+   "name": "Monster Horn",
+   "cat": "material",
+   "type": "Crafting material",
+   "effect": "A monster drop used as a potion ingredient. Bring 10 to the Witch and she brews a Yellow Potion, which makes Link temporarily invincible to all enemy attacks.",
+   "where": "Dropped by enemies and found in grass, pots, and skulls across both worlds. Deliver to the Witch at her hut."
+  },
+  {
+   "name": "Monster Guts",
+   "cat": "material",
+   "type": "Crafting material",
+   "effect": "A monster drop used as a potion ingredient. Bring 10 to the Witch and she brews a Purple Potion, which damages every nearby enemy when drunk.",
+   "where": "Commonly dropped by enemies and found in grass, pots, and skulls throughout Hyrule and Lorule. Deliver to the Witch at her hut."
+  },
+  {
+   "name": "Rupees",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "The game's money, used to buy and rent items from Ravio, pay the Witch and Blacksmith, and play minigames. Comes in colored values from the green 1-Rupee up to large silver and gold Rupees.",
+   "where": "Found in grass, pots, and chests, dropped by enemies, and won at minigames throughout both worlds. Not rented or upgraded."
+  }
+ ],
+ "SIDE_QUESTS": [
+  {
+   "region": "Maiamai & Nice Items",
+   "quests": [
+    {
+     "id": "free-mother-maiamai-start-the-hunt",
+     "name": "Free Mother Maiamai (start the hunt)",
+     "giver": "Mother Maiamai",
+     "location": "A cave on the northwest shore of Lake Hylia, Hyrule",
+     "reward": "Unlocks the 100-Maiamai hunt and the Nice-item upgrades",
+     "oneLine": "Open the giant Maiamai's hidden cave to begin collecting her 100 lost children.",
+     "how": "You can't get in until you have Bombs (rent or buy them from Ravio). Go to the northwest shore of Lake Hylia and bomb the cracked rock to open the cave, then talk to Mother Maiamai inside. From now on she upgrades your items for every 10 baby Maiamai you bring back, so this is the gate for the whole hunt."
+    },
+    {
+     "id": "collect-all-100-lost-maiamai",
+     "name": "Collect all 100 Lost Maiamai",
+     "location": "Scattered across the overworlds of both Hyrule and Lorule (under rocks, in water, behind merge-walls, in grass and trees)",
+     "reward": "An item upgrade every 10 found; the Great Spin Attack at 100",
+     "oneLine": "Hunt down the 100 hidden baby Maiamai squeaking across both worlds.",
+     "how": "Each Maiamai cries out and gets louder as you get close, so keep the game sound on and listen for the squeak, then lift a rock, bomb a wall, burn a tree, merge into a wall, or swim to reach it. Many need a specific item, so come back as you unlock more gear. There are exactly 50 in Hyrule and 50 in Lorule; a location map saves a lot of pixel-hunting if you stall."
+    },
+    {
+     "id": "nice-item-upgrades-every-10-maiamai",
+     "name": "Nice-item upgrades (every 10 Maiamai)",
+     "giver": "Mother Maiamai",
+     "location": "Mother Maiamai's cave, northwest Lake Hylia",
+     "reward": "A 'Nice' version of one owned item per 10 Maiamai (9 upgrades by 90)",
+     "oneLine": "Trade Maiamai in tens to super-charge the items you actually OWN.",
+     "how": "Every 10 Maiamai lets Mother Maiamai upgrade one item into its 'Nice' form, but ONLY for items you've BOUGHT from Ravio, not ones you're merely renting, so buy first if you want the upgrade. There are nine upgradeable items: Bow, Bombs, Hookshot, Boomerang, Hammer, Fire Rod, Ice Rod, Tornado Rod, and Sand Rod. The Nice Bow fires three arrows at once, Nice Bombs blast wider, and the rest hit bigger and harder. You need 90 Maiamai to upgrade all nine."
+    },
+    {
+     "id": "the-great-spin-attack-100-maiamai",
+     "name": "The Great Spin Attack (100 Maiamai)",
+     "giver": "Mother Maiamai",
+     "location": "Mother Maiamai's cave, northwest Lake Hylia",
+     "reward": "Great Spin Attack (a wider, stronger spin that briefly makes Link invincible)",
+     "oneLine": "Return the final Maiamai for the ultimate sword flourish.",
+     "how": "Bring back all 100 babies and Mother Maiamai upgrades your Spin Attack to the Great Spin, which roughly doubles the radius and keeps you invincible for most of the swing. It's a pure bonus combat upgrade, the cherry on top of finishing the hunt rather than something the main quest needs."
+    }
+   ]
+  },
+  {
+   "region": "Heart Pieces",
+   "quests": [
+    {
+     "id": "octoball-derby-baseball",
+     "name": "Octoball Derby (baseball)",
+     "giver": "The Derby Boy",
+     "location": "Lorule, south of the Blacksmith and southeast of Thieves' Town",
+     "reward": "Rupees per hit; a Piece of Heart for scoring 100+ rupees",
+     "oneLine": "Zelda's take on baseball — bat 30 pitches into the pots for a heart.",
+     "how": "Pay to play, then swing your sword to bat each of the 30 pitches, aiming to smash the clay pots dotted around the field (each pot is worth rupees). Score 100 rupees or more and the Derby Boy gives you a Piece of Heart; below that you just keep the rupees you knocked loose. Timing your swing to meet the ball squarely is the whole game — a centered hit carries far enough to clear distant pots."
+    },
+    {
+     "id": "cucco-ranch-dodge-the-cuccos",
+     "name": "Cucco Ranch (dodge the cuccos)",
+     "giver": "The Cucco Girl",
+     "location": "Hyrule, just south of Kakariko Village",
+     "reward": "150 rupees and a Piece of Heart (on the Rooster level)",
+     "oneLine": "Survive a swarm of cuccos for 30 seconds to win a heart.",
+     "how": "You're dropped in a pen and must avoid getting pecked for 30 seconds — just run smooth circles around the edge so the cuccos chase your tail and never catch up. Work up through Egg and Chick to the harder Rooster level; clearing Rooster pays 150 rupees AND a Piece of Heart together. After that, repeat clears just pay out rupees."
+    },
+    {
+     "id": "rupee-rush-hyrule",
+     "name": "Rupee Rush — Hyrule",
+     "giver": "The Rupee Rush Gal",
+     "location": "Hyrule, south of Kakariko Village",
+     "reward": "A Piece of Heart for 100+ points",
+     "oneLine": "Grab as many rupees as you can in 30 unmarked seconds.",
+     "how": "Pay 50 rupees, then sweep the yard before the hidden 30-second timer ends — there's no on-screen clock, so count in your head, and if you finish after time's up you forfeit everything you grabbed. You don't dig: use the Tornado Rod to flip the floor tiles, the Hammer on the boulder, and mow the grass near the entrance, then collect what pops out. Score 100 points or more to win the Piece of Heart."
+    },
+    {
+     "id": "rupee-rush-lorule",
+     "name": "Rupee Rush — Lorule",
+     "giver": "The Rupee Rush Guy",
+     "location": "Lorule, south of Thieves' Town (the dark-world counterpart of the Hyrule spot)",
+     "reward": "A second Piece of Heart for 150+ points",
+     "oneLine": "The dark-world Rupee Rush — pricier, higher target, a second heart.",
+     "how": "Same Tornado-Rod-and-Hammer game in Lorule, but the fee is 100 rupees and the winning line is 150 points instead of 100. Same rules: count the unspoken 30 seconds and finish on time. Clearing it nets a separate Piece of Heart from the Hyrule version, so both are worth doing."
+    },
+    {
+     "id": "hyrule-hotfoot-the-foot-race",
+     "name": "Hyrule Hotfoot (the foot race)",
+     "giver": "The Racing Bro",
+     "location": "Hyrule — the course starts northeast of Lake Hylia and ends at the Miner's House",
+     "reward": "100 rupees on the first clear; a Piece of Heart on the faster time",
+     "oneLine": "Sprint the marked course against the clock for a heart.",
+     "how": "Race the marked overworld course on foot. Beat the gentler 75-second target for 100 rupees, then come back and beat the tighter 65-second time to claim the Piece of Heart (an Advanced 'beat your best time' mode then pays 300 rupees per win). Pegasus Boots make this far easier — dash the straights and ease off only for turns. Note: you'll be disqualified if you warp with the Bell to shortcut the route."
+    },
+    {
+     "id": "treacherous-tower-intermediate-heart-piece",
+     "name": "Treacherous Tower — Intermediate (Heart Piece)",
+     "giver": "The Devilish Girl",
+     "location": "Lorule, on Death Mountain (the Lorule counterpart of the Tower of Hera)",
+     "reward": "A Piece of Heart (first Intermediate clear)",
+     "oneLine": "Clear the 15-floor combat tier once for a heart.",
+     "how": "Pay 200 rupees and fight through all 15 floors of the Intermediate gauntlet, clearing every enemy on a floor to open the stairs up. Your first clear earns a Piece of Heart (plus a 1,000-rupee audience payout). Rent strong items — the Bow and Bombs trivialize many floors — and keep a Bottle with a fairy for insurance. See the Treacherous Tower entries under Combat Challenges for the full tier breakdown."
+    }
+   ]
+  },
+  {
+   "region": "Trades, Boots & Secrets",
+   "quests": [
+    {
+     "id": "catch-the-shady-guy-pegasus-boots",
+     "name": "Catch the Shady Guy → Pegasus Boots",
+     "giver": "The Shady Guy",
+     "location": "Kakariko Village, Hyrule",
+     "reward": "Pegasus Boots (hold to dash)",
+     "oneLine": "Corner the thief who stole the Zora Queen's gem to claim the dash boots.",
+     "how": "While dealing with Queen Oren in Zora's Domain you learn her Smooth Gem was stolen by a Shady Guy; track him to Kakariko Village, but he bolts the moment he sees your face. Merge into the wall behind him (he can't spot a painting) and slide around to grab him from behind. Caught, he gives you the Pegasus Boots out of guilt — hold a button to break into a charging dash. (He'd already sold the gem, so to finish Oren's errand you buy it back from the Street Merchant for 200 rupees and return it for the Zora's Flippers.)"
+    },
+    {
+     "id": "the-bee-guy-the-net",
+     "name": "The Bee Guy & the Net",
+     "giver": "The Bee Guy",
+     "location": "Kakariko Village, Hyrule — the house marked with a bee sign",
+     "reward": "The Net (bug-catching), plus rupee payouts for bottled bees",
+     "oneLine": "The bee-loving man hands you a Net and pays for the bees you bottle.",
+     "how": "Enter the bee-sign house in Kakariko with at least one Empty Bottle and the Bee Guy gives you the Net for catching bugs. Bring him bottled bees for rupees — a normal Bee is a small payout, a rare GOLDEN Bee is worth a lot. Give him a Golden Bee and he hands over the Bee Badge, which makes wild bees you disturb fight FOR you instead of stinging you. A bottled Golden Bee can escape if you're careless, so deliver it promptly."
+    },
+    {
+     "id": "the-bottles-hunt",
+     "name": "The Bottles hunt",
+     "location": "Across Hyrule and Lorule (a merchant, the Bird Lover, a Death Mountain trade, a Lorule chest, and the Great Rupee Fairy)",
+     "reward": "All 5 Empty Bottles (fairies, potions, bees)",
+     "oneLine": "Track down all five Empty Bottles to carry fairies and potions.",
+     "how": "There are five Bottles: buy one from the Street Merchant in Kakariko (100 rupees); talk to the Bird Lover east of Link's House and pick the 'came to chat' option; give Premium Milk to the man stranded on Death Mountain; bomb the back wall of the Vacant House in Lorule for a chest; and donate 3,000 rupees to the Great Rupee Fairy in Lorule. Each Bottle stores a fairy (auto-revive), a potion, or a bee, so all five meaningfully boost survivability."
+    },
+    {
+     "id": "the-golden-bee-shop-bee-badge",
+     "name": "The Golden Bee shop → Bee Badge",
+     "giver": "The Mysterious Man",
+     "location": "Lorule — a cave in the Skull Woods area",
+     "reward": "A Golden Bee → the Bee Badge (passive: bees protect you)",
+     "oneLine": "Buy a guaranteed Golden Bee, then trade it for the Bee Badge.",
+     "how": "If you can't catch a Golden Bee in the wild, the Mysterious Man in a cave in Lorule's Skull Woods sells one for 888 rupees. Bottle it and give it to the Bee Guy in Kakariko to receive the Bee Badge. With the Badge equipped, wild bees you disturb sting your enemies instead of you — handy, but firmly an optional luxury."
+    }
+   ]
+  },
+  {
+   "region": "Master Ore & Sword Upgrades",
+   "quests": [
+    {
+     "id": "find-the-4-master-ore",
+     "name": "Find the 4 Master Ore",
+     "location": "Hyrule & Lorule — Thieves' Hideout, Dark Palace, Skull Woods, and the Lorule Sanctuary (reached via a fissure in the Hyrule Sanctuary)",
+     "reward": "Master Ore (4 total) to upgrade the Master Sword twice",
+     "oneLine": "Gather the four chunks of Master Ore that power up the legendary blade.",
+     "how": "Master Ore exists only to upgrade the Master Sword, and there are exactly four pieces: in the Thieves' Hideout, Dark Palace, and Skull Woods dungeons, plus one reached through the fissure inside the Sanctuary (which drops you into the Lorule Sanctuary). Each is a fixed chest find, not a random drop. You don't need the sword maxed to beat the game, but it makes the late fights much faster, so it's a strong optional goal."
+    },
+    {
+     "id": "master-sword-lv2-tempered",
+     "name": "Master Sword Lv2 (Tempered)",
+     "giver": "The Blacksmith (Hyrule)",
+     "location": "The Blacksmith's house, eastern Hyrule",
+     "reward": "Master Sword Lv2 (double the attack power)",
+     "oneLine": "Hand the Hyrule smith 2 Master Ore to temper the Master Sword.",
+     "how": "Once you have the Master Sword and 2 Master Ore, take them to the Blacksmith in Hyrule and he forges the Master Sword Lv2 — this doubles the blade's attack power. It uses two of your four ore, so it's the first of the two upgrades. Do it before the late dungeons and the extra power smooths out a lot of fights."
+    },
+    {
+     "id": "master-sword-lv3",
+     "name": "Master Sword Lv3",
+     "giver": "The Blacksmith (Lorule)",
+     "location": "The Blacksmith's counterpart in Lorule",
+     "reward": "Master Sword Lv3 (the strongest blade)",
+     "oneLine": "Bring the last 2 Master Ore to the Lorule smith for the strongest sword.",
+     "how": "After Lv2, take 2 more Master Ore to the Blacksmith on the Lorule side and he forges the Master Sword Lv3 — doubling the power again for the strongest sword in the game (and a stronger full-health sword beam). This spends your final two ore, so all four are used across the two upgrades. With Lv3 in hand, the endgame bosses fall noticeably faster."
+    }
+   ]
+  },
+  {
+   "region": "Combat Challenges & Shadow Link",
+   "quests": [
+    {
+     "id": "treacherous-tower-beginner",
+     "name": "Treacherous Tower — Beginner",
+     "giver": "The Devilish Girl",
+     "location": "Lorule, Death Mountain (the Lorule counterpart of the Tower of Hera)",
+     "reward": "300 rupees (unlocks Intermediate)",
+     "oneLine": "The 5-floor warm-up tier of the combat gauntlet.",
+     "how": "Pay 100 rupees and clear all five floors — defeat every enemy on a floor to open the stairs up. Winning pays 300 rupees (a tidy profit) and unlocks the Intermediate tier. It's an easy introduction; bring any rented weapon and you'll be fine."
+    },
+    {
+     "id": "treacherous-tower-intermediate",
+     "name": "Treacherous Tower — Intermediate",
+     "giver": "The Devilish Girl",
+     "location": "Lorule, Death Mountain",
+     "reward": "A Piece of Heart (first clear) plus 1,000 rupees; rupees on repeats",
+     "oneLine": "The 15-floor middle tier — clear once for a heart.",
+     "how": "Costs 200 rupees and runs 15 floors of escalating enemy rooms. The first clear awards a Piece of Heart and a 1,000-rupee payout (net 800 profit), and beating it unlocks the Advanced tier. Rent the Bow and Bombs for crowd floors and keep a fairy in a Bottle as insurance against a bad room."
+    },
+    {
+     "id": "treacherous-tower-advanced",
+     "name": "Treacherous Tower — Advanced",
+     "giver": "The Devilish Girl",
+     "location": "Lorule, Death Mountain",
+     "reward": "Super Lamp (1st clear), then Super Net (2nd clear); ~5,000 rupees each clear",
+     "oneLine": "The brutal 50-floor tier — best rupee farm and two unique upgrades.",
+     "how": "The marathon tier: 300 rupees to enter, FIFTY floors. Your first full clear yields the Super Lamp (a far stronger fire beam) and a ~5,000-rupee haul (net ~4,700), and a SECOND clear gives the Super Net (a stronger Net). Go in with an upgraded sword, Nice items, plenty of healing, and bottled fairies — it's as much an endurance test as a skill test, so it's a natural late-game goal."
+    },
+    {
+     "id": "set-up-your-shadow-link-streetpass",
+     "name": "Set up your Shadow Link (StreetPass)",
+     "giver": "Gramps",
+     "location": "The empty field on the west side of Kakariko Village",
+     "reward": "Enables Shadow Link battles",
+     "oneLine": "Register your own Shadow Link with Gramps to turn on StreetPass duels.",
+     "how": "Talk to Gramps in the field on the west side of Kakariko and choose Setup — you pick the two items he'll carry (just one if you haven't expanded your pouch yet) and your heart count and gear become the bounty other players fight. After setup, StreetPass keeps working with the game closed, and any Shadow Links you receive appear as signs in that field. This only registers your fighter; the actual battles are the next entry."
+    },
+    {
+     "id": "beat-shadow-link-battles-and-the-offline-samples",
+     "name": "Beat Shadow Link battles (and the offline samples)",
+     "giver": "Shadow Link signs",
+     "location": "The field on the west side of Kakariko Village",
+     "reward": "Rupees by bounty (50–999); medals for the 50 challenges",
+     "oneLine": "Duel AI Shadow Links for rupees and challenge medals — even with no friends nearby.",
+     "how": "Walk into a Shadow Link sign to fight an AI Link in one of five arenas; you can only use the two items it carries, so plan your loadout. Winning pays a bounty (50–999 rupees by difficulty) and earns medals toward the 50 challenges — collect all 50 and you can finally duel Gramps himself, who wields upgraded gear. NO STREETPASS PARTNER? The game seeds FREE sample Shadow Links (named 'Shade') into your file periodically as you play, so you can chase every reward entirely offline."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Mother Maiamai",
+   "region": "Hyrule",
+   "location": "In a cave at Lake Hylia, just southeast of Link's house. The entrance is sealed by a boulder — blow it open with Bombs (rent or buy from Ravio). Inside, Mother Maiamai has lost her 100 baby Maiamai, hidden all over both Hyrule AND Lorule (behind cracked walls, under rocks, in water, on the map's edges). Many need a specific item — Hammer, Bombs, Sand Rod, Ice Rod, wall-merge, etc. — to reach. You don't have to return them in fixed batches; she gives a reward for every 10 you hand in.",
+   "cost": "FREE — she rewards you for bringing back her children. Every 10 Lost Maiamai you return = one item upgraded to its stronger 'Nice' version. It must be an item you BOUGHT from Ravio (only possible after the 3 Pendants), not one you're merely renting. The 9 upgradeable Ravio items: Bow, Bombs, Fire Rod, Ice Rod, Tornado Rod, Hammer, Sand Rod, Boomerang, Hookshot — so 90 Maiamai cover all nine. Nice versions are bigger/stronger: the Nice Bow fires 3 arrows at once; Nice Bombs are about twice as big with twice the power; the Nice Fire Rod's flame pillar is taller, wider and reaches farther; the Nice Ice Rod drops 4 icicles instead of 1; Nice Sand Rod pillars last longer (and puff a line of dust on hard ground); Nice Boomerang/Hookshot travel faster and farther (the Nice Hookshot also deals damage). They still draw from the same recharging Energy Gauge. Return all 100 and she grants the Great Spin — a much larger, stronger spin attack."
+  },
+  {
+   "name": "Great Rupee Fairy",
+   "region": "Lorule",
+   "location": "In a hidden cave in Lorule, northwest of the Bomb Flower Store (the dark-world counterpart of the area where you get the Big Bomb Flower). A large cracked boulder blocks the fountain — clear it with the Big Bomb Flower to open the way. (Lorule is reached by wall-merging through fissures in Hyrule using Ravio's Bracelet.)",
+   "cost": "Toss in Rupees — 50 or 200 at a time. Donations heal your hearts and release a few free fairies along the way. Donate 3,000 Rupees in total and she grows to full size and gives you a Bottle (one of the game's five). After she hands over the Bottle you can no longer donate or see her, so it's a one-time payoff — worth it only if you have Rupees to spare."
+  },
+  {
+   "name": "Hyrule Blacksmith (Master Sword Lv2)",
+   "region": "Hyrule",
+   "location": "The Blacksmith's house in eastern Hyrule, near Hyrule Castle (east of Link's house). Bring him 2 Master Ore. There are 4 Master Ore in the whole game, found in big chests in the Lorule dungeons/areas: Dark Palace, Thieves' Hideout, Skull Woods, and the Lorule Sanctuary. Several (not all) need wall-merge to reach.",
+   "cost": "FREE — no Rupee cost. Give the Hyrule Blacksmith your first 2 Master Ore and he tempers the Master Sword into Master Sword Lv2 (classically nicknamed the 'Tempered Sword'; the blade turns red), DOUBLING its attack power. You need the Master Sword (earned with the 3 Pendants) first."
+  },
+  {
+   "name": "Lorule Blacksmith (Master Sword Lv3)",
+   "region": "Lorule",
+   "location": "The Blacksmith's house in Lorule — the dark-world counterpart, in the same map spot as the Hyrule smithy (reached by wall-merging through a fissure). Bring him the other 2 Master Ore (the first 2 went to the Hyrule smith; 4 exist in total).",
+   "cost": "FREE — no Rupee cost. Give the Lorule Blacksmith the final 2 Master Ore and he forges Master Sword Lv3 (classically nicknamed the 'Golden Sword'; the blade turns gold), DOUBLING the attack power again — the strongest sword in the game. Requires you to have already done the Hyrule Lv2 upgrade."
+  },
+  {
+   "name": "Fairy Fountains (healing)",
+   "region": "Hyrule & Lorule",
+   "location": "Small fairy fountains are tucked in caves across both worlds, several hidden behind obstacles that need Bombs, the Ice Rod, the Sand Rod or the Titan's Mitt to clear. Lorule has its own matching fountains, and small fairy rooms appear inside many dungeons. (Treat specific spots as a 'look for sealed caves' rule rather than a fixed list.)",
+   "cost": "FREE. Touch a fairy here and it refills your hearts; or scoop one into an empty Bottle. A bottled fairy heals you when released — and if you run out of hearts while carrying one, she automatically revives you. These are your everyday 'panic heal': keep a Bottle stocked with a fairy before tough dungeons and bosses."
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
  "KOROKS": null,
  "RUNES": [
   {
-   "id": "ravios_bracelet",
+   "id": "ravios-bracelet",
    "name": "Ravio's Bracelet",
    "glyph": "magnesis",
-   "from": "Given by Ravio, the merchant who sets up shop in your house early in the game.",
-   "what": "Press to MERGE into a wall as a flat moving painting — slip through barred grates, around corners, and across to ledges you can't walk to. The power that defines the whole game.",
-   "tip": "Merging drains your green energy meter (it refills fast when you step out). If a path looks blocked, ask 'can I merge along this wall?' first."
+   "from": "Lent by Ravio after he sets up his rental shop in your house. The bracelet's full power awakens during the story (when Yuga turns Link into a painting), letting you merge at will.",
+   "what": "The game's signature move: press toward a wall to merge into it as a flat moving painting, then slide along it to cross gaps, round corners, and reach places you can't walk to. Merging drains the green Energy Gauge.",
+   "tip": "When a room looks like a dead end, try merging into the wall — almost every puzzle here is solved by becoming a painting and sliding to the other side."
   },
   {
-   "id": "master_sword",
+   "id": "captains-sword",
+   "name": "Captain's Sword",
+   "glyph": "sword",
+   "from": "Your first sword, picked up at the very start: the blacksmith forges it for the Captain, who leaves it behind on the table, and you set out to deliver it. This same blade is later known as the Forgotten Sword.",
+   "what": "Your starter sword. Basic slash and a charged spin attack (hold to charge, release to swing all around).",
+   "tip": "It's just a starter blade — you'll trade up to the Master Sword once you have all three Pendants of Virtue."
+  },
+  {
+   "id": "forgotten-sword",
+   "name": "Forgotten Sword",
+   "glyph": "sword",
+   "from": "Not a separate weapon — it's the same starter sword the Captain left behind, simply renamed 'Forgotten Sword' later in the story. The blacksmith does NOT re-forge it.",
+   "what": "The early-game sword (slash + charged spin) you carry until you claim the Master Sword.",
+   "tip": "If a guide says 'Captain's Sword' or 'Forgotten Sword,' it means this one starter weapon — there's only one early blade."
+  },
+  {
+   "id": "master-sword",
    "name": "Master Sword",
    "glyph": "sword",
-   "from": "Drawn from its pedestal in the Lost Woods once you hold all three Pendants of Virtue.",
-   "what": "The legendary blade — stronger than your borrowed sword, and it fires a sword beam when your hearts are full.",
-   "tip": "It's also the key that lets you pass safely into Lorule's deepest places. Get all three Pendants first."
+   "from": "Claimed at the pedestal in the Lost Woods once you've collected all 3 Pendants of Virtue.",
+   "what": "The legendary blade — stronger than the starter sword and the key weapon for the story's foes. Fires a sword beam when your hearts are full.",
+   "tip": "Keep your hearts topped up to shoot the ranged sword beam — handy for hitting switches and enemies from safety."
+  },
+  {
+   "id": "master-sword-lv2",
+   "name": "Master Sword Lv2",
+   "glyph": "sword",
+   "from": "Upgraded by the Hyrule blacksmith using 2 chunks of Master Ore.",
+   "what": "The first Master Sword upgrade — it doubles the blade's attack power.",
+   "tip": "Bring 2 Master Ore to the Hyrule blacksmith for this tier; you'll need 2 more (and the Lorule smith) for Lv3."
+  },
+  {
+   "id": "master-sword-lv3",
+   "name": "Master Sword Lv3",
+   "glyph": "sword",
+   "from": "Upgraded by the Lorule blacksmith using 2 more chunks of Master Ore.",
+   "what": "The strongest sword in the game — a second doubling of attack power over Lv2.",
+   "tip": "There are exactly 4 Master Ore in the game; you need all 4 (2 for Lv2 in Hyrule, 2 for Lv3 in Lorule) to reach the top tier."
+  },
+  {
+   "id": "master-ore",
+   "name": "Master Ore",
+   "glyph": "gem",
+   "from": "Four pieces, all in Lorule — the Thieves' Hideout, the Dark Palace, Skull Woods, and a Lorule cave reached through the fissure inside Hyrule's Sanctuary (needs the Titan's Mitt). Found, not rented.",
+   "what": "The upgrade material for the Master Sword. Two ores raise it to Lv2 (Hyrule smith), two more to Lv3 (Lorule smith); each pair doubles its power.",
+   "tip": "Collect all four before upgrading — the smiths take them two at a time, and each tier doubles your damage."
+  },
+  {
+   "id": "shield",
+   "name": "Shield",
+   "glyph": "shield",
+   "from": "A basic piece of starting gear (you can buy one in town). It's plain equipment, not a rental.",
+   "what": "Hold up to block enemy attacks and projectiles. Costs no energy.",
+   "tip": "Holding the shield while standing still blocks most frontal attacks; sidestep against faster foes."
   },
   {
    "id": "bow",
    "name": "Bow",
    "glyph": "bow",
-   "from": "Rented or bought from Ravio's Shop.",
-   "what": "Fires arrows at distant switches, eyes, and enemies; arrows draw from your energy meter, so you never run out of ammo.",
-   "tip": "Most items in this game cost ENERGY, not consumable ammo — fire freely, just watch the green meter."
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Fires arrows at distant enemies, switches, and eyes. Each shot spends green energy instead of consuming arrow ammo — there's no arrow count to manage.",
+   "tip": "Because shots cost energy, not ammo, you can fire freely — just watch the meter; it refills on its own and from Energy Potions."
   },
   {
-   "id": "pegasus_boots",
-   "name": "Pegasus Boots",
-   "glyph": "stasis",
-   "from": "Found in Hyrule (a gift after an early errand) — not rented from Ravio.",
-   "what": "Hold to dash in a straight line, smashing through some objects and knocking enemies back.",
-   "tip": "Dash + merge combos open several shortcuts and Maiamai nooks."
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Lay an explosive that blasts cracked walls, blocks, and enemies. Each bomb spends green energy rather than a bomb count.",
+   "tip": "Look for hairline cracks in walls and floors — a bomb almost always opens a hidden room or shortcut."
   },
   {
-   "id": "tornado_rod",
+   "id": "fire-rod",
+   "name": "Fire Rod",
+   "glyph": "orb",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Shoots a burst of flame that burns enemies, lights torches, and melts ice. Each blast spends green energy.",
+   "tip": "Great against ice-themed enemies and for lighting torches fast."
+  },
+  {
+   "id": "ice-rod",
+   "name": "Ice Rod",
+   "glyph": "cryonis",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Fires a freezing blast that encases enemies in ice and can form ice blocks on water. Each blast spends green energy.",
+   "tip": "Frozen enemies become solid blocks — useful as stepping stones or to halt a foe while you reposition."
+  },
+  {
+   "id": "tornado-rod",
    "name": "Tornado Rod",
-   "glyph": "stasis",
-   "from": "Rented or bought from Ravio's Shop.",
-   "what": "Whips up a gust that flings Link into the air (and flips nearby enemies) — reach high ledges and stun shielded foes.",
-   "tip": "Great for crossing gaps and for getting the drop on armored enemies."
+   "glyph": "leaf",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Whips up a whirlwind that launches Link into the air and flips/stuns nearby enemies. Each use spends green energy.",
+   "tip": "The upward launch reaches high ledges and lets you float down — handy in the House of Gales and for dodging."
+  },
+  {
+   "id": "sand-rod",
+   "name": "Sand Rod",
+   "glyph": "leaf",
+   "from": "Osfala lends you one in the Thieves' Hideout, but Sheerow takes it back the moment you step outside. After you clear the Thieves' Hideout it returns to Ravio's shop, where you rent or buy your own.",
+   "what": "Raises a pillar of sand to lift Link or objects and form moving platforms across sand. Each use spends green energy.",
+   "tip": "Hold the button to extend the sand pillar as it travels — you ride it across gaps you couldn't cross on foot. You'll need it for the Desert Palace."
+  },
+  {
+   "id": "hammer",
+   "name": "Hammer",
+   "glyph": "orb",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "A heavy smash that pounds stakes/pegs into the ground, flattens some enemies, and triggers certain switches. Each swing spends green energy.",
+   "tip": "Look for posts sticking out of the floor — the Hammer pounds them flat to open paths."
   },
   {
    "id": "hookshot",
    "name": "Hookshot",
    "glyph": "magnesis",
-   "from": "Rented or bought from Ravio's Shop.",
-   "what": "Fires a chain that grabs posts and pulls you across gaps, and stuns or pulls enemies.",
-   "tip": "Pairs with wall-merge for some of the trickiest dungeon traversals."
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Fires a chain that latches onto wooden posts and anchor points to yank Link across, or pulls grabbable items to you. Each use spends green energy.",
+   "tip": "Aim at posts or blocks across a hazard to zip yourself over."
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "leaf",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Throws a returning blade that stuns enemies, grabs distant items, and hits switches — then comes back. Each throw spends green energy.",
+   "tip": "Use it to collect rupees and trip faraway switches without moving."
+  },
+  {
+   "id": "lamp",
+   "name": "Lamp",
+   "glyph": "orb",
+   "from": "Rented (or later bought) from Ravio's shop.",
+   "what": "Lights dark rooms and ignites torches with a small flame. Each use spends green energy.",
+   "tip": "Light every torch in a dark room — it usually reveals the exit or unlocks a chest."
+  },
+  {
+   "id": "net",
+   "name": "Net",
+   "glyph": "bag",
+   "from": "Rented (or later bought) from Ravio's shop (the Bug Net).",
+   "what": "Swings to catch bugs, fairies, and bees into bottles, and can swat away some projectiles. Catching uses no ammo.",
+   "tip": "Catch a fairy in a bottle — it auto-revives you with hearts if you fall in battle."
+  },
+  {
+   "id": "pegasus-boots",
+   "name": "Pegasus Boots",
+   "glyph": "champion",
+   "from": "Given by the Shady Guy near Kakariko Village — merge into the wall to sneak up behind him, and he hands them over. Equipment you keep, not a rental.",
+   "what": "Hold the dash button to charge at high speed; you can plow through breakable bushes and objects and bump some enemies.",
+   "tip": "Dash into trees and posts — they often shake loose rupees, hearts, or hidden items."
+  },
+  {
+   "id": "power-glove",
+   "name": "Power Glove",
+   "glyph": "armor",
+   "from": "Given by Rosso at the Miner's House (Hyrule, by Death Mountain) after you clear the Eastern Palace. Equipment you keep.",
+   "what": "Lets Link lift and throw small gray rocks he couldn't budge before, clearing blocked paths.",
+   "tip": "Once you have it, revisit spots blocked by liftable rocks — new shortcuts and chests open up."
+  },
+  {
+   "id": "titans-mitt",
+   "name": "Titan's Mitt",
+   "glyph": "armor",
+   "from": "Upgrade of the Power Glove, found in a big chest in the Desert Palace (Lorule). Equipment you keep.",
+   "what": "Lets Link lift the heaviest rocks — the large dark stones the Power Glove can't move.",
+   "tip": "With the Titan's Mitt, go back to any oversized boulders you had to walk around earlier."
+  },
+  {
+   "id": "flippers",
+   "name": "Flippers",
+   "glyph": "fairy",
+   "from": "Reward from Queen Oren of the Zora for returning her stolen Smooth Gem. Equipment you keep.",
+   "what": "Let Link swim in deep water instead of being pushed back at the shore, opening up lakes, rivers, and water routes.",
+   "tip": "After getting the Flippers, swim out to islands and waterways you couldn't reach before — Maiamai and other secrets hide there."
+  },
+  {
+   "id": "bell",
+   "name": "Bell",
+   "glyph": "champion",
+   "from": "Given by Irene (the potion witch's granddaughter) on the bridge after you clear the Eastern Palace.",
+   "what": "Tap it (touch screen) to summon Irene, who flies you instantly to any Weather Vane you've already activated. Free fast-travel.",
+   "tip": "Activate every Weather Vane you pass — each becomes a Bell warp point, saving huge amounts of walking."
+  },
+  {
+   "id": "weather-vane",
+   "name": "Weather Vane",
+   "glyph": "champion",
+   "from": "Scattered across Hyrule and Lorule; press A at one to activate it.",
+   "what": "Save points and fast-travel destinations. Once active, you can warp to it any time using the Bell.",
+   "tip": "Touching a Weather Vane both saves your game and unlocks it as a Bell destination — never walk past one."
+  },
+  {
+   "id": "bottle",
+   "name": "Bottle",
+   "glyph": "pot",
+   "from": "Five total, found across Hyrule and Lorule (one bought in Kakariko, one from the Bird Lover under the bridge, one in Lorule's Vacant House, one from the Great Rupee Fairy, and one more).",
+   "what": "Empty containers you fill with potions, fairies, or bugs/bees. A bottled fairy revives you on death; potions restore hearts or energy.",
+   "tip": "Keep at least one fairy bottled before a boss — it's a free second chance if you run out of hearts."
+  },
+  {
+   "id": "red-potion",
+   "name": "Red Potion",
+   "glyph": "heart",
+   "from": "Bought from the Witch's potion shop (stored in a Bottle).",
+   "what": "Drink to refill a large chunk of your hearts.",
+   "tip": "Stock a Red Potion before long dungeons; it's faster than hunting for heart drops mid-fight."
+  },
+  {
+   "id": "blue-potion",
+   "name": "Blue Potion",
+   "glyph": "heart",
+   "from": "Bought from the Witch's potion shop (stored in a Bottle) — the premium potion.",
+   "what": "Drink to fully restore both your hearts and your green Energy Gauge at once.",
+   "tip": "Save Blue Potion for boss fights — a full heal plus full energy in one gulp can turn a losing fight around."
+  },
+  {
+   "id": "energy-potion",
+   "name": "Energy Potion",
+   "glyph": "orb",
+   "from": "Dropped by purple pots (and some grass/enemies); stored in a Bottle.",
+   "what": "Refills the green Energy Gauge so you can keep using items and wall-merging.",
+   "tip": "When your meter runs low, smash purple pots — they're the reliable on-the-spot energy refill."
+  },
+  {
+   "id": "energy-gauge",
+   "name": "Energy Gauge",
+   "glyph": "orb",
+   "from": "The shop system's shared resource, in play once you start renting items from Ravio.",
+   "what": "The green meter that powers EVERY item and Wall Merge — used in place of separate ammo (arrows, bombs, magic). It refills on its own over time and from Energy Potions.",
+   "tip": "Items don't run out of ammo here — they run out of energy. The meter refills by itself, so pause a beat to recharge instead of hunting for pickups."
+  },
+  {
+   "id": "stamina-scroll",
+   "name": "Stamina Scroll",
+   "glyph": "scroll",
+   "from": "Found in the Ice Ruins dungeon (Lorule).",
+   "what": "Permanently enlarges your Energy Gauge, so you can use more items and merge longer before running dry.",
+   "tip": "A real, lasting upgrade — it makes every item feel more usable."
+  },
+  {
+   "id": "pouch",
+   "name": "Pouch",
+   "glyph": "bag",
+   "from": "Your inventory/equipment menu (touch screen) once Ravio's shop is open.",
+   "what": "Holds your items and shows the Energy Gauge. Items you only RENT can be lost if you fall in battle (Sheerow repossesses them); items you BUY are yours for good.",
+   "tip": "Buy your most-used items outright as soon as you can — bought items can't be taken away when you die, and only bought items can become 'Nice' versions."
+  },
+  {
+   "id": "ravios-shop",
+   "name": "Ravio's Rental Shop",
+   "glyph": "book",
+   "from": "Ravio sets up shop inside your house after lending you the Bracelet.",
+   "what": "Where you RENT items cheaply or, once you hold all three Pendants of Virtue, BUY them to keep. Rentals let you tackle dungeons in any order but are repossessed if you die; purchases are permanent.",
+   "tip": "Rent early to explore and find which items you love, then buy the keepers — every rental is taken at once if you fall in battle."
+  },
+  {
+   "id": "mother-maiamai",
+   "name": "Mother Maiamai",
+   "glyph": "fairy",
+   "from": "Found in a cave near Lake Hylia; she sends you to recover her 100 Lost Maiamai across both worlds.",
+   "what": "For every 10 Lost Maiamai you return, she upgrades one item you OWN into a stronger 'Nice' version. She can't upgrade rented items.",
+   "tip": "Buy an item from Ravio before bringing it to her — she only upgrades items you own, not ones you're renting."
+  },
+  {
+   "id": "lost-maiamai",
+   "name": "Lost Maiamai",
+   "glyph": "fairy",
+   "from": "100 hidden across Hyrule and Lorule (often behind cracked walls, under rocks, or in merge-only spots).",
+   "what": "Collectibles you return to Mother Maiamai. Every 10 buys one 'Nice' item upgrade; returning all 100 earns the Great Spin Attack.",
+   "tip": "Many hide in wall-merge-only nooks and behind bombable cracks — sweep each area with the Bracelet and a Bomb."
+  },
+  {
+   "id": "nice-items",
+   "name": "Nice Items",
+   "glyph": "gem",
+   "from": "Mother Maiamai upgrades, one per 10 Lost Maiamai returned (e.g. Nice Bow, Nice Bombs, Nice Fire Rod, Nice Ice Rod, Nice Tornado Rod, Nice Sand Rod, Nice Hammer, Nice Hookshot, Nice Boomerang).",
+   "what": "Buffed versions of items you own — stronger, larger, or with extra shots/spread.",
+   "tip": "Prioritize upgrading the item you lean on most; the Nice version makes tough fights and puzzles much easier."
+  },
+  {
+   "id": "great-spin-attack",
+   "name": "Great Spin Attack",
+   "glyph": "sword",
+   "from": "Reward from Mother Maiamai for returning all 100 Lost Maiamai.",
+   "what": "A larger, longer-reaching spin attack that hits enemies all around you from much farther out.",
+   "tip": "It's the final Maiamai prize — worth completing the hunt for the big crowd-clearing swing."
+  },
+  {
+   "id": "pendant-of-courage",
+   "name": "Pendant of Courage",
+   "glyph": "gem",
+   "from": "A charm Princess Zelda gives Link early on; Sahasrahla later reveals it is the Pendant of Courage (after the Eastern Palace). NOT a dungeon reward.",
+   "what": "One of the three Pendants of Virtue. All three together let you claim the Master Sword.",
+   "tip": "You already hold this one before the dungeons begin — you just don't learn what it is until after the Eastern Palace."
+  },
+  {
+   "id": "pendant-of-power",
+   "name": "Pendant of Power",
+   "glyph": "gem",
+   "from": "Reward for clearing the Tower of Hera, atop Death Mountain (boss: Moldorm).",
+   "what": "One of the three Pendants of Virtue, needed with the other two to earn the Master Sword.",
+   "tip": "You can tackle the early dungeons in any order thanks to Ravio's rentals — just collect all three pendants."
+  },
+  {
+   "id": "pendant-of-wisdom",
+   "name": "Pendant of Wisdom",
+   "glyph": "gem",
+   "from": "Reward for clearing the House of Gales, in the southeast lake region (boss: Margomill).",
+   "what": "The third Pendant of Virtue. With Courage and Power, it opens the path to the Master Sword in the Lost Woods.",
+   "tip": "The House of Gales leans on the Tornado Rod — rent it before you go in. Once you hold all three pendants, head to the Lost Woods pedestal to pull the Master Sword."
   }
  ],
  "STATUS_RUNES": [
@@ -38682,6 +39642,18 @@ const ALBW = {
    "Tips"
   ],
   [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
+  ],
+  [
    "settings",
    "Settings"
   ]
@@ -38698,5 +39670,405 @@ const ALBW = {
   "cover": "painting"
  }
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW };
+const WW = {
+ "id": "ww",
+ "label": "The Wind Waker",
+ "short": "WW",
+ "REGIONS": [
+  {
+   "id": "ww_intro",
+   "name": "Outset Island & the Pirates",
+   "sub": "Main Quest — a birthday, a stolen sister",
+   "kind": "region",
+   "tagline": "A green tunic, a giant bird, and a talking boat that sets you sailing.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "ww_intro_s_birthday",
+     "name": "A Birthday on Outset",
+     "sub": "The Hero's Clothes",
+     "reward": "Hero's Sword & Telescope",
+     "steps": [
+      {
+       "id": "ww_birth_1",
+       "k": "reward",
+       "t": "It's your birthday on quiet Outset Island. By tradition your Grandma dresses you in the green Hero's Clothes, and your little sister Aryll lends you her treasured Telescope.",
+       "items": [
+        {
+         "name": "Telescope",
+         "cat": "item",
+         "note": "Aryll's spyglass — zoom in on far-off things across the sea. You'll use it to spot the bird in a moment."
+        }
+       ]
+      },
+      {
+       "id": "ww_birth_2",
+       "k": "step",
+       "t": "Visit the swordsman Orca in his house and take his training. Pass his lesson and he entrusts you with a real sword.",
+       "items": [
+        {
+         "name": "Hero's Sword",
+         "cat": "sword",
+         "note": "Your first blade. Z/L-target a foe, then slash; learn the spin attack and the parry counter from Orca."
+        }
+       ],
+       "stuck": "Orca lives in the house with the dock on the south of the village. Talk to him, agree to train, and perform the moves he calls out (thrusts, then a spin) to earn the sword."
+      },
+      {
+       "id": "ww_birth_3",
+       "k": "step",
+       "t": "Climb to the island's tall lookout tower with Aryll. Use the Telescope: a huge bird is flying overhead, chased by cannon fire from a pirate ship."
+      }
+     ]
+    },
+    {
+     "id": "ww_intro_s_bird",
+     "name": "The Bird & the Pirate",
+     "sub": "Aryll is taken",
+     "reward": "Hero's Shield",
+     "steps": [
+      {
+       "id": "ww_bird_1",
+       "k": "step",
+       "t": "A cannon shot knocks a pirate girl out of the bird's claws and into the woods at the top of the island. Hurry up the path and through the Fairy Wood to rescue her from the Bokoblins.",
+       "stuck": "Cut the grass and hop the ledges up the mountain path to the forest. Lock onto the green Bokoblins and slash them; reach the girl (Tetra) at the clearing."
+      },
+      {
+       "id": "ww_bird_2",
+       "k": "warn",
+       "t": "As you free the pirate Tetra, the giant Helmaroc King swoops back down — and snatches your sister Aryll by mistake, carrying her off across the sea."
+      },
+      {
+       "id": "ww_bird_3",
+       "k": "reward",
+       "t": "Determined to save Aryll, you get your Grandma's Hero's Shield, and Tetra's pirates grudgingly agree to carry you toward the Forsaken Fortress, where the bird's master cages stolen girls.",
+       "items": [
+        {
+         "name": "Hero's Shield",
+         "cat": "shield",
+         "note": "Your family shield (press R to raise it). Blocks attacks and lets you parry; a Hylian Shield comes much later."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ww_intro_s_krl",
+     "name": "The King of Red Lions",
+     "sub": "Set sail — gather the Pearls",
+     "reward": "Wind Waker & Sail",
+     "steps": [
+      {
+       "id": "ww_krl_1",
+       "k": "step",
+       "t": "At the Forsaken Fortress the pirates catapult you over the wall. Sneak past the swinging searchlights and Moblin guards to the cell block where the captured girls are held.",
+       "stuck": "Stay out of the moving spotlights — step into one and a Moblin hauls you to a cell. Hide behind barrels and time your dashes between beams."
+      },
+      {
+       "id": "ww_krl_2",
+       "k": "warn",
+       "t": "You find Aryll, but the Helmaroc King seizes you and Ganondorf's forces fling you far out into the sea. You wash ashore, alone."
+      },
+      {
+       "id": "ww_krl_3",
+       "k": "reward",
+       "t": "A talking boat — the King of Red Lions — rescues you. He explains the drowned land's legend and your path: to grow strong enough to save Aryll you must gather the three Pearls of the Goddesses. He entrusts you with the Wind Waker, the conductor's baton.",
+       "items": [
+        {
+         "name": "Wind Waker",
+         "cat": "song",
+         "note": "The magic baton. Conduct songs to change the wind, warp the sea, and command statues and companions — the heart of the whole journey."
+        }
+       ]
+      },
+      {
+       "id": "ww_krl_4",
+       "k": "step",
+       "t": "Sail to Windfall Island and buy a Sail at the shop, so the wind can carry the King of Red Lions across the Great Sea.",
+       "items": [
+        {
+         "name": "Sail",
+         "cat": "item",
+         "note": "Hoist it to catch the wind and travel the sea. Pair it with the Wind's Requiem to keep the wind at your back."
+        }
+       ],
+       "stuck": "Windfall is the big town island just east. The Sail is in the shop; gather a few Rupees from pots and grass if you're short."
+      },
+      {
+       "id": "ww_krl_5",
+       "k": "step",
+       "t": "Learn the Wind's Requiem to steer the wind, then set your course. Your first Pearl, Din's Pearl, waits at Dragon Roost Island to the north — home of the bird-folk Rito.",
+       "stuck": "The Wind's Requiem is taught on a small island with a Goddess statue (the cyclone/triangle isle the King points you to). Conduct it to turn the wind any direction you like."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "wind_waker",
+   "name": "Wind Waker",
+   "glyph": "stasis",
+   "from": "The conductor's baton entrusted to Link early in the adventure — the relic that commands the wind.",
+   "what": "Conduct songs in 3/4 or other time to work magic: change the wind's direction, warp across the sea, control statues and companions, and call the elements. Sailing depends on it.",
+   "tip": "Learn the Wind's Requiem first (it turns the wind your way so your sail always pushes you forward). The Ballad of Gales later warps you between islands instantly."
+  },
+  {
+   "id": "master_sword",
+   "name": "Master Sword",
+   "glyph": "sword",
+   "from": "Drawn in the flooded Hyrule beneath the sea after passing the Tower of the Gods with all three Pearls.",
+   "what": "The blade of evil's bane — but it begins POWERLESS. You must awaken the two Sages (Medli and Makar) to restore its full strength.",
+   "tip": "Don't be alarmed when it can't hurt Ganondorf at first — the Earth and Wind Temples fix that."
+  },
+  {
+   "id": "deku_leaf",
+   "name": "Deku Leaf",
+   "glyph": "leaf",
+   "from": "Taken from the Great Deku Tree in the Forest Haven.",
+   "what": "Fan a gust to spin propellers and shove enemies, or hold it to glide on updrafts across long gaps. Uses your Magic meter.",
+   "tip": "Jump off a high ledge and hold the Leaf to soar — refill Magic from grass and pots when it runs low."
+  },
+  {
+   "id": "grappling_hook",
+   "name": "Grappling Hook",
+   "glyph": "magnesis",
+   "from": "Borrowed from Tetra's pirates / found on Dragon Roost.",
+   "what": "Swing across gaps from hook targets, climb to ledges, and steal items (and treasure) from enemies and from the masts of ships.",
+   "tip": "It doubles as a way to pull loot off some enemies — and it's how you swing over Dragon Roost's chasms."
+  },
+  {
+   "id": "hero_bow",
+   "name": "Hero's Bow",
+   "glyph": "bow",
+   "from": "Found in the Tower of the Gods.",
+   "what": "Fires arrows at range; later gains Fire, Ice, and Light Arrows for elemental puzzles and the strongest foes.",
+   "tip": "Light Arrows are the key to the final battles — save them for Ganondorf and certain bosses."
+  },
+  {
+   "id": "sail",
+   "name": "Sail",
+   "glyph": "bag",
+   "from": "Bought at the Windfall Island shop early on.",
+   "what": "Hoists on the King of Red Lions so the wind can carry you across the Great Sea. Sailing is most of this game's travel.",
+   "tip": "With the Wind's Requiem to set the wind behind you, you'll cross the map far faster. A later Swift Sail (HD/remaster) speeds it up more."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Wind Waker",
+   "glyph": "stasis",
+   "step": "ww_krl_3"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Din's Pearl",
+   "from": "Dragon Roost Island",
+   "note": "Given by Prince Komali of the Rito after you clear Dragon Roost Cavern — the first Pearl of the Goddesses.",
+   "step": null
+  },
+  {
+   "name": "Farore's Pearl",
+   "from": "Forest Haven",
+   "note": "Given by the Great Deku Tree after you rescue Makar from the Forbidden Woods — the second Pearl.",
+   "step": null
+  },
+  {
+   "name": "Nayru's Pearl",
+   "from": "Jabun (Outset Island)",
+   "note": "Given by the spirit Jabun after the King of Red Lions vouches for you — the third Pearl. All three open the Tower of the Gods.",
+   "step": null
+  },
+  {
+   "name": "Medli, the Earth Sage",
+   "from": "Earth Temple",
+   "note": "Awaken the Rito attendant Medli as the Sage of Earth; her prayer helps restore the Master Sword's power.",
+   "step": null
+  },
+  {
+   "name": "Makar, the Wind Sage",
+   "from": "Wind Temple",
+   "note": "Awaken the Korok Makar as the Sage of Wind; with both Sages praying, the Master Sword's full power returns.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "bow",
+   "name": "Bow & Projectiles",
+   "glyph": "bow"
+  },
+  {
+   "id": "song",
+   "name": "Wind Waker Songs",
+   "glyph": "stasis"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Charts & Treasure",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "pearls",
+   "name": "The Three Pearls",
+   "sub": "Key to the Tower of the Gods",
+   "note": "Din's, Farore's, and Nayru's Pearls — from Dragon Roost, the Forest Haven, and Jabun. Set them on the triangle islands to raise the Tower of the Gods, your path to the Master Sword.",
+   "reward": "Master Sword"
+  },
+  {
+   "id": "sages",
+   "name": "The Two Sages",
+   "sub": "Restore the blade",
+   "note": "The Master Sword rises powerless. Awaken Medli in the Earth Temple and Makar in the Wind Temple to return its full power to repel evil.",
+   "reward": "Master Sword restored"
+  },
+  {
+   "id": "triforce",
+   "name": "The Triforce of Courage",
+   "sub": "Eight scattered shards",
+   "note": "Read the Triforce Charts (Tingle deciphers them), then dredge up the eight shards from the sea floor. Assembled, they let you face Ganondorf.",
+   "reward": "The final battle"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Forty-four are scattered across the islands and the sea — in minigames, on charts, and under the waves.",
+   "reward": "More hearts"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "sail",
+   "name": "Sailing the Great Sea",
+   "items": [
+    "The world is a vast ocean of 49 island squares. You travel by Sail in the King of Red Lions (the talking boat), so the WIND matters — conduct the Wind's Requiem with the Wind Waker to point it where you're going.",
+    "Once you know the Ballad of Gales you can warp instantly between the islands you've visited — a huge time-saver across the open sea.",
+    "Buy and fill out Sea Charts; salvage Treasure Charts mark sunken chests you raise with the Grappling Hook from the King of Red Lions."
+   ]
+  },
+  {
+   "id": "baton",
+   "name": "Conducting with the Wind Waker",
+   "items": [
+    "The Wind Waker is a magic baton: you conduct short melodies to change the wind, warp, command statues, and sync with your Sage companions (Medli and Makar) to solve the Earth and Wind Temples.",
+    "Songs you learn include the Wind's Requiem, the Ballad of Gales, the Command Melody (control a companion/statue), the Earth God's Lyric, the Wind God's Aria, and the Song of Passing (flip day↔night).",
+    "Match the conducting tempo and beat the game shows you; get it right and the magic triggers."
+   ]
+  },
+  {
+   "id": "combat",
+   "name": "Sword, shield & parry",
+   "items": [
+    "Z/L-target a foe to lock on, then circle and strike. When an enemy flashes and an action prompt appears, press it for a Parry — a flashy counter that often one-shots lesser foes.",
+    "You can also steal a Moblin's or Bokoblin's weapon, roll behind a guard, and pick up dropped clubs and spears for extra reach.",
+    "Bottle a Fairy for an automatic revive, and cook/​buy soup and potions for tough stretches."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "triforce",
+   "label": "Triforce Shards",
+   "total": 8,
+   "glyph": "champion",
+   "note": "The Triforce of Courage, dredged from the sea via Triforce Charts. All 8 open the way to Ganon."
+  },
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 44,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container — up to 20 hearts."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items & Songs",
+  "championsLabel": "Pearls & Sages",
+  "regionBanner": "Dungeon",
+  "worldName": "the Great Sea"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "ww_ganon",
+ "meta": {
+  "console": "Nintendo GameCube",
+  "consoleShort": "GameCube",
+  "consoleRank": 2,
+  "year": 2002,
+  "era": "The Great Sea",
+  "accent": "#2f9fd6",
+  "accent2": "#10303f",
+  "cover": "sail"
+ }
+};
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW, ww: WW };
 /* GEN:DATA:END */

@@ -1,0 +1,202 @@
+{
+ "regions": [
+  {
+   "region": "Maiamai & Nice Items",
+   "quests": [
+    {
+     "name": "Free Mother Maiamai (start the hunt)",
+     "giver": "Mother Maiamai",
+     "location": "A cave on the northwest shore of Lake Hylia, Hyrule",
+     "reward": "Unlocks the 100-Maiamai hunt and the Nice-item upgrades",
+     "oneLine": "Open the giant Maiamai's hidden cave to begin collecting her 100 lost children.",
+     "how": "You can't get in until you have Bombs (rent or buy them from Ravio). Go to the northwest shore of Lake Hylia and bomb the cracked rock to open the cave, then talk to Mother Maiamai inside. From now on she upgrades your items for every 10 baby Maiamai you bring back, so this is the gate for the whole hunt."
+    },
+    {
+     "name": "Collect all 100 Lost Maiamai",
+     "location": "Scattered across the overworlds of both Hyrule and Lorule (under rocks, in water, behind merge-walls, in grass and trees)",
+     "reward": "An item upgrade every 10 found; the Great Spin Attack at 100",
+     "oneLine": "Hunt down the 100 hidden baby Maiamai squeaking across both worlds.",
+     "how": "Each Maiamai cries out and gets louder as you get close, so keep the game sound on and listen for the squeak, then lift a rock, bomb a wall, burn a tree, merge into a wall, or swim to reach it. Many need a specific item, so come back as you unlock more gear. There are exactly 50 in Hyrule and 50 in Lorule; a location map saves a lot of pixel-hunting if you stall."
+    },
+    {
+     "name": "Nice-item upgrades (every 10 Maiamai)",
+     "giver": "Mother Maiamai",
+     "location": "Mother Maiamai's cave, northwest Lake Hylia",
+     "reward": "A 'Nice' version of one owned item per 10 Maiamai (9 upgrades by 90)",
+     "oneLine": "Trade Maiamai in tens to super-charge the items you actually OWN.",
+     "how": "Every 10 Maiamai lets Mother Maiamai upgrade one item into its 'Nice' form, but ONLY for items you've BOUGHT from Ravio, not ones you're merely renting, so buy first if you want the upgrade. There are nine upgradeable items: Bow, Bombs, Hookshot, Boomerang, Hammer, Fire Rod, Ice Rod, Tornado Rod, and Sand Rod. The Nice Bow fires three arrows at once, Nice Bombs blast wider, and the rest hit bigger and harder. You need 90 Maiamai to upgrade all nine."
+    },
+    {
+     "name": "The Great Spin Attack (100 Maiamai)",
+     "giver": "Mother Maiamai",
+     "location": "Mother Maiamai's cave, northwest Lake Hylia",
+     "reward": "Great Spin Attack (a wider, stronger spin that briefly makes Link invincible)",
+     "oneLine": "Return the final Maiamai for the ultimate sword flourish.",
+     "how": "Bring back all 100 babies and Mother Maiamai upgrades your Spin Attack to the Great Spin, which roughly doubles the radius and keeps you invincible for most of the swing. It's a pure bonus combat upgrade, the cherry on top of finishing the hunt rather than something the main quest needs."
+    }
+   ]
+  },
+  {
+   "region": "Heart Pieces",
+   "quests": [
+    {
+     "name": "Octoball Derby (baseball)",
+     "giver": "The Derby Boy",
+     "location": "Lorule, south of the Blacksmith and southeast of Thieves' Town",
+     "reward": "Rupees per hit; a Piece of Heart for scoring 100+ rupees",
+     "oneLine": "Zelda's take on baseball — bat 30 pitches into the pots for a heart.",
+     "how": "Pay to play, then swing your sword to bat each of the 30 pitches, aiming to smash the clay pots dotted around the field (each pot is worth rupees). Score 100 rupees or more and the Derby Boy gives you a Piece of Heart; below that you just keep the rupees you knocked loose. Timing your swing to meet the ball squarely is the whole game — a centered hit carries far enough to clear distant pots."
+    },
+    {
+     "name": "Cucco Ranch (dodge the cuccos)",
+     "giver": "The Cucco Girl",
+     "location": "Hyrule, just south of Kakariko Village",
+     "reward": "150 rupees and a Piece of Heart (on the Rooster level)",
+     "oneLine": "Survive a swarm of cuccos for 30 seconds to win a heart.",
+     "how": "You're dropped in a pen and must avoid getting pecked for 30 seconds — just run smooth circles around the edge so the cuccos chase your tail and never catch up. Work up through Egg and Chick to the harder Rooster level; clearing Rooster pays 150 rupees AND a Piece of Heart together. After that, repeat clears just pay out rupees."
+    },
+    {
+     "name": "Rupee Rush — Hyrule",
+     "giver": "The Rupee Rush Gal",
+     "location": "Hyrule, south of Kakariko Village",
+     "reward": "A Piece of Heart for 100+ points",
+     "oneLine": "Grab as many rupees as you can in 30 unmarked seconds.",
+     "how": "Pay 50 rupees, then sweep the yard before the hidden 30-second timer ends — there's no on-screen clock, so count in your head, and if you finish after time's up you forfeit everything you grabbed. You don't dig: use the Tornado Rod to flip the floor tiles, the Hammer on the boulder, and mow the grass near the entrance, then collect what pops out. Score 100 points or more to win the Piece of Heart."
+    },
+    {
+     "name": "Rupee Rush — Lorule",
+     "giver": "The Rupee Rush Guy",
+     "location": "Lorule, south of Thieves' Town (the dark-world counterpart of the Hyrule spot)",
+     "reward": "A second Piece of Heart for 150+ points",
+     "oneLine": "The dark-world Rupee Rush — pricier, higher target, a second heart.",
+     "how": "Same Tornado-Rod-and-Hammer game in Lorule, but the fee is 100 rupees and the winning line is 150 points instead of 100. Same rules: count the unspoken 30 seconds and finish on time. Clearing it nets a separate Piece of Heart from the Hyrule version, so both are worth doing."
+    },
+    {
+     "name": "Hyrule Hotfoot (the foot race)",
+     "giver": "The Racing Bro",
+     "location": "Hyrule — the course starts northeast of Lake Hylia and ends at the Miner's House",
+     "reward": "100 rupees on the first clear; a Piece of Heart on the faster time",
+     "oneLine": "Sprint the marked course against the clock for a heart.",
+     "how": "Race the marked overworld course on foot. Beat the gentler 75-second target for 100 rupees, then come back and beat the tighter 65-second time to claim the Piece of Heart (an Advanced 'beat your best time' mode then pays 300 rupees per win). Pegasus Boots make this far easier — dash the straights and ease off only for turns. Note: you'll be disqualified if you warp with the Bell to shortcut the route."
+    },
+    {
+     "name": "Treacherous Tower — Intermediate (Heart Piece)",
+     "giver": "The Devilish Girl",
+     "location": "Lorule, on Death Mountain (the Lorule counterpart of the Tower of Hera)",
+     "reward": "A Piece of Heart (first Intermediate clear)",
+     "oneLine": "Clear the 15-floor combat tier once for a heart.",
+     "how": "Pay 200 rupees and fight through all 15 floors of the Intermediate gauntlet, clearing every enemy on a floor to open the stairs up. Your first clear earns a Piece of Heart (plus a 1,000-rupee audience payout). Rent strong items — the Bow and Bombs trivialize many floors — and keep a Bottle with a fairy for insurance. See the Treacherous Tower entries under Combat Challenges for the full tier breakdown."
+    }
+   ]
+  },
+  {
+   "region": "Trades, Boots & Secrets",
+   "quests": [
+    {
+     "name": "Catch the Shady Guy → Pegasus Boots",
+     "giver": "The Shady Guy",
+     "location": "Kakariko Village, Hyrule",
+     "reward": "Pegasus Boots (hold to dash)",
+     "oneLine": "Corner the thief who stole the Zora Queen's gem to claim the dash boots.",
+     "how": "While dealing with Queen Oren in Zora's Domain you learn her Smooth Gem was stolen by a Shady Guy; track him to Kakariko Village, but he bolts the moment he sees your face. Merge into the wall behind him (he can't spot a painting) and slide around to grab him from behind. Caught, he gives you the Pegasus Boots out of guilt — hold a button to break into a charging dash. (He'd already sold the gem, so to finish Oren's errand you buy it back from the Street Merchant for 200 rupees and return it for the Zora's Flippers.)"
+    },
+    {
+     "name": "The Bee Guy & the Net",
+     "giver": "The Bee Guy",
+     "location": "Kakariko Village, Hyrule — the house marked with a bee sign",
+     "reward": "The Net (bug-catching), plus rupee payouts for bottled bees",
+     "oneLine": "The bee-loving man hands you a Net and pays for the bees you bottle.",
+     "how": "Enter the bee-sign house in Kakariko with at least one Empty Bottle and the Bee Guy gives you the Net for catching bugs. Bring him bottled bees for rupees — a normal Bee is a small payout, a rare GOLDEN Bee is worth a lot. Give him a Golden Bee and he hands over the Bee Badge, which makes wild bees you disturb fight FOR you instead of stinging you. A bottled Golden Bee can escape if you're careless, so deliver it promptly."
+    },
+    {
+     "name": "The Bottles hunt",
+     "location": "Across Hyrule and Lorule (a merchant, the Bird Lover, a Death Mountain trade, a Lorule chest, and the Great Rupee Fairy)",
+     "reward": "All 5 Empty Bottles (fairies, potions, bees)",
+     "oneLine": "Track down all five Empty Bottles to carry fairies and potions.",
+     "how": "There are five Bottles: buy one from the Street Merchant in Kakariko (100 rupees); talk to the Bird Lover east of Link's House and pick the 'came to chat' option; give Premium Milk to the man stranded on Death Mountain; bomb the back wall of the Vacant House in Lorule for a chest; and donate 3,000 rupees to the Great Rupee Fairy in Lorule. Each Bottle stores a fairy (auto-revive), a potion, or a bee, so all five meaningfully boost survivability."
+    },
+    {
+     "name": "The Golden Bee shop → Bee Badge",
+     "giver": "The Mysterious Man",
+     "location": "Lorule — a cave in the Skull Woods area",
+     "reward": "A Golden Bee → the Bee Badge (passive: bees protect you)",
+     "oneLine": "Buy a guaranteed Golden Bee, then trade it for the Bee Badge.",
+     "how": "If you can't catch a Golden Bee in the wild, the Mysterious Man in a cave in Lorule's Skull Woods sells one for 888 rupees. Bottle it and give it to the Bee Guy in Kakariko to receive the Bee Badge. With the Badge equipped, wild bees you disturb sting your enemies instead of you — handy, but firmly an optional luxury."
+    }
+   ]
+  },
+  {
+   "region": "Master Ore & Sword Upgrades",
+   "quests": [
+    {
+     "name": "Find the 4 Master Ore",
+     "location": "Hyrule & Lorule — Thieves' Hideout, Dark Palace, Skull Woods, and the Lorule Sanctuary (reached via a fissure in the Hyrule Sanctuary)",
+     "reward": "Master Ore (4 total) to upgrade the Master Sword twice",
+     "oneLine": "Gather the four chunks of Master Ore that power up the legendary blade.",
+     "how": "Master Ore exists only to upgrade the Master Sword, and there are exactly four pieces: in the Thieves' Hideout, Dark Palace, and Skull Woods dungeons, plus one reached through the fissure inside the Sanctuary (which drops you into the Lorule Sanctuary). Each is a fixed chest find, not a random drop. You don't need the sword maxed to beat the game, but it makes the late fights much faster, so it's a strong optional goal."
+    },
+    {
+     "name": "Master Sword Lv2 (Tempered)",
+     "giver": "The Blacksmith (Hyrule)",
+     "location": "The Blacksmith's house, eastern Hyrule",
+     "reward": "Master Sword Lv2 (double the attack power)",
+     "oneLine": "Hand the Hyrule smith 2 Master Ore to temper the Master Sword.",
+     "how": "Once you have the Master Sword and 2 Master Ore, take them to the Blacksmith in Hyrule and he forges the Master Sword Lv2 — this doubles the blade's attack power. It uses two of your four ore, so it's the first of the two upgrades. Do it before the late dungeons and the extra power smooths out a lot of fights."
+    },
+    {
+     "name": "Master Sword Lv3",
+     "giver": "The Blacksmith (Lorule)",
+     "location": "The Blacksmith's counterpart in Lorule",
+     "reward": "Master Sword Lv3 (the strongest blade)",
+     "oneLine": "Bring the last 2 Master Ore to the Lorule smith for the strongest sword.",
+     "how": "After Lv2, take 2 more Master Ore to the Blacksmith on the Lorule side and he forges the Master Sword Lv3 — doubling the power again for the strongest sword in the game (and a stronger full-health sword beam). This spends your final two ore, so all four are used across the two upgrades. With Lv3 in hand, the endgame bosses fall noticeably faster."
+    }
+   ]
+  },
+  {
+   "region": "Combat Challenges & Shadow Link",
+   "quests": [
+    {
+     "name": "Treacherous Tower — Beginner",
+     "giver": "The Devilish Girl",
+     "location": "Lorule, Death Mountain (the Lorule counterpart of the Tower of Hera)",
+     "reward": "300 rupees (unlocks Intermediate)",
+     "oneLine": "The 5-floor warm-up tier of the combat gauntlet.",
+     "how": "Pay 100 rupees and clear all five floors — defeat every enemy on a floor to open the stairs up. Winning pays 300 rupees (a tidy profit) and unlocks the Intermediate tier. It's an easy introduction; bring any rented weapon and you'll be fine."
+    },
+    {
+     "name": "Treacherous Tower — Intermediate",
+     "giver": "The Devilish Girl",
+     "location": "Lorule, Death Mountain",
+     "reward": "A Piece of Heart (first clear) plus 1,000 rupees; rupees on repeats",
+     "oneLine": "The 15-floor middle tier — clear once for a heart.",
+     "how": "Costs 200 rupees and runs 15 floors of escalating enemy rooms. The first clear awards a Piece of Heart and a 1,000-rupee payout (net 800 profit), and beating it unlocks the Advanced tier. Rent the Bow and Bombs for crowd floors and keep a fairy in a Bottle as insurance against a bad room."
+    },
+    {
+     "name": "Treacherous Tower — Advanced",
+     "giver": "The Devilish Girl",
+     "location": "Lorule, Death Mountain",
+     "reward": "Super Lamp (1st clear), then Super Net (2nd clear); ~5,000 rupees each clear",
+     "oneLine": "The brutal 50-floor tier — best rupee farm and two unique upgrades.",
+     "how": "The marathon tier: 300 rupees to enter, FIFTY floors. Your first full clear yields the Super Lamp (a far stronger fire beam) and a ~5,000-rupee haul (net ~4,700), and a SECOND clear gives the Super Net (a stronger Net). Go in with an upgraded sword, Nice items, plenty of healing, and bottled fairies — it's as much an endurance test as a skill test, so it's a natural late-game goal."
+    },
+    {
+     "name": "Set up your Shadow Link (StreetPass)",
+     "giver": "Gramps",
+     "location": "The empty field on the west side of Kakariko Village",
+     "reward": "Enables Shadow Link battles",
+     "oneLine": "Register your own Shadow Link with Gramps to turn on StreetPass duels.",
+     "how": "Talk to Gramps in the field on the west side of Kakariko and choose Setup — you pick the two items he'll carry (just one if you haven't expanded your pouch yet) and your heart count and gear become the bounty other players fight. After setup, StreetPass keeps working with the game closed, and any Shadow Links you receive appear as signs in that field. This only registers your fighter; the actual battles are the next entry."
+    },
+    {
+     "name": "Beat Shadow Link battles (and the offline samples)",
+     "giver": "Shadow Link signs",
+     "location": "The field on the west side of Kakariko Village",
+     "reward": "Rupees by bounty (50–999); medals for the 50 challenges",
+     "oneLine": "Duel AI Shadow Links for rupees and challenge medals — even with no friends nearby.",
+     "how": "Walk into a Shadow Link sign to fight an AI Link in one of five arenas; you can only use the two items it carries, so plan your loadout. Winning pays a bounty (50–999 rupees by difficulty) and earns medals toward the 50 challenges — collect all 50 and you can finally duel Gramps himself, who wields upgraded gear. NO STREETPASS PARTNER? The game seeds FREE sample Shadow Links (named 'Shade') into your file periodically as you play, so you can chase every reward entirely offline."
+    }
+   ]
+  }
+ ]
+}
