@@ -1,5 +1,5 @@
 /* Hyrule Companion service worker */
-const VERSION='3e2b45d583';
+const VERSION='f7d8ad2f8d';
 const CACHE='hyrule-'+VERSION;
 const SHELL=['./','./index.html','./manifest.webmanifest','./icon-512.png','./icon-180.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).catch(()=>{}))});

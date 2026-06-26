@@ -642,6 +642,14 @@ function GameSwitchTrigger({ G, onOpen }) {
    (read straight from <id>:progress, since only the active game lives in component state). */
 function GameShelf({ games, game, setGame, onClose }) {
   const [prog, setProg] = useState({});
+  const activeRef = useRef(null);
+  // Esc closes; on open, bring the "Now playing" card into view so you always see where you are.
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    const t = setTimeout(() => { if (activeRef.current) activeRef.current.scrollIntoView({ block: "center" }); }, 40);
+    return () => { document.removeEventListener("keydown", onKey); clearTimeout(t); };
+  }, []);
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -686,7 +694,7 @@ function GameShelf({ games, game, setGame, onClose }) {
                   const g = games[id]; const m = g.meta || {}; const pr = prog[id] || { pct: 0, done: 0, total: 0 };
                   const on = id === game;
                   return (
-                    <button key={id} className={"shelf-card" + (on ? " shelf-card-on" : "")}
+                    <button key={id} ref={on ? activeRef : undefined} className={"shelf-card" + (on ? " shelf-card-on" : "")}
                       style={{ "--ga": m.accent || "var(--cyan)", "--gb": m.accent2 || "#16323a" }}
                       onClick={() => { setGame(id); onClose(); }}>
                       <span className="shelf-cover"><GameCover kind={m.cover} accent={m.accent} /></span>
@@ -785,6 +793,11 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("collect"), JSON.stringify(collect)); }, [collect, loaded]);
   // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
   useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
+  // freeze the page behind a full-screen overlay so touch-scroll doesn't bleed through to the content under it
+  useEffect(() => { const lock = shelfOpen || searchOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen]);
+  // tab-bar taps start the new tab at the top (and re-tapping the current tab scrolls to top, iOS-style).
+  // Programmatic jumps (jumpToStep/focusShrine) use setTab directly so they keep their scroll-into-view.
+  const goTab = (t) => { setTab(t); try { window.scrollTo({ top: 0 }); } catch (e) { window.scrollTo(0, 0); } };
   useEffect(() => { if (loaded) store.set(K("notes"), JSON.stringify(notes)); }, [notes, loaded]);
   useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
   useEffect(() => { if (loaded) store.set(K("recipes"), JSON.stringify(recipes)); }, [recipes, loaded]);
@@ -1301,13 +1314,13 @@ function HyruleGame({ game, setGame, games }) {
       </main>
 
       <nav className="tabbar">
-        <TabBtn active={tab === "status"} onClick={() => setTab("status")} glyph="eye" label="Status" />
-        <TabBtn active={tab === "journey"} onClick={() => setTab("journey")} glyph="tower" label="Journey" />
-        {hasShrines && <TabBtn active={tab === "shrines"} onClick={() => setTab("shrines")} glyph="shrine" label="Shrines" />}
-        <TabBtn active={tab === "items"} onClick={() => setTab("items")} glyph="bag" label="Items" />
-        {hasCook && <TabBtn active={tab === "cook"} onClick={() => setTab("cook")} glyph="pot" label="Cook" />}
-        <TabBtn active={tab === "guide"} onClick={() => setTab("guide")} glyph="book" label="Guide" />
-        <TabBtn active={tab === "library"} onClick={() => setTab("library")} glyph="scroll" label="Lore" />
+        <TabBtn active={tab === "status"} onClick={() => goTab("status")} glyph="eye" label="Status" />
+        <TabBtn active={tab === "journey"} onClick={() => goTab("journey")} glyph="tower" label="Journey" />
+        {hasShrines && <TabBtn active={tab === "shrines"} onClick={() => goTab("shrines")} glyph="shrine" label="Shrines" />}
+        <TabBtn active={tab === "items"} onClick={() => goTab("items")} glyph="bag" label="Items" />
+        {hasCook && <TabBtn active={tab === "cook"} onClick={() => goTab("cook")} glyph="pot" label="Cook" />}
+        <TabBtn active={tab === "guide"} onClick={() => goTab("guide")} glyph="book" label="Guide" />
+        <TabBtn active={tab === "library"} onClick={() => goTab("library")} glyph="scroll" label="Lore" />
       </nav>
     </div>
   );
@@ -2482,6 +2495,7 @@ function PouchView({ inventory, progress, jumpTo, regions, region, cats }) {
 function SearchOverlay({ query, setQuery, onClose, nav, data }) {
   const { REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS, COMPENDIUM } = data;
   const [open, setOpen] = useState(null); // which result is expanded (answer-first)
+  useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
   const q = query.trim().toLowerCase();
   const armorDetail = (a) => {
     let s = "Effect: " + a.bonus + "\nWhere: " + a.where;
@@ -2882,7 +2896,7 @@ function StyleBlock() {
 .search-bar{display:flex;gap:8px;padding:14px 16px 10px;border-bottom:1px solid rgba(95,214,226,0.14);}
 .search-bar .search-input{flex:1;}
 .search-x{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--parch-dim);background:none;border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:0 14px;cursor:pointer;}
-.search-results{flex:1;overflow-y:auto;padding:12px 16px calc(20px + env(safe-area-inset-bottom,0px));}
+.search-results{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px 16px calc(20px + env(safe-area-inset-bottom,0px));}
 .srch-group{margin-bottom:16px;}
 .srch-cat{display:flex;align-items:center;gap:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:8px;}
 .srch-cat-ic{display:flex;color:var(--orange);}
@@ -2940,12 +2954,12 @@ function StyleBlock() {
 .game-now-title{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:15px;color:var(--parch);line-height:1.1;}
 .game-now-sub{font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.5px;color:var(--parch-dim);}
 .game-now-switch{font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.5px;color:var(--parch-dim);white-space:nowrap;align-self:center;}
-.shelf-overlay{position:fixed;inset:0;z-index:60;background:rgba(5,12,15,0.88);backdrop-filter:blur(7px);display:flex;flex-direction:column;animation:fadeIn .2s ease;}
-.shelf{margin:0 auto;width:100%;max-width:560px;max-height:100%;display:flex;flex-direction:column;}
+.shelf-overlay{position:fixed;inset:0;z-index:60;background:rgba(5,12,15,0.92);backdrop-filter:blur(7px);display:flex;flex-direction:column;align-items:center;animation:fadeIn .2s ease;}
+.shelf{width:100%;max-width:560px;height:100%;min-height:0;display:flex;flex-direction:column;}
 .shelf-bar{display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 12px;flex:none;}
 .shelf-title{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:17px;color:var(--parch);letter-spacing:.5px;}
 .shelf-x{font-size:17px;color:var(--parch-dim);background:none;border:none;cursor:pointer;padding:6px 8px;line-height:1;}
-.shelf-scroll{overflow-y:auto;padding:4px 16px calc(28px + env(safe-area-inset-bottom,0px));}
+.shelf-scroll{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:4px 16px calc(28px + env(safe-area-inset-bottom,0px));}
 .shelf-group{margin-bottom:20px;}
 .shelf-group-h{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--parch-dim);margin:0 0 10px 2px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px;}
 .shelf-cards{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
