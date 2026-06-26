@@ -13,13 +13,36 @@
     "sub": "The Hero's Clothes",
     "reward": "Hero's Sword & Telescope",
     "steps": [
-     { "id": "ww_birth_1", "k": "reward", "t": "It's your birthday on quiet Outset Island. By tradition your Grandma dresses you in the green Hero's Clothes, and your little sister Aryll lends you her treasured Telescope.", "items": [
-        { "name": "Telescope", "cat": "item", "note": "Aryll's spyglass — zoom in on far-off things across the sea. You'll use it to spot the bird in a moment." }
-     ] },
-     { "id": "ww_birth_2", "k": "step", "t": "Visit the swordsman Orca in his house and take his training. Pass his lesson and he entrusts you with a real sword.", "items": [
-        { "name": "Hero's Sword", "cat": "sword", "note": "Your first blade. Z/L-target a foe, then slash; learn the spin attack and the parry counter from Orca." }
-     ], "stuck": "Orca lives in the house with the dock on the south of the village. Talk to him, agree to train, and perform the moves he calls out (thrusts, then a spin) to earn the sword." },
-     { "id": "ww_birth_3", "k": "step", "t": "Climb to the island's tall lookout tower with Aryll. Use the Telescope: a huge bird is flying overhead, chased by cannon fire from a pirate ship." }
+     {
+      "id": "ww_birth_1",
+      "k": "reward",
+      "t": "It's your birthday on quiet Outset Island. By tradition your Grandma dresses you in the green Hero's Clothes, and your little sister Aryll lends you her treasured Telescope.",
+      "items": [
+       {
+        "name": "Telescope",
+        "cat": "item",
+        "note": "Aryll's spyglass — zoom in on far-off things across the sea. You'll use it to spot the bird in a moment."
+       }
+      ]
+     },
+     {
+      "id": "ww_birth_2",
+      "k": "step",
+      "t": "Visit the swordsman Orca in his house and take his training. Pass his lesson and he entrusts you with a real sword.",
+      "items": [
+       {
+        "name": "Hero's Sword",
+        "cat": "sword",
+        "note": "Your first blade. Z/L-target a foe, then slash; learn the spin attack and the parry counter from Orca."
+       }
+      ],
+      "stuck": "Orca lives in the house with the dock on the south of the village. Talk to him, agree to train, and perform the moves he calls out (thrusts, then a spin) to earn the sword."
+     },
+     {
+      "id": "ww_birth_3",
+      "k": "step",
+      "t": "Climb to the island's tall lookout tower with Aryll. Use the Telescope: a huge bird is flying overhead, chased by cannon fire from a pirate ship."
+     }
     ]
    },
    {
@@ -28,11 +51,29 @@
     "sub": "Aryll is taken",
     "reward": "Hero's Shield",
     "steps": [
-     { "id": "ww_bird_1", "k": "step", "t": "A cannon shot knocks a pirate girl out of the bird's claws and into the woods at the top of the island. Hurry up the path and through the Fairy Wood to rescue her from the Bokoblins.", "stuck": "Cut the grass and hop the ledges up the mountain path to the forest. Lock onto the green Bokoblins and slash them; reach the girl (Tetra) at the clearing." },
-     { "id": "ww_bird_2", "k": "warn", "t": "As you free the pirate Tetra, the giant Helmaroc King swoops back down — and snatches your sister Aryll by mistake, carrying her off across the sea." },
-     { "id": "ww_bird_3", "k": "reward", "t": "Determined to save Aryll, you get your Grandma's Hero's Shield, and Tetra's pirates grudgingly agree to carry you toward the Forsaken Fortress, where the bird's master cages stolen girls.", "items": [
-        { "name": "Hero's Shield", "cat": "shield", "note": "Your family shield (press R to raise it). Blocks attacks and lets you parry; a Hylian Shield comes much later." }
-     ] }
+     {
+      "id": "ww_bird_1",
+      "k": "step",
+      "t": "A cannon shot knocks a pirate girl out of the bird's claws and into the woods at the top of the island. Hurry up the path and through the Fairy Wood to rescue her from the Bokoblins.",
+      "stuck": "Cut the grass and hop the ledges up the mountain path to the forest. Lock onto the green Bokoblins and slash them; reach the girl (Tetra) at the clearing."
+     },
+     {
+      "id": "ww_bird_2",
+      "k": "warn",
+      "t": "As you free the pirate Tetra, the giant Helmaroc King swoops back down — and snatches your sister Aryll by mistake, carrying her off across the sea."
+     },
+     {
+      "id": "ww_bird_3",
+      "k": "reward",
+      "t": "Determined to save Aryll, you get your Grandma's Hero's Shield, and Tetra's pirates grudgingly agree to carry you toward the Forsaken Fortress, where the bird's master cages stolen girls.",
+      "items": [
+       {
+        "name": "Hero's Shield",
+        "cat": "shield",
+        "note": "Your family shield (press R to raise it). Blocks attacks and lets you parry; a Hylian Shield comes much later."
+       }
+      ]
+     }
     ]
    },
    {
@@ -41,17 +82,1310 @@
     "sub": "Set sail — gather the Pearls",
     "reward": "Wind Waker & Sail",
     "steps": [
-     { "id": "ww_krl_1", "k": "step", "t": "At the Forsaken Fortress the pirates catapult you over the wall. Sneak past the swinging searchlights and Moblin guards to the cell block where the captured girls are held.", "stuck": "Stay out of the moving spotlights — step into one and a Moblin hauls you to a cell. Hide behind barrels and time your dashes between beams." },
-     { "id": "ww_krl_2", "k": "warn", "t": "You find Aryll, but the Helmaroc King seizes you and Ganondorf's forces fling you far out into the sea. You wash ashore, alone." },
-     { "id": "ww_krl_3", "k": "reward", "t": "A talking boat — the King of Red Lions — rescues you. He explains the drowned land's legend and your path: to grow strong enough to save Aryll you must gather the three Pearls of the Goddesses. He entrusts you with the Wind Waker, the conductor's baton.", "items": [
-        { "name": "Wind Waker", "cat": "song", "note": "The magic baton. Conduct songs to change the wind, warp the sea, and command statues and companions — the heart of the whole journey." }
-     ] },
-     { "id": "ww_krl_4", "k": "step", "t": "Sail to Windfall Island and buy a Sail at the shop, so the wind can carry the King of Red Lions across the Great Sea.", "items": [
-        { "name": "Sail", "cat": "item", "note": "Hoist it to catch the wind and travel the sea. Pair it with the Wind's Requiem to keep the wind at your back." }
-     ], "stuck": "Windfall is the big town island just east. The Sail is in the shop; gather a few Rupees from pots and grass if you're short." },
-     { "id": "ww_krl_5", "k": "step", "t": "Learn the Wind's Requiem to steer the wind, then set your course. Your first Pearl, Din's Pearl, waits at Dragon Roost Island to the north — home of the bird-folk Rito.", "stuck": "The Wind's Requiem is taught on a small island with a Goddess statue (the cyclone/triangle isle the King points you to). Conduct it to turn the wind any direction you like." }
+     {
+      "id": "ww_krl_1",
+      "k": "step",
+      "t": "At the Forsaken Fortress the pirates catapult you over the wall. Sneak past the swinging searchlights and Moblin guards to the cell block where the captured girls are held.",
+      "stuck": "Stay out of the moving spotlights — step into one and a Moblin hauls you to a cell. Hide behind barrels and time your dashes between beams."
+     },
+     {
+      "id": "ww_krl_2",
+      "k": "warn",
+      "t": "You find Aryll, but the Helmaroc King seizes you and Ganondorf's forces fling you far out into the sea. You wash ashore, alone."
+     },
+     {
+      "id": "ww_krl_3",
+      "k": "reward",
+      "t": "A talking boat — the King of Red Lions — rescues you. He explains the drowned land's legend and your path: to grow strong enough to save Aryll you must gather the three Pearls of the Goddesses. He entrusts you with the Wind Waker, the conductor's baton.",
+      "items": [
+       {
+        "name": "Wind Waker",
+        "cat": "song",
+        "note": "The magic baton. Conduct songs to change the wind, warp the sea, and command statues and companions — the heart of the whole journey."
+       }
+      ]
+     },
+     {
+      "id": "ww_krl_4",
+      "k": "step",
+      "t": "Sail to Windfall Island and buy a Sail at the shop, so the wind can carry the King of Red Lions across the Great Sea.",
+      "items": [
+       {
+        "name": "Sail",
+        "cat": "item",
+        "note": "Hoist it to catch the wind and travel the sea. Pair it with the Wind's Requiem to keep the wind at your back."
+       }
+      ],
+      "stuck": "Windfall is the big town island just east. The Sail is in the shop; gather a few Rupees from pots and grass if you're short."
+     },
+     {
+      "id": "ww_krl_5",
+      "k": "step",
+      "t": "Learn the Wind's Requiem to steer the wind, then set your course. Your first Pearl, Din's Pearl, waits at Dragon Roost Island to the north — home of the bird-folk Rito.",
+      "stuck": "The Wind's Requiem is taught on a small island with a Goddess statue (the cyclone/triangle isle the King points you to). Conduct it to turn the wind any direction you like."
+     }
     ]
    }
   ]
+ },
+ {
+  "id": "ww_dragon",
+  "name": "Dragon Roost Island & Cavern",
+  "sub": "Din's Pearl",
+  "champion": "Din's Pearl",
+  "tagline": "Help the bird-folk, swing the chasms, take the first Pearl.",
+  "sections": [
+   {
+    "id": "ww_dragon_arrival",
+    "name": "Sail to Dragon Roost",
+    "sub": "Northeast across the Great Sea to the Rito home",
+    "steps": [
+     {
+      "id": "ww_dragon_setsail",
+      "k": "step",
+      "t": "Set the King of Red Lions toward Dragon Roost Island — the volcano island in the northeast of the Great Sea, reached once you have your sail. Climb in and let the wind carry you.",
+      "stuck": "You need the sail (bought on Windfall) and the Wind Waker before this chapter. On the sea chart, Dragon Roost is the smoking volcanic island toward the northeast; point the boat that way and set the wind behind you (next step) so the sail fills."
+     },
+     {
+      "id": "ww_dragon_windnorth",
+      "k": "step",
+      "t": "Point the wind your way. Conduct the Wind's Requiem with the Wind Waker, then choose the direction you need to sail so the wind shifts behind your sail and you actually move.",
+      "stuck": "The Wind's Requiem is Up, Left, Right (conduct with the stick). After it plays, pick the compass direction you want the wind to blow — set it toward Dragon Roost, then raise the sail to ride it there."
+     },
+     {
+      "id": "ww_dragon_landing",
+      "k": "step",
+      "t": "Dock at Dragon Roost. The sky spirit Valoo is raging atop the volcano and the Rito bird-folk are frightened. Step off the boat onto the island.",
+      "stuck": "There's a single landing spot — a small wooden pier on the island's lower edge. Sail right up to it and press the action button to hop ashore."
+     }
+    ]
+   },
+   {
+    "id": "ww_dragon_rito",
+    "name": "Help the Rito",
+    "sub": "Earn your way up to the dragon",
+    "steps": [
+     {
+      "id": "ww_dragon_aerie",
+      "k": "step",
+      "t": "Head up into the Rito Aerie, the village built into the cliff. Talk to the Rito to learn that Valoo is furious and that Prince Komali is sulking in his room, clutching a family heirloom — Din's Pearl.",
+      "stuck": "From the landing, follow the path uphill and inside the mountain to the village. Speak to everyone; you'll be pointed toward the attendant Medli and toward the prince, who won't part with the Pearl until Valoo is calmed."
+     },
+     {
+      "id": "ww_dragon_letter",
+      "k": "step",
+      "t": "Find Medli in the village. She hands you a letter from Komali's late grandfather, meant for the prince. Take it to Prince Komali's room and show it to him to be allowed deeper.",
+      "stuck": "Medli is the young Rito harpist near the village. Talk to her to receive the letter, then go to Komali's room and equip and show the letter to him. He still won't give up the Pearl yet, but the way forward opens."
+     },
+     {
+      "id": "ww_dragon_medli",
+      "k": "step",
+      "t": "Outside on the cliffs, you'll find Medli stuck below a high ledge. Pick her up and throw her up so she can fly across — she opens the way toward the cavern.",
+      "stuck": "Medli is out on the rock ledges on the island's exterior, by a tall rock. Stand on the small rock formation, pick her up with the action button, aim, and throw her onto the high ledge when the wind blows that way so she can glide across."
+     },
+     {
+      "id": "ww_dragon_bottle",
+      "k": "loot",
+      "t": "As thanks for helping her up, Medli gives you an Empty Bottle — one of the most useful tools in the game.",
+      "items": [
+       {
+        "name": "Empty Bottle",
+        "cat": "item",
+        "note": "Holds water, potions, fairies, soup — a key all-purpose tool. Given by Medli."
+       }
+      ]
+     },
+     {
+      "id": "ww_dragon_enter",
+      "k": "step",
+      "t": "Reach the cavern entrance, high on the volcano. The way is blocked — use the Empty Bottle to carry water to a withered bomb flower nearby, revive it, then throw it to blast the boulder and flood the path so you can climb up to the door.",
+      "stuck": "Scoop water into the Empty Bottle from a nearby pool, pour it on the dried-up bomb flower to bring it back to life, then pick the bomb flower up and toss it at the big rock. The blast clears it and water rushes in, opening the route to the cavern mouth."
+     }
+    ]
+   },
+   {
+    "id": "ww_dragon_cavern",
+    "name": "Dragon Roost Cavern",
+    "sub": "Lava, bomb flowers, and the Grappling Hook",
+    "reward": "Grappling Hook",
+    "steps": [
+     {
+      "id": "ww_dragon_grapple",
+      "k": "loot",
+      "t": "Find the dungeon's treasure: the Grappling Hook. Swing it at wooden posts and overhead beams to cross chasms and lava pits, pull yourself up to ledges, and even steal items off enemies.",
+      "items": [
+       {
+        "name": "Grappling Hook",
+        "cat": "item",
+        "note": "Swing across gaps, climb up, and steal items from enemies; the Dragon Roost Cavern dungeon item."
+       }
+      ],
+      "stuck": "The Grappling Hook is in a chest partway through the cavern. After you get it, lock on (Z/L) to an overhead beam or grapple post and fire — Link swings. Aim for the next post mid-swing to chain across a gap."
+     },
+     {
+      "id": "ww_dragon_swing",
+      "k": "step",
+      "t": "Use the Grappling Hook to cross the lava-filled rooms — lock onto the wooden targets above the gaps and swing post to post. It also pulls you up to ledges you can't jump to.",
+      "stuck": "Z/L-target the post or beam, press the Grappling Hook button to throw and grab, then push the stick toward the next post to build speed and release at the top of the arc to land on the far side."
+     },
+     {
+      "id": "ww_dragon_bait",
+      "k": "tip",
+      "t": "The cavern is full of bomb flowers and lava puzzles: water a withered bomb flower with your bottle, or carry a live one, to blow up boulders and cracked walls. When in doubt, look for a bomb flower to clear the way."
+     },
+     {
+      "id": "ww_dragon_key",
+      "k": "loot",
+      "t": "Collect the Big Key for the boss door as you work through the cavern — it's guarded deeper in, past the Grappling-Hook swings (you'll knock a Magtail onto a floor switch to reach its chest).",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the boss door in Dragon Roost Cavern."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "ww_dragon_boss",
+    "name": "Gohma & Din's Pearl",
+    "sub": "Drop the ceiling, calm Valoo, take the Pearl",
+    "reward": "Din's Pearl",
+    "steps": [
+     {
+      "id": "ww_dragon_gohma",
+      "k": "step",
+      "t": "Boss: Gohma. The giant armored creature has clamped onto Valoo's tail, which dangles from the ceiling. Its shell is too tough for your sword — you have to bring the ceiling down on it.",
+      "stuck": "Valoo's tail hangs above the lava. The trick is the Grappling Hook on that tail — but you swing on it, you don't pull it down. See the next step."
+     },
+     {
+      "id": "ww_dragon_drop",
+      "k": "step",
+      "t": "Grappling-Hook onto Valoo's dangling tail and swing across, jumping off on the far side. This enrages Valoo, who slams the ceiling — a chunk of rock crashes onto Gohma and cracks its shell. Do this three times to break the armor off completely.",
+      "stuck": "Z/L-target Valoo's tail, grapple it, and ride the swing to the other side. Each swing makes Valoo drop a rock on Gohma. Three swings shatter the carapace and expose Gohma's single red eye. Watch for Gohma's eye to glow as a charge warning."
+     },
+     {
+      "id": "ww_dragon_eye",
+      "k": "step",
+      "t": "With the armor gone and the eye exposed, lock onto Gohma and fire the Grappling Hook at its eye to drag it close, then slash it with your sword. Repeat until Gohma is destroyed.",
+      "stuck": "Z/L-target Gohma, hook the open eye to reel it toward you, and hammer it with sword strikes. A couple of cycles of this — pull the eye in, slash — finishes the fight."
+     },
+     {
+      "id": "ww_dragon_valoo",
+      "k": "reward",
+      "t": "Gohma is destroyed and Valoo is freed. Take the Heart Container it leaves behind, then step into the wind in the center of the room to warp out.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "item",
+        "note": "Left by Gohma; permanently adds one full heart to your life."
+       }
+      ],
+      "stuck": "Grab the Heart Container that drops, then stand in the swirling wind to be carried back out to Dragon Roost Island."
+     },
+     {
+      "id": "ww_dragon_pearl",
+      "k": "reward",
+      "t": "Back outside, Valoo is calm and Prince Komali — his courage restored — gives you his grandmother's heirloom: Din's Pearl, the first of the three goddess pearls. The chapter's trophy is yours.",
+      "items": [
+       {
+        "name": "Din's Pearl",
+        "cat": "key",
+        "note": "The first goddess Pearl, given by Prince Komali after Valoo is calmed; one of three."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "ww_forest",
+  "name": "Forest Haven & the Forbidden Woods",
+  "sub": "Farore's Pearl",
+  "champion": "Farore's Pearl",
+  "tagline": "A leaf that lets you glide, a Korok to rescue.",
+  "sections": [
+   {
+    "id": "ww_forest_haven",
+    "name": "Sail to the Forest Haven",
+    "sub": "Find the giant tree and earn the Deku Leaf",
+    "steps": [
+     {
+      "id": "ww_forest_sail",
+      "k": "step",
+      "t": "Set sail for the Forest Haven, the big hollow-tree island in the southwest of the Great Sea (sector F6 on the chart, west of Windfall Island). Climb aboard the King of Red Lions and point your bow toward it.",
+      "stuck": "If the wind is blowing the wrong way, pull out the Wind Waker and conduct the Wind's Requiem (Up, Left, Right) to set the wind, then steer southwest toward where the Forest Haven sits."
+     },
+     {
+      "id": "ww_forest_enter",
+      "k": "step",
+      "t": "Dock at the Forest Haven and head inside the great hollow tree. Climb the winding ledges and use the small platforms and water spouts to work your way up toward the Great Deku Tree at the top.",
+      "stuck": "The path spirals upward. Hop across the lily-pad platforms and ride the little waterfalls/spouts; if a gap is too wide, look for a vine or ledge you can grab and shimmy along."
+     },
+     {
+      "id": "ww_forest_deku_tree",
+      "k": "step",
+      "t": "Speak with the Great Deku Tree at the top. He explains that Koroks live here and that one, Makar, has gone missing in the nearby Forbidden Woods. He gives you the Deku Leaf to reach it.",
+      "items": [
+       {
+        "name": "Deku Leaf",
+        "cat": "item",
+        "note": "Swing it to fan a gust of wind, or hold it open to glide on rising air currents. Gliding and big gusts drain your Magic Meter."
+       }
+      ]
+     },
+     {
+      "id": "ww_forest_glide",
+      "k": "step",
+      "t": "Leave the tree and make your way to the Forbidden Woods. Conduct the Wind's Requiem to aim the wind, Deku-Leaf across to the nearest plateau, then ride the swirling updraft between the islands — it lifts you high enough to glide the rest of the way to the cavern entrance.",
+      "stuck": "Set the wind toward the Forbidden Woods, glide to the small plateau, then conduct Wind's Requiem again (try Northwest). Jump into the rising swirl of air with the Deku Leaf held open — the updraft carries you up so you can float over to the entrance. Watch your green Magic Meter — land before it empties or you'll fall."
+     },
+     {
+      "id": "ww_forest_magic_tip",
+      "k": "tip",
+      "t": "The Deku Leaf runs on Magic. If you run low, smash pots, cut grass, or defeat enemies to find green magic jars that refill the meter."
+     }
+    ]
+   },
+   {
+    "id": "ww_forest_woods",
+    "name": "Into the Forbidden Woods",
+    "sub": "Claim the Boomerang and rescue Makar",
+    "reward": "Boomerang",
+    "steps": [
+     {
+      "id": "ww_forest_woods_enter",
+      "k": "step",
+      "t": "Enter the Forbidden Woods. This dungeon is built around wind: launch yourself out of the purple Baba Buds, and use the Deku Leaf to spin propellers/windmills and ride the gusts they make across the gaps.",
+      "stuck": "Hop into a Baba Bud and it flings you upward. To cross long drops, fan a propeller with the Deku Leaf or swing the leaf to push yourself off a ledge, then hold it open to glide."
+     },
+     {
+      "id": "ww_forest_woods_boko_baba",
+      "k": "warn",
+      "t": "Watch for Boko Baba — snapping plant heads on stalks. Z/L-target them and slash, or stun them with a gust of the Deku Leaf; cutting one down can leave a Baba Bud you can use."
+     },
+     {
+      "id": "ww_forest_woods_mothula",
+      "k": "warn",
+      "t": "Partway in you'll face the mini-boss Mothula — a giant moth. Cut off its wings, then keep slashing the grounded body. Beating it opens the way to the dungeon's treasure."
+     },
+     {
+      "id": "ww_forest_woods_boomerang",
+      "k": "loot",
+      "t": "Claim the dungeon's treasure: the Boomerang. Throw it to stun enemies, cut ropes and stalks, and (with Z/L) lock onto up to five targets at once before you let it fly.",
+      "items": [
+       {
+        "name": "Boomerang",
+        "cat": "item",
+        "note": "Hold Z/L and aim to lock up to five targets; release to hit them all in order. Cuts ropes, hits switches, and severs Kalle Demos's tentacles."
+       },
+       {
+        "name": "Forbidden Woods Small Key",
+        "cat": "key",
+        "note": "Found in the dungeon to open its locked doors."
+       }
+      ]
+     },
+     {
+      "id": "ww_forest_woods_boomerang_use",
+      "k": "tip",
+      "t": "Use the Boomerang on rope-tied switches and on the crystal/flower switches that open doors — lock several at once with Z/L to trip them together. Several locked paths only open once you cut a hanging vine or hit a far-off target with it."
+     },
+     {
+      "id": "ww_forest_woods_makar",
+      "k": "step",
+      "t": "Work through the dungeon to the cage where the little Korok Makar is trapped. Free him — he'll flee from the boss room, leaving you to face what lurks below.",
+      "stuck": "Makar is held in a hanging cage above the boss door. Cut the vine holding it (Boomerang or sword) to drop the cage and release him before the boss fight begins."
+     }
+    ]
+   },
+   {
+    "id": "ww_forest_boss",
+    "name": "Boss: Kalle Demos",
+    "sub": "The carnivorous flower",
+    "steps": [
+     {
+      "id": "ww_forest_boss_fight",
+      "k": "step",
+      "t": "Drop into the boss arena and face Kalle Demos, a huge flower hanging from the ceiling by glowing tentacles. Its body stays out of reach until you bring it down.",
+      "stuck": "It dangles by several vine-like tentacles around the room. You can't hurt the flower while it hangs — you must sever the tentacles first."
+     },
+     {
+      "id": "ww_forest_boss_tentacles",
+      "k": "step",
+      "t": "Z/L-target the glowing tentacles holding Kalle Demos up and cut them with the Boomerang. Lock onto several at once to slice a whole side in one throw; cut them all and the flower crashes to the floor, opening to reveal its inner bulb.",
+      "stuck": "Stand back for a clear view, then sweep the Z/L reticle across as many tentacles as you can before throwing — up to five at a time. When the last one is severed, the whole plant drops down. Dodge the loose vines that pop up around you."
+     },
+     {
+      "id": "ww_forest_boss_bulb",
+      "k": "step",
+      "t": "While Kalle Demos is on the ground and open, rush in and hack at the exposed inner bulb with your sword (spin attacks do the most). It will try to rise again — keep cutting the tentacles to drop it, then striking the bulb, until it's destroyed.",
+      "stuck": "Roll or rush to the bulb and swing repeatedly before it lifts back up; spin attacks land the most damage fast. Repeat the cycle — cut tentacles to drop it, slash the bulb — until it dies."
+     },
+     {
+      "id": "ww_forest_boss_heart",
+      "k": "reward",
+      "t": "With Kalle Demos defeated, claim the Heart Container it leaves behind, then step into the blue warp to return to the Forest Haven.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "item",
+        "note": "Adds one full heart to your life bar."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "ww_forest_pearl",
+    "name": "Farore's Pearl",
+    "sub": "The Great Deku Tree's gift",
+    "reward": "Farore's Pearl",
+    "steps": [
+     {
+      "id": "ww_forest_pearl_return",
+      "k": "step",
+      "t": "Back at the Forest Haven, return to the Great Deku Tree. With Makar safe and the woods cleared, the Tree thanks you and entrusts you with the second of the three goddess pearls."
+     },
+     {
+      "id": "ww_forest_pearl_get",
+      "k": "reward",
+      "t": "Receive Farore's Pearl from the Great Deku Tree — your trophy for this chapter and one step closer to reaching the Tower of the Gods.",
+      "items": [
+       {
+        "name": "Farore's Pearl",
+        "cat": "key",
+        "note": "The second goddess pearl. Collect all three (Din's, Farore's, Nayru's) to open the path to the Tower of the Gods."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "ww_nayru",
+  "name": "Nayru's Pearl & Jabun",
+  "sub": "The third Pearl",
+  "champion": "Nayru's Pearl",
+  "tagline": "Bombs from the pirates, a sea-spirit on Outset.",
+  "kind": "region",
+  "sections": [
+   {
+    "id": "ww_nayru_bombs",
+    "name": "Bombs from the Pirates",
+    "sub": "Sneak the password, beat Niko",
+    "reward": "Bombs",
+    "steps": [
+     {
+      "id": "ww_nayru_greatfish",
+      "k": "step",
+      "t": "First sail to Greatfish Isle (near the middle of the map) to fetch Nayru's Pearl from Jabun. You'll find the island wrecked — Ganondorf got here first, and Jabun has fled. Quill the postman tells you Jabun escaped to your home, Outset Island.",
+      "stuck": "There's nothing to fight here — just sail up to the ruined island and the cutscene plays. Afterward you need Bombs before you can reach Jabun, so head to Windfall Island next."
+     },
+     {
+      "id": "ww_nayru_sail_windfall",
+      "k": "step",
+      "t": "Sail to Windfall Island (toward the middle of the Great Sea) and wait for night. Tetra's pirate ship is docked here, and the pirates have just robbed the island's Bomb Shop — but you can't board their ship without the password.",
+      "stuck": "If the wind is against you, conduct the Wind's Requiem with the Wind Waker to turn the wind toward Windfall, then raise your sail. To skip waiting for night, sit on a nearby bench or just sail around and let time pass."
+     },
+     {
+      "id": "ww_nayru_password",
+      "k": "step",
+      "t": "Sneak into the Bomb Shop to learn the password. The front door is locked, so go around the back-left of the shop, climb the vines, and crawl through the gap. Watch the pirates tie up the owner and rob him — at the end of the scene they say the secret password out loud.",
+      "stuck": "The way in is the vine-covered wall and small crawl-hole at the BACK of the shop, not the locked front door. Pay attention to the very end of the cutscene — the password they blurt out is what you need. It changes between save files, so listen each time."
+     },
+     {
+      "id": "ww_nayru_board_ship",
+      "k": "step",
+      "t": "Go to the docked pirate ship and talk to the door. Enter the password you just overheard to climb aboard and drop into the hold, where Niko is waiting.",
+      "stuck": "Walk up to the ship's door and you'll be asked for the password — give the one from the Bomb Shop scene. If you can't board, make sure it's night and that you actually saw the robbery cutscene first."
+     },
+     {
+      "id": "ww_nayru_niko_challenge",
+      "k": "step",
+      "t": "Niko sets you his rope-swinging test in the hold. Swing from rope to rope across the room and reach the far platform before time runs out. This is the harder course — there are no rest platforms in the middle, so chain your swings.",
+      "stuck": "Press A to grab a rope, swing forward, and tap A again at the top of the arc to launch to the next rope — don't wait. If you fall in the water, climb out and Niko lets you retry; momentum is everything, so jump as you swing forward, never backward."
+     },
+     {
+      "id": "ww_nayru_get_bombs",
+      "k": "reward",
+      "t": "Clear Niko's challenge and he hands you the pirates' stolen Bombs. Now you can blow open cracked walls and rocks on land.",
+      "items": [
+       {
+        "name": "Bombs",
+        "cat": "item",
+        "note": "Set or throw them at cracked walls and boulders. Out at sea they become cannon-shots once the King of Red Lions has its cannon."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "ww_nayru_jabun",
+    "name": "Jabun on Outset",
+    "sub": "Blast the sealed cave",
+    "reward": "Nayru's Pearl",
+    "steps": [
+     {
+      "id": "ww_nayru_sail_outset",
+      "k": "step",
+      "t": "Sail all the way back to Outset Island — your home island in the south-west corner of the map. Jabun, the sea-spirit, has hidden in a sealed cave on the back of the island.",
+      "stuck": "Outset is the bottom-left island where the game began. Conduct the Wind's Requiem to set the wind in your favor, then sail. If you've already learned the Ballad of Gales you can warp straight to Outset."
+     },
+     {
+      "id": "ww_nayru_cannon",
+      "k": "step",
+      "t": "When you near Outset at night, the King of Red Lions fits its cannon for you. With Bombs equipped, the cannon can now fire bomb-shots from the boat's prow.",
+      "stuck": "This happens automatically as part of the scene — you don't buy or find the cannon. Make sure Bombs are set to a button so you can fire them out at sea."
+     },
+     {
+      "id": "ww_nayru_find_cave",
+      "k": "step",
+      "t": "Sail around to the far side of Outset Island. Look for the cracked stone door sealing a cave right at the water's edge.",
+      "stuck": "Don't land at the dock — keep the King of Red Lions in the water and circle the island until you spot the big cracked stone wall blocking a cave at sea level on the back side."
+     },
+     {
+      "id": "ww_nayru_bomb_cave",
+      "k": "step",
+      "t": "Fire bomb-shots from the boat's cannon at the cracked stone door to break it open in pieces, then sail inside to where Jabun waits.",
+      "stuck": "The door breaks in sections — aim at the cracked top section first, then the middle, then the bottom, firing more shots as you drift closer. Once the gap is clear, steer the boat in."
+     },
+     {
+      "id": "ww_nayru_get_pearl",
+      "k": "reward",
+      "t": "The King of Red Lions speaks for you, and Jabun — trusting the boat — entrusts you with Nayru's Pearl, the third and last of the goddess pearls.",
+      "items": [
+       {
+        "name": "Nayru's Pearl",
+        "cat": "key",
+        "note": "The third Pearl. With Din's, Farore's, and Nayru's, you can raise the Tower of the Gods."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "ww_nayru_triangles",
+    "name": "Raise the Tower",
+    "sub": "Set the three Pearls",
+    "steps": [
+     {
+      "id": "ww_nayru_triangle_islands",
+      "k": "step",
+      "t": "Sail to the three Triangle Islands that ring the center of the map — each holds a goddess statue with cupped hands. Place each Pearl in its matching statue: Din's Pearl on the Northern island, Farore's on the Eastern island, and Nayru's on the Southern island.",
+      "stuck": "The three islands form a big triangle around the middle of the Great Sea. Sail up to each statue and Link sets the Pearl automatically — you need all three placed, so don't stop at one."
+     },
+     {
+      "id": "ww_nayru_tower_rises",
+      "k": "tip",
+      "t": "With all three Pearls set, beams of light shoot between the statues to form a glowing triangle, the Triforce mark appears, and the Tower of the Gods rises from the sea at the center — your next trial, and the path toward Hyrule below."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ww_totg",
+  "name": "The Tower of the Gods & the Master Sword",
+  "sub": "Into drowned Hyrule",
+  "champion": null,
+  "tagline": "Pass the gods' trial, descend to old Hyrule, draw the blade.",
+  "sections": [
+   {
+    "id": "ww_totg_raise",
+    "name": "Raise the Tower",
+    "sub": "Three Pearls, one trial",
+    "steps": [
+     {
+      "id": "ww_totg_sail_triangles",
+      "k": "step",
+      "t": "Sail to the three small Triangle Islands out near the center of the Great Sea — Northern, Eastern, and Southern Triangle Island. They sit in a wide spread around the middle of the map.",
+      "stuck": "Open your Sea Chart. The three Triangle Islands form a big triangle near the center of the map. Conduct the Wind's Requiem to point the wind toward each one, then raise your sail to cross."
+     },
+     {
+      "id": "ww_totg_place_pearls",
+      "k": "step",
+      "t": "At each Triangle Island, place a Goddess Pearl into the statue there — Din's Pearl, Farore's Pearl, and Nayru's Pearl, one per island. When all three are set, the statues burst open and a beam of light links them.",
+      "stuck": "You gathered all three Pearls in the chapters before this — Din's from Prince Komali, Farore's from the Great Deku Tree, Nayru's from Jabun. Step up to each statue and Link sets the matching Pearl automatically. The order doesn't matter."
+     },
+     {
+      "id": "ww_totg_tower_rises",
+      "k": "step",
+      "t": "Watch the Tower of the Gods rise from the sea in the middle of the three islands. Sail to its base and step inside — the gods' trial begins.",
+      "stuck": "After the third Pearl is placed, sail into the center of the three islands. The huge tower has surfaced there; pull up to its dock and go in."
+     },
+     {
+      "id": "ww_totg_wind_requiem_tip",
+      "k": "tip",
+      "t": "If the wind ever fights your heading on the open sea, take out the Wind Waker and conduct the Wind's Requiem (Up, Left, Right) to spin the wind your way before raising the sail."
+     }
+    ]
+   },
+   {
+    "id": "ww_totg_tower",
+    "name": "The Tower of the Gods",
+    "sub": "Statues, water levels, and the Bow",
+    "reward": "Hero's Bow",
+    "steps": [
+     {
+      "id": "ww_totg_servant_statue",
+      "k": "step",
+      "t": "Early in the tower you meet the Servant of the Tower — a small statue you can control. Use Command Melody (the song the King of Red Lions teaches you) to take it over and walk it onto switches and through gaps Link can't reach.",
+      "stuck": "Stand near the little statue, pull out the Wind Waker, and conduct Command Melody (Left, Center, Right, Center). Link freezes and you steer the statue with the control stick. Walk it onto floor switches to open the way, then end the song to return to Link."
+     },
+     {
+      "id": "ww_totg_water_levels",
+      "k": "step",
+      "t": "Use the rising-and-falling water to float the big stone platforms and statues where you need them. Raise the water to lift them, lower it to set them down, and ferry your Servant statue across.",
+      "stuck": "Look for the water-control switches. Raising the water makes statues and platforms float higher; matching their height to a doorway or switch is the heart of each puzzle."
+     },
+     {
+      "id": "ww_totg_heros_bow",
+      "k": "loot",
+      "t": "Open the dungeon's big chest to claim the Hero's Bow. Now you can shoot distant eye-switches, far-off targets, and enemies from range.",
+      "stuck": "The Bow chest is partway up the tower, after the main statue puzzles. Once you have it, scan walls and ceilings for round eye targets — an arrow to an eye usually opens a door or drops a bridge.",
+      "items": [
+       {
+        "name": "Hero's Bow",
+        "cat": "bow",
+        "note": "Tower of the Gods dungeon item — shoot eye-switches, distant targets, and enemies."
+       }
+      ]
+     },
+     {
+      "id": "ww_totg_eye_switches",
+      "k": "tip",
+      "t": "From here on, an arrow to a glowing eye is your friend. Z/L-target the eye, hold to aim, and release. Several locked doors and the path to the boss open this way."
+     }
+    ]
+   },
+   {
+    "id": "ww_totg_gohdan",
+    "name": "Gohdan & the Great Bell",
+    "sub": "The guardian of the trial",
+    "steps": [
+     {
+      "id": "ww_totg_gohdan_hands",
+      "k": "step",
+      "t": "At the top you face Gohdan, a giant stone idol with two huge hands and a face. Shoot an arrow into the eye on each hand to disable both hands.",
+      "stuck": "Z/L-target a hand and put an arrow through the eye on its palm. When both hands are down, Gohdan's two face-eyes open up — those are your next targets."
+     },
+     {
+      "id": "ww_totg_gohdan_mouth",
+      "k": "step",
+      "t": "With both hands down, shoot an arrow into each of Gohdan's two open face-eyes. Its head crashes to the floor — run up onto it and throw a bomb into its open MOUTH to deal real damage. Repeat the whole cycle until it falls.",
+      "stuck": "After the eyes are hit, the head drops low and the mouth gapes open. Toss a bomb straight into the mouth. Watch the hands — they'll try to push or crush you; roll clear, then re-stun them with arrows."
+     },
+     {
+      "id": "ww_totg_gohdan_refill_tip",
+      "k": "tip",
+      "t": "Out of arrows mid-fight? Gohdan sneezes out a fresh batch of arrows for you — so don't panic if you run dry. Bring a few bombs in, since you need one per knockdown to land damage in the mouth."
+     },
+     {
+      "id": "ww_totg_ring_bell",
+      "k": "step",
+      "t": "With Gohdan beaten, ride the column of light to the very top of the tower and strike the great bell. Its toll rings out across the Great Sea and the gods judge you worthy.",
+      "stuck": "Step into the light at the summit. At the top, a giant bell hangs over a spiral — sound it to finish the trial."
+     },
+     {
+      "id": "ww_totg_path_opens",
+      "k": "reward",
+      "t": "The bell's ring opens the way down to the drowned land below. Leave the tower and a swirling light now waits on the sea where old Hyrule sank — sail into it to descend.",
+      "stuck": "When you leave the tower, the King of Red Lions guides you to the spot. A swirling light on the water is the entrance to flooded Hyrule — sail straight into it."
+     }
+    ]
+   },
+   {
+    "id": "ww_totg_master_sword",
+    "name": "Drowned Hyrule & the Master Sword",
+    "sub": "The blade beneath the sea",
+    "reward": "Master Sword",
+    "steps": [
+     {
+      "id": "ww_totg_descend",
+      "k": "step",
+      "t": "Descend beneath the waves into old Hyrule, frozen in time and bathed in golden light. Cross the grounds and head into the ruined Hyrule Castle.",
+      "stuck": "Everything here is held still except you. Walk past the frozen Moblins and Darknuts — they can't move — and make for the castle's main hall."
+     },
+     {
+      "id": "ww_totg_master_sword_chamber",
+      "k": "step",
+      "t": "In the central hall, find the Triforce emblem set into the floor with three triangular stone blocks. Pull the blocks onto the matching Triforce marks. The giant Hero of Time statue shifts aside, opening a stairway down to the hidden chamber.",
+      "stuck": "Look for the three triangle blocks near the Triforce mark on the floor. Push/pull each one onto its matching triangle. Complete the Triforce and a cutscene moves the big statue, revealing the passage to the sword below."
+     },
+     {
+      "id": "ww_totg_draw_sword",
+      "k": "reward",
+      "t": "In the chamber below — stained-glass walls, a sword in the center pedestal — step up and pull the Master Sword free.",
+      "stuck": "Approach the sword in the pedestal and press to draw it. A cutscene takes over — be ready, because lifting it breaks Hyrule's stillness and the castle's monsters wake.",
+      "items": [
+       {
+        "name": "Master Sword",
+        "cat": "sword",
+        "note": "Drawn in flooded Hyrule beneath the sea. It is not yet at full strength — restoring its power comes later in your quest."
+       }
+      ]
+     },
+     {
+      "id": "ww_totg_powerless_warn",
+      "k": "warn",
+      "t": "This Master Sword is not yet at full power — its evil-banishing force has been weakened. It cuts fine for now (it makes the castle Darknuts much easier), but you'll later learn it must be restored before it can truly repel evil. Don't count on it as the legendary bane of Ganon just yet."
+     },
+     {
+      "id": "ww_totg_fight_out",
+      "k": "step",
+      "t": "The instant you take the sword, both castle exits seal and every frozen Moblin and Darknut wakes. Clear the whole room to drop the barriers, then leave drowned Hyrule.",
+      "stuck": "Z/L-target one foe at a time. Darknuts must be hit in the back or staggered first — when an enemy leaves an opening and the A counter prompt appears, parry for a fast finisher. Grab the Knight's Crests they drop. Clear them all and the path out opens."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "ww_fortress",
+  "name": "Return to the Forsaken Fortress",
+  "sub": "Rescue Aryll, face Ganondorf",
+  "champion": null,
+  "tagline": "A giant hammer, a masked bird, and the first meeting with the King of Evil.",
+  "sections": [
+   {
+    "id": "ww_fortress_approach",
+    "name": "Sail Back and Storm In",
+    "sub": "Reach the now-lit fortress in the northwest",
+    "steps": [
+     {
+      "id": "ww_fortress_set_sail",
+      "k": "step",
+      "t": "Sail to the Forsaken Fortress in the far northwest of the Great Sea (top-left of your chart). It is lit up now, not dark like your first visit. Point the wind that way before you go.",
+      "stuck": "Pull out the Wind Waker and conduct the Wind's Requiem (Up, Left, Right) to set the wind, then choose a northwest direction so your sail carries you straight there. If it is faster, conduct the Ballad of Gales to warp to a nearby square first."
+     },
+     {
+      "id": "ww_fortress_no_cannon_dodge",
+      "k": "step",
+      "t": "Cannons on the fortress walls fire at the King of Red Lions as you approach. Weave left and right so the shots miss, then aim and fire your boat's own cannon to blast apart the barred wooden door blocking the way in.",
+      "stuck": "Hold the boat's cannon button to aim, line up the reticle on the big door, and fire to smash it open. Keep moving so the wall cannons keep missing while you do it, then sail through and dock."
+     },
+     {
+      "id": "ww_fortress_enter",
+      "k": "step",
+      "t": "Climb up from the dock and head inside. Unlike last time you keep your sword now, so fight the Bokoblin guards instead of sneaking, Z/L-targeting each one before you strike."
+     },
+     {
+      "id": "ww_fortress_parry",
+      "k": "tip",
+      "t": "When an enemy flashes and a button prompt pops up, hit it to PARRY: Link leaps over or behind the foe for a flashy one-hit counter. It is the safest way through the fortress guards."
+     }
+    ]
+   },
+   {
+    "id": "ww_fortress_hammer",
+    "name": "The Skull Hammer",
+    "sub": "Beat Phantom Ganon, claim the dungeon item, pound your way up",
+    "steps": [
+     {
+      "id": "ww_fortress_phantom_ganon",
+      "k": "step",
+      "t": "Work up through the fortress until a shadowy Phantom Ganon blocks the way. Beat him first: he flings balls of energy at you, so swing your sword to bat them straight back at him until he goes down.",
+      "stuck": "Z/L-target Phantom Ganon and watch for the glowing orb he throws. Time a sword swing to knock it back toward him; a rally of a few returns staggers him, then close in and slash. He must fall before the chest with the Skull Hammer will appear."
+     },
+     {
+      "id": "ww_fortress_find_hammer",
+      "k": "loot",
+      "t": "With Phantom Ganon beaten, a treasure chest appears holding this dungeon's weapon, the Skull Hammer, an enormous mallet.",
+      "items": [
+       {
+        "name": "Skull Hammer",
+        "cat": "item",
+        "note": "A giant hammer: pounds wooden pegs and posts into the floor and is the only thing that can crack the Helmaroc King's iron mask."
+       }
+      ]
+     },
+     {
+      "id": "ww_fortress_pegs",
+      "k": "step",
+      "t": "Use the Skull Hammer to pound the wooden pegs and posts sticking out of the floor flat, clearing the path and opening the way to the next door upward.",
+      "stuck": "Stand next to a peg and swing the hammer (the item button). One overhead blow drives a peg fully into the ground. Pound every peg blocking a room to open the path forward."
+     },
+     {
+      "id": "ww_fortress_smash_guards",
+      "k": "tip",
+      "t": "The Skull Hammer also flattens enemies and shatters wooden barricades. A single overhead swing crushes most fortress foes if Z/L-targeting and parries feel risky."
+     },
+     {
+      "id": "ww_fortress_free_girls",
+      "k": "step",
+      "t": "Higher in the fortress you find the cell where the kidnapped girls are held. Free Aryll and the other captured girls so they can finally escape.",
+      "stuck": "Reach the prison room near the top of the fortress and open the cell. Aryll is among the girls inside, all taken by the giant bird. Freeing them clears the way toward the top of the central tower."
+     }
+    ]
+   },
+   {
+    "id": "ww_fortress_helmaroc",
+    "name": "The Helmaroc King",
+    "sub": "Crack the masked bird",
+    "reward": "A Heart Container and the way to the tower top",
+    "steps": [
+     {
+      "id": "ww_fortress_boss_intro",
+      "k": "warn",
+      "t": "The giant masked bird, the Helmaroc King, attacks. Its iron mask shrugs off your sword, so you cannot win by slashing alone, only the Skull Hammer can crack it."
+     },
+     {
+      "id": "ww_fortress_climb_tower",
+      "k": "step",
+      "t": "First you must climb the tall spiral tower as water floods up from below. Run and roll up the ramp to stay ahead of the rising water. When the Helmaroc King smashes in to block your way, swing the Skull Hammer at its head to knock it back, then keep climbing to the rooftop.",
+      "stuck": "Roll forward (a quick dodge) again and again to move up the ramp at top speed. Where the bird thrusts its head down to stop you, hammer its face to drive it off, then keep going. If a gap in the stairs stops you, the rising water will float you up so you can carry on."
+     },
+     {
+      "id": "ww_fortress_crack_mask",
+      "k": "step",
+      "t": "On the rooftop, when the bird lunges and slams its beak down, dodge aside, then run in and swing the Skull Hammer at its iron mask. About five solid hammer blows crack and shatter the mask, exposing its head.",
+      "stuck": "Wait for the Helmaroc King to drive its beak into the floor and get stuck for a moment. THAT is your window: rush in and pound the mask with the Skull Hammer. Only the hammer can break the iron; the sword cannot. If it beats its wings to blow you toward the spikes, run toward the bird or put up your shield."
+     },
+     {
+      "id": "ww_fortress_finish_bird",
+      "k": "step",
+      "t": "With the mask gone, Z/L-target the bird's now-bare head and attack with your sword. Repeat the dodge-then-strike pattern until the Helmaroc King falls and drops a Heart Container.",
+      "stuck": "After the mask shatters, the exposed head takes damage from the Master Sword (and arrows) as well as the hammer. Keep dodging its dive, then hit the head while it is stuck, until it goes down. Grab the Heart Container it leaves behind."
+     }
+    ]
+   },
+   {
+    "id": "ww_fortress_ganondorf",
+    "name": "Atop the Tower",
+    "sub": "The King of Evil, and a rescue",
+    "steps": [
+     {
+      "id": "ww_fortress_meet_ganondorf",
+      "k": "step",
+      "t": "Climb to the very top of the tower. Here you meet Ganondorf, the King of Evil, for the first time. Watch the scene; this is a story beat, not a fight you can win yet."
+     },
+     {
+      "id": "ww_fortress_master_sword",
+      "k": "tip",
+      "t": "Ganondorf reveals a hard truth: the Master Sword in your hands has lost its power to repel evil. You are not ready to defeat him, and the game makes that plain."
+     },
+     {
+      "id": "ww_fortress_rescue",
+      "k": "step",
+      "t": "Just in time, Tetra and her pirates burst in to help, and the two Rito you befriended on your journey, Quill and Prince Komali, swoop down to carry Link and Tetra out as the dragon Valoo sets the fortress ablaze behind you. Let the rescue play out; the chapter ends here.",
+      "stuck": "There is nothing to do but survive the moment. Tetra draws Ganondorf's attention while the Rito lift Link and Tetra to safety and Valoo torches the fortress. Aryll is freed and headed home, you keep the Skull Hammer, and your next goal will be to restore the Master Sword's true power."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "ww_earth",
+  "name": "The Earth Temple",
+  "sub": "Awaken Medli, the Earth Sage",
+  "champion": "Medli, the Earth Sage",
+  "tagline": "Light, mirrors, and a Rito who must learn to pray.",
+  "kind": "region",
+  "sections": [
+   {
+    "id": "ww_earth_lyric",
+    "name": "The Earth God's Lyric",
+    "sub": "A song for a sleeping sage",
+    "steps": [
+     {
+      "id": "ww_earth_why",
+      "k": "tip",
+      "t": "The Master Sword has lost half its power. To restore it you must wake the two sages who once empowered it — the Sage of Earth and the Sage of Wind. This chapter handles Earth, whose new sage is a young Rito named Medli."
+     },
+     {
+      "id": "ww_earth_headstone",
+      "k": "step",
+      "t": "Sail to Headstone Island in the far southwest of the Great Sea — it sits one map square east of your home, Outset Island. A giant headstone blocks a cave in the cliff. Lift and toss it aside with the Power Bracelets (the strength item from Fire Mountain) to open the cave.",
+      "stuck": "Headstone Island is in the southwest corner, just east of Outset. Conduct the Wind's Requiem to set the wind, or warp with the Ballad of Gales. You need the Power Bracelets (from Fire Mountain) to heave the big headstone away — without them the cave stays sealed.",
+      "items": [
+       {
+        "name": "Power Bracelets",
+        "cat": "key",
+        "note": "Strength gauntlets from Fire Mountain; let Link lift heavy stones like the headstone here. (Earned earlier — listed as the requirement, not a new pickup.)"
+       }
+      ]
+     },
+     {
+      "id": "ww_earth_grotto",
+      "k": "step",
+      "t": "Inside the cave, the spirit of Laruto — the previous Sage of Earth, slain by Ganondorf — teaches you her prayer song from a stone tablet. This is the Earth God's Lyric.",
+      "stuck": "Step up to the glowing stone tablet in the cave; Laruto's ghost appears and hands over the Earth God's Lyric automatically. There's no puzzle here — just approach it.",
+      "items": [
+       {
+        "name": "Earth God's Lyric",
+        "cat": "song",
+        "note": "Laruto's prayer; conduct it to wake the new Earth Sage and, in the temple, to open the door and sync Medli to your commands."
+       }
+      ]
+     },
+     {
+      "id": "ww_earth_teach_medli",
+      "k": "step",
+      "t": "Now sail to Dragon Roost Island in the northeast and find Medli, Valoo's young harp-playing attendant (she's up in the cliffs above the cave — reach her with the Grappling Hook). Stand near her and conduct the Earth God's Lyric. The song awakens the sage's blood in her: she sees a vision of Laruto and accepts that she is the new Sage of Earth.",
+      "stuck": "Medli is on Dragon Roost, reachable after the Tower of the Gods. Climb into the cave, take the upper exit back outside, cross the bridge, Grappling-Hook the overhead stick to swing the gap, then up the ladder. Pull out the Wind Waker beside her and play the Earth God's Lyric; she answers on her harp."
+     }
+    ]
+   },
+   {
+    "id": "ww_earth_voyage",
+    "name": "Headstone Island",
+    "sub": "Return to the temple's door",
+    "steps": [
+     {
+      "id": "ww_earth_sail_south",
+      "k": "step",
+      "t": "Sail back to Headstone Island with Medli. At the entrance the King of Red Lions explains how the two of you work together: from now on you'll direct Medli with the Command Melody.",
+      "stuck": "Head back to the southwest (one square east of Outset). Medli follows your boat. Once you land, the King of Red Lions gives the partner tutorial — Medli does what you command via the Command Melody baton."
+     },
+     {
+      "id": "ww_earth_open_door",
+      "k": "step",
+      "t": "Stand on the glowing crest in front of the great stone and conduct the Earth God's Lyric together with Medli. The prayer opens the sealed door into the Earth Temple.",
+      "stuck": "Step onto the round Sage emblem etched in the ground at the temple face, then play the Earth God's Lyric. Medli's harp answers yours and the stone door crumbles open."
+     }
+    ]
+   },
+   {
+    "id": "ww_earth_temple",
+    "name": "Into the Earth Temple",
+    "sub": "Mirrors, light, and the Mirror Shield",
+    "reward": "Mirror Shield",
+    "steps": [
+     {
+      "id": "ww_earth_command_medli",
+      "k": "tip",
+      "t": "This is a partner dungeon. Use the Command Melody to take control of Medli: she can fly short hops, carry Link to high ledges, stand on switches, and — most importantly — catch a beam of light with her harp's mirror and aim it. Switch back to Link with the same baton."
+     },
+     {
+      "id": "ww_earth_light_puzzles",
+      "k": "step",
+      "t": "Work through the temple by routing light. Use Medli's reflected beam to light sealed crests and switches; light also weakens the undead — it stuns Poes and Floormasters and is your main defense against ReDeads. Watch for Stalfos, which you must shatter and finish off before they reassemble.",
+      "stuck": "Command Medli into a sunbeam so it strikes her mirror, then turn her to aim the reflected beam at the target (a crest, a switch, or a clustered enemy). Return to Link to fight while enemies are lit and stunned. Against ReDeads, keep light on them or they'll freeze you with a scream."
+     },
+     {
+      "id": "ww_earth_mirror_shield",
+      "k": "loot",
+      "t": "After clearing a room of Stalfos, a big chest appears holding the Mirror Shield (it replaces your Hero's Shield). Now Link himself can catch and redirect light beams, so you no longer need Medli for every reflection.",
+      "stuck": "Defeat all the Stalfos in the room to make the chest appear. Hold up the Mirror Shield facing a sunbeam to reflect it — aim by turning Link to face the target.",
+      "items": [
+       {
+        "name": "Mirror Shield",
+        "cat": "shield",
+        "note": "Reflects light beams to solve the temple's puzzles and to expose the boss; equips like a normal shield."
+       }
+      ]
+     },
+     {
+      "id": "ww_earth_dual_beams",
+      "k": "step",
+      "t": "Use Link's Mirror Shield and Medli's harp-mirror together to chain light across rooms — one of you catches the source, the other relays it onward to a far crest or seal. This opens the path down to the boss door.",
+      "stuck": "Position Medli with the Command Melody to catch the first beam, then stand Link in her reflected beam with the Mirror Shield up and aim it the rest of the way to the target."
+     },
+     {
+      "id": "ww_earth_boss",
+      "k": "step",
+      "t": "Boss: Jalhalla, a colossal Poe formed of many smaller Poes bound by a mask. Reflect a beam of sunlight onto him to drag his spirit into the open and make him solid. Then grab the solidified Jalhalla, carry him, and hurl him into one of the spiked pillars along the wall — he bursts into the small Poes inside him.",
+      "stuck": "Light streams in through holes in the ceiling. Catch a beam with the Mirror Shield (or command Medli to do it) and hold it on Jalhalla until he solidifies and drops. Lift him with the Power Bracelets and throw him hard into a spiked column. He shatters into smaller Poes — cut them down (a Hurricane Spin hits many at once). Repeat the cycle until all the Poes are gone. Avoid his fire breath, thrown fireballs, and body-slam."
+     },
+     {
+      "id": "ww_earth_awaken",
+      "k": "reward",
+      "t": "With Jalhalla gone, the Triforce crest glows. Stand on it with Medli and conduct the Earth God's Lyric one last time. Medli's prayer fully awakens her as the Sage of Earth — half the Master Sword's power returns.",
+      "stuck": "Step onto the glowing crest where the boss fell and play the Earth God's Lyric beside Medli. The cutscene awakens her as the Earth Sage and restores the Earth half of the blade's power.",
+      "items": [
+       {
+        "name": "Medli, the Earth Sage",
+        "cat": "key",
+        "note": "Awakened here; her prayer restores the Earth half of the Master Sword's power. Next, do the same for Wind (Makar, the Wind Sage)."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ww_wind",
+  "name": "The Wind Temple",
+  "sub": "Awaken Makar, the Wind Sage",
+  "champion": "Makar, the Wind Sage",
+  "tagline": "Iron Boots against the gusts, a Hookshot across the shafts, and a Korok's song to restore the blade.",
+  "kind": "region",
+  "sections": [
+   {
+    "id": "ww_wind_prep",
+    "name": "Find the Sage, Find the Boots",
+    "sub": "Learn the song, gear up, and bring the Korok to Gale Isle",
+    "steps": [
+     {
+      "id": "ww_wind_aria",
+      "k": "step",
+      "t": "Sail to Gale Isle (square A-4, the far north of the map). A stone tablet inside teaches you the Wind God's Aria. Play it at that tablet with the Wind Waker to open the Wind Temple's entrance.",
+      "stuck": "Gale Isle sits at the very top edge of the Great Sea, marked by a tall stone spire. Conduct the Wind's Requiem to set the wind north, raise your sail, and ride straight up to it. Learn the Aria off the tablet, then conduct it right there to crack the temple open.",
+      "items": [
+       {
+        "name": "Wind God's Aria",
+        "cat": "song",
+        "note": "The conductor's song that opens the Wind Temple and calls the Wind Sage to wake."
+       }
+      ]
+     },
+     {
+      "id": "ww_wind_makar",
+      "k": "step",
+      "t": "The Wind Sage is the little leaf-faced Korok named Makar. He's at the Forest Haven (square F-6, southwest) — hiding behind the waterfall. Bring him along in the King of Red Lions to Gale Isle.",
+      "stuck": "Climb the path at Forest Haven until you hear violin music behind the waterfall. Use the Grappling Hook on the grapple stick above (NOT the Hookshot — you don't have it yet), lengthen the rope, swing, and jump into the right-hand waterfall to reach Makar's hidden cavern. Once he joins you, sail back to the Wind Temple, just as Medli rode along for the Earth Temple."
+     },
+     {
+      "id": "ww_wind_boots",
+      "k": "optional",
+      "t": "Before you fight the gusts inside, grab the Iron Boots from Ice Ring Isle (square E-6, one square west of Forest Haven). Wearing them, the Wind Temple's gusts can't blow you off the floor.",
+      "stuck": "Ice Ring Isle is sealed in ice. Hit the Freezard-shaped face on its front with a Fire Arrow to thaw the island, then cross the slippery slides (watch for Keese) to the boots chest. You really want the Iron Boots before the dungeon — its halls are full of updrafts and side-gusts."
+     }
+    ]
+   },
+   {
+    "id": "ww_wind_temple",
+    "name": "Into the Wind Temple",
+    "sub": "Command Melody, the Hookshot, and a path for Makar",
+    "steps": [
+     {
+      "id": "ww_wind_command",
+      "k": "tip",
+      "t": "Inside, conduct the Command Melody to take control of Makar. As Makar you can glide on his leaf-propeller and plant magic saplings on marked soil patches to grow trees and open new ways."
+     },
+     {
+      "id": "ww_wind_split",
+      "k": "step",
+      "t": "Early on the temple splits the two of you. Switch to Makar with the Command Melody to clear his side (plant saplings, ride updrafts), then switch back to Link to clear yours and reunite.",
+      "stuck": "A patch of soil with a sapling icon is a spot only Makar can use — Command Melody into him and stand on it to plant. Equip the Iron Boots whenever a gust tries to shove Link around so you can keep walking."
+     },
+     {
+      "id": "ww_wind_hookshot",
+      "k": "loot",
+      "t": "The dungeon item is the Hookshot. Fire it at wooden targets, chests, and treasure to reel yourself across gaps — and use it to grab Makar and pull him to you when platforms separate you.",
+      "stuck": "The Hookshot chest is mid-temple. Once you have it, aim the reticle at the round wooden target plates on far walls and pillars to zip across the big wind-blown rooms.",
+      "items": [
+       {
+        "name": "Hookshot",
+        "cat": "item",
+        "note": "Reel yourself to targets across gaps — and pull Makar or objects toward you."
+       }
+      ]
+     },
+     {
+      "id": "ww_wind_bigkey",
+      "k": "step",
+      "t": "Work down through the temple's wind shafts — Hookshot across the gaps, ride the updrafts on the Deku Leaf, and have Makar plant the last saplings — until you reach the big-key chamber and the door to the boss.",
+      "stuck": "Lost in the vertical rooms? Updrafts blow you UP when you open the Deku Leaf inside them; gusts blow you sideways when you're on foot (wear the Iron Boots). Bring Makar with the Command Melody to any sapling patch still blocking the way down."
+     }
+    ]
+   },
+   {
+    "id": "ww_wind_boss",
+    "name": "Molgera & the Wind Sage",
+    "sub": "Beat the sandworm, awaken Makar, restore the blade",
+    "reward": "Makar awakened — the Master Sword regains its full power",
+    "steps": [
+     {
+      "id": "ww_wind_molgera",
+      "k": "step",
+      "t": "Boss: Molgera, a giant sandworm that dives in and out of the sand. When it surfaces with its mouth open, its glowing tongue is the target — Hookshot the tongue to yank Molgera out of the sand, then run up and slash the helpless worm.",
+      "stuck": "Z/L-target Molgera, fire the Hookshot at the tongue inside its mouth, and it gets dragged onto the surface stunned — that's your window to hammer it with the sword. When it spawns little sand-larvae, Hookshot or slash them; killing them often drops recovery hearts. Don't linger right in front of the open mouth — it can lunge and swallow you."
+     },
+     {
+      "id": "ww_wind_makar_sage",
+      "k": "reward",
+      "t": "With Molgera gone, stand with Makar before the temple's pedestal and conduct the Wind God's Aria together. Makar awakens as the Sage of Wind and his prayer flows back into the Master Sword.",
+      "stuck": "Pull out the Wind Waker and play the Wind God's Aria while Makar plays alongside you on his violin — the duet is what awakens him. This is the chapter's trophy moment.",
+      "items": [
+       {
+        "name": "Makar, the Wind Sage",
+        "cat": "key",
+        "note": "The awakened Sage of Wind. With both Sages praying, the Master Sword's full power returns."
+       }
+      ]
+     },
+     {
+      "id": "ww_wind_blade",
+      "k": "tip",
+      "t": "Now both Sages — Medli of Earth and Makar of Wind — pray for the blade, and the Master Sword shines at full strength again. It can finally hurt Ganondorf. Set the wind and sail on toward the final confrontation."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "ww_triforce",
+  "name": "The Triforce of Courage",
+  "sub": "Eight shards beneath the sea",
+  "champion": null,
+  "sections": [
+   {
+    "id": "ww_triforce_loop",
+    "name": "How the Hunt Works",
+    "sub": "Chart → decipher → dredge — learn the loop once",
+    "steps": [
+     {
+      "id": "ww_triforce_start",
+      "k": "step",
+      "t": "With the Master Sword restored, the King of Red Lions sends you after the eight shards of the Triforce of Courage. They aren't sitting on islands — each shard is buried on the sea floor, and you need a special chart to pinpoint each spot."
+     },
+     {
+      "id": "ww_triforce_three_step",
+      "k": "tip",
+      "t": "Every shard follows the same three steps: (1) find one of the eight TRIFORCE CHARTS out in the world, (2) take it to TINGLE to DECIPHER it into a readable TREASURE CHART, then (3) sail to the marked square and dredge the shard up from the sea floor with your Grappling Hook."
+     },
+     {
+      "id": "ww_triforce_grapple",
+      "k": "tip",
+      "t": "You salvage from the boat, not on foot. Sail to the gold Triforce mark / ring of light on the deciphered chart, face the sparkle in the water, and use the Grappling Hook from the King of Red Lions to reel the shard up off the sea floor.",
+      "stuck": "Open the Sea Chart and line your boat up over the gold Triforce symbol the deciphered chart added. Stop the boat, aim the Grappling Hook straight down into the sparkling water, and press to lower it — it hooks the chest and hauls it up. Calm wind (Wind's Requiem to set a steady direction, then let it die) makes aiming far easier."
+     },
+     {
+      "id": "ww_triforce_tingle",
+      "k": "warn",
+      "t": "Tingle charges 398 Rupees to decipher EACH chart — about 3,184 Rupees for all eight. Fill your wallet first (the bigger wallets from Mrs. Marie's school help a lot), or the hunt stalls at his desk.",
+      "stuck": "Tingle does the deciphering, and you can only reach him once you've freed him from the Windfall Island jail (he then marks Tingle Island / his outpost on your Sea Chart). Bring plenty of Rupees — 398 per chart adds up fast, so it's worth gathering several charts before a deciphering trip."
+     }
+    ]
+   },
+   {
+    "id": "ww_triforce_charts",
+    "name": "Tracking Down the Eight Charts",
+    "sub": "Where the eight Triforce Charts hide across the Great Sea",
+    "steps": [
+     {
+      "id": "ww_triforce_eight",
+      "k": "step",
+      "t": "There are eight Triforce Charts in all, none of them from a dungeon or boss — every one is out in the open sea, hidden behind island puzzles, sea battles, and a couple of bigger challenges. You can gather them in any order."
+     },
+     {
+      "id": "ww_triforce_chart1",
+      "k": "loot",
+      "t": "Two charts come from solving a wind-crest puzzle: at the ISLET OF STEEL, blow up the warships and wall cannons with your cannon, then play the WIND'S REQUIEM on the swirl symbol inside; at OVERLOOK ISLAND, Hookshot across the trees to reach the chest. Each holds a Triforce Chart.",
+      "stuck": "The swirl on the floor is a wind crest — stand on it and conduct the Wind's Requiem to make the chest appear. At the Islet of Steel you must sink every warship and silence the wall cannons first, or the door won't open."
+     },
+     {
+      "id": "ww_triforce_chart_islands",
+      "k": "loot",
+      "t": "More charts sit behind island challenges: BIRD'S PEAK ROCK (use Hyoi Pears to fly a seagull onto the switches), PRIVATE OASIS (claim the Cabana Deed on Windfall, then solve the cabana's interior), NEEDLE ROCK ISLE (sink the gold warship with your cannon, then Grappling-Hook the sunken chest), and STONE WATCHER ISLAND (lift the stone head with the Power Bracelets and clear the monsters).",
+      "stuck": "Several of these gate on tools you may not have yet: Bird's Peak needs Hyoi Pears (buy them at Beedle's shop), the Cabana needs the deed traded from Mrs. Marie for 20 Joy Pendants, and Stone Watcher needs the Power Bracelets from the Earth God's Lyre quest line."
+     },
+     {
+      "id": "ww_triforce_chart_ghost",
+      "k": "loot",
+      "t": "One chart is aboard the GHOST SHIP. First get the GHOST SHIP CHART from the Warp-Jar maze atop Diamond Steppe Island (reached with the Hookshot); it shows where the ship appears for each phase of the moon. Sail there at night while holding the chart, board the ship, and take the Triforce Chart inside.",
+      "stuck": "The Ghost Ship only appears — and lets you board — while you're holding the Ghost Ship Chart; without it the ship vanishes when you approach. Check the chart at night: the glowing moon phase tells you which island it's haunting tonight."
+     },
+     {
+      "id": "ww_triforce_chart_labyrinth",
+      "k": "loot",
+      "t": "The last chart is the big one: the SAVAGE LABYRINTH, entered from a cliff on OUTSET ISLAND. Fight down through its floors — the Triforce Chart waits on FLOOR 30 (you'll need the Power Bracelets to lift the jars on the way). (For reference: pushing on to the very bottom later rewards a Piece of Heart, not a chart.)",
+      "stuck": "Bring fairies in bottles — the Labyrinth is a long, save-less brawl with recovery only every tenth floor. You only need to reach floor 30 for the Triforce Chart; the rest is optional."
+     },
+     {
+      "id": "ww_triforce_decipher_all",
+      "k": "step",
+      "t": "As you gather each Triforce Chart, have Tingle decipher it, then sail out and dredge that shard from the marked spot. Repeat until all eight charts are deciphered and all eight shards are salvaged."
+     }
+    ]
+   },
+   {
+    "id": "ww_triforce_assemble",
+    "name": "The Triforce Restored",
+    "sub": "Eight shards become one sacred power",
+    "reward": "The Triforce of Courage",
+    "steps": [
+     {
+      "id": "ww_triforce_last_shard",
+      "k": "step",
+      "t": "Dredge the eighth and final shard from its marked spot. With all eight raised from the deep, the King of Red Lions brings the pieces together."
+     },
+     {
+      "id": "ww_triforce_form",
+      "k": "reward",
+      "t": "The eight shards fuse into the complete Triforce of Courage, and it merges into you — the mark of the true Hero of the gods. The path to the final confrontation at Ganon's Tower is now open.",
+      "items": [
+       {
+        "name": "Triforce of Courage",
+        "cat": "key",
+        "note": "Assembled from all eight shards dredged from the sea floor — the proof of the Hero of Winds."
+       }
+      ]
+     },
+     {
+      "id": "ww_triforce_onward",
+      "k": "tip",
+      "t": "Before the endgame, top up: stock fairies in bottles, fully upgrade your wallet and quiver if you can, and get your hearts and Magic as high as you've managed. The next chapter is the finale."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "ww_ganon",
+  "name": "Ganon's Tower",
+  "sub": "The final battle",
+  "champion": null,
+  "tagline": "Rematch the four dungeon bosses, claim the Light Arrows, then end the King of Evil.",
+  "sections": [
+   {
+    "id": "ww_ganon_approach",
+    "name": "Into the Tower",
+    "sub": "Sail to the center of the sea",
+    "steps": [
+     {
+      "id": "ww_ganon_sail",
+      "k": "step",
+      "t": "Sail to the very center of the Great Sea, where Ganon's Tower has risen from the water. Dock the King of Red Lions at its base and step inside.",
+      "stuck": "The tower sits dead-center on the chart, between the rings of islands. If the wind fights you, raise the Wind Waker and conduct the Wind's Requiem (up, left, right) to point the wind your way, or use the Ballad of Gales to warp to a nearby island first and sail in from there."
+     },
+     {
+      "id": "ww_ganon_gear",
+      "k": "tip",
+      "t": "Before you commit, make sure you have plenty of hearts, fairies in bottles, and arrows. There is no shop ahead — only fights."
+     }
+    ]
+   },
+   {
+    "id": "ww_ganon_rematch",
+    "name": "The Four Boss Rematches",
+    "sub": "Re-fight the dungeon bosses",
+    "steps": [
+     {
+      "id": "ww_ganon_doors",
+      "k": "step",
+      "t": "The tower's halls split into four rooms, each a rematch of a dungeon boss. Clear all four to break the barrier and open the way up. You fight each the same way you did the first time.",
+      "stuck": "The four are: Gohma (the Dragon Roost room), Kalle Demos (the Forbidden Woods room), Jalhalla (the Earth Temple room), and Molgera (the Wind Temple room). In each, only the matching item is available — the room hands you the tool you need."
+     },
+     {
+      "id": "ww_ganon_gohma",
+      "k": "step",
+      "t": "Gohma (Dragon Roost room): Grappling Hook onto Valoo's tail above to drop the ceiling onto her and crack her shell. After three drops the shell breaks, exposing her eye — then Grapple the eye to pull her in and slash it.",
+      "stuck": "Use the Grappling Hook on Valoo's swaying tail to swing across; the falling rock damages her armor. Once the eye is bare, lock on and Grapple it, then attack."
+     },
+     {
+      "id": "ww_ganon_kalle",
+      "k": "step",
+      "t": "Kalle Demos (Forbidden Woods room): use the Boomerang to slice the hanging vines that hold the plant up, dropping the bulb. Then rush in and hack the open bulb with your sword.",
+      "stuck": "Target several vines at once with the Boomerang to bring it down faster, then strike the red bulb before it lifts away again."
+     },
+     {
+      "id": "ww_ganon_jalhalla",
+      "k": "step",
+      "t": "Jalhalla (Earth Temple room): aim a beam of light through the Mirror Shield onto the giant Poe to make it solid, then pick it up and hurl it into one of the spiked pillars. It bursts into smaller Poes — cut them all down.",
+      "stuck": "Stand in a light beam and angle the Mirror Shield so the reflected light hits Jalhalla; while it's solid, lift it and throw it at a spike. Mop up the little Poes with the sword."
+     },
+     {
+      "id": "ww_ganon_molgera",
+      "k": "step",
+      "t": "Molgera (Wind Temple room): when it lunges from the sand, Hookshot its glowing tongue to yank it close, then slash with the Master Sword. Repeat, dealing with the small sand worms it spits out.",
+      "stuck": "Wait for its mouth to open, Hookshot the tongue, reel it in, and combo it. Keep moving so the burrowing tail and the little worms don't catch you."
+     }
+    ]
+   },
+   {
+    "id": "ww_ganon_phantom",
+    "name": "Phantom Ganon & the Light Arrows",
+    "sub": "The Illusionary Room",
+    "steps": [
+     {
+      "id": "ww_ganon_illusory",
+      "k": "step",
+      "t": "With the four bosses down, the barrier falls and you enter the Illusionary Room — a maze where Phantom Ganon ambushes you again and again. Reach the final, sealed chamber and beat him there.",
+      "stuck": "Phantom Ganon throws a ball of energy; bat it back and forth with your sword until it strikes him, then move in and attack. In the maze, follow the path he flees down to find the next room."
+     },
+     {
+      "id": "ww_ganon_lightarrows",
+      "k": "reward",
+      "t": "Defeat the last Phantom Ganon and a chest appears holding the LIGHT ARROWS — radiant arrows that pierce evil. They are your key to everything ahead. (Use his dropped sword to break open the path forward.)",
+      "items": [
+       {
+        "name": "Light Arrows",
+        "cat": "bow",
+        "note": "Fire with the Hero's Bow; their light is lethal to Puppet Ganon and Ganondorf."
+       }
+      ]
+     },
+     {
+      "id": "ww_ganon_climb",
+      "k": "step",
+      "t": "Climb the spiraling tower toward the top. The final stretch is two fights back to back — Puppet Ganon, then Ganondorf himself."
+     }
+    ]
+   },
+   {
+    "id": "ww_ganon_puppet",
+    "name": "Puppet Ganon",
+    "sub": "The giant marionette — three forms",
+    "steps": [
+     {
+      "id": "ww_ganon_puppet_intro",
+      "k": "warn",
+      "t": "Ganondorf hangs a colossal puppet of himself from strings and makes it dance. It changes shape three times. The glowing weak point each time is the orb at the tip of its TAIL — hit it with Light Arrows."
+     },
+     {
+      "id": "ww_ganon_form1",
+      "k": "step",
+      "t": "Form 1 (the boar on strings): it charges and swipes. First aim above it and cut the blue strings with the BOOMERANG to make it sag, then Z-target the glowing orb on its tail and shoot it with a Light Arrow.",
+      "stuck": "Look up — it dangles from threads. Sweep the Boomerang across them to sever them; while the puppet droops, lock on to the bright tail-orb and loose a Light Arrow. A few hits ends form one."
+     },
+     {
+      "id": "ww_ganon_form2",
+      "k": "step",
+      "t": "Form 2 (the spider): it skitters along the ceiling, then drops to crush you. Watch its reflection in the water below to see where the orb will land, dodge clear, then Light-Arrow the tail-orb while it's grounded.",
+      "stuck": "Use free-look to track the shadow/reflection on the water and step out of the landing spot. The instant it slams down, draw the bow and shoot the glowing orb. Three hits clears this form."
+     },
+     {
+      "id": "ww_ganon_form3",
+      "k": "step",
+      "t": "Form 3 (the snake): a long, fast serpent that darts around the room and charges you, the tail-orb whipping behind it. Stun it — a Bomb or a Light Arrow to the HEAD freezes it — then quickly Light-Arrow the tail-orb. It speeds up after each hit.",
+      "stuck": "Don't chase it blindly. Lob a Bomb (or shoot its face) to stagger it, then immediately fire a Light Arrow at the glowing tail-orb. Three orb hits and Puppet Ganon is finished."
+     }
+    ]
+   },
+   {
+    "id": "ww_ganon_ganondorf",
+    "name": "Ganondorf",
+    "sub": "The rooftop duel — with Zelda at your side",
+    "steps": [
+     {
+      "id": "ww_ganon_roof",
+      "k": "step",
+      "t": "Climb to the top for the final duel on the rain-swept rooftop. Zelda fires Light Arrows to stun Ganondorf — keep him between you and her, and close in with the Master Sword when an arrow lands.",
+      "stuck": "Keep Zelda lined up behind Ganondorf so her arrows can reach him. You can only damage him by Parrying — wait out his combo and counter the last swing. A Boomerang to Ganondorf also stuns him to buy openings."
+     },
+     {
+      "id": "ww_ganon_parry",
+      "k": "step",
+      "t": "When Ganondorf flashes and the action prompt appears, PARRY for the flashy counter — that's your big opening. After three Light Arrows from Zelda he knocks her out; keep parrying his leaping attacks one-on-one until she recovers.",
+      "stuck": "Hold your guard up while locked on; the moment he glows and the prompt flashes, hit the button to Parry. When he leaps through the air, a Parry Attack hits and stuns him."
+     },
+     {
+      "id": "ww_ganon_mirror",
+      "k": "step",
+      "t": "When Zelda revives, Ganondorf starts blocking your parries and her arrows. TALK to Zelda — she'll fire a Light Arrow at YOU; raise the MIRROR SHIELD to bounce it back into Ganondorf and stun him.",
+      "stuck": "Speak to Zelda to start the new pattern. She shoots toward you — hold up the Mirror Shield to deflect the arrow into him. While he's stunned, run in and strike."
+     },
+     {
+      "id": "ww_ganon_final",
+      "k": "reward",
+      "t": "Keep the rhythm — Zelda's arrow, your Mirror-Shield deflection, your blows — until the final opening. When the prompt appears, leap and drive the Master Sword through his forehead to end the King of Evil. Watch the ending you've earned.",
+      "stuck": "The finisher comes after the last stagger: when the on-screen prompt flashes, perform the jumping Parry to plant the Master Sword in his head. No spoilers beyond this — let the ending play."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
  }
 ]
