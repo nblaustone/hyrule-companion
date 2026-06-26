@@ -34,20 +34,25 @@ default; fan out only when subtasks are truly independent.** When you DO fan out
 quests, item cards), **BATCH them — one agent per group of ~12, never one-per-item** (the single biggest token
 saver here). Run **≤2 Workflows at once** (3+ trips 529 overload); `resumeFromRunId` mops up failures.
 
-## The games (multi-game as of v8; six games as of v16)
-Six games now live behind a **console/era game shelf** (v16; topbar `● <short> ▾` button + a Status "Now playing"
-banner → a full-screen `GameShelf` overlay grouped by console): **Breath of the Wild** + **Tears of the Kingdom**
-(Switch), **Ocarina of Time** (game 3, v14) + **Majora's Mask** (game 4, v15) (N64), **A Link to the Past** (game 5,
-v16, SNES), and **Link's Awakening** (game 6, v16, Game Boy). `GAMES = { botw, totk, oot, mm, alttp, la }` (built by
-`inline-data.mjs` — each of TOTK/OOT/MM/ALTTP/LA is read wholesale from `knowledge/<game>/app-data.json`); the
-`HyruleCompanion` wrapper owns the active game (`hyrule:game`) and remounts `<HyruleGame key={game}>`, which
-shadows the data globals with `GAMES[game]` and namespaces storage (`botw:*` / `totk:*` / `oot:*` / `mm:*` /
-`alttp:*` / `la:*`). Per-game `terms`/`guideSegs`/`postRegionId` adapt labels + surfaces, and a per-game **`meta`**
-block (console/consoleRank/year/era/accent/accent2/cover — the SINGLE source is the `META` map in `inline-data.mjs`)
-drives the shelf cards + original-SVG `GameCover` emblems. **Missing datasets degrade gracefully** (OoT/MM/ALttP/LA
-have no shrines/cooking/maps/armor/…, like TotK v1 — the canaries for "does this feature degrade?"). See ADR 0005.
-Data: `knowledge/{totk,oot,mm,alttp,la}/` each with its own `build/assemble-<game>.mjs`. MM/ALttP/LA set
-`terms.worldName` (Termina / Hyrule / Koholint) used by the Enemies lede — falls back to "Hyrule" otherwise.
+## The games (multi-game as of v8; ELEVEN games as of v17)
+Eleven games now live behind a **console/era game shelf** (v16; topbar `● <short> ▾` button + a Status "Now playing"
+banner → a full-screen `GameShelf` overlay grouped by console, newest first via `meta.consoleRank`). Grouped:
+**Switch** — Breath of the Wild · Tears of the Kingdom; **3DS** — A Link Between Worlds (game 7, v17); **GameCube** —
+The Wind Waker (game 8, v17); **GBA** — The Minish Cap (game 9, v17); **GBC** — Oracle of Seasons (game 10) +
+Oracle of Ages (game 11, v17); **N64** — Ocarina of Time (game 3, v14) · Majora's Mask (game 4, v15); **SNES** —
+A Link to the Past (game 5, v16); **Game Boy** — Link's Awakening (game 6, v16). `GAMES = { botw, totk, oot, mm,
+alttp, la, albw, ww, minish, oos, ooa }` (built by `inline-data.mjs` — every game except BotW is read wholesale from
+`knowledge/<game>/app-data.json`; the v16/v17 additions are read in a single loop over their ids); the
+`HyruleCompanion` wrapper owns the active game (`hyrule:game`) and remounts `<HyruleGame key={game}>`, which shadows
+the data globals with `GAMES[game]` and namespaces storage (`<id>:*`). Per-game `terms`/`guideSegs`/`postRegionId`
+adapt labels + surfaces, and a per-game **`meta`** block (console/consoleRank/year/era/accent/accent2/cover — the
+SINGLE source is the `META` map in `inline-data.mjs`) drives the shelf cards + original-SVG `GameCover` emblems (cover
+keys: slate/tears/ocarina/moon/triforce/windfish/painting/sail/cap/season/harp). **Missing datasets degrade
+gracefully** (every game except BotW/TotK lacks shrines/cooking/maps/… — the canaries for "does this feature
+degrade?"). See ADR 0005. Data: `knowledge/<id>/` each with its own `build/assemble-<id>.mjs`. Most non-BotW games
+set `terms.worldName` (Termina / Hyrule / Koholint / the Great Sea / Holodrum / Labrynna …) used by the Enemies lede —
+falls back to "Hyrule" otherwise. **CompendiumView's category COLS now cover the classic cats** (sword/song/key) so
+those entries render; empty columns auto-hide (BotW/OoT/MM unaffected).
 
 ## Layout
 ```
@@ -539,7 +544,34 @@ layout, `REGION_MAPS` = the per-region coords.
   depth/compendium verify stages now fall back to the author draft on failure (`v || draft`) so a dataset is never
   lost outright. All v16 verified in-browser (6 games grouped in the shelf, both classics' quests/guide/items
   render, MM/BotW unregressed, 0 console errors).
+- **v17 — five more games to full parity (DONE): A Link Between Worlds (3DS) · The Wind Waker (GameCube) · The
+  Minish Cap (GBA) · Oracle of Seasons + Oracle of Ages (GBC).** The owner picked these after the v16 classics; the
+  companion went **6 → 11 games across 8 console groups**. Each followed the exact v16 rhythm — shell (globals +
+  hand-authored opening + `assemble-<id>.mjs`, cloned via sed from assemble-albw) → **walkthrough Workflow (run
+  SOLO)** → **depth + compendium Workflows (2-up)** → merge → build → verify → commit, ONE game at a time. New
+  scripts: `build/wf-{albw,ww,minish,oos,ooa}-{walkthrough,depth,compendium}.mjs`. Per-game results:
+  - **A Link Between Worlds** (v17.0–17.2): 13ch/192 steps (3 Pendants → Master Sword → 7 Sages in Lorule → Yuga
+    Ganon; wall-merge + Ravio rental shop) · items 40 · enemies 22 (10 boss guides) · 5 fairies · 22 quests ·
+    compendium 38. CHAMPIONS = 3 Pendants + 7 Sages (Sage→dungeon verified). COLLECTIBLES Pieces of Heart 28 + Maiamai 100.
+  - **The Wind Waker** (v17.3–17.4): 10ch/145 steps (3 Pearls → Tower of the Gods/Master Sword → Forsaken Fortress
+    → Earth/Wind Temples + the 2 Sages → Triforce hunt → Ganondorf; sailing + the Wind Waker baton) · items 37
+    (all 6 songs) · enemies 24 (10 boss guides) · 8 Great Fairies · 19 quests · compendium 53. CHAMPIONS = 3 Pearls
+    + Medli & Makar; Triforce Shards (8) as a collectible. Pieces of Heart 44.
+  - **The Minish Cap** (v17.5–17.6): 7ch/104 steps (4 Element dungeons + Fortress of Winds + Dark Hyrule Castle;
+    shrink-with-Ezlo + Kinstone fusion) · items 33 · enemies 25 (9 boss guides) · 3 Great Fairies · 19 quests ·
+    compendium 38. CHAMPIONS = the 4 Elements. COLLECTIBLES Pieces of Heart 44 + Kinstone Fusions 100.
+  - **Oracle of Seasons** (v17.7–17.8): 10ch/138 steps (8 Essence-of-Nature dungeons + Onox; Rod of Seasons +
+    Subrosia + seeds) · items 35 · enemies 25 (14 boss guides) · 7 fairies/helpers · 21 quests · compendium 41.
+    CHAMPIONS = 8 Essences of Nature. COLLECTIBLES Pieces of Heart 12 + Magic Rings 64.
+  - **Oracle of Ages** (v17.9–17.10): 10ch/145 steps (8 Essence-of-Time dungeons + Veran; Harp of Ages time-travel)
+    · items 38 · enemies 23 (9 boss guides) · 8 fairies/helpers · 13 quests · compendium 53. CHAMPIONS = 8 Essences
+    of Time. COLLECTIBLES Pieces of Heart 12 + Magic Rings 64.
+  All shells/openings + collectible totals + dungeon→item/trophy mappings were **web-verified up front**; every
+  walkthrough/depth/compendium was **author→adversarial-verify** with a second-source web check. **Every SOLO
+  walkthrough run had 0 failures** — the v16 "heavy workflows run SOLO" lesson held all five times. 5 new
+  `GameCover` emblems (painting/sail/cap/season/harp); META re-ranked for the new consoles. All verified in-browser
+  (11 games grouped, each at its game-appropriate tab set, 0 console errors, BotW/MM unregressed).
 - **Biggest remaining build (whole app):** TotK **shrine solutions** (152 — the Stuck-reveal/answer-first-search
   centerpiece; the only major functional gap left in any game). Resume `wf_ebb10104-cfd` (~150 left), ≤2
   workflows at a time. Lower-priority: TotK Items-tab compendium. Lore is shared/cross-game and could gain
-  OoT/TotK/MM/ALttP/LA-era chapters (needs the writers'-room workflow + the no-AI-slop bar — vet a sample first).
+  era chapters for any of the 11 games (needs the writers'-room workflow + the no-AI-slop bar — vet a sample first).
