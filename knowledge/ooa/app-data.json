@@ -95,6 +95,1324 @@
      ]
     }
    ]
+  },
+  {
+   "id": "ooa_spirit",
+   "name": "Spirit's Grave",
+   "sub": "Essence: Eternal Spirit",
+   "champion": "Eternal Spirit",
+   "tagline": "The first dungeon, hidden beneath a grave in Yoll Graveyard.",
+   "kind": "region",
+   "sections": [
+    {
+     "id": "ooa_spirit_yoll",
+     "name": "Yoll Graveyard",
+     "sub": "Find the way into the grave",
+     "steps": [
+      {
+       "id": "ooa_spirit_route",
+       "k": "step",
+       "t": "From Lynna, head east out of town and work your way to Yoll Graveyard. Small trees and bushes block the path — you'll need fire to clear them.",
+       "stuck": "From the area east of town, follow the path east and south toward the graveyard. Burn the bushes in your way by tossing an Ember Seed at them."
+      },
+      {
+       "id": "ooa_spirit_embers",
+       "k": "loot",
+       "t": "The Maku Tree gives you the Seed Satchel and Ember Seeds — they light torches and burn the little trees and bushes blocking the graveyard.",
+       "items": [
+        {
+         "name": "Ember Seeds",
+         "cat": "material",
+         "note": "Burn small trees/bushes and light torches."
+        }
+       ]
+      },
+      {
+       "id": "ooa_spirit_kids",
+       "k": "tip",
+       "t": "Inside the graveyard you'll overhear children talking about a ghost living under a grave beneath a tree. That grave is your way into the dungeon — remember it."
+      },
+      {
+       "id": "ooa_spirit_key",
+       "k": "loot",
+       "t": "Work your way to the grave at the south end and head down the stairs. In the cave below, light the torches with Ember Seeds to make the Graveyard Key drop, then grab it.",
+       "stuck": "Toss an Ember Seed at each unlit torch in the room. Once they're lit, the Graveyard Key appears in the middle of the room — walk over and pick it up.",
+       "items": [
+        {
+         "name": "Graveyard Key",
+         "cat": "key",
+         "note": "Unlocks the gate up to the ghost's grave."
+        }
+       ]
+      },
+      {
+       "id": "ooa_spirit_gate",
+       "k": "step",
+       "t": "Back outside, make your way to the locked gate and use the Graveyard Key to open it, opening the path to the grave beneath the tree.",
+       "stuck": "Head up toward the locked gate — walk into the lock with the Graveyard Key in your inventory to open it."
+      },
+      {
+       "id": "ooa_spirit_ghost",
+       "k": "step",
+       "t": "Talk to the ghost at the tree-covered grave. Push the gravestone aside to open a hole, then drop in — this is the entrance to Spirit's Grave.",
+       "stuck": "Speak to the ghost first, then push the gravestone (it slides) and step into the opening it reveals."
+      }
+     ]
+    },
+    {
+     "id": "ooa_spirit_dungeon",
+     "name": "Into Spirit's Grave",
+     "sub": "Power Bracelet · Giant Ghini",
+     "reward": "Power Bracelet",
+     "steps": [
+      {
+       "id": "ooa_spirit_explore",
+       "k": "step",
+       "t": "Inside, fight through the rooms, lighting torches with Ember Seeds and using keys on locked doors as you find them. Push blocks and step on floor switches to open the way deeper."
+      },
+      {
+       "id": "ooa_spirit_bracelet",
+       "k": "reward",
+       "t": "Find the dungeon's treasure chest: the Power Bracelet. Equip it to a button — now you can lift and throw pots and rocks, and pull heavy blocks.",
+       "stuck": "It's in a chest reached by going down a ladder and up another. Stand next to a heavy object and press the Bracelet button to grab it; hold and pull to drag blocks.",
+       "items": [
+        {
+         "name": "Power Bracelet",
+         "cat": "item",
+         "note": "Lift pots and rocks; required to beat the boss."
+        }
+       ]
+      },
+      {
+       "id": "ooa_spirit_blocks",
+       "k": "tip",
+       "t": "With the Power Bracelet, you can now clear rooms that were blocked by heavy stones — lift the rock or pot in your way and toss it aside to move on."
+      },
+      {
+       "id": "ooa_spirit_miniboss",
+       "k": "step",
+       "t": "Mini-boss: Giant Ghini. It sends out small ghosts that swarm you — slash those away, then close in and hit the Giant Ghini with your sword.",
+       "stuck": "Cut down the little ghosts it spawns so you can move freely, then sword the big Ghini. It takes several hits; clear it and a key drops to continue."
+      }
+     ]
+    },
+    {
+     "id": "ooa_spirit_boss",
+     "name": "Pumpkin Head",
+     "sub": "Boss · the Eternal Spirit",
+     "reward": "Eternal Spirit",
+     "steps": [
+      {
+       "id": "ooa_spirit_pumpkin",
+       "k": "step",
+       "t": "Boss: Pumpkin Head. Slash its body until it vanishes and the pumpkin head drops to the floor. Lift the pumpkin with the Power Bracelet — a little ghost is hiding inside.",
+       "stuck": "Hack at the body with your sword until it disappears, then use the Power Bracelet to pick the fallen pumpkin up off the ground, uncovering the ghost."
+      },
+      {
+       "id": "ooa_spirit_pumpkin_ghost",
+       "k": "step",
+       "t": "While you're holding the pumpkin, throw it far from the ghost, then slash the exposed ghost before it reforms. Repeat: slash body → lift and throw pumpkin → hit the ghost until it's beaten.",
+       "stuck": "The ghost is only vulnerable while the pumpkin is away from it — throw the pumpkin as far as you can, then strike the ghost fast before it grabs the pumpkin and re-forms."
+      },
+      {
+       "id": "ooa_spirit_heart",
+       "k": "loot",
+       "t": "After Pumpkin Head falls, grab the Heart Container it leaves in the center of the room — one more permanent heart on your life bar.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "+1 permanent heart."
+        }
+       ]
+      },
+      {
+       "id": "ooa_spirit_essence",
+       "k": "reward",
+       "t": "Head up through the north exit and step onto the altar to claim the first Essence of Time: the Eternal Spirit. Return toward the Maku Tree to keep waking her.",
+       "items": [
+        {
+         "name": "Eternal Spirit",
+         "cat": "key",
+         "note": "Essence of Time 1 of 8."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ooa_wing",
+   "name": "Wing Dungeon",
+   "sub": "Essence: Ancient Wood",
+   "champion": "Ancient Wood",
+   "tagline": "A feather to leap with, in the western woods.",
+   "sections": [
+    {
+     "id": "ooa_wing_approach",
+     "name": "Into the Fairies' Woods",
+     "sub": "Catch the fairies, then cross to the past",
+     "steps": [
+      {
+       "id": "ooa_wing_west_woods",
+       "k": "step",
+       "t": "Head west out of town into the Western Woods, the Fairies' Woods. Three Stray Fairies pop out of a tree and warp the forest into a looping maze for a game of hide-and-seek. You can't reach the dungeon until you find all three."
+      },
+      {
+       "id": "ooa_wing_mystery_seeds",
+       "k": "step",
+       "t": "Find the three hidden fairies to break the maze: one is under a rock (lift it with the Power Bracelet), the others hide in bushes you slash. Walk the screens back and forth until each hiding spot appears, then grab the fairy.",
+       "stuck": "The looping exits are the catch — until all three fairies are found, heading east just loops you back. From the start: go up/down/up and lift the rock for one; slash the bottom bushes after stepping right for the others. Catch all three and the forest stops warping."
+      },
+      {
+       "id": "ooa_wing_portal",
+       "k": "step",
+       "t": "Walk to the dungeon, but it collapses the moment you reach it — you can't enter here in the present. The Maku Tree sends you to Nayru's home; grab the Harp of Ages from the hidden cellar, learn the Tune of Echoes, then play it on a time portal to drop into the PAST, where this forest is the Deku Forest.",
+       "stuck": "The Wing Dungeon only exists intact in the PAST. If there's no door, you're in the present — get the Harp of Ages from Nayru's house, then play the Tune of Echoes on a portal to warp back in time."
+      },
+      {
+       "id": "ooa_wing_bomb_wall",
+       "k": "step",
+       "t": "In the past, find the building in the Deku Forest. Bomb the entrance to open it, then step inside the Wing Dungeon.",
+       "stuck": "The dungeon entrance in the past is sealed. Set a Bomb right against it, back off, and the blast blows it open — then walk in."
+      }
+     ]
+    },
+    {
+     "id": "ooa_wing_inside",
+     "name": "Swoop and the Feather",
+     "sub": "The dungeon item: Roc's Feather",
+     "steps": [
+      {
+       "id": "ooa_wing_swoop",
+       "k": "step",
+       "t": "Push through the early rooms to the mini-boss, Swoop — a giant bird that dive-bombs wherever you're standing, smashing the floor tiles there. Keep moving so it misses, then slash it the instant it lands.",
+       "stuck": "Stand on the BLUE border tiles around the room's edge — Swoop can't break those. Wait for it to crash down, then run in and hit it with your sword as it sits stunned. A few good hits ends it; later it bounces toward you, so dodge before you strike."
+      },
+      {
+       "id": "ooa_wing_feather",
+       "k": "loot",
+       "t": "Past Swoop is a side-scrolling room with a Thwomp. Bait the Thwomp into slamming down, then dash underneath as it rises and grab Roc's Feather on the right.",
+       "stuck": "Step in so the Thwomp drops, wait, and run past it the moment it starts going back up. The chest beyond holds Roc's Feather — equip it and press the button to JUMP.",
+       "items": [
+        {
+         "name": "Roc's Feather",
+         "cat": "item",
+         "note": "Equip it to jump over gaps, hazards, and tiles."
+        }
+       ]
+      },
+      {
+       "id": "ooa_wing_jump_tip",
+       "k": "tip",
+       "t": "Roc's Feather changes everything from here on: equip it to leap over pits, spikes, and floor tiles. Many remaining doors only open once you jump across the right tiles."
+      },
+      {
+       "id": "ooa_wing_tiles",
+       "k": "step",
+       "t": "Use the Feather to clear the locked rooms — jump on the colored tiles to flip them and across gaps until each gate unlocks, working your way toward the boss door. Pick up the Boss Key along the way.",
+       "stuck": "When a room has a closed gate and colored floor tiles, jump on every tile to change its color (don't leave any) — clearing the set drops the gate. Use the Feather to cross the pits between them."
+      }
+     ]
+    },
+    {
+     "id": "ooa_wing_boss",
+     "name": "Head Thwomp",
+     "sub": "Bomb the red face",
+     "reward": "Essence of Time: Ancient Wood",
+     "steps": [
+      {
+       "id": "ooa_wing_boss_setup",
+       "k": "step",
+       "t": "In the boss room, climb to the ledges at the top. Head Thwomp sits in the middle, slowly rotating to show four colored faces — and spitting fireballs from whichever face is forward."
+      },
+      {
+       "id": "ooa_wing_boss_dodge",
+       "k": "tip",
+       "t": "Watch its fireballs and reposition along the top ledges to stay out of the line of fire. Keep Bombs and Roc's Feather equipped — you'll need the Feather to climb back up if you fall."
+      },
+      {
+       "id": "ooa_wing_boss_bomb",
+       "k": "step",
+       "t": "The top of its head is open. From a ledge, drop a Bomb straight into the hole — but only the RED face takes real damage. Time it so the Bomb lands inside just as the red face comes around.",
+       "stuck": "Hitting any other color does nothing. Wait until it rotates to the RED face, then toss a Bomb into the open top of its head. About four clean hits destroys it."
+      },
+      {
+       "id": "ooa_wing_essence",
+       "k": "reward",
+       "t": "With Head Thwomp beaten, claim the Heart Container, then step into the light to take the second Essence of Time — the Ancient Wood.",
+       "items": [
+        {
+         "name": "Ancient Wood",
+         "cat": "key",
+         "note": "The 2nd Essence of Time. Two down; carry it back toward the Maku Tree."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "ooa_moonlit",
+   "name": "Moonlit Grotto",
+   "sub": "Essence: Echoing Howl",
+   "champion": "Echoing Howl",
+   "tagline": "A seed shooter that bounces off the walls.",
+   "sections": [
+    {
+     "id": "ooa_moonlit_s_reach",
+     "name": "Sailing to Crescent Island",
+     "sub": "Build a raft, then warp to the statue's mouth",
+     "reward": "Access to the dungeon",
+     "steps": [
+      {
+       "id": "ooa_moonlit_reach_1",
+       "k": "step",
+       "t": "Crescent Island sits out at sea — you can't walk there. Find Rafton's hut south of Lynna Village in the PAST; he'll build you a raft, but he needs a rope that won't rot in seawater first.",
+       "stuck": "Rafton lives in the PAST. If his hut looks empty in the present, play the Harp of Ages at a time portal and come back in the past era."
+      },
+      {
+       "id": "ooa_moonlit_reach_2",
+       "k": "step",
+       "t": "Bring Rafton the Cheval Rope. You get it (along with the Zora's Flippers) from Cheval's Tomb in the Yoll Graveyard. Hand him the rope and he starts building.",
+       "items": [
+        {
+         "name": "Cheval Rope",
+         "cat": "item",
+         "note": "A rope that doesn't rot in seawater. Rafton needs it to finish your raft."
+        }
+       ],
+       "stuck": "No rope yet? It's inside Cheval's Tomb in Yoll Graveyard — the same place you collect the Zora's Flippers. Clear that first."
+      },
+      {
+       "id": "ooa_moonlit_reach_3",
+       "k": "step",
+       "t": "Rafton also wants a sea chart so the raft can be steered. Track down Tingle and get the Island Chart, then return to Rafton — the raft is ready.",
+       "items": [
+        {
+         "name": "Island Chart",
+         "cat": "item",
+         "note": "A sea map. Give it to Rafton so he can finish the raft to Crescent Island."
+        }
+       ],
+       "stuck": "Tingle is the floating map-seller in the Forest of Time. Reach him to receive the Island Chart, then take it back to Rafton."
+      },
+      {
+       "id": "ooa_moonlit_reach_4",
+       "k": "step",
+       "t": "Ride the raft out to sea. A storm hits and you wash up on Crescent Island — and the lizard-like Tokay swarm you and STEAL all your items. You start with nothing but a shovel.",
+       "stuck": "Don't panic when your gear's gone — this is scripted. Everything is recoverable on the island."
+      },
+      {
+       "id": "ooa_moonlit_reach_5",
+       "k": "step",
+       "t": "Get your gear back: at the Tokay's trading hut, trade up from the shovel — swapping items one at a time — until you've reclaimed your sword, bombs, feather, flippers, seed satchel, and the rest.",
+       "stuck": "Work the trade chain at the hut. Each trade hands back another piece of your kit; keep going until your inventory is whole."
+      },
+      {
+       "id": "ooa_moonlit_reach_6",
+       "k": "step",
+       "t": "With your items back, head to the west side of the island. A big Tokay guardian statue stands there — but in the PAST its mouth is sealed. Find the nearby time portal.",
+       "stuck": "The dungeon door is the statue's MOUTH, and it only opens in the present. Look for the time portal near the statue on the island's west side."
+      },
+      {
+       "id": "ooa_moonlit_reach_7",
+       "k": "step",
+       "t": "Play the Tune of Echoes at the portal to warp to the PRESENT. Now the guardian statue's mouth stands open — walk inside to enter the Moonlit Grotto.",
+       "stuck": "Warp forward with the harp, then approach the same statue. In the present its open mouth is the dungeon entrance."
+      },
+      {
+       "id": "ooa_moonlit_reach_8",
+       "k": "tip",
+       "t": "Cross-time note: in the PRESENT the statue's mouth is the Moonlit Grotto. The very same mouth in the PAST is a sealed path toward the Sea of No Return (an end-game area) — ignore it for now and enter in the present for this Essence."
+      }
+     ]
+    },
+    {
+     "id": "ooa_moonlit_s_dungeon",
+     "name": "Inside the Grotto",
+     "sub": "The Seed Shooter and bouncing puzzles",
+     "reward": "Seed Shooter & Boss Key",
+     "steps": [
+      {
+       "id": "ooa_moonlit_dungeon_1",
+       "k": "step",
+       "t": "Work inward and fight through a Moldorm and the Arm Mimics — they mirror your movement, walking opposite to you. Clear the room and open the chest.",
+       "stuck": "Arm Mimics copy your steps in reverse. Maneuver so one backs into a corner or wall, then strike — or just slash as they pass."
+      },
+      {
+       "id": "ooa_moonlit_dungeon_2",
+       "k": "reward",
+       "t": "Claim the Seed Shooter. It fires Mystical Seeds as a projectile — and the seeds RICOCHET off walls, so you can curve a shot around a corner to hit a far switch or torch.",
+       "items": [
+        {
+         "name": "Seed Shooter",
+         "cat": "item",
+         "note": "Fires Mystical Seeds that bounce off walls. Aim in 8 directions; load it with Ember, Scent, Pegasus, etc. The key tool of this dungeon."
+        }
+       ],
+       "stuck": "Equip the Seed Shooter, pick a seed type (Ember to light torches), aim a diagonal, and watch the seed rebound off the wall to reach what you can't hit straight-on."
+      },
+      {
+       "id": "ooa_moonlit_dungeon_3",
+       "k": "step",
+       "t": "Use Ember Seeds with the Shooter to light the unlit torches — aim so the seed bounces off a wall to reach torches you can't face directly. Lit torches open the way forward.",
+       "stuck": "Stand back and fire a diagonal Ember Seed; let it bounce off the wall and into the torch. You don't have to be standing in front of it."
+      },
+      {
+       "id": "ooa_moonlit_dungeon_4",
+       "k": "step",
+       "t": "Hit the crystal switches with the Seed Shooter to flip the spinning blocks and swing the bridge platforms into place, building a path across the room.",
+       "stuck": "Shoot the crystal switch (any seed works) to flip it. The bounce lets you trigger a switch tucked behind an obstacle."
+      },
+      {
+       "id": "ooa_moonlit_dungeon_5",
+       "k": "step",
+       "t": "For the toughest switches, line up a bank shot: fire a seed at an angle so it glances off a wall and slips past the rotating obstacles to strike the switch beyond. Time it with the spin.",
+       "stuck": "Aim a diagonal so the seed ricochets off the wall and threads past the spinning blocks to the hidden switch — fire a beat before the gap lines up."
+      },
+      {
+       "id": "ooa_moonlit_dungeon_6",
+       "k": "step",
+       "t": "Mini-boss: Subterror, a giant mole that burrows and surfaces to attack. When it pops up near you, dig it out with the Shovel, then hack it with your sword. It speeds up as the fight goes on.",
+       "stuck": "Watch the dirt mound move; the instant Subterror surfaces, use the Shovel to unearth it, then get a few sword hits in before it dives again."
+      },
+      {
+       "id": "ooa_moonlit_dungeon_7",
+       "k": "loot",
+       "t": "After the rotating-block and bridge puzzles, open the chest in the final approach for the Boss Key.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the locked door to the Shadow Hag's chamber."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ooa_moonlit_s_boss",
+     "name": "Shadow Hag",
+     "sub": "Boss — bounce a seed off the wall",
+     "reward": "Echoing Howl",
+     "steps": [
+      {
+       "id": "ooa_moonlit_boss_1",
+       "k": "warn",
+       "t": "Boss: Shadow Hag. She splits into four shadows that circle the room — touching any of them hurts you. Keep moving and don't get cornered while they rotate."
+      },
+      {
+       "id": "ooa_moonlit_boss_2",
+       "k": "step",
+       "t": "The four shadows merge into one small shadow with a face, and it spits out Moths. Kill the Moths — they drop hearts and seeds, so you can refill the Seed Shooter between rounds.",
+       "stuck": "Slash the Moths down; they're easy and they restock your seeds and health for the real attack."
+      },
+      {
+       "id": "ooa_moonlit_boss_3",
+       "k": "step",
+       "t": "Here's the trick: you can't hit her by aiming at her. Turn so you're facing AWAY from the Shadow Hag, fire the Seed Shooter at the wall, and let the seed rebound back to strike her as she charges at you.",
+       "stuck": "Put your back roughly toward her, shoot a seed into the wall behind/beside you, and the bounce catches her on the rebound. Bait her charge, then fire just before she reaches you."
+      },
+      {
+       "id": "ooa_moonlit_boss_4",
+       "k": "step",
+       "t": "Repeat the rebound shots through each Moth round. About six clean hits finish her — then grab the Heart Container she leaves behind.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Permanently adds one full heart to your life meter."
+        }
+       ]
+      },
+      {
+       "id": "ooa_moonlit_boss_5",
+       "k": "reward",
+       "t": "With the Shadow Hag gone, step into the light and take the third Essence of Time — the Echoing Howl. Three down, five to go.",
+       "items": [
+        {
+         "name": "Echoing Howl",
+         "cat": "key",
+         "note": "The 3rd Essence of Time. Restores more of the Maku Tree's power against Veran."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "ooa_skull",
+   "name": "Skull Dungeon",
+   "sub": "Essence: Burning Flame",
+   "champion": "Burning Flame",
+   "tagline": "A hook that swaps your place with the world.",
+   "sections": [
+    {
+     "id": "ooa_skull_open",
+     "name": "Reopen the Way",
+     "sub": "Symmetry City, past & present",
+     "steps": [
+      {
+       "id": "ooa_skull_intro",
+       "k": "tip",
+       "t": "The fourth Essence sits in Skull Dungeon, beneath the volcano at Symmetry City in the northwest. In the PRESENT the city lies in ruins; in the PAST it thrives. You can't just walk in — the city's broken keystone, the Tuni Nut, has thrown everything off balance, and you must repair it across time first."
+      },
+      {
+       "id": "ooa_skull_tuninut",
+       "k": "step",
+       "t": "Go to PAST Symmetry City, where the town still stands, and get the broken halves of the Tuni Nut from the townsfolk. While it's broken, the city is off-balance and the dungeon stays sealed.",
+       "stuck": "The broken Tuni Nut comes from the past version of Symmetry City — talk to the residents there to receive it. (It's tied to a short errand among the past townsfolk.)",
+       "items": [
+        {
+         "name": "Tuni Nut",
+         "cat": "item",
+         "note": "Broken — Symmetry City's keystone; must be repaired"
+        }
+       ]
+      },
+      {
+       "id": "ooa_skull_patch",
+       "k": "step",
+       "t": "Take the broken Tuni Nut to Patch, the repairman, to have it mended. Patch is at the top of Restoration Wall — reaching him triggers a repair minigame: knock the Hardhat Beetles into the holes before the runaway mine cart smashes the Nut.",
+       "stuck": "Climb Restoration Wall to find Patch. In his minigame, push every Hardhat Beetle into a hole; stand on the floor switch to flip the track and send the cart around again so it doesn't hit the Tuni Nut before you finish. Clear it and he hands back the repaired Nut."
+      },
+      {
+       "id": "ooa_skull_restore",
+       "k": "step",
+       "t": "Carry the repaired Tuni Nut back to PRESENT Symmetry City and set it on the pedestal in the central building. Restoring it rebalances the city and opens the path to the dungeon.",
+       "stuck": "Place the fixed Nut on the altar/pedestal inside the central building of present-day Symmetry City. The city reacts and the dungeon route opens."
+      },
+      {
+       "id": "ooa_skull_entrance",
+       "k": "step",
+       "t": "With the Tuni Nut restored, head to northern Symmetry City in the PRESENT. The erupting volcano is now a cascading waterfall, and a gap in the falls reveals the mouth of Skull Dungeon.",
+       "stuck": "Go to the waterfall at the top of present-day Symmetry City. The falls part to reveal a dark opening; walk into it."
+      },
+      {
+       "id": "ooa_skull_harp",
+       "k": "tip",
+       "t": "Keep the Harp ready. Skull Dungeon leans hard on flipping eras to reach blocked rooms — when a path dead-ends, check whether the same room differs in the other time. Vasu's rings and your Seed Shooter help between here and the entrance."
+      }
+     ]
+    },
+    {
+     "id": "ooa_skull_inside",
+     "name": "Into the Skull",
+     "sub": "The Switch Hook",
+     "steps": [
+      {
+       "id": "ooa_skull_explore",
+       "k": "step",
+       "t": "Work through the early rooms. Push the marked blocks to reach the Compass chest, and ride the mine-cart track to the chest that holds the Dungeon Map. Lava pools block many paths for now — you'll get the tool to cross them.",
+       "stuck": "The Map comes from riding the mine-cart line to its end chest; the Compass is behind a pushable block in an early room. Light torches and hit eye-switches to open barred doors."
+      },
+      {
+       "id": "ooa_skull_keys",
+       "k": "loot",
+       "t": "Collect Small Keys from the dungeon's puzzle rooms to open the locked doors barring your way deeper in.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Several are hidden in Skull Dungeon's puzzle rooms"
+        }
+       ]
+      },
+      {
+       "id": "ooa_skull_switchhook",
+       "k": "loot",
+       "t": "Claim the dungeon's prize: the Switch Hook. Fire it at a marked object — a diamond block, a pot, a pillar — and you instantly SWAP places with it. That's how you cross the lava: hook something on the far side and trade spots with it. It also works on some enemies.",
+       "stuck": "Equip the Switch Hook to a button. Aim it at the diamond-shaped blocks or pots across a gap; when it grabs, you and the object switch places. It also stuns enemies it hits.",
+       "items": [
+        {
+         "name": "Switch Hook",
+         "cat": "item",
+         "note": "Swaps Link's position with an object or stunned enemy; crosses lava and gaps"
+        }
+       ]
+      },
+      {
+       "id": "ooa_skull_lava",
+       "k": "step",
+       "t": "Use the Switch Hook to leapfrog across the lava pools, swapping with diamond blocks and pots to reach the rooms that were cut off before. Flip eras with the Harp wherever a wall or floor differs across time.",
+       "stuck": "No block in reach? Look in the other era — the past/present version of the room often has a diamond block right where you need one to switch to."
+      },
+      {
+       "id": "ooa_skull_bosskey",
+       "k": "loot",
+       "t": "Reach the upper section and chain Switch Hook swaps with pots and platforms to grab the Boss Key, then make your way to the locked boss door.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens Skull Dungeon's boss door"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ooa_skull_boss",
+     "name": "Eyesoar",
+     "sub": "The watching eye",
+     "reward": "Essence of Time: Burning Flame",
+     "steps": [
+      {
+       "id": "ooa_skull_eyesoar",
+       "k": "step",
+       "t": "The boss is Eyesoar — a big floating eyeball ringed by four smaller eyes that orbit and dart at you. Hacking blindly at the cluster won't do it; the kill is the central eye, and the Switch Hook is the key.",
+       "stuck": "Ignore the small eyes for the kill — the damage all comes from the big central eye. Line up the Switch Hook on it."
+      },
+      {
+       "id": "ooa_skull_eyesoar_hook",
+       "k": "step",
+       "t": "Fire the Switch Hook straight at the big central eye. You trade places with Eyesoar, leaving it stunned and momentarily helpless.",
+       "stuck": "Aim the Switch Hook directly at the central eyeball, not the small ones. The swap stuns Eyesoar — that's your opening."
+      },
+      {
+       "id": "ooa_skull_eyesoar_slash",
+       "k": "step",
+       "t": "While Eyesoar is stunned from the swap, rush in and slash the central eye with your sword. Back off before it recovers, then Switch Hook the center again. Repeat until it falls.",
+       "stuck": "You only get a brief window each swap. Get one or two sword hits in, retreat, and re-hook the central eye. You can knock the small eyes away with the Hook or sword to buy room, but the kill comes from hitting the big eye while it's stunned."
+      },
+      {
+       "id": "ooa_skull_heart",
+       "k": "loot",
+       "t": "With Eyesoar destroyed, take the Heart Container it leaves behind — one more permanent heart on your life bar.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Permanently extends your life by one heart"
+        }
+       ]
+      },
+      {
+       "id": "ooa_skull_essence",
+       "k": "reward",
+       "t": "Step into the light and claim the fourth Essence of Time, the Burning Flame. Four down — return its glow toward the Maku Tree and press on against Veran.",
+       "items": [
+        {
+         "name": "Burning Flame",
+         "cat": "key",
+         "note": "4th Essence of Time — from Skull Dungeon"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "ooa_crown",
+   "name": "Crown Dungeon",
+   "sub": "Essence: Sacred Soil",
+   "champion": "Sacred Soil",
+   "tagline": "A cane that builds blocks from nothing.",
+   "sections": [
+    {
+     "id": "ooa_crown_getin",
+     "name": "Earn the Crown Key",
+     "sub": "Rolling Ridge — a Bomb Flower carried into the past",
+     "steps": [
+      {
+       "id": "ooa_crown_intro",
+       "k": "tip",
+       "t": "Crown Dungeon is built into the cliff on Rolling Ridge in the present, and its door is locked. To open it you need the Crown Key — and to get that, you have to do a favor that crosses eras. Work through this section before heading to the door."
+      },
+      {
+       "id": "ooa_crown_moblin",
+       "k": "step",
+       "t": "In the PRESENT, the Great Moblin has built a keep in Rolling Ridge and hoarded every Bomb Flower to put the Gorons out of business. Storm the keep and beat him to free the Gorons (Pegasus Seeds let you dash in fast).",
+       "stuck": "Stay in the PRESENT for this. Equip Pegasus Seeds and dash to close distance and reach the stairs up to the Great Moblin; whittle him down in his keep until the Gorons are freed."
+      },
+      {
+       "id": "ooa_crown_bombflower",
+       "k": "loot",
+       "t": "With the Great Moblin gone, the Gorons say they can grow Bomb Flowers again and hand you one. Keep it equipped — you're about to take it somewhere it doesn't normally exist.",
+       "items": [
+        {
+         "name": "Bomb Flower",
+         "cat": "item",
+         "note": "A live, regrowing bomb plant — carry it through a time portal to the past."
+        }
+       ]
+      },
+      {
+       "id": "ooa_crown_elder",
+       "k": "step",
+       "t": "Carry that Bomb Flower into the PAST via a Rolling Ridge time portal. There the Goron Elder is pinned under a rockfall with no Bomb Flowers around — bring yours to the Gorons punching at the rock so they can blast it free.",
+       "stuck": "This is the cross-time trick: Bomb Flowers exist in the present but were lost in the past, so you must physically carry one back through a portal. Hand it to the Gorons working at the rubble trapping the Elder, and they'll use it to break the rock."
+      },
+      {
+       "id": "ooa_crown_crownkey",
+       "k": "loot",
+       "t": "The freed Goron Elder thanks you and gives the Crown Key. This unlocks Crown Dungeon.",
+       "items": [
+        {
+         "name": "Crown Key",
+         "cat": "key",
+         "note": "Opens the locked door of Crown Dungeon on Rolling Ridge."
+        }
+       ]
+      },
+      {
+       "id": "ooa_crown_unlock",
+       "k": "step",
+       "t": "Head to the Crown Dungeon door built into the cliff on Rolling Ridge and use the Crown Key to open it. Go inside.",
+       "stuck": "The entrance is set into the rock wall on Rolling Ridge. If the door is still sealed, you haven't freed the Elder yet — go back and finish the Bomb Flower errand."
+      }
+     ]
+    },
+    {
+     "id": "ooa_crown_inside",
+     "name": "Into the Dungeon",
+     "sub": "Statues, switches, and the cane that makes blocks",
+     "reward": "Cane of Somaria",
+     "steps": [
+      {
+       "id": "ooa_crown_explore",
+       "k": "step",
+       "t": "Work through the early rooms clearing enemies and hitting crystal switches to raise and lower the colored block barriers. Pick up the dungeon map and compass when you find them, and grab any Small Keys to pass locked doors."
+      },
+      {
+       "id": "ooa_crown_statues",
+       "k": "step",
+       "t": "Reach the statue room. Step on the switch to flash a pattern, then push the statues so they match that exact arrangement.",
+       "stuck": "Stand on the button to flash the pattern, then push each statue into the matching spot (try the red statue right, the blue one above it up, then the red one up and left). Match the pattern and a chest appears in the middle."
+      },
+      {
+       "id": "ooa_crown_somaria",
+       "k": "loot",
+       "t": "Open the chest the statue puzzle unlocks to claim the Cane of Somaria — it conjures a solid block out of thin air that you can place and push. Blocks become your main tool for the rest of the dungeon.",
+       "items": [
+        {
+         "name": "Cane of Somaria",
+         "cat": "item",
+         "note": "Creates one movable block (it stays until you make another or leave the room); use it to hold switches, weigh down platforms, and block paths."
+        }
+       ]
+      },
+      {
+       "id": "ooa_crown_practice",
+       "k": "tip",
+       "t": "Get comfortable with the cane now: tap it to summon a block, tap again to remake it elsewhere, and push the block onto switches or across gaps. Many doors ahead open by parking a Somaria block on a floor switch."
+      },
+      {
+       "id": "ooa_crown_progress",
+       "k": "step",
+       "t": "Use Somaria blocks to solve the block-and-switch rooms on the way to the boss door — drop a block on a pressure plate to hold it, push blocks to reach ledges, and collect the Boss Key when you find it.",
+       "stuck": "If a switch keeps popping back up the instant you step off, summon a Somaria block and push it onto the switch to hold it down while you move on. In one dark room, push a block to feel out the invisible path to the center chest."
+      }
+     ]
+    },
+    {
+     "id": "ooa_crown_boss",
+     "name": "Boss: Smog",
+     "sub": "A cloud you reassemble with blocks",
+     "reward": "Sacred Soil",
+     "steps": [
+      {
+       "id": "ooa_crown_smog_intro",
+       "k": "warn",
+       "t": "Smog is a puzzle boss, not a slugfest. It splits into two or three small clouds that slide along the walls and around any blocks — your sword can't catch them while they're scattered. The Cane of Somaria is the whole answer."
+      },
+      {
+       "id": "ooa_crown_smog_collide",
+       "k": "step",
+       "t": "The little clouds glide along the edges and around blocks. Drop Somaria blocks in their paths to redirect them so they crash into each other — each collision merges clouds together.",
+       "stuck": "Place a Somaria block just ahead of a moving cloud to bend its path toward another cloud. Keep forcing collisions until all the small clouds have fused back into one full-size Smog."
+      },
+      {
+       "id": "ooa_crown_smog_strike",
+       "k": "step",
+       "t": "Once the clouds recombine into the whole Smog, it turns vulnerable. Rush in and hit it repeatedly with your sword while dodging the lightning bolts it spits at full size.",
+       "stuck": "Smog only takes sword damage in its reformed full-size state. Slash it fast, sidestep the lightning, and if it splits apart again just repeat the block-collision trick to rebuild it. It re-splits a few times before it dies."
+      },
+      {
+       "id": "ooa_crown_heart",
+       "k": "loot",
+       "t": "When Smog is destroyed, a Heart Container appears. Grab it to permanently raise your max hearts.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Adds one full heart to your maximum life."
+        }
+       ]
+      },
+      {
+       "id": "ooa_crown_essence",
+       "k": "reward",
+       "t": "Step into the light to claim Sacred Soil, the fifth Essence of Time. Five down — return to the Maku Tree when you're ready to learn what to chase next.",
+       "items": [
+        {
+         "name": "Sacred Soil",
+         "cat": "key",
+         "note": "The 5th Essence of Time. The soil that nurtures all life."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "ooa_mermaid",
+   "name": "Mermaid's Cave",
+   "sub": "Essence: Lonely Peak",
+   "champion": "Lonely Peak",
+   "tagline": "A cave split across the ages, and the sea.",
+   "sections": [
+    {
+     "id": "ooa_mermaid_approach",
+     "name": "Reaching the Cave",
+     "sub": "Two keys, two eras",
+     "steps": [
+      {
+       "id": "ooa_mermaid_keys",
+       "k": "step",
+       "t": "From Rolling Ridge you leave with two keys: the Mermaid Key (for the PAST cave) and the Old Mermaid Key (for the PRESENT cave). Mermaid's Cave is the same cave in both eras, so you'll carry both.",
+       "stuck": "If you don't have both keys yet, finish the Rolling Ridge errands first. Remember the pairing: the plain Mermaid Key opens the PAST entrance; the Old Mermaid Key opens the PRESENT one."
+      },
+      {
+       "id": "ooa_mermaid_enter_past",
+       "k": "step",
+       "t": "Go to the cave on the eastern Rolling Ridge coast in the PAST. Swim into the waterfall and open the locked door with the Mermaid Key. You begin the dungeon in the PAST — and working through it here is what opens the cave up in the PRESENT.",
+       "stuck": "The entrance is behind a waterfall — swim straight into it. Wrong era? Stand on a time portal and play the Tune of Currents to drop into the past, then come back to the cave."
+      },
+      {
+       "id": "ooa_mermaid_twice",
+       "k": "tip",
+       "t": "This is the trickiest dungeon so far: you clear it across BOTH eras, hopping between them. Clear the PAST cave first to make the PRESENT cave reachable, then cross back. Whenever you hit a dead end, leave, flip eras at a portal, and try the same cave in the other time — the room layouts differ."
+      }
+     ]
+    },
+    {
+     "id": "ooa_mermaid_suit",
+     "name": "The Mermaid Suit",
+     "sub": "A bat, a key, and a swimsuit",
+     "reward": "Mermaid Suit",
+     "steps": [
+      {
+       "id": "ooa_mermaid_to_present",
+       "k": "step",
+       "t": "Once you've opened the way through the PAST cave, travel to a time portal, play the Tune of Currents to reach the PRESENT, and enter the cave there with the Old Mermaid Key. The mini-boss, the Boss Key, and the Mermaid Suit are all on this PRESENT side.",
+       "stuck": "If the present cave looks blocked, you haven't finished enough of the past side yet — go back, clear further in the PAST, then return to the present."
+      },
+      {
+       "id": "ooa_mermaid_vire",
+       "k": "step",
+       "t": "Work through the PRESENT cave until you reach the mini-boss Vire, a winged demon. Strike it until it splits into two bats, then wait for each bat to swoop at you and hit it as it charges. Clearing the room opens the way to the Boss Key.",
+       "stuck": "Don't chase the bats — stand still and let them dive at you, then swing. Two clean hits after the split finishes it.",
+       "items": [
+        {
+         "name": "Mermaid's Cave Boss Key",
+         "cat": "key",
+         "note": "Found on the PRESENT side near Vire; opens the boss door."
+        }
+       ]
+      },
+      {
+       "id": "ooa_mermaid_switch_hook",
+       "k": "step",
+       "t": "Push on to the Mermaid Suit chest, still in the PRESENT. Clear the block in front of it, then use the Switch Hook on the stone diamond to swap places with it and cross the gap to the chest.",
+       "stuck": "Can't reach the chest? Get the block out of the way first, then aim the Switch Hook at the stone diamond — you'll trade spots with it and land beside the chest."
+      },
+      {
+       "id": "ooa_mermaid_get_suit",
+       "k": "loot",
+       "t": "Open the chest to claim the Mermaid Suit — the dungeon's prize. Wear it and you can swim freely AND dive underwater, which you'll need for the flooded rooms in the PAST and for the boss.",
+       "items": [
+        {
+         "name": "Mermaid Suit",
+         "cat": "item",
+         "note": "Lets Link swim in deep water and dive underwater; press the dive button to go down, again to surface."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ooa_mermaid_boss",
+     "name": "Octogon",
+     "sub": "Surface and seabed",
+     "reward": "Essence of Time: Lonely Peak",
+     "steps": [
+      {
+       "id": "ooa_mermaid_to_boss",
+       "k": "step",
+       "t": "With the Mermaid Suit, return to the PAST cave. Dive through the flooded rooms to reach the boss door, open it with the Mermaid's Cave Boss Key, and drop into the watery arena — Octogon is fought here in the PAST.",
+       "stuck": "Can't cross a deep stretch of water? Equip the Mermaid Suit and hold the dive button to go under the surface."
+      },
+      {
+       "id": "ooa_mermaid_octogon_surface",
+       "k": "step",
+       "t": "On the surface Octogon circles the platform with its armored back toward you. Wait for it to turn and SPIT a rock — that moment exposes its FACE (the red side). Slash the face with your sword, or ricochet a Seed Shooter seed off a wall to hit it while it's turned away.",
+       "stuck": "The armored side takes no damage — only the red FACE is vulnerable, and it shows mainly when Octogon turns to spit. If you can't line up a straight shot, bounce a seed off the wall with the Seed Shooter."
+      },
+      {
+       "id": "ooa_mermaid_octogon_dive",
+       "k": "step",
+       "t": "When Octogon dives below the surface, DIVE after it with the Mermaid Suit. Underwater it always faces you, so its red face is constantly exposed — just slash it repeatedly with your sword. Alternate as needed: hit the face up top when it spits, then chase it under and sword it.",
+       "stuck": "Underwater is the easy phase — its weak face is always toward you. Equip the sword and keep slashing the red side; the paler armored side does nothing."
+      },
+      {
+       "id": "ooa_mermaid_heart",
+       "k": "loot",
+       "t": "Octogon bursts. Step into the light it leaves behind to take the Heart Container — your max hearts go up by one.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Permanently adds one heart to your life meter."
+        }
+       ]
+      },
+      {
+       "id": "ooa_mermaid_essence",
+       "k": "reward",
+       "t": "Claim the sixth Essence of Time — Lonely Peak — floating where the boss fell. Six of the eight essences are now yours; return to the Maku Tree when you're ready to feed it the next essence.",
+       "items": [
+        {
+         "name": "Lonely Peak",
+         "cat": "key",
+         "note": "The sixth Essence of Time. Strengthens the Maku Seed against Veran."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "ooa_jabu",
+   "name": "Jabu-Jabu's Belly",
+   "sub": "Essence: Rolling Sea",
+   "champion": "Rolling Sea",
+   "tagline": "Inside the great fish, a longer hook.",
+   "sections": [
+    {
+     "id": "ooa_jabu_approach",
+     "name": "Reaching Jabu-Jabu",
+     "sub": "Cure King Zora, cleanse the seas, win entry",
+     "steps": [
+      {
+       "id": "ooa_jabu_seas_filthy",
+       "k": "step",
+       "t": "Travel to the Zora Seas in the northeast. In the PRESENT the water is polluted and the Zoras won't let you near Lord Jabu-Jabu, their guardian fish. You'll have to clean the seas before you can enter.",
+       "stuck": "The dungeon is reached and entered in the PRESENT. You still use the PAST to fix the things that unblock it, but the door to the belly is in the present-day seas."
+      },
+      {
+       "id": "ooa_jabu_cure_king",
+       "k": "step",
+       "t": "In the PAST, King Zora is sick. Bring him a Potion (buy one in town) to cure him. Grateful, he hands you the Library Key.",
+       "stuck": "Use a time portal to reach the PAST Zora Seas. King Zora lies ill in his throne room — give him a Potion and he gives you the Library Key in return."
+      },
+      {
+       "id": "ooa_jabu_fairy_powder",
+       "k": "step",
+       "t": "Use the Library Key on the Eyeglass Island Library and work through it (across both eras) to obtain Fairy Powder.",
+       "stuck": "The library puzzle spans past and present — read the Book of Seals to learn the trick, then claim the Fairy Powder. It's the cure for the cursed Fairy Queen."
+      },
+      {
+       "id": "ooa_jabu_cure_queen",
+       "k": "step",
+       "t": "Find the cursed Fairy Queen and use the Fairy Powder on her. Restored, she thanks you by cleansing all the poison from the Zora Seas.",
+       "stuck": "The pollution isn't something you scrub yourself — the Fairy Queen clears the whole sea the moment you break her curse with the Fairy Powder."
+      },
+      {
+       "id": "ooa_jabu_king_zora",
+       "k": "step",
+       "t": "With the present-day seas clean, you're hailed as a hero in Zora Village and King Zora grants you permission to enter Lord Jabu-Jabu. Head to the great fish's mouth in the present.",
+       "stuck": "Once the water is clear, just talk to the Zoras again — entry to the belly opens up. No shrinking or special item needed to get in."
+      }
+     ]
+    },
+    {
+     "id": "ooa_jabu_inside",
+     "name": "Inside the Great Fish",
+     "sub": "Raise and lower the water, win the Long Hook",
+     "steps": [
+      {
+       "id": "ooa_jabu_enter",
+       "k": "step",
+       "t": "Enter Jabu-Jabu's Belly (present only). The dungeon is built around changing the WATER LEVEL — switches raise and lower the flood so you swim some rooms and walk others.",
+       "stuck": "When a path looks blocked, the water is usually at the wrong height. Hunt down the water-level switch (often a crystal/lever) that raises or drains the floor you're on."
+      },
+      {
+       "id": "ooa_jabu_angler",
+       "k": "step",
+       "t": "Mid-dungeon you fight the mini-boss Angler Fish. Toss a Scent Seed to make it inflate and surface, then strike the glowing light on its head.",
+       "stuck": "Plain sword swings bounce off. Use a Scent Seed to lure/deflate it up, then hit the light on top of its head — repeat until it's done."
+      },
+      {
+       "id": "ooa_jabu_long_hook",
+       "k": "loot",
+       "t": "Claim the dungeon item: the Long Hook, an upgraded Switch Hook with far longer reach. Hook a distant block, post, or enemy and you SWAP places with it across the gap.",
+       "items": [
+        {
+         "name": "Long Hook",
+         "cat": "item",
+         "note": "Upgraded Switch Hook — longer reach; swaps Link's place with the target."
+        }
+       ]
+      },
+      {
+       "id": "ooa_jabu_use_hook",
+       "k": "step",
+       "t": "Use the Long Hook to cross wide water and pits: aim at a fixed target (often a stone diamond) on the far side and fire to swap across. Its extra range opens the back half of the dungeon.",
+       "stuck": "If you can't reach a switch or chest, look for any solid post, block, or stone diamond on the far side and Long-Hook to it to swap over."
+      },
+      {
+       "id": "ooa_jabu_boss_key",
+       "k": "loot",
+       "t": "Keep adjusting the water levels and Long-Hooking across rooms until you collect the Boss Key, then make for the boss door deep inside the fish.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the door to Plasmarine's lair."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ooa_jabu_boss",
+     "name": "Boss: Plasmarine",
+     "sub": "Turn its own orb against it",
+     "reward": "Essence of Time: Rolling Sea",
+     "steps": [
+      {
+       "id": "ooa_jabu_boss_intro",
+       "k": "step",
+       "t": "The boss is Plasmarine, a giant jellyfish, fought in a fully underwater room. Your sword does nothing here — you beat it entirely with the Long Hook.",
+       "stuck": "Don't waste hearts swinging the sword; it can't hurt Plasmarine. The whole fight is about timing the Long Hook on it."
+      },
+      {
+       "id": "ooa_jabu_boss_color",
+       "k": "tip",
+       "t": "Plasmarine shifts between BLUE and RED. The energy orb it fires is always the SAME color as its current form. Every time you Long-Hook it, you swap places AND flip its color."
+      },
+      {
+       "id": "ooa_jabu_boss_swap",
+       "k": "step",
+       "t": "Wait for Plasmarine to fire an orb, then Long-Hook it right after. You swap places and its color flips — so the orb it just shot (the old color) now flies into the new-colored boss and damages it.",
+       "stuck": "Let it shoot first, THEN hook. The swap drops Plasmarine into the path of its own orb and flips it to the matching color so the orb connects. If it electrifies instead of shooting, just dodge and wait for the next orb. Repeat until it's destroyed."
+      },
+      {
+       "id": "ooa_jabu_heart",
+       "k": "loot",
+       "t": "With Plasmarine defeated, grab the Heart Container it leaves behind.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Permanently adds one full heart to your life gauge."
+        }
+       ]
+      },
+      {
+       "id": "ooa_jabu_essence",
+       "k": "reward",
+       "t": "Claim the seventh Essence of Time: the Rolling Sea. Seven down — only one essence remains before the Maku Seed can fully wake against Veran.",
+       "items": [
+        {
+         "name": "Rolling Sea",
+         "cat": "key",
+         "note": "The 7th Essence of Time, won inside Jabu-Jabu's Belly."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "ooa_tomb",
+   "name": "Ancient Tomb",
+   "sub": "Essence: Falling Star",
+   "champion": "Falling Star",
+   "tagline": "The last dungeon, and the eighth Essence.",
+   "sections": [
+    {
+     "id": "ooa_tomb_reach",
+     "name": "Reaching the Tomb",
+     "sub": "Crescent Island, across both eras",
+     "steps": [
+      {
+       "id": "ooa_tomb_eyeball",
+       "k": "step",
+       "t": "First get the key item. Sail into the Sea of Storms (south of Labrynna, just west of Crescent Island) and swim aboard the Piratians' ship. Give the Cap'n the Zora Scale and he hands over the Tokay Eyeball — the item that opens the path to the final dungeon.",
+       "items": [
+        {
+         "name": "Tokay Eyeball",
+         "cat": "item",
+         "note": "Fits the empty eye socket of the Tokay Guardian Statue to open the way to the Ancient Tomb."
+        }
+       ],
+       "stuck": "Can't reach the pirate ship? You need the Zora Scale first (from finishing the Zora storyline / Jabu-Jabu's Belly), which lets you into the rough Sea of Storms. Swim out to the trapped ship and trade the Cap'n the scale for the Eyeball."
+      },
+      {
+       "id": "ooa_tomb_past_statue",
+       "k": "step",
+       "t": "Now switch to the PAST and go to the west end of Crescent Island. Find the big one-eyed Tokay Guardian Statue and place the Tokay Eyeball into its empty eye socket. The way opens, revealing the cave that leads onward.",
+       "stuck": "Use it in the PAST, on the statue with the empty eye socket. (Don't confuse it with the open-mouthed Tokay idol in the PRESENT — that one is the Moonlit Grotto, the third dungeon.) Flip to the past and try the socket statue."
+      },
+      {
+       "id": "ooa_tomb_sea",
+       "k": "step",
+       "t": "Go through the cave and out into the Sea of No Return. Work through that short maze of currents — three trial rooms, then the open sea — to reach the entrance of the Ancient Tomb.",
+       "stuck": "In the Sea of No Return, getting lost loops you back to the start. Take it slow, follow the open channels, and the tomb door sits at the far end."
+      },
+      {
+       "id": "ooa_tomb_warn_gear",
+       "k": "warn",
+       "t": "This is the last dungeon — stock up first. Carry Bombs, the Seed Shooter loaded with Scent Seeds, plenty of Potion, and your best damage-reducing ring (the Blue Ring halves damage if you have it). You will need almost every tool you own."
+      }
+     ]
+    },
+    {
+     "id": "ooa_tomb_inside",
+     "name": "Inside the Ancient Tomb",
+     "sub": "The buried pyramid",
+     "steps": [
+      {
+       "id": "ooa_tomb_intro",
+       "k": "tip",
+       "t": "The Ancient Tomb is the biggest dungeon in the game — a small ground floor over ever-wider basements. You'll see giant stone sarcophagi blocking paths everywhere; the dungeon item is what moves them."
+      },
+      {
+       "id": "ooa_tomb_powerglove",
+       "k": "loot",
+       "t": "Solve the floor puzzle to claim this dungeon's tool: the Power Glove. With it, Link can lift the huge sarcophagi (and other heavy blocks) that have been walling off rooms.",
+       "items": [
+        {
+         "name": "Power Glove",
+         "cat": "item",
+         "note": "Dungeon item — lets you pick up and throw the heavy sarcophagi blocking the tomb."
+        }
+       ],
+       "stuck": "Once you get the Power Glove, use it on the sarcophagi to open the rest of the floor. If the chest hasn't appeared yet, finish the room's switch/tile puzzle first."
+      },
+      {
+       "id": "ooa_tomb_sarcophagi",
+       "k": "step",
+       "t": "Use the new Power Glove to lift and toss the sarcophagi out of your way, opening the routes deeper into the pyramid. Use it to clear paths and weigh down switches toward the Boss Key.",
+       "stuck": "Face a sarcophagus and press the Power Glove button to hoist it, then throw it onto a pit, switch, or just aside to free the path."
+      },
+      {
+       "id": "ooa_tomb_bosskey",
+       "k": "loot",
+       "t": "Push deeper, beating the room puzzles, until you reach the Boss Key. Grab it, then make your way to the sealed boss door.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the door to Ramrock, the final dungeon boss."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ooa_tomb_boss",
+     "name": "Boss: Ramrock & the Falling Star",
+     "sub": "Four phases, one tool each",
+     "reward": "Essence of Time: Falling Star",
+     "steps": [
+      {
+       "id": "ooa_tomb_ramrock_intro",
+       "k": "warn",
+       "t": "Ramrock is a stone golem that changes its arms across FOUR phases — and each phase needs a different weapon. This is a tool-swap fight, so know which item beats which form before you go in. (The bushes in the room's south corners regrow Bombs and Scent Seeds.)"
+      },
+      {
+       "id": "ooa_tomb_phase1",
+       "k": "step",
+       "t": "Phase 1 (Fists): Ramrock fires its two fists at you and reels them back. Use your SWORD to knock a thrown fist back into Ramrock's body. About three good hits ends this phase.",
+       "stuck": "Stand where a thrown fist passes right by you, then slash it back into the core — a fist only hurts Ramrock if you deflect it into him before it returns to the wall."
+      },
+      {
+       "id": "ooa_tomb_phase2",
+       "k": "step",
+       "t": "Phase 2 (Crushing hands): It detaches from the wall and chases you, then stops to slam its two hands together to crush you. Drop or throw a BOMB between the open hands so the blast catches it as it closes. About three bomb hits clears this form.",
+       "stuck": "Time the bomb so it goes off right as the hands clap shut over it — set it between them, step back, and let it explode."
+      },
+      {
+       "id": "ooa_tomb_phase3",
+       "k": "step",
+       "t": "Phase 3 (Shielded front): Ramrock guards its face and fires lasers/orbs. Fire a SCENT SEED from the Seed Shooter at the wall behind it so the seed RICOCHETS off the wall and strikes its unguarded back. About four banked shots.",
+       "stuck": "This is the Seed Shooter's whole trick — bounce the seed off the back wall onto its rear. Aim past Ramrock at the far wall while it faces you so the ricochet lands behind it. Out of Scent Seeds? Cut the corner bushes to restock."
+      },
+      {
+       "id": "ooa_tomb_phase4",
+       "k": "step",
+       "t": "Phase 4 (Ball-and-chains): Ramrock arms itself with two wrecking balls and fires one at you. Quickly grab the OTHER ball with the POWER GLOVE, drag it back to the wall as far as the chain allows, and release so it springs back and slams Ramrock. Three slams finishes it.",
+       "stuck": "Grab the ball-and-chain with the Power Glove, pull it to full extension toward the wall, then let go — the recoil whips it straight back into Ramrock's body."
+      },
+      {
+       "id": "ooa_tomb_heart",
+       "k": "loot",
+       "t": "Ramrock crumbles. A Heart Container appears — grab it to raise your max hearts.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Boss drop — adds one full heart to your maximum."
+        }
+       ]
+      },
+      {
+       "id": "ooa_tomb_essence",
+       "k": "reward",
+       "t": "Step into the glowing crest to claim the eighth and final Essence of Time: the Falling Star. With all eight essences gathered, the way to wake the Maku Tree's seed and confront Veran is open.",
+       "items": [
+        {
+         "name": "Falling Star",
+         "cat": "key",
+         "note": "The 8th Essence of Time — the last one. Its eternal light guides the way to the other seven."
+        }
+       ],
+       "stuck": "That's all eight essences. Return to the Maku Tree in Lynna — the gathered essences awaken the Maku Seed, your weapon against Veran."
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "champion": null,
+   "id": "ooa_veran",
+   "kind": "region",
+   "name": "Confronting Veran",
+   "sub": "The final battle",
+   "tagline": "Wake the Maku Seed, free Nayru, undo the shadow.",
+   "sections": [
+    {
+     "id": "ooa_veran_makuseed",
+     "name": "Wake the Maku Seed",
+     "sub": "All 8 Essences → the Maku Tree",
+     "steps": [
+      {
+       "id": "ooa_veran_check_essences",
+       "k": "tip",
+       "t": "Before anything else, make sure you hold all 8 Essences of Time. Open the menu and confirm the Essence ring is full — if one is missing, go finish that dungeon first."
+      },
+      {
+       "id": "ooa_veran_to_maku",
+       "k": "step",
+       "t": "Return to the Maku Tree in the PRESENT, in the northeast of Lynna City. Walk up to the tree and speak with it to present the Essences."
+      },
+      {
+       "id": "ooa_veran_form_seed",
+       "k": "step",
+       "t": "Watch the Essences gather to the tree. The eight powers combine and the Maku Tree produces the Huge Maku Seed — the one thing that can pierce Veran's magic.",
+       "stuck": "Nothing to solve here. The cutscene only plays once all 8 Essences are collected; if it doesn't start, an Essence is still missing."
+      },
+      {
+       "id": "ooa_veran_get_seed",
+       "k": "reward",
+       "t": "The Maku Seed is yours. The Maku Tree tells you where Veran hides: the Black Tower that Queen Ambi has raised in the PAST, southwest of Lynna Village. Travel to the past and head there to end this."
+      }
+     ]
+    },
+    {
+     "id": "ooa_veran_blacktower",
+     "name": "Into the Black Tower",
+     "sub": "Ambi's tower, in the past",
+     "steps": [
+      {
+       "id": "ooa_veran_approach_tower",
+       "k": "step",
+       "t": "In the PAST, go to the Black Tower southwest of Lynna Village. Stand at the entrance — the Maku Seed rises and, with the eight Essences, quells the barrier and fuses the three doorways into one. Step through into the tower.",
+       "stuck": "If the doorways don't merge, you don't have the Maku Seed yet — present all 8 Essences to the present Maku Tree first."
+      },
+      {
+       "id": "ooa_veran_climb_turret",
+       "k": "step",
+       "t": "Climb the turret. First a staircase maze: weave through the stairs to find the one leading up. Then a room ringed by flames — follow the flame that appears behind you when you climb; it points to the correct staircase. Any wrong stair drops you into a monster room you must clear before trying again."
+      },
+      {
+       "id": "ooa_veran_save_point",
+       "k": "tip",
+       "t": "This is the final stretch — there's no shop or safe room past the entrance. Top up hearts now: equip your best ring, carry Potion if you have it, and bring Bombs and your seeds (you'll need both)."
+      },
+      {
+       "id": "ooa_veran_ambi_reveal",
+       "k": "step",
+       "t": "At the top you reach Queen Ambi's throne — but Veran has been possessing her all along. The fight begins with Veran still inside Ambi."
+      }
+     ]
+    },
+    {
+     "id": "ooa_veran_battle",
+     "name": "The Battle with Veran",
+     "sub": "Out of Ambi, then her three forms",
+     "steps": [
+      {
+       "id": "ooa_veran_phase_ambi",
+       "k": "step",
+       "t": "Phase 1 — pull Veran out of Ambi. Dodge Ambi's fireballs and the spiders she summons, then fire a Mystery Seed to force Veran's shadow up above Ambi's head. The moment it surfaces, use the Switch Hook to yank Veran out — now she's vulnerable. Close in and slash her with your sword.",
+       "stuck": "The sword alone won't hurt her while she's in Ambi. Mystery Seed first to surface the shadow, THEN Switch Hook to pull her free, THEN slash. Repeat if she ducks back in."
+      },
+      {
+       "id": "ooa_veran_phase_fairy",
+       "k": "step",
+       "t": "Phase 2 — fairy form. Freed from Ambi, Veran becomes a fairy-like demon and conjures Dark Link copies that mirror your movement. Lure them into a corner so they bunch up, then strike. Hit Veran herself whenever she flies near or pauses to spit her orbs.",
+       "stuck": "The Dark Links move opposite to you. Back into a corner to stack them in one spot, step toward the middle, and sweep them all with one swing — then focus Veran between her orb attacks."
+      },
+      {
+       "id": "ooa_veran_phase_forms",
+       "k": "step",
+       "t": "Phase 3 — her three true forms. Veran now cycles between a TURTLE, a SPIDER, and a BEE. Each needs a different approach (next steps), but all finish with the sword.",
+       "stuck": "She rotates through the three shapes — don't panic at the changes. Match the method to whatever form is on screen and keep chipping her health down."
+      },
+      {
+       "id": "ooa_veran_form_turtle",
+       "k": "step",
+       "t": "Turtle form: she leaps high and crashes down to crush you, leaving acid where she lands. Use Pegasus Seeds to dart clear of each slam; when she stops and pokes her head out of the shell, rush in and slash the exposed head."
+      },
+      {
+       "id": "ooa_veran_form_spider",
+       "k": "step",
+       "t": "Spider form: she spits sticky webs that trap and hurt you. Throw a Bomb in front of her to stun her, then close in and hit her with the sword while she's frozen.",
+       "stuck": "The sword bounces off the spider until she's stunned — a Bomb dropped in front of her is what opens her up. Then swing."
+      },
+      {
+       "id": "ooa_veran_form_bee",
+       "k": "step",
+       "t": "Bee form: she flies around shooting orbs and stingers and drops smaller bees that chase you (kill those for hearts if you're hurting). Stay mobile with Pegasus Seeds and slash her with the sword whenever she dips close."
+      },
+      {
+       "id": "ooa_veran_final_blow",
+       "k": "step",
+       "t": "Land the last hit on her final form. Veran is destroyed and the shadow lifts from Labrynna's past and present.",
+       "stuck": "There are no items to grab here — it's purely surviving each form and landing the sword: surface-and-hook for Ambi, then face/bomb/dodge-and-slash through turtle, spider, and bee."
+      },
+      {
+       "id": "ooa_veran_free_nayru",
+       "k": "reward",
+       "t": "With Veran gone, Nayru the Oracle of Ages is free at last. Time flows true again, Queen Ambi is herself once more, and Labrynna's history is healed. The Harp of Ages has done its work."
+      },
+      {
+       "id": "ooa_veran_ending",
+       "k": "tip",
+       "t": "Sit back for the ending. Note the secret password the Maku Tree gives at the close — write it down if you plan a linked game, where this story connects to its companion adventure."
+      }
+     ]
+    }
+   ]
   }
  ],
  "SHRINES": [],
@@ -187,6 +1505,16 @@
    "name": "Wooden Sword",
    "glyph": "sword",
    "step": "ooa_harp_1"
+  },
+  {
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "step": "ooa_wing_feather"
+  },
+  {
+   "name": "Switch Hook",
+   "glyph": "magnesis",
+   "step": "ooa_skull_switchhook"
   }
  ],
  "CHAMPIONS": [
@@ -194,49 +1522,49 @@
    "name": "Eternal Spirit",
    "from": "Spirit's Grave",
    "note": "The first Essence of Time, won from Spirit's Grave.",
-   "step": null
+   "step": "ooa_spirit_essence"
   },
   {
    "name": "Ancient Wood",
    "from": "Wing Dungeon",
    "note": "The second Essence, won from the Wing Dungeon.",
-   "step": null
+   "step": "ooa_wing_essence"
   },
   {
    "name": "Echoing Howl",
    "from": "Moonlit Grotto",
    "note": "The third Essence, won from the Moonlit Grotto (boss Shadow Hag).",
-   "step": null
+   "step": "ooa_moonlit_boss_5"
   },
   {
    "name": "Burning Flame",
    "from": "Skull Dungeon",
    "note": "The fourth Essence, won from the Skull Dungeon (boss Eyesoar).",
-   "step": null
+   "step": "ooa_skull_essence"
   },
   {
    "name": "Sacred Soil",
    "from": "Crown Dungeon",
    "note": "The fifth Essence, won from the Crown Dungeon (boss Smog).",
-   "step": null
+   "step": "ooa_crown_essence"
   },
   {
    "name": "Lonely Peak",
    "from": "Mermaid's Cave",
    "note": "The sixth Essence, won from Mermaid's Cave (boss Octogon).",
-   "step": null
+   "step": "ooa_mermaid_essence"
   },
   {
    "name": "Rolling Sea",
    "from": "Jabu-Jabu's Belly",
    "note": "The seventh Essence, won from Jabu-Jabu's Belly (boss Plasmarine).",
-   "step": null
+   "step": "ooa_jabu_essence"
   },
   {
    "name": "Falling Star",
    "from": "Ancient Tomb",
    "note": "The eighth and last Essence, won from the Ancient Tomb — completing the Maku Seed.",
-   "step": null
+   "step": "ooa_tomb_essence"
   }
  ],
  "CATS": [
