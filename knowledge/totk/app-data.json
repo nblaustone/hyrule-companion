@@ -7084,7 +7084,4227 @@
    "DON'T expect to pay a rupee fee to wake the Great Fairies — you unlock each fountain by reuniting the Stable Trotters music troupe and escorting the musicians to play at the fountain, not by spending money."
   ]
  },
- "COMPENDIUM": [],
+ "COMPENDIUM": [
+  {
+   "name": "Biggoron's Sword",
+   "type": "two-handed",
+   "power": 36,
+   "durability": 60,
+   "effect": "A legendary greatsword with an exceptionally sharp cutting edge; high attack and very high durability.",
+   "where": "Chest in the Akkala House of Bones in the Depths beneath Skull Lake (via Skull Lake Chasm), after defeating a Stalnox.",
+   "set": "Legendary",
+   "cat": "weapon"
+  },
+  {
+   "name": "Boat Oar",
+   "type": "two-handed",
+   "power": 4,
+   "durability": 8,
+   "effect": "A sturdy paddle usable for self-defense; very low power.",
+   "where": "East Necluda and along the Necluda Sea; found near docks and boats.",
+   "set": "Tool",
+   "cat": "weapon"
+  },
+  {
+   "name": "Bokoblin Arm",
+   "type": "one-handed",
+   "power": 20,
+   "durability": 5,
+   "effect": "A skeletal Bokoblin arm that keeps twitching; high power but breaks very quickly. Being bone, it floats on water and won't attract lightning.",
+   "where": "Dropped by Stalkoblins (skeletal Bokoblins) that rise at night across Hyrule and in the Depths.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Boomerang",
+   "type": "one-handed",
+   "power": 6,
+   "durability": 16,
+   "effect": "Returns to Link after being thrown; can hit at range.",
+   "where": "Lanayru Wetlands (e.g. near Lizalfos/Bokoblin camps by large logs).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Boomerang+",
+   "type": "one-handed",
+   "power": 8,
+   "durability": 18,
+   "effect": "Pristine Boomerang; returns when thrown, with higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Boulder Breaker",
+   "type": "two-handed",
+   "power": 38,
+   "durability": 40,
+   "effect": "The Goron Champion's weapon — requires great strength to wield and excels at mining ore deposits (Demolisher).",
+   "where": "Reward for the side quest \"Soul of the Gorons\" at the Goron City forge after restoring Yunobo (bring a Cobble Crusher, 3 Diamonds, 5 Flint).",
+   "set": "Champion",
+   "cat": "weapon"
+  },
+  {
+   "name": "Cobble Crusher",
+   "type": "two-handed",
+   "power": 9,
+   "durability": 18,
+   "effect": "A heavy Goron hammer that smashes rocks and ore deposits with ease (Demolisher).",
+   "where": "Eldin Canyon and the Canyon Depths; found around Goron territory.",
+   "set": "Goron",
+   "cat": "weapon"
+  },
+  {
+   "name": "Decayed Master Sword",
+   "type": "one-handed",
+   "power": 1,
+   "durability": 6,
+   "effect": "The Master Sword with its sacred power diminished by the gloom; the weakest weapon in the game and it does not restore itself when depleted. Fuse cannot be used on it.",
+   "where": "Your starting weapon on the Great Sky Island (Room of Awakening) — used to cut vines; replaced once you find real weapons.",
+   "set": "Legendary",
+   "cat": "weapon"
+  },
+  {
+   "name": "Dusk Claymore",
+   "type": "two-handed",
+   "power": 32,
+   "durability": 50,
+   "effect": "An ancient blade that shines with a holy luster; high attack with strong durability.",
+   "where": "Chest by the monolith inside the risen structure during the Thyphlo Ruins / \"Camera Work in the Depths\" investigation (also via Ganondorf amiibo).",
+   "set": "Ancient",
+   "cat": "weapon"
+  },
+  {
+   "name": "Eightfold Blade",
+   "type": "one-handed",
+   "power": 6,
+   "durability": 16,
+   "effect": "Improved Sneakstrike skill — bonus damage on stealth attacks.",
+   "where": "Around Kakariko Village and the Gerudo Highlands (Sheikah-made).",
+   "set": "Sheikah",
+   "cat": "weapon"
+  },
+  {
+   "name": "Eightfold Blade+",
+   "type": "one-handed",
+   "power": 15,
+   "durability": 26,
+   "effect": "Pristine Eightfold Blade; Improved Sneakstrike with higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "set": "Sheikah",
+   "cat": "weapon"
+  },
+  {
+   "name": "Eightfold Longblade",
+   "type": "two-handed",
+   "power": 8,
+   "durability": 16,
+   "effect": "A Sheikah longblade that cleaves the wind and creates a vacuum when wielded skillfully (Wind Razor).",
+   "where": "Hyrule Ridge and Gerudo Highlands; carried by Yiga Clan members.",
+   "set": "Yiga",
+   "cat": "weapon"
+  },
+  {
+   "name": "Farmer's Pitchfork",
+   "type": "spear",
+   "power": 4,
+   "durability": 12,
+   "effect": "A simple farming tool — no special property; decent reach for an early-game polearm.",
+   "where": "Hyrule Field and West Necluda farms (around Hateno, stables, and fields).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Farming Hoe",
+   "type": "two-handed",
+   "power": 6,
+   "durability": 6,
+   "effect": "A farming tool with no combat bonus; weak and fragile.",
+   "where": "Hyrule Field and West Necluda; found around farms and stables.",
+   "set": "Tool",
+   "cat": "weapon"
+  },
+  {
+   "name": "Feathered Edge",
+   "type": "one-handed",
+   "power": 6,
+   "durability": 18,
+   "effect": "Wind Burst skill — produces a gust of wind when swung.",
+   "where": "Hebra Mountains and Tabantha Frontier (Rito-made).",
+   "set": "Rito",
+   "cat": "weapon"
+  },
+  {
+   "name": "Feathered Edge+",
+   "type": "one-handed",
+   "power": 13,
+   "durability": 27,
+   "effect": "Pristine Feathered Edge; Wind Burst with higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "set": "Rito",
+   "cat": "weapon"
+  },
+  {
+   "name": "Feathered Spear",
+   "type": "spear",
+   "power": 4,
+   "durability": 25,
+   "effect": "A Rito-made spear with Wind Burst — its attacks can kick up a gust of wind.",
+   "where": "Hebra Mountains and Tabantha Frontier (Rito Village region; e.g. chest from an Ice Like in a cave near Pikida Stonegrove).",
+   "set": "Rito",
+   "cat": "weapon"
+  },
+  {
+   "name": "Fierce Deity Sword",
+   "type": "two-handed",
+   "power": 38,
+   "durability": 35,
+   "effect": "A great double-helix blade that slashes wildly in battle as if possessed.",
+   "where": "Cephla Lake Cave as part of Misko's treasure (also via the Majora's Mask Link / Fierce Deity amiibo).",
+   "set": "Fierce Deity",
+   "cat": "weapon"
+  },
+  {
+   "name": "Fishing Harpoon",
+   "type": "spear",
+   "power": 4,
+   "durability": 12,
+   "effect": "A fisher's harpoon — no special property; basic reach weapon.",
+   "where": "Lurelin Village (by the cooking campfire and around the docks/houses).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Forest Dweller's Spear",
+   "type": "spear",
+   "power": 6,
+   "durability": 24,
+   "effect": "Has Fuse Recycling — one-time-use fused materials can be reused, so the fuse part survives the weapon breaking.",
+   "where": "Great Hyrule Forest / Korok Forest, Eldin Mountains, and Depths Shadow-Soldier drops (Korok-made gear).",
+   "set": "Forest Dweller",
+   "cat": "weapon"
+  },
+  {
+   "name": "Forest Dweller's Sword",
+   "type": "one-handed",
+   "power": 7,
+   "durability": 17,
+   "effect": "Fuse Recycling skill — the fused material can be recovered when the weapon breaks.",
+   "where": "Eldin Mountains and the Great Hyrule Forest (Korok-made).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Forest Dweller's Sword+",
+   "type": "one-handed",
+   "power": 16,
+   "durability": 27,
+   "effect": "Pristine Forest Dweller's Sword; Fuse Recycling with higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gerudo Claymore",
+   "type": "two-handed",
+   "power": 10,
+   "durability": 10,
+   "effect": "A Gerudo-made claymore whose power is greatly enhanced when a material is fused to it (Strong Fusion).",
+   "where": "Gerudo Desert and Gerudo Highlands; carried by Gerudo soldiers.",
+   "set": "Gerudo",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gerudo Scimitar",
+   "type": "one-handed",
+   "power": 8,
+   "durability": 10,
+   "effect": "Strong Fusions skill — maximizes the power of the fused material.",
+   "where": "Gerudo Desert and around Gerudo Town.",
+   "set": "Gerudo",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gerudo Scimitar+",
+   "type": "one-handed",
+   "power": 17,
+   "durability": 14,
+   "effect": "Pristine Gerudo Scimitar; Strong Fusions with higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "set": "Gerudo",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gerudo Spear",
+   "type": "spear",
+   "power": 6,
+   "durability": 15,
+   "effect": "Has Strong Fusion — doubles the fuse attack power of the attached material, making it excellent for fuse builds (but adds less durability).",
+   "where": "Gerudo Desert / Gerudo Highlands (near Gerudo Town, enemy camps and chests).",
+   "set": "Gerudo",
+   "cat": "weapon"
+  },
+  {
+   "name": "Giant Boomerang",
+   "type": "two-handed",
+   "power": 11,
+   "durability": 18,
+   "effect": "An oversized Rito boomerang that can be thrown and returns to the wielder.",
+   "where": "Hyrule Field and Eldin Canyon; carried by enemies near Rito territory.",
+   "set": "Rito",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gloom Club",
+   "type": "two-handed",
+   "power": 50,
+   "durability": 14,
+   "effect": "A massive gloom-wreathed club; highest base power among two-handers but its hits inflict gloom on Link (Gloom Toll).",
+   "where": "Dropped by a Phantom Ganon that spawns after defeating Gloom Hands (e.g. SE of Birida Lookout near Mayatat Shrine, Gerudo Desert).",
+   "set": "Gloom",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gloom Spear",
+   "type": "spear",
+   "power": 40,
+   "durability": 16,
+   "effect": "Has Gloom Toll — extremely high base attack, but each hit locks (drains) Link's max hearts; hearts recover on the Surface/Sky. A unique Phantom Ganon weapon.",
+   "where": "The Depths / Surface — dropped by a Phantom Ganon (spawned after defeating Gloom Hands).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gloom Sword",
+   "type": "one-handed",
+   "power": 41,
+   "durability": 15,
+   "effect": "The strongest unfused one-handed weapon (power 41), but using it inflicts gloom damage on Link (never directly fatal). Low durability.",
+   "where": "Dropped by Phantom Ganon (which appears after you defeat the Gloom Hands it emerges from), found near chasms/gloom across the surface.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gnarled Long Stick",
+   "type": "spear",
+   "power": 10,
+   "durability": 22,
+   "effect": "A knobby branch — no special property, but surprisingly high attack for a wooden stick.",
+   "where": "Gerudo Desert (forested oases and tree clusters).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gnarled Thick Stick",
+   "type": "two-handed",
+   "power": 19,
+   "durability": 14,
+   "effect": "A knotted heavy branch with unusually high attack power for a wooden weapon.",
+   "where": "East Necluda and the Gerudo Highlands; forested areas.",
+   "set": "Wood",
+   "cat": "weapon"
+  },
+  {
+   "name": "Gnarled Wooden Stick",
+   "type": "one-handed",
+   "power": 14,
+   "durability": 14,
+   "effect": "A toughened stick with far greater attack power than ordinary sticks.",
+   "where": "Gerudo Desert and around Mount Lanayru.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Knight's Broadsword",
+   "type": "one-handed",
+   "power": 7,
+   "durability": 18,
+   "effect": "Desperate Strength skill — attack power rises when Link is low on health.",
+   "where": "Gerudo Desert and Hyrule Castle.",
+   "set": "Royal",
+   "cat": "weapon"
+  },
+  {
+   "name": "Knight's Broadsword+",
+   "type": "one-handed",
+   "power": 18,
+   "durability": 27,
+   "effect": "Pristine Knight's Broadsword; Desperate Strength with much higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "set": "Royal",
+   "cat": "weapon"
+  },
+  {
+   "name": "Knight's Claymore",
+   "type": "two-handed",
+   "power": 11,
+   "durability": 18,
+   "effect": "A knight's claymore that yields powerful attacks when you're down to your last heart (Desperate Strength).",
+   "where": "Hyrule Field and Gerudo Desert; on stronger enemies (e.g. a water chest in Popla Foothills North Cave).",
+   "set": "Knight",
+   "cat": "weapon"
+  },
+  {
+   "name": "Knight's Halberd",
+   "type": "spear",
+   "power": 6,
+   "durability": 26,
+   "effect": "Has Desperate Strength — deals double damage while Link is down to one heart or less.",
+   "where": "Gerudo Desert and Faron Grasslands (mid-game enemy camps and ruins).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Lightscale Trident",
+   "type": "spear",
+   "power": 22,
+   "durability": 70,
+   "effect": "Mipha's signature trident — has Water Warrior, doubling attack while wet; very high durability.",
+   "where": "Zora's Domain — reforged by Dento in the 'Glory of the Zora' side quest (bring a Zora Spear, 3 Diamonds, and 5 Flint) after the Sidon main quest.",
+   "set": "Zora",
+   "cat": "weapon"
+  },
+  {
+   "name": "Lizal Boomerang",
+   "type": "one-handed",
+   "power": 8,
+   "durability": 17,
+   "effect": "A Lizalfos-made boomerang that returns when thrown.",
+   "where": "Hebra Mountains and around Mount Lanayru; dropped by Lizalfos.",
+   "set": "Lizalfos",
+   "cat": "weapon"
+  },
+  {
+   "name": "Lizalfos Arm",
+   "type": "one-handed",
+   "power": 22,
+   "durability": 5,
+   "effect": "A skeletal Lizalfos arm; high power but extremely brittle. Bone, so it floats and won't attract lightning.",
+   "where": "Dropped by Stalizalfos (skeletal Lizalfos) at night and in the Depths.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Long Stick",
+   "type": "spear",
+   "power": 2,
+   "durability": 17,
+   "effect": "A plain tree-branch — no special property; its straight shape makes it a serviceable lunging weapon.",
+   "where": "Tabantha Frontier and Hebra Mountains (forested areas).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Magic Rod",
+   "type": "one-handed",
+   "power": 6,
+   "durability": 14,
+   "effect": "Low melee damage, but fusing an elemental gem turns it into an elemental rod (Ruby=fire, Sapphire=ice, Topaz=lightning) that fires elemental projectiles.",
+   "where": "Carried (pre-fused) by higher-level Wizzrobes, found in some shrine chests, and buyable from Depths Bargainer Statues for 100 Poes.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Magic Scepter",
+   "type": "two-handed",
+   "power": 7,
+   "durability": 14,
+   "effect": "A magical rod that awakens the latent power of a gem fused to it.",
+   "where": "Central Hyrule Depths and Mount Lanayru Depths; held by Wizzrobe-type foes / found in the Depths.",
+   "set": "Magic",
+   "cat": "weapon"
+  },
+  {
+   "name": "Magic Staff",
+   "type": "spear",
+   "power": 4,
+   "durability": 14,
+   "effect": "An ancient magician's rod — no special property; its charge attack fires a forward stream of shots. Flavorful low-tier polearm.",
+   "where": "Eldin Mountains and North Gerudo Sky Archipelago (sky islands, shrine chests; also buyable from a Depths Bargainer Statue).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Master Sword",
+   "type": "one-handed",
+   "power": 30,
+   "durability": 40,
+   "effect": "The legendary blade that seals the darkness; it never permanently breaks (its energy recharges after running out). Damage doubles to 60 against Ganondorf (with effectively infinite durability) and rises ~1.5x (to ~45) against gloom-spawned foes.",
+   "where": "Pull it from the Light Dragon's head once you have enough hearts/stamina (tied to recovering the Master Sword's sacred power).",
+   "set": "Legendary",
+   "cat": "weapon"
+  },
+  {
+   "name": "Mighty Zonaite Longsword",
+   "type": "two-handed",
+   "power": 15,
+   "durability": 18,
+   "effect": "The strongest Zonaite two-hander, greatly increasing attack power (Zonaite-Powered).",
+   "where": "Sky islands and the Depths; carried by tougher Soldier Constructs.",
+   "set": "Zonaite",
+   "cat": "weapon"
+  },
+  {
+   "name": "Mighty Zonaite Spear",
+   "type": "spear",
+   "power": 8,
+   "durability": 27,
+   "effect": "The top zonaite spear — resonates with attached Zonai devices/materials to raise its attack power; best of the Zonai polearms.",
+   "where": "Sky archipelagos and the Depths (dropped by higher-tier Soldier Constructs; chests at North Lomei Labyrinth, Lanayru Sky Archipelago).",
+   "set": "Zonaite",
+   "cat": "weapon"
+  },
+  {
+   "name": "Mighty Zonaite Sword",
+   "type": "one-handed",
+   "power": 10,
+   "durability": 18,
+   "effect": "Zonaite-Powered skill (top tier) — the greatest Zonai-device boost of the Zonaite swords.",
+   "where": "Sky islands and the Depths; wielded by Soldier/Captain Construct IV.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Moblin Arm",
+   "type": "two-handed",
+   "power": 28,
+   "durability": 5,
+   "effect": "A torn-off Moblin arm that keeps swinging; high power but extremely brittle.",
+   "where": "Great Hyrule Forest and the Deep Akkala Depths; from Moblins/Gloom Spawn.",
+   "set": "Monster",
+   "cat": "weapon"
+  },
+  {
+   "name": "Royal Broadsword",
+   "type": "one-handed",
+   "power": 10,
+   "durability": 20,
+   "effect": "Improved Flurry Rush skill — flurry-rush attacks deal extra damage.",
+   "where": "Hyrule Castle and the Gerudo Highlands Depths.",
+   "set": "Royal",
+   "cat": "weapon"
+  },
+  {
+   "name": "Royal Broadsword+",
+   "type": "one-handed",
+   "power": 24,
+   "durability": 35,
+   "effect": "Pristine Royal Broadsword; Improved Flurry Rush with much higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "set": "Royal",
+   "cat": "weapon"
+  },
+  {
+   "name": "Royal Claymore",
+   "type": "two-handed",
+   "power": 14,
+   "durability": 20,
+   "effect": "A claymore of the royal guard that increases the power of flurry rush during a perfect dodge.",
+   "where": "Great Plateau and Hyrule Castle (e.g. a 1F pillar top and the Lookout Landing well).",
+   "set": "Royal",
+   "cat": "weapon"
+  },
+  {
+   "name": "Royal Guard's Claymore",
+   "type": "two-handed",
+   "power": 32,
+   "durability": 10,
+   "effect": "Hits with massive power for its short life — high attack but breaks quickly (Breaking Point).",
+   "where": "Hyrule Castle (notably Zelda's Room, B1).",
+   "set": "Royal Guard",
+   "cat": "weapon"
+  },
+  {
+   "name": "Royal Guard's Spear",
+   "type": "spear",
+   "power": 15,
+   "durability": 15,
+   "effect": "Has Breaking Point — displayed power jumps sharply (to about 32) when the weapon is nearly broken; very low durability.",
+   "where": "Hyrule Castle (Sanctum / interior storage and lockup rooms).",
+   "set": "Royal Guard",
+   "cat": "weapon"
+  },
+  {
+   "name": "Royal Guard's Sword",
+   "type": "one-handed",
+   "power": 22,
+   "durability": 10,
+   "effect": "Breaking Point skill — deals massive bonus damage when its durability is nearly spent.",
+   "where": "Hyrule Castle (e.g. the Sanctum and Princess Zelda's Study).",
+   "set": "Royal Guard",
+   "cat": "weapon"
+  },
+  {
+   "name": "Royal Guard's Sword+",
+   "type": "one-handed",
+   "power": 30,
+   "durability": 12,
+   "effect": "Pristine Royal Guard's Sword; Breaking Point with higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "set": "Royal Guard",
+   "cat": "weapon"
+  },
+  {
+   "name": "Royal Halberd",
+   "type": "spear",
+   "power": 7,
+   "durability": 30,
+   "effect": "Has Improved Flurry Rush — deals extra damage during a flurry rush after a perfect dodge. A high-end royal polearm.",
+   "where": "Hyrule Castle and East Necluda (castle rooftops/armories and chests).",
+   "set": "Royal",
+   "cat": "weapon"
+  },
+  {
+   "name": "Rusty Broadsword",
+   "type": "one-handed",
+   "power": 5,
+   "durability": 6,
+   "effect": "A corroded sword that is quick to break; a Rock Octorok can polish it into a Royal/Knight's-tier variant.",
+   "where": "Hyrule Field and the East Necluda Depths.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Rusty Claymore",
+   "type": "two-handed",
+   "power": 6,
+   "durability": 8,
+   "effect": "A corroded claymore with very low durability; fuse a material to make it usable.",
+   "where": "Hyrule Field and Eldin Canyon Depths; dropped by Soldier Constructs and found in ruins.",
+   "set": "Rusty",
+   "cat": "weapon"
+  },
+  {
+   "name": "Rusty Halberd",
+   "type": "spear",
+   "power": 3,
+   "durability": 12,
+   "effect": "A corroded old polearm — no special property; weak and fragile. Fuse a part or burn off the rust to refresh it into a better weapon.",
+   "where": "Hyrule Field and East Necluda, near ruins, especially when wet or raining.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Scimitar of the Seven",
+   "type": "one-handed",
+   "power": 28,
+   "durability": 60,
+   "effect": "Urbosa's heirloom blade; Strong Fusions skill and the single most durable one-handed weapon (gets the full +25 durability from fusion).",
+   "where": "Reward from the Pride of the Gerudo side quest in Gerudo Town (gather diamonds for Isha).",
+   "set": "Gerudo",
+   "cat": "weapon"
+  },
+  {
+   "name": "Sea-Breeze Boomerang",
+   "type": "one-handed",
+   "power": 16,
+   "durability": 20,
+   "effect": "A sturdy boomerang that returns when thrown; high power for its class.",
+   "where": "Chest in Hebra Canyon Mine (the Depths, below Hebra Peak); also via Toon Link amiibo, then re-buyable from any Depths Bargainer Statue for 100 Poes.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Soldier's Broadsword",
+   "type": "one-handed",
+   "power": 6,
+   "durability": 17,
+   "effect": "Quick Charge skill — performs charged spin attacks faster than normal.",
+   "where": "Hyrule Field and Eldin Canyon; carried by Hyrulean soldier remains.",
+   "set": "Royal",
+   "cat": "weapon"
+  },
+  {
+   "name": "Soldier's Broadsword+",
+   "type": "one-handed",
+   "power": 12,
+   "durability": 23,
+   "effect": "Pristine Soldier's Broadsword; Quick Charge with higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "set": "Royal",
+   "cat": "weapon"
+  },
+  {
+   "name": "Soldier's Claymore",
+   "type": "two-handed",
+   "power": 8,
+   "durability": 17,
+   "effect": "A lightweight military claymore that consumes less stamina during charged attacks.",
+   "where": "Hyrule Field and Eldin Canyon; carried by Soldier Constructs (a copy sits in the Hyrule Castle training room).",
+   "set": "Soldier",
+   "cat": "weapon"
+  },
+  {
+   "name": "Soldier's Spear",
+   "type": "spear",
+   "power": 4,
+   "durability": 25,
+   "effect": "Has Quick Charge — light enough that charged spin attacks build up noticeably faster.",
+   "where": "Hyrule Field and Eldin Canyon (Soldier Construct camps and ruins; e.g. Lookout Landing's hidden passage).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Soup Ladle",
+   "type": "one-handed",
+   "power": 4,
+   "durability": 5,
+   "effect": "A kitchen implement repurposed as a weapon; low power and durability.",
+   "where": "Stables and cooking areas around Hyrule Field and West Necluda.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Strong Zonaite Longsword",
+   "type": "two-handed",
+   "power": 10,
+   "durability": 16,
+   "effect": "A stronger Zonaite two-hander with enhanced Zonai-device resonance (Zonaite-Powered).",
+   "where": "Lanayru Sky Archipelago and Thunderhead Isles; from sky Constructs.",
+   "set": "Zonaite",
+   "cat": "weapon"
+  },
+  {
+   "name": "Strong Zonaite Spear",
+   "type": "spear",
+   "power": 6,
+   "durability": 24,
+   "effect": "A stronger zonaite spear — resonates with attached Zonai devices/materials to raise its attack power.",
+   "where": "Sky islands and the Depths (higher-tier Soldier Construct drops and chests; e.g. North Lomei Labyrinth, Hebra).",
+   "set": "Zonaite",
+   "cat": "weapon"
+  },
+  {
+   "name": "Strong Zonaite Sword",
+   "type": "one-handed",
+   "power": 7,
+   "durability": 16,
+   "effect": "Zonaite-Powered skill (middle tier) — greater Zonai-device boost than the basic Zonaite Sword.",
+   "where": "Sky islands and the Depths; dropped by stronger Constructs.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Sturdy Long Stick",
+   "type": "spear",
+   "power": 4,
+   "durability": 34,
+   "effect": "Has Extra Durable — cut from the hardest part of the tree, so it lasts noticeably longer than a normal stick.",
+   "where": "Gerudo Desert and East Necluda (forest groves and tree clusters).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Sturdy Thick Stick",
+   "type": "two-handed",
+   "power": 7,
+   "durability": 24,
+   "effect": "A surprisingly tough wooden club with high durability for its appearance (Extra Durable).",
+   "where": "Hyrule Field and Gerudo Desert; forested areas.",
+   "set": "Wood",
+   "cat": "weapon"
+  },
+  {
+   "name": "Sturdy Wooden Stick",
+   "type": "one-handed",
+   "power": 5,
+   "durability": 24,
+   "effect": "Extra Durable skill — unusually high durability for a stick.",
+   "where": "Hyrule Field and East Necluda.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Sword of the Hero",
+   "type": "one-handed",
+   "power": 17,
+   "durability": 27,
+   "effect": "A blade modeled on the original 1986 hero's sword; no special skill but solid, durable stats. Conducts electricity.",
+   "where": "Scan the 8-Bit Link (30th Anniversary) amiibo, OR find it in the Depths in a hollow tree stump at Dalite Grove — afterwards re-buyable from any Bargainer Statue for 100 Poes.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Thick Stick",
+   "type": "two-handed",
+   "power": 5,
+   "durability": 12,
+   "effect": "A heavy wooden bat; can still knock a shield out of an enemy's hands.",
+   "where": "Hyrule Field and the Hebra Mountains; common forest pickup.",
+   "set": "Wood",
+   "cat": "weapon"
+  },
+  {
+   "name": "Throwing Spear",
+   "type": "spear",
+   "power": 3,
+   "durability": 20,
+   "effect": "Has Long Throw — built to be hurled, it flies farther when thrown.",
+   "where": "Central Hyrule Depths (carried by enemies and found in Depths camps).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Torch",
+   "type": "one-handed",
+   "power": 2,
+   "durability": 8,
+   "effect": "Stays lit when ignited; mainly a light source and fire-spreader rather than a weapon.",
+   "where": "Found at enemy camps, stables, and around Hyrule Field and Gerudo Desert.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Traveler's Claymore",
+   "type": "two-handed",
+   "power": 6,
+   "durability": 16,
+   "effect": "A common claymore that can still knock a shield right out of an enemy's hands.",
+   "where": "Hyrule Field and Gerudo Desert; common Bokoblin/Hyrule-overworld weapon (e.g. Sahasra Slope Cave ground).",
+   "set": "Traveler",
+   "cat": "weapon"
+  },
+  {
+   "name": "Traveler's Spear",
+   "type": "spear",
+   "power": 3,
+   "durability": 24,
+   "effect": "A wanderer's spear — no special property; light, basic reach weapon.",
+   "where": "Death Mountain / Eldin and Gerudo Highlands (traveler camps and roadsides).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Traveler's Sword",
+   "type": "one-handed",
+   "power": 5,
+   "durability": 16,
+   "effect": "A common, balanced sword with no special skill.",
+   "where": "Hyrule Field and the Central Hyrule Depths.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Traveler's Sword+",
+   "type": "one-handed",
+   "power": 7,
+   "durability": 20,
+   "effect": "The pristine Traveler's Sword with higher attack and durability.",
+   "where": "Pristine chests/weapon stands in the Depths.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Tree Branch",
+   "type": "one-handed",
+   "power": 2,
+   "durability": 4,
+   "effect": "The weakest common weapon; well-balanced but breaks almost instantly. Burns if ignited.",
+   "where": "Lying near trees and bushes across the Great Sky Island and Hyrule Field.",
+   "cat": "weapon"
+  },
+  {
+   "name": "White Sword of the Sky",
+   "type": "one-handed",
+   "power": 24,
+   "durability": 45,
+   "effect": "The sky hero's white blade; high attack and very durable, no special skill. Conducts electricity.",
+   "where": "Reward from the Mother Goddess Statue at the Forgotten Temple after completing the three Goddess Statue side quests (Wisdom/Courage/Power).",
+   "cat": "weapon"
+  },
+  {
+   "name": "Wooden Mop",
+   "type": "spear",
+   "power": 3,
+   "durability": 8,
+   "effect": "A janitor's mop pressed into service — no special property; weak and fragile, useful mainly as an early fuse handle.",
+   "where": "Hyrule Field and Eldin Canyon (leaning in stables, houses, and shacks); common around Lookout Landing.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Wooden Stick",
+   "type": "one-handed",
+   "power": 4,
+   "durability": 12,
+   "effect": "A simple stick with good balance; burns if set alight.",
+   "where": "Hyrule Field and the Central Hyrule Depths.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Zonaite Longsword",
+   "type": "two-handed",
+   "power": 8,
+   "durability": 15,
+   "effect": "A Zonaite two-hander that resonates with attached Zonai devices to slightly increase attack power (Zonaite-Powered).",
+   "where": "Lanayru Sky Archipelago and Necluda Sky Archipelago; carried by Soldier Constructs in the sky.",
+   "set": "Zonaite",
+   "cat": "weapon"
+  },
+  {
+   "name": "Zonaite Spear",
+   "type": "spear",
+   "power": 4,
+   "durability": 22,
+   "effect": "A Zonai spear of zonaite that resonates with attached Zonai devices/materials to raise its attack power.",
+   "where": "Sky islands and the Depths (Captain/Soldier Construct drops, Zonaite Forge Island, chests).",
+   "set": "Zonaite",
+   "cat": "weapon"
+  },
+  {
+   "name": "Zonaite Sword",
+   "type": "one-handed",
+   "power": 6,
+   "durability": 15,
+   "effect": "Zonaite-Powered skill — boosts the attack of fused Zonai devices.",
+   "where": "Sky islands; dropped by Soldier/Captain Constructs.",
+   "cat": "weapon"
+  },
+  {
+   "name": "Zora Longsword",
+   "type": "two-handed",
+   "power": 8,
+   "durability": 20,
+   "effect": "A Zora blade whose attack power rises while Link is wet (Water Warrior).",
+   "where": "Lanayru Great Spring / Zora's Domain area.",
+   "set": "Zora",
+   "cat": "weapon"
+  },
+  {
+   "name": "Zora Spear",
+   "type": "spear",
+   "power": 6,
+   "durability": 26,
+   "effect": "Has Water Warrior — deals extra damage while wet (in rain or water).",
+   "where": "Lanayru Wetlands and Upland Zorana (Zora's Domain region; chests, Lizalfos, Like Likes).",
+   "set": "Zora",
+   "cat": "weapon"
+  },
+  {
+   "name": "Zora Sword",
+   "type": "one-handed",
+   "power": 6,
+   "durability": 20,
+   "effect": "Water Warrior skill — attack power increases while Link is wet or in the rain.",
+   "where": "Zora's Domain and the Lanayru Great Spring.",
+   "set": "Zora",
+   "cat": "weapon"
+  },
+  {
+   "name": "Zora Sword+",
+   "type": "one-handed",
+   "power": 12,
+   "durability": 27,
+   "effect": "Pristine Zora Sword; Water Warrior with higher attack and durability.",
+   "where": "Pristine weapon stands in the Depths.",
+   "set": "Zora",
+   "cat": "weapon"
+  },
+  {
+   "name": "Boko Bow",
+   "type": "bow",
+   "power": 4,
+   "durability": 16,
+   "effect": "Crude Bokoblin bow; single shot, very low durability.",
+   "where": "Bokoblin drop — Hyrule Field, Central Hyrule Depths",
+   "set": "Boko",
+   "cat": "bow"
+  },
+  {
+   "name": "Construct Bow",
+   "type": "bow",
+   "power": 5,
+   "durability": 18,
+   "effect": "The basic Soldier Construct bow; single shot.",
+   "where": "Soldier Construct drop — South Lanayru Sky Archipelago, North Gerudo Sky Archipelago",
+   "set": "Construct",
+   "cat": "bow"
+  },
+  {
+   "name": "Demon King's Bow",
+   "type": "bow",
+   "power": 12,
+   "durability": 42,
+   "effect": "Power scales with Link's hearts (+2 per Heart Container, base 12, capped at 60 at 30 hearts); single shot, comes pre-broken-in. Cannot be upgraded by Rock Octoroks.",
+   "where": "Always dropped by Phantom Ganon (defeat the Gloom Hands first to spawn it) — random Depths/surface spawns",
+   "set": "Demon King",
+   "cat": "bow"
+  },
+  {
+   "name": "Dragonbone Boko Bow",
+   "type": "bow",
+   "power": 24,
+   "durability": 30,
+   "effect": "Strongest Bokoblin bow; single shot, high power for its family.",
+   "where": "Bokoblin drop — Gerudo Highlands, Gerudo Highlands Depths",
+   "set": "Boko",
+   "cat": "bow"
+  },
+  {
+   "name": "Duplex Bow",
+   "type": "bow",
+   "power": 14,
+   "durability": 18,
+   "effect": "Multishot: fires 2 arrows at once (14x2); low durability.",
+   "where": "Hyrule Field, Gerudo Desert Depths",
+   "cat": "bow"
+  },
+  {
+   "name": "Dusk Bow",
+   "type": "bow",
+   "power": 30,
+   "durability": 40,
+   "effect": "A royal single-shot bow with long range; respawns every Blood Moon if lost or broken.",
+   "where": "Alcove in the tallest central steeple of Hyrule Castle, directly above the Sanctum",
+   "set": "Royal",
+   "cat": "bow"
+  },
+  {
+   "name": "Falcon Bow",
+   "type": "bow",
+   "power": 14,
+   "durability": 35,
+   "effect": "A fast-drawing Rito bow; single shot with quick fire rate.",
+   "where": "Tabantha Frontier, Hebra Mountains",
+   "cat": "bow"
+  },
+  {
+   "name": "Forest Dweller's Bow",
+   "type": "bow",
+   "power": 15,
+   "durability": 35,
+   "effect": "Multishot: fires 3 arrows at once (15x3); a Korok-made wooden bow.",
+   "where": "Great Hyrule Forest",
+   "cat": "bow"
+  },
+  {
+   "name": "Gerudo Bow",
+   "type": "bow",
+   "power": 25,
+   "durability": 40,
+   "effect": "A long-range Gerudo hunting bow; single shot with good range.",
+   "where": "Gerudo Desert, Gerudo Highlands",
+   "set": "Gerudo",
+   "cat": "bow"
+  },
+  {
+   "name": "Great Eagle Bow",
+   "type": "bow",
+   "power": 28,
+   "durability": 60,
+   "effect": "Multishot: fires 3 arrows in a spread (28x3); the Rito Champion Revali's bow, very sturdy. Cannot take modifiers.",
+   "where": "Crafted by Teba in Rito Village after Tulin's quest (Swallow Bow + 3 Diamonds + 5 Wood); if broken, Harth reforges it for a Swallow Bow + 1 Diamond + 5 Wood",
+   "set": "Champion",
+   "cat": "bow"
+  },
+  {
+   "name": "Knight's Bow",
+   "type": "bow",
+   "power": 26,
+   "durability": 48,
+   "effect": "A reliable Hylian knight's single-shot bow with high durability.",
+   "where": "Gerudo Desert, Akkala Highlands",
+   "cat": "bow"
+  },
+  {
+   "name": "Lizal Bow",
+   "type": "bow",
+   "power": 14,
+   "durability": 25,
+   "effect": "Basic Lizalfos bow; single shot.",
+   "where": "Lizalfos drop — Lanayru Wetlands, Gerudo Desert Depths",
+   "set": "Lizal",
+   "cat": "bow"
+  },
+  {
+   "name": "Lynel Bow",
+   "type": "bow",
+   "power": 10,
+   "durability": 30,
+   "effect": "Multishot: fires 3 arrows at once (10x3) from a single arrow.",
+   "where": "Lynel drop — East Necluda, Deep Akkala",
+   "set": "Lynel",
+   "cat": "bow"
+  },
+  {
+   "name": "Mighty Construct Bow",
+   "type": "bow",
+   "power": 24,
+   "durability": 34,
+   "effect": "Top-tier Soldier Construct bow; single shot, strong power.",
+   "where": "Soldier Construct drop — Lomei Labyrinth Island, Thyphlo Ruins",
+   "set": "Construct",
+   "cat": "bow"
+  },
+  {
+   "name": "Mighty Lynel Bow",
+   "type": "bow",
+   "power": 20,
+   "durability": 35,
+   "effect": "Multishot: fires 3 arrows at once (20x3).",
+   "where": "Lynel drop — Lanayru Great Spring, Akkala Highlands Depths",
+   "set": "Lynel",
+   "cat": "bow"
+  },
+  {
+   "name": "Old Wooden Bow",
+   "type": "bow",
+   "power": 4,
+   "durability": 20,
+   "effect": "A flimsy starter bow that fires a single arrow; lowest tier, breaks quickly.",
+   "where": "Great Sky Island (the game's opening area)",
+   "cat": "bow"
+  },
+  {
+   "name": "Phrenic Bow",
+   "type": "bow",
+   "power": 10,
+   "durability": 45,
+   "effect": "Single shot but very high durability for its power; a Sheikah bow that lets you target distant foes as easily as near ones.",
+   "where": "East Necluda, West Necluda",
+   "cat": "bow"
+  },
+  {
+   "name": "Royal Bow",
+   "type": "bow",
+   "power": 38,
+   "durability": 60,
+   "effect": "A sturdy single-shot royal bow with excellent durability.",
+   "where": "Hyrule Field, Central Hyrule Depths",
+   "set": "Royal",
+   "cat": "bow"
+  },
+  {
+   "name": "Royal Guard's Bow",
+   "type": "bow",
+   "power": 50,
+   "durability": 20,
+   "effect": "Highest base-power bow in the game with a very fast (rapid) fire rate, but low durability.",
+   "where": "On the royal desk in Princess Zelda's study, Hyrule Castle",
+   "set": "Royal Guard",
+   "cat": "bow"
+  },
+  {
+   "name": "Savage Lynel Bow",
+   "type": "bow",
+   "power": 32,
+   "durability": 45,
+   "effect": "Multishot: fires 3 arrows at once (32x3); the strongest Lynel bow.",
+   "where": "White-maned/Silver Lynel drop — Gerudo Highlands, Lanayru Wetlands Depths",
+   "set": "Lynel",
+   "cat": "bow"
+  },
+  {
+   "name": "Soldier's Bow",
+   "type": "bow",
+   "power": 14,
+   "durability": 36,
+   "effect": "A standard Hylian soldier's single-shot bow; reliable mid-tier.",
+   "where": "Hyrule Field, Hebra Mountains",
+   "cat": "bow"
+  },
+  {
+   "name": "Spiked Boko Bow",
+   "type": "bow",
+   "power": 12,
+   "durability": 20,
+   "effect": "Upgraded Bokoblin bow; single shot, modest power.",
+   "where": "Bokoblin drop — Hyrule Field, Gerudo Highlands Depths",
+   "set": "Boko",
+   "cat": "bow"
+  },
+  {
+   "name": "Steel Lizal Bow",
+   "type": "bow",
+   "power": 36,
+   "durability": 50,
+   "effect": "Strongest Lizalfos bow; single shot, high power and durability.",
+   "where": "Lizalfos drop — Gerudo Highlands Depths, Central Hyrule Depths",
+   "set": "Lizal",
+   "cat": "bow"
+  },
+  {
+   "name": "Strengthened Lizal Bow",
+   "type": "bow",
+   "power": 25,
+   "durability": 35,
+   "effect": "Mid Lizalfos bow; single shot.",
+   "where": "Lizalfos drop — Gerudo Desert, Akkala Highlands Depths",
+   "set": "Lizal",
+   "cat": "bow"
+  },
+  {
+   "name": "Strong Construct Bow",
+   "type": "bow",
+   "power": 11,
+   "durability": 26,
+   "effect": "Mid-tier Soldier Construct bow; single shot.",
+   "where": "Soldier Construct drop — Rising Island Chain, Death Mountain Depths",
+   "set": "Construct",
+   "cat": "bow"
+  },
+  {
+   "name": "Swallow Bow",
+   "type": "bow",
+   "power": 8,
+   "durability": 30,
+   "effect": "A light Rito-style single-shot bow valued for fast draw speed.",
+   "where": "Hebra Mountains, Tabantha Frontier",
+   "cat": "bow"
+  },
+  {
+   "name": "Traveler's Bow",
+   "type": "bow",
+   "power": 5,
+   "durability": 22,
+   "effect": "A common traveler's single-shot bow, slightly sturdier than the wooden bows.",
+   "where": "Hyrule Field, Central Hyrule Depths",
+   "cat": "bow"
+  },
+  {
+   "name": "Wooden Bow",
+   "type": "bow",
+   "power": 4,
+   "durability": 20,
+   "effect": "A basic single-shot bow; weakest of the surface bows.",
+   "where": "Hyrule Field, South Lanayru Sky Archipelago",
+   "cat": "bow"
+  },
+  {
+   "name": "Zonaite Bow",
+   "type": "bow",
+   "power": 30,
+   "durability": 50,
+   "effect": "A Zonai bow that draws on your Energy Cell — drains energy as you hold a shot, and arrows fly farther the longer you charge.",
+   "where": "Chest in Kikakin Shrine (Depths)",
+   "set": "Zonaite",
+   "cat": "bow"
+  },
+  {
+   "name": "Zora Bow",
+   "type": "bow",
+   "power": 20,
+   "durability": 40,
+   "effect": "A Zora-crafted single-shot bow; solid mid-tier power and durability.",
+   "where": "Lanayru Great Spring (Zora's Domain region)",
+   "set": "Zora",
+   "cat": "bow"
+  },
+  {
+   "name": "Boko Shield",
+   "type": "shield",
+   "power": 3,
+   "durability": 5,
+   "effect": "The basic wooden Bokoblin shield — very fragile and flammable.",
+   "where": "Dropped by red Bokoblins (e.g., Hyrule Field, Hebra Mountains).",
+   "set": "Boko",
+   "cat": "shield"
+  },
+  {
+   "name": "Daybreaker",
+   "type": "shield",
+   "power": 48,
+   "durability": 60,
+   "effect": "A golden shield cherished by the Gerudo Champion Urbosa — lightweight yet very durable for its guard value. One-of-a-kind (remade by Buliara for 1 Diamond + 5 Flint).",
+   "where": "Obtained through the story in Gerudo Town.",
+   "cat": "shield"
+  },
+  {
+   "name": "Dragonbone Boko Shield",
+   "type": "shield",
+   "power": 25,
+   "durability": 8,
+   "effect": "The strongest Bokoblin shield, made from bone — low durability.",
+   "where": "Dropped by black/silver Bokoblins (e.g., Gerudo Highlands, Gerudo Desert).",
+   "set": "Boko",
+   "cat": "shield"
+  },
+  {
+   "name": "Emblazoned Shield",
+   "type": "shield",
+   "power": 3,
+   "durability": 12,
+   "effect": "A decorated wooden shield — burns if exposed to fire.",
+   "where": "West Necluda and East Necluda.",
+   "cat": "shield"
+  },
+  {
+   "name": "Fisherman's Shield",
+   "type": "shield",
+   "power": 3,
+   "durability": 10,
+   "effect": "A simple wooden shield used by Lurelin fishers — flammable.",
+   "where": "Lurelin Village (Necluda coast).",
+   "cat": "shield"
+  },
+  {
+   "name": "Forest Dweller's Shield",
+   "type": "shield",
+   "power": 30,
+   "durability": 18,
+   "effect": "A wooden Korok-made shield — burns if exposed to fire.",
+   "where": "Great Hyrule Forest (around the Korok Forest / Lost Woods).",
+   "cat": "shield"
+  },
+  {
+   "name": "Gerudo Shield",
+   "type": "shield",
+   "power": 28,
+   "durability": 20,
+   "effect": "A standard Gerudo soldier's shield with balanced stats.",
+   "where": "Gerudo Desert and Gerudo Highlands (enemy camps).",
+   "cat": "shield"
+  },
+  {
+   "name": "Hunter's Shield",
+   "type": "shield",
+   "power": 3,
+   "durability": 10,
+   "effect": "A light wooden hunter's shield — flammable.",
+   "where": "Tabantha Frontier and Hebra Mountains.",
+   "cat": "shield"
+  },
+  {
+   "name": "Hylian Shield",
+   "type": "shield",
+   "power": 90,
+   "durability": 800,
+   "effect": "The single best shield in the game by far — highest base guard and the highest durability of any shield.",
+   "where": "Hyrule Castle: cross the moat to Hyrule Castle Docks, climb past the Gloom Hands and light the giant brazier to open the door to the chest. If it breaks, Cece in Hateno Village will sell a replacement for 3,000 Rupees.",
+   "set": "Royal",
+   "cat": "shield"
+  },
+  {
+   "name": "Kite Shield",
+   "type": "shield",
+   "power": 14,
+   "durability": 16,
+   "effect": "A light, tall shield favored by Rito-region travelers.",
+   "where": "Hebra Mountains and the Tabantha Frontier.",
+   "cat": "shield"
+  },
+  {
+   "name": "Knight's Shield",
+   "type": "shield",
+   "power": 40,
+   "durability": 23,
+   "effect": "A solid mid-tier defensive shield once carried by Hyrulean knights.",
+   "where": "Gerudo Desert and the Tabantha Frontier Depths (enemy camps / Depths).",
+   "cat": "shield"
+  },
+  {
+   "name": "Lizal Shield",
+   "type": "shield",
+   "power": 15,
+   "durability": 8,
+   "effect": "The basic Lizalfos shield; lightweight but fragile.",
+   "where": "Dropped by Lizalfos in Lanayru Great Spring and the Faron Sea.",
+   "set": "Lizal",
+   "cat": "shield"
+  },
+  {
+   "name": "Lynel Shield",
+   "type": "shield",
+   "power": 30,
+   "durability": 12,
+   "effect": "The basic Lynel shield; can be used to shield-bash.",
+   "where": "Dropped by red-maned Lynels (e.g., Hyrule Field, Central Hyrule Depths).",
+   "set": "Lynel",
+   "cat": "shield"
+  },
+  {
+   "name": "Mighty Lynel Shield",
+   "type": "shield",
+   "power": 44,
+   "durability": 15,
+   "effect": "A strong Lynel shield that can be used to shield-bash.",
+   "where": "Dropped by blue-maned Lynels (e.g., Faron Grasslands, Eldin Canyon Depths).",
+   "set": "Lynel",
+   "cat": "shield"
+  },
+  {
+   "name": "Mighty Zonaite Shield",
+   "type": "shield",
+   "power": 50,
+   "durability": 20,
+   "effect": "A Zonai-tech shield: a fused Zonai device draws on the shield's stored energy so it consumes less battery to operate. Immune to fire and lightning (not wood or metal).",
+   "where": "Rarely on the Sky Islands and, most commonly, in the Depths beneath Hyrule.",
+   "set": "Zonaite",
+   "cat": "shield"
+  },
+  {
+   "name": "Old Wooden Shield",
+   "type": "shield",
+   "power": 2,
+   "durability": 12,
+   "effect": "A weathered wooden shield — flammable.",
+   "where": "Great Sky Island (the tutorial area) and the Gerudo Desert.",
+   "cat": "shield"
+  },
+  {
+   "name": "Pot Lid",
+   "type": "shield",
+   "power": 1,
+   "durability": 10,
+   "effect": "A cooking-pot lid used as a makeshift shield — lowest guard, but a fun perfect-guard / parry tool.",
+   "where": "Hyrule Field and East Necluda (found near houses, stables, and cooking areas).",
+   "cat": "shield"
+  },
+  {
+   "name": "Radiant Shield",
+   "type": "shield",
+   "power": 35,
+   "durability": 26,
+   "effect": "A decorated Gerudo shield with good guard and durability.",
+   "where": "Gerudo Desert and Gerudo Highlands (enemy camps).",
+   "cat": "shield"
+  },
+  {
+   "name": "Reinforced Lizal Shield",
+   "type": "shield",
+   "power": 22,
+   "durability": 12,
+   "effect": "A reinforced Lizalfos shield, sturdier than the basic version.",
+   "where": "Dropped by Lizalfos in the Tabantha Tundra and the Abandoned Kakariko Mine.",
+   "set": "Lizal",
+   "cat": "shield"
+  },
+  {
+   "name": "Royal Guard's Shield",
+   "type": "shield",
+   "power": 70,
+   "durability": 14,
+   "effect": "Very high guard but extremely fragile — a Hyrule Castle heirloom that breaks after only a few hits.",
+   "where": "Hyrule Castle: from the Inner Sanctum, take the staircase to the right of the throne.",
+   "set": "Royal",
+   "cat": "shield"
+  },
+  {
+   "name": "Royal Shield",
+   "type": "shield",
+   "power": 55,
+   "durability": 29,
+   "effect": "A high-guard royal shield with respectable durability.",
+   "where": "Hyrule Field and Gerudo Highlands Depths (enemy camps / Depths).",
+   "set": "Royal",
+   "cat": "shield"
+  },
+  {
+   "name": "Rusty Shield",
+   "type": "shield",
+   "power": 3,
+   "durability": 16,
+   "effect": "A corroded old knight's shield; a Rock Octorok can restore it, spitting it back out as a random higher-tier shield.",
+   "where": "Hyrule Field and East Necluda (often found embedded in the ground).",
+   "cat": "shield"
+  },
+  {
+   "name": "Savage Lynel Shield",
+   "type": "shield",
+   "power": 62,
+   "durability": 20,
+   "effect": "The strongest non-royal/non-Hylian shield; like all Lynel shields it can be used to shield-bash.",
+   "where": "Dropped by silver and white-maned Lynels (e.g., Akkala Highlands and the Central Hyrule Depths).",
+   "set": "Lynel",
+   "cat": "shield"
+  },
+  {
+   "name": "Sea-Breeze Shield",
+   "type": "shield",
+   "power": 65,
+   "durability": 90,
+   "effect": "Said to have been the favorite of a hero who sailed the open seas (a Wind Waker nod); high guard and durability. One-of-a-kind.",
+   "where": "In the Depths in Tabahl Grove (east of the Sekioam Lightroot) — enter via the Lanayru Wetlands Chasm north of Jonsau Shrine and head to the hollow tree stump.",
+   "cat": "shield"
+  },
+  {
+   "name": "Shield of the Mind's Eye",
+   "type": "shield",
+   "power": 16,
+   "durability": 16,
+   "effect": "A semi-transparent shield — it is nearly invisible when raised.",
+   "where": "East Necluda and West Necluda.",
+   "cat": "shield"
+  },
+  {
+   "name": "Soldier's Shield",
+   "type": "shield",
+   "power": 16,
+   "durability": 16,
+   "effect": "A standard Hyrulean soldier's shield with balanced low stats.",
+   "where": "Hyrule Field and Eldin Canyon (enemy camps / ruins).",
+   "cat": "shield"
+  },
+  {
+   "name": "Spiked Boko Shield",
+   "type": "shield",
+   "power": 10,
+   "durability": 7,
+   "effect": "A spiked Bokoblin shield, a step up from the plain Boko Shield.",
+   "where": "Dropped by blue/black Bokoblins (e.g., Hyrule Field, East Necluda).",
+   "set": "Boko",
+   "cat": "shield"
+  },
+  {
+   "name": "Steel Lizal Shield",
+   "type": "shield",
+   "power": 35,
+   "durability": 15,
+   "effect": "The sturdiest Lizalfos shield, made of metal — conducts electricity, so beware shocks in storms.",
+   "where": "Dropped by Lizalfos in Gerudo Desert and around Mount Lanayru.",
+   "set": "Lizal",
+   "cat": "shield"
+  },
+  {
+   "name": "Strong Zonaite Shield",
+   "type": "shield",
+   "power": 26,
+   "durability": 15,
+   "effect": "A Zonai-tech shield: a fused Zonai device consumes less energy than normal when attached.",
+   "where": "Lanayru Sky Archipelago and Lomei Labyrinth Island (Sky), and the Depths.",
+   "set": "Zonaite",
+   "cat": "shield"
+  },
+  {
+   "name": "Traveler's Shield",
+   "type": "shield",
+   "power": 4,
+   "durability": 12,
+   "effect": "A common traveler's shield of animal hide and wood with very low guard.",
+   "where": "Hyrule Field and the Eldin Mountains (early-game pickups).",
+   "cat": "shield"
+  },
+  {
+   "name": "Wooden Shield",
+   "type": "shield",
+   "power": 2,
+   "durability": 12,
+   "effect": "A plain wooden shield — burns if exposed to fire.",
+   "where": "Hyrule Field and the Hebra Mountains.",
+   "cat": "shield"
+  },
+  {
+   "name": "Zonaite Shield",
+   "type": "shield",
+   "power": 11,
+   "durability": 15,
+   "effect": "The basic Zonai-tech shield: a fused Zonai device consumes less energy when used.",
+   "where": "Necluda Archipelago and Eldin Sky Archipelago (Sky Islands), and the Depths.",
+   "set": "Zonaite",
+   "cat": "shield"
+  },
+  {
+   "name": "Zora Shield",
+   "type": "shield",
+   "power": 24,
+   "durability": 20,
+   "effect": "A Zora-crafted shield; conducts electricity, so beware shocks.",
+   "where": "Lanayru Great Spring (Zora's Domain) and its Sky Archipelago.",
+   "set": "Zora",
+   "cat": "shield"
+  },
+  {
+   "name": "Amber Earrings",
+   "type": "head",
+   "power": 4,
+   "effect": "No special effect; valued for high base defense that climbs as you upgrade with Amber. Standalone, no set bonus.",
+   "where": "Bought at Starlight Memories jewelry shop, Gerudo Town (rupees + Amber).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Ancient Hero's Aspect",
+   "type": "body",
+   "power": 12,
+   "effect": "Highest base defense of any body piece; a single all-slots item whose 2-star bonus is Master Sword Beam Up (stronger Master Sword beams).",
+   "where": "Reward for completing all 152 shrines — chest behind the Goddess Statue at the Temple of Time.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Ancient Hero's Headgear",
+   "type": "head",
+   "power": 12,
+   "effect": "Fills all three armor slots at once (no body/leg piece); on its own grants the Master Sword Beam Up bonus (boosts Master Sword beam damage). Single-piece set; cannot be upgraded.",
+   "where": "Chest behind the Goddess Statue in the Temple of Time on Great Sky Island, after completing all 152 Shrines.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Ancient Hero's Trousers",
+   "type": "legs",
+   "power": 12,
+   "effect": "No special property; part of the Ancient Hero's Aspect (a single full-body costume counted across all three slots), the highest base-defense armor in the game.",
+   "where": "Reward in the Temple of Time on the Great Sky Island after completing all 152 shrines.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Archaic Legwear",
+   "type": "legs",
+   "power": 1,
+   "effect": "No special property and no set bonus; the starting leg wear.",
+   "where": "Chest near the exit of the Room of Awakening on the Great Sky Island (start of the game).",
+   "set": "Archaic / Well-Worn",
+   "cat": "armor"
+  },
+  {
+   "name": "Archaic Tunic",
+   "type": "body",
+   "power": 1,
+   "effect": "No effect; part of the 2-piece Archaic starter set, which has no set bonus and cannot be upgraded by a Great Fairy.",
+   "where": "Chest in Pondside Cave in the southwest of the Great Sky Island (the starting tutorial area).",
+   "set": "Archaic / Well-Worn",
+   "cat": "armor"
+  },
+  {
+   "name": "Archaic Warm Greaves",
+   "type": "legs",
+   "power": 2,
+   "effect": "Cold Resistance (keeps Link warm in cold areas); no set bonus.",
+   "where": "Chest inside a tree-like cave near Gutanbac Shrine on the Great Sky Island.",
+   "set": "Archaic / Well-Worn",
+   "cat": "armor"
+  },
+  {
+   "name": "Barbarian Armor",
+   "type": "body",
+   "power": 3,
+   "effect": "Attack Up; full Barbarian set's 2-star bonus is Charge Atk. Stamina Up (less stamina used by charged attacks).",
+   "where": "Chest inside Crenel Hills Cave.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Barbarian Helm",
+   "type": "head",
+   "power": 3,
+   "effect": "Attack Up. Part of the Barbarian set — set bonus 'Charge Atk. Stamina Up'.",
+   "where": "Chest in Robred Dropoff Cave, East Necluda.",
+   "set": "Barbarian Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Barbarian Leg Wraps",
+   "type": "legs",
+   "power": 3,
+   "effect": "Attack Up; the Barbarian set bonus 'Charge Attack Stamina Up' (less stamina for charged attacks) unlocks at 2 stars.",
+   "where": "Burn the ice then open the chest in Walnot Mountain Cave, East Necluda.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Bokoblin Mask",
+   "type": "head",
+   "power": 3,
+   "effect": "Disguise: Bokoblins won't attack unless provoked. Standalone, no set bonus.",
+   "where": "From Koltin in exchange for Bubbul Gems.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Cap of the Hero",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect. Part of the Of the Hero set (classic green-tunic homage) — set bonus 'Master Sword Beam Up'.",
+   "where": "Tuft Mountain area, East Necluda Depths.",
+   "set": "Of the Hero Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Cap of the Sky",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect. Part of the Of the Sky set (Skyward Sword homage) — set bonus 'Master Sword Beam Up'.",
+   "where": "Chest in Retsam Forest Cave (the Depths).",
+   "set": "Of the Sky Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Cap of the Wild",
+   "type": "head",
+   "power": 4,
+   "effect": "No innate effect. Part of the Of the Wild set (BotW homage) — set bonus 'Master Sword Beam Up'.",
+   "where": "Chest in the Hebra Headspring Cave / Hebra region Depths.",
+   "set": "Of the Wild Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Cap of the Wind",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect. Part of the Of the Wind set (Wind Waker homage) — set bonus 'Master Sword Beam Up'.",
+   "where": "Chest accessed via the Tingel Island Chasm (the Depths).",
+   "set": "Of the Wind Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Cap of Time",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect. Part of the Of Time set (Ocarina of Time homage) — set bonus 'Master Sword Beam Up'.",
+   "where": "Sturnida Basin / Hebra Mountain Depths.",
+   "set": "Of Time Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Cap of Twilight",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect. Part of the Of Twilight set (Twilight Princess homage) — set bonus 'Master Sword Beam Up'.",
+   "where": "Gleeok Den, Great Hyrule Forest Depths (also via Twilight Princess / Smash amiibo).",
+   "set": "Of Twilight Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Cece Hat",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect (a fashion hat). Standalone, no set bonus.",
+   "where": "Reward for completing The Mayoral Election side adventure (Hateno Village).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Champion's Leathers",
+   "type": "body",
+   "power": 5,
+   "effect": "Standalone single piece (no head/legs, no set bonus); lets Link fire Master Sword sword-beams even when not at full health.",
+   "where": "Light the two fire pits in Hyrule Castle's Sanctum/throne room to open the tomb, then take it from inside.",
+   "set": "Champion's Leathers",
+   "cat": "armor"
+  },
+  {
+   "name": "Charged Headdress",
+   "type": "head",
+   "power": 3,
+   "effect": "Stormy Weather Attack (attack synergy during thunderstorms). Part of the Charged set — set bonus 'Lightning Proof'.",
+   "where": "Blocked ruin near Dracozu River (Faron region).",
+   "set": "Charged Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Charged Shirt",
+   "type": "body",
+   "power": 3,
+   "effect": "Stormy Weather Attack (charge attacks faster in stormy weather); full set's 2-star bonus is Stormy Weather Charge.",
+   "where": "Chest inside a ruin on the east side of Dracozu Lake (near the Spring of Courage).",
+   "set": "Charged Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Charged Trousers",
+   "type": "legs",
+   "power": 3,
+   "effect": "Stormy Weather Attack; the Charged set bonus 'Stormy Weather Charge' (faster charge attacks during storms) unlocks at 2 stars.",
+   "where": "Chest inside a blocked ruin in Damel Forest.",
+   "set": "Charged Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Climber's Bandanna",
+   "type": "head",
+   "power": 3,
+   "effect": "Climbing Speed Up. Part of the Climbing Gear set — set bonus 'Climbing Jump Stamina Up'.",
+   "where": "Chest in Ploymus Mountain Cave (Lanayru / Zora region).",
+   "set": "Climbing Gear Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Climbing Boots",
+   "type": "legs",
+   "power": 3,
+   "effect": "Climb Speed Up; the Climbing Gear set bonus 'Climbing Jump Stamina Up' (less stamina to jump while climbing) unlocks at 2 stars.",
+   "where": "Chest inside Upland Zorana Byroad (cave), south of Upland Zorana Skyview Tower.",
+   "set": "Climbing Gear (Climber's Set)",
+   "cat": "armor"
+  },
+  {
+   "name": "Climbing Gear",
+   "type": "body",
+   "power": 3,
+   "effect": "Climb Speed Up; full set's 2-star bonus is Climbing Jump Stamina Up (less stamina used when jumping while climbing).",
+   "where": "Enter North Hyrule Plain Cave and go behind the waterfalls underneath.",
+   "set": "Climbing Gear (Climber's Set)",
+   "cat": "armor"
+  },
+  {
+   "name": "Dark Hood",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect. Part of the Dark set — set bonus 'Night Speed Up'.",
+   "where": "Bought from a Bargainer Statue in the Depths (for Poes).",
+   "set": "Dark Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Dark Trousers",
+   "type": "legs",
+   "power": 3,
+   "effect": "No special property; the Dark (Sheikah-look) set bonus 'Night Speed Up' unlocks at 2 stars.",
+   "where": "Pray at the third Bargainer Statue in the Depths and buy for 200 Poes.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Dark Tunic",
+   "type": "body",
+   "power": 3,
+   "effect": "No standalone effect; full Dark set's 2-star bonus is Night Speed Up (faster movement at night).",
+   "where": "Trade 150 Poes at a Bargainer Statue in the Depths.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Desert Voe Headband",
+   "type": "head",
+   "power": 3,
+   "effect": "Heat Resistance. Part of the Desert Voe set — set bonus 'Shock Damage Resist'.",
+   "where": "Bought at the Gerudo clothing shop in Gerudo Town (or Kara Kara Bazaar).",
+   "set": "Desert Voe Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Desert Voe Spaulder",
+   "type": "body",
+   "power": 3,
+   "effect": "Heat Resistance; full set's 2-star bonus is Shock Damage Resist (reduces electric-attack damage).",
+   "where": "Purchase from the Gerudo Secret Club in Gerudo Town.",
+   "set": "Desert Voe Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Desert Voe Trousers",
+   "type": "legs",
+   "power": 3,
+   "effect": "Heat Resistance; the Desert Voe set bonus 'Shock Damage Resist' (reduces electric attack damage) unlocks at 2 stars.",
+   "where": "Buy from the Gerudo Secret Club shop in Gerudo Town.",
+   "set": "Desert Voe Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Diamond Circlet",
+   "type": "head",
+   "power": 4,
+   "effect": "Attack Up (raises attack power). Standalone jewelry — no set bonus; upgrades with Diamonds.",
+   "where": "Bought at Starlight Memories jewelry shop, Gerudo Town (rupees + Diamond).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Ember Headdress",
+   "type": "head",
+   "power": 2,
+   "effect": "Hot-Weather Attack (attack boost in hot climates). Part of the Ember set — set bonus 'Heat Emission'/related.",
+   "where": "Chest in YunoboCo HQ South Cave (Eldin).",
+   "set": "Ember Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Ember Shirt",
+   "type": "body",
+   "power": 2,
+   "effect": "Hot Weather Attack (charge attacks faster in hot weather); full Ember set's 2-star bonus is Hot Weather Charge.",
+   "where": "Chest inside Goronbi River Cave.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Ember Trousers",
+   "type": "legs",
+   "power": 2,
+   "effect": "Hot Weather Attack (attack boost during hot weather); the Ember set bonus 'Hot Weather Attack' (greater hot-weather attack) unlocks at 2 stars.",
+   "where": "Chest inside Cephla Lake Cave in Eldin Canyon.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Evil Spirit Armor",
+   "type": "body",
+   "power": 4,
+   "effect": "Stealth Up; full Evil Spirit set's 2-star bonus is Disguise + Bone Weapon Proficiency (Stal enemies ignore you and bone weapons hit harder).",
+   "where": "Complete The Lomei Labyrinth Island prophecy side quest (the three labyrinths).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Evil Spirit Greaves",
+   "type": "legs",
+   "power": 4,
+   "effect": "Stealth Up; the Evil Spirit set bonus 'Disguise / Bone Weapon Proficiency' (Stal enemies ignore you, boosts bone-weapon damage) unlocks at 2 stars.",
+   "where": "Complete 'The North Lomei Prophecy' side quest.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Evil Spirit Mask",
+   "type": "head",
+   "power": 4,
+   "effect": "Stealth Up. Part of the Evil Spirit set — full set grants Disguise (Stal-type) + Bone-weapon proficiency (innate, no upgrade needed).",
+   "where": "Reward for the The South Lomei Labyrinth treasure (Gerudo Highlands / South Lomei Labyrinth).",
+   "set": "Evil Spirit Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Fierce Deity Armor",
+   "type": "body",
+   "power": 3,
+   "effect": "Attack Up; full Fierce Deity set's 2-star bonus is Charge Atk. Stamina Up (less stamina used by charged attacks).",
+   "where": "Chest inside Akkala Citadel Ruins Summit Cave.",
+   "set": "Fierce Deity Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Fierce Deity Boots",
+   "type": "legs",
+   "power": 3,
+   "effect": "Attack Up; the Fierce Deity set bonus 'Charge Atk. Stamina Up' (less stamina for charged attacks) unlocks at 2 stars.",
+   "where": "Chest at the Ancient Tree Stump (Misko's Treasure quest); also via the Majora's Mask / Fierce Deity amiibo.",
+   "set": "Fierce Deity Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Fierce Deity Mask",
+   "type": "head",
+   "power": 3,
+   "effect": "Attack Up. Part of the Fierce Deity set — full set bonus 'Charge Atk. Stamina Up'. Obtainable in the world (not amiibo-locked).",
+   "where": "Chest atop the rock in the back of Skull Lake Cave (north Akkala), after defeating the Stalnox.",
+   "set": "Fierce Deity Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Flamebreaker Armor",
+   "type": "body",
+   "power": 3,
+   "effect": "Flame Guard (protects from environmental heat/flame); full set's 2-star bonus is Fireproof (full protection from fire).",
+   "where": "Buy from the Armor Shop in Goron City (also stocked near Darunia Lake).",
+   "set": "Flamebreaker Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Flamebreaker Boots",
+   "type": "legs",
+   "power": 3,
+   "effect": "Flame Guard (resists burning environments); the Flamebreaker set bonus 'Fireproof' (cannot catch fire) unlocks at 2 stars.",
+   "where": "Buy at the Armor Shop in Goron City.",
+   "set": "Flamebreaker Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Flamebreaker Helm",
+   "type": "head",
+   "power": 3,
+   "effect": "Flame Guard (protects from heat/flame in Eldin). Part of the Flamebreaker set — set bonus 'Fireproof'.",
+   "where": "Bought at the Goron City Armor Shop, Eldin.",
+   "set": "Flamebreaker Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Froggy Hood",
+   "type": "head",
+   "power": 3,
+   "effect": "Slip Resistance (climb in the rain / on ice without slipping). Part of the Froggy set — full set grants full Slip Resistance.",
+   "where": "Reward for the Potential Princess Sightings! side adventure (complete 12 Penn stable quests); re-buyable at Cece's shop, Hateno.",
+   "set": "Froggy Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Froggy Leggings",
+   "type": "legs",
+   "power": 3,
+   "effect": "Slip Resistance (better grip when climbing in rain); the Froggy set bonus 'Slip Proof' (no slipping while climbing in rain) unlocks at 2 stars.",
+   "where": "Reward for completing 9 of Penn's Side Adventures (the news-reporter quest chain) at different stables.",
+   "set": "Froggy Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Froggy Sleeve",
+   "type": "body",
+   "power": 3,
+   "effect": "Slip Resistance; full set's 2-star bonus is Slip Proof (prevents slipping when climbing in the rain).",
+   "where": "Reward from the Potential Princess Sightings! side adventure at the Lucky Clover Gazette (complete the photo objectives).",
+   "set": "Froggy Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Frostbite Headdress",
+   "type": "head",
+   "power": 2,
+   "effect": "Cold-Weather Attack (attack boost in cold climates). Part of the Frostbite set — related cold set bonus.",
+   "where": "Lake Kilsie Cave, Hebra Mountains.",
+   "set": "Frostbite Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Frostbite Shirt",
+   "type": "body",
+   "power": 2,
+   "effect": "Cold Weather Attack (charge attacks faster in cold weather); full Frostbite set's 2-star bonus is Cold Weather Charge.",
+   "where": "Chest inside Brightcap Cave.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Frostbite Trousers",
+   "type": "legs",
+   "power": 2,
+   "effect": "Cold Weather Attack (attack boost in cold weather); the Frostbite set bonus 'Cold Weather Attack' (greater cold-weather attack) unlocks at 2 stars.",
+   "where": "Chest inside Hebra Headspring Cave.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Gaiters of the Depths",
+   "type": "legs",
+   "power": 3,
+   "effect": "Gloom Resistance; the Depths set bonus 'Gloom Attack Resist' (adds an empty blue heart vs. Gloom-inflicting attacks) unlocks at 2 stars.",
+   "where": "Pray at the fourth Bargainer Statue in the Depths and buy for 200 Poes.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Glide Mask",
+   "type": "head",
+   "power": 2,
+   "effect": "Skydive Mobility Up (faster control while diving). Part of the Glide set — set bonus 'Impact Proof' (no fall damage).",
+   "where": "Reward for the dive challenge at Valor Island (Sky).",
+   "set": "Glide Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Glide Shirt",
+   "type": "body",
+   "power": 2,
+   "effect": "Skydive Mobility Up; full set's 2-star bonus is Impact Proof (completely negates fall damage).",
+   "where": "On Courage Island in the sky above Hyrule Ridge: give the Steward Construct a Zonai Charge and complete the Dive Ceremony (pass all rings in time).",
+   "set": "Glide Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Glide Tights",
+   "type": "legs",
+   "power": 2,
+   "effect": "Skydive Mobility Up; the Glide set bonus 'Impact Proof' (negates all fall damage) unlocks at 2 stars.",
+   "where": "Talk to the Steward Construct on Bravery Island and complete the Dive Ceremony.",
+   "set": "Glide Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Hood of the Depths",
+   "type": "head",
+   "power": 3,
+   "effect": "Gloom Resistance. Part of the Depths set — set bonus 'Sticky Frog'/enhanced effect at full set.",
+   "where": "Bought from a Bargainer Statue in the Depths (for Poes).",
+   "set": "Depths Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Horriblin Mask",
+   "type": "head",
+   "power": 3,
+   "effect": "Disguise: Horriblins won't attack unless provoked. Standalone, no set bonus.",
+   "where": "From Koltin in exchange for Bubbul Gems.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Hylian Hood",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect (basic shop gear). Part of the Hylian set (no set bonus).",
+   "where": "Bought at general/clothing shops (e.g., Lookout Landing).",
+   "set": "Hylian Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Hylian Trousers",
+   "type": "legs",
+   "power": 3,
+   "effect": "No special property; Hylian Set has no set bonus.",
+   "where": "Buy at the Armor Shop in Lookout Landing.",
+   "set": "Hylian Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Hylian Tunic",
+   "type": "body",
+   "power": 3,
+   "effect": "No special effect and no set bonus; a basic, cheap defensive tunic.",
+   "where": "Buy at the Armor Shop in Lookout Landing.",
+   "set": "Hylian Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Island Lobster Shirt",
+   "type": "body",
+   "power": 1,
+   "effect": "Heat Resistance; the Island Lobster Shirt is a single body piece with no set bonus.",
+   "where": "Chest under the ship near Lurelin Village (use Ultrahand to reach it).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Korok Mask",
+   "type": "head",
+   "power": 1,
+   "effect": "Shakes when a hidden Korok is nearby (aids Korok hunting). Standalone, no set bonus.",
+   "where": "Chest in the Forest Coliseum (the Depths) — appears after defeating the Black Hinox there.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Lightning Helm",
+   "type": "head",
+   "power": 3,
+   "effect": "Lightning Proof (immune to lightning strikes; safe in storms with metal gear). Standalone (shares the Yiga aesthetic), no set bonus.",
+   "where": "Reward for clearing all 3 Yiga Blademaster training challenges at the Yiga Clan Hideout, Gerudo Highlands.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Lizalfos Mask",
+   "type": "head",
+   "power": 3,
+   "effect": "Disguise: Lizalfos won't attack unless provoked. Standalone, no set bonus.",
+   "where": "From Koltin in exchange for Bubbul Gems.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Lynel Mask",
+   "type": "head",
+   "power": 3,
+   "effect": "Disguise: Lynels are fooled briefly but eventually see through it and attack. Standalone, no set bonus.",
+   "where": "From Koltin in exchange for Bubbul Gems (the final mask).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Majora's Mask",
+   "type": "head",
+   "power": 1,
+   "effect": "Makes it harder for most lesser enemies to spot you / they won't attack on sight. Standalone, no set bonus.",
+   "where": "Chest in the Floating Coliseum (the Depths).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Mask of Awakening",
+   "type": "head",
+   "power": 3,
+   "effect": "No innate effect. Part of the Of Awakening set (Link's Awakening homage) — set bonus 'Master Sword Beam Up'.",
+   "where": "Thundra Plateau Cave (Hyrule Ridge).",
+   "set": "Of Awakening Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Midna's Helmet",
+   "type": "head",
+   "power": 7,
+   "effect": "Gloom Resistance (reduces gloom damage). Standalone, no set bonus; cannot be upgraded.",
+   "where": "Gloom-locked chest in the Lone Island Coliseum (via the Eventide Island Chasm, Necluda Sea Depths) after clearing the Bokoblin waves.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Miner's Mask",
+   "type": "head",
+   "power": 3,
+   "effect": "Glow (lights up dark areas like the Depths). Part of the Miner's set — set bonus 'Attack Up' (in the dark).",
+   "where": "Abandoned Kara Kara Mine, Gerudo Desert Depths.",
+   "set": "Miner's Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Miner's Top",
+   "type": "body",
+   "power": 3,
+   "effect": "Glow (the piece glows in the dark); full set's 2-star bonus is Shining Steps (leaves a trail of glowing petals that light the area).",
+   "where": "Chest in Daphnes Canyon Mine, Central Hyrule Depths.",
+   "set": "Miner's Set (glow set)",
+   "cat": "armor"
+  },
+  {
+   "name": "Miner's Trousers",
+   "type": "legs",
+   "power": 3,
+   "effect": "Glow (the piece itself glows in the dark); the Miner's set bonus 'Shining Steps' (a glowing trail behind Link) unlocks at 2 stars.",
+   "where": "Chest in Hylia Canyon Mine, Central Hyrule Depths.",
+   "set": "Miner's Set (glow set)",
+   "cat": "armor"
+  },
+  {
+   "name": "Moblin Mask",
+   "type": "head",
+   "power": 3,
+   "effect": "Disguise: Moblins won't attack unless provoked. Standalone, no set bonus.",
+   "where": "From Koltin in exchange for Bubbul Gems.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Mystic Headpiece",
+   "type": "head",
+   "power": 3,
+   "effect": "Rupee Padding (reduces money lost when defeated). Part of the Mystic set (no upgrade; from Koltin).",
+   "where": "Exchanged from Koltin for Bubbul Gems.",
+   "set": "Mystic Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Mystic Robe",
+   "type": "body",
+   "power": 3,
+   "effect": "Rupee Padding (reduces rupees lost); Mystic set has no set bonus.",
+   "where": "Received from Koltin in exchange for 3 Bubbul Gems during nighttime.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Mystic Trousers",
+   "type": "legs",
+   "power": 3,
+   "effect": "Rupee Padding (lose Rupees instead of health when hit); the Mystic Set has NO set bonus.",
+   "where": "Purchase from Koltin (the wandering monster-fan) for 4 Bubbul Gems.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Opal Earrings",
+   "type": "head",
+   "power": 3,
+   "effect": "Swim Speed Up. Standalone jewelry — no set bonus; upgrades with Opal.",
+   "where": "Bought at Starlight Memories jewelry shop, Gerudo Town (rupees + Opal).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Phantom Armor",
+   "type": "body",
+   "power": 8,
+   "effect": "Attack Up while equipped; the Phantom set has no set bonus, but each piece individually boosts attack.",
+   "where": "Chest in Tamio River Downstream Cave, behind a breakable wall at the final section.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Phantom Greaves",
+   "type": "legs",
+   "power": 8,
+   "effect": "Attack Up; the Phantom set has no set bonus (high base defense, not upgradeable).",
+   "where": "Chest inside the middle quicksand sinkhole in the Ancient Altar Ruins (Eastern Barrens, Gerudo Desert).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Phantom Helmet",
+   "type": "head",
+   "power": 8,
+   "effect": "Attack Up. Part of the Phantom set (each piece grants Attack Up; the set has no separate set bonus).",
+   "where": "Chest in Puffer Beach Overhead Cave (East Necluda) — entrance is on the cave ceiling, reach it with Zonai devices.",
+   "set": "Phantom Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Radiant Mask",
+   "type": "head",
+   "power": 3,
+   "effect": "Glows in the dark. Part of the Radiant set — full set, upgraded 2★, grants Disguise (Stal-type) + Bone-weapon proficiency.",
+   "where": "Enchanted shop, Kakariko Village.",
+   "set": "Radiant Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Radiant Shirt",
+   "type": "body",
+   "power": 3,
+   "effect": "No standalone effect; full Radiant set's 2-star bonus is Disguise + Bone Weapon Proficiency (glows in the dark and Stal enemies ignore you).",
+   "where": "Buy at Enchanted in Kakariko Village.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Radiant Tights",
+   "type": "legs",
+   "power": 3,
+   "effect": "No passive on this piece; the Radiant set bonus 'Disguise / Bone Weapon Proficiency' unlocks at 2 stars (Stal enemies ignore you).",
+   "where": "Buy at Enchanted in Kakariko Village.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Ravio's Hood",
+   "type": "head",
+   "power": 2,
+   "effect": "Sideways Climbing Speed Up (A Link Between Worlds homage). Standalone, no set bonus.",
+   "where": "Chest in the Secluded Coliseum (the Depths).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Royal Guard Boots",
+   "type": "legs",
+   "power": 4,
+   "effect": "No special property; Royal Guard Set has no set bonus.",
+   "where": "Chest inside the King's Study in Hyrule Castle.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Royal Guard Cap",
+   "type": "head",
+   "power": 4,
+   "effect": "No innate effect. Part of the Royal Guard set — set bonus 'Charge Atk. Stamina Up'.",
+   "where": "Chest in Princess Zelda's Room, Hyrule Castle.",
+   "set": "Royal Guard Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Royal Guard Uniform",
+   "type": "body",
+   "power": 4,
+   "effect": "No standalone effect; full Royal Guard set's 2-star bonus is Charge Atk. Stamina Up (less stamina used by charged attacks).",
+   "where": "Use Ascend on the cobwebbed ceiling within the Guards' Chamber (under Hyrule Castle).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Rubber Armor",
+   "type": "body",
+   "power": 3,
+   "effect": "Shock Resistance; full set's 2-star bonus is Lightning Proof (immune to lightning strikes).",
+   "where": "Chest inside Whistling Hill Cave.",
+   "set": "Rubber Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Rubber Helm",
+   "type": "head",
+   "power": 3,
+   "effect": "Shock Resistance. Part of the Rubber set — set bonus 'Lightning Proof'.",
+   "where": "Chest in Sarjon Woods Cave (Hyrule Field / Floria River area).",
+   "set": "Rubber Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Rubber Tights",
+   "type": "legs",
+   "power": 3,
+   "effect": "Shock/Lightning Resistance; the Rubber set bonus 'Lightning Proof' (immunity to lightning strikes) unlocks at 2 stars.",
+   "where": "Chest inside Horon Lagoon Cave.",
+   "set": "Rubber Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Ruby Circlet",
+   "type": "head",
+   "power": 3,
+   "effect": "Cold Resistance (heat retention in cold areas). Standalone jewelry — no set bonus; upgrades with Rubies.",
+   "where": "Bought at Starlight Memories jewelry shop, Gerudo Town (rupees + Ruby).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Sand Boots",
+   "type": "legs",
+   "power": 3,
+   "effect": "Sand Speed Up (move normally on desert sand); standalone Gerudo-Secret-Club item with no set bonus.",
+   "where": "Buy from the Gerudo Secret Club shop in Gerudo Town.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Sapphire Circlet",
+   "type": "head",
+   "power": 3,
+   "effect": "Heat Resistance (cooling in hot areas). Standalone jewelry — no set bonus; upgrades with Sapphires.",
+   "where": "Bought at Starlight Memories jewelry shop, Gerudo Town (rupees + Sapphire).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Sheik's Mask",
+   "type": "head",
+   "power": 2,
+   "effect": "Stealth Up (Sheik homage). Standalone, no set bonus.",
+   "where": "Chest in the Desert Coliseum (the Depths).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Snow Boots",
+   "type": "legs",
+   "power": 3,
+   "effect": "Snow Speed Up (move normally through snow); standalone Gerudo-Secret-Club item with no set bonus.",
+   "where": "Buy from the Gerudo Secret Club shop in Gerudo Town.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Snowquill Headdress",
+   "type": "head",
+   "power": 3,
+   "effect": "Cold Resistance. Part of the Snowquill set — set bonus 'Unfreezable'.",
+   "where": "Bought at the Brazen Beak clothing shop, Rito Village.",
+   "set": "Snowquill Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Snowquill Trousers",
+   "type": "legs",
+   "power": 3,
+   "effect": "Cold Resistance; the Snowquill set bonus 'Unfreezable' (prevents being frozen by ice attacks) unlocks at 2 stars.",
+   "where": "Buy at Brazen Beak in Rito Village.",
+   "set": "Snowquill Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Snowquill Tunic",
+   "type": "body",
+   "power": 3,
+   "effect": "Cold Resistance; full set's 2-star bonus is Unfreezable (cannot be frozen by ice attacks).",
+   "where": "Buy at Brazen Beak in Rito Village.",
+   "set": "Snowquill Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Soldier's Armor",
+   "type": "body",
+   "power": 4,
+   "effect": "No effect and no set bonus; the Soldier set has the joint-highest base defense of any upgradeable ordinary set.",
+   "where": "Chest inside the Royal Hidden Passage's jail cell (accessible after clearing a Temple during Regional Phenomena).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Soldier's Greaves",
+   "type": "legs",
+   "power": 4,
+   "effect": "No special property; Soldier's Set has no set bonus (highest base defense of an ordinary set).",
+   "where": "Chest inside the Royal Hidden Passage (Hyrule Castle area).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Soldier's Helm",
+   "type": "head",
+   "power": 4,
+   "effect": "No special effect. Part of the Soldier set (no set bonus).",
+   "where": "Chest in the Royal Hidden Passage beneath Hyrule Castle.",
+   "set": "Soldier Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Stealth Chest Guard",
+   "type": "body",
+   "power": 2,
+   "effect": "Stealth Up (quieter movement); full Stealth set's 2-star bonus is Night Speed Up.",
+   "where": "Buy at Enchanted in Kakariko Village.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Stealth Mask",
+   "type": "head",
+   "power": 2,
+   "effect": "Stealth Up (quieter movement). Part of the Stealth set — set bonus 'Night Speed Up'.",
+   "where": "Enchanted shop, Kakariko Village.",
+   "set": "Stealth Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Stealth Tights",
+   "type": "legs",
+   "power": 2,
+   "effect": "Stealth Up; the Stealth (Sheikah) set bonus 'Night Speed Up' unlocks at 2 stars.",
+   "where": "Buy at Enchanted in Kakariko Village.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tingle's Hood",
+   "type": "head",
+   "power": 2,
+   "effect": "No innate effect. Part of the Tingle set — set bonus 'Night Speed Up'.",
+   "where": "Light-puzzle reward at the Statue of the Eighth Heroine (Gerudo Highlands).",
+   "set": "Tingle Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Tingle's Shirt",
+   "type": "body",
+   "power": 2,
+   "effect": "No standalone effect; full Tingle set's 2-star bonus is Night Speed Up.",
+   "where": "Chest in Dueling Peaks South Cave.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tingle's Tights",
+   "type": "legs",
+   "power": 2,
+   "effect": "No special property; the Tingle set bonus 'Night Speed Up' unlocks at 2 stars.",
+   "where": "Chest in Cape Cales Cliffbase Cave.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Topaz Earrings",
+   "type": "head",
+   "power": 3,
+   "effect": "Shock Resistance (reduces electric damage). Standalone jewelry — no set bonus; upgrades with Topaz.",
+   "where": "Bought at Starlight Memories jewelry shop, Gerudo Town (rupees + Topaz).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Trousers of Awakening",
+   "type": "legs",
+   "power": 3,
+   "effect": "No special property; standalone legacy piece, no set bonus.",
+   "where": "Chest in Coliseum Ruins Cave, Hyrule Field; also via amiibo.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Trousers of the Hero",
+   "type": "legs",
+   "power": 3,
+   "effect": "No special property; standalone legacy piece, no set bonus.",
+   "where": "Chest in Corvash Canyon Mine, Hebra Mountains Depths; also via the Link amiibo.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Trousers of the Sky",
+   "type": "legs",
+   "power": 3,
+   "effect": "No special property; standalone legacy piece, no set bonus.",
+   "where": "Chest at Crenel Canyon Mine (Depths); also via amiibo.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Trousers of the Wild",
+   "type": "legs",
+   "power": 4,
+   "effect": "No special property; the Of the Wild set bonus 'Attack Up' unlocks at 2 stars (full set required).",
+   "where": "Chest in the Eldin Canyon Dark Skeleton (Depths).",
+   "set": "Tunic of the Wild (Of the Wild Set)",
+   "cat": "armor"
+  },
+  {
+   "name": "Trousers of the Wind",
+   "type": "legs",
+   "power": 3,
+   "effect": "No special property; standalone legacy piece, no set bonus.",
+   "where": "Chest at Cresia Pit Mine, East Necluda Depths; also via amiibo.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Trousers of Time",
+   "type": "legs",
+   "power": 3,
+   "effect": "No special property; standalone amiibo / mine-chest legacy piece, no set bonus.",
+   "where": "Chest in Gerudo Canyon Mine (Depths); also via the Skyward Sword / Ocarina-of-Time amiibo.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Trousers of Twilight",
+   "type": "legs",
+   "power": 3,
+   "effect": "No special property; standalone legacy piece, no set bonus.",
+   "where": "Chest in Ancient Underground Fortress, Akkala Highlands Depths; also via the Smash Bros / Twilight Princess Link amiibo.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of Awakening",
+   "type": "body",
+   "power": 3,
+   "effect": "No standalone effect; full Hero of Awakening set's 2-star bonus is Attack Up.",
+   "where": "Chest at Ancient Columns Cave, Tabantha Frontier.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of Memories",
+   "type": "body",
+   "power": 4,
+   "effect": "Standalone tunic with no effect and no set bonus (cosmetic memento).",
+   "where": "Find all the Bargainer Statues in the Depths and trade 400 Poes (the A Call from the Depths / Bargainer reward).",
+   "set": "Tunic of Memories",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of the Depths",
+   "type": "body",
+   "power": 3,
+   "effect": "Gloom Resistance; full Depths set's 2-star bonus is Gloom Attack Resist (one extra heart of gloom protection).",
+   "where": "Buy for 150 Poes from the second Bargainer Statue (in the Depths) after praying at the first.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of the Hero",
+   "type": "body",
+   "power": 3,
+   "effect": "No standalone effect; full Hero set's 2-star bonus is Attack Up.",
+   "where": "Chest in Dueling Canyons Mine, West Necluda Depths.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of the Sky",
+   "type": "body",
+   "power": 3,
+   "effect": "No standalone effect; full Hero of the Sky set's 2-star bonus is Attack Up.",
+   "where": "Chest at Minshi Grove, Great Hyrule Forest Depths.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of the Wild",
+   "type": "body",
+   "power": 4,
+   "effect": "No standalone effect; full Of the Wild set's 2-star bonus is Attack Up.",
+   "where": "Chest in Gerudo Dark Skeleton (Gerudo Desert Depths), near the skeleton's jaw.",
+   "set": "Tunic of the Wild (Of the Wild Set)",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of the Wind",
+   "type": "body",
+   "power": 3,
+   "effect": "No standalone effect; full Hero of Winds set's 2-star bonus is Attack Up.",
+   "where": "Chest at Cuho Canyon Mine, Tabantha Frontier Depths.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of Time",
+   "type": "body",
+   "power": 3,
+   "effect": "No standalone effect; full Hero of Time set's 2-star bonus is Attack Up.",
+   "where": "Chest in Lindor Canyon Mine, Hyrule Ridge Depths.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Tunic of Twilight",
+   "type": "body",
+   "power": 3,
+   "effect": "No standalone effect; full Hero of Twilight set's 2-star bonus is Attack Up.",
+   "where": "Chest in Rist Mine, Akkala Sea Depths.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Vah Medoh Divine Helm",
+   "type": "head",
+   "power": 2,
+   "effect": "Cold Resistance. Part of the Divine Beast set, no set bonus.",
+   "where": "North Biron Snowshelf Cave (Hebra); also via Revali amiibo.",
+   "set": "Divine Beast Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Vah Naboris Divine Helm",
+   "type": "head",
+   "power": 2,
+   "effect": "Shock Resistance. Part of the Divine Beast set, no set bonus.",
+   "where": "Chest in the West Gerudo Ruins (Treasure of the Gerudo Desert side quest); also via Urbosa amiibo.",
+   "set": "Divine Beast Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Vah Rudania Divine Helm",
+   "type": "head",
+   "power": 2,
+   "effect": "Flame Guard. Part of the Divine Beast set, no set bonus.",
+   "where": "Chest in a cave near Death Mountain, Eldin Canyon (also via Daruk amiibo).",
+   "set": "Divine Beast Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Vah Ruta Divine Helm",
+   "type": "head",
+   "power": 2,
+   "effect": "Swim Speed Up. Part of the Divine Beast set, no set bonus.",
+   "where": "Chest in a cave behind a waterfall at Zora's Domain (also via Mipha amiibo).",
+   "set": "Divine Beast Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Well-Worn Hair Band",
+   "type": "head",
+   "power": 0,
+   "effect": "No effect (starter/cosmetic hair band). Part of the starter/Archaic look (no set bonus).",
+   "where": "Chest down the well in Hateno Village.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Yiga Armor",
+   "type": "body",
+   "power": 1,
+   "effect": "Stealth Up; full Yiga set's 2-star bonus is Night Speed Up.",
+   "where": "Defeat the Yiga Clan in the former Akkala Ancient Tech Lab, then talk to Konba.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Yiga Mask",
+   "type": "head",
+   "power": 1,
+   "effect": "Stealth Up (low defense). Part of the Yiga set — set bonus 'Night Speed Up'.",
+   "where": "Great Plateau shack — drops after defeating the Yiga Footsoldier there.",
+   "set": "Yiga Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Yiga Tights",
+   "type": "legs",
+   "power": 1,
+   "effect": "Stealth Up; the Yiga set bonus 'Charge Attack Stamina Up' unlocks at 2 stars.",
+   "where": "Defeat the Yiga Clan, then use Ascend and talk to Aliza at Maritta Branch (Karusa Valley hideout).",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Zant's Helmet",
+   "type": "head",
+   "power": 3,
+   "effect": "Unfreezable (cannot be frozen by ice attacks). Standalone, no set bonus.",
+   "where": "Chest in the Scorching Coliseum (Eldin Canyon Depths), after clearing all the Gloom Moblin waves.",
+   "set": "standalone",
+   "cat": "armor"
+  },
+  {
+   "name": "Zonaite Helm",
+   "type": "head",
+   "power": 4,
+   "effect": "Energy Up. Part of the Zonaite Set — set bonus 'Energy Recharge Up'.",
+   "where": "Mirror/light-puzzle reward at Lightcast Island (Tabantha Frontier Sky).",
+   "set": "Zonaite Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Zonaite Shin Guards",
+   "type": "legs",
+   "power": 4,
+   "effect": "Energy Up (slows battery drain); the Zonaite set bonus 'Energy Recharge Up' (faster battery recharge) unlocks at 2 stars.",
+   "where": "Chest inside a floating sky sphere/globe — use Ultrahand to place the giant block on the platform.",
+   "set": "Zonaite Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Zonaite Waistguard",
+   "type": "body",
+   "power": 4,
+   "effect": "Energy Up (improves battery use); full set's 2-star bonus is Energy Recharge Up (doubles battery recharge speed).",
+   "where": "Chest on Zonaite Forge Island, East Necluda Sky.",
+   "set": "Zonaite Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Zora Armor",
+   "type": "body",
+   "power": 3,
+   "effect": "Swim Speed Up; full set's 2-star bonus is Swim Dash Stamina Up (less stamina used when swim-dashing).",
+   "where": "Receive from the Zora storyline (Mipha's gift, repaired during the Zora questline).",
+   "set": "Zora Set (Zora Armor)",
+   "cat": "armor"
+  },
+  {
+   "name": "Zora Greaves",
+   "type": "legs",
+   "power": 3,
+   "effect": "Swim Speed Up; the Zora set bonus 'Swim Dash Stamina Up' (less stamina when swim-dashing) unlocks at 2 stars.",
+   "where": "Complete the 'A Token of Friendship' side quest after clearing the Water Temple.",
+   "set": "Zora Set (Zora Armor)",
+   "cat": "armor"
+  },
+  {
+   "name": "Zora Helm",
+   "type": "head",
+   "power": 3,
+   "effect": "Swim Speed Up. Part of the Zora set — set bonus 'Swim Dash Stamina Up'.",
+   "where": "Cave on Floating Scales Island (Lanayru / Zora region), reward for The Never-Ending Lecture side quest.",
+   "set": "Zora Set",
+   "cat": "armor"
+  },
+  {
+   "name": "Aerocuda Eyeball",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +4 attack and homing accuracy (auto-aims).",
+   "where": "Drops from Aerocuda (flying eel-like enemies) across Hyrule.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Aerocuda Wing",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +4 attack and extra projectile distance.",
+   "where": "Drops from Aerocuda across Hyrule and the Depths.",
+   "sell": 6,
+   "cat": "material"
+  },
+  {
+   "name": "Amber",
+   "type": "Ore/Gem",
+   "power": 4,
+   "effect": "Fuse for a solid +4 attack (no element) — the cheapest strong early melee fuse. Also one of the most-used armor-upgrade materials, demanded by Great Fairies across many sets.",
+   "where": "Break ore deposits in caves, mountains, and mines; drops from Battle Talus. Sell in bulk to Ramella in Goron City when she's buying it.",
+   "sell": 10,
+   "cat": "material"
+  },
+  {
+   "name": "Black Bokoblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +17 attack; solid budget weapon/arrow fuse.",
+   "where": "Drops from Black Bokoblins (tougher camps; common in the Depths).",
+   "sell": 9,
+   "cat": "material"
+  },
+  {
+   "name": "Black Boss Bokoblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +27 attack; strong two-handed/weapon fuse.",
+   "where": "Drops from Black Boss Bokoblins (tough camp leaders, common in the Depths).",
+   "sell": 36,
+   "cat": "material"
+  },
+  {
+   "name": "Black Hinox Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +27 attack; powerful heavy-weapon fuse.",
+   "where": "Drops from Black Hinox (toughest Hinox; the Depths).",
+   "sell": 35,
+   "cat": "material"
+  },
+  {
+   "name": "Black Horriblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +22 attack; strong late-game fuse.",
+   "where": "Drops from Black Horriblins in caves and the Depths.",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Black Lizalfos Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +26 attack; strong late-game fuse.",
+   "where": "Drops from Black Lizalfos (tough areas; common in the Depths).",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Black Lizalfos Tail",
+   "type": "Monster Part",
+   "effect": "Fuse for +24 attack plus extended reach (whip-like attacks).",
+   "where": "Drops from Black Lizalfos (tougher areas; common in the Depths).",
+   "sell": 22,
+   "cat": "material"
+  },
+  {
+   "name": "Black Moblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +24 attack; strong heavy-weapon fuse.",
+   "where": "Drops from Black Moblins (tougher camps; common in the Depths).",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Blue Bokoblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +7 attack; cheap mid-tier arrow/weapon fuse.",
+   "where": "Drops from Blue Bokoblins (mid-tier camps across Hyrule and the Depths).",
+   "sell": 5,
+   "cat": "material"
+  },
+  {
+   "name": "Blue Boss Bokoblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +16 attack; reliable mid-tier weapon fuse.",
+   "where": "Drops from Blue Boss Bokoblins (Hyrule Field, Lanayru Great Spring, the Depths).",
+   "sell": 26,
+   "cat": "material"
+  },
+  {
+   "name": "Blue Hinox Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +19 attack; strong heavy-weapon fuse.",
+   "where": "Drops from Blue Hinox (tougher areas).",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Blue Horriblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +11 attack; mid-tier fuse.",
+   "where": "Drops from Blue Horriblins in caves and Depths chasms.",
+   "sell": 8,
+   "cat": "material"
+  },
+  {
+   "name": "Blue Lizalfos Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +16 attack; good mid-tier fuse.",
+   "where": "Drops from Blue Lizalfos (mid-tier areas and the Depths).",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Blue Lizalfos Tail",
+   "type": "Monster Part",
+   "effect": "Fuse for +16 attack with extra reach.",
+   "where": "Drops from Blue Lizalfos (mid-tier areas).",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Blue Moblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +13 attack; good mid-tier weapon fuse.",
+   "where": "Drops from Blue Moblins (mid-tier camps).",
+   "sell": 8,
+   "cat": "material"
+  },
+  {
+   "name": "Blue-Maned Lynel Mace Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +29 attack; elite two-handed weapon fuse.",
+   "where": "Drops from Blue-Maned Lynels.",
+   "sell": 70,
+   "cat": "material"
+  },
+  {
+   "name": "Blue-Maned Lynel Saber Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +33 attack; elite one-handed weapon fuse.",
+   "where": "Drops from Blue-Maned Lynels (Lanayru Great Spring, Eldin Depths).",
+   "sell": 70,
+   "cat": "material"
+  },
+  {
+   "name": "Blue-White Frox Fang",
+   "type": "Monster Part",
+   "effect": "Fuse for +35 attack; tears through bedrock and ore.",
+   "where": "Drops from Blue-White Frox in the Depths.",
+   "sell": 35,
+   "cat": "material"
+  },
+  {
+   "name": "Bokoblin Fang",
+   "type": "Monster Part",
+   "effect": "Fuse for +2 attack; also used to upgrade early armor sets.",
+   "where": "Drops from Bokoblins of all colors and from Stalkoblins.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Bokoblin Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for +1 (blunt); mainly an Attack-Up elixir ingredient and armor-upgrade material.",
+   "where": "Drops from Blue Bokoblins or higher (not from common red ones).",
+   "sell": 20,
+   "cat": "material"
+  },
+  {
+   "name": "Bokoblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse to a weapon or arrow for +4 attack; also an early armor-upgrade material.",
+   "where": "Drops from common red Bokoblins all over Hyrule's surface and the Depths.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Bomb Flower",
+   "type": "Elemental/Special",
+   "effect": "Throw it as a grenade, or fuse to an arrow (+1 attack) to make a Bomb Arrow, or to a weapon/shield, for an explosion that damages groups, breaks rocks, and knocks enemies back.",
+   "where": "Grows in the Depths (very common around the Great Plateau / Hyrule Field underground) and in caves.",
+   "sell": 10,
+   "cat": "material"
+  },
+  {
+   "name": "Boss Bokoblin Fang",
+   "type": "Monster Part",
+   "effect": "Fuse for +6 attack; modest weapon/arrow fuse.",
+   "where": "Drops from Boss Bokoblins of all colors.",
+   "sell": 8,
+   "cat": "material"
+  },
+  {
+   "name": "Boss Bokoblin Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for +6; mainly an Attack-Up elixir ingredient and armor-upgrade material.",
+   "where": "Drops from Boss Bokoblins of all colors.",
+   "sell": 60,
+   "cat": "material"
+  },
+  {
+   "name": "Boss Bokoblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +10 attack; good sturdy weapon fuse.",
+   "where": "Drops from red Boss Bokoblins (camp leaders) on the surface and in the Depths.",
+   "sell": 14,
+   "cat": "material"
+  },
+  {
+   "name": "Brightbloom Seed",
+   "type": "Elemental/Special",
+   "effect": "Throw or strike it to make it bloom into a small light source — the core tool for lighting up the pitch-black Depths and caves. Fused to an arrow it lights wherever it lands (+1 attack); on a shield it lights on a hit.",
+   "where": "Harvested from cave walls and all over the Depths.",
+   "sell": 2,
+   "cat": "material"
+  },
+  {
+   "name": "Captain Construct I Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +5 attack; basic Captain-Construct fuse.",
+   "where": "Drops from Captain Construct I in the Sky and the Depths.",
+   "sell": 6,
+   "cat": "material"
+  },
+  {
+   "name": "Captain Construct II Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +15 attack; good mid-tier construct fuse.",
+   "where": "Drops from Captain Construct II in the Sky and the Depths.",
+   "sell": 12,
+   "cat": "material"
+  },
+  {
+   "name": "Captain Construct III Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +25 attack; strong construct fuse.",
+   "where": "Drops from Captain Construct III in the Sky and the Depths.",
+   "sell": 20,
+   "cat": "material"
+  },
+  {
+   "name": "Captain Construct IV Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +35 attack; the best Construct weapon fuse.",
+   "where": "Drops from Captain Construct IV in the Sky and the Depths.",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Chuchu Jelly",
+   "type": "Monster Part",
+   "effect": "Fuse for +1; throw or fuse for splash damage, and an armor-upgrade/elixir material.",
+   "where": "Drops from common Chuchus everywhere.",
+   "sell": 2,
+   "cat": "material"
+  },
+  {
+   "name": "Crystallized Charge",
+   "type": "Elemental/Special",
+   "effect": "A battery-upgrade currency: take 100 to a Crystal Refinery's Steward Construct for one Energy Well, which permanently expands your Energy Cell. Made by refining Zonaite at green Forge Constructs (3 Zonaite -> 1 charge). Not a fuse/cook material — it exists to grow your battery.",
+   "where": "Refine Zonaite ore at the green Forge Constructs at mining outposts across the Depths; 3 Large Zonaite refines into 1 Large Crystallized Charge (worth 20 ordinary charges).",
+   "sell": 0,
+   "cat": "material"
+  },
+  {
+   "name": "Dazzlefruit",
+   "type": "Elemental/Special",
+   "effect": "Throw it, or fuse it to a weapon/arrow (+1 attack), to detonate a flash of dazzling light that blinds and stuns nearby monsters. Useful against groups and Keese/Like Likes.",
+   "where": "Grows in the Depths and some surface caves, often near other glowing flora.",
+   "sell": 5,
+   "cat": "material"
+  },
+  {
+   "name": "Diamond",
+   "type": "Ore/Gem",
+   "power": 25,
+   "effect": "The strongest gem fuse: a flat +25 attack with no element — turns a plain weapon into a heavy hitter. Also used to upgrade the Diamond Circlet.",
+   "where": "Break rare (golden) ore deposits in caves/mountains; drops from Stone Talus (Rare) and the Igneo/Frost Talus; buyable (3 at a time) at the Goron City ore stall for 1,000 rupees each; sell 10 to Ramella for 5,500.",
+   "sell": 500,
+   "cat": "material"
+  },
+  {
+   "name": "Dinraal's Claw",
+   "type": "Dragon Part",
+   "effect": "Fuse for +18 attack and a fire effect on weapons/arrows/shields. A rarer Dinraal upgrade material. Generally kept for upgrades, not sold.",
+   "where": "Shoot Dinraal's feet/claws as the fire dragon circles the Eldin/Akkala skies (north Hyrule). Respawns on the blood moon; one part per ~10 minutes aloft.",
+   "sell": 180,
+   "cat": "material"
+  },
+  {
+   "name": "Dinraal's Horn",
+   "type": "Dragon Part",
+   "effect": "Fuse for +26 attack plus a fire effect (the strongest fire-dragon fuse) — on arrows it ignites, on shields it adds fire on parry. The premier fire-themed upgrade material.",
+   "where": "Shoot the two large horns on Dinraal's head — the rarest body part. Dinraal flies the northern (Eldin/Akkala) sky; aim for the horns specifically.",
+   "sell": 300,
+   "cat": "material"
+  },
+  {
+   "name": "Dinraal's Scale",
+   "type": "Dragon Part",
+   "effect": "Fuse to a weapon/arrow/shield for +16 attack and a fire effect. Drops from Dinraal's body; a fire-themed armor-upgrade material. Best saved, not sold.",
+   "where": "Shoot or touch Dinraal's body (do not try to kill it — dragons are immortal). Dinraal, the fire dragon, flies the northern Eldin sky, emerging from a chasm in Akkala north of Tarrey Town and circling Death Mountain. One part drops per ~10 real minutes.",
+   "sell": 150,
+   "cat": "material"
+  },
+  {
+   "name": "Electric Keese Eyeball",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +6 attack, homing, and a shock effect.",
+   "where": "Drops from Electric Keese in the Gerudo Desert.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Electric Keese Wing",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +2 attack, more range, and a shock effect.",
+   "where": "Drops from Electric Keese in the Gerudo Desert.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Electric Lizalfos Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +15 attack with a shock effect (strips metal gear from foes).",
+   "where": "Drops from Electric Lizalfos in the Gerudo Desert and Faron.",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Electric Lizalfos Tail",
+   "type": "Monster Part",
+   "effect": "Fuse for +10 attack and reach with a shock effect.",
+   "where": "Drops from Electric Lizalfos in the Gerudo Desert and Faron.",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Farosh's Claw",
+   "type": "Dragon Part",
+   "effect": "Fuse for +18 attack and a shock effect on weapons/arrows/shields. A rarer Farosh upgrade material. Usually kept.",
+   "where": "Shoot Farosh's feet/claws as the lightning dragon circles Lake Hylia / the Gerudo region. One part per ~10 minutes.",
+   "sell": 180,
+   "cat": "material"
+  },
+  {
+   "name": "Farosh's Horn",
+   "type": "Dragon Part",
+   "effect": "Fuse for +26 attack and a shock effect (Farosh's strongest fuse) — electrifies on hit, adds shock to arrows and shield parries. The top shock-themed upgrade material.",
+   "where": "Shoot Farosh's horns — its rarest part. Farosh ranges Lake Hylia, Faron and the Gerudo region.",
+   "sell": 300,
+   "cat": "material"
+  },
+  {
+   "name": "Farosh's Scale",
+   "type": "Dragon Part",
+   "effect": "Fuse to a weapon/arrow/shield for +16 attack and a shock/electric effect. Farosh's body material; a shock-themed armor-upgrade material. Best kept.",
+   "where": "Touch or shoot Farosh's body. Farosh, the lightning dragon, rises from the East Gerudo region and flies across Lake Hylia into Faron, returning to the Depths via the Hills of Baumer chasm (roughly a 15-minute loop, active around dawn).",
+   "sell": 150,
+   "cat": "material"
+  },
+  {
+   "name": "Fire Keese Eyeball",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +8 attack, homing, and a fire effect.",
+   "where": "Drops from Fire Keese in Eldin and hot regions.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Fire Keese Wing",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +2 attack, more range, and a fire effect.",
+   "where": "Drops from Fire Keese in Eldin and hot regions.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Fire Like Stone",
+   "type": "Monster Part",
+   "effect": "Fuse for +12 attack with a fire effect.",
+   "where": "Coughed up by Fire Like Likes in the Eldin Mountains and Depths.",
+   "sell": 12,
+   "cat": "material"
+  },
+  {
+   "name": "Fire-Breath Lizalfos Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +15 attack with a fire effect (sets things alight / melts ice).",
+   "where": "Drops from Fire-Breath Lizalfos in Eldin Canyon and Gerudo Highlands.",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Fire-Breath Lizalfos Tail",
+   "type": "Monster Part",
+   "effect": "Fuse for +10 attack and reach with a fire effect.",
+   "where": "Drops from Fire-Breath Lizalfos in Eldin Canyon and Gerudo Highlands.",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Flint",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "Fuse to a weapon, shield, or arrow for a small +1 attack (no special property). Its real use is utility: drop Flint on firewood and strike it with a metal weapon to spark a campfire (the Flint breaks after one use). Also a cooking ingredient.",
+   "where": "Break ore deposits in Hyrule's caves, mountains, mines, and wells; also drops from rock-type enemies. Very common.",
+   "sell": 5,
+   "cat": "material"
+  },
+  {
+   "name": "Frox Fang",
+   "type": "Monster Part",
+   "effect": "Fuse for +14 attack; can smash ore deposits and rocks.",
+   "where": "Drops from Frox in the Depths.",
+   "sell": 16,
+   "cat": "material"
+  },
+  {
+   "name": "Frox Fingernail",
+   "type": "Monster Part",
+   "effect": "Fuse for +10 attack; also an armor-upgrade material.",
+   "where": "Drops from Frox of all types in the Depths.",
+   "sell": 10,
+   "cat": "material"
+  },
+  {
+   "name": "Frox Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for +1; mainly an Attack-Up elixir ingredient and armor-upgrade material.",
+   "where": "Drops from Frox in the Depths.",
+   "sell": 40,
+   "cat": "material"
+  },
+  {
+   "name": "Giant Brightbloom Seed",
+   "type": "Elemental/Special",
+   "effect": "A far brighter Brightbloom Seed — throw or strike it and it roots into a large flower radiating a wide pool of light (lights big sections of the Depths). Fuses to arrows/shields for light (+1 attack).",
+   "where": "Found deeper in the Depths, often near Lightroots and large caverns; much rarer than the regular seed.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Gibdo Bone",
+   "type": "Monster Part",
+   "effect": "Fuse for +40 attack — a strong, cheap-to-stockpile weapon fuse.",
+   "where": "Drops from Gibdos in the Gerudo Desert (Gloom era) and the Depths.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Gibdo Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for +1; mainly an Attack-Up elixir ingredient and armor-upgrade material.",
+   "where": "Drops from Gibdos in the Gerudo region.",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Gibdo Wing",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +8 attack and extra projectile distance.",
+   "where": "Drops from flying/winged Gibdos in the Gerudo region.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Gleeok Flame Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +30 attack with a powerful fire effect.",
+   "where": "Drops from Fire Gleeoks on the surface and in the Depths.",
+   "sell": 70,
+   "cat": "material"
+  },
+  {
+   "name": "Gleeok Frost Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +30 attack with a powerful freezing effect.",
+   "where": "Drops from Frost Gleeoks on the surface and in the Depths.",
+   "sell": 90,
+   "cat": "material"
+  },
+  {
+   "name": "Gleeok Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for +1; best kept — a top-tier Attack-Up elixir ingredient and a high-value sell.",
+   "where": "Drops rarely from Gleeoks of all elements.",
+   "sell": 200,
+   "cat": "material"
+  },
+  {
+   "name": "Gleeok Thunder Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +30 attack with a powerful shock effect.",
+   "where": "Drops from Thunder Gleeoks on the surface and in the Depths.",
+   "sell": 150,
+   "cat": "material"
+  },
+  {
+   "name": "Gleeok Wing",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow/weapon for +24 attack and great projectile reach.",
+   "where": "Drops from Gleeoks of all elements.",
+   "sell": 38,
+   "cat": "material"
+  },
+  {
+   "name": "Hinox Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for +1; valued as an Attack-Up elixir ingredient and armor-upgrade material.",
+   "where": "Drops from Hinox of all colors.",
+   "sell": 80,
+   "cat": "material"
+  },
+  {
+   "name": "Hinox Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +12 attack; sturdy heavy-weapon fuse.",
+   "where": "Drops from red Hinox sleeping across Hyrule's fields and forests.",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Hinox Toenail",
+   "type": "Monster Part",
+   "effect": "Fuse for +7 attack; tough shield/weapon fuse and armor-upgrade material.",
+   "where": "Drops from Hinox of all colors.",
+   "sell": 20,
+   "cat": "material"
+  },
+  {
+   "name": "Hinox Tooth",
+   "type": "Monster Part",
+   "effect": "Fuse for +8 attack; also an armor-upgrade material.",
+   "where": "Drops from Hinox of all colors.",
+   "sell": 35,
+   "cat": "material"
+  },
+  {
+   "name": "Horriblin Claw",
+   "type": "Monster Part",
+   "effect": "Fuse for +4 attack; modest weapon fuse, also an armor-upgrade material.",
+   "where": "Drops from Horriblins of all colors.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Horriblin Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for a small bonus; mainly an Attack-Up elixir ingredient and armor-upgrade material.",
+   "where": "Drops from Blue Horriblins or higher.",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Horriblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +5 attack; modest weapon/arrow fuse.",
+   "where": "Drops from Horriblins clinging to cave and Depths ceilings.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Ice Keese Eyeball",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +4 attack, homing, and a freezing effect.",
+   "where": "Drops from Ice Keese in Hebra and Mount Lanayru.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Ice Keese Wing",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +2 attack, more range, and a freezing effect.",
+   "where": "Drops from Ice Keese in cold regions.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Ice Like Stone",
+   "type": "Monster Part",
+   "effect": "Fuse for +12 attack with a freezing effect.",
+   "where": "Coughed up by Ice Like Likes on Mount Lanayru and the Gerudo Highlands.",
+   "sell": 12,
+   "cat": "material"
+  },
+  {
+   "name": "Ice-Breath Lizalfos Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +15 attack with a freezing effect.",
+   "where": "Drops from Ice-Breath Lizalfos in Hebra Mountains and Gerudo Highlands.",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Ice-Breath Lizalfos Tail",
+   "type": "Monster Part",
+   "effect": "Fuse for +10 attack and reach with a freezing effect.",
+   "where": "Drops from Ice-Breath Lizalfos in Hebra Mountains and Gerudo Highlands.",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Keese Eyeball",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for homing accuracy (auto-aims at the nearest foe); no attack bonus.",
+   "where": "Drops from common Keese (caves, ruins, night skies).",
+   "sell": 2,
+   "cat": "material"
+  },
+  {
+   "name": "Keese Wing",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for extra projectile distance; no attack bonus.",
+   "where": "Drops from common Keese.",
+   "sell": 2,
+   "cat": "material"
+  },
+  {
+   "name": "King's Scale",
+   "type": "Monster Part",
+   "effect": "Fuse for +5 attack; a parry/guard-up boon, but it shatters after one fused hit. Cannot be sold.",
+   "where": "Given in sets of 5 by King Dorephan in Zora's Domain (Sidon's questline / after the Water Temple).",
+   "sell": 0,
+   "cat": "material"
+  },
+  {
+   "name": "Korok Frond",
+   "type": "Elemental/Special",
+   "effect": "Fuse to a weapon (+1 attack) to make a 'Korok Frond Guster' — a fan that creates a burst of wind when swung, used to push sail-boats/objects, clear gas/fog, and fan flames.",
+   "where": "Found around Korok Forest and on some sky platforms; sometimes near Koroks. A fairly uncommon material.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Large Zonai Charge",
+   "type": "Elemental/Special",
+   "effect": "A bigger Zonai Charge — consume it to refill a larger chunk of the Energy Cell battery at once. Can also be fused/cooked like the regular charge.",
+   "where": "Dropped by tougher Zonai constructs (especially in the Depths) and from capsule dispensers; rarer than the standard Zonai Charge.",
+   "sell": 10,
+   "cat": "material"
+  },
+  {
+   "name": "Large Zonaite",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "A richer chunk of Zonaite that converts into far more Crystallized Charges at a Forge Construct, speeding up battery/Energy Cell and Autobuild upgrades. Fuse gives only +1 attack.",
+   "where": "Rarer Depths drop: from Zonaite deposits and large wall deposits, and dropped by Frox variants (best from the stronger Frox); one is a reward from Josha's 'A Mystery in the Depths' quest line.",
+   "sell": 6,
+   "cat": "material"
+  },
+  {
+   "name": "Light Dragon's Horn",
+   "type": "Dragon Part",
+   "effect": "Fuse for +20 attack with the heal-on-hit effect — the best sustain fuse in the game (no element, restores health on every hit). The Light Dragon's rarest part.",
+   "where": "Shoot the Light Dragon's horns during its flight over Hyrule. Rarest of its drops; one part per ~10 minutes.",
+   "sell": 300,
+   "cat": "material"
+  },
+  {
+   "name": "Light Dragon's Scale",
+   "type": "Dragon Part",
+   "effect": "Fuse for +12 attack with a healing effect — restores a bit of health each time the fused weapon lands a hit. From the Light Dragon's body; a unique self-heal fuse and upgrade material.",
+   "where": "Touch or shoot the Light Dragon's body. The Light Dragon circles the surface of all Hyrule and never enters the Depths; it flies very high until you cure the Great Deku Tree, after which it descends to sky-island altitude. Available throughout the game.",
+   "sell": 150,
+   "cat": "material"
+  },
+  {
+   "name": "Light Dragon's Talon",
+   "type": "Dragon Part",
+   "effect": "Fuse for +14 attack with the same heal-on-hit effect. The Light Dragon's foot/claw material.",
+   "where": "Shoot the Light Dragon's feet/talons during its flight around Hyrule's surface.",
+   "sell": 180,
+   "cat": "material"
+  },
+  {
+   "name": "Like Like Stone",
+   "type": "Monster Part",
+   "effect": "Fuse for +4 attack; a heavy blunt fuse and armor-upgrade material.",
+   "where": "Coughed up by Like Likes in Hyrule Field and the Eldin Mountains.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Lizalfos Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +8 attack; decent light-weapon/arrow fuse.",
+   "where": "Drops from common Lizalfos (Lanayru Wetlands, water and forest areas).",
+   "sell": 8,
+   "cat": "material"
+  },
+  {
+   "name": "Lizalfos Tail",
+   "type": "Monster Part",
+   "effect": "Fuse for +6 attack and extends a weapon's reach (whip-like attacks); good on spears.",
+   "where": "Drops from common Lizalfos (Lanayru Wetlands and water areas).",
+   "sell": 18,
+   "cat": "material"
+  },
+  {
+   "name": "Lizalfos Talon",
+   "type": "Monster Part",
+   "effect": "Fuse for +5 attack; modest weapon fuse, also an armor-upgrade material.",
+   "where": "Drops from Lizalfos of various colors.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Luminous Stone",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "Glowing stone. Fuse gives only +1 attack with NO special property (a weak fuse). Its real uses: required to upgrade the Radiant and Awakening armor sets, and you can drop up to 5 near a Dondon, wait, and get a random ore back.",
+   "where": "Break glowing (luminous) ore deposits in dark caves and around mountains.",
+   "sell": 20,
+   "cat": "material"
+  },
+  {
+   "name": "Lynel Guts",
+   "type": "Monster Part",
+   "effect": "Best kept for cooking — makes a tier-3 Attack-Up elixir and sells high; only a +1 fuse so don't fuse it.",
+   "where": "Drops rarely from Lynels of all manes.",
+   "sell": 200,
+   "cat": "material"
+  },
+  {
+   "name": "Lynel Hoof",
+   "type": "Monster Part",
+   "effect": "Fuse for +10 attack; also an armor-upgrade material.",
+   "where": "Drops from Lynels of all manes.",
+   "sell": 8,
+   "cat": "material"
+  },
+  {
+   "name": "Lynel Mace Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +18 attack; excellent on two-handed weapons.",
+   "where": "Drops from common (maneless) Lynels.",
+   "sell": 40,
+   "cat": "material"
+  },
+  {
+   "name": "Lynel Saber Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +22 attack; one of the best one-handed weapon fuses in the game.",
+   "where": "Drops from common (maneless) Lynels on the surface and in the Depths.",
+   "sell": 40,
+   "cat": "material"
+  },
+  {
+   "name": "Moblin Fang",
+   "type": "Monster Part",
+   "effect": "Fuse for +4 attack; modest weapon/arrow fuse.",
+   "where": "Drops from Moblins of all colors and from Stalmoblins.",
+   "sell": 6,
+   "cat": "material"
+  },
+  {
+   "name": "Moblin Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for +1 (blunt); valued as an Attack-Up elixir ingredient and armor-upgrade material.",
+   "where": "Drops from Blue Moblins or higher.",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Moblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +6 attack; reliable two-handed weapon fuse.",
+   "where": "Drops from red Moblins across Hyrule and the Depths.",
+   "sell": 5,
+   "cat": "material"
+  },
+  {
+   "name": "Molduga Fin",
+   "type": "Monster Part",
+   "effect": "Fuse for +12 attack with added reach; also an armor-upgrade material.",
+   "where": "Drops from Molduga in the Gerudo Desert.",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Molduga Guts",
+   "type": "Monster Part",
+   "effect": "Fuse for +1; valued as a strong Attack-Up elixir ingredient and armor-upgrade material.",
+   "where": "Drops from Molduga in the Gerudo Desert.",
+   "sell": 110,
+   "cat": "material"
+  },
+  {
+   "name": "Molduga Jaw",
+   "type": "Monster Part",
+   "effect": "Fuse for +32 attack; a powerful heavy-weapon fuse.",
+   "where": "Drops from Molduga, the sand sharks of the Gerudo Desert.",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Muddle Bud",
+   "type": "Elemental/Special",
+   "effect": "Throw it, or fuse it to a weapon/arrow (+1 attack), to release a purple confusion cloud that muddles enemies into attacking each other for a short time — strong crowd control.",
+   "where": "Grows in the Depths (often near the large trees underground).",
+   "sell": 10,
+   "cat": "material"
+  },
+  {
+   "name": "Naydra's Claw",
+   "type": "Dragon Part",
+   "effect": "Fuse for +18 attack and an ice effect on weapons/arrows/shields. A rarer Naydra upgrade material. Usually kept for upgrades.",
+   "where": "Shoot Naydra's feet/claws as the ice dragon circles Mount Lanayru / East Necluda. One part per ~10 minutes.",
+   "sell": 180,
+   "cat": "material"
+  },
+  {
+   "name": "Naydra's Horn",
+   "type": "Dragon Part",
+   "effect": "Fuse for +26 attack and an ice effect (Naydra's strongest fuse) — chills/freezes on hit, adds ice to arrows and shield parries. The top ice-themed upgrade material.",
+   "where": "Shoot Naydra's horns — its rarest part. Naydra circles Mount Lanayru and East Necluda.",
+   "sell": 300,
+   "cat": "material"
+  },
+  {
+   "name": "Naydra's Scale",
+   "type": "Dragon Part",
+   "effect": "Fuse to a weapon/arrow/shield for +16 attack and an ice/cold effect. Naydra's body material; an ice-themed armor-upgrade material. Best kept.",
+   "where": "Touch or shoot Naydra's body. Naydra, the ice dragon, emerges from the Lanayru Snowfield chasm in front of Mount Lanayru (around 1 PM), circles the Hateno/East Necluda area, then dives back into the ground near East Hill above Kakariko.",
+   "sell": 150,
+   "cat": "material"
+  },
+  {
+   "name": "Obsidian Frox Fang",
+   "type": "Monster Part",
+   "effect": "Fuse for +24 attack with strong ore/rock-crushing power.",
+   "where": "Drops from Obsidian Frox in the Depths.",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Octo Balloon",
+   "type": "Monster Part",
+   "effect": "Fuse to objects to make them float — a key Ultrahand building material.",
+   "where": "Drops from Water Octoroks; also found on signboards and balloons.",
+   "sell": 5,
+   "cat": "material"
+  },
+  {
+   "name": "Octorok Eyeball",
+   "type": "Monster Part",
+   "effect": "Fuse to an arrow for +3 attack and homing accuracy (auto-aims).",
+   "where": "Drops from Octoroks of all types in water, forest, rock, and snow.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Octorok Tentacle",
+   "type": "Monster Part",
+   "effect": "Fuse for +3 attack; also an armor-upgrade material.",
+   "where": "Drops from Octoroks of all types.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Opal",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "Fuse Attack Power 1. On a weapon it shoots a water orb; on an arrow it adds AOE water damage that douses enemies and snuffs fire; on a shield a blocked attack douses attackers in water. Used to upgrade the Zora set (60 opals for the full ★4). One of the more common gems.",
+   "where": "Break ore deposits in caves and mountains; small chance from melting snowballs with fire; found in some shrine chests. Common.",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Puffshroom",
+   "type": "Elemental/Special",
+   "effect": "Throw it, or fuse it to a weapon/arrow (+1 attack), to burst a thick smoke cloud that hides Link — slip away or land sneakstrikes on the enemies inside it.",
+   "where": "Grows in caves and the Depths, often near the large trees underground.",
+   "sell": 10,
+   "cat": "material"
+  },
+  {
+   "name": "Red Chuchu Jelly",
+   "type": "Monster Part",
+   "effect": "Fuse for +1 with a fire effect (ignites grass, melts ice); throw it as a fire bomb.",
+   "where": "Drops from Fire Chuchus in warm areas.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Rock Salt",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "Mainly a cooking ingredient (salt-grilled meat/fish/veg, soups). Can also be fused for a minor +1 attack, but has no special fuse property.",
+   "where": "Break ore deposits in caves and around mountains/mines — especially deposits near water/shores, which favor Rock Salt.",
+   "sell": 2,
+   "cat": "material"
+  },
+  {
+   "name": "Ruby",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "Fuse Attack Power 1. On a weapon it shoots a fireball; on an arrow it adds a large AOE fire explosion (the biggest fire fuse); on a shield it grants cold resistance and a small explosion when an attack is blocked. Used in armor upgrades (e.g. Ruby Circlet, Vah Rudania Divine Helm).",
+   "where": "Break rare (golden) ore deposits in caves/mountains, especially Eldin/Death Mountain; common drop from Stone Talus (Rare) and Igneo Talus; silver-tier enemies can drop one.",
+   "sell": 110,
+   "cat": "material"
+  },
+  {
+   "name": "Sage's Will",
+   "type": "Elemental/Special",
+   "effect": "A Sage-upgrade material: pray at a Goddess Statue and trade 4 Sage's Wills to upgrade one Sage's Vow to a Solemn Vow, boosting that Sage's avatar's attack power. A key item — it cannot be sold or fused.",
+   "where": "Found in hidden/guarded treasure chests across the Sky archipelagos (Akkala, Central, Eldin, Faron, Gerudo, Hebra, Lanayru, Necluda skies); 20 total, enough to upgrade all 5 Sages.",
+   "sell": 0,
+   "cat": "material"
+  },
+  {
+   "name": "Sapphire",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "Fuse Attack Power 1. On a weapon it shoots an ice orb; on an arrow it adds AOE ice that freezes; on a shield it grants fire resistance and a freezing blast when an attack is blocked. Used in armor upgrades (e.g. Sapphire Circlet, Desert Voe set).",
+   "where": "Break rare (golden) ore deposits in caves/mountains; drops from Frost Pebblit, Frost Talus, and Stone Talus (Rare); silver-tier enemies can drop one.",
+   "sell": 150,
+   "cat": "material"
+  },
+  {
+   "name": "Shard of Dinraal's Fang",
+   "type": "Dragon Part",
+   "effect": "Fuse for +20 attack and a fire effect. A high-value armor-upgrade material taken from Dinraal's mouth. Usually kept rather than sold.",
+   "where": "Shoot the head/mouth of Dinraal (fire dragon) over Eldin/north Hyrule. Rarer drop; comes off the face area.",
+   "sell": 250,
+   "cat": "material"
+  },
+  {
+   "name": "Shard of Dinraal's Spike",
+   "type": "Dragon Part",
+   "effect": "Fuse for +16 attack and a fire effect. The common spike shard mined from Dinraal's back; also used in cooking and lower-tier upgrades.",
+   "where": "The glowing spikes along Dinraal's back detach when struck as it flies over Eldin; shoot or grab them.",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Shard of Farosh's Fang",
+   "type": "Dragon Part",
+   "effect": "Fuse for +20 attack and a shock effect. A high-value shock armor-upgrade material from Farosh's mouth.",
+   "where": "Shoot the head/mouth of Farosh (lightning dragon) over Lake Hylia / the Gerudo Highlands.",
+   "sell": 250,
+   "cat": "material"
+  },
+  {
+   "name": "Shard of Farosh's Spike",
+   "type": "Dragon Part",
+   "effect": "Fuse for +16 attack and a shock effect. The common spike shard from Farosh's back; also used for cooking and lower-tier upgrades.",
+   "where": "Grab or shoot the glowing spikes along Farosh's back near Lake Hylia / Gerudo.",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Shard of Light Dragon's Fang",
+   "type": "Dragon Part",
+   "effect": "Fuse for +16 attack with the heal-on-hit effect. From the Light Dragon's mouth — strong sustain on a melee weapon.",
+   "where": "Shoot the Light Dragon's head/mouth as it flies around Hyrule.",
+   "sell": 250,
+   "cat": "material"
+  },
+  {
+   "name": "Shard of Light Dragon's Spike",
+   "type": "Dragon Part",
+   "effect": "Fuse for +12 attack with the heal-on-hit effect. The common spike shard from the Light Dragon's back.",
+   "where": "Grab or shoot the glowing spikes along the Light Dragon's back during its flight.",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Shard of Naydra's Fang",
+   "type": "Dragon Part",
+   "effect": "Fuse for +20 attack and an ice effect. A high-value ice armor-upgrade material from Naydra's mouth.",
+   "where": "Shoot the head/mouth of Naydra (ice dragon) over Lanayru / East Necluda.",
+   "sell": 250,
+   "cat": "material"
+  },
+  {
+   "name": "Shard of Naydra's Spike",
+   "type": "Dragon Part",
+   "effect": "Fuse for +16 attack and an ice effect. The common spike shard from Naydra's back; also used for cooking and lower-tier upgrades.",
+   "where": "Grab or shoot the glowing spikes along Naydra's back as it flies near Mount Lanayru.",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Shock Like Stone",
+   "type": "Monster Part",
+   "effect": "Fuse for +12 attack with a shock effect.",
+   "where": "Coughed up by Shock Like Likes in Hyrule Field and East Necluda.",
+   "sell": 12,
+   "cat": "material"
+  },
+  {
+   "name": "Silver Bokoblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +31 attack; strong late-game fuse from the toughest Bokoblins.",
+   "where": "Drops from Silver Bokoblins (late-game; common in the Depths).",
+   "sell": 20,
+   "cat": "material"
+  },
+  {
+   "name": "Silver Boss Bokoblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +37 attack; one of the better non-Lynel horn fuses.",
+   "where": "Drops from Silver Boss Bokoblins (late-game leaders in the Depths).",
+   "sell": 44,
+   "cat": "material"
+  },
+  {
+   "name": "Silver Horriblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +32 attack; top-tier Horriblin fuse.",
+   "where": "Drops from Silver Horriblins (late-game caves and the Depths).",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Silver Lizalfos Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +34 attack; one of the best non-Lynel horn fuses.",
+   "where": "Drops from Silver Lizalfos (late-game; common in the Depths).",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Silver Lizalfos Tail",
+   "type": "Monster Part",
+   "effect": "Fuse for +31 attack with extended reach; top-tier spear fuse.",
+   "where": "Drops from Silver Lizalfos (late-game; common in the Depths).",
+   "sell": 38,
+   "cat": "material"
+  },
+  {
+   "name": "Silver Lynel Mace Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +51 attack — the strongest two-handed weapon fuse in the game.",
+   "where": "Drops from Silver Lynels (late-game; coliseum and the Depths).",
+   "sell": 150,
+   "cat": "material"
+  },
+  {
+   "name": "Silver Lynel Saber Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +55 attack — the single strongest one-handed weapon fuse in the game.",
+   "where": "Drops from Silver Lynels (late-game; coliseum and the Depths).",
+   "sell": 150,
+   "cat": "material"
+  },
+  {
+   "name": "Silver Moblin Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +33 attack; top-tier non-Lynel weapon fuse.",
+   "where": "Drops from Silver Moblins (late-game; common in the Depths).",
+   "sell": 30,
+   "cat": "material"
+  },
+  {
+   "name": "Soldier Construct Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +3 attack; basic Zonai-construct weapon fuse.",
+   "where": "Drops from tier-I Soldier Constructs in the Sky and the Depths.",
+   "sell": 4,
+   "cat": "material"
+  },
+  {
+   "name": "Soldier Construct II Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +8 attack; mid-tier construct fuse.",
+   "where": "Drops from Soldier Construct II in the Sky and the Depths.",
+   "sell": 8,
+   "cat": "material"
+  },
+  {
+   "name": "Soldier Construct III Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +18 attack; strong construct fuse.",
+   "where": "Drops from Soldier Construct III in the Sky and the Depths.",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Soldier Construct IV Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +24 attack; top Soldier-Construct fuse.",
+   "where": "Drops from Soldier Construct IV in the Sky and the Depths.",
+   "sell": 25,
+   "cat": "material"
+  },
+  {
+   "name": "Stalnox Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +29 attack; a strong heavy-weapon fuse.",
+   "where": "Drops from Stalnox (giant skeleton enemies) in caves and the Depths.",
+   "sell": 15,
+   "cat": "material"
+  },
+  {
+   "name": "Star Fragment",
+   "type": "Elemental/Special",
+   "effect": "Fuse to a weapon/arrow for +1 attack and a burst of light (lights the area); on a shield it works as a lantern. A rare armor-upgrade material (used by the amiibo hero sets and at higher upgrade tiers), and added to a cooking pot it boosts the chance of a Critical Cook.",
+   "where": "Look up at night — a falling star leaves a glowing landing spot; reach it before dawn to grab it. Also found in the Depths near certain mining spots and beneath some sky-island waterfalls.",
+   "sell": 200,
+   "cat": "material"
+  },
+  {
+   "name": "Sundelion",
+   "type": "Elemental/Special",
+   "effect": "The gloom-cure material: cooked into a dish or elixir it restores 'gloom hearts' (the locked, darkened hearts from gloom damage). Can also be fused (+1 attack) but is far more valuable cooked.",
+   "where": "Grows almost exclusively in the Sky — on the floating islands and on fallen sky-island debris on the surface; also dropped by Yiga foot soldiers/blademasters. Glows pale yellow.",
+   "sell": 8,
+   "cat": "material"
+  },
+  {
+   "name": "Topaz",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "Fuse Attack Power 1. On a weapon it shoots an electric orb; on an arrow it adds AOE electric damage (shocks and strips metal gear); on a shield a blocked attack sends out a wave of electricity. Used in armor upgrades (e.g. Topaz Earrings, Rubber set).",
+   "where": "Break ore deposits (rare/golden deposits more likely) in caves and mountains; drops from Stone Talus variants; some shrine chests.",
+   "sell": 80,
+   "cat": "material"
+  },
+  {
+   "name": "White Chuchu Jelly",
+   "type": "Monster Part",
+   "effect": "Fuse for +1 with a freezing effect; throw it to freeze water and foes.",
+   "where": "Drops from Ice Chuchus in cold areas.",
+   "sell": 10,
+   "cat": "material"
+  },
+  {
+   "name": "White-Maned Lynel Mace Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +40 attack; near-top two-handed weapon fuse.",
+   "where": "Drops from White-Maned Lynels.",
+   "sell": 100,
+   "cat": "material"
+  },
+  {
+   "name": "White-Maned Lynel Saber Horn",
+   "type": "Monster Part",
+   "effect": "Fuse for +44 attack; near-top one-handed weapon fuse.",
+   "where": "Drops from White-Maned Lynels (Faron/Central Hyrule Depths).",
+   "sell": 100,
+   "cat": "material"
+  },
+  {
+   "name": "Yellow Chuchu Jelly",
+   "type": "Monster Part",
+   "effect": "Fuse for +1 with a shock effect; throw it to electrify water and metal foes.",
+   "where": "Drops from Electric Chuchus.",
+   "sell": 5,
+   "cat": "material"
+  },
+  {
+   "name": "Zonai Charge",
+   "type": "Elemental/Special",
+   "effect": "Consume from the menu to recover a small amount of your Energy Cell (the battery that powers Zonai devices). Can also be fused for +2 attack or cooked.",
+   "where": "Dropped by Zonai constructs in the Sky and the Depths, and found in capsule dispensers and chests.",
+   "sell": 6,
+   "cat": "material"
+  },
+  {
+   "name": "Zonaite",
+   "type": "Ore/Gem",
+   "power": 1,
+   "effect": "The Depths' core resource: trade it to a Forge Construct for Crystallized Charges (battery/Energy Cell upgrades), and Autobuild spends it to recreate parts when none are nearby. Fuse gives only a minor +1 attack.",
+   "where": "Mine Zonaite deposits throughout the Depths (and the Great Sky Island starter cave); also drops from Frox.",
+   "sell": 3,
+   "cat": "material"
+  },
+  {
+   "name": "Ancient Arowana",
+   "type": "Creature",
+   "effect": "Lively fish; cooked it restores a little health with no special bonus (Sunny-compatible).",
+   "where": "Lakes/ponds on Great Sky Island and North Tabantha Sky Archipelago.",
+   "sell": 6,
+   "cat": "creature"
+  },
+  {
+   "name": "Armored Carp",
+   "type": "Creature",
+   "effect": "Hard-scaled carp; cooked it gives a Tough bonus (Defense Up).",
+   "where": "Lakes and rivers of East Necluda and Lanayru Great Spring.",
+   "sell": 10,
+   "cat": "creature"
+  },
+  {
+   "name": "Armored Porgy",
+   "type": "Creature",
+   "effect": "Armor-scaled sea fish; cooked it gives a Tough bonus (Defense Up).",
+   "where": "The seas of Necluda and Lanayru.",
+   "sell": 10,
+   "cat": "creature"
+  },
+  {
+   "name": "Bladed Rhino Beetle",
+   "type": "Creature",
+   "effect": "Beetle clinging to rocks/cliffs. Cooked with a monster part it makes a Mighty elixir (Attack Up).",
+   "where": "West Necluda and East Necluda, on rocks and cliffs; also dropped by Evermean.",
+   "sell": 4,
+   "cat": "creature"
+  },
+  {
+   "name": "Bright-Eyed Crab",
+   "type": "Creature",
+   "effect": "Crab; cooked it gives an Energizing bonus (restores stamina).",
+   "where": "Shores of Zora's Domain, Lanayru Sea and Necluda Sea — appear while it is raining.",
+   "sell": 8,
+   "cat": "creature"
+  },
+  {
+   "name": "Chillfin Trout",
+   "type": "Creature",
+   "effect": "Blue trout; cooked it gives a Chilly bonus (heat resistance).",
+   "where": "Rivers, lakes and cave streams of Hebra Mountains and Lanayru Great Spring.",
+   "sell": 6,
+   "cat": "creature"
+  },
+  {
+   "name": "Cold Darner",
+   "type": "Creature",
+   "effect": "Dragonfly from cold mountain passes. Cooked with a monster part it makes a Chilly elixir (heat resistance).",
+   "where": "Cold mountain areas — Gerudo Highlands and Mount Lanayru. Sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Deep Firefly",
+   "type": "Creature",
+   "effect": "Underground firefly. Cooked with a monster part it makes a Bright elixir (glow effect); used to upgrade glow/Depths armor.",
+   "where": "The Depths — e.g. the Great Abandoned Central Mine; also caves and Hyrule Field Chasm.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Electric Darner",
+   "type": "Creature",
+   "effect": "Dragonfly from storm-prone zones. Cooked with a monster part it makes an Electro elixir (shock resistance).",
+   "where": "Rain/storm areas — Thunderhead Isles and West Necluda.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Energetic Rhino Beetle",
+   "type": "Creature",
+   "effect": "Rare beetle gathered at night. Cooked with a monster part it makes an Energizing elixir (greatly restores stamina); 3 per piece upgrade the Hero of the Wild set (Cap/Tunic/Trousers of the Wild).",
+   "where": "Great Sky Island and West Necluda — on tree trunks at night when it isn't raining; also dropped by Evermean.",
+   "sell": 30,
+   "cat": "creature"
+  },
+  {
+   "name": "Fairy",
+   "type": "Creature",
+   "effect": "Holding one auto-revives Link (and restores ~5 hearts) when he runs out of health; can also be cooked into a Fairy Tonic.",
+   "where": "Sky-island ponds, the Outskirt Stable well, and caves near Great Fairy fountains (e.g. near Mija); approach stealthily or grab while gliding.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Fireproof Lizard",
+   "type": "Creature",
+   "effect": "Heat-loving lizard. Cooked with a monster part it makes a Fireproof elixir (flame resistance) — the key non-armor way to make Fireproof Elixirs.",
+   "where": "Eldin region — Death Mountain, Eldin Canyon, Eldin Mountains. Sold by Beedle for 25.",
+   "sell": 5,
+   "cat": "creature"
+  },
+  {
+   "name": "Glowing Cave Fish",
+   "type": "Creature",
+   "effect": "Luminous fish; cooked it gives a Glow/Bright bonus (makes Link glow); used to upgrade glow/Miner's armor.",
+   "where": "Waters inside dark caves throughout Hyrule.",
+   "sell": 6,
+   "cat": "creature"
+  },
+  {
+   "name": "Hearty Bass",
+   "type": "Creature",
+   "effect": "Cooked into Hearty dishes — full hearts plus temporary bonus hearts; used to upgrade the Zora armor set.",
+   "where": "Sky-island ponds — Tabantha Sky Archipelago and West Hebra Sky.",
+   "sell": 18,
+   "cat": "creature"
+  },
+  {
+   "name": "Hearty Lizard",
+   "type": "Creature",
+   "effect": "Lizard found near mountains. Cooked with a monster part it makes a Hearty elixir (full hearts plus temporary bonus hearts).",
+   "where": "Gerudo Highlands and East Necluda; around several stables. Sold by Beedle for 100.",
+   "sell": 20,
+   "cat": "creature"
+  },
+  {
+   "name": "Hearty Salmon",
+   "type": "Creature",
+   "effect": "Cooked into Hearty dishes — full hearts plus temporary bonus hearts.",
+   "where": "Rivers of cold regions — Hebra Mountains and Tabantha Frontier; sometimes dropped by bears.",
+   "sell": 20,
+   "cat": "creature"
+  },
+  {
+   "name": "Hightail Lizard",
+   "type": "Creature",
+   "effect": "Fast lizard. Cooked with a monster part it makes a Hasty elixir (movement-speed boost).",
+   "where": "Under rocks and boulders in Hyrule Field and Hyrule Ridge. Sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Hot-Footed Frog",
+   "type": "Creature",
+   "effect": "Quick frog found near water. Cooked with a monster part it makes a Hasty elixir (movement-speed boost).",
+   "where": "Near rivers/streams — Lanayru Great Spring and East Necluda. Sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Hyrule Bass",
+   "type": "Creature",
+   "effect": "Ordinary fish; cooked it restores hearts with no special bonus (Sunny-compatible). Used to upgrade the Zora armor set.",
+   "where": "Lakes and rivers across Hyrule Field and West Necluda.",
+   "sell": 6,
+   "cat": "creature"
+  },
+  {
+   "name": "Ironshell Crab",
+   "type": "Creature",
+   "effect": "Hard-shelled crab; cooked it gives a Tough bonus (Defense Up).",
+   "where": "Shores of the Faron Sea and Necluda Sea.",
+   "sell": 8,
+   "cat": "creature"
+  },
+  {
+   "name": "Mighty Carp",
+   "type": "Creature",
+   "effect": "Carp; cooked it gives a Mighty bonus (Attack Up).",
+   "where": "Lakes and rivers of Lanayru Great Spring and Akkala Highlands.",
+   "sell": 10,
+   "cat": "creature"
+  },
+  {
+   "name": "Mighty Porgy",
+   "type": "Creature",
+   "effect": "Sea fish; cooked it gives a Mighty bonus (Attack Up).",
+   "where": "The seas of Faron and Necluda.",
+   "sell": 10,
+   "cat": "creature"
+  },
+  {
+   "name": "Razorclaw Crab",
+   "type": "Creature",
+   "effect": "Crab; cooked it gives a Mighty bonus (Attack Up); used to upgrade attack/Barbarian-style armor.",
+   "where": "Shores of the Lanayru Sea and Necluda Sea.",
+   "sell": 8,
+   "cat": "creature"
+  },
+  {
+   "name": "Restless Cricket",
+   "type": "Creature",
+   "effect": "Small jumping bug. Cooked with a monster part it makes an Energizing elixir (restores stamina).",
+   "where": "Great Sky Island and Hyrule Field. Sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Rugged Rhino Beetle",
+   "type": "Creature",
+   "effect": "Beetle from forest tree trunks. Cooked with a monster part it makes a Tough elixir (Defense Up).",
+   "where": "West and East Necluda, on the sides of forest trees; also dropped by Evermean.",
+   "sell": 4,
+   "cat": "creature"
+  },
+  {
+   "name": "Sanke Carp",
+   "type": "Creature",
+   "effect": "Decorative carp; cooked it restores hearts with no special bonus (Sunny-compatible).",
+   "where": "Water around the chief's house in Kakariko Village.",
+   "sell": 20,
+   "cat": "creature"
+  },
+  {
+   "name": "Sizzlefin Trout",
+   "type": "Creature",
+   "effect": "Warm-water trout; cooked it gives a Spicy bonus (cold resistance).",
+   "where": "Warm water / hot springs in Eldin Canyon and Hebra Mountains.",
+   "sell": 6,
+   "cat": "creature"
+  },
+  {
+   "name": "Smotherwing Butterfly",
+   "type": "Creature",
+   "effect": "Butterfly from hot volcanic zones. Cooked with a monster part it makes a Fireproof elixir (flame resistance).",
+   "where": "Hot regions — Death Mountain and Eldin Canyon. Sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Sneaky River Snail",
+   "type": "Creature",
+   "effect": "Glow-in-the-dark snail; cooked it gives a Sneaky bonus (Stealth Up); used to upgrade stealth armor.",
+   "where": "Shallow water near lakes/rivers — Zora's Domain (and the cave below it) and Hyrule Ridge.",
+   "sell": 6,
+   "cat": "creature"
+  },
+  {
+   "name": "Staminoka Bass",
+   "type": "Creature",
+   "effect": "Cooked into Energizing dishes — restores stamina.",
+   "where": "Ponds and lakes of Hyrule Field and West Necluda (incl. Rito/Hebra ponds).",
+   "sell": 18,
+   "cat": "creature"
+  },
+  {
+   "name": "Stealthfin Trout",
+   "type": "Creature",
+   "effect": "Bioluminescent trout; cooked it gives a Sneaky bonus (Stealth Up).",
+   "where": "Lakes and rivers of Great Hyrule Forest at night.",
+   "sell": 10,
+   "cat": "creature"
+  },
+  {
+   "name": "Sticky Frog",
+   "type": "Creature",
+   "effect": "Frog from wet walls. Cooked with a monster part it makes a Slip-Resistance (Sticky) elixir — climb wet/slick surfaces.",
+   "where": "On cliffs and walls in wet areas — West Necluda and Lanayru Great Spring. Sold by Beedle for 40.",
+   "sell": 10,
+   "cat": "creature"
+  },
+  {
+   "name": "Sticky Lizard",
+   "type": "Creature",
+   "effect": "Cave lizard. Cooked with a monster part it makes a Slip-Resistance (Sticky) elixir — climb wet/slick surfaces.",
+   "where": "Inside caves throughout Hyrule. Sold by Beedle for 32.",
+   "sell": 8,
+   "cat": "creature"
+  },
+  {
+   "name": "Summerwing Butterfly",
+   "type": "Creature",
+   "effect": "Warm-region butterfly. Cooked with a monster part it makes a Spicy elixir (cold resistance / warmth).",
+   "where": "Warm regions — Eldin Canyon, Gerudo Highlands, Kara Kara Bazaar; sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Sunset Firefly",
+   "type": "Creature",
+   "effect": "Glowing bug active at night. Cooked with a monster part it makes a Sneaky elixir (Stealth Up); used to upgrade stealth armor.",
+   "where": "Forests/grasslands at night — Faron Grasslands and East Necluda. Sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Thunderwing Butterfly",
+   "type": "Creature",
+   "effect": "Butterfly whose organs insulate. Cooked with a monster part it makes an Electro elixir (shock resistance).",
+   "where": "Rainy/storm areas — Thunderhead Isles and Faron Grasslands; sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Tireless Frog",
+   "type": "Creature",
+   "effect": "Rare frog. Cooked with a monster part it makes an Enduring elixir (full stamina plus temporary extra stamina wheels).",
+   "where": "Dark, moist spots near water — Hyrule Field and Zora River. Sold by Beedle for 100.",
+   "sell": 20,
+   "cat": "creature"
+  },
+  {
+   "name": "Voltfin Trout",
+   "type": "Creature",
+   "effect": "Trout with insulating scales; cooked it gives an Electro bonus (shock resistance); used to upgrade shock-resistance armor.",
+   "where": "Tabantha Frontier and Hebra Mountains (e.g. Tama Pond / Hebra Plunge).",
+   "sell": 6,
+   "cat": "creature"
+  },
+  {
+   "name": "Warm Darner",
+   "type": "Creature",
+   "effect": "Dragonfly from warm climates. Cooked with a monster part it makes a Spicy elixir (cold resistance).",
+   "where": "Warm areas — Akkala Highlands and Faron Grasslands. Sold by Beedle for 10.",
+   "sell": 2,
+   "cat": "creature"
+  },
+  {
+   "name": "Winterwing Butterfly",
+   "type": "Creature",
+   "effect": "Cold-region butterfly. Cooked with a monster part it makes a Chilly elixir (heat resistance). Also used to upgrade cold-resistance armor.",
+   "where": "Cold areas — Gerudo Highlands and Mount Lanayru; around Tabantha Bridge Stable. Beedle sells it for 10.",
+   "sell": 2,
+   "cat": "creature"
+  }
+ ],
  "RUNES": [
   {
    "id": "ultrahand",

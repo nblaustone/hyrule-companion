@@ -5,6 +5,32 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-26 — v17.13: TotK Items compendium (478) + app-wide gap audit → zero content gaps left
+
+- **User: "then do it! and add whatever else is missing… assess, plan, intervene and reevaluate."** So I ran the
+  full cycle, not just the compendium.
+- **ASSESS (data-driven, cheap):** built a parity matrix across all 11 games (walkthrough/stuck/shrines+sol/
+  compendium/enemies+battle/armor-tiers/fairies/sideQ/runes/koroks/towers/econ/maps/collect) + an integrity pass
+  (dup step ids, CHAMPIONS/STATUS_RUNES → real steps, side-quest slug collisions, meta-leak fields, compendium-cat →
+  CompendiumView column coverage). **Result: the ONLY genuine content gap was TotK's compendium.** Everything else
+  is present or correctly N/A (classic games have no shrines/cook/koroks/towers/armor-system/maps/economy). Two
+  audit "findings" were false positives: side-quest ids ARE stable slugs (the `sq_` prefix is added at the key
+  layer by `sqKey()`, not stored), and `KOROKS.notes` is the intentional 1000-seeds caveat. All 11 games' slugs are
+  unique → no progress-key collisions. Doing the assess as plain Node scripts (not a workflow) kept it ~free.
+- **INTERVENE:** ran the staged `gen-totk-compendium-workflow.mjs` — already correctly BATCHED (one agent per
+  CATEGORY, not per item): 12 categories → 24 agents, ONE solo workflow, ~1.67M tok, 0 failures. 498 raw items →
+  deduped 20 dragon-part dups (monster-parts agent re-listed them; dedicated dragon-elemental copy wins, same rule
+  as BotW v12.14) → **478** (92 weapon/30 bow/33 shield/137 armor/146 material/40 creature) →
+  `knowledge/totk/compendium.json` → assemble-totk → TotK Items tab is now CompendiumView (was PouchView).
+- **REEVALUATE (in-browser, the thing static audit can't see):** verified TotK Items = 478 with all filters + an
+  item detail (badges/effect/where); spot-checked a near-miss — "Biggoron's Sword"/"Fierce Deity Sword"/"Master
+  Sword" looked like cross-game hallucinations but are GENUINE TotK items (verify pass was right; I confirmed in the
+  data). Switched TotK→LA→BotW via the shelf (one page load so console accumulates): LA Items renders Songs/Key-Items
+  cats, BotW 7 tabs, **0 console errors/warnings** the whole way. CompendiumView COLS already cover all 11 cats.
+- **Outcome: the app has NO content gaps left.** Only open-ended extension is Lore era-chapters (gated by the
+  no-AI-slop bar). Lesson reinforced: assess with cheap deterministic scripts FIRST; reserve agents for the actual
+  build; category-batched compendium (24 agents) is the right shape and ran clean solo.
+
 ## 2026-06-26 — v17.12: TotK shrine solutions — all 152 (last big gap closed) + a dispatch lesson relearned
 
 - **User: "okay let's finish the totk shrines."** The one major functional gap left in the whole app: TotK's 152

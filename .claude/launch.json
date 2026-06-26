@@ -4,8 +4,8 @@
     {
       "name": "hyrule",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8171"],
-      "port": 8171
+      "runtimeArgs": ["-m", "http.server", "8183"],
+      "port": 8183
     }
   ]
 }

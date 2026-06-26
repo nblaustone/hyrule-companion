@@ -434,7 +434,14 @@ layout, `REGION_MAPS` = the per-region coords.
     38 agents** in ONE solo workflow, vs the old ~304 one-per-item) → `knowledge/totk/shrine-solutions.json` →
     assemble-totk splices `solution` by region+name. Verified in-browser (reveal + search render, 0 console errors,
     0 meta leaks). **TotK is now FULLY at parity** save the lower-priority Items-tab compendium.
-  - **TotK remaining (1 lower-priority gap):** **compendium** (`gen-totk-compendium`, Items-tab catalog, not yet run).
+  - **TotK Items-tab compendium DONE (v17.13):** `gen-totk-compendium-workflow.mjs` (12 categories → 12 author +
+    12 verify = 24 agents, ONE solo workflow) → `knowledge/totk/compendium.json` (**478 entries**: 92 weapons · 30
+    bows · 33 shields · 137 armor · 146 materials · 40 creatures). assemble-totk folds `compendium.json` → COMPENDIUM
+    → the TotK Items tab is now `CompendiumView` (was PouchView). Merge deduped 20 dragon-part dups (the monster-parts
+    agent re-listed them; the dedicated dragon-elemental copy wins — same rule as BotW v12.14). Verify caught real
+    BotW/fabricated `where` errors (Sea-Breeze Boomerang, Sword of the Hero, Gloom Sword, decayed-MS durability).
+    Verified in-browser, 0 console errors. **TotK now has NO content gaps — fully matched to BotW's feature shape**
+    (save BotW-unique depth like the 410-vs-478 catalog scale, which is by game).
   - **⚠ RATE-LIMIT RULE (learned the hard way, twice):** the worst combo is **one-agent-per-item × multiple
     concurrent workflows**. **3+ Workflows concurrently** (~360 agents) trips server-side **529** (shrine-solutions
     once came back 2/152); and even **2 one-per-item workflows launched at the same instant** (16 web-fetching agents
@@ -586,7 +593,13 @@ layout, `REGION_MAPS` = the per-region coords.
   0 failures, ~2.45M tokens. `gen-totk-shrine-solutions-workflow.mjs` now emits the batched form (region-coherent
   chunks of ≤12, `args` = regionKeys for resume). Verified in-browser (reveal + global search render, 0 console
   errors, 0 meta leaks). **TotK is now FULLY at parity** with the deeply-built games.
-- **Biggest remaining build (whole app):** none major. The only content gap left anywhere is the **TotK Items-tab
-  compendium** (lower priority; `gen-totk-compendium` staged, not yet run — the Items tab falls back to PouchView
-  until then). Lore is shared/cross-game and could gain era chapters for any of the 11 games (needs the
-  writers'-room workflow + the no-AI-slop bar — vet a sample first).
+- **v17.13 — TotK Items compendium (DONE) + app-wide gap audit.** Built the TotK compendium (478 entries, above),
+  which was the last content gap. Ran a full **parity matrix + data-integrity audit across all 11 games** (duplicate
+  step ids, CHAMPIONS/STATUS_RUNES wiring, side-quest slug collisions, meta leaks, compendium-cat→column coverage):
+  **everything clean** — 0 dup ids, all trophies/runes wired, all 11 games' side-quest slugs unique, every compendium
+  cat has a CompendiumView column. In-browser re-verified TotK (478-item Items tab) + spot-checked LA (Songs/Key-Items
+  cats render) + BotW (7 tabs); 0 console errors across game switches.
+- **Biggest remaining build (whole app): NONE.** Every game is at its game-appropriate parity and every dataset is
+  present or correctly N/A. The only OPEN-ENDED extension left is **Lore** — shared/cross-game, currently 7 BotW-era
+  chapters; it could gain era chapters for any of the 11 games, but that needs the writers'-room workflow + the
+  no-AI-slop bar (vet a sample before scaling — owner's standing guidance, [[zelda-lore-no-ai-slop]]).
