@@ -13,12 +13,34 @@
     "sub": "A blacksmith's errand",
     "reward": "Captain's Sword",
     "steps": [
-     { "id": "albw_errand_1", "k": "step", "t": "You're the blacksmith's apprentice in Kakariko Village, and you've overslept. Head into the smithy; the smith hands you the captain's newly forged sword and tells you to deliver it to Hyrule Castle at once.", "items": [
-        { "name": "Captain's Sword", "cat": "sword", "note": "Your starting blade — the sword you're delivering. Swing with the attack button; at full hearts it fires a beam. (You'll trade up to the Master Sword later.)" }
-     ] },
-     { "id": "albw_errand_2", "k": "tip", "t": "This is the tutorial stretch — explore Kakariko, talk to people, and cut grass for Rupees. Your real power comes in a few minutes." },
-     { "id": "albw_errand_3", "k": "step", "t": "Leave Kakariko and travel to Hyrule Castle to the north. Deliver the sword to the captain at the gate.", "stuck": "From Kakariko, follow the road north across Hyrule Field to the castle. Talk to the soldier/captain near the entrance to hand over the sword." },
-     { "id": "albw_errand_4", "k": "step", "t": "A commotion sends you toward the Sanctuary to the east — the priest and a young woman named Seres are in danger. Hurry there." }
+     {
+      "id": "albw_errand_1",
+      "k": "step",
+      "t": "You're the blacksmith's apprentice in Kakariko Village, and you've overslept. Head into the smithy; the smith hands you the captain's newly forged sword and tells you to deliver it to Hyrule Castle at once.",
+      "items": [
+       {
+        "name": "Captain's Sword",
+        "cat": "sword",
+        "note": "Your starting blade — the sword you're delivering. Swing with the attack button; at full hearts it fires a beam. (You'll trade up to the Master Sword later.)"
+       }
+      ]
+     },
+     {
+      "id": "albw_errand_2",
+      "k": "tip",
+      "t": "This is the tutorial stretch — explore Kakariko, talk to people, and cut grass for Rupees. Your real power comes in a few minutes."
+     },
+     {
+      "id": "albw_errand_3",
+      "k": "step",
+      "t": "Leave Kakariko and travel to Hyrule Castle to the north. Deliver the sword to the captain at the gate.",
+      "stuck": "From Kakariko, follow the road north across Hyrule Field to the castle. Talk to the soldier/captain near the entrance to hand over the sword."
+     },
+     {
+      "id": "albw_errand_4",
+      "k": "step",
+      "t": "A commotion sends you toward the Sanctuary to the east — the priest and a young woman named Seres are in danger. Hurry there."
+     }
     ]
    },
    {
@@ -27,9 +49,21 @@
     "sub": "Yuga's curse",
     "reward": null,
     "steps": [
-     { "id": "albw_yuga_1", "k": "warn", "t": "Inside the Sanctuary you find the sorcerer Yuga — he can seal living people into PAINTINGS on the wall. Before your eyes he turns Seres into a portrait and peels her off the wall." },
-     { "id": "albw_yuga_2", "k": "step", "t": "Chase Yuga and swing at him. He's untouchable for now — he presses YOU flat against the wall as a painting and you black out." },
-     { "id": "albw_yuga_3", "k": "step", "t": "You come to back home in Kakariko, saved and confused. Head downstairs — someone has moved into your house." }
+     {
+      "id": "albw_yuga_1",
+      "k": "warn",
+      "t": "Inside the Sanctuary you find the sorcerer Yuga — he can seal living people into PAINTINGS on the wall. Before your eyes he turns Seres into a portrait and peels her off the wall."
+     },
+     {
+      "id": "albw_yuga_2",
+      "k": "step",
+      "t": "Chase Yuga and swing at him. He's untouchable for now — he presses YOU flat against the wall as a painting and you black out."
+     },
+     {
+      "id": "albw_yuga_3",
+      "k": "step",
+      "t": "You come to back home in Kakariko, saved and confused. Head downstairs — someone has moved into your house."
+     }
     ]
    },
    {
@@ -38,15 +72,1704 @@
     "sub": "The power to merge — and the quest begins",
     "reward": "Ravio's Bracelet",
     "steps": [
-     { "id": "albw_brace_1", "k": "reward", "t": "A hooded merchant named Ravio has set up a rental shop in your house. In thanks for the lodging he gives you a strange Bracelet — the source of the wall-merging power.", "items": [
-        { "name": "Ravio's Bracelet", "cat": "item", "note": "Press its button to MERGE into a wall as a flat moving painting — slip through grates, around corners, and onto far ledges. The mechanic the whole game is built around." }
-     ] },
-     { "id": "albw_brace_2", "k": "step", "t": "Try it out: stand against a wall and use the Bracelet to press flat into it, then slide along the wall to reach the other side. Step off the wall to pop back out.", "stuck": "Face a flat wall, hold/press the Bracelet button, and Link becomes a painting on the surface. Move left/right along the wall (you can't leave it), then release at an opening or ledge to step back into the world. Merging drains the green energy meter, which refills fast." },
-     { "id": "albw_brace_3", "k": "tip", "t": "Ravio's Shop now RENTS you most of the game's items cheaply (Bow, Bombs, Hammer, Hookshot, rods…), in almost any order. Catch: if you die, his bird repossesses your rentals until you re-rent — so BUY your favorites once you can afford it." },
-     { "id": "albw_brace_4", "k": "step", "t": "Visit the elder Sahasrahla (follow the marker). He explains Yuga's plot to revive Ganon and tells you the realm's hope lies in the Master Sword — which needs the three Pendants of Virtue.", "stuck": "Sahasrahla's house is in Kakariko; the game marks it. Talk to him fully to set your goal and open the way east." },
-     { "id": "albw_brace_5", "k": "step", "t": "Your path is set: recover the three Pendants of Virtue. Start with the Pendant of Courage in the Eastern Palace, off to the east of Hyrule Field — rent any item you fancy from Ravio first." }
+     {
+      "id": "albw_brace_1",
+      "k": "reward",
+      "t": "A hooded merchant named Ravio has set up a rental shop in your house. In thanks for the lodging he gives you a strange Bracelet — the source of the wall-merging power.",
+      "items": [
+       {
+        "name": "Ravio's Bracelet",
+        "cat": "item",
+        "note": "Press its button to MERGE into a wall as a flat moving painting — slip through grates, around corners, and onto far ledges. The mechanic the whole game is built around."
+       }
+      ]
+     },
+     {
+      "id": "albw_brace_2",
+      "k": "step",
+      "t": "Try it out: stand against a wall and use the Bracelet to press flat into it, then slide along the wall to reach the other side. Step off the wall to pop back out.",
+      "stuck": "Face a flat wall, hold/press the Bracelet button, and Link becomes a painting on the surface. Move left/right along the wall (you can't leave it), then release at an opening or ledge to step back into the world. Merging drains the green energy meter, which refills fast."
+     },
+     {
+      "id": "albw_brace_3",
+      "k": "tip",
+      "t": "Ravio's Shop now RENTS you most of the game's items cheaply (Bow, Bombs, Hammer, Hookshot, rods…), in almost any order. Catch: if you die, his bird repossesses your rentals until you re-rent — so BUY your favorites once you can afford it."
+     },
+     {
+      "id": "albw_brace_4",
+      "k": "step",
+      "t": "Visit the elder Sahasrahla (follow the marker). He explains Yuga's plot to revive Ganon and tells you the realm's hope lies in the Master Sword — which needs the three Pendants of Virtue.",
+      "stuck": "Sahasrahla's house is in Kakariko; the game marks it. Talk to him fully to set your goal and open the way east."
+     },
+     {
+      "id": "albw_brace_5",
+      "k": "step",
+      "t": "Your path is set: recover the three Pendants of Virtue. Start with the Pendant of Courage in the Eastern Palace, off to the east of Hyrule Field — rent any item you fancy from Ravio first."
+     }
     ]
    }
   ]
+ },
+ {
+  "id": "albw_ep",
+  "name": "The Eastern Palace",
+  "sub": "Pendant of Courage",
+  "champion": "Pendant of Courage",
+  "tagline": "Rent the Bow, merge the walls, and beat Yuga for the first Pendant.",
+  "sections": [
+   {
+    "id": "albw_ep_prep",
+    "name": "Before You Go",
+    "sub": "Rent the Bow and find the palace",
+    "steps": [
+     {
+      "id": "albw_ep_ravio",
+      "k": "step",
+      "t": "Back at your house, talk to Ravio in his shop and RENT the Bow. It's the one tool the Eastern Palace is built around — you'll need it for the eye/orb switches and the boss.",
+      "stuck": "Ravio set up shop inside your own house. Walk in, step on the item rugs, and pick the Bow — its first rental is free. You only lose a rented item if Link falls in battle, so play it safe and it stays with you.",
+      "items": [
+       {
+        "name": "Bow",
+        "cat": "bow",
+        "note": "Rented from Ravio's Shop (first rental free). Hits eye/orb switches and stuns the boss. Uses the green energy meter, not arrows you run out of."
+       }
+      ]
+     },
+     {
+      "id": "albw_ep_sahasrahla",
+      "k": "step",
+      "t": "Sahasrahla (in Kakariko Village) marks the Eastern Palace on your map. Head EAST into the Eastern Ruins: go east past the graveyard, keep east, drop south, cross the bridge to the east, then go north up to the palace.",
+      "stuck": "Aim for the far east of Hyrule — the Eastern Ruins. If you get turned around, the route from Kakariko is: east past the graveyard, east again, south, over the bridge, then north to the grand doorway."
+     },
+     {
+      "id": "albw_ep_door_switch",
+      "k": "step",
+      "t": "At the entrance, climb the steps by the pillars marked with the Bow symbol. There's a crystal orb on each side — shoot BOTH with the Bow and the palace door above opens.",
+      "stuck": "The two orbs flank the steps right by the Bow-symbol pillars. Equip the Bow and fire one arrow into each; the door won't open until both are lit."
+     },
+     {
+      "id": "albw_ep_merge_intro",
+      "k": "tip",
+      "t": "Ravio's Bracelet lets you press flat into a wall and slide along it as a painting. Inside, that's how you cross grates and gaps — face a wall, press the merge button, and slip past barriers a walking Link can't."
+     }
+    ]
+   },
+   {
+    "id": "albw_ep_inside",
+    "name": "Into the Palace",
+    "sub": "Merge the walls, shoot the eyes, find the key",
+    "steps": [
+     {
+      "id": "albw_ep_first_room",
+      "k": "step",
+      "t": "Inside, deal with the soldiers and rolling iron balls in the entry rooms. When a path is blocked by a grate or a gap, merge into the nearby wall and slide across — the merged Link can pass where the floor can't.",
+      "stuck": "If a door won't open or a chasm blocks you, look for a wall touching both sides. Merge into it, walk along the wall as a painting, and un-merge on the far ledge."
+     },
+     {
+      "id": "albw_ep_eye_switch",
+      "k": "step",
+      "t": "Watch for the big EYE/orb switches on the walls. Shoot an open eye with the Bow to flip it and open the linked door or drop the barrier. Some you can only reach by merging closer first.",
+      "stuck": "If an eye is across a gap you can't cross, merge into a wall that runs toward it to get a clear line of sight, un-merge, then fire the Bow at the eye."
+     },
+     {
+      "id": "albw_ep_small_key",
+      "k": "loot",
+      "t": "Grab a Small Key from a chest along the way and use it on the locked door deeper in the palace.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens a locked door inside the Eastern Palace."
+       }
+      ]
+     },
+     {
+      "id": "albw_ep_climb",
+      "k": "step",
+      "t": "Work upward through the palace, clearing the armored soldiers and skeletal foes. The way forward is almost always 'shoot that eye' or 'merge that wall' — keep both in mind on every floor.",
+      "stuck": "Stuck on a floor? Re-scan every wall for an unlit eye-switch or a grate you can merge through. One of those two tricks is nearly always the answer here."
+     },
+     {
+      "id": "albw_ep_heart",
+      "k": "optional",
+      "t": "Sweep the side rooms for rupees and chests — merging into walls reveals chests on ledges you can't walk to. (Heads up: a few of this palace's Pieces of Heart are reachable only on a later return trip with items you don't have yet.)",
+      "stuck": "If you spot a chest across a barred floor, find the wall behind it, merge in, slide over to the ledge, and un-merge to open it. If a Piece of Heart looks totally unreachable, leave it — you'll come back later with the right tool."
+     },
+     {
+      "id": "albw_ep_boss_door",
+      "k": "step",
+      "t": "Reach the top of the palace and step through the big boss door. Make sure the Bow is equipped before you go in — you'll need it immediately."
+     }
+    ]
+   },
+   {
+    "id": "albw_ep_boss",
+    "name": "Boss: Yuga",
+    "sub": "Stun the painting-sorcerer with the Bow, then strike",
+    "reward": "Pendant of Courage",
+    "steps": [
+     {
+      "id": "albw_ep_boss_open",
+      "k": "warn",
+      "t": "The sorcerer Yuga seals the man at the entrance (Osfala) into a painting, then turns on you. Yuga MERGES INTO THE WALLS as a painting and slides around the room — your sword can't touch him while he's in the wall, so don't chase blindly. Keep moving to dodge his attacks.",
+      "stuck": "Stay near the center and watch the walls to see where Yuga's painting is sliding. Don't stand still — he punishes a stationary Link."
+     },
+     {
+      "id": "albw_ep_boss_stun",
+      "k": "step",
+      "t": "When Yuga emerges from the wall to attack, shoot him with the Bow to stun him. While he's frozen, rush in and slash with your sword before he melts back into the wall.",
+      "stuck": "Wait for him to step out of the painting, then fire instantly — the arrow freezes him for a moment. Land two or three sword hits, then back off as he merges away. Repeat the shoot-then-slash loop until he falls."
+     },
+     {
+      "id": "albw_ep_boss_adds",
+      "k": "tip",
+      "t": "If you don't stun him in time, Yuga summons Soldiers, fires four-way lightning bolts across the room, or erupts fire from the walls. Circle the room to dodge, and keep your Bow energy topped up so you're never caught empty when he pops out.",
+      "stuck": "Late in the fight he speeds up and his painting-dives get faster — same plan, just react quicker. Clearing a summoned soldier or two buys breathing room, but the win is always the arrow-then-sword loop."
+     },
+     {
+      "id": "albw_ep_pendant",
+      "k": "reward",
+      "t": "With Yuga beaten, claim your prize: the Pendant of Courage, the first of the three Pendants you need to earn the Master Sword. The Eastern Palace is cleared.",
+      "items": [
+       {
+        "name": "Pendant of Courage",
+        "cat": "key",
+        "note": "First of the three Pendants. Collect all three (House of Gales and Tower of Hera hold the others) to draw the Master Sword from the Lost Woods."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_gales",
+  "name": "The House of Gales",
+  "sub": "Pendant of Wisdom",
+  "champion": "Pendant of Wisdom",
+  "tagline": "A rod that blows you skyward, on a temple out in the lake.",
+  "sections": [
+   {
+    "id": "albw_gales_approach",
+    "name": "Out to the Lake",
+    "sub": "Get the flippers, rent the rod, reach the temple",
+    "steps": [
+     {
+      "id": "albw_gales_rent",
+      "k": "step",
+      "t": "Before you head out, stop at Ravio's Shop in your house and rent the Tornado Rod. The whole House of Gales is built around it — you cannot finish the dungeon without it.",
+      "stuck": "Ravio's Shop is inside Link's house (just north of Kakariko Village). Talk to Ravio, pick the Tornado Rod from his wares, and choose Rent — it's cheap. Heads up: if you faint, Ravio's lackey snatches back everything you've rented, so play it safe.",
+      "items": [
+       {
+        "name": "Tornado Rod",
+        "cat": "item",
+        "note": "Rented from Ravio. Whips up a gust that flings Link straight up onto high ledges and platforms, and flips nearby enemies onto their backs."
+       }
+      ]
+     },
+     {
+      "id": "albw_gales_flippers",
+      "k": "step",
+      "t": "You also need the Zora's Flippers to reach the temple — it sits on an island in the middle of the lake, and Link can't swim without them. If you don't have them yet, get them first: buy the Smooth Gem from the Street Merchant in Kakariko (200 rupees) and return it to Queen Oren in Zora's Domain.",
+      "stuck": "Without the flippers Link just wades and bobs at the shoreline — he can't cross deep water. Buy the Smooth Gem in Kakariko Village, take it north to Zora's Domain, and give it to Queen Oren; she rewards you with the Zora's Flippers. Then you can swim out to the island.",
+      "items": [
+       {
+        "name": "Zora's Flippers",
+        "cat": "item",
+        "note": "Let Link swim across deep water. Needed to reach the House of Gales island. Earned from Queen Oren for returning the Smooth Gem."
+       }
+      ]
+     },
+     {
+      "id": "albw_gales_lake",
+      "k": "step",
+      "t": "Travel to southeastern Hyrule and reach Lake Hylia. The House of Gales sits on a small island out in the water — swim out to it to reach the entrance.",
+      "stuck": "Head to the big lake in the southeast of the map. With the Zora's Flippers equipped, dive in and swim to the temple island in the middle of the water."
+     },
+     {
+      "id": "albw_gales_entrance",
+      "k": "step",
+      "t": "At the island, the door is sealed behind a patch of swirling Tornado Tiles. Swing the Tornado Rod at them to blow them away — that uncovers a floor switch. Step on the switch and the entrance opens.",
+      "stuck": "If the door won't open, use the Tornado Rod on the spinning tiles in front of it. Clearing them reveals a floor switch on the ground; stand on it to unlock the way in."
+     },
+     {
+      "id": "albw_gales_tip_energy",
+      "k": "tip",
+      "t": "The Tornado Rod (and every rented item) draws from your green Energy meter, not ammo. Let the bar refill between gusts — don't spam it or you'll be left standing when you need a lift."
+     }
+    ]
+   },
+   {
+    "id": "albw_gales_temple",
+    "name": "Inside the House of Gales",
+    "sub": "Updrafts, timed switches, and merge routes",
+    "steps": [
+     {
+      "id": "albw_gales_gust_basics",
+      "k": "step",
+      "t": "Learn the core trick early: swing the Tornado Rod to blast yourself straight up onto ledges and platforms you can't reach on foot. Many rooms here are vertical puzzles solved with a well-timed gust, and you'll ride the wind currents the fans put out.",
+      "stuck": "Stand on the spot you want to launch from and use the Tornado Rod. Link rides the gust upward — line yourself up under the ledge first so you land on it as you come down."
+     },
+     {
+      "id": "albw_gales_switches",
+      "k": "step",
+      "t": "Watch for the timed switches that change the floor layout — hit one and platforms or paths appear for a few seconds. Move fast: gust or run across the new path before it resets.",
+      "stuck": "If a path keeps vanishing, you're too slow. Hit the switch, then immediately Tornado-Rod up and across to the platform that appeared before the timer runs out."
+     },
+     {
+      "id": "albw_gales_merge",
+      "k": "step",
+      "t": "When a grate, gap, or far ledge blocks you, press flat into the wall and slide along it as a painting to reach the other side. Several of this dungeon's shortcuts are merge routes.",
+      "stuck": "Face a flat wall and hold the merge button to flatten into it. Slide along the wall past the grate or around the corner, then step back out where the wall opens onto the ledge you need."
+     },
+     {
+      "id": "albw_gales_loot",
+      "k": "loot",
+      "t": "Sweep side rooms for treasure as you climb — chests here hold rupees and the small keys you'll need to open the locked doors deeper in.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens a locked door inside the House of Gales. Grab every one — you need them to progress."
+       }
+      ]
+     },
+     {
+      "id": "albw_gales_compass_tip",
+      "k": "tip",
+      "t": "Keep an eye on the dungeon map: it marks the big chest and the boss door so you always know which way is forward. Many rooms want a switch hit AND a gust — set up your jump before you flip the switch."
+     },
+     {
+      "id": "albw_gales_bigkey",
+      "k": "loot",
+      "t": "Find the Big Key in the upper floors — it opens the boss door. Reaching its chest usually means a gust onto a high platform or a merge across a grated gap.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the boss door at the top of the House of Gales."
+       }
+      ]
+     },
+     {
+      "id": "albw_gales_warn_blowback",
+      "k": "warn",
+      "t": "The Tornado Rod's gust flips enemies onto their backs — handy for clearing a crowded ledge before you land on it. But this dungeon is full of bottomless pits and narrow walkways, so watch your footing as you launch."
+     }
+    ]
+   },
+   {
+    "id": "albw_gales_boss",
+    "name": "Margomill",
+    "sub": "The floating eye atop a stack of discs",
+    "reward": "Pendant of Wisdom",
+    "steps": [
+     {
+      "id": "albw_gales_boss_intro",
+      "k": "step",
+      "t": "Open the boss door for the fight with Margomill — a floating stone disc with a single eye on top. It drifts around the room over a deep pit and blows gusts to shove you toward the edge, so keep moving and stay off the rim.",
+      "stuck": "The eye on top is the weak point, but it floats out of sword reach. The Tornado Rod is how you get up to it — and Margomill doesn't deal contact damage, so the real danger is being blown into the pit, not the boss itself."
+     },
+     {
+      "id": "albw_gales_boss_topple",
+      "k": "step",
+      "t": "When Margomill drifts close, use the Tornado Rod to launch yourself straight up and land on top of it, right next to the eye. That stuns it. Slash the eye with your sword as many times as you can before you slide off.",
+      "stuck": "Wait for the boss to come near, then fire the Tornado Rod to ride the gust up onto its top surface. You'll come down on the disc beside the eye — go to town on it while it's stunned."
+     },
+     {
+      "id": "albw_gales_boss_strike",
+      "k": "step",
+      "t": "After a few hits the eye closes and Margomill stacks extra discs underneath, raising the eye out of reach. Knock those layers off by attacking the body — a couple of hits per layer (bombs or a spin attack work well) — until it's a single disc again, then Tornado-Rod back up and hit the eye. Each phase adds more layers; same pattern every time.",
+      "stuck": "You can't gust the eye down — the discs come off by hitting the BODY. Whittle the stack back down to one layer (bombs and spin attacks clear them fastest), then use the Tornado Rod to launch onto the lowered eye and sword it. Repeat through each phase. Tip: falling into the surrounding pit costs no health and refills your Energy meter."
+     },
+     {
+      "id": "albw_gales_reward",
+      "k": "reward",
+      "t": "With Margomill defeated, take the heart container and claim your prize: the Pendant of Wisdom, one of the three pendants you need for the Master Sword.",
+      "items": [
+       {
+        "name": "Pendant of Wisdom",
+        "cat": "key",
+        "note": "The House of Gales trophy. One of the three pendants required to claim the Master Sword."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_hera",
+  "name": "The Tower of Hera",
+  "sub": "Pendant of Power",
+  "champion": "Pendant of Power",
+  "tagline": "Ride the moles up Death Mountain for the third Pendant.",
+  "sections": [
+   {
+    "id": "albw_hera_climb",
+    "name": "Up Death Mountain",
+    "sub": "Reach the tower and rent the right tool",
+    "steps": [
+     {
+      "id": "albw_hera_rent_hammer",
+      "k": "step",
+      "t": "Before you climb, rent the Hammer from Ravio's Shop (it sets up inside your house). This whole tower runs on the Hammer — pounding moles, hitting crystal switches, and cracking turtles.",
+      "stuck": "Go home and talk to Ravio. The Hammer is the tool with the mallet icon — rent it (cheap, around 50 rupees). Don't head up without it; nearly every puzzle here needs it.",
+      "items": [
+       {
+        "name": "Hammer",
+        "cat": "item",
+        "note": "Rented from Ravio. Pounds moles and switches and smashes obstacles."
+       }
+      ]
+     },
+     {
+      "id": "albw_hera_warp",
+      "k": "step",
+      "t": "Head to Death Mountain in the northwest of Hyrule (past Rosso's house near the Lost Woods). Activate the Weather Vane at the foot of the mountain, then go into the cave/tunnel behind it to start the climb up.",
+      "stuck": "From the Sanctuary, go one screen left and up; Death Mountain is the northwest peak. The way up is the cave behind the mountain-base Weather Vane — not a warp tile."
+     },
+     {
+      "id": "albw_hera_boulders",
+      "k": "warn",
+      "t": "On the way up, boulders roll down the slopes at you. Merge into the wall to slip past them, and note you're safe standing on the stone steps. Once the mountaintop Weather Vane is lit, the warp tiles up here let you fast-travel between points on the mountain.",
+      "stuck": "When a boulder is coming, press into a flat wall to merge flat and let it roll past, or just stand on the steps where they can't hit you. Then keep climbing north to the tall Tower of Hera."
+     },
+     {
+      "id": "albw_hera_enter",
+      "k": "step",
+      "t": "At the base of the tower, hammer the moles blocking the door if needed, then enter. From here the dungeon climbs upward floor by floor — most progress is going UP."
+     },
+     {
+      "id": "albw_hera_warn_energy",
+      "k": "warn",
+      "t": "Rented items run on the shared green energy meter, not ammo. If the Hammer ever greys out mid-puzzle, wait a second for the meter to refill before swinging again."
+     }
+    ]
+   },
+   {
+    "id": "albw_hera_inside",
+    "name": "Climbing the Tower",
+    "sub": "Ride the moles, hit the switches, merge for the rest",
+    "steps": [
+     {
+      "id": "albw_hera_moles",
+      "k": "step",
+      "t": "The tower is full of moles — bumps in the floor with a face. Hammer a mole into the ground and it springs back up; if you're standing on it, it LAUNCHES you into the air in the direction it's angled. Use them to reach ledges and platforms you can't just walk to.",
+      "stuck": "Pound the mole, then quickly step onto it. When it pops back up it flings you the way its face points — line yourself up so it throws you toward the ledge or platform you're aiming for."
+     },
+     {
+      "id": "albw_hera_bigmole",
+      "k": "step",
+      "t": "Big Moles are the elevators of this tower. Hammer a large mole and stand on it — it launches you straight UP to the next floor. This is how you climb the tower, floor by floor.",
+      "stuck": "If you can't see any way up and there's a big bump in the floor, that's your ride. Hammer it, stand on it, and let it spring you to the floor above."
+     },
+     {
+      "id": "albw_hera_switches",
+      "k": "step",
+      "t": "Hammer the crystal switches to toggle the colored barrier walls (blue/orange) on and off, opening or blocking paths around the room. Hit a switch, then look for which walls just appeared or vanished.",
+      "stuck": "If a swing seems to do nothing, a barrier somewhere in the room just flipped. Check the walls and gaps after each hit — a new path usually opens off to the side."
+     },
+     {
+      "id": "albw_hera_turtles",
+      "k": "tip",
+      "t": "Some rooms have armored turtles you can't sword normally. Hammer a turtle first to flip it, then finish it with your sword."
+     },
+     {
+      "id": "albw_hera_merge",
+      "k": "step",
+      "t": "For gaps the moles don't cover, merge into the wall with Ravio's Bracelet and slide along it as a painting to reach the far side, then step off. Watch for grates you can pass straight through while merged.",
+      "stuck": "Press into a flat wall section to flatten into it, slide left/right past the gap, then push off onto the ledge you couldn't jump to."
+     },
+     {
+      "id": "albw_hera_loot_smallkey",
+      "k": "loot",
+      "t": "Grab the chests as you climb — at least one holds a Small Key for a locked door higher up. Open every chest you pass.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens a locked door inside the Tower of Hera."
+       }
+      ]
+     },
+     {
+      "id": "albw_hera_tip_falling",
+      "k": "tip",
+      "t": "Several rooms have moles and platforms over open drops. If you miss, you don't die — you just fall to the floor below and climb back up. Take your time lining up each mole-launch."
+     },
+     {
+      "id": "albw_hera_top",
+      "k": "step",
+      "t": "Keep riding the big moles up through the floors until you reach the top of the tower and the door into the boss arena."
+     }
+    ]
+   },
+   {
+    "id": "albw_hera_boss",
+    "name": "Boss: Moldorm",
+    "sub": "The third Pendant",
+    "reward": "Pendant of Power",
+    "steps": [
+     {
+      "id": "albw_hera_boss_intro",
+      "k": "step",
+      "t": "Step into the arena. Moldorm is a giant armored worm that thrashes around a small ledge with OPEN edges and no walls — its real danger is bumping YOU off, not the damage it deals.",
+      "stuck": "The whole floor is a drop-off. If you get knocked off you fall a floor and climb back up — but unlike the old games, Moldorm KEEPS its remaining health, so falling never fully restarts the fight."
+     },
+     {
+      "id": "albw_hera_boss_tail",
+      "k": "step",
+      "t": "Only the glowing red tip at the very end of Moldorm's tail hurts it. Chase the tail, not the head, and slash the red spot. It takes 6 hits to kill it, and Moldorm speeds up and gets more aggressive after each one.",
+      "stuck": "Its head and body are armored — sword hits there do nothing. Circle to the swinging tail and strike the bright red tip on the very last segment. Watch its eyes so you can see which way it's about to charge."
+     },
+     {
+      "id": "albw_hera_boss_hammer",
+      "k": "tip",
+      "t": "Stuck chasing the tail? Pound the FLOOR with the Hammer to stun Moldorm for a moment, then run in and hit the red tail-tip while it's frozen. If you're low on hearts, a Red Potion from the Old Witch's house is a good safety net."
+     },
+     {
+      "id": "albw_hera_boss_dontfall",
+      "k": "warn",
+      "t": "After each hit Moldorm whips around faster and tries to shove you toward an edge. Don't get greedy — back off toward the center after a strike and reposition so a bump can't fling you off."
+     },
+     {
+      "id": "albw_hera_pendant",
+      "k": "reward",
+      "t": "With Moldorm beaten, a Heart Container and the third Pendant appear. Grab them to claim the Pendant of Power — the last of the three Pendants. With all three, the Master Sword is now within reach.",
+      "items": [
+       {
+        "name": "Pendant of Power",
+        "cat": "key",
+        "note": "The third and final Pendant — the Tower of Hera boss trophy."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_ms",
+  "name": "The Master Sword & Yuga",
+  "sub": "Into Lorule",
+  "champion": null,
+  "tagline": "Three pendants draw the blade — then Yuga slips through a crack in the wall to Lorule.",
+  "sections": [
+   {
+    "id": "albw_ms_pedestal",
+    "name": "Drawing the Master Sword",
+    "sub": "Lost Woods pedestal",
+    "reward": "The Master Sword",
+    "steps": [
+     {
+      "id": "albw_ms_have_three",
+      "k": "tip",
+      "t": "You need all three Pendants of Virtue first: the Pendant of Courage (the \"charm\" Princess Zelda gave you — Sahasrahla later confirms what it really is), the Pendant of Wisdom (House of Gales), and the Pendant of Power (Tower of Hera). If you're missing a dungeon one, finish that dungeon before coming here. (Note: Eastern Palace gives no pendant — its reward was the Pegasus Boots.)"
+     },
+     {
+      "id": "albw_ms_to_woods",
+      "k": "step",
+      "t": "Head to the Lost Woods in the northwest of Hyrule (above Kakariko Village). Enter the forest and work your way inward toward the deep clearing where the Master Sword sits in a stone pedestal."
+     },
+     {
+      "id": "albw_ms_maze",
+      "k": "tip",
+      "t": "The Lost Woods can loop you back if you wander off the trail. Keep following the main path inward toward the open glade; once you reach the meadow with the pedestal, you're through.",
+      "stuck": "If the forest keeps sending you back, stop guessing side turns and stick to the worn path leading deeper in. Head for the bright open meadow at the heart of the woods — that's where the pedestal is, not the smaller side exits."
+     },
+     {
+      "id": "albw_ms_draw",
+      "k": "reward",
+      "t": "Stand at the pedestal and pull. With all three Pendants, Link draws the Master Sword — your true blade, stronger than the Forgotten Sword, and it fires a Sword Beam when you're at full hearts.",
+      "items": [
+       {
+        "name": "Master Sword",
+        "cat": "sword",
+        "note": "Drawn from the Lost Woods pedestal with all three Pendants of Virtue. Stronger than your starter blade; fires a Sword Beam at full health."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "albw_ms_castle",
+    "name": "Storming Hyrule Castle",
+    "sub": "Yuga strikes",
+    "steps": [
+     {
+      "id": "albw_ms_castle_opens",
+      "k": "step",
+      "t": "With the Master Sword in hand, the magical barrier sealing Hyrule Castle drops. Cross the central drawbridge and go inside — Yuga is loose in the castle and you have to chase him up through it."
+     },
+     {
+      "id": "albw_ms_rent_first",
+      "k": "tip",
+      "t": "This is a story climb plus a boss, not a full dungeon, so no single item is required — but bring something for ranged hits and crowds. The Bow is the safest pick for archers and for tagging Yuga, and Bombs help. Restock at Ravio's Shop back at your house if you're light.",
+      "stuck": "Low on gear? Warp home, talk to Ravio, and rent the Bow (and Bombs). Rented items share one green energy meter that refills over time, so there's no ammo to run out of — just let it recharge. Heal up and stock potions/fairies before you go back in."
+     },
+     {
+      "id": "albw_ms_climb",
+      "k": "step",
+      "t": "Fight your way up floor by floor. Soldiers, archers, and Ball-and-Chain Soldiers block the stairs; clear each room to open the way up, and keep ascending through the stairwells."
+     },
+     {
+      "id": "albw_ms_merge_castle",
+      "k": "tip",
+      "t": "A few routes only open by merging into the wall. Press flat against a marked wall to slide past barred gates or around corners that look blocked, then come off the wall on the far ledge.",
+      "stuck": "Hit a barred door or a gap you can't walk across? Look for a flat wall beside it. Hold the merge button to flatten into the wall, slide along it past the bars or across the gap, then step off the wall on the other side."
+     },
+     {
+      "id": "albw_ms_loot_castle",
+      "k": "loot",
+      "t": "Sweep each room as you climb — pots, cut grass, and small chests hand out rupees and hearts. Top off your health before the top floor."
+     },
+     {
+      "id": "albw_ms_zelda_painted",
+      "k": "step",
+      "t": "You reach Zelda's room near the top — but you're too late. Yuga turns Princess Zelda into a painting before your eyes, then flees upward. Chase him to the roof.",
+      "stuck": "There's no fighting this part — it's a cutscene. Once Yuga paints Zelda and escapes upward, just follow the stairs up to the rooftop where he's waiting."
+     },
+     {
+      "id": "albw_ms_rooftop",
+      "k": "step",
+      "t": "Reach the top of the castle. Yuga is waiting on the roof — this is where the chapter's boss fight begins."
+     }
+    ]
+   },
+   {
+    "id": "albw_ms_yuga",
+    "name": "Yuga & the Crack to Lorule",
+    "sub": "Find the real one",
+    "steps": [
+     {
+      "id": "albw_ms_confront",
+      "k": "step",
+      "t": "Fight Yuga on the rooftop. He slides into the walls and splits into three copies that pop out to attack — only one is the real Yuga.",
+      "stuck": "Watch their hands: the REAL Yuga carries a glowing/flaming staff — the clones don't. When they lean out of the wall, strike the one holding the staff (sword, Sword Beam at full hearts, or the Bow all work). Hitting a clone just spawns a Soldier, so pick the right target. Keep an eye on where he slides between rounds."
+     },
+     {
+      "id": "albw_ms_dodge",
+      "k": "tip",
+      "t": "His attacks: he fills the room with lightning bolts (small safe gaps open up), makes fire erupt from the walls, or spawns Soldiers. Land hits on the real Yuga fast — once he's hurt enough he rages and his lightning gets much harder to dodge.",
+      "stuck": "Lightning everywhere? Stand in the small clear spots between the bolts and wait it out, then punish him when he reappears. The faster you damage the real Yuga, the fewer of these patterns you have to survive."
+     },
+     {
+      "id": "albw_ms_beaten",
+      "k": "step",
+      "t": "Beat Yuga and he retreats — fleeing back down to Zelda's room. Follow him."
+     },
+     {
+      "id": "albw_ms_fissure",
+      "k": "step",
+      "t": "In Zelda's room Yuga has vanished into a strange crack in the wall — a portal out of Hyrule. Step into the crack to be pulled through into LORULE, Hyrule's twisted dark twin.",
+      "stuck": "Walk into the glowing crack in the wall where Yuga disappeared. It works like a one-way portal — you don't merge here, you just touch it and you're dragged through to Lorule."
+     },
+     {
+      "id": "albw_ms_hilda",
+      "k": "step",
+      "t": "On the far side you meet Princess Hilda, ruler of Lorule. She explains where you are and what's needed next. Lorule is now open — your path forward runs through this broken mirror of Hyrule."
+     },
+     {
+      "id": "albw_ms_lorule_note",
+      "k": "tip",
+      "t": "Lorule is the same map as Hyrule, but cracked and dangerous. You can cross back to Hyrule through matching cracks/fissures — use that to keep renting gear from Ravio and to grab anything you missed."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_dark",
+  "name": "The Dark Palace",
+  "sub": "Sage Gulley",
+  "champion": "Sage Gulley",
+  "tagline": "Lorule's first dungeon — pitch black, and a painted Sage to free.",
+  "sections": [
+   {
+    "id": "albw_dark_approach",
+    "name": "Gear Up & Cross to Lorule",
+    "sub": "Rent Bombs (and the Lamp), then merge into Lorule",
+    "steps": [
+     {
+      "id": "albw_dark_rent_lamp",
+      "k": "step",
+      "t": "Before you go, stop at Ravio's Shop. You'll need Bombs — you literally bomb the dungeon entrance open and Bombs are how you damage the boss. Rent the Lamp too: parts of the dungeon are pitch black and the Lamp lights your way.",
+      "stuck": "Ravio's Shop is set up inside your own house in Hyrule's Kakariko area. Bombs are the must-have here (entrance + boss); the Lamp lets you see in the dark rooms. Rented items share your green energy meter — they don't run out of ammo, they just pause while the meter refills.",
+      "items": [
+       {
+        "name": "Lamp",
+        "cat": "item",
+        "note": "Rented from Ravio — lights the pitch-dark rooms"
+       }
+      ]
+     },
+     {
+      "id": "albw_dark_cross_fissure",
+      "k": "step",
+      "t": "Go to the Eastern Palace in Hyrule and head south. Bomb the boulder blocking the path to reveal a wall crack (a fissure), then merge into the wall to slip through to Lorule.",
+      "stuck": "From the Eastern Palace, travel south until rocks block the way — drop a Bomb to clear them and expose the glowing crack. Press flat against the wall with Ravio's Bracelet to become a painting and slide through the fissure into Lorule."
+     },
+     {
+      "id": "albw_dark_enter",
+      "k": "step",
+      "t": "On the Lorule side, climb up to the Dark Palace grounds. The approach is a maze patrolled by guards whose red sight-beams you must avoid — wall-merge past them, then bomb open the palace entrance.",
+      "stuck": "Watch the guards' red detection beams. Merge into a wall and wait for a guard to turn away, then slip past. When two guards patrol together, wait until they face opposite directions and run between them. At the entrance, drop a Bomb to blast it open and head inside."
+     }
+    ]
+   },
+   {
+    "id": "albw_dark_inside",
+    "name": "Light Your Way Down",
+    "sub": "Dark rooms, merge routes, and the path to the boss",
+    "steps": [
+     {
+      "id": "albw_dark_light_torches",
+      "k": "tip",
+      "t": "Many rooms inside are pitch black. Use the Lamp to brighten them so you can actually see pits, switches, and enemies before you move — light first, then explore."
+     },
+     {
+      "id": "albw_dark_merge_walls",
+      "k": "step",
+      "t": "When a path is blocked by barred grates or a gap you can't cross, merge into the wall with Ravio's Bracelet and slide along it to the other side.",
+      "stuck": "Press against a flat wall to become a painting, then walk sideways. Use it to pass barred fences, round corners over pits, and reach ledges you can't jump to. Several rooms here only open up this way."
+     },
+     {
+      "id": "albw_dark_small_key",
+      "k": "loot",
+      "t": "Clear switches and enemies as you descend to collect the Small Keys for the locked doors deeper in. Don't skip a chest just because a room is dark — light it with the Lamp and check.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens this dungeon's locked doors"
+       }
+      ]
+     },
+     {
+      "id": "albw_dark_big_key",
+      "k": "loot",
+      "t": "Find the Big Key before the boss door. It's at the end of the dungeon's main puzzle chain — hit the switches, light the rooms, and merge across to reach it.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the boss door at the bottom of the Dark Palace"
+       }
+      ]
+     },
+     {
+      "id": "albw_dark_boss_door",
+      "k": "step",
+      "t": "Take the Big Key to the large boss door at the bottom of the palace and open it to face the Gemesaur King."
+     }
+    ]
+   },
+   {
+    "id": "albw_dark_boss",
+    "name": "Boss: Gemesaur King",
+    "sub": "Light the braziers, shatter the mask, hit the forehead",
+    "steps": [
+     {
+      "id": "albw_dark_boss_intro",
+      "k": "warn",
+      "t": "The boss room starts in total darkness. Light the two braziers — in the northwest and southeast corners — to make the Gemesaur King appear and start the fight.",
+      "stuck": "Use the Lamp to ignite both corner braziers. Until the room is lit, the boss won't show itself."
+     },
+     {
+      "id": "albw_dark_boss_bomb",
+      "k": "step",
+      "t": "With the room lit, the Gemesaur King stalks you and fires crystal shards (and swings its tail). When it pauses, throw or plant a Bomb against its crystal-covered mask. Keep bombing the mask until it shatters and the gem armor breaks apart.",
+      "stuck": "Bombs are the only thing that breaks its armor here (thrown skulls from the room work too). Stand clear of its crystal shots, wait for it to stop moving, lay a Bomb at its head, and repeat until the mask cracks off and the body's crystal plating falls away."
+     },
+     {
+      "id": "albw_dark_boss_weakpoint",
+      "k": "step",
+      "t": "Once the mask and armor shatter, its weak point — the gem on its forehead — is exposed. Rush in and strike it with your sword, then back off before it recovers.",
+      "stuck": "After the armor breaks, the glowing weak point sits on its forehead. Get a couple of sword hits in, then retreat out of range of its lunge and tail before going again."
+     },
+     {
+      "id": "albw_dark_boss_dark",
+      "k": "warn",
+      "t": "After enough damage it roars and snuffs out the braziers, turning the room black. In the dark it's invincible and faster — and shoots five crystals instead of three. You can only see its glowing eyes."
+     },
+     {
+      "id": "albw_dark_boss_relight",
+      "k": "step",
+      "t": "Relight both braziers to revert it to its vulnerable form, then resume bombing the mask and slashing the forehead. Wall-merge to dodge its charges while you get the torches lit.",
+      "stuck": "During the dark phase, ignore attacking — get the two braziers re-lit (Lamp, or thrown skulls). Merge into a wall to slip past its rushes safely. Once both are burning again it's vulnerable, so repeat the bomb-then-sword loop until it falls."
+     },
+     {
+      "id": "albw_dark_free_gulley",
+      "k": "step",
+      "t": "With the Gemesaur King defeated, grab the full Heart Container it leaves, then step into the light at the back of the room to reach the painting of the trapped Sage.",
+      "stuck": "After the boss falls, take the Heart Container and approach the framed painting on the wall to free the Sage."
+     },
+     {
+      "id": "albw_dark_reward",
+      "k": "reward",
+      "t": "Free Sage Gulley from the painting — your friend Gulley, Lorule's first freed Sage, joins your quest as the Dark Palace's trophy.",
+      "items": [
+       {
+        "name": "Sage Gulley",
+        "cat": "key",
+        "note": "The freed Sage — your reward for clearing the Dark Palace"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_swamp",
+  "name": "The Swamp Palace",
+  "sub": "Sage Oren",
+  "champion": "Sage Oren",
+  "tagline": "Drain the moat, juggle the water level, hook across, free the Zora Sage.",
+  "sections": [
+   {
+    "id": "albw_swamp_prep",
+    "name": "Gear Up & Reach the Palace",
+    "sub": "Rent the Hookshot, then drain the moat to open the door",
+    "steps": [
+     {
+      "id": "albw_swamp_rent_hookshot",
+      "k": "loot",
+      "t": "Before you go, stop at Ravio's Shop and rent the Hookshot. This whole dungeon is built around it — you'll fire it at wooden posts to reel yourself across water and pits.",
+      "stuck": "Ravio's Shop is the house Link starts in, back in Hyrule (near Kakariko). Rent the Hookshot at the counter; it draws from the green energy meter, so there's no ammo to run out of — just let the meter refill between shots.",
+      "items": [
+       {
+        "name": "Hookshot",
+        "cat": "item",
+        "note": "Rented from Ravio. Fires a chain that grabs wooden posts/chests and pulls Link across gaps; runs off the shared green energy meter."
+       }
+      ]
+     },
+     {
+      "id": "albw_swamp_to_lorule",
+      "k": "step",
+      "t": "Cross into Lorule and head for its swamp in the south. Lorule is the same map as Hyrule, just twisted, so the palace sits where you'd expect it.",
+      "stuck": "You reach Lorule through the purple wall fissures (cracks). Use the one nearest the swamp; if the geography looks familiar, that's intentional — Lorule mirrors Hyrule."
+     },
+     {
+      "id": "albw_swamp_bomb_flower",
+      "k": "step",
+      "t": "The palace door is sealed and the grounds are flooded. To open it up, rent a Big Bomb Flower from the Bomb Shop (south of Thieves' Town, 200 rupees), carry it carefully to the cracked stone slab by the entrance, and blow it up — this drains the water and clears the way in.",
+      "stuck": "The Big Bomb Flower auto-lights and explodes on a timer, and any enemy hit will set it off early — take a clear path and don't dawdle. Set it right next to the slab, back off, and the blast both breaks the slab and drains the moat so you can walk in."
+     }
+    ]
+   },
+   {
+    "id": "albw_swamp_inside",
+    "name": "Inside: Raise, Lower, Hook Across",
+    "sub": "Work the central water lever and grapple your way deeper",
+    "steps": [
+     {
+      "id": "albw_swamp_water_lever",
+      "k": "step",
+      "t": "This dungeon hinges on one trick: a central water lever with Hookshot symbols on the floor. Hook the RIGHT side to RAISE the water, the LEFT side to LOWER it. There are three levels — change the level to open up different rooms.",
+      "stuck": "Stand on the marked spot and fire the Hookshot at the side of the lever you want. Pulling LEFT drops the water so you can walk the lower floor and grab what's hidden there; pulling RIGHT floats you up to higher ledges and doors. You'll do both, more than once.",
+      "items": []
+     },
+     {
+      "id": "albw_swamp_small_key",
+      "k": "loot",
+      "t": "With the water LOWERED, explore the dry lower floor and grab the Small Key the flood normally hides. Use it on the locked door barring the way forward.",
+      "stuck": "If the key sits across a gap, fire the Hookshot at a wooden post on the far side to reel yourself over. If it's blocked by water, lower the level first at the nearest lever.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens a locked door deeper in the palace."
+       }
+      ]
+     },
+     {
+      "id": "albw_swamp_hook_across",
+      "k": "step",
+      "t": "Use the Hookshot to cross the wide water rooms — aim at the wooden posts and chests on the far ledge and let the chain reel you over.",
+      "stuck": "The Hookshot only grabs wooden objects — posts, pegs, treasure chests — not bare stone walls. Line Link up straight with the target so the chain pulls him cleanly across."
+     },
+     {
+      "id": "albw_swamp_reflood",
+      "k": "step",
+      "t": "To reach the higher exits and the boss door, go back to a lever and RAISE the water — the rising flood lifts you up to ledges you couldn't reach on the dry floor.",
+      "stuck": "Same lever, opposite side: hook the RIGHT side to raise it. The puzzle of this dungeon is juggling the level — lower to walk the bottom and grab the key, raise to float up to the next door.",
+      "items": []
+     },
+     {
+      "id": "albw_swamp_compass_chest",
+      "k": "loot",
+      "t": "Open the chests you pass for the dungeon Map, Compass, and rupees — the Compass helps you spot the boss door before the fight.",
+      "stuck": "A chest across water still needs the Hookshot or a water-level change to reach. Line up on a wooden post or peg near it, or adjust the level at the lever first.",
+      "items": []
+     }
+    ]
+   },
+   {
+    "id": "albw_swamp_boss",
+    "name": "Arrghus & the Sage",
+    "sub": "Strip the small eyes, slash the big one, free Sage Oren",
+    "reward": "Sage Oren joins you",
+    "steps": [
+     {
+      "id": "albw_swamp_boss_intro",
+      "k": "warn",
+      "t": "Boss ahead: Arrghus — a giant central eye ringed by a cloud of smaller eyes. Touching the ring hurts, so peel the small eyes off before you go for the middle."
+     },
+     {
+      "id": "albw_swamp_boss_strip",
+      "k": "step",
+      "t": "Hookshot one of the small surrounding eyes to yank it off Arrghus, then slash that eye with your sword to destroy it. Repeat — pull one off, kill it — until the whole ring is gone and the central eye is bare.",
+      "stuck": "Stand back and fire the Hookshot straight at a small eye; the chain drags it off. The moment it's loose, close in and sword it before it drifts back, then repeat on the next one. Clear the ring before you commit to the center."
+     },
+     {
+      "id": "albw_swamp_boss_eye",
+      "k": "step",
+      "t": "With the ring gone, the bare central eye starts hopping around the room — leaping to land on you and firing shots that burst into circles on the water. Dodge the landings and the bursts, then close in and slash the eye. Keep at it until it falls.",
+      "stuck": "Watch its shadow and step out from under the leaps; when it shoots, the danger is the delayed circle that erupts on the water, not the beam itself — get clear of those, then run in and slash between attacks."
+     },
+     {
+      "id": "albw_swamp_heart",
+      "k": "loot",
+      "t": "Take the Heart Container Arrghus leaves behind to raise your max hearts.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "item",
+        "note": "Permanently adds one heart to your life meter."
+       }
+      ]
+     },
+     {
+      "id": "albw_swamp_free_oren",
+      "k": "reward",
+      "t": "Step into the light where the boss fell to free Sage Oren, the Zora Queen, from her painting. Her portrait joins your collection of rescued Sages.",
+      "stuck": "After Arrghus is defeated, the light appears in the boss room — walk into it to release the Sage and leave the palace.",
+      "items": [
+       {
+        "name": "Sage Oren",
+        "cat": "key",
+        "note": "The freed Zora Sage — one of the seven you must rescue across Lorule."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_skull",
+  "name": "Skull Woods",
+  "sub": "Sage Seres",
+  "champion": "Sage Seres",
+  "tagline": "Lorule's dark forest of giant skulls, where a borrowed Fire Rod lights the way.",
+  "sections": [
+   {
+    "id": "albw_skull_prep",
+    "name": "Into Lorule's Forest",
+    "sub": "Bring the Fire Rod, reach the woods",
+    "steps": [
+     {
+      "id": "albw_skull_rod",
+      "k": "loot",
+      "t": "Before heading to Lorule, stop at Ravio's Shop and RENT the Fire Rod — it shoots short bursts of flame to burn enemies and light torches. Skull Woods is actually one of the few dungeons not built around a single rented item, so it isn't strictly required, but the Fire Rod makes it far easier: it one-shots the tough skeletons and lights torches from a distance.",
+      "stuck": "Ravio's Shop is the house you live in back in Hyrule (Link's home). The Fire Rod sits on one of the wall pegs — pick it up, choose Rent, and it joins your item ring. Like all rented gear it runs on your green energy meter, not on ammo.",
+      "items": [
+       {
+        "name": "Fire Rod",
+        "cat": "item",
+        "note": "Rented from Ravio — bursts of flame to burn enemies and light torches; uses the green energy meter. Very useful here but not strictly required."
+       }
+      ]
+     },
+     {
+      "id": "albw_skull_locate",
+      "k": "step",
+      "t": "Cross into Lorule and head to the dark forest in its northwest — the twisted mirror of Hyrule's Lost Woods. Skull Woods sits where the Lost Woods would be on the Hyrule map.",
+      "stuck": "The easiest route is the warp fissure by Rosso's House (up in Hyrule's northern forest near the Lost Woods) — drop through it to land in Lorule's northwest, then make your way to the skull-filled woods."
+     },
+     {
+      "id": "albw_skull_fog",
+      "k": "tip",
+      "t": "The forest is dark and overgrown. Use Fire Rod bursts to torch the bushes and enemies blocking your way — clearing them opens the path between the giant skulls."
+     },
+     {
+      "id": "albw_skull_entrance",
+      "k": "step",
+      "t": "Look for the giant skull-shaped faces on the forest surface. Merge into the walls and slide between skulls to cross gaps you can't walk over and reach the skull whose mouth is the dungeon entrance.",
+      "stuck": "Press into a flat wall with the Bracelet to become a painting, then slide sideways into a neighboring skull's wall to cross the gaps. Work your way over to the skull whose open mouth leads inside."
+     }
+    ]
+   },
+   {
+    "id": "albw_skull_dungeon",
+    "name": "Inside the Skull",
+    "sub": "Fire Rod puzzles, small keys, and the Big Key",
+    "steps": [
+     {
+      "id": "albw_skull_torches",
+      "k": "step",
+      "t": "Inside, some doors stay sealed until you light every torch in the room. Zap each unlit torch with a Fire Rod burst — once they're all lit, the barred gate drops and the way opens.",
+      "stuck": "If a room feels like a dead end, count the torches — one is usually still dark, often tucked in a corner or across a gap you have to reach with a Fire Rod shot. Light them all and the gate opens."
+     },
+     {
+      "id": "albw_skull_merge",
+      "k": "step",
+      "t": "Use wall-merge to cross rooms split by pits and grates: press flat into a wall and slide around the gap to a far ledge or to the other side of a barred fence.",
+      "stuck": "When a chest or door is across a pit with no floor, look for a continuous wall that wraps around it. Merge in, glide along that wall past the gap, and step off onto the ledge on the far side."
+     },
+     {
+      "id": "albw_skull_skeletons",
+      "k": "tip",
+      "t": "The skeleton enemies (Gibdos and Wallmasters) here are tough and shrug off sword hits. A single Fire Rod burst burns them up fast, so lead with flame."
+     },
+     {
+      "id": "albw_skull_key",
+      "k": "loot",
+      "t": "Grab the small keys along the way — they open the locked interior doors. Then claim the Big Key from a large chest deeper in the dungeon; it opens the boss door.",
+      "items": [
+       {
+        "name": "Small Key",
+        "cat": "key",
+        "note": "Opens a locked interior door."
+       },
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "From a large chest — opens the door to Knucklemaster."
+       }
+      ]
+     },
+     {
+      "id": "albw_skull_bossdoor",
+      "k": "step",
+      "t": "Use the Big Key on the boss door and continue to Knucklemaster's chamber. Top up your energy meter and refill hearts before you step through.",
+      "stuck": "The boss room here is a wide chamber with walls on every side — that's important, because you'll be merging into those walls to beat the boss."
+     }
+    ]
+   },
+   {
+    "id": "albw_skull_boss",
+    "name": "Knucklemaster",
+    "sub": "The giant gauntleted hand",
+    "reward": "Sage Seres freed",
+    "steps": [
+     {
+      "id": "albw_skull_boss_intro",
+      "k": "warn",
+      "t": "Boss: Knucklemaster — a huge gauntleted hand with a single eye in its palm. It clenches into a fist and rams across the floor at you, then rises up to slam down. You can't out-tank its punch, so keep near a wall and be ready to merge."
+     },
+     {
+      "id": "albw_skull_boss_fight",
+      "k": "step",
+      "t": "When Knucklemaster clenches into a fist and charges at you, merge flat into a wall — it punches the wall instead of you and stuns itself, flipping over to expose the eye in its palm. Pop out and slash that eye as many times as you can before it recovers. Repeat the cycle. After it takes damage it gets faster and slams more often, but the trick never changes — wall-merge to dodge, then strike the eye.",
+      "stuck": "Stand right next to a wall. The instant it balls up and glows to charge, merge into that wall so the fist smacks the wall and freezes. Then unmerge and hammer the exposed eye with your sword. When the hand leaps up to slam the floor, run clear (or merge again) until it comes down. There's no gem on the back and it doesn't split apart — every hit goes to the eye."
+     },
+     {
+      "id": "albw_skull_heart",
+      "k": "loot",
+      "t": "When Knucklemaster is destroyed, grab the Heart Container it leaves behind to raise your maximum hearts.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "item",
+        "note": "Raises your maximum hearts by one."
+       }
+      ]
+     },
+     {
+      "id": "albw_skull_seres",
+      "k": "reward",
+      "t": "Step through the north door and touch the trapped painting to free the Sage inside. Sage Seres is rescued — one of the seven Sages of Lorule whose power you'll need to mend the broken world.",
+      "items": [
+       {
+        "name": "Sage Seres",
+        "cat": "key",
+        "note": "The freed Sage — one of the seven Sages of Lorule."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_thieves",
+  "name": "Thieves' Hideout",
+  "sub": "Sage Osfala",
+  "champion": "Sage Osfala",
+  "tagline": "Break a fellow prisoner out — and a Sage with her.",
+  "kind": "region",
+  "sections": [
+   {
+    "id": "albw_thieves_prep",
+    "name": "Before You Go In",
+    "sub": "An escort, not an item dungeon",
+    "steps": [
+     {
+      "id": "albw_thieves_no_item",
+      "k": "tip",
+      "t": "This dungeon hands out no new tool of its own — it's an escort. Your job is to break the Thief Girl out of her cell and walk her to safety in one piece. Wall Merge is still your main trick for slipping past grates and bars, and it's how you win the boss."
+     },
+     {
+      "id": "albw_thieves_rent_bombs",
+      "k": "tip",
+      "t": "Bombs help here — one cracked wall blocks the path. Rent Bombs from Ravio's Shop if you don't have them, or pick up and throw one of the dungeon's bomb-carrying enemies (Bawb) to blow the wall instead."
+     },
+     {
+      "id": "albw_thieves_warn_escort",
+      "k": "warn",
+      "t": "If an enemy grabs the Thief Girl, she's dragged all the way back to her cell and you restart the escort. Clear a room of enemies FIRST, then bring her through — she won't fight or defend herself."
+     }
+    ]
+   },
+   {
+    "id": "albw_thieves_breakout",
+    "name": "Free the Thief Girl",
+    "sub": "Open her cell, then escort her out",
+    "steps": [
+     {
+      "id": "albw_thieves_find_cell",
+      "k": "step",
+      "t": "Work down into the hideout to the barred cell where the Thief Girl is held. The door won't open from your side — you reach the release another way.",
+      "stuck": "Merge into the wall and slide along it to slip past the bars INTO the cell, then press the button inside to open the door. Talk to her and she'll follow you out (press A to lead her, A again to make her wait)."
+     },
+     {
+      "id": "albw_thieves_switches",
+      "k": "step",
+      "t": "From here many doors need TWO weights held at once. Lead the Thief Girl onto one floor-switch, split off (press A), and stand on the other yourself to keep the barred door open while you both cross.",
+      "stuck": "Walk her onto the second floor-switch and press A to leave her there, then step onto yours. With both pressed the door stays up — bring her through before you step off."
+     },
+     {
+      "id": "albw_thieves_bomb_walls",
+      "k": "step",
+      "t": "Where the path dead-ends at a cracked wall, set a Bomb (or throw a bomb enemy) to blow it open and continue. Clear any skeletons in the next room before you lead her in."
+     },
+     {
+      "id": "albw_thieves_exit_first",
+      "k": "optional",
+      "t": "There's a front exit you can take once the path is clear, but the boss and the captive Sage are still below — press on to the lower chamber instead."
+     }
+    ]
+   },
+   {
+    "id": "albw_thieves_stalblind",
+    "name": "Boss: Stalblind",
+    "sub": "Merge onto its shield, then strike its back",
+    "reward": "Sage Osfala freed",
+    "steps": [
+     {
+      "id": "albw_thieves_boss_intro",
+      "k": "step",
+      "t": "In the boss chamber the giant skeletal knight Stalblind rises behind a huge shield and sword. While the shield is up you can't hit it head-on — the merge is the answer.",
+      "stuck": "Swipe at Stalblind so it raises its shield to block, then Wall Merge ONTO the shield itself. When it pulls the shield back to look for you, pop out of the wall behind it and slash its exposed back. (Bombs do NOT help here.)"
+     },
+     {
+      "id": "albw_thieves_boss_strike",
+      "k": "step",
+      "t": "Repeat the shield-merge cycle a few times. After about the third round Stalblind throws its shield aside and the real swordfight begins — it gets faster and lunges with sword slashes.",
+      "stuck": "In this sword phase it's only vulnerable while it's mid-attack. Dodge its slashes (a vertical chop briefly sticks in the floor), avoid the spinning charge, and strike back during the openings."
+     },
+     {
+      "id": "albw_thieves_boss_down",
+      "k": "step",
+      "t": "At low health its head detaches and flies around the room spewing dark magic while the headless body wanders and swings blindly.",
+      "stuck": "The body can't see you — stay directly BEHIND it, ignore the flying skull's magic, and keep hitting the body until Stalblind shatters. The Sage's painting is freed."
+     },
+     {
+      "id": "albw_thieves_free_osfala",
+      "k": "reward",
+      "t": "Free Osfala — the would-be hero who was turned into a painting by Yuga is restored as one of the Seven Sages. He also hands you the Sand Rod he'd borrowed — though Sheerow snatches it back the moment you step into Lorule, so you'll rent it from Ravio to actually use it.",
+      "items": [
+       {
+        "name": "Sage Osfala",
+        "cat": "key",
+        "note": "A freed Sage — one of seven needed to face Yuga in Lorule. (Osfala also returns the borrowed Sand Rod; rent it from Ravio's Shop to use.)"
+       }
+      ]
+     },
+     {
+      "id": "albw_thieves_after",
+      "k": "tip",
+      "t": "With Osfala saved you're one Sage closer to the full set. Warp back and keep clearing Lorule's dungeons — each freed Sage strengthens the path to the final fight."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "albw_ice",
+  "name": "The Ice Ruins",
+  "sub": "Sage Rosso",
+  "champion": "Sage Rosso",
+  "tagline": "A frozen Lorule tower you descend, thawed with the Fire Rod.",
+  "sections": [
+   {
+    "id": "albw_ice_prep",
+    "name": "Before You Go In",
+    "sub": "Rent the Fire Rod, then reach Lorule's frozen peak",
+    "steps": [
+     {
+      "id": "albw_ice_rent_firerod",
+      "k": "loot",
+      "t": "Stop at Ravio's Shop and rent the Fire Rod. This dungeon is built around it — you'll melt ice statues and blocks, and it's the only thing that cracks the boss's ice shell. Don't head up the mountain without it.",
+      "stuck": "Ravio's Shop is the house in your village that he took over early on. RENT the Fire Rod (don't buy) — it shares a green energy meter that refills on its own, so you never run out of ammo, only need to wait a moment.",
+      "items": [
+       {
+        "name": "Fire Rod",
+        "cat": "item",
+        "note": "Rented from Ravio — melts ice and cracks the boss's shell."
+       }
+      ]
+     },
+     {
+      "id": "albw_ice_reach",
+      "k": "step",
+      "t": "The Ice Ruins sits on Lorule's snowy Death Mountain — the frozen twin of Hyrule's volcano. Climb Hyrule's Death Mountain to Rosso's Ore Mine, drop through the fissure there into Lorule, then work your way up the icy cavern to the summit.",
+      "stuck": "From the Tower of Hera area, head east and into the mountain cave to reach Rosso's Ore Mine; the crack (fissure) in there is your warp into Lorule's Death Mountain. Touch a wall and merge to slip through the narrow gaps in the climb."
+     },
+     {
+      "id": "albw_ice_entrance_gargoyle",
+      "k": "step",
+      "t": "At the summit the dungeon door is blocked by a frozen gargoyle statue. Torch it with the Fire Rod to clear the way, light the weather vane, and step inside.",
+      "stuck": "One Fire Rod blast melts the ice off the gargoyle blocking the entrance. (Grab the Maiamai stuck on the back of the building while you're here.)"
+     },
+     {
+      "id": "albw_ice_descend_warn",
+      "k": "warn",
+      "t": "Despite looking like a tower, you go DOWN through this dungeon — a central elevator drops you floor by floor (B1, B2…) toward the boss at the very bottom. Many floors are slick ice that slides you one way, so look before you move."
+     },
+     {
+      "id": "albw_ice_merge_tip",
+      "k": "tip",
+      "t": "This dungeon leans hard on Wall Merge. When a ledge, switch, or chest looks unreachable, press flat into a nearby wall with the Bracelet and slide along it as a painting to get there — you can even slide through grates."
+     }
+    ]
+   },
+   {
+    "id": "albw_ice_climb",
+    "name": "Down Through the Frozen Tower",
+    "sub": "Ride the elevator down, melt the ice, grab the Big Key",
+    "steps": [
+     {
+      "id": "albw_ice_elevator",
+      "k": "step",
+      "t": "Use the central elevator to move between floors — pull a statue's tongue or hit the switch to call it, ride it down, and explore each level. The elevator is your spine through the whole dungeon.",
+      "stuck": "Statues with a tongue you can grab usually move a platform or the big elevator. Pull the tongue, then step onto the platform before it carries off."
+     },
+     {
+      "id": "albw_ice_melt_blocks",
+      "k": "step",
+      "t": "Use the Fire Rod on ice blocks and frozen floors barring your path — a blast melts them so you can pass or expose solid ground to stand and merge on.",
+      "stuck": "Aim straight at a block and fire. If a whole patch of icy floor blocks you, torch it to reveal the floor beneath."
+     },
+     {
+      "id": "albw_ice_merge_climbs",
+      "k": "step",
+      "t": "Cross gaps by merging into the flat walls that connect ledges — slide across as a painting and pop out the far side. Watch for grates you can slide right through.",
+      "stuck": "When a platform sits across a gap with a flat wall linking the two, merge into that wall, slide across, and emerge on the platform."
+     },
+     {
+      "id": "albw_ice_thaw_switch",
+      "k": "step",
+      "t": "Some switches and chests are frozen solid or walled off by ice. Melt the ice with the Fire Rod first, then hit the switch or merge over to the chest."
+     },
+     {
+      "id": "albw_ice_bosskey",
+      "k": "loot",
+      "t": "Take the main elevator all the way down to the bottom floor (B5) to find the room with the Big Key. Grab it, then ride back to the boss door.",
+      "stuck": "The Big Key is on the lowest floor — ride the central elevator down past the other levels; that floor is basically just the Big Key chest. Then use it on the big locked door near the boss.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Found on B5 — opens the door to Dharkstare."
+       }
+      ]
+     },
+     {
+      "id": "albw_ice_save_energy",
+      "k": "tip",
+      "t": "The Fire Rod runs off a shared green energy meter that refills on its own. If it's low from puzzles, just wait a second for it to top up before you open the boss door."
+     }
+    ]
+   },
+   {
+    "id": "albw_ice_boss",
+    "name": "Boss: Dharkstare",
+    "sub": "Melt its ice shell, then cut it with the sword",
+    "reward": "Sage Rosso freed",
+    "steps": [
+     {
+      "id": "albw_ice_boss_intro",
+      "k": "step",
+      "t": "Through the boss door, on a slick hexagonal platform, floats Dharkstare — a one-eyed ice beast sealed in a crystal shell. The Fire Rod is its one weakness."
+     },
+     {
+      "id": "albw_ice_boss_thaw",
+      "k": "step",
+      "t": "Hit Dharkstare with the Fire Rod about three times to melt its ice shell. Once the shell is gone it's exposed — THEN do the real damage with your sword before it freezes back up.",
+      "stuck": "The Fire Rod only cracks the shell; it's the SWORD that hurts Dharkstare. Melt the ice (≈3 Fire Rod hits), rush in with sword slashes, then re-melt when it re-freezes. At full hearts your sword beams add extra hits from range."
+     },
+     {
+      "id": "albw_ice_boss_dodge",
+      "k": "step",
+      "t": "Watch for its freeze attack: it drops orbs that form a triangle on the floor and freezes anything inside after a moment, plus it rams you and fires icicles. Use the Tornado Rod (or just keep moving off the ice) to escape the triangle before it goes off.",
+      "stuck": "When the three orbs land and start forming a triangle, get OUT of it — a quick Tornado Rod lift pulls you free instantly. Later it uses six crystals (two triangles at once), so leave yourself more room."
+     },
+     {
+      "id": "albw_ice_boss_warn",
+      "k": "warn",
+      "t": "You can't kill Dharkstare with the Fire Rod alone — it only opens the window. If the green meter runs dry, circle and dodge until it refills, then melt and strike again."
+     },
+     {
+      "id": "albw_ice_heart",
+      "k": "loot",
+      "t": "With Dharkstare beaten, a Heart Container appears. Grab it to permanently raise your maximum hearts.",
+      "items": [
+       {
+        "name": "Heart Container",
+        "cat": "item",
+        "note": "Boss reward — adds one heart to your max."
+       }
+      ]
+     },
+     {
+      "id": "albw_ice_free_rosso",
+      "k": "reward",
+      "t": "A beam lowers, letting you reach the painting that holds Sage Rosso to the north. Touch it to free him — another of Lorule's seven Sages is safe and lending you his power.",
+      "items": [
+       {
+        "name": "Sage Rosso",
+        "cat": "key",
+        "note": "Freed Sage — one of the seven you must rescue."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_desert",
+  "name": "The Desert Palace",
+  "sub": "Sage Irene",
+  "champion": "Sage Irene",
+  "tagline": "Raise sand pillars to climb a desert palace.",
+  "kind": "region",
+  "sections": [
+   {
+    "id": "albw_desert_prep",
+    "name": "Reach the Desert",
+    "sub": "Rent the Sand Rod and get to the desert palace",
+    "steps": [
+     {
+      "id": "albw_desert_rent",
+      "k": "step",
+      "t": "Before anything else, return to Ravio's Shop and rent the Sand Rod. The whole palace is built around it — without it you can't enter or solve a single room. (It only shows up on Ravio's hooks after you've cleared the Thieves' Hideout.)",
+      "stuck": "Ravio's Shop is in your house in Kakariko Village. Stand in front of the Sand Rod on its hook and press the button to rent it. Items share the green Energy meter — they don't run out of ammo, so don't worry about 'using it up.'",
+      "items": [
+       {
+        "name": "Sand Rod",
+        "cat": "item",
+        "note": "Rented from Ravio. Raises a row of sand pillars you can ride and stand on."
+       }
+      ]
+     },
+     {
+      "id": "albw_desert_test",
+      "k": "tip",
+      "t": "Aim the Sand Rod at a patch of loose sand and hold the button: a row of pillars rises along the line you aim. You ride up on top of them — that's how you reach higher ledges and bridge gaps all dungeon long."
+     },
+     {
+      "id": "albw_desert_entry",
+      "k": "step",
+      "t": "The Desert Palace sits in the Desert of Mystery, in Hyrule's far southwest. The quickest way in is from the matching spot in Lorule: take a warp fissure just north of the Misery Mire entrance to pop back into Hyrule's desert near the palace, then use the Sand Rod to cross the sand pits to the door and step inside.",
+      "stuck": "At the entrance, aim the Sand Rod across the sand pits to raise a bridge of pillars, then walk over them to the door. The desert sand can drag you — line your pillars up before you step out."
+     }
+    ]
+   },
+   {
+    "id": "albw_desert_palace",
+    "name": "Inside the Desert Palace",
+    "sub": "Climb the palace by raising sand",
+    "steps": [
+     {
+      "id": "albw_desert_climb",
+      "k": "step",
+      "t": "Work upward through the rooms. Whenever you see a gap, a high ledge, or a sand floor you can't cross, aim the Sand Rod to raise pillars and ride them up or across. This is the core of every puzzle here."
+     },
+     {
+      "id": "albw_desert_merge",
+      "k": "tip",
+      "t": "For narrow slots the Sand Rod can't bridge, use Ravio's Bracelet to merge into the wall and slide around the gap — pillars get you up, wall-merging gets you past. Watch for Beamos turrets too: merge or duck behind cover to avoid their beam."
+     },
+     {
+      "id": "albw_desert_sandstreams",
+      "k": "step",
+      "t": "In rooms with moving sand, a raised pillar makes a still patch to stand on. Use pillars as stepping stones and as little dams so the flowing sand can't sweep you off the platform.",
+      "stuck": "If the moving sand keeps carrying you away, raise a pillar right in the path of the flow to make a still spot, hop onto it, and plan your next pillar before the first one sinks."
+     },
+     {
+      "id": "albw_desert_bigkey",
+      "k": "loot",
+      "t": "Grab the Big Key on your way up — it's in a large chest on an upper platform (raise a pillar to climb to the out-of-reach ledge). You'll need it for the boss door.",
+      "items": [
+       {
+        "name": "Big Key",
+        "cat": "key",
+        "note": "Opens the Desert Palace boss door."
+       }
+      ]
+     },
+     {
+      "id": "albw_desert_bossdoor",
+      "k": "step",
+      "t": "Reach the top and open the boss door with the Big Key. Outside the final chamber you'll find a warp fissure to Lorule's Misery Mire — step through to drop into the boss arena. Keep the Sand Rod equipped; you'll need it the instant the fight starts."
+     }
+    ]
+   },
+   {
+    "id": "albw_desert_boss",
+    "name": "Boss: Zaganaga",
+    "sub": "The desert flower-beast",
+    "steps": [
+     {
+      "id": "albw_desert_zaganaga",
+      "k": "step",
+      "t": "Zaganaga lurks in a wide pit of quicksand you can't walk on, surfacing on top of one scattered pillar at a time. Aim the Sand Rod to raise a bridge of pillars from where you stand toward it, then hop across the tops to close the distance.",
+      "stuck": "Watch the sand to see where it's burrowing — it always pops up on a pillar. Raise a fresh line of pillars toward that pillar each time it warps, and use the tops as stepping stones to chase it across the pit."
+     },
+     {
+      "id": "albw_desert_shooteye",
+      "k": "step",
+      "t": "Get next to it and hit it with your Sword — its weak point is the cluster of eyes at its center. If it's lined up across the pit but too far to reach, you can poke it with the Bow for a little safe ranged damage. Slash the Peahats it spits as they flutter at you (one hit each) so they don't knock you into the sand.",
+      "stuck": "The Bow is optional, not required — it only lands when Zaganaga is on a straight line from you. The reliable plan is to keep raising pillars, get in close, and sword the eyes; clear any Peahats first so you don't get bumped off."
+     },
+     {
+      "id": "albw_desert_finish",
+      "k": "step",
+      "t": "After enough hits its petals flare open and it speeds up, now firing a slow, steady blast of sand. Outrun the blast by riding your pillars to the side — it turns slowly — then keep raising pillars to reach it and strike the eyes until it goes down.",
+      "stuck": "Don't stand still during the sand blast. Lay a pillar line off to one side and ride along it; by the time the beam swings to follow, you're already moving to the next pillar and back in range."
+     },
+     {
+      "id": "albw_desert_irene",
+      "k": "reward",
+      "t": "With Zaganaga beaten, the sand at the arena's edge spills away to reveal a Heart Container and the trapped Sage. Sage Irene joins you — her power helps weaken Yuga's hold and brings you one step closer to freeing all seven Sages.",
+      "items": [
+       {
+        "name": "Sage Irene",
+        "cat": "key",
+        "note": "The freed Sage of the Desert Palace."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "albw_turtle",
+  "name": "Turtle Rock",
+  "sub": "Sage Impa",
+  "champion": "Sage Impa",
+  "tagline": "A mother turtle, a lava maze, and the seventh Sage.",
+  "sections": [
+   {
+    "id": "albw_turtle_find",
+    "name": "Reaching the Turtles",
+    "sub": "Cross to Lorule and rescue three baby turtles",
+    "steps": [
+     {
+      "id": "albw_turtle_intro",
+      "k": "tip",
+      "t": "Turtle Rock sits out in the middle of a lake in southeastern Lorule. To open the way in, you first rescue a mother turtle's three lost babies scattered around that Lorule lake. This is the last dungeon before Lorule Castle, so come stocked on hearts and potions."
+     },
+     {
+      "id": "albw_turtle_rent_ice",
+      "k": "step",
+      "t": "Before anything, go to Ravio's Shop and rent (or buy) the Ice Rod. The whole dungeon runs on freezing lava into solid platforms you can walk or merge on, so do NOT enter without it.",
+      "stuck": "Ravio's Shop is your old house in Hyrule. The Ice Rod is the blue rod that shoots a freezing blast. It's the one item you absolutely need here — rent it even if you have to return another rented item to afford it.",
+      "items": [
+       {
+        "name": "Ice Rod",
+        "cat": "item",
+        "note": "Rented from Ravio — freezes lava (and enemies) into solid platforms"
+       }
+      ]
+     },
+     {
+      "id": "albw_turtle_fissure",
+      "k": "step",
+      "t": "Cross into Lorule for the turtle lake. From Hyrule's Lake Hylia, head to the area just east of the lake and go north — use the warp fissure there to drop into Lorule. You'll come out at Lorule's matching lake.",
+      "stuck": "A fissure is one of the glowing cracks in the world that swaps you between Hyrule and Lorule. The one you want is east of Lake Hylia and a bit north. Step into it to appear at the Lorule lake where the turtles are."
+     },
+     {
+      "id": "albw_turtle_three_turtles",
+      "k": "step",
+      "t": "Rescue the three baby turtles around the Lorule lake. One is flipped on its back on the southwest shore — stand next to it to flip it back into the water. One is stranded in shallow water on the west side, guarded by enemies — clear them to free it. The third is stuck on the wall north of the lake.",
+      "stuck": "For the wall turtle: go to the cliff northwest of the lake, merge into the wall with the Bracelet, and slide east — you'll pop out right behind the turtle. For the water one, just defeat every enemy around it. Freeing all three is what summons the mother."
+     },
+     {
+      "id": "albw_turtle_dungeon_opens",
+      "k": "step",
+      "t": "With all three babies safe, the mother turtle starts swimming the lake. Swim to her and climb onto the top of the turtle stack — she'll carry you to the palace in the middle of the lake. At the ledge, freeze the pillar of lava (geyser) with the Ice Rod, merge into it, slide around to the north side, pop out, and step into Turtle Rock.",
+      "stuck": "Wait for the mother turtle to swim near, then stand on top of the stacked turtles and let her ferry you to the palace. The lava pillar by the entrance won't hold you until you Ice-Rod it solid — freeze it, merge in, go around to the dungeon door, and pop out."
+     }
+    ]
+   },
+   {
+    "id": "albw_turtle_dungeon",
+    "name": "The Lava Maze",
+    "sub": "Freeze a path to the boss",
+    "reward": "Big Key + the way to Grinexx",
+    "steps": [
+     {
+      "id": "albw_turtle_freeze_lava",
+      "k": "tip",
+      "t": "The core trick all dungeon long: blast lava (and the lava-pillar geysers) with the Ice Rod to harden it into a temporary stepping or merge platform, then cross before it melts. The same blast freezes enemies solid. Watch your green energy meter — let it refill between shots."
+     },
+     {
+      "id": "albw_turtle_small_keys",
+      "k": "step",
+      "t": "Work through the early rooms freezing lava and geysers to make footing. Small Keys here open locked doors — grab them from chests and after clearing rooms, and don't waste one on the wrong door.",
+      "stuck": "If a platform melts before you reach the far side, you fired too early. Walk right up to the lava's edge, freeze the nearest stretch, step on, then freeze the next stretch from there — build your bridge one chunk at a time."
+     },
+     {
+      "id": "albw_turtle_merge_walls",
+      "k": "step",
+      "t": "Several gaps can't be bridged by ice — instead freeze a lava pillar and merge into it, or merge into a wall with the Bracelet and slide around the lava or grates to the far side. Look for the wall sections and pillars that line up with where you need to go.",
+      "stuck": "Press the Bracelet button while facing a flat wall (or a frozen pillar) to flatten into it as a painting. Slide along past the lava, around the corner, or behind a grate, then press out again on solid ground on the other side."
+     },
+     {
+      "id": "albw_turtle_loot",
+      "k": "loot",
+      "t": "Sweep the side rooms for chests as you go — Turtle Rock hides Rupees, a Piece of Heart, and useful refills. Freezing nearby foes makes these detours much safer.",
+      "items": [
+       {
+        "name": "Piece of Heart",
+        "cat": "material",
+        "note": "Hidden in a Turtle Rock side chamber"
+       }
+      ]
+     },
+     {
+      "id": "albw_turtle_big_key",
+      "k": "step",
+      "t": "Find the Big Key, then ride the ice and merge routes to the boss door. Refill hearts and your potion at the last safe room before you open it.",
+      "stuck": "The Big Key chest sits beyond a lava stretch that needs the Ice Rod — freeze across to its ledge, or freeze a pillar and merge to reach it, depending on the room. With the Big Key in hand, the large locked door opens to Grinexx."
+     }
+    ]
+   },
+   {
+    "id": "albw_turtle_boss",
+    "name": "Grinexx & Sage Impa",
+    "sub": "Beat the boss, free the seventh Sage",
+    "reward": "Sage Impa",
+    "steps": [
+     {
+      "id": "albw_turtle_boss_intro",
+      "k": "tip",
+      "t": "Grinexx is a giant lava turtle. The arena is a grated metal floor over a lava pool, with holes in the center and the four corners. Keep the Ice Rod equipped and watch for bursts of lava erupting through the floor."
+     },
+     {
+      "id": "albw_turtle_boss_phase1",
+      "k": "step",
+      "t": "Phase 1: Grinexx swims in the lava below the floor. Wait for it to pass under one of the holes, then fire the Ice Rod straight down through the hole to drop an ice block on it. Dodge the lava geysers that erupt up through the grate between shots. About five hits drops it into phase 2.",
+      "stuck": "You're aiming DOWN through the holes, not at a weak spot up at your level. Stand by a hole, watch the shadow of Grinexx swim under it, and Ice-Rod it as it passes. If a geyser is coming up through your hole, freeze it or step off first."
+     },
+     {
+      "id": "albw_turtle_boss_phase2",
+      "k": "step",
+      "t": "Phase 2: Grinexx erupts and surfaces, cycling between a headbutt (it shoots its head out on a spring neck), an explosion, and a shell spin. Sword its HEAD whenever it's exposed — the headbutt is your best opening. Back off from the explosion and the spin, then punish when it tires.",
+      "stuck": "To bait the headbutt safely, freeze one of the lava pillars and merge onto it — when Grinexx shoots its head at the pillar it gets stunned, and you can pop out and hammer its head with the sword. Repeat head-strikes until it goes down."
+     },
+     {
+      "id": "albw_turtle_free_impa",
+      "k": "reward",
+      "t": "With Grinexx defeated, the Heart Container appears — grab it — then go north and stand beneath the painting of Sage Impa and touch it to free her. She is the SEVENTH and final Sage; rescuing her breaks the seal on Lorule Castle.",
+      "items": [
+       {
+        "name": "Sage Impa",
+        "cat": "key",
+        "note": "The seventh and final Sage — freeing her opens Lorule Castle"
+       }
+      ]
+     },
+     {
+      "id": "albw_turtle_next",
+      "k": "tip",
+      "t": "All seven Sages are now safe and the seal on Lorule Castle is broken — Yuga and Princess Hilda await inside. Top off hearts, potions, and any rentals, then head for the castle for the finale."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
+ },
+ {
+  "id": "albw_ganon",
+  "name": "Lorule Castle & Yuga Ganon",
+  "sub": "The final battle",
+  "champion": null,
+  "tagline": "Seven Sages open the castle. End the curse on two worlds.",
+  "sections": [
+   {
+    "id": "albw_ganon_open",
+    "name": "The Barrier Falls",
+    "sub": "Seven Sages, one open road",
+    "steps": [
+     {
+      "id": "albw_ganon_seven",
+      "k": "step",
+      "t": "With all seven Sages freed from Yuga's paintings, Hilda drops the glowing barrier around Lorule Castle. Head to the castle at the center of Lorule and step inside."
+     },
+     {
+      "id": "albw_ganon_gear",
+      "k": "tip",
+      "t": "This is the run-up, not yet a point of no return — you can still leave and prepare. Before you commit, top up healing items and make sure your most-used rented items are in hand. If you returned any to Ravio, re-rent what the climb needs first."
+     },
+     {
+      "id": "albw_ganon_rent_items",
+      "k": "tip",
+      "t": "The climb is a tour of your whole kit — bring Bombs and your merge bracelet for the puzzles, plus a torch-lighting tool (Fire Rod or Lamp) for the fire rooms. You do NOT need to save a bow for the boss: the finishing weapon is given to you mid-fight.",
+      "items": [
+       {
+        "name": "Bombs",
+        "cat": "item",
+        "note": "For blast puzzles inside the castle"
+       },
+       {
+        "name": "Ravio's Bracelet",
+        "cat": "item",
+        "note": "Merge into walls to round corners and reach ledges"
+       }
+      ]
+     },
+     {
+      "id": "albw_ganon_save",
+      "k": "warn",
+      "t": "Save before you push deep into the castle. The climb has four mini-bosses and a long, multi-phase boss fight with no shop between."
+     }
+    ]
+   },
+   {
+    "id": "albw_ganon_climb",
+    "name": "Climbing Lorule Castle",
+    "sub": "Merge, burn, and fight to the top",
+    "steps": [
+     {
+      "id": "albw_ganon_floor1",
+      "k": "step",
+      "t": "Work upward floor by floor. A central hub branches into separate wings, each a merge-and-tool puzzle — slip into walls to round corners and reach far ledges, light torches, and hit out-of-reach switches to open the next door."
+     },
+     {
+      "id": "albw_ganon_merge_grates",
+      "k": "step",
+      "t": "When a path looks blocked by railings or a gap, merge into the wall and slide past the grate or along the ledge to the other side. Pressing flat onto the wall is the answer to most 'there's no way across' rooms here.",
+      "stuck": "Stand beside the wall and merge (Ravio's Bracelet) to become a moving painting. Glide along the wall past the bars or across the gap, then step off on the far ledge. A wall with a gap in it can't be crossed there — find an unbroken stretch."
+     },
+     {
+      "id": "albw_ganon_torch_room",
+      "k": "step",
+      "t": "In the fire rooms, light the marked torches to drop the barriers. Use a Fire Rod or Lamp to reach torches you can't touch directly, and watch for sweeping walls of flame.",
+      "stuck": "If torches sit behind bars, light them from the wall: merge in, line up with the torch through the grate, and hit it with the Fire Rod. Some rooms want you to dodge a moving wall of fire between lightings — wait for the gap, then move."
+     },
+     {
+      "id": "albw_ganon_miniboss",
+      "k": "step",
+      "t": "Each wing ends in a mini-boss guarding a switch — expect a Ball and Chain Soldier, a Moldorm, a returning Barinade, and Arrghus. Beat all four to open the way up.",
+      "stuck": "Ball and Chain Soldier: merge into a nearby wall, slide around behind him, step off, and strike his back. Arrghus: knock off its floating jelly first, then attack the eye. Moldorm: hit only the glowing tail tip and don't get knocked off the platform."
+     },
+     {
+      "id": "albw_ganon_key_room",
+      "k": "loot",
+      "t": "Grab small keys and chests as you climb — pots and hidden corners hide hearts you'll want before the top."
+     },
+     {
+      "id": "albw_ganon_top_door",
+      "k": "step",
+      "t": "Climb the final stairs to the throne room at the top of the castle. Step through to trigger the confrontation."
+     }
+    ]
+   },
+   {
+    "id": "albw_ganon_throne",
+    "name": "The Throne Room",
+    "sub": "Yuga's true plan",
+    "steps": [
+     {
+      "id": "albw_ganon_hilda",
+      "k": "step",
+      "t": "Princess Hilda meets you at the throne — she has taken Zelda's Triforce of Wisdom and now summons Yuga. Yuga revives Ganon from the paintings and absorbs him, claiming the Triforce of Power and becoming Yuga Ganon. The boss fight begins."
+     },
+     {
+      "id": "albw_ganon_warn_painting",
+      "k": "warn",
+      "t": "Yuga Ganon can flatten into the walls just like you, traveling as a painting and lunging out. Once you have the Bow of Light, this is exactly when you'll punish him — but at the start, keep your distance from walls he's about to spring from."
+     }
+    ]
+   },
+   {
+    "id": "albw_ganon_boss",
+    "name": "Yuga Ganon",
+    "sub": "Final boss",
+    "reward": "The curse on Hyrule and Lorule is broken",
+    "steps": [
+     {
+      "id": "albw_ganon_phase_sword",
+      "k": "step",
+      "t": "Phase 1 is a sword fight. Yuga Ganon stabs and swings his trident; he's open right after he attacks. Sidestep the swing, then close in and slash. As his health drops he attacks twice in a row and hurls the trident across the room — keep moving and only strike in his recovery windows.",
+      "stuck": "Don't trade blows during his swing. Wait for the trident to finish, step to his side or back, and get a couple of hits in before he resets. When he throws the trident and vanishes, watch where he reappears to catch it and avoid that spot."
+     },
+     {
+      "id": "albw_ganon_phase_volley",
+      "k": "step",
+      "t": "Phase 2 is Dead Man's Volley — a game of tennis. Yuga Ganon fires an energy orb; swing your sword to bat it back. Keep the rally going until the orb strikes him and stuns him, and he merges flat into the wall as a painting.",
+      "stuck": "Time your sword swing as the orb reaches you to send it back, not before. The orb speeds up each return — stay centered so you can react either way. Once it hits him, he'll slip into the wall: that's your cue for the next step."
+     },
+     {
+      "id": "albw_ganon_phase_bow",
+      "k": "step",
+      "t": "The moment he becomes a painting, Princess Zelda speaks from her own painting and gives you the BOW OF LIGHT — usable only while you're merged into a wall. Shoot him; he'll block from the front and charge along the wall at you, so step out and merge BEHIND him, then hit his back.",
+      "items": [
+       {
+        "name": "Bow of Light",
+        "cat": "bow",
+        "note": "Given by Princess Zelda during the fight — only works while merged into a wall"
+       }
+      ],
+      "stuck": "Merge into a wall, aim the Bow of Light at Yuga Ganon, and fire. He blocks head-on and rushes you — pop out of the wall, run around, and re-merge behind him so your next light arrow lands in his back."
+     },
+     {
+      "id": "albw_ganon_phase_final",
+      "k": "step",
+      "t": "Final phase: he throws two orbs at once — bat both back to stun him into the wall again. Now he blocks every arrow you fire straight at him. Fire one AWAY from him instead: the light arrow loops all the way around the room and strikes his unguarded back.",
+      "stuck": "When direct shots just bounce off his front, turn and shoot in the opposite direction. The arrow travels the rim of the room and hits him from behind. That forces him out of the wall — finish him with the Master Sword."
+     },
+     {
+      "id": "albw_ganon_defeat",
+      "k": "reward",
+      "t": "The around-the-room arrow exposes Yuga Ganon; close in and land the finishing blow with the Master Sword. Beaten, he turns on Hilda — but it's over. The dark grip on both worlds breaks.",
+      "stuck": "There's no secret input — once his health is gone and he's pulled from the wall, your Master Sword strike ends the fight, and the ending plays automatically."
+     },
+     {
+      "id": "albw_ganon_triforce",
+      "k": "step",
+      "t": "In the aftermath, Princess Zelda and the restored Triforce mend Lorule's dying world, and Link returns home. Watch the ending — you've finished A Link Between Worlds."
+     }
+    ]
+   }
+  ],
+  "kind": "region"
  }
 ]
