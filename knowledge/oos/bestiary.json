@@ -1,0 +1,194 @@
+{
+ "basics": [
+  {
+   "title": "Sword slash & the charged Spin Attack",
+   "body": "Your sword is your main weapon — tap B to slash. Hold B down until Link flashes and glows, then release a Spin Attack that hits every direction at once. The Spin Attack is your bread-and-butter move against bosses and crowds: it does double damage and clears enemies pressing in from all sides. Find Sword upgrades (the Noble Sword, and the Master Sword in a Linked Game) to hit harder."
+  },
+  {
+   "title": "Reshape the fight with the Rod of Seasons",
+   "body": "The Rod of Seasons lets you change Holodrum's season — but only while standing on a tree stump. Each season reshapes the land: Winter freezes water so you can walk across it and piles snowdrifts you can climb; Autumn grows mushrooms and drops leaves that fill in small holes; Summer makes vines flourish so you can scale cliffs (and dries up some creek beds); Spring sprouts flower bulbs that bounce you up to high ledges. Before a tough overworld stretch or a puzzle-arena, set the season that gives you the footing — or removes the hazard — you need. You earn each season's power one at a time from the season spirits in the Temple of Seasons, down in Subrosia."
+  },
+  {
+   "title": "Magic Seeds turn your Satchel into a toolbox",
+   "body": "Seeds from a Seed Tree load into your Seed Satchel and feed tools like the Slingshot. The four combat-relevant types: Ember Seeds light torches and burn enemies (and damage ice-form foes like Frypolar); Scent Seeds lure or damage and load the Slingshot; Pegasus Seeds make Link dash at super speed (and can stun); Mystery Seeds have varied effects and are the trick to forcing certain enemies to switch forms (Frypolar) or revealing things. Refill at any Seed Tree — never walk into a dungeon with an empty satchel."
+  },
+  {
+   "title": "Equip a magic Ring for a passive power",
+   "body": "Rings are equippable trinkets hidden or dropped all over Holodrum, but they're useless until appraised — take any unidentified ring to Vasu in Horon Village to ID it, then equip it from your Ring Box. Each gives a passive effect: the Power Ring boosts your attack but you also take more damage; the Blue Ring halves the damage you take (but also halves your sword power); the Red Ring doubles your sword damage. Only one ring's effect is active at a time, so swap to whichever suits the fight — a damage ring to race a boss down, the Blue Ring to survive a brutal one."
+  },
+  {
+   "title": "Ride your animal companion",
+   "body": "Early on you befriend ONE of three animal friends (whichever flute you get): Ricky the boxing kangaroo (punches enemies, bounds up steep cliffs and over small holes), Dimitri the Dodongo (swims even deep water, eats foes, climbs waterfalls), or Moosh the winged bear (hovers and flies over gaps, then ground-pounds enemies). Play the flute to call yours and ride it across the overworld. Each has its own attack and crosses terrain Link can't, so they double as a way to skip hazards and bowl through weak enemies on the way to a dungeon."
+  },
+  {
+   "title": "Bottled fairies & Gasha-nut goodies keep you alive",
+   "body": "Store a fairy in a bottle and it revives you automatically the instant your hearts hit zero — your single best insurance for a boss fight, so catch one before any big battle. Bottles also hold Potion (heals on use). Plant a Gasha Seed in a soft-soil spot, and over time (as you walk around) a Gasha Nut grows — crack it for hearts, rupees, rings, or rarer goodies. Walk into Onox's castle with a full heart bar, a bottled fairy, and a Potion in reserve."
+  }
+ ],
+ "enemies": [
+  {
+   "name": "Octorok",
+   "tier": "common",
+   "tactic": "A land octopus that spits rocks at you from a distance. Close the gap and slash it, or raise your shield to deflect its rock. Two quick sword hits put it down.",
+   "drops": "Rupees, hearts"
+  },
+  {
+   "name": "Moblin",
+   "tier": "common",
+   "tactic": "Pig-faced grunt that either charges or hurls arrows from afar. Strafe around its shots, get in close, and slash — a couple of hits or one Spin Attack finishes it. Beware groups in dungeons.",
+   "drops": "Rupees, hearts"
+  },
+  {
+   "name": "Like Like",
+   "tier": "common",
+   "tactic": "A tube-shaped muncher that swallows Link and eats his shield. WARNING: in Oracle of Seasons, killing the Like Like does NOT give your shield back — once it's eaten, it's gone. So never let one grab you: stay back and hit it with a projectile (Slingshot/Boomerang), or slash it from a safe angle. If it does grab you, mash buttons to break free fast.",
+   "drops": "Hearts, rupees"
+  },
+  {
+   "name": "Rope (snake)",
+   "tier": "common",
+   "tactic": "A small snake that slithers slowly until it spots you, then lunges in a fast straight-line dash. Watch for the lunge, sidestep, and slash — one hit usually kills it.",
+   "drops": "Hearts, rupees"
+  },
+  {
+   "name": "Beetle",
+   "tier": "common",
+   "tactic": "Small bugs that skitter erratically. Just slash them as they pass; they're fragile, but their unpredictable movement can chip you in numbers. Some come in spiked variants (see Spiked Beetle).",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Crow / Kargaroc",
+   "tier": "common",
+   "tactic": "Birds that stay perched until you approach, then swoop. Hit them before they take off, or slash mid-swoop. The larger Kargaroc hits harder — bait the dive, dodge, then counter.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Stalfos",
+   "tier": "common",
+   "tactic": "Skeleton soldier that hops around and sometimes swings a sword or throws bones. Approach, bait its move, then slash; a Spin Attack handles a cornered one. Some leap at you, so don't stand flat-footed.",
+   "drops": "Rupees, hearts"
+  },
+  {
+   "name": "Goriya",
+   "tier": "common",
+   "tactic": "Boomerang-thrower — it lobs a boomerang that returns to it, so block the throw with your shield or rush in while the boomerang is away from it, then close and slash.",
+   "drops": "Rupees, hearts"
+  },
+  {
+   "name": "Pols Voice",
+   "tier": "common",
+   "tactic": "A floating, rabbit-eared blob that bounces around and shrugs off the sword. Its real weakness is the Flute (the one you get from your animal friend) — play it to wipe them out. Bombs and thrown Pots also kill them.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Spiked Beetle",
+   "tier": "common",
+   "tactic": "A beetle with a spiked shell — slashing the top does nothing. Flip it first: a Pegasus-Seed dash or a shield bash rolls it onto its back, then slash the soft underside. Bombs also crack it.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Zol / Gel",
+   "tier": "common",
+   "tactic": "A gel blob (Zol) that splits into two smaller, faster Gels when struck. Don't leave the Gels alive — they swarm. A Spin Attack hits the Zol and both Gels at once, or burn the lot with Ember Seeds.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Agunima",
+   "tier": "mini-boss",
+   "tactic": "The mini-boss of the Dancing Dragon Dungeon (D4). A sorcerer who throws fireballs and splits into three identical copies — only the real one can be hit, and only after you light the room's torches.",
+   "drops": "Heart refills; opens the way deeper into the dungeon",
+   "battle": "Bring: a stocked Seed Satchel with Ember Seeds (the bushes in the room's corners refill them if you run low). Opening: Agunima splits into three copies arranged around the room and flings fireballs. Sword hits do nothing until you reveal the real one. Loop: light the two torches in the center with Ember Seeds — now ONLY the genuine Agunima casts a shadow. Quickly dash to the copy with the shadow and slash it (you usually get two hits before the torches go out and he scatters again). Relight the torches and repeat. Weak point: the real Agunima's body, but only while the torches are lit and his shadow shows."
+  },
+  {
+   "name": "Facade",
+   "tier": "mini-boss",
+   "tactic": "The mini-boss of Snake's Remains (D2). A face that rises out of the floor; the sword can't touch it, so you drop Bombs on it. It spits fireballs, raises tiles to shoot at you, opens holes in the floor, and drops Beetles.",
+   "drops": "Opens the path forward",
+   "battle": "Bring: Bombs (essential — the sword does nothing here). Opening: Facade appears as a face in the floor and attacks with falling fireballs, rising floor tiles, sudden holes, and Beetles from the ceiling. Loop: stand near the center where it surfaces, set a Bomb right between its eyes, and step away so the blast lands on the face — direct bomb hits are the only damage. It takes about four solid hits. Dodge the projectiles and don't get caught over the holes that open between throws. Weak point: the face/eyes, struck only by Bombs."
+  },
+  {
+   "name": "Vire",
+   "tier": "mini-boss",
+   "tactic": "The mini-boss of the Ancient Ruins (D6). A winged demon that flies at you and fires a pair of blue projectiles or a single red one that homes in. When hurt enough, it splits into two Keese-like bats.",
+   "drops": "Opens the path forward",
+   "battle": "Bring: your sword (charge it for Spin Attacks). Opening: Vire flies around the room shooting blue projectiles and the occasional homing red shot, and dives straight at you — keep moving and strafe. Loop: land sword hits whenever it dips toward you or pauses (Bombs work too). After enough damage it splits into two Keese-like bats — finish each with the sword before they wear you down. Weak point: Vire's body, then the two split bats."
+  },
+  {
+   "name": "Frypolar",
+   "tier": "mini-boss",
+   "tactic": "The fire-and-ice mini-boss of the Sword & Shield Maze (D8). It shifts between a fire form (shoots fiery geysers) and an ice form (raises ice pillars). The way you damage it depends on its current form, and a Mystery Seed forces it to switch forms (but does no damage itself).",
+   "drops": "Opens the rest of the Sword & Shield Maze",
+   "battle": "Bring: a Seed Satchel stocked with Ember Seeds and Mystery Seeds, the Slingshot, and the Power Bracelet. The rule: it can only be hurt while it's in ICE form. Ice form: shoot it with Ember Seeds to burn it. Fire form: it can't be hit by anything directly — fire a Mystery Seed at it to flip it back to ice, then Ember it. (Alternative: sprinkle a Mystery Seed on one of its ice pillars to shrink it, lift the shrunken block with the Power Bracelet, and hurl it at Frypolar.) Loop: keep it in ice form with Mystery Seeds and pour on Ember Seeds, dodging the fire geysers and ice pillars between hits. Weak point: Frypolar, while it's in ice form."
+  },
+  {
+   "name": "Aquamentus",
+   "tier": "boss",
+   "tactic": "Boss of the Gnarled Root Dungeon (D1). A green dragon that spits a spread of fireballs and rams with the single horn on its head. The horn is its weak point.",
+   "drops": "Heart Container, the 1st Essence of Nature (Fertile Soil)",
+   "battle": "Bring: just your sword and shield — this is the game's first boss and a gentle one. Opening: Aquamentus marches back and forth spitting a fan of fireballs. Raise your shield to block them, or sidestep into the gaps. Loop: close in and slash the horn on its head repeatedly. Stay mobile so its horn-charge doesn't catch you, back off when it lines up a fireball volley, then dart back in. Weak point: the horn — keep hitting it and Aquamentus falls quickly."
+  },
+  {
+   "name": "Dodongo",
+   "tier": "boss",
+   "tactic": "Boss of Snake's Remains (D2). An armored lizard immune to the sword; it breathes fire and charges. You feed it a Bomb to stun it, then throw it onto the room's spikes.",
+   "drops": "Heart Container, the 2nd Essence of Nature (Gift of Time)",
+   "battle": "Bring: Bombs (mandatory) and the Power Bracelet. Sword hits bounce off its hide. Opening: Dodongo lumbers around breathing fire and charging in straight lines — keep to its side. Loop: drop a Bomb in front of its mouth as it inhales so it swallows the bomb; the blast stuns it. While it's stunned, grab it with the Power Bracelet, carry it to the spike pits along the room's edge, and throw it onto the spikes for big damage. Repeat: bomb-to-stun, then pick-up-and-toss onto spikes. Weak point: feed the bomb through its mouth; the spikes deal the real damage."
+  },
+  {
+   "name": "Mothula",
+   "tier": "boss",
+   "tactic": "Boss of the Poison Moth's Lair (D3). A giant moth that flies in loops shooting fireballs, while wind gusts try to push you off the platforms. It's vulnerable when it slows or drops low.",
+   "drops": "Heart Container, the 3rd Essence of Nature (Bright Sun)",
+   "battle": "Bring: your sword, the Roc's Feather (to hop the gaps/wind), and ideally a damage ring. Opening: Mothula circles the room shooting fireballs while wind shoves you toward the edges — use the Feather to keep your footing. Loop: dodge the fireballs and wait for Mothula to slow or drop low, then rush in and slash repeatedly (a charged Spin Attack lands extra hits). Back off when it speeds up. Weak point: its body, while it's slowed or low."
+  },
+  {
+   "name": "Gohma",
+   "tier": "boss",
+   "tactic": "Boss of the Dancing Dragon Dungeon (D4). A giant crab-like insect with a huge claw guarding a single eye. First destroy the claw with the sword, then hit the eye with the Slingshot whenever it opens.",
+   "drops": "Heart Container, the 4th Essence of Nature (Soothing Rain)",
+   "battle": "Bring: the Slingshot (loaded with Ember, Scent, or Mystery Seeds) and your sword; the Roc's Feather helps you dodge its grab. Opening: Gohma charges and tries to grab you with its claw — jump clear with the Feather. Sword hits to the body do nothing while the eye is shut. Loop: slash the claw until it's destroyed (about ten hits), which exposes the eye. Then, whenever the central eye opens, fire Slingshot seeds straight into it — about five hits to the eye finishes it. Swat the little larvae it spawns. Weak point: the claw (sword) first, then the eye (Slingshot seeds), only while open."
+  },
+  {
+   "name": "Digdogger",
+   "tier": "boss",
+   "tactic": "Boss of the Unicorn's Cave (D5). A big one-eyed bouncing creature the sword can't hurt at first; you smash it apart with the room's giant spiked ball using the Magnetic Gloves, then mop up the small pieces with the sword.",
+   "drops": "Heart Container, the 5th Essence of Nature (Nurturing Warmth)",
+   "battle": "Bring: the Magnetic Gloves (the key item) and your sword. Opening: Digdogger hops around the room; direct sword swings just bounce off it. Loop: use the Magnetic Gloves to grab the large spiked iron ball and slam it into Digdogger — the impact breaks it into several small Mini-Digdoggers. Switch to the sword and cut each one down before they regroup (a Spin Attack helps when they cluster). If they re-merge, repeat the spiked-ball hit. Weak point: the spiked ball cracks the big form; the sword finishes the split forms."
+  },
+  {
+   "name": "Manhandla",
+   "tier": "boss",
+   "tactic": "Boss of the Ancient Ruins (D6). A four-headed plant — each flower-head spits fireballs. Destroy all four heads, then use the Boomerang to expose its heart and finish it with one sword strike.",
+   "drops": "Heart Container, the 6th Essence of Nature (Blowing Wind)",
+   "battle": "Bring: the Magical Boomerang (its mouths take damage only from the Boomerang) and your sword. Opening: Manhandla's four mouth-flowers fire in different directions and the plant whips around the room. Loop: throw the Boomerang at the open flower-heads — about three hits each destroys one, and the plant speeds up (often into a figure-eight) as heads fall. With all four heads gone, keep hitting the body with the Boomerang until it stretches and splits open, revealing the heart — then one sword strike on the heart ends it. Weak point: the four flower-heads (Boomerang), then the exposed heart (one sword hit)."
+  },
+  {
+   "name": "Gleeok",
+   "tier": "boss",
+   "tactic": "Boss of the Explorer's Crypt (D7). A two-headed dragon that breathes fire from each head. Sever both heads with the sword; even with the heads gone, the body still flails, so finish it carefully.",
+   "drops": "Heart Container, the 7th Essence of Nature (Seed of Life)",
+   "battle": "Bring: your sword, the Roc's Cape (or Feather) to float over its fire, and a full heart bar. Opening: each of Gleeok's two heads weaves on a long neck and spews fireballs — use the Cape to soar over the flames and stay mobile. Loop: focus one head at a time, slashing its neck/face until it's severed, then do the same to the second. With both heads gone, the body keeps thrashing — jump to dodge its lunges and land the last hits on it. Weak point: the two heads first, then the exposed body."
+  },
+  {
+   "name": "Medusa Head",
+   "tier": "boss",
+   "tactic": "Boss of the Sword & Shield Maze (D8), the final dungeon. A floating sorceress-head that teleports, fires red fireballs and eye-lasers, and spins out blue orbs that turn Link to stone. (Frypolar is this dungeon's mini-boss; Medusa Head is the boss that grants the final essence.)",
+   "drops": "Heart Container, the 8th Essence of Nature (Changing Seasons) — the final essence",
+   "battle": "Bring: the Hyper Slingshot with Pegasus Seeds, the Roc's Cape, and a bottled fairy. The danger is the blue spinning orbs that petrify you — while you're stone, its fireballs hammer you. Opening: it teleports to a corner or the center and unleashes red fireballs, eye-lasers (jumpable), and the swirling blue petrify-orbs. Defense: jump over the orbs (the Roc's Cape lets you stay airborne through the flurry) so you never get frozen. Loop: stun it with a Pegasus-Seed shot from the Hyper Slingshot, then close in and slash it while it's stunned. Repeat: dodge the orbs, Pegasus-Seed stun, sword combo. (Linked-game bonus: a Mirror Shield bounces the blue orbs back to freeze it.) Weak point: its body, while stunned."
+  },
+  {
+   "name": "General Onox",
+   "tier": "boss",
+   "tactic": "The Dragon of Darkness and main villain — first phase, fought in Onox's Castle. An armored general who swings a spiked ball-and-chain. Ordinary slashes barely dent his armor, so you damage him with charged Spin Attacks; partway in he uses the captured Din as a shield.",
+   "drops": "Leads directly into the Dark Dragon (true form) phase",
+   "battle": "Bring: a full heart bar, a bottled fairy, your best sword, the Rod of Seasons, and a damage ring. Opening: Onox whirls a spiked mace on a chain — don't approach from behind the swing. Loop: when the mace passes (dodge with Roc's Cape or Pegasus Seeds), dash in and hit him with a charged Spin Attack — plain swings won't break his armor. Din phase: he sticks the crystal holding Din to himself; the crystal shocks you if you sword it, so swing the Rod of Seasons to knock Din away, then land two or three Spin Attacks while she's clear. After enough damage his armor breaks and he reveals his true shape, the Dark Dragon. Weak point: Onox's body, struck by Spin Attacks between his mace swings."
+  },
+  {
+   "name": "Dark Dragon (Onox's true form)",
+   "tier": "boss",
+   "tactic": "Onox's true form and the final boss. A massive dragon that fills the back of the arena, breathing blue fire, sweeping its claws across the floor, and slamming its hands down. You must ride a slammed hand up and strike the jewel on its forehead.",
+   "drops": "Victory — frees Din and ends Oracle of Seasons",
+   "battle": "Bring: the Roc's Cape, Pegasus Seeds, a full heart bar, and a bottled fairy (this is the last fight — don't go in light). Opening: the Dark Dragon breathes tall blue flames, sweeps a hand across the ground (jump it with the Cape), slams a hand down at you, and rains fireballs. Loop — the damage method: bait a hand slam, and while that hand is briefly stuck on the floor, jump onto it with the Roc's Cape, then jump again up to its head and hit the glowing jewel on its forehead with a charged Spin Attack. Repeat the ride-the-hand, hit-the-jewel cycle until the jewel shatters. Weak point: the crystal/jewel on its forehead, reached only by riding a slammed hand."
+  }
+ ]
+}

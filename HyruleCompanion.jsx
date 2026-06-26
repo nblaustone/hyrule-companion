@@ -45877,7 +45877,198 @@ const OOS = {
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "Octorok",
+    "tier": "common",
+    "tactic": "A land octopus that spits rocks at you from a distance. Close the gap and slash it, or raise your shield to deflect its rock. Two quick sword hits put it down.",
+    "drops": "Rupees, hearts"
+   },
+   {
+    "name": "Moblin",
+    "tier": "common",
+    "tactic": "Pig-faced grunt that either charges or hurls arrows from afar. Strafe around its shots, get in close, and slash — a couple of hits or one Spin Attack finishes it. Beware groups in dungeons.",
+    "drops": "Rupees, hearts"
+   },
+   {
+    "name": "Like Like",
+    "tier": "common",
+    "tactic": "A tube-shaped muncher that swallows Link and eats his shield. WARNING: in Oracle of Seasons, killing the Like Like does NOT give your shield back — once it's eaten, it's gone. So never let one grab you: stay back and hit it with a projectile (Slingshot/Boomerang), or slash it from a safe angle. If it does grab you, mash buttons to break free fast.",
+    "drops": "Hearts, rupees"
+   },
+   {
+    "name": "Rope (snake)",
+    "tier": "common",
+    "tactic": "A small snake that slithers slowly until it spots you, then lunges in a fast straight-line dash. Watch for the lunge, sidestep, and slash — one hit usually kills it.",
+    "drops": "Hearts, rupees"
+   },
+   {
+    "name": "Beetle",
+    "tier": "common",
+    "tactic": "Small bugs that skitter erratically. Just slash them as they pass; they're fragile, but their unpredictable movement can chip you in numbers. Some come in spiked variants (see Spiked Beetle).",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Crow / Kargaroc",
+    "tier": "common",
+    "tactic": "Birds that stay perched until you approach, then swoop. Hit them before they take off, or slash mid-swoop. The larger Kargaroc hits harder — bait the dive, dodge, then counter.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Stalfos",
+    "tier": "common",
+    "tactic": "Skeleton soldier that hops around and sometimes swings a sword or throws bones. Approach, bait its move, then slash; a Spin Attack handles a cornered one. Some leap at you, so don't stand flat-footed.",
+    "drops": "Rupees, hearts"
+   },
+   {
+    "name": "Goriya",
+    "tier": "common",
+    "tactic": "Boomerang-thrower — it lobs a boomerang that returns to it, so block the throw with your shield or rush in while the boomerang is away from it, then close and slash.",
+    "drops": "Rupees, hearts"
+   },
+   {
+    "name": "Pols Voice",
+    "tier": "common",
+    "tactic": "A floating, rabbit-eared blob that bounces around and shrugs off the sword. Its real weakness is the Flute (the one you get from your animal friend) — play it to wipe them out. Bombs and thrown Pots also kill them.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Spiked Beetle",
+    "tier": "common",
+    "tactic": "A beetle with a spiked shell — slashing the top does nothing. Flip it first: a Pegasus-Seed dash or a shield bash rolls it onto its back, then slash the soft underside. Bombs also crack it.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Zol / Gel",
+    "tier": "common",
+    "tactic": "A gel blob (Zol) that splits into two smaller, faster Gels when struck. Don't leave the Gels alive — they swarm. A Spin Attack hits the Zol and both Gels at once, or burn the lot with Ember Seeds.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Agunima",
+    "tier": "mini-boss",
+    "tactic": "The mini-boss of the Dancing Dragon Dungeon (D4). A sorcerer who throws fireballs and splits into three identical copies — only the real one can be hit, and only after you light the room's torches.",
+    "drops": "Heart refills; opens the way deeper into the dungeon",
+    "battle": "Bring: a stocked Seed Satchel with Ember Seeds (the bushes in the room's corners refill them if you run low). Opening: Agunima splits into three copies arranged around the room and flings fireballs. Sword hits do nothing until you reveal the real one. Loop: light the two torches in the center with Ember Seeds — now ONLY the genuine Agunima casts a shadow. Quickly dash to the copy with the shadow and slash it (you usually get two hits before the torches go out and he scatters again). Relight the torches and repeat. Weak point: the real Agunima's body, but only while the torches are lit and his shadow shows."
+   },
+   {
+    "name": "Facade",
+    "tier": "mini-boss",
+    "tactic": "The mini-boss of Snake's Remains (D2). A face that rises out of the floor; the sword can't touch it, so you drop Bombs on it. It spits fireballs, raises tiles to shoot at you, opens holes in the floor, and drops Beetles.",
+    "drops": "Opens the path forward",
+    "battle": "Bring: Bombs (essential — the sword does nothing here). Opening: Facade appears as a face in the floor and attacks with falling fireballs, rising floor tiles, sudden holes, and Beetles from the ceiling. Loop: stand near the center where it surfaces, set a Bomb right between its eyes, and step away so the blast lands on the face — direct bomb hits are the only damage. It takes about four solid hits. Dodge the projectiles and don't get caught over the holes that open between throws. Weak point: the face/eyes, struck only by Bombs."
+   },
+   {
+    "name": "Vire",
+    "tier": "mini-boss",
+    "tactic": "The mini-boss of the Ancient Ruins (D6). A winged demon that flies at you and fires a pair of blue projectiles or a single red one that homes in. When hurt enough, it splits into two Keese-like bats.",
+    "drops": "Opens the path forward",
+    "battle": "Bring: your sword (charge it for Spin Attacks). Opening: Vire flies around the room shooting blue projectiles and the occasional homing red shot, and dives straight at you — keep moving and strafe. Loop: land sword hits whenever it dips toward you or pauses (Bombs work too). After enough damage it splits into two Keese-like bats — finish each with the sword before they wear you down. Weak point: Vire's body, then the two split bats."
+   },
+   {
+    "name": "Frypolar",
+    "tier": "mini-boss",
+    "tactic": "The fire-and-ice mini-boss of the Sword & Shield Maze (D8). It shifts between a fire form (shoots fiery geysers) and an ice form (raises ice pillars). The way you damage it depends on its current form, and a Mystery Seed forces it to switch forms (but does no damage itself).",
+    "drops": "Opens the rest of the Sword & Shield Maze",
+    "battle": "Bring: a Seed Satchel stocked with Ember Seeds and Mystery Seeds, the Slingshot, and the Power Bracelet. The rule: it can only be hurt while it's in ICE form. Ice form: shoot it with Ember Seeds to burn it. Fire form: it can't be hit by anything directly — fire a Mystery Seed at it to flip it back to ice, then Ember it. (Alternative: sprinkle a Mystery Seed on one of its ice pillars to shrink it, lift the shrunken block with the Power Bracelet, and hurl it at Frypolar.) Loop: keep it in ice form with Mystery Seeds and pour on Ember Seeds, dodging the fire geysers and ice pillars between hits. Weak point: Frypolar, while it's in ice form."
+   },
+   {
+    "name": "Aquamentus",
+    "tier": "boss",
+    "tactic": "Boss of the Gnarled Root Dungeon (D1). A green dragon that spits a spread of fireballs and rams with the single horn on its head. The horn is its weak point.",
+    "drops": "Heart Container, the 1st Essence of Nature (Fertile Soil)",
+    "battle": "Bring: just your sword and shield — this is the game's first boss and a gentle one. Opening: Aquamentus marches back and forth spitting a fan of fireballs. Raise your shield to block them, or sidestep into the gaps. Loop: close in and slash the horn on its head repeatedly. Stay mobile so its horn-charge doesn't catch you, back off when it lines up a fireball volley, then dart back in. Weak point: the horn — keep hitting it and Aquamentus falls quickly."
+   },
+   {
+    "name": "Dodongo",
+    "tier": "boss",
+    "tactic": "Boss of Snake's Remains (D2). An armored lizard immune to the sword; it breathes fire and charges. You feed it a Bomb to stun it, then throw it onto the room's spikes.",
+    "drops": "Heart Container, the 2nd Essence of Nature (Gift of Time)",
+    "battle": "Bring: Bombs (mandatory) and the Power Bracelet. Sword hits bounce off its hide. Opening: Dodongo lumbers around breathing fire and charging in straight lines — keep to its side. Loop: drop a Bomb in front of its mouth as it inhales so it swallows the bomb; the blast stuns it. While it's stunned, grab it with the Power Bracelet, carry it to the spike pits along the room's edge, and throw it onto the spikes for big damage. Repeat: bomb-to-stun, then pick-up-and-toss onto spikes. Weak point: feed the bomb through its mouth; the spikes deal the real damage."
+   },
+   {
+    "name": "Mothula",
+    "tier": "boss",
+    "tactic": "Boss of the Poison Moth's Lair (D3). A giant moth that flies in loops shooting fireballs, while wind gusts try to push you off the platforms. It's vulnerable when it slows or drops low.",
+    "drops": "Heart Container, the 3rd Essence of Nature (Bright Sun)",
+    "battle": "Bring: your sword, the Roc's Feather (to hop the gaps/wind), and ideally a damage ring. Opening: Mothula circles the room shooting fireballs while wind shoves you toward the edges — use the Feather to keep your footing. Loop: dodge the fireballs and wait for Mothula to slow or drop low, then rush in and slash repeatedly (a charged Spin Attack lands extra hits). Back off when it speeds up. Weak point: its body, while it's slowed or low."
+   },
+   {
+    "name": "Gohma",
+    "tier": "boss",
+    "tactic": "Boss of the Dancing Dragon Dungeon (D4). A giant crab-like insect with a huge claw guarding a single eye. First destroy the claw with the sword, then hit the eye with the Slingshot whenever it opens.",
+    "drops": "Heart Container, the 4th Essence of Nature (Soothing Rain)",
+    "battle": "Bring: the Slingshot (loaded with Ember, Scent, or Mystery Seeds) and your sword; the Roc's Feather helps you dodge its grab. Opening: Gohma charges and tries to grab you with its claw — jump clear with the Feather. Sword hits to the body do nothing while the eye is shut. Loop: slash the claw until it's destroyed (about ten hits), which exposes the eye. Then, whenever the central eye opens, fire Slingshot seeds straight into it — about five hits to the eye finishes it. Swat the little larvae it spawns. Weak point: the claw (sword) first, then the eye (Slingshot seeds), only while open."
+   },
+   {
+    "name": "Digdogger",
+    "tier": "boss",
+    "tactic": "Boss of the Unicorn's Cave (D5). A big one-eyed bouncing creature the sword can't hurt at first; you smash it apart with the room's giant spiked ball using the Magnetic Gloves, then mop up the small pieces with the sword.",
+    "drops": "Heart Container, the 5th Essence of Nature (Nurturing Warmth)",
+    "battle": "Bring: the Magnetic Gloves (the key item) and your sword. Opening: Digdogger hops around the room; direct sword swings just bounce off it. Loop: use the Magnetic Gloves to grab the large spiked iron ball and slam it into Digdogger — the impact breaks it into several small Mini-Digdoggers. Switch to the sword and cut each one down before they regroup (a Spin Attack helps when they cluster). If they re-merge, repeat the spiked-ball hit. Weak point: the spiked ball cracks the big form; the sword finishes the split forms."
+   },
+   {
+    "name": "Manhandla",
+    "tier": "boss",
+    "tactic": "Boss of the Ancient Ruins (D6). A four-headed plant — each flower-head spits fireballs. Destroy all four heads, then use the Boomerang to expose its heart and finish it with one sword strike.",
+    "drops": "Heart Container, the 6th Essence of Nature (Blowing Wind)",
+    "battle": "Bring: the Magical Boomerang (its mouths take damage only from the Boomerang) and your sword. Opening: Manhandla's four mouth-flowers fire in different directions and the plant whips around the room. Loop: throw the Boomerang at the open flower-heads — about three hits each destroys one, and the plant speeds up (often into a figure-eight) as heads fall. With all four heads gone, keep hitting the body with the Boomerang until it stretches and splits open, revealing the heart — then one sword strike on the heart ends it. Weak point: the four flower-heads (Boomerang), then the exposed heart (one sword hit)."
+   },
+   {
+    "name": "Gleeok",
+    "tier": "boss",
+    "tactic": "Boss of the Explorer's Crypt (D7). A two-headed dragon that breathes fire from each head. Sever both heads with the sword; even with the heads gone, the body still flails, so finish it carefully.",
+    "drops": "Heart Container, the 7th Essence of Nature (Seed of Life)",
+    "battle": "Bring: your sword, the Roc's Cape (or Feather) to float over its fire, and a full heart bar. Opening: each of Gleeok's two heads weaves on a long neck and spews fireballs — use the Cape to soar over the flames and stay mobile. Loop: focus one head at a time, slashing its neck/face until it's severed, then do the same to the second. With both heads gone, the body keeps thrashing — jump to dodge its lunges and land the last hits on it. Weak point: the two heads first, then the exposed body."
+   },
+   {
+    "name": "Medusa Head",
+    "tier": "boss",
+    "tactic": "Boss of the Sword & Shield Maze (D8), the final dungeon. A floating sorceress-head that teleports, fires red fireballs and eye-lasers, and spins out blue orbs that turn Link to stone. (Frypolar is this dungeon's mini-boss; Medusa Head is the boss that grants the final essence.)",
+    "drops": "Heart Container, the 8th Essence of Nature (Changing Seasons) — the final essence",
+    "battle": "Bring: the Hyper Slingshot with Pegasus Seeds, the Roc's Cape, and a bottled fairy. The danger is the blue spinning orbs that petrify you — while you're stone, its fireballs hammer you. Opening: it teleports to a corner or the center and unleashes red fireballs, eye-lasers (jumpable), and the swirling blue petrify-orbs. Defense: jump over the orbs (the Roc's Cape lets you stay airborne through the flurry) so you never get frozen. Loop: stun it with a Pegasus-Seed shot from the Hyper Slingshot, then close in and slash it while it's stunned. Repeat: dodge the orbs, Pegasus-Seed stun, sword combo. (Linked-game bonus: a Mirror Shield bounces the blue orbs back to freeze it.) Weak point: its body, while stunned."
+   },
+   {
+    "name": "General Onox",
+    "tier": "boss",
+    "tactic": "The Dragon of Darkness and main villain — first phase, fought in Onox's Castle. An armored general who swings a spiked ball-and-chain. Ordinary slashes barely dent his armor, so you damage him with charged Spin Attacks; partway in he uses the captured Din as a shield.",
+    "drops": "Leads directly into the Dark Dragon (true form) phase",
+    "battle": "Bring: a full heart bar, a bottled fairy, your best sword, the Rod of Seasons, and a damage ring. Opening: Onox whirls a spiked mace on a chain — don't approach from behind the swing. Loop: when the mace passes (dodge with Roc's Cape or Pegasus Seeds), dash in and hit him with a charged Spin Attack — plain swings won't break his armor. Din phase: he sticks the crystal holding Din to himself; the crystal shocks you if you sword it, so swing the Rod of Seasons to knock Din away, then land two or three Spin Attacks while she's clear. After enough damage his armor breaks and he reveals his true shape, the Dark Dragon. Weak point: Onox's body, struck by Spin Attacks between his mace swings."
+   },
+   {
+    "name": "Dark Dragon (Onox's true form)",
+    "tier": "boss",
+    "tactic": "Onox's true form and the final boss. A massive dragon that fills the back of the arena, breathing blue fire, sweeping its claws across the floor, and slamming its hands down. You must ride a slammed hand up and strike the jewel on its forehead.",
+    "drops": "Victory — frees Din and ends Oracle of Seasons",
+    "battle": "Bring: the Roc's Cape, Pegasus Seeds, a full heart bar, and a bottled fairy (this is the last fight — don't go in light). Opening: the Dark Dragon breathes tall blue flames, sweeps a hand across the ground (jump it with the Cape), slams a hand down at you, and rains fireballs. Loop — the damage method: bait a hand slam, and while that hand is briefly stuck on the floor, jump onto it with the Roc's Cape, then jump again up to its head and hit the glowing jewel on its forehead with a charged Spin Attack. Repeat the ride-the-hand, hit-the-jewel cycle until the jewel shatters. Weak point: the crystal/jewel on its forehead, reached only by riding a slammed hand."
+   }
+  ],
+  "basics": [
+   {
+    "title": "Sword slash & the charged Spin Attack",
+    "body": "Your sword is your main weapon — tap B to slash. Hold B down until Link flashes and glows, then release a Spin Attack that hits every direction at once. The Spin Attack is your bread-and-butter move against bosses and crowds: it does double damage and clears enemies pressing in from all sides. Find Sword upgrades (the Noble Sword, and the Master Sword in a Linked Game) to hit harder."
+   },
+   {
+    "title": "Reshape the fight with the Rod of Seasons",
+    "body": "The Rod of Seasons lets you change Holodrum's season — but only while standing on a tree stump. Each season reshapes the land: Winter freezes water so you can walk across it and piles snowdrifts you can climb; Autumn grows mushrooms and drops leaves that fill in small holes; Summer makes vines flourish so you can scale cliffs (and dries up some creek beds); Spring sprouts flower bulbs that bounce you up to high ledges. Before a tough overworld stretch or a puzzle-arena, set the season that gives you the footing — or removes the hazard — you need. You earn each season's power one at a time from the season spirits in the Temple of Seasons, down in Subrosia."
+   },
+   {
+    "title": "Magic Seeds turn your Satchel into a toolbox",
+    "body": "Seeds from a Seed Tree load into your Seed Satchel and feed tools like the Slingshot. The four combat-relevant types: Ember Seeds light torches and burn enemies (and damage ice-form foes like Frypolar); Scent Seeds lure or damage and load the Slingshot; Pegasus Seeds make Link dash at super speed (and can stun); Mystery Seeds have varied effects and are the trick to forcing certain enemies to switch forms (Frypolar) or revealing things. Refill at any Seed Tree — never walk into a dungeon with an empty satchel."
+   },
+   {
+    "title": "Equip a magic Ring for a passive power",
+    "body": "Rings are equippable trinkets hidden or dropped all over Holodrum, but they're useless until appraised — take any unidentified ring to Vasu in Horon Village to ID it, then equip it from your Ring Box. Each gives a passive effect: the Power Ring boosts your attack but you also take more damage; the Blue Ring halves the damage you take (but also halves your sword power); the Red Ring doubles your sword damage. Only one ring's effect is active at a time, so swap to whichever suits the fight — a damage ring to race a boss down, the Blue Ring to survive a brutal one."
+   },
+   {
+    "title": "Ride your animal companion",
+    "body": "Early on you befriend ONE of three animal friends (whichever flute you get): Ricky the boxing kangaroo (punches enemies, bounds up steep cliffs and over small holes), Dimitri the Dodongo (swims even deep water, eats foes, climbs waterfalls), or Moosh the winged bear (hovers and flies over gaps, then ground-pounds enemies). Play the flute to call yours and ride it across the overworld. Each has its own attack and crosses terrain Link can't, so they double as a way to skip hazards and bowl through weak enemies on the way to a dungeon."
+   },
+   {
+    "title": "Bottled fairies & Gasha-nut goodies keep you alive",
+    "body": "Store a fairy in a bottle and it revives you automatically the instant your hearts hit zero — your single best insurance for a boss fight, so catch one before any big battle. Bottles also hold Potion (heals on use). Plant a Gasha Seed in a soft-soil spot, and over time (as you walk around) a Gasha Nut grows — crack it for hearts, rupees, rings, or rarer goodies. Walk into Onox's castle with a full heart bar, a bottled fairy, and a Potion in reserve."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -45894,62 +46085,840 @@ const OOS = {
   "fairies": []
  },
  "ECONOMY": null,
- "COMPENDIUM": [],
- "SIDE_QUESTS": [],
+ "COMPENDIUM": [
+  {
+   "name": "Wooden Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Link's starting blade and main weapon — swing it to attack, or hold it down to charge a Spin Attack that hits all around you. It's your bread-and-butter melee tool for the whole quest.",
+   "where": "Found in a chest inside the Hero's Cave, on the beach along the Western Coast southwest of Horon Village. Grabbing it is the very first thing you do, and it opens the gate to the Maku Tree's grove."
+  },
+  {
+   "name": "Noble Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "A sharper sword that does double the Wooden Sword's damage. When charged it can also fire a sword beam across the screen while Link is at full health.",
+   "where": "The reward of the long trading sequence, which ends in the Lost Woods: a Deku Scrub there describes the path, then you walk the four-season stump route (winter→autumn→spring→summer, hopping a stump and changing the season each time) to reach the pedestal and claim the sword."
+  },
+  {
+   "name": "Master Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The legendary blade and the strongest normal sword — does double the Noble Sword's damage and likewise fires a beam at full health.",
+   "where": "There are two sword-upgrade paths: the Lost Woods trading sequence, and the Clock Shop secret (a Zora deep in the Hero's Cave points you to dig behind Horon's Clock Shop, where an Old Man upgrades your sword if you slay 12 beasts in 30 seconds — relayed via a secret told to Farore). Each path raises the sword one level, so whichever you complete LAST turns the Noble Sword into the Master Sword. The Old Man's secret can then be carried into a Linked Oracle of Ages game."
+  },
+  {
+   "name": "Fool's Ore",
+   "cat": "sword",
+   "type": "Joke sword",
+   "effect": "A junk 'sword' the Subrosians foist on you — it actually hits for 6 damage, more than DOUBLE the Master Sword's, BUT it can only be swung against enemies inside Subrosia and is useless everywhere else. A novelty, not a real weapon.",
+   "where": "When you first enter Subrosia, the Strange Brothers bump into you and take your Roc's Feather, leaving the Fool's Ore in its place. Sneak after the brothers to see where they bury the Feather in the Treasure Grove, then dig it up with the Shovel — recovering Roc's Feather permanently removes the Fool's Ore from your inventory."
+  },
+  {
+   "name": "Wooden Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "Your basic shield — hold it up to block weak enemy shots and projectiles. Some stronger attacks and flames will burn or knock it away until you upgrade.",
+   "where": "Bought for 30 Rupees at the shop in Horon Village. It's also the base item the Subrosian Smithy needs to forge the Iron Shield."
+  },
+  {
+   "name": "Iron Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "A hardened, upgraded shield that blocks attacks the Wooden Shield can't. A straight defensive improvement over wood.",
+   "where": "Take a piece of Hard Ore and your Wooden Shield to the Subrosian Smithy and tell them to 'do whatever' — they harden it into the Iron Shield. (Demand they make it 'fine' and they refuse, a Subrosian quirk.)"
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "The game's best shield — blocks the most attacks of any shield, including ones the Iron Shield can't.",
+   "where": "Linked Game only: with the Iron Shield already in hand, tell the Smith Secret (learned from a Subrosian on Rolling Ridge after the Crown Dungeon) to the Subrosian Smithy and they forge the Mirror Shield."
+  },
+  {
+   "name": "Magic Ring (ring system)",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "Collectible rings that grant a passive power while worn — but only one ring fits at a time, so you swap to suit the situation. There are 64 rings across the Oracle games; each must first be appraised before it works.",
+   "where": "Found in chests, dug up, given by NPCs, or won at minigames all over Holodrum. Take an unidentified ring to Vasu Jewelers in Horon Village to appraise it before you can equip it; Vasu also trades rings between Linked Seasons/Ages files."
+  },
+  {
+   "name": "Power Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "Boosts your sword's attack (L-1/L-2/L-3 add +1/+2/+3 damage) — but you also take extra damage every time you're hit (an additional 1/4, 1/2, or full heart by level). A risk-for-reward offense ring.",
+   "where": "One of the 64 collectible Magic Rings — appraise it at Vasu Jewelers to use it."
+  },
+  {
+   "name": "Energy Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "Changes your charged attack: instead of doing a Spin Attack, a fully charged sword fires a sword beam across the screen. Great for hitting enemies from a safe distance.",
+   "where": "One of the 64 collectible Magic Rings — appraise it at Vasu Jewelers to use it."
+  },
+  {
+   "name": "Red Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "Doubles your sword damage — one of the strongest offensive rings in the game, with no downside.",
+   "where": "Earned by defeating all four Golden Beasts found around the overworld; it's one of the 64 Magic Rings, so appraise it at Vasu Jewelers before equipping it."
+  },
+  {
+   "name": "Blue Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "Halves all damage you take — a top defensive ring that makes Link far sturdier.",
+   "where": "Given by Vasu after you've had 30 different rings appraised; it's one of the 64 Magic Rings, so it must be appraised before use."
+  },
+  {
+   "name": "Rod of Seasons",
+   "cat": "item",
+   "type": "Rod",
+   "effect": "Your signature tool. Stand on a tree stump and swing it to cycle the current season (Spring, Summer, Autumn, Winter), reshaping the world — melting snow, raising/lowering water, growing vines, and clearing paths. When you first receive it you can't use it at all; each of the four Season Spirits grants one season, so you unlock the seasons one at a time.",
+   "where": "Found in the central chamber of the Temple of Seasons, which Onox has sunk into Subrosia (the underground land). Its four season powers are then granted one at a time by the four Season Spirits in the towers surrounding the temple."
+  },
+  {
+   "name": "Seed Satchel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Holds your mystical seeds and lets you scatter Ember Seeds by hand as a basic attack/utility. It comes pre-filled with Ember Seeds. Two upgrades raise the per-type capacity from 20 → 50 → 99.",
+   "where": "Received as the dungeon item of the 1st dungeon, Gnarled Root Dungeon (already stocked with Ember Seeds). First capacity upgrade (to 50) is bought in the basement of the Horon Village shop; the upgrade to 99 comes via the linked/secret system."
+  },
+  {
+   "name": "Ember Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Fire seeds. Light torches and dark rooms, burn down small trees and bushes, and damage or stun enemies. Your starting and most common seed.",
+   "where": "The Seed Satchel begins stocked with these; refill from Ember (Mystical) Trees and grass/pots around Holodrum."
+  },
+  {
+   "name": "Scent Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Give off a strong smell that lures enemies toward where the seed lands — useful for baiting foes onto switches or away from you. Fired from the Slingshot they also deal damage and knock enemies back.",
+   "where": "Harvested from the Scent (Mystical) Tree in the overworld once you can reach it."
+  },
+  {
+   "name": "Pegasus Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Sprinkle them to dash at high speed for a short time. Combined with Roc's Feather (or Roc's Cape) they greatly extend your jump distance.",
+   "where": "Harvested from the Pegasus (Mystical) Tree in the overworld."
+  },
+  {
+   "name": "Gale Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Summon a whirlwind. Scattered by hand they warp you instantly to any Mystical Tree you've found — the game's fast-travel. Fired from the Slingshot they blow weaker enemies clean off the screen.",
+   "where": "Harvested from the Gale (Mystical) Tree in the overworld."
+  },
+  {
+   "name": "Mystery Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Use on Owl Statues to receive a hint. Used on most enemies they trigger a random effect — like one of the other four seed types — so the outcome is unpredictable.",
+   "where": "Harvested from the Mystery (Mystical) Tree in the overworld."
+  },
+  {
+   "name": "Slingshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires any of your mystical seeds in a straight line at range, so you can light distant torches, hit far switches, or snipe enemies. Aim is fixed to the direction you face.",
+   "where": "Dungeon item of the 4th dungeon, the Dancing Dragon Dungeon (atop Mt. Cucco)."
+  },
+  {
+   "name": "Hyper Slingshot",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "An upgraded Slingshot that fires three seeds in a spread (one forward and two at angles), covering a wider area and hitting multiple targets at once.",
+   "where": "Dungeon item of the 8th and final dungeon, the Sword & Shield Maze; replaces the standard Slingshot."
+  },
+  {
+   "name": "Power Bracelet",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets you pick up and throw heavy objects — large rocks, pots, jars, and even the animal companion Dimitri — to clear paths and smash things or hit switches.",
+   "where": "Dungeon item of the 2nd dungeon, Snake's Remains (in the Woods of Winter)."
+  },
+  {
+   "name": "Roc's Feather",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link jump, clearing one-tile gaps and hopping over hazards, spikes, and small pits. With a Pegasus Seed active the jump reaches farther.",
+   "where": "Dungeon item of the 3rd dungeon, Poison Moth's Lair (reached via Spool Swamp / the Tarm Ruins area)."
+  },
+  {
+   "name": "Roc's Cape",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "An upgrade to Roc's Feather. Hold the button after jumping to glide and cross much wider gaps, and chain a double-jump. Replaces the Feather in your inventory.",
+   "where": "Dungeon item of the 7th dungeon, the Explorer's Crypt (on the Western Coast)."
+  },
+  {
+   "name": "Magnetic Gloves",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Generate a magnetic field (switchable N/S polarity) to pull yourself toward, or push away from, large metal blocks and balls — and to fling magnetic objects. Used for crossing gaps and solving magnet puzzles.",
+   "where": "Dungeon item of the 5th dungeon, Unicorn's Cave (in the Sunken City / North Horon)."
+  },
+  {
+   "name": "Magical Boomerang",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "A steerable boomerang that stuns enemies, grabs distant items, cuts grass/bushes, and flips switches. Unlike the basic boomerang you can aim its flight with the D-pad, and it travels farther and hits harder.",
+   "where": "Dungeon item of the 6th dungeon, the Ancient Ruins (on Goron Mountain). (A weaker, plain Boomerang is a separate reward from the Subrosian Dance Hall.)"
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Throwable explosives that blow open cracked walls, destroy certain blocks, and damage enemies. You carry a limited stock that refills from grass, pots, and enemies; a Bomb Bag upgrade raises the carry limit.",
+   "where": "First found as a chest in the 1st dungeon, Gnarled Root Dungeon; also buyable at Stockwell's shop in Horon Village. The Bomb Bag upgrade (to 30) is earned at the Goron/Tokay feeding minigame."
+  },
+  {
+   "name": "Shovel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Dig in soft ground to clear snow and dirt piles, uncover buried stairs and items, and occasionally turn up rupees or hearts. Essential for several overworld paths, especially in Winter.",
+   "where": "Given by Holly at her house in the Woods of Winter — make it Winter, drop down her chimney through the snowdrift, and she rewards you with the Shovel for clearing her walkway."
+  },
+  {
+   "name": "Flute (Ricky / Dimitri / Moosh)",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Call your animal companion to ride. The Strange Flute belongs to one specific animal — Ricky the kangaroo (boxing + high jumps), Dimitri the Dodongo (swims and eats enemies; can be thrown with the Power Bracelet), or Moosh the winged bear (hovers/flies and ground-pounds) — and that's who joins you.",
+   "where": "WHICH companion you get is set by HOW you obtain the flute: buy the Strange Flute at the Horon Village shop → Moosh; win the Subrosian Dance Hall minigame → Dimitri (then free him in Spool Swamp); do neither, and after beating Blaino and returning Ricky's Gloves you get Ricky's Flute by default."
+  },
+  {
+   "name": "Ring Box",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Holds the Magic Rings you can wear at once. The starter box carries one ring; the L-2 box holds three and the L-3 box holds five, letting you swap loadouts.",
+   "where": "The first Ring Box is given by Vasu at the jeweler's shop in Horon Village; larger boxes come later (the L-3 box via the linked/secret system)."
+  },
+  {
+   "name": "Essences of Nature (8)",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The eight sacred essences the Maku Tree sends you to collect — one guarded by each dungeon's boss. Gathering all eight grows the Maku Tree's seed and opens the path to confront General Onox. In order: Fertile Soil, Gift of Time, Bright Sun, Soothing Rain, Nurturing Warmth, Blowing Wind, Seed of Life, Changing Seasons.",
+   "where": "One essence is the reward for clearing each of the eight dungeons, from Gnarled Root Dungeon through the Sword & Shield Maze."
+  },
+  {
+   "name": "Gnarled Key",
+   "cat": "key",
+   "type": "Key",
+   "effect": "Unlocks the entrance to the very first dungeon, the Gnarled Root Dungeon, starting your hunt for the eight Essences.",
+   "where": "Given by the Maku Tree in Horon Village after you first wake it and it tasks you with collecting the essences."
+  },
+  {
+   "name": "Dungeon Keys (Small Keys & Boss Keys)",
+   "cat": "key",
+   "type": "Key",
+   "effect": "Small Keys open locked doors within a single dungeon; the ornate Boss Key unlocks that dungeon's boss room. Both are used only inside the dungeon where they're found. Several dungeons also need a special overworld access item (e.g. the Dragon Key for the Dancing Dragon Dungeon).",
+   "where": "Found in chests and on defeated enemies throughout each dungeon; they do not carry over between dungeons."
+  },
+  {
+   "name": "Maku Seed",
+   "cat": "key",
+   "type": "Key",
+   "effect": "The blessed seed the Maku Tree produces once all eight Essences of Nature are gathered. It's the key that grants you safe passage to Onox's Castle for the final showdown.",
+   "where": "Produced by the Maku Tree in Horon Village after you deliver all eight essences."
+  },
+  {
+   "name": "Magic Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "Collectible rings (64 in all across the Oracle games) that grant a passive power while worn in your Ring Box. Found rings appear as unidentified 'Unknown' rings — you must take them to Vasu's jeweler to appraise them (20 rupees) before they can be equipped. Effects range from combat boosts to extra rupees/hearts, immunities, and joke/curse rings.",
+   "where": "Found in chests, buried spots, Gasha Nuts, enemy drops, and minigames across Holodrum; appraised and managed at Vasu's shop in Horon Village."
+  },
+  {
+   "name": "Power Ring (L-1 / L-2 / L-3)",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A notable Magic Ring that raises the damage your sword deals — but raises the damage you take by the same amount (+1 per level at L-1/L-2/L-3). A high-risk, high-reward offensive ring; the L-3 version is obtainable only in a linked game.",
+   "where": "An appraisable ring (after Vasu identifies it). The L-1 is found inside the Explorer's Crypt; the levels are found separately, with L-3 exclusive to a linked Seasons game."
+  },
+  {
+   "name": "Armor Ring (L-1 / L-2 / L-3)",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "The defensive counterpart to the Power Ring: it reduces the damage enemies deal to you — but weakens your own sword by the same amount (−1 per level). Good for surviving tough fights when you can afford slower kills; the L-3 version exists only in a linked game (Ages).",
+   "where": "An appraisable ring (after Vasu identifies it). The L-2 is found on Goron Mountain in Oracle of Seasons; obtained from various ring sources around the world."
+  },
+  {
+   "name": "Gasha Seed",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "Plant a Gasha Seed in a patch of soft soil; as you walk around, a Gasha Tree grows and eventually bears a Gasha Nut. Cut the nut to claim a prize — rupees, Heart Pieces, rare rings, or other items, with better rewards for nuts you've nurtured longer.",
+   "where": "Found in chests, given by NPCs, and earned at minigames throughout Holodrum; planted in the marked Gasha soil spots dotted across the overworld."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "A fragment of a Heart Container. Collect four pieces to permanently add one full heart to your maximum health.",
+   "where": "Hidden across Holodrum — in caves, on ledges, as minigame and sidequest rewards, and inside Gasha Nuts."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "Permanently increases your maximum life by one full heart and refills your health when claimed.",
+   "where": "Awarded for defeating each dungeon's boss; four Pieces of Heart also combine into one."
+  },
+  {
+   "name": "Rupees",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "Holodrum's currency, used at shops to buy bombs, seeds, shields, ring appraisals, and other goods. Green = 1, blue = 5, red = 20, and larger denominations up to 100/200; your wallet's max capacity is raised by upgrades.",
+   "where": "Earned from grass, pots, dig spots, defeated enemies, chests, minigames, and Gasha Nuts; wallet upgrades found during your travels."
+  }
+ ],
+ "SIDE_QUESTS": [
+  {
+   "region": "Rings & Vasu",
+   "quests": [
+    {
+     "id": "get-the-ring-box-from-vasu",
+     "name": "Get the Ring Box from Vasu",
+     "giver": "Vasu — Vasu Jewelers, Horon Village (the ring shop in the southeast of town)",
+     "location": "Horon Village",
+     "reward": "L-1 Ring Box + the free Friendship Ring + ring appraisal service",
+     "oneLine": "Visit Vasu the jeweler to start collecting, identifying, and wearing the game's equippable magic rings.",
+     "how": "Walk into Vasu Jewelers in Horon Village and talk to Vasu; the first time you speak to him he gives you the L-1 Ring Box plus your first ring, the Friendship Ring (a cosmetic ring with no effect), and your first appraisal is free. After that, bring him any unappraised Seed Ring you find and he identifies it for 20 Rupees so you can equip it (if you already own that ring, he buys the duplicate for 30 Rupees). Use the menu to pick which appraised ring you have equipped."
+    },
+    {
+     "id": "the-magic-ring-hunt",
+     "name": "The magic ring hunt",
+     "giver": "Found in Gasha Nuts, chests, shops, minigames, and from Maple",
+     "location": "All over Holodrum (and Subrosia)",
+     "reward": "Toward the 64 total magic rings (each a small permanent perk)",
+     "oneLine": "Collect equippable rings — from a damage-boosting Power Ring to handy utility rings — and have Vasu appraise each one.",
+     "how": "Rings drop from opened Gasha Nuts, hide in chests, appear in shops, are won at minigames, and tumble out of Maple when you bump her. Every new ring is an unappraised Seed Ring until Vasu identifies it (20 Rupees). There are 64 rings in the Oracle ring collection, but it is SHARED across both Oracle of Seasons and Oracle of Ages — a single Seasons file can only find a portion, and completing the set requires trading rings between the two games via linked-game secrets. Many rings are collector trophies; standouts include the Power Ring (more sword damage but you take more damage) and the Armor Ring (the reverse). Only ONE ring can be equipped at a time — the Ring Box level just sets how many you can carry for quick swapping."
+    },
+    {
+     "id": "upgrade-the-ring-box-l-2-and-l-3",
+     "name": "Upgrade the Ring Box (L-2 and L-3)",
+     "giver": "L-2: a red Goron on Goron Mountain · L-3: a linked-game secret",
+     "location": "Goron Mountain (L-2); linked game (L-3)",
+     "reward": "L-2 Ring Box (carry 3) and L-3 Ring Box (carry 5)",
+     "oneLine": "Grow your Ring Box so you can carry more rings for quick swapping — though only one is ever active at a time.",
+     "how": "The L-2 Ring Box is NOT a Vasu reward — it is given by a red Goron in a cave high on Goron Mountain (bomb the wall one screen east of Goron Village, cross the lava cavern, then drop off the cliff into the cave entrance). The L-3 Ring Box comes only through the linked-game secret system (see the Linked-Game group), so a full-capacity box is a long-game / second-playthrough goal. Important: a bigger box lets you CARRY more rings to swap quickly, but you can still only have one ring equipped/active at any moment."
+    },
+    {
+     "id": "bumping-into-maple-the-witch",
+     "name": "Bumping into Maple the witch",
+     "giver": "Maple — appears at random on the overworld",
+     "location": "Anywhere on the Holodrum overworld",
+     "reward": "Scattered loot: Rupees, Hearts, Bombs, Seeds, Gasha Seeds, Potions, sometimes a Magic Ring (and a one-time Piece of Heart)",
+     "oneLine": "After enough fighting, the broom-riding witch Maple zooms across the screen — crash into her to scatter her goodies.",
+     "how": "Maple flies across a screen after you defeat 30 enemies (only 15 if you've appraised and equipped Maple's Ring). Ram her with your sword, shield, or just by running into her so you both spill your items, then race to grab the loot before she does — she grabs the most valuable item first (Piece of Heart, then Gasha Seed, ring, potion, seeds, bombs, hearts, rupees). Her drops are random and can include Seed Rings and, exactly once per save, a Piece of Heart, so chase her down often. Heads-up: depending on the screen, a dropped Heart Piece can land somewhere unreachable — if so, leave and bump her again."
+    }
+   ]
+  },
+  {
+   "region": "Subrosia (the under-realm)",
+   "quests": [
+    {
+     "id": "dig-up-the-star-shaped-ore",
+     "name": "Dig up the Star-Shaped Ore",
+     "giver": "Self-directed (the Subrosia Seaside beach)",
+     "location": "Subrosia — Subrosia Seaside",
+     "reward": "Star-Shaped Ore (a trade good)",
+     "oneLine": "Shovel up a glowing star-shaped chunk of ore buried in Subrosia's red sand to begin a little trade.",
+     "how": "You reach Subrosia through the warp portals scattered around Holodrum. Take your Shovel to the Subrosia Seaside and dig along the beach until you turn up the Star-Shaped Ore. Hang onto it — the Subrosia Market wants it."
+    },
+    {
+     "id": "trade-for-the-ribbon-date-rosa",
+     "name": "Trade for the Ribbon → date Rosa",
+     "giver": "Subrosia Market, then Rosa the Subrosian",
+     "location": "Subrosia — Market, then find Rosa",
+     "reward": "Ribbon → Rosa opens locked doors in Subrosia",
+     "oneLine": "Swap the Star-Shaped Ore for a Ribbon, give it to Rosa, and she'll unlock Subrosia's sealed doors for you.",
+     "how": "Take the Star-Shaped Ore to the Subrosia Market and trade it for the Ribbon. Find Rosa and give her the Ribbon — flattered, she goes on a little stroll (a 'date') with you and, while you're together, she opens locked doors in Subrosia that were blocking your path. This is the gate to Subrosian rooms you couldn't reach before."
+    },
+    {
+     "id": "forge-hard-ore-red-blue-ore",
+     "name": "Forge Hard Ore (Red + Blue Ore)",
+     "giver": "Self-directed → the Great Furnace",
+     "location": "Subrosia — two ore spots + the Great Furnace",
+     "reward": "Hard Ore (the shield-upgrade material)",
+     "oneLine": "Collect a piece of Red Ore and a piece of Blue Ore and smelt them together into Hard Ore at the furnace.",
+     "how": "Red Ore and Blue Ore each sit in their own spot in Subrosia. Carry both to the Great Furnace and have it smelt them together — the result is a lump of Hard Ore. Take the Hard Ore to the Subrosian Smithy next."
+    },
+    {
+     "id": "upgrade-your-shield-at-the-subrosian-smithy",
+     "name": "Upgrade your shield at the Subrosian Smithy",
+     "giver": "The Subrosian Smiths",
+     "location": "Subrosia — Subrosian Smithy",
+     "reward": "Iron Shield (L-2 shield); Mirror Shield (L-3) only in a linked game",
+     "oneLine": "Hand the smiths your Hard Ore and they hammer your Wooden Shield into the sturdier Iron Shield.",
+     "how": "Bring the Hard Ore to the Subrosian Smithy and let them work — they forge your Wooden Shield into the L-2 Iron Shield, which can block stronger attacks. The L-3 Mirror Shield only comes in a linked game: while you already own the Iron Shield, give the smith master the linked 'Smith Secret' (see the Linked-Game group) and he forges the Mirror Shield instead."
+    },
+    {
+     "id": "win-the-subrosian-dance-boomerang-then-a-flute",
+     "name": "Win the Subrosian Dance (Boomerang, then a flute)",
+     "giver": "The Subrosian Dance Hall",
+     "location": "Subrosia — Subrosian Dance Hall",
+     "reward": "1st win: Boomerang · 2nd win: Strange Flute (becomes Dimitri's Flute)",
+     "oneLine": "Match the Subrosians' dance steps without bumping anyone to win the Boomerang, then play again for a flute.",
+     "how": "Step into the Dance Hall and copy the Subrosians' moves to the beat without colliding with a dancer — one wrong step and you're thrown out to restart. Your first clean win gives the Boomerang; win again (the tempo speeds up) and you get the Strange Flute, which becomes Dimitri's Flute IF you haven't already chosen a companion. Win still more times and the prizes drop to Seed Rings, Gasha Seeds, or Ore Chunks."
+    },
+    {
+     "id": "subrosia-s-ore-chunk-heart-piece",
+     "name": "Subrosia's ore-chunk Heart Piece",
+     "giver": "Subrosia Market",
+     "location": "Subrosia — Subrosia Market",
+     "reward": "1 Piece of Heart",
+     "oneLine": "The Subrosia Market sells a Heart Piece for ore chunks and Ember Seeds.",
+     "how": "In the Subrosia Market a Piece of Heart is on sale for 20 Ore Chunks plus 10 Ember Seeds (Ore Chunks are Subrosia's currency, dug up around Subrosia with the Shovel). Note: the other 'volcano-eruption' bombable-cave Heart Piece people mention is the Temple Remains one in Holodrum's ruins, reached with Roc's Cape — see the Heart Pieces entry."
+    }
+   ]
+  },
+  {
+   "region": "Animal Companions",
+   "quests": [
+    {
+     "id": "choose-your-companion-the-strange-flute",
+     "name": "Choose your companion (the Strange Flute)",
+     "giver": "Determined by HOW you get the Strange Flute",
+     "location": "Holodrum (after the Snake's Remains, the first overworld dungeon)",
+     "reward": "One permanent animal partner: Ricky, Dimitri, or Moosh",
+     "oneLine": "How you obtain the Strange Flute decides which of three animal buddies is yours for the whole game — you only ever get one.",
+     "how": "The flute system unlocks after you clear the Snake's Remains dungeon. There are three ways to get the Strange Flute, and the FIRST one you do locks in your partner: BUY it from the Horon Village shop (150 Rupees) → it becomes Moosh's Flute; WIN it from the Subrosian Dance (after the Boomerang) → it becomes Dimitri's Flute; or SCORE 50+ points at the Shooting Gallery minigame → it becomes Ricky's Flute. After you bond with one, you then find that animal in the world and free it from enemies to finish the bond. Once chosen, the other two are gone — pick the ability you want."
+    },
+    {
+     "id": "ricky-the-kangaroo",
+     "name": "Ricky the kangaroo",
+     "giver": "Strange Flute won from the Shooting Gallery (50+ points)",
+     "location": "Holodrum overworld",
+     "reward": "A boxing-kangaroo mount that crosses cliffs and rough ground",
+     "oneLine": "Ricky punches enemies and his powerful jump clears ledges and gaps that would otherwise block you.",
+     "how": "To make Ricky your permanent companion, get the Strange Flute by scoring 50 or more points at the Shooting Gallery minigame BEFORE buying the shop flute or winning the dance flute. (Ricky also helps you reach a few spots early in the story regardless of your choice.) Riding Ricky you can punch enemies and use his high jump to scale steep ledges and cross broken terrain. He's the all-rounder for overland exploration."
+    },
+    {
+     "id": "dimitri-the-dodongo",
+     "name": "Dimitri the Dodongo",
+     "giver": "Strange Flute won from the Subrosian Dance",
+     "location": "Holodrum overworld + water",
+     "reward": "A swimming mount that handles deep water and rapids",
+     "oneLine": "Dimitri the friendly Dodongo swims, eats enemies, and crosses water and rapids before you have the Flippers.",
+     "how": "Get the Strange Flute by winning the Subrosian Dance (your second win, after the Boomerang) and it becomes Dimitri's. You then find Dimitri being harassed by the Great Moblin's henchmen in Spool Swamp — pay them off (about 80 Rupees, in two 50 + 30 demands) and he joins you. Dimitri swims across deep water, rides river currents safely, and gobbles enemies. He's the pick for early water mobility."
+    },
+    {
+     "id": "moosh-the-flying-bear",
+     "name": "Moosh the flying bear",
+     "giver": "Strange Flute bought from the Horon Village shop",
+     "location": "Holodrum overworld",
+     "reward": "A hovering bear mount with a ground-pound",
+     "oneLine": "Moosh the winged bear hovers across gaps and slams the ground to stun enemies and hit floor switches.",
+     "how": "Buy the Strange Flute from the Horon Village shop (150 Rupees) and it becomes Moosh's Flute; you then find Moosh being attacked by enemies, and clearing them makes him your companion. Riding Moosh you flap to hover over pits and short gaps and perform a heavy ground-pound that stuns nearby enemies and triggers floor switches. He's the choice if you want air time over pits."
+    }
+   ]
+  },
+  {
+   "region": "Trades, Heart Pieces & Gasha Seeds",
+   "quests": [
+    {
+     "id": "the-holodrum-trading-game-cuccodex-noble-sword",
+     "name": "The Holodrum trading game (Cuccodex → Noble Sword)",
+     "giver": "Dr. Left, then a chain of villagers across Holodrum and Subrosia",
+     "location": "All over Holodrum + Subrosia",
+     "reward": "Noble Sword (the L-2 sword — stronger than the Wooden Sword)",
+     "oneLine": "A long trade chain starting with a Cuccodex and ending in the upgraded Noble Sword.",
+     "how": "After the first dungeon, light the two torches in Dr. Left's house in Horon with Ember Seeds to get the Cuccodex, then trade it down the chain: Lon Lon Egg (Malon) → Ghastly Doll (Maple) → Iron Pot (Mrs. Ruul) → Lava Soup (the Subrosian Chef) → Goron Vase (Biggoron, atop Goron Mountain) → Fish (Ingo, the vase collector in Sunken City) → Megaphone (the old man in North Horon — the Fish lures his cat down) → Mushroom (Talon, asleep on Mt. Cucco, woken by the Megaphone) → Wooden Bird (Syrup the witch, near Sunken City) → Engine Grease (the clockmaker, Tick Tock's shop in Horon) → Phonograph (Guru-Guru atop the windmill). Finally take the Phonograph to the Deku Scrub in the Lost Woods; play it for him and he tells you how to reach the Noble Sword. Each step needs the right person, so follow the order."
+    },
+    {
+     "id": "grow-gasha-seeds-in-soft-soil",
+     "name": "Grow Gasha Seeds in soft soil",
+     "giver": "Self-directed (Gasha Seeds found in chests, from Maple, etc.)",
+     "location": "Soft-soil patches across Holodrum",
+     "reward": "Gasha Nuts (Rupees, rings, potions — and one Piece of Heart)",
+     "oneLine": "Plant a Gasha Seed in soft soil, kill enemies as you travel, and come back to crack open a fruit full of loot.",
+     "how": "Find a Gasha Seed (chests, minigames, Maple), then plant it in one of the soft-soil spots dotted around the overworld. As you fight enemies elsewhere the planted nut ripens; return later and slash the grown Gasha Nut open for the goodies inside. Higher-ranked (harder-to-reach) soil patches give better hauls, including the rare one-time Gasha Piece of Heart."
+    },
+    {
+     "id": "notable-pieces-of-heart",
+     "name": "Notable Pieces of Heart",
+     "giver": "Various (minigames, bosses, hidden spots)",
+     "location": "Across Holodrum and Subrosia",
+     "reward": "Pieces of Heart (4 = one full Heart Container; 12 total in the game)",
+     "oneLine": "Hunt the optional Heart Pieces to extend your life bar — there are 12 to find across the whole game.",
+     "how": "There are 12 Pieces of Heart in Oracle of Seasons. Reliable standouts: the Subrosia Market sells one for 20 Ore Chunks + 10 Ember Seeds; beating the Great Moblin at his keep (catch and throw back his bombs) drops one; the Temple Remains hides one in a bombable cave you cross with Roc's Cape; Maple drops a one-time piece; and a high-rank Gasha Nut yields one. Others sit in Horon Village, the Eastern Suburbs, Woods of Winter, Mt. Cucco, Spool Swamp, Eyeglass Lake, and the Graveyard. Collect four of any to earn a full Heart Container."
+    },
+    {
+     "id": "minigames-for-rings-and-rupees",
+     "name": "Minigames for rings and rupees",
+     "giver": "Various game stalls",
+     "location": "Horon Village & Subrosia",
+     "reward": "Rings, Rupees, the Boomerang (Dance Hall), and a companion flute",
+     "oneLine": "Holodrum's minigames — the Subrosian Dance, the Shooting Gallery, fortune-telling — pay out in rings, gear, and cash.",
+     "how": "The Subrosian Dance Hall gives the Boomerang, then the Strange Flute (→ Dimitri), then Seed Rings/Gasha Seeds/Ore Chunks on repeat. The Shooting Gallery can hand you the Strange Flute (→ Ricky) at 50+ points. Fortune-telling and shop games can give fresh Seed Rings to take to Vasu. Treat these as the steady, low-stakes way to pad out rings and Rupees between dungeons."
+    }
+   ]
+  },
+  {
+   "region": "Linked-Game Secrets (Oracle of Ages)",
+   "quests": [
+    {
+     "id": "link-seasons-to-ages-with-a-password",
+     "name": "Link Seasons to Ages with a password",
+     "giver": "The game's secret/password system (Farore records your secret)",
+     "location": "Title screen / in-game secret-givers",
+     "reward": "A continued, harder 'linked' adventure that carries progress between the two Oracles",
+     "oneLine": "A password earned in one Oracle game unlocks the linked story in the other, tying Seasons and Ages into one tale.",
+     "how": "Beating one game gives you a long 'Secret' password; entering it when starting the other game begins a Linked Game. In a linked Seasons file you start stronger (a sword and extra hearts), keep your animal companion, and unlock content the standalone game lacks. The password encodes your choices, so write it down exactly — it's the bridge between the two cartridges."
+    },
+    {
+     "id": "the-little-linked-secrets-rings-shield-ring-box",
+     "name": "The little linked secrets (rings, shield, Ring Box)",
+     "giver": "NPCs who trade short secret passwords (snakes, smiths, townsfolk)",
+     "location": "Across both Holodrum and Labrynna",
+     "reward": "Mirror Shield (L-3), the L-3 Ring Box, extra rings (e.g. Snowshoe Ring) and more",
+     "oneLine": "Short secret codes passed between the two games unlock bonus gear like the Mirror Shield and rare rings.",
+     "how": "In a linked game, certain NPCs give you a short secret in one Oracle to tell to their counterpart in the other. The 'Smith Secret' (from a Subrosian in Ages) upgrades your Iron Shield to the Mirror Shield (L-3) at the Subrosian Smithy. A secret from Symmetry City in Ages earns the L-3 Ring Box. Red/Blue snake secrets transfer your appraised rings between games. Other side-secrets reward unique rings. These are optional but are the only way to a full 64-ring set and the best shield."
+    },
+    {
+     "id": "the-true-final-boss-twinrova-ganon",
+     "name": "The true final boss (Twinrova & Ganon)",
+     "giver": "Story-gated — only in a linked playthrough",
+     "location": "The Room of Rites (via the Maku Tree)",
+     "reward": "The complete ending + the Hero's Secret carry-over",
+     "oneLine": "Only in a linked game does the real villain reveal herself — Twinrova captures Zelda to resurrect Ganon, the true final foe.",
+     "how": "Finish the SECOND Oracle as a linked game and the plots converge: Twinrova (the witches Koume and Kotake) has been the mastermind, seizing Princess Zelda as a sacrifice to revive Ganon. After your last dungeon the Maku Tree opens the Room of Rites, where you fight Twinrova and then Ganon himself — the true ending the single games never show. Beating it grants the Hero's Secret to start a fresh, stronger file."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Temple of Seasons Great Fairy (Linked-Game secret — NOT a heal)",
+   "region": "Subrosia — Temple of Seasons",
+   "location": "In the main chamber where you got the Rod of Seasons, walk UP through the waterfall at the top of the screen into a hidden room. She only appears here AFTER you defeat Onox (late/post-game).",
+   "cost": "NOT a healer (the draft was wrong). She is a Linked-Game secret-keeper: she tells Link a password to carry to a linked Oracle of Ages game to earn the Heart Ring L-1 (and she receives a secret from the Wing Dungeon Great Fairy in Ages). No effect in a single, unlinked playthrough beyond the secret."
+  },
+  {
+   "name": "Fairy Fountain — Woods of Winter",
+   "region": "Holodrum — Woods of Winter (the snowy region east/northeast of Horon Village)",
+   "location": "Directly WEST of the Snake's Remains dungeon (the draft's \"south-then-west of the Tree Stump\" landmark is wrong). Step into the fountain.",
+   "cost": "FREE — a healing fountain: the Great Fairy fully refills Link's hearts on contact, and once awoken you can scoop loose fairies here into an Empty Bottle. No item upgrade."
+  },
+  {
+   "name": "Fairy Fountain — Western Coast",
+   "region": "Holodrum — Western Coast (far southwest, the shipwreck beach by Hero's Cave)",
+   "location": "Inside a CAVE just NORTHWEST of the Hero's Cave entrance (the draft's \"one screen due west\" is imprecise — it's a cave to the northwest). Enter and step into the fountain.",
+   "cost": "FREE — a healing fountain: fully restores Link's hearts; loose fairies can be bottled. No item given."
+  },
+  {
+   "name": "Fairy Fountain — North Horon / Natzu (by the river)",
+   "region": "Holodrum — North Horon, in the Natzu animal-companion area (center of the map)",
+   "location": "Near the river in North Horon. Note: this area changes shape with your animal companion (Ricky/Dimitri/Moosh), so the exact approach varies; the riverside fountain is the reliable one. (The draft's \"cave in the southwest of Natzu\" is not confirmed — softened.)",
+   "cost": "FREE — a healing fountain: refills all of Link's hearts; loose fairies can be bottled. No item given."
+  },
+  {
+   "name": "Other healing fairy fountains (Holodrum has SIX total)",
+   "region": "Holodrum — Mt. Cucco · Tarm Ruins · Samasa Desert (plus the three above)",
+   "location": "Beyond the three above, three more healing fountains exist: Mt. Cucco (in an upper cave reachable only in Winter), Tarm Ruins (bomb the wall near the Lost Woods to open it), and Samasa Desert (behind a blocked wall, in the area with the skull marker). Exact step counts vary by source, so treat these as \"a fountain is here,\" not turn-by-turn.",
+   "cost": "FREE — all are healing fountains (full heart refill + bottle-able fairies once awoken), same as the others. No item upgrades."
+  },
+  {
+   "name": "Subrosian Smithy — Shield Temper (Iron Shield)",
+   "region": "Subrosia (the underground realm reached via portals)",
+   "location": "In western Subrosia. First forge HARD ORE: get the Magnetic Gloves, then use them to pull the Red Ore (eastern Subrosia) and Blue Ore (far-western Subrosia) and fuse the two at the Great Furnace. Bring the resulting Hard Ore plus your Wooden Shield to the two smiths and pick \"Do whatever.\"",
+   "cost": "UPGRADE — tempers your Wooden Shield (L-1) into the Iron Shield (L-2). Requires Hard Ore. (In a Linked Game, bringing an already-Iron Shield can yield the Mirror Shield.)"
+  },
+  {
+   "name": "Sword upgrade — Noble Sword (Lost Woods pedestal, single-play)",
+   "region": "Holodrum — Lost Woods (southwest of Horon Village)",
+   "location": "Not a fairy — this is the real one-time SWORD upgrade for a normal (unlinked) playthrough. Do the trade chain to get the Phonograph, play it for the Deku/Business Scrub in the Lost Woods to learn the path, then move one screen at a time changing the season at each stump: Winter then go LEFT, Autumn then LEFT, Spring then LEFT, Summer then LEFT (you head west each screen). The sword waits in a pedestal at the end.",
+   "cost": "UPGRADE — grants the Noble Sword (L-2), stronger than the Wooden Sword; free once you walk the woods correctly. (Completing the trade chain is also what lets Syrup sell Magic Potion.) In a Linked Game, a password secret can instead upgrade the blade to the Noble/Master Sword line — but in single-play the Lost Woods pedestal is the confirmed route."
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
  "KOROKS": null,
  "RUNES": [
   {
-   "id": "rod_of_seasons",
+   "id": "rod-of-seasons",
    "name": "Rod of Seasons",
    "glyph": "stasis",
-   "from": "Won from the four Season Spirits in the Temple of Seasons, down in Subrosia.",
-   "what": "Stand on a season stump and swing the Rod to change Holodrum's season — Spring sprouts flowers and vines, Summer dries water and grows climbing vines, Autumn raises mushrooms and drops leaves, Winter freezes water and piles snow into ramps.",
-   "tip": "The same screen is four different puzzles depending on the season. Stuck? Hop on the nearest stump and cycle seasons until a path opens."
+   "from": "Found in the Temple of Seasons, which has sunk into Subrosia (the under-realm beneath Holodrum). You get the rod itself with NO season power; the four Season Spirits grant the seasons one at a time.",
+   "what": "Your signature tool. Stand on a season stump and swing it to change Holodrum's season — Spring, Summer, Autumn, or Winter — reshaping the land around you (vines grow in Summer, water freezes to walkable ice in Winter, etc.).",
+   "tip": "It only works while standing on a tree-stump. You can't change seasons at all until the Spirit of Winter gives you your first power; you earn the other three by reaching each Season Spirit's tower as the game goes on."
   },
   {
-   "id": "wooden_sword",
+   "id": "spirit-of-winter",
+   "name": "Spirit of Winter",
+   "glyph": "stasis",
+   "from": "Tower of Winter, a corner of the Temple of Seasons in Subrosia, reached right after the first dungeon (Gnarled Root). Winter is the FIRST season power you unlock.",
+   "what": "Adds Winter to the Rod of Seasons. Winter freezes water into ice you can walk across, blankets the land in snow (snowdrifts can become climbable steps), and lowers some water levels — but also covers warm-weather plants.",
+   "tip": "Winter is your bridge-builder: a lake or gap blocking the path often means 'come back and freeze it.'"
+  },
+  {
+   "id": "spirit-of-summer",
+   "name": "Spirit of Summer",
+   "glyph": "stasis",
+   "from": "Tower of Summer in the Temple of Seasons, Subrosia.",
+   "what": "Adds Summer to the Rod of Seasons. Summer makes vines flourish (so you can climb some cliffs), dries up certain shallow water, and ripens certain plants.",
+   "tip": "If a cliff has bare climbing spots but no vines, switch to Summer at a nearby stump — Poison Moth's Lair (dungeon 3) is reached exactly this way."
+  },
+  {
+   "id": "spirit-of-spring",
+   "name": "Spirit of Spring",
+   "glyph": "stasis",
+   "from": "Tower of Spring in the Temple of Seasons, Subrosia.",
+   "what": "Adds Spring to the Rod of Seasons. Spring makes flowers bloom — including bouncy flower-buds that launch Link up ledges — and melts the last of the snow.",
+   "tip": "Spring's blooming flowers act like springboards to reach higher ground you can't otherwise climb."
+  },
+  {
+   "id": "spirit-of-autumn",
+   "name": "Spirit of Autumn",
+   "glyph": "stasis",
+   "from": "Tower of Autumn in the Temple of Seasons, Subrosia.",
+   "what": "Adds Autumn to the Rod of Seasons. Autumn grows large mushrooms you can lift/push aside or use as platforms, and causes some plants to wither, clearing paths.",
+   "tip": "With all four seasons unlocked you can solve any season puzzle — many areas only open in one specific season, so cycle through them if you're stuck."
+  },
+  {
+   "id": "wooden-sword",
    "name": "Wooden Sword",
    "glyph": "sword",
-   "from": "Your first blade, found near Horon Village at the start.",
-   "what": "Basic sword for slashing and a charged Spin Attack. Upgrades to the Noble Sword and Master Sword later.",
-   "tip": "Hold the button to charge the Spin Attack; it hits all around you."
+   "from": "Found in Hero's Cave, on the beach just west/southwest of Horon Village — you need it to prove your courage and reach the Maku Tree. (In a linked game you start already holding it.)",
+   "what": "Your basic blade (L-1). Slashes enemies, cuts grass and bushes, and can fire a sword-beam when you're at full hearts.",
+   "tip": "Hold the button to charge a Spin Attack — useful for crowds and your highest-damage swing."
   },
   {
-   "id": "seed_satchel",
+   "id": "noble-sword",
+   "name": "Noble Sword",
+   "glyph": "sword",
+   "from": "Hidden deep in the Lost Woods (in Tarm Ruins). Reach it by stepping one screen west at a time, changing to the right season at each stump first — Winter, then Autumn, then Spring, then Summer (a hint the Deku Scrub gives if you play him the Phonograph's song).",
+   "what": "The L-2 sword — twice as strong as the Wooden Sword and the best blade you can get in a normal (non-linked) game.",
+   "tip": "The Lost Woods is a pure season puzzle; follow the season+west sequence exactly and you'll pop out at the sword's pedestal."
+  },
+  {
+   "id": "master-sword",
+   "name": "Master Sword",
+   "glyph": "sword",
+   "from": "LINKED GAME ONLY. In a game linked from Oracle of Ages, an old woman gives you a 'Hero's Secret'; take it to the old man hidden behind Horon Village's clock shop (dig out the stairs with the Shovel) and survive his monster wave. If you ALREADY own the Noble Sword it's upgraded to the Master Sword; otherwise the secret only gives you the Noble Sword.",
+   "what": "The L-3 sword and the strongest standard sword — a major damage boost over the Noble Sword.",
+   "tip": "You can't get this in a single solo playthrough; it's a reward for playing both Oracle games, linking them, and already having the Noble Sword."
+  },
+  {
+   "id": "fools-ore",
+   "name": "Fool's Ore",
+   "glyph": "sword",
+   "from": "Forced on you by the Strange Brothers in Subrosia: when you first arrive they bump into you, your Roc's Feather drops, and they snatch it — shoving this 'treasure' into your hands in trade.",
+   "what": "A strange, heavy ore you can swing like a weapon — surprisingly powerful while you have it.",
+   "tip": "It's TEMPORARY. Trail the brothers through the Treasure Grove WITHOUT being seen; they bury your Roc's Feather in a sand pit, and you dig it back out with the Shovel — at which point the Fool's Ore is discarded. Don't get attached."
+  },
+  {
+   "id": "wooden-shield",
+   "name": "Wooden Shield",
+   "glyph": "shield",
+   "from": "Your starting shield (L-1) — buy it cheaply from the Horon Village shop early on.",
+   "what": "Blocks weak enemy attacks and projectiles when held up.",
+   "tip": "Like-Likes will eat your shield if they grab you — mash buttons to break free before it's swallowed."
+  },
+  {
+   "id": "iron-shield",
+   "name": "Iron Shield",
+   "glyph": "shield",
+   "from": "The L-2 shield. Take a Wooden Shield plus a piece of Hard Ore to the Subrosian Smithy and they forge it for you.",
+   "what": "A sturdier shield that blocks stronger attacks the Wooden Shield can't.",
+   "tip": "Worth getting as soon as you have Hard Ore; it deflects things that would otherwise chip your hearts."
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "The L-3 shield — LINKED GAME ONLY. Tell the Subrosian Smithy the 'Smith Secret' from a linked Oracle of Ages game while you already own the Iron Shield, and they upgrade it.",
+   "what": "The top-tier shield, blocking attacks the lesser shields can't.",
+   "tip": "A linked-game-only reward — in a normal solo playthrough the Iron Shield is the best you'll have."
+  },
+  {
+   "id": "seed-satchel",
    "name": "Seed Satchel",
-   "glyph": "leaf",
-   "from": "The Gnarled Root Dungeon (first dungeon) — and refilled from the Mystery/▼ seed trees.",
-   "what": "Holds the magic seeds you fire with the Slingshot or drop: Ember (fire), Scent (lure/damage), Pegasus (speed), Gale (warp), Mystery (random).",
-   "tip": "Different seeds solve different puzzles — Ember lights torches and burns bushes, Gale Seeds warp you to seed trees you've found."
+   "glyph": "bag",
+   "from": "The reward inside the first dungeon, Gnarled Root Dungeon — grab it after the mini-boss; it already holds 20 Ember Seeds.",
+   "what": "Holds your magic Seeds and lets you toss them or load them into the Slingshot. Capacity upgrades over the quest so you can carry more of each seed type.",
+   "tip": "The satchel is the engine for half your puzzle-solving — refill it by cutting grass or whacking the matching seed-trees scattered around Holodrum."
   },
   {
-   "id": "power_bracelet",
+   "id": "ember-seeds",
+   "name": "Ember Seeds",
+   "glyph": "leaf",
+   "from": "Your first seed type — they come pre-loaded in the Seed Satchel you find in Gnarled Root Dungeon. Refill at any Ember Seed tree (or by cutting grass).",
+   "what": "Burst into flame on impact — light torches, burn away certain bushes/leaves, and damage enemies.",
+   "tip": "The go-to for lighting dark rooms' torches to open doors. Load them in the Slingshot to hit far-off torches."
+  },
+  {
+   "id": "scent-seeds",
+   "name": "Scent Seeds",
+   "glyph": "leaf",
+   "from": "Harvested from a Scent Seed tree once you've found one in Holodrum.",
+   "what": "Give off a smell that lures enemies toward where they land; fired from the Slingshot they also deal damage and knock enemies back.",
+   "tip": "Use them to bait monsters off a ledge or onto a switch, or just as straight ammo from the Slingshot."
+  },
+  {
+   "id": "pegasus-seeds",
+   "name": "Pegasus Seeds",
+   "glyph": "leaf",
+   "from": "Collected from a Pegasus Seed tree in Holodrum.",
+   "what": "Sprinkle them to dash at high speed for a short time (like temporary Pegasus Boots). They also briefly stun enemies, and paired with Roc's Feather they make Link jump much farther.",
+   "tip": "Pegasus dash + Roc's Feather is the standard combo for clearing wide gaps."
+  },
+  {
+   "id": "gale-seeds",
+   "name": "Gale Seeds",
+   "glyph": "leaf",
+   "from": "Harvested from a Gale Seed tree in Holodrum.",
+   "what": "Summon a whirlwind that warps Link to any seed-tree he has already visited — fast travel across the overworld. They can also blow weaker enemies clean off the screen.",
+   "tip": "Toss one in the open overworld to pop up a tree-warp menu; it's the quickest way to cross Holodrum."
+  },
+  {
+   "id": "mystery-seeds",
+   "name": "Mystery Seeds",
+   "glyph": "leaf",
+   "from": "Collected from a Mystery Seed tree in Holodrum.",
+   "what": "Used on stone Owl statues to reveal hints; thrown at most enemies they produce a RANDOM effect like one of the other seed types.",
+   "tip": "If a stone owl is staring at you and you're stuck, drop a Mystery Seed on it for a clue."
+  },
+  {
+   "id": "slingshot",
+   "name": "Slingshot",
+   "glyph": "bow",
+   "from": "The dungeon item in Dungeon 5, the Dancing Dragon Dungeon.",
+   "what": "Fires whichever Seed you have selected in a straight line, turning your seeds into ranged ammo (great for far-off torches, switches, and enemies).",
+   "tip": "Pair it with Ember Seeds for distant torches and with Scent Seeds for ranged damage."
+  },
+  {
+   "id": "hyper-slingshot",
+   "name": "Hyper Slingshot",
+   "glyph": "bow",
+   "from": "The dungeon item in Dungeon 8, the Sword & Shield Maze — an upgrade to your Slingshot.",
+   "what": "The upgraded Slingshot — fires THREE seeds at once in a spread, tripling your coverage.",
+   "tip": "The spread makes it far easier to light multiple torches or hit several statues/switches in one shot."
+  },
+  {
+   "id": "power-bracelet",
    "name": "Power Bracelet",
    "glyph": "champion",
-   "from": "Snake's Remains (the second dungeon).",
-   "what": "Lets you lift and throw pots, bushes, and rocks blocking your way.",
-   "tip": "Many overworld rocks you couldn't move become liftable once you have this — backtrack for secrets."
+   "from": "The dungeon item in Dungeon 2, Snake's Remains.",
+   "what": "Lets Link grab and lift heavy objects — pots, rocks, and bushes — to throw them or clear blocked paths.",
+   "tip": "Once you have it, lots of earlier 'dead ends' (a rock you couldn't move) suddenly open up. Hold to lift, press again to throw."
   },
   {
-   "id": "rocs_feather",
+   "id": "rocs-feather",
    "name": "Roc's Feather",
    "glyph": "leaf",
-   "from": "Poison Moth's Lair (the third dungeon).",
-   "what": "Lets Link jump over pits, spikes, and gaps. Upgrades to Roc's Cape (double jump/glide) late in the game.",
-   "tip": "Jumping is core to nearly every later dungeon; pair it with Pegasus Seeds for longer leaps."
+   "from": "The dungeon item in Dungeon 3, Poison Moth's Lair (reached by growing vines with Summer).",
+   "what": "Lets Link JUMP — hop over gaps, spikes, and pits, and dodge attacks. The foundation of nearly every platforming puzzle.",
+   "tip": "Combine with Pegasus Seeds for a long jump to clear wide chasms."
   },
   {
-   "id": "magnetic_gloves",
+   "id": "rocs-cape",
+   "name": "Roc's Cape",
+   "glyph": "leaf",
+   "from": "The dungeon item in Dungeon 7, the Explorer's Crypt — an upgrade that replaces Roc's Feather.",
+   "what": "The upgraded Feather — Link gains a longer hovering jump (tap jump again to flutter/glide), crossing gaps the plain Feather can't.",
+   "tip": "Tap jump a second time at the peak of a hop to float forward; essential for the longest jumps in the late game."
+  },
+  {
+   "id": "magnetic-gloves",
    "name": "Magnetic Gloves",
    "glyph": "magnesis",
-   "from": "Unicorn's Cave (the fifth dungeon).",
-   "what": "Attract or repel magnetic blocks and balls — pull yourself across gaps to magnetic anchors, or fling iron balls.",
-   "tip": "Switch polarity (N/S) to pull toward or push away; it solves the trickiest mid-late puzzles."
+   "from": "The dungeon item in Dungeon 4, Unicorn's Cave.",
+   "what": "Project a switchable N/S magnetic pole to pull yourself toward (or push off from) big metal blocks and magnetic balls — used to fling Link across rooms and move iron objects.",
+   "tip": "Flip the polarity to attract OR repel; many puzzles hinge on launching yourself off a same-pole magnet."
+  },
+  {
+   "id": "magical-boomerang",
+   "name": "Magical Boomerang",
+   "glyph": "leaf",
+   "from": "The dungeon item in Dungeon 6, the Ancient Ruins.",
+   "what": "A steerable boomerang — you can guide its flight with the D-pad. Stuns enemies, grabs distant items, cuts grass, and hits remote switches.",
+   "tip": "Because you can curve its path, it reaches switches and pickups a thrown straight boomerang never could."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "First found in a chest in Dungeon 1, Gnarled Root Dungeon; afterward buy refills from shops or find them in grass/enemies.",
+   "what": "Throwable explosives that blow open cracked walls, reveal hidden passages, damage enemies, and trigger some switches. Capacity starts low and can be upgraded (the Big Bomb Bag in Subrosia raises it).",
+   "tip": "Suspicious cracked wall? Set a bomb next to it. Many secrets (and the odd Gasha spot) hide behind blast-able walls."
+  },
+  {
+   "id": "shovel",
+   "name": "Shovel",
+   "glyph": "champion",
+   "from": "Given by Holly at her house in the Woods of Winter (east of Horon Village). Use Winter's snowdrift to reach her chimney, tumble in, and she rewards you for clearing the snow off her walkway.",
+   "what": "Digs up soft soil and clears snowdrifts and dirt piles, uncovering Rupees, Hearts, Ore Chunks, Gasha Seeds, and hidden stairs.",
+   "tip": "It's also the tool you use in Subrosia to dig your Roc's Feather back out from where the Strange Brothers buried it."
+  },
+  {
+   "id": "flute",
+   "name": "Flute",
+   "glyph": "scroll",
+   "from": "Earned by teaming up with one animal companion — Ricky gives you his flute by default, or you instead get Dimitri's or Moosh's flute depending on which Strange Flute you obtain first (see below).",
+   "what": "Summons your chosen animal companion to your side out in the overworld so they can carry you across terrain.",
+   "tip": "You get exactly ONE companion for the whole game, decided by the flute you're holding when you reach Natzu (the Spool Swamp area) — choose deliberately."
+  },
+  {
+   "id": "ricky",
+   "name": "Ricky",
+   "glyph": "champion",
+   "from": "A boxing kangaroo found in North Horon / Holodrum Plain (east then north of Horon Village), being bullied by Blaino. He becomes your companion — and hands you his Flute — if you haven't gotten a Strange Flute first. The 'default' companion.",
+   "what": "Carries Link and punches through enemies and certain barriers; can boxing-jump up and down small ledges to cross rough land.",
+   "tip": "To free him, pay Blaino 10 Rupees, win his boxing match, and return Ricky's stolen gloves. Do nothing special with a Strange Flute and Ricky is who you'll end up with — he's great on land."
+  },
+  {
+   "id": "dimitri",
+   "name": "Dimitri",
+   "glyph": "champion",
+   "from": "A friendly Dodongo. To make him your companion, win the Strange Flute at the Subrosian Dance Hall minigame, then rescue him from Moblins in the Spool Swamp/Natzu area (pay them 80 Rupees). (If you never won that flute, you instead just meet him in the Sunken City and he doesn't join.)",
+   "what": "Carries Link and SWIMS — he can cross water, climb up waterfalls, and gulp down almost any enemy. The water-mobility companion, and the only one who can enter the Sunken City.",
+   "tip": "Pick Dimitri if you like exploring lakes and rivers; he ignores currents and eats most foes whole."
+  },
+  {
+   "id": "moosh",
+   "name": "Moosh",
+   "glyph": "champion",
+   "from": "A winged blue bear. Buy the Strange Flute from the Horon Village shop for 150 Rupees, then find Moosh under attack and save him — the Strange Flute becomes Moosh's Flute and he joins you.",
+   "what": "Carries Link and can briefly FLY/hover to glide over pits and gaps, plus a ground-pound that stuns enemies.",
+   "tip": "Moosh's float makes crossing chasms trivial — buy his flute before you reach Natzu/Spool Swamp if you want him."
+  },
+  {
+   "id": "gasha-seeds",
+   "name": "Gasha Seed",
+   "glyph": "leaf",
+   "from": "Found in chests, dug up with the Shovel, bought from shops, and given as quest/Maku rewards throughout Holodrum.",
+   "what": "Plant one in a patch of Soft Soil; come back later and it grows into a Gasha Tree bearing a Gasha Nut. Crack the nut for prizes.",
+   "tip": "Gasha Nuts often hold magic Rings — plus Magic Potions, fairies, Rupees, or Hearts — so plant every Gasha Seed you find."
+  },
+  {
+   "id": "magic-rings",
+   "name": "Magic Rings",
+   "glyph": "gem",
+   "from": "Found all over — Gasha Nuts, dungeon chests, dropped by enemies (notably Maple), buried in soil, and from NPCs. Must be appraised by Vasu before use.",
+   "what": "Equippable rings, each granting a passive effect (extra attack, defense, special perks, transformations, novelty effects, and more). You store appraised rings in your Ring Box and equip ONE at a time.",
+   "tip": "Bring unidentified rings to Vasu to learn what they do; a damage or defense ring equipped early makes the whole quest smoother."
+  },
+  {
+   "id": "ring-box",
+   "name": "Ring Box (Vasu)",
+   "glyph": "bag",
+   "from": "The L-1 box is given by Vasu the first time you visit his shop in Horon Village; the L-2 box is earned later in the quest, and the L-3 box is LINKED GAME ONLY.",
+   "what": "Stores the appraised Rings you own — L-1 holds 1 ring, L-2 holds 3, L-3 holds 5. (Note: you can only have ONE ring equipped at a time regardless of box size; the box just sets how many you can keep ready to swap.) Vasu also appraises new rings and buys back duplicates.",
+   "tip": "A bigger box means more rings on hand to switch between. Visit Vasu often to identify your finds."
+  },
+  {
+   "id": "magic-potion",
+   "name": "Magic Potion",
+   "glyph": "heart",
+   "from": "Bought from Syrup's Potion Shop in the Sunken City (reachable in Winter via the snow bridge) for 300 Rupees, but only after you trade Syrup the Mushroom for the Wooden Bird to reopen her shop. Also found in Gasha Nuts / dropped by Maple.",
+   "what": "A one-use emergency revive — if Link runs out of hearts while carrying a potion, it's used automatically to refill his life instead of a Game Over.",
+   "tip": "Always carry one before a tough boss; it's your safety net. (Oracle of Seasons has no row of empty bottles like later games — the Magic Potion is the standalone life-saver.)"
   }
  ],
  "STATUS_RUNES": [
@@ -46142,6 +47111,18 @@ const OOS = {
   [
    "tips",
    "Tips"
+  ],
+  [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
   ],
   [
    "settings",

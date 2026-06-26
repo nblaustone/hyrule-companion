@@ -1,0 +1,46 @@
+{
+ "fairies": [
+  {
+   "name": "Temple of Seasons Great Fairy (Linked-Game secret — NOT a heal)",
+   "region": "Subrosia — Temple of Seasons",
+   "location": "In the main chamber where you got the Rod of Seasons, walk UP through the waterfall at the top of the screen into a hidden room. She only appears here AFTER you defeat Onox (late/post-game).",
+   "cost": "NOT a healer (the draft was wrong). She is a Linked-Game secret-keeper: she tells Link a password to carry to a linked Oracle of Ages game to earn the Heart Ring L-1 (and she receives a secret from the Wing Dungeon Great Fairy in Ages). No effect in a single, unlinked playthrough beyond the secret."
+  },
+  {
+   "name": "Fairy Fountain — Woods of Winter",
+   "region": "Holodrum — Woods of Winter (the snowy region east/northeast of Horon Village)",
+   "location": "Directly WEST of the Snake's Remains dungeon (the draft's \"south-then-west of the Tree Stump\" landmark is wrong). Step into the fountain.",
+   "cost": "FREE — a healing fountain: the Great Fairy fully refills Link's hearts on contact, and once awoken you can scoop loose fairies here into an Empty Bottle. No item upgrade."
+  },
+  {
+   "name": "Fairy Fountain — Western Coast",
+   "region": "Holodrum — Western Coast (far southwest, the shipwreck beach by Hero's Cave)",
+   "location": "Inside a CAVE just NORTHWEST of the Hero's Cave entrance (the draft's \"one screen due west\" is imprecise — it's a cave to the northwest). Enter and step into the fountain.",
+   "cost": "FREE — a healing fountain: fully restores Link's hearts; loose fairies can be bottled. No item given."
+  },
+  {
+   "name": "Fairy Fountain — North Horon / Natzu (by the river)",
+   "region": "Holodrum — North Horon, in the Natzu animal-companion area (center of the map)",
+   "location": "Near the river in North Horon. Note: this area changes shape with your animal companion (Ricky/Dimitri/Moosh), so the exact approach varies; the riverside fountain is the reliable one. (The draft's \"cave in the southwest of Natzu\" is not confirmed — softened.)",
+   "cost": "FREE — a healing fountain: refills all of Link's hearts; loose fairies can be bottled. No item given."
+  },
+  {
+   "name": "Other healing fairy fountains (Holodrum has SIX total)",
+   "region": "Holodrum — Mt. Cucco · Tarm Ruins · Samasa Desert (plus the three above)",
+   "location": "Beyond the three above, three more healing fountains exist: Mt. Cucco (in an upper cave reachable only in Winter), Tarm Ruins (bomb the wall near the Lost Woods to open it), and Samasa Desert (behind a blocked wall, in the area with the skull marker). Exact step counts vary by source, so treat these as \"a fountain is here,\" not turn-by-turn.",
+   "cost": "FREE — all are healing fountains (full heart refill + bottle-able fairies once awoken), same as the others. No item upgrades."
+  },
+  {
+   "name": "Subrosian Smithy — Shield Temper (Iron Shield)",
+   "region": "Subrosia (the underground realm reached via portals)",
+   "location": "In western Subrosia. First forge HARD ORE: get the Magnetic Gloves, then use them to pull the Red Ore (eastern Subrosia) and Blue Ore (far-western Subrosia) and fuse the two at the Great Furnace. Bring the resulting Hard Ore plus your Wooden Shield to the two smiths and pick \"Do whatever.\"",
+   "cost": "UPGRADE — tempers your Wooden Shield (L-1) into the Iron Shield (L-2). Requires Hard Ore. (In a Linked Game, bringing an already-Iron Shield can yield the Mirror Shield.)"
+  },
+  {
+   "name": "Sword upgrade — Noble Sword (Lost Woods pedestal, single-play)",
+   "region": "Holodrum — Lost Woods (southwest of Horon Village)",
+   "location": "Not a fairy — this is the real one-time SWORD upgrade for a normal (unlinked) playthrough. Do the trade chain to get the Phonograph, play it for the Deku/Business Scrub in the Lost Woods to learn the path, then move one screen at a time changing the season at each stump: Winter then go LEFT, Autumn then LEFT, Spring then LEFT, Summer then LEFT (you head west each screen). The sword waits in a pedestal at the end.",
+   "cost": "UPGRADE — grants the Noble Sword (L-2), stronger than the Wooden Sword; free once you walk the woods correctly. (Completing the trade chain is also what lets Syrup sell Magic Potion.) In a Linked Game, a password secret can instead upgrade the blade to the Noble/Master Sword line — but in single-play the Lost Woods pedestal is the confirmed route."
+  }
+ ]
+}

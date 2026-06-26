@@ -1,0 +1,197 @@
+{
+ "regions": [
+  {
+   "region": "Rings & Vasu",
+   "quests": [
+    {
+     "name": "Get the Ring Box from Vasu",
+     "giver": "Vasu — Vasu Jewelers, Horon Village (the ring shop in the southeast of town)",
+     "location": "Horon Village",
+     "reward": "L-1 Ring Box + the free Friendship Ring + ring appraisal service",
+     "oneLine": "Visit Vasu the jeweler to start collecting, identifying, and wearing the game's equippable magic rings.",
+     "how": "Walk into Vasu Jewelers in Horon Village and talk to Vasu; the first time you speak to him he gives you the L-1 Ring Box plus your first ring, the Friendship Ring (a cosmetic ring with no effect), and your first appraisal is free. After that, bring him any unappraised Seed Ring you find and he identifies it for 20 Rupees so you can equip it (if you already own that ring, he buys the duplicate for 30 Rupees). Use the menu to pick which appraised ring you have equipped."
+    },
+    {
+     "name": "The magic ring hunt",
+     "giver": "Found in Gasha Nuts, chests, shops, minigames, and from Maple",
+     "location": "All over Holodrum (and Subrosia)",
+     "reward": "Toward the 64 total magic rings (each a small permanent perk)",
+     "oneLine": "Collect equippable rings — from a damage-boosting Power Ring to handy utility rings — and have Vasu appraise each one.",
+     "how": "Rings drop from opened Gasha Nuts, hide in chests, appear in shops, are won at minigames, and tumble out of Maple when you bump her. Every new ring is an unappraised Seed Ring until Vasu identifies it (20 Rupees). There are 64 rings in the Oracle ring collection, but it is SHARED across both Oracle of Seasons and Oracle of Ages — a single Seasons file can only find a portion, and completing the set requires trading rings between the two games via linked-game secrets. Many rings are collector trophies; standouts include the Power Ring (more sword damage but you take more damage) and the Armor Ring (the reverse). Only ONE ring can be equipped at a time — the Ring Box level just sets how many you can carry for quick swapping."
+    },
+    {
+     "name": "Upgrade the Ring Box (L-2 and L-3)",
+     "giver": "L-2: a red Goron on Goron Mountain · L-3: a linked-game secret",
+     "location": "Goron Mountain (L-2); linked game (L-3)",
+     "reward": "L-2 Ring Box (carry 3) and L-3 Ring Box (carry 5)",
+     "oneLine": "Grow your Ring Box so you can carry more rings for quick swapping — though only one is ever active at a time.",
+     "how": "The L-2 Ring Box is NOT a Vasu reward — it is given by a red Goron in a cave high on Goron Mountain (bomb the wall one screen east of Goron Village, cross the lava cavern, then drop off the cliff into the cave entrance). The L-3 Ring Box comes only through the linked-game secret system (see the Linked-Game group), so a full-capacity box is a long-game / second-playthrough goal. Important: a bigger box lets you CARRY more rings to swap quickly, but you can still only have one ring equipped/active at any moment."
+    },
+    {
+     "name": "Bumping into Maple the witch",
+     "giver": "Maple — appears at random on the overworld",
+     "location": "Anywhere on the Holodrum overworld",
+     "reward": "Scattered loot: Rupees, Hearts, Bombs, Seeds, Gasha Seeds, Potions, sometimes a Magic Ring (and a one-time Piece of Heart)",
+     "oneLine": "After enough fighting, the broom-riding witch Maple zooms across the screen — crash into her to scatter her goodies.",
+     "how": "Maple flies across a screen after you defeat 30 enemies (only 15 if you've appraised and equipped Maple's Ring). Ram her with your sword, shield, or just by running into her so you both spill your items, then race to grab the loot before she does — she grabs the most valuable item first (Piece of Heart, then Gasha Seed, ring, potion, seeds, bombs, hearts, rupees). Her drops are random and can include Seed Rings and, exactly once per save, a Piece of Heart, so chase her down often. Heads-up: depending on the screen, a dropped Heart Piece can land somewhere unreachable — if so, leave and bump her again."
+    }
+   ]
+  },
+  {
+   "region": "Subrosia (the under-realm)",
+   "quests": [
+    {
+     "name": "Dig up the Star-Shaped Ore",
+     "giver": "Self-directed (the Subrosia Seaside beach)",
+     "location": "Subrosia — Subrosia Seaside",
+     "reward": "Star-Shaped Ore (a trade good)",
+     "oneLine": "Shovel up a glowing star-shaped chunk of ore buried in Subrosia's red sand to begin a little trade.",
+     "how": "You reach Subrosia through the warp portals scattered around Holodrum. Take your Shovel to the Subrosia Seaside and dig along the beach until you turn up the Star-Shaped Ore. Hang onto it — the Subrosia Market wants it."
+    },
+    {
+     "name": "Trade for the Ribbon → date Rosa",
+     "giver": "Subrosia Market, then Rosa the Subrosian",
+     "location": "Subrosia — Market, then find Rosa",
+     "reward": "Ribbon → Rosa opens locked doors in Subrosia",
+     "oneLine": "Swap the Star-Shaped Ore for a Ribbon, give it to Rosa, and she'll unlock Subrosia's sealed doors for you.",
+     "how": "Take the Star-Shaped Ore to the Subrosia Market and trade it for the Ribbon. Find Rosa and give her the Ribbon — flattered, she goes on a little stroll (a 'date') with you and, while you're together, she opens locked doors in Subrosia that were blocking your path. This is the gate to Subrosian rooms you couldn't reach before."
+    },
+    {
+     "name": "Forge Hard Ore (Red + Blue Ore)",
+     "giver": "Self-directed → the Great Furnace",
+     "location": "Subrosia — two ore spots + the Great Furnace",
+     "reward": "Hard Ore (the shield-upgrade material)",
+     "oneLine": "Collect a piece of Red Ore and a piece of Blue Ore and smelt them together into Hard Ore at the furnace.",
+     "how": "Red Ore and Blue Ore each sit in their own spot in Subrosia. Carry both to the Great Furnace and have it smelt them together — the result is a lump of Hard Ore. Take the Hard Ore to the Subrosian Smithy next."
+    },
+    {
+     "name": "Upgrade your shield at the Subrosian Smithy",
+     "giver": "The Subrosian Smiths",
+     "location": "Subrosia — Subrosian Smithy",
+     "reward": "Iron Shield (L-2 shield); Mirror Shield (L-3) only in a linked game",
+     "oneLine": "Hand the smiths your Hard Ore and they hammer your Wooden Shield into the sturdier Iron Shield.",
+     "how": "Bring the Hard Ore to the Subrosian Smithy and let them work — they forge your Wooden Shield into the L-2 Iron Shield, which can block stronger attacks. The L-3 Mirror Shield only comes in a linked game: while you already own the Iron Shield, give the smith master the linked 'Smith Secret' (see the Linked-Game group) and he forges the Mirror Shield instead."
+    },
+    {
+     "name": "Win the Subrosian Dance (Boomerang, then a flute)",
+     "giver": "The Subrosian Dance Hall",
+     "location": "Subrosia — Subrosian Dance Hall",
+     "reward": "1st win: Boomerang · 2nd win: Strange Flute (becomes Dimitri's Flute)",
+     "oneLine": "Match the Subrosians' dance steps without bumping anyone to win the Boomerang, then play again for a flute.",
+     "how": "Step into the Dance Hall and copy the Subrosians' moves to the beat without colliding with a dancer — one wrong step and you're thrown out to restart. Your first clean win gives the Boomerang; win again (the tempo speeds up) and you get the Strange Flute, which becomes Dimitri's Flute IF you haven't already chosen a companion. Win still more times and the prizes drop to Seed Rings, Gasha Seeds, or Ore Chunks."
+    },
+    {
+     "name": "Subrosia's ore-chunk Heart Piece",
+     "giver": "Subrosia Market",
+     "location": "Subrosia — Subrosia Market",
+     "reward": "1 Piece of Heart",
+     "oneLine": "The Subrosia Market sells a Heart Piece for ore chunks and Ember Seeds.",
+     "how": "In the Subrosia Market a Piece of Heart is on sale for 20 Ore Chunks plus 10 Ember Seeds (Ore Chunks are Subrosia's currency, dug up around Subrosia with the Shovel). Note: the other 'volcano-eruption' bombable-cave Heart Piece people mention is the Temple Remains one in Holodrum's ruins, reached with Roc's Cape — see the Heart Pieces entry."
+    }
+   ]
+  },
+  {
+   "region": "Animal Companions",
+   "quests": [
+    {
+     "name": "Choose your companion (the Strange Flute)",
+     "giver": "Determined by HOW you get the Strange Flute",
+     "location": "Holodrum (after the Snake's Remains, the first overworld dungeon)",
+     "reward": "One permanent animal partner: Ricky, Dimitri, or Moosh",
+     "oneLine": "How you obtain the Strange Flute decides which of three animal buddies is yours for the whole game — you only ever get one.",
+     "how": "The flute system unlocks after you clear the Snake's Remains dungeon. There are three ways to get the Strange Flute, and the FIRST one you do locks in your partner: BUY it from the Horon Village shop (150 Rupees) → it becomes Moosh's Flute; WIN it from the Subrosian Dance (after the Boomerang) → it becomes Dimitri's Flute; or SCORE 50+ points at the Shooting Gallery minigame → it becomes Ricky's Flute. After you bond with one, you then find that animal in the world and free it from enemies to finish the bond. Once chosen, the other two are gone — pick the ability you want."
+    },
+    {
+     "name": "Ricky the kangaroo",
+     "giver": "Strange Flute won from the Shooting Gallery (50+ points)",
+     "location": "Holodrum overworld",
+     "reward": "A boxing-kangaroo mount that crosses cliffs and rough ground",
+     "oneLine": "Ricky punches enemies and his powerful jump clears ledges and gaps that would otherwise block you.",
+     "how": "To make Ricky your permanent companion, get the Strange Flute by scoring 50 or more points at the Shooting Gallery minigame BEFORE buying the shop flute or winning the dance flute. (Ricky also helps you reach a few spots early in the story regardless of your choice.) Riding Ricky you can punch enemies and use his high jump to scale steep ledges and cross broken terrain. He's the all-rounder for overland exploration."
+    },
+    {
+     "name": "Dimitri the Dodongo",
+     "giver": "Strange Flute won from the Subrosian Dance",
+     "location": "Holodrum overworld + water",
+     "reward": "A swimming mount that handles deep water and rapids",
+     "oneLine": "Dimitri the friendly Dodongo swims, eats enemies, and crosses water and rapids before you have the Flippers.",
+     "how": "Get the Strange Flute by winning the Subrosian Dance (your second win, after the Boomerang) and it becomes Dimitri's. You then find Dimitri being harassed by the Great Moblin's henchmen in Spool Swamp — pay them off (about 80 Rupees, in two 50 + 30 demands) and he joins you. Dimitri swims across deep water, rides river currents safely, and gobbles enemies. He's the pick for early water mobility."
+    },
+    {
+     "name": "Moosh the flying bear",
+     "giver": "Strange Flute bought from the Horon Village shop",
+     "location": "Holodrum overworld",
+     "reward": "A hovering bear mount with a ground-pound",
+     "oneLine": "Moosh the winged bear hovers across gaps and slams the ground to stun enemies and hit floor switches.",
+     "how": "Buy the Strange Flute from the Horon Village shop (150 Rupees) and it becomes Moosh's Flute; you then find Moosh being attacked by enemies, and clearing them makes him your companion. Riding Moosh you flap to hover over pits and short gaps and perform a heavy ground-pound that stuns nearby enemies and triggers floor switches. He's the choice if you want air time over pits."
+    }
+   ]
+  },
+  {
+   "region": "Trades, Heart Pieces & Gasha Seeds",
+   "quests": [
+    {
+     "name": "The Holodrum trading game (Cuccodex → Noble Sword)",
+     "giver": "Dr. Left, then a chain of villagers across Holodrum and Subrosia",
+     "location": "All over Holodrum + Subrosia",
+     "reward": "Noble Sword (the L-2 sword — stronger than the Wooden Sword)",
+     "oneLine": "A long trade chain starting with a Cuccodex and ending in the upgraded Noble Sword.",
+     "how": "After the first dungeon, light the two torches in Dr. Left's house in Horon with Ember Seeds to get the Cuccodex, then trade it down the chain: Lon Lon Egg (Malon) → Ghastly Doll (Maple) → Iron Pot (Mrs. Ruul) → Lava Soup (the Subrosian Chef) → Goron Vase (Biggoron, atop Goron Mountain) → Fish (Ingo, the vase collector in Sunken City) → Megaphone (the old man in North Horon — the Fish lures his cat down) → Mushroom (Talon, asleep on Mt. Cucco, woken by the Megaphone) → Wooden Bird (Syrup the witch, near Sunken City) → Engine Grease (the clockmaker, Tick Tock's shop in Horon) → Phonograph (Guru-Guru atop the windmill). Finally take the Phonograph to the Deku Scrub in the Lost Woods; play it for him and he tells you how to reach the Noble Sword. Each step needs the right person, so follow the order."
+    },
+    {
+     "name": "Grow Gasha Seeds in soft soil",
+     "giver": "Self-directed (Gasha Seeds found in chests, from Maple, etc.)",
+     "location": "Soft-soil patches across Holodrum",
+     "reward": "Gasha Nuts (Rupees, rings, potions — and one Piece of Heart)",
+     "oneLine": "Plant a Gasha Seed in soft soil, kill enemies as you travel, and come back to crack open a fruit full of loot.",
+     "how": "Find a Gasha Seed (chests, minigames, Maple), then plant it in one of the soft-soil spots dotted around the overworld. As you fight enemies elsewhere the planted nut ripens; return later and slash the grown Gasha Nut open for the goodies inside. Higher-ranked (harder-to-reach) soil patches give better hauls, including the rare one-time Gasha Piece of Heart."
+    },
+    {
+     "name": "Notable Pieces of Heart",
+     "giver": "Various (minigames, bosses, hidden spots)",
+     "location": "Across Holodrum and Subrosia",
+     "reward": "Pieces of Heart (4 = one full Heart Container; 12 total in the game)",
+     "oneLine": "Hunt the optional Heart Pieces to extend your life bar — there are 12 to find across the whole game.",
+     "how": "There are 12 Pieces of Heart in Oracle of Seasons. Reliable standouts: the Subrosia Market sells one for 20 Ore Chunks + 10 Ember Seeds; beating the Great Moblin at his keep (catch and throw back his bombs) drops one; the Temple Remains hides one in a bombable cave you cross with Roc's Cape; Maple drops a one-time piece; and a high-rank Gasha Nut yields one. Others sit in Horon Village, the Eastern Suburbs, Woods of Winter, Mt. Cucco, Spool Swamp, Eyeglass Lake, and the Graveyard. Collect four of any to earn a full Heart Container."
+    },
+    {
+     "name": "Minigames for rings and rupees",
+     "giver": "Various game stalls",
+     "location": "Horon Village & Subrosia",
+     "reward": "Rings, Rupees, the Boomerang (Dance Hall), and a companion flute",
+     "oneLine": "Holodrum's minigames — the Subrosian Dance, the Shooting Gallery, fortune-telling — pay out in rings, gear, and cash.",
+     "how": "The Subrosian Dance Hall gives the Boomerang, then the Strange Flute (→ Dimitri), then Seed Rings/Gasha Seeds/Ore Chunks on repeat. The Shooting Gallery can hand you the Strange Flute (→ Ricky) at 50+ points. Fortune-telling and shop games can give fresh Seed Rings to take to Vasu. Treat these as the steady, low-stakes way to pad out rings and Rupees between dungeons."
+    }
+   ]
+  },
+  {
+   "region": "Linked-Game Secrets (Oracle of Ages)",
+   "quests": [
+    {
+     "name": "Link Seasons to Ages with a password",
+     "giver": "The game's secret/password system (Farore records your secret)",
+     "location": "Title screen / in-game secret-givers",
+     "reward": "A continued, harder 'linked' adventure that carries progress between the two Oracles",
+     "oneLine": "A password earned in one Oracle game unlocks the linked story in the other, tying Seasons and Ages into one tale.",
+     "how": "Beating one game gives you a long 'Secret' password; entering it when starting the other game begins a Linked Game. In a linked Seasons file you start stronger (a sword and extra hearts), keep your animal companion, and unlock content the standalone game lacks. The password encodes your choices, so write it down exactly — it's the bridge between the two cartridges."
+    },
+    {
+     "name": "The little linked secrets (rings, shield, Ring Box)",
+     "giver": "NPCs who trade short secret passwords (snakes, smiths, townsfolk)",
+     "location": "Across both Holodrum and Labrynna",
+     "reward": "Mirror Shield (L-3), the L-3 Ring Box, extra rings (e.g. Snowshoe Ring) and more",
+     "oneLine": "Short secret codes passed between the two games unlock bonus gear like the Mirror Shield and rare rings.",
+     "how": "In a linked game, certain NPCs give you a short secret in one Oracle to tell to their counterpart in the other. The 'Smith Secret' (from a Subrosian in Ages) upgrades your Iron Shield to the Mirror Shield (L-3) at the Subrosian Smithy. A secret from Symmetry City in Ages earns the L-3 Ring Box. Red/Blue snake secrets transfer your appraised rings between games. Other side-secrets reward unique rings. These are optional but are the only way to a full 64-ring set and the best shield."
+    },
+    {
+     "name": "The true final boss (Twinrova & Ganon)",
+     "giver": "Story-gated — only in a linked playthrough",
+     "location": "The Room of Rites (via the Maku Tree)",
+     "reward": "The complete ending + the Hero's Secret carry-over",
+     "oneLine": "Only in a linked game does the real villain reveal herself — Twinrova captures Zelda to resurrect Ganon, the true final foe.",
+     "how": "Finish the SECOND Oracle as a linked game and the plots converge: Twinrova (the witches Koume and Kotake) has been the mastermind, seizing Princess Zelda as a sacrifice to revive Ganon. After your last dungeon the Maku Tree opens the Room of Rites, where you fight Twinrova and then Ganon himself — the true ending the single games never show. Beating it grants the Hero's Secret to start a fresh, stronger file."
+    }
+   ]
+  }
+ ]
+}
