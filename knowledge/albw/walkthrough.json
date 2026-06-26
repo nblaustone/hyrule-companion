@@ -1,0 +1,52 @@
+[
+ {
+  "id": "albw_intro",
+  "name": "The Apprentice & the Bracelet",
+  "sub": "Main Quest — Kakariko & the Sanctuary",
+  "kind": "region",
+  "tagline": "A forgotten sword, a sorcerer who paints people, and a power that flattens you into the wall.",
+  "champion": null,
+  "sections": [
+   {
+    "id": "albw_intro_s_errand",
+    "name": "The Captain's Sword",
+    "sub": "A blacksmith's errand",
+    "reward": "Captain's Sword",
+    "steps": [
+     { "id": "albw_errand_1", "k": "step", "t": "You're the blacksmith's apprentice in Kakariko Village, and you've overslept. Head into the smithy; the smith hands you the captain's newly forged sword and tells you to deliver it to Hyrule Castle at once.", "items": [
+        { "name": "Captain's Sword", "cat": "sword", "note": "Your starting blade — the sword you're delivering. Swing with the attack button; at full hearts it fires a beam. (You'll trade up to the Master Sword later.)" }
+     ] },
+     { "id": "albw_errand_2", "k": "tip", "t": "This is the tutorial stretch — explore Kakariko, talk to people, and cut grass for Rupees. Your real power comes in a few minutes." },
+     { "id": "albw_errand_3", "k": "step", "t": "Leave Kakariko and travel to Hyrule Castle to the north. Deliver the sword to the captain at the gate.", "stuck": "From Kakariko, follow the road north across Hyrule Field to the castle. Talk to the soldier/captain near the entrance to hand over the sword." },
+     { "id": "albw_errand_4", "k": "step", "t": "A commotion sends you toward the Sanctuary to the east — the priest and a young woman named Seres are in danger. Hurry there." }
+    ]
+   },
+   {
+    "id": "albw_intro_s_yuga",
+    "name": "Turned to a Painting",
+    "sub": "Yuga's curse",
+    "reward": null,
+    "steps": [
+     { "id": "albw_yuga_1", "k": "warn", "t": "Inside the Sanctuary you find the sorcerer Yuga — he can seal living people into PAINTINGS on the wall. Before your eyes he turns Seres into a portrait and peels her off the wall." },
+     { "id": "albw_yuga_2", "k": "step", "t": "Chase Yuga and swing at him. He's untouchable for now — he presses YOU flat against the wall as a painting and you black out." },
+     { "id": "albw_yuga_3", "k": "step", "t": "You come to back home in Kakariko, saved and confused. Head downstairs — someone has moved into your house." }
+    ]
+   },
+   {
+    "id": "albw_intro_s_bracelet",
+    "name": "Ravio's Bracelet",
+    "sub": "The power to merge — and the quest begins",
+    "reward": "Ravio's Bracelet",
+    "steps": [
+     { "id": "albw_brace_1", "k": "reward", "t": "A hooded merchant named Ravio has set up a rental shop in your house. In thanks for the lodging he gives you a strange Bracelet — the source of the wall-merging power.", "items": [
+        { "name": "Ravio's Bracelet", "cat": "item", "note": "Press its button to MERGE into a wall as a flat moving painting — slip through grates, around corners, and onto far ledges. The mechanic the whole game is built around." }
+     ] },
+     { "id": "albw_brace_2", "k": "step", "t": "Try it out: stand against a wall and use the Bracelet to press flat into it, then slide along the wall to reach the other side. Step off the wall to pop back out.", "stuck": "Face a flat wall, hold/press the Bracelet button, and Link becomes a painting on the surface. Move left/right along the wall (you can't leave it), then release at an opening or ledge to step back into the world. Merging drains the green energy meter, which refills fast." },
+     { "id": "albw_brace_3", "k": "tip", "t": "Ravio's Shop now RENTS you most of the game's items cheaply (Bow, Bombs, Hammer, Hookshot, rods…), in almost any order. Catch: if you die, his bird repossesses your rentals until you re-rent — so BUY your favorites once you can afford it." },
+     { "id": "albw_brace_4", "k": "step", "t": "Visit the elder Sahasrahla (follow the marker). He explains Yuga's plot to revive Ganon and tells you the realm's hope lies in the Master Sword — which needs the three Pendants of Virtue.", "stuck": "Sahasrahla's house is in Kakariko; the game marks it. Talk to him fully to set your goal and open the way east." },
+     { "id": "albw_brace_5", "k": "step", "t": "Your path is set: recover the three Pendants of Virtue. Start with the Pendant of Courage in the Eastern Palace, off to the east of Hyrule Field — rent any item you fancy from Ravio first." }
+    ]
+   }
+  ]
+ }
+]

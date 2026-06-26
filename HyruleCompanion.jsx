@@ -612,6 +612,11 @@ function GameCover({ kind, accent }) {
     moon: (<><circle cx="32" cy="37" r="19" fill="none" stroke={a} strokeWidth="2.4" /><path d="M24 31 q3.5 5 0 10 M40 31 q-3.5 5 0 10" stroke={a} strokeWidth="2.4" fill="none" /><path d="M24 49 q8 6 16 0" stroke={a} strokeWidth="2.4" fill="none" /></>),
     triforce: (<><path d="M32 13 L41 30 L23 30 Z" fill="none" stroke={a} strokeWidth="2.4" /><path d="M23 31 L32 48 L14 48 Z" fill="none" stroke={a} strokeWidth="2.4" /><path d="M41 31 L50 48 L32 48 Z" fill="none" stroke={a} strokeWidth="2.4" /></>),
     windfish: (<><path d="M12 52 q20 -34 40 0 Z" fill="none" stroke={a} strokeWidth="2.4" /><ellipse cx="32" cy="40" rx="9.5" ry="12" fill="none" stroke={a} strokeWidth="2.4" /><path d="M28 38 q4 -3 8 0" stroke={a} strokeWidth="2" fill="none" /></>),
+    painting: (<><rect x="17" y="14" width="30" height="44" rx="2" fill="none" stroke={a} strokeWidth="2.4" /><rect x="22" y="19" width="20" height="34" rx="1" fill="none" stroke={a} strokeWidth="1.6" /><circle cx="32" cy="31" r="5" fill="none" stroke={a} strokeWidth="2.2" /><path d="M25 50 q7 -12 14 0" fill="none" stroke={a} strokeWidth="2.2" /></>),
+    sail: (<><path d="M32 12 L32 50 M32 14 C44 22 46 36 44 46 L32 46 Z" fill="none" stroke={a} strokeWidth="2.4" strokeLinejoin="round" /><path d="M18 50 L46 50 L40 58 L24 58 Z" fill="none" stroke={a} strokeWidth="2.4" strokeLinejoin="round" /><path d="M12 60 q8 4 16 0 q8 -4 16 0" fill="none" stroke={a} strokeWidth="2" /></>),
+    cap: (<><path d="M16 44 q0 -22 18 -22 q14 0 14 14 q0 6 -6 8 l-10 4 Z" fill="none" stroke={a} strokeWidth="2.4" strokeLinejoin="round" /><circle cx="40" cy="34" r="2.6" fill={a} /><path d="M16 44 q-4 8 4 12" fill="none" stroke={a} strokeWidth="2.4" /></>),
+    season: (<><circle cx="32" cy="36" r="9" fill="none" stroke={a} strokeWidth="2.2" /><g stroke={a} strokeWidth="2.2" strokeLinecap="round"><path d="M32 19 L32 24" /><path d="M32 48 L32 53" /><path d="M15 36 L20 36" /><path d="M44 36 L49 36" /><path d="M20 24 L23.5 27.5" /><path d="M44 48 L40.5 44.5" /></g></>),
+    harp: (<><path d="M22 16 C40 18 44 40 42 56" fill="none" stroke={a} strokeWidth="2.4" /><path d="M22 16 L22 56 L42 56" fill="none" stroke={a} strokeWidth="2.4" strokeLinejoin="round" /><g stroke={a} strokeWidth="1.3"><path d="M27 22 L27 56" /><path d="M32 27 L32 56" /><path d="M37 38 L37 56" /></g></>),
   })[kind] || <circle cx="32" cy="37" r="15" fill="none" stroke={a} strokeWidth="2.4" />;
   return (<svg viewBox="0 0 64 72" width="100%" height="100%" aria-hidden>{motif}</svg>);
 }
@@ -27616,7 +27621,7 @@ const OOT = {
  "meta": {
   "console": "Nintendo 64",
   "consoleShort": "N64",
-  "consoleRank": 1,
+  "consoleRank": 5,
   "year": 1998,
   "era": "Era of the Hero of Time",
   "accent": "#e3c34a",
@@ -30907,7 +30912,7 @@ const MM = {
  "meta": {
   "console": "Nintendo 64",
   "consoleShort": "N64",
-  "consoleRank": 1,
+  "consoleRank": 5,
   "year": 2000,
   "era": "Era of the Hero of Time",
   "accent": "#b07be0",
@@ -34078,7 +34083,7 @@ const ALTTP = {
  "meta": {
   "console": "Super Nintendo",
   "consoleShort": "SNES",
-  "consoleRank": 2,
+  "consoleRank": 6,
   "year": 1991,
   "era": "Era of Light and Dark",
   "accent": "#6f93e0",
@@ -36601,7 +36606,7 @@ const LA = {
  "meta": {
   "console": "Game Boy",
   "consoleShort": "Game Boy",
-  "consoleRank": 3,
+  "consoleRank": 7,
   "year": 1993,
   "era": "A Dream of Koholint",
   "accent": "#9bbc0f",
@@ -36609,5 +36614,417 @@ const LA = {
   "cover": "windfish"
  }
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA };
+const ALBW = {
+ "id": "albw",
+ "label": "A Link Between Worlds",
+ "short": "ALBW",
+ "REGIONS": [
+  {
+   "id": "albw_intro",
+   "name": "The Apprentice & the Bracelet",
+   "sub": "Main Quest — Kakariko & the Sanctuary",
+   "kind": "region",
+   "tagline": "A forgotten sword, a sorcerer who paints people, and a power that flattens you into the wall.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "albw_intro_s_errand",
+     "name": "The Captain's Sword",
+     "sub": "A blacksmith's errand",
+     "reward": "Captain's Sword",
+     "steps": [
+      {
+       "id": "albw_errand_1",
+       "k": "step",
+       "t": "You're the blacksmith's apprentice in Kakariko Village, and you've overslept. Head into the smithy; the smith hands you the captain's newly forged sword and tells you to deliver it to Hyrule Castle at once.",
+       "items": [
+        {
+         "name": "Captain's Sword",
+         "cat": "sword",
+         "note": "Your starting blade — the sword you're delivering. Swing with the attack button; at full hearts it fires a beam. (You'll trade up to the Master Sword later.)"
+        }
+       ]
+      },
+      {
+       "id": "albw_errand_2",
+       "k": "tip",
+       "t": "This is the tutorial stretch — explore Kakariko, talk to people, and cut grass for Rupees. Your real power comes in a few minutes."
+      },
+      {
+       "id": "albw_errand_3",
+       "k": "step",
+       "t": "Leave Kakariko and travel to Hyrule Castle to the north. Deliver the sword to the captain at the gate.",
+       "stuck": "From Kakariko, follow the road north across Hyrule Field to the castle. Talk to the soldier/captain near the entrance to hand over the sword."
+      },
+      {
+       "id": "albw_errand_4",
+       "k": "step",
+       "t": "A commotion sends you toward the Sanctuary to the east — the priest and a young woman named Seres are in danger. Hurry there."
+      }
+     ]
+    },
+    {
+     "id": "albw_intro_s_yuga",
+     "name": "Turned to a Painting",
+     "sub": "Yuga's curse",
+     "reward": null,
+     "steps": [
+      {
+       "id": "albw_yuga_1",
+       "k": "warn",
+       "t": "Inside the Sanctuary you find the sorcerer Yuga — he can seal living people into PAINTINGS on the wall. Before your eyes he turns Seres into a portrait and peels her off the wall."
+      },
+      {
+       "id": "albw_yuga_2",
+       "k": "step",
+       "t": "Chase Yuga and swing at him. He's untouchable for now — he presses YOU flat against the wall as a painting and you black out."
+      },
+      {
+       "id": "albw_yuga_3",
+       "k": "step",
+       "t": "You come to back home in Kakariko, saved and confused. Head downstairs — someone has moved into your house."
+      }
+     ]
+    },
+    {
+     "id": "albw_intro_s_bracelet",
+     "name": "Ravio's Bracelet",
+     "sub": "The power to merge — and the quest begins",
+     "reward": "Ravio's Bracelet",
+     "steps": [
+      {
+       "id": "albw_brace_1",
+       "k": "reward",
+       "t": "A hooded merchant named Ravio has set up a rental shop in your house. In thanks for the lodging he gives you a strange Bracelet — the source of the wall-merging power.",
+       "items": [
+        {
+         "name": "Ravio's Bracelet",
+         "cat": "item",
+         "note": "Press its button to MERGE into a wall as a flat moving painting — slip through grates, around corners, and onto far ledges. The mechanic the whole game is built around."
+        }
+       ]
+      },
+      {
+       "id": "albw_brace_2",
+       "k": "step",
+       "t": "Try it out: stand against a wall and use the Bracelet to press flat into it, then slide along the wall to reach the other side. Step off the wall to pop back out.",
+       "stuck": "Face a flat wall, hold/press the Bracelet button, and Link becomes a painting on the surface. Move left/right along the wall (you can't leave it), then release at an opening or ledge to step back into the world. Merging drains the green energy meter, which refills fast."
+      },
+      {
+       "id": "albw_brace_3",
+       "k": "tip",
+       "t": "Ravio's Shop now RENTS you most of the game's items cheaply (Bow, Bombs, Hammer, Hookshot, rods…), in almost any order. Catch: if you die, his bird repossesses your rentals until you re-rent — so BUY your favorites once you can afford it."
+      },
+      {
+       "id": "albw_brace_4",
+       "k": "step",
+       "t": "Visit the elder Sahasrahla (follow the marker). He explains Yuga's plot to revive Ganon and tells you the realm's hope lies in the Master Sword — which needs the three Pendants of Virtue.",
+       "stuck": "Sahasrahla's house is in Kakariko; the game marks it. Talk to him fully to set your goal and open the way east."
+      },
+      {
+       "id": "albw_brace_5",
+       "k": "step",
+       "t": "Your path is set: recover the three Pendants of Virtue. Start with the Pendant of Courage in the Eastern Palace, off to the east of Hyrule Field — rent any item you fancy from Ravio first."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "ravios_bracelet",
+   "name": "Ravio's Bracelet",
+   "glyph": "magnesis",
+   "from": "Given by Ravio, the merchant who sets up shop in your house early in the game.",
+   "what": "Press to MERGE into a wall as a flat moving painting — slip through barred grates, around corners, and across to ledges you can't walk to. The power that defines the whole game.",
+   "tip": "Merging drains your green energy meter (it refills fast when you step out). If a path looks blocked, ask 'can I merge along this wall?' first."
+  },
+  {
+   "id": "master_sword",
+   "name": "Master Sword",
+   "glyph": "sword",
+   "from": "Drawn from its pedestal in the Lost Woods once you hold all three Pendants of Virtue.",
+   "what": "The legendary blade — stronger than your borrowed sword, and it fires a sword beam when your hearts are full.",
+   "tip": "It's also the key that lets you pass safely into Lorule's deepest places. Get all three Pendants first."
+  },
+  {
+   "id": "bow",
+   "name": "Bow",
+   "glyph": "bow",
+   "from": "Rented or bought from Ravio's Shop.",
+   "what": "Fires arrows at distant switches, eyes, and enemies; arrows draw from your energy meter, so you never run out of ammo.",
+   "tip": "Most items in this game cost ENERGY, not consumable ammo — fire freely, just watch the green meter."
+  },
+  {
+   "id": "pegasus_boots",
+   "name": "Pegasus Boots",
+   "glyph": "stasis",
+   "from": "Found in Hyrule (a gift after an early errand) — not rented from Ravio.",
+   "what": "Hold to dash in a straight line, smashing through some objects and knocking enemies back.",
+   "tip": "Dash + merge combos open several shortcuts and Maiamai nooks."
+  },
+  {
+   "id": "tornado_rod",
+   "name": "Tornado Rod",
+   "glyph": "stasis",
+   "from": "Rented or bought from Ravio's Shop.",
+   "what": "Whips up a gust that flings Link into the air (and flips nearby enemies) — reach high ledges and stun shielded foes.",
+   "tip": "Great for crossing gaps and for getting the drop on armored enemies."
+  },
+  {
+   "id": "hookshot",
+   "name": "Hookshot",
+   "glyph": "magnesis",
+   "from": "Rented or bought from Ravio's Shop.",
+   "what": "Fires a chain that grabs posts and pulls you across gaps, and stuns or pulls enemies.",
+   "tip": "Pairs with wall-merge for some of the trickiest dungeon traversals."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Ravio's Bracelet",
+   "glyph": "magnesis",
+   "step": "albw_brace_1"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Pendant of Courage",
+   "from": "Eastern Palace",
+   "note": "Won by clearing the Eastern Palace — one of the three Pendants of Virtue needed for the Master Sword.",
+   "step": null
+  },
+  {
+   "name": "Pendant of Wisdom",
+   "from": "House of Gales",
+   "note": "Won by clearing the House of Gales out on the lake — the second Pendant of Virtue.",
+   "step": null
+  },
+  {
+   "name": "Pendant of Power",
+   "from": "Tower of Hera",
+   "note": "Won atop the Tower of Hera on Death Mountain — the third Pendant. With all three, draw the Master Sword.",
+   "step": null
+  },
+  {
+   "name": "Sage Gulley",
+   "from": "Dark Palace",
+   "note": "Free the painted Sage Gulley from the Dark Palace — one of the seven Sages you must rescue across Lorule.",
+   "step": null
+  },
+  {
+   "name": "Sage Oren",
+   "from": "Swamp Palace",
+   "note": "Free Sage Oren, the Zora queen, from the Swamp Palace.",
+   "step": null
+  },
+  {
+   "name": "Sage Seres",
+   "from": "Skull Woods",
+   "note": "Free Sage Seres from the Skull Woods in Lorule's dark forest.",
+   "step": null
+  },
+  {
+   "name": "Sage Osfala",
+   "from": "Thieves' Hideout",
+   "note": "Free Sage Osfala from the Thieves' Hideout (with Thief Girl's help).",
+   "step": null
+  },
+  {
+   "name": "Sage Rosso",
+   "from": "Ice Ruins",
+   "note": "Free Sage Rosso from the frozen Ice Ruins.",
+   "step": null
+  },
+  {
+   "name": "Sage Irene",
+   "from": "Desert Palace",
+   "note": "Free Sage Irene from the Desert Palace in the Lorule sands.",
+   "step": null
+  },
+  {
+   "name": "Sage Impa",
+   "from": "Turtle Rock",
+   "note": "Free Sage Impa from Turtle Rock — the seventh Sage opens the way to Lorule Castle.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "armor",
+   "name": "Armor",
+   "glyph": "armor"
+  },
+  {
+   "id": "bow",
+   "name": "Bow & Projectiles",
+   "glyph": "bow"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Materials",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "pendants",
+   "name": "The Three Pendants",
+   "sub": "Key to the Master Sword",
+   "note": "Courage, Wisdom, and Power — won from the Eastern Palace, the House of Gales, and the Tower of Hera. Carry all three to the Lost Woods pedestal to draw the Master Sword.",
+   "reward": "Master Sword"
+  },
+  {
+   "id": "sages",
+   "name": "The Seven Sages",
+   "sub": "Painted prisoners of Lorule",
+   "note": "Yuga has sealed seven Sages into paintings across Lorule's dungeons. Free all seven to open Lorule Castle and confront Yuga Ganon.",
+   "reward": "Lorule Castle"
+  },
+  {
+   "id": "maiamai",
+   "name": "Mother Maiamai's 100 Babies",
+   "sub": "Item upgrades",
+   "note": "One hundred baby Maiamai are hidden across Hyrule and Lorule (often behind walls you must merge into). Return them to Mother Maiamai to upgrade your items into stronger 'Nice' versions.",
+   "reward": "Nice items"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Twenty-eight are hidden across both worlds. Every four extend your life by a full heart.",
+   "reward": "More hearts"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "merge",
+   "name": "Merge into the walls",
+   "items": [
+    "Ravio's Bracelet lets you press flat into a wall and slide along it as a moving painting — through barred grates, around corners, and onto ledges you can't walk to. It's the answer to most 'how do I get there?' puzzles.",
+    "Merging spends your green energy meter; it refills almost instantly when you step back out, so merge often.",
+    "You also cross between Hyrule and Lorule by MERGING into the purple wall fissures (and later via the warp paintings). Lorule is the same map, twisted — a wall you can't pass in one world may be open in the other."
+   ]
+  },
+  {
+   "id": "ravio",
+   "name": "Ravio's rental shop",
+   "items": [
+    "Unlike older Zeldas, you don't find your tools in dungeons — Ravio's Shop (in your house) RENTS you almost every item (Bow, Hammer, Bombs, Hookshot, Tornado Rod, Fire/Ice Rod, Sand Rod…) cheaply, up front, in almost any order.",
+    "The catch: if you DIE, Ravio's bird repossesses every rented item until you re-rent them. Once you can afford it, BUY your favorites so a death can't disarm you.",
+    "Because items aren't gated, you can tackle the dungeons in a fairly free order — rent what a dungeon needs and go."
+   ]
+  },
+  {
+   "id": "energy",
+   "name": "Energy, not ammo",
+   "items": [
+    "Items don't use consumable ammo here — the Bow, rods, Hammer, Bombs and merging all drain one shared GREEN energy meter that recharges on its own.",
+    "So fire and merge freely; just pace yourself in a fight so you don't bottom the meter out mid-combo.",
+    "Pieces of Heart raise life; the meter grows a little as you progress and via some upgrades."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 28,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container."
+  },
+  {
+   "id": "maiamai",
+   "label": "Maiamai",
+   "total": 100,
+   "glyph": "gem",
+   "note": "Hidden across Hyrule & Lorule (many behind merge-walls); return them to Mother Maiamai for 'Nice' item upgrades."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Pendants & Sages",
+  "regionBanner": "Dungeon",
+  "worldName": "Hyrule"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "albw_ganon",
+ "meta": {
+  "console": "Nintendo 3DS",
+  "consoleShort": "3DS",
+  "consoleRank": 1,
+  "year": 2013,
+  "era": "A Crack Between Worlds",
+  "accent": "#d0739e",
+  "accent2": "#3a1f2e",
+  "cover": "painting"
+ }
+};
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW };
 /* GEN:DATA:END */

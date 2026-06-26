@@ -1,0 +1,70 @@
+{
+ "_note": "A Link Between Worlds (game 7, Nintendo 3DS 2013) static bundle fields. assemble-albw.mjs merges these with walkthrough.json (REGIONS) into app-data.json. A sequel to A Link to the Past on the same Hyrule map, plus its dark twin LORULE (crossed via wall fissures). Two signature mechanics: (1) Ravio's Bracelet lets Link MERGE into walls as a moving painting to slip through grates and around corners; (2) Ravio's Shop RENTS/sells nearly every item up front, so dungeons aren't item-gated like older games — but rented items are repossessed if you die (until you buy them). Trophies (the 'Stones & Medallions' analog): 3 Pendants of Virtue (Hyrule → the Master Sword) then the 7 Sages (Lorule dungeons → Lorule Castle & Yuga Ganon).",
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Pendants & Sages",
+  "regionBanner": "Dungeon",
+  "worldName": "Hyrule"
+ },
+ "guideSegs": [["runes", "Items"], ["tips", "Tips"], ["settings", "Settings"]],
+ "postRegionId": "albw_ganon",
+ "CATS": [
+  { "id": "sword", "name": "Swords", "glyph": "sword" },
+  { "id": "shield", "name": "Shields", "glyph": "shield" },
+  { "id": "armor", "name": "Armor", "glyph": "armor" },
+  { "id": "bow", "name": "Bow & Projectiles", "glyph": "bow" },
+  { "id": "item", "name": "Items & Tools", "glyph": "bag" },
+  { "id": "key", "name": "Key Items", "glyph": "key" },
+  { "id": "material", "name": "Materials", "glyph": "gem" }
+ ],
+ "RUNES": [
+  { "id": "ravios_bracelet", "name": "Ravio's Bracelet", "glyph": "magnesis", "from": "Given by Ravio, the merchant who sets up shop in your house early in the game.", "what": "Press to MERGE into a wall as a flat moving painting — slip through barred grates, around corners, and across to ledges you can't walk to. The power that defines the whole game.", "tip": "Merging drains your green energy meter (it refills fast when you step out). If a path looks blocked, ask 'can I merge along this wall?' first." },
+  { "id": "master_sword", "name": "Master Sword", "glyph": "sword", "from": "Drawn from its pedestal in the Lost Woods once you hold all three Pendants of Virtue.", "what": "The legendary blade — stronger than your borrowed sword, and it fires a sword beam when your hearts are full.", "tip": "It's also the key that lets you pass safely into Lorule's deepest places. Get all three Pendants first." },
+  { "id": "bow", "name": "Bow", "glyph": "bow", "from": "Rented or bought from Ravio's Shop.", "what": "Fires arrows at distant switches, eyes, and enemies; arrows draw from your energy meter, so you never run out of ammo.", "tip": "Most items in this game cost ENERGY, not consumable ammo — fire freely, just watch the green meter." },
+  { "id": "pegasus_boots", "name": "Pegasus Boots", "glyph": "stasis", "from": "Found in Hyrule (a gift after an early errand) — not rented from Ravio.", "what": "Hold to dash in a straight line, smashing through some objects and knocking enemies back.", "tip": "Dash + merge combos open several shortcuts and Maiamai nooks." },
+  { "id": "tornado_rod", "name": "Tornado Rod", "glyph": "stasis", "from": "Rented or bought from Ravio's Shop.", "what": "Whips up a gust that flings Link into the air (and flips nearby enemies) — reach high ledges and stun shielded foes.", "tip": "Great for crossing gaps and for getting the drop on armored enemies." },
+  { "id": "hookshot", "name": "Hookshot", "glyph": "magnesis", "from": "Rented or bought from Ravio's Shop.", "what": "Fires a chain that grabs posts and pulls you across gaps, and stuns or pulls enemies.", "tip": "Pairs with wall-merge for some of the trickiest dungeon traversals." }
+ ],
+ "CHAMPIONS": [
+  { "name": "Pendant of Courage", "from": "Eastern Palace", "note": "Won by clearing the Eastern Palace — one of the three Pendants of Virtue needed for the Master Sword." },
+  { "name": "Pendant of Wisdom", "from": "House of Gales", "note": "Won by clearing the House of Gales out on the lake — the second Pendant of Virtue." },
+  { "name": "Pendant of Power", "from": "Tower of Hera", "note": "Won atop the Tower of Hera on Death Mountain — the third Pendant. With all three, draw the Master Sword." },
+  { "name": "Sage Gulley", "from": "Dark Palace", "note": "Free the painted Sage Gulley from the Dark Palace — one of the seven Sages you must rescue across Lorule." },
+  { "name": "Sage Oren", "from": "Swamp Palace", "note": "Free Sage Oren, the Zora queen, from the Swamp Palace." },
+  { "name": "Sage Seres", "from": "Skull Woods", "note": "Free Sage Seres from the Skull Woods in Lorule's dark forest." },
+  { "name": "Sage Osfala", "from": "Thieves' Hideout", "note": "Free Sage Osfala from the Thieves' Hideout (with Thief Girl's help)." },
+  { "name": "Sage Rosso", "from": "Ice Ruins", "note": "Free Sage Rosso from the frozen Ice Ruins." },
+  { "name": "Sage Irene", "from": "Desert Palace", "note": "Free Sage Irene from the Desert Palace in the Lorule sands." },
+  { "name": "Sage Impa", "from": "Turtle Rock", "note": "Free Sage Impa from Turtle Rock — the seventh Sage opens the way to Lorule Castle." }
+ ],
+ "ROADMAP": [
+  { "id": "pendants", "name": "The Three Pendants", "sub": "Key to the Master Sword", "note": "Courage, Wisdom, and Power — won from the Eastern Palace, the House of Gales, and the Tower of Hera. Carry all three to the Lost Woods pedestal to draw the Master Sword.", "reward": "Master Sword" },
+  { "id": "sages", "name": "The Seven Sages", "sub": "Painted prisoners of Lorule", "note": "Yuga has sealed seven Sages into paintings across Lorule's dungeons. Free all seven to open Lorule Castle and confront Yuga Ganon.", "reward": "Lorule Castle" },
+  { "id": "maiamai", "name": "Mother Maiamai's 100 Babies", "sub": "Item upgrades", "note": "One hundred baby Maiamai are hidden across Hyrule and Lorule (often behind walls you must merge into). Return them to Mother Maiamai to upgrade your items into stronger 'Nice' versions.", "reward": "Nice items" },
+  { "id": "hearts", "name": "Pieces of Heart", "sub": "Four = one Heart Container", "note": "Twenty-eight are hidden across both worlds. Every four extend your life by a full heart.", "reward": "More hearts" }
+ ],
+ "TIPS": [
+  { "id": "merge", "name": "Merge into the walls", "items": [
+   "Ravio's Bracelet lets you press flat into a wall and slide along it as a moving painting — through barred grates, around corners, and onto ledges you can't walk to. It's the answer to most 'how do I get there?' puzzles.",
+   "Merging spends your green energy meter; it refills almost instantly when you step back out, so merge often.",
+   "You also cross between Hyrule and Lorule by MERGING into the purple wall fissures (and later via the warp paintings). Lorule is the same map, twisted — a wall you can't pass in one world may be open in the other."
+  ] },
+  { "id": "ravio", "name": "Ravio's rental shop", "items": [
+   "Unlike older Zeldas, you don't find your tools in dungeons — Ravio's Shop (in your house) RENTS you almost every item (Bow, Hammer, Bombs, Hookshot, Tornado Rod, Fire/Ice Rod, Sand Rod…) cheaply, up front, in almost any order.",
+   "The catch: if you DIE, Ravio's bird repossesses every rented item until you re-rent them. Once you can afford it, BUY your favorites so a death can't disarm you.",
+   "Because items aren't gated, you can tackle the dungeons in a fairly free order — rent what a dungeon needs and go."
+  ] },
+  { "id": "energy", "name": "Energy, not ammo", "items": [
+   "Items don't use consumable ammo here — the Bow, rods, Hammer, Bombs and merging all drain one shared GREEN energy meter that recharges on its own.",
+   "So fire and merge freely; just pace yourself in a fight so you don't bottom the meter out mid-combo.",
+   "Pieces of Heart raise life; the meter grows a little as you progress and via some upgrades."
+  ] }
+ ],
+ "WORLD": { "upgrades": [], "systems": [], "fairies": [] },
+ "COLLECTIBLES": [
+  { "id": "hearts", "label": "Pieces of Heart", "total": 28, "glyph": "heart", "note": "Every 4 make a full Heart Container." },
+  { "id": "maiamai", "label": "Maiamai", "total": 100, "glyph": "gem", "note": "Hidden across Hyrule & Lorule (many behind merge-walls); return them to Mother Maiamai for 'Nice' item upgrades." }
+ ]
+}

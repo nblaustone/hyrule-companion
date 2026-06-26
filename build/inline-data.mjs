@@ -35,12 +35,17 @@ const data = {
 // BotW literal). consoleRank orders the shelf groups (0 = newest console, shown first). `cover`
 // names the original-SVG emblem GameCover draws (no Nintendo assets — re-drawn geometry only). */
 const META = {
-  botw:  { console: "Nintendo Switch", consoleShort: "Switch",   consoleRank: 0, year: 2017, era: "Era of the Wilds",          accent: "#5fd6e2", accent2: "#16323a", cover: "slate" },
-  totk:  { console: "Nintendo Switch", consoleShort: "Switch",   consoleRank: 0, year: 2023, era: "Era of the Wilds",          accent: "#9bd16a", accent2: "#23341a", cover: "tears" },
-  oot:   { console: "Nintendo 64",     consoleShort: "N64",      consoleRank: 1, year: 1998, era: "Era of the Hero of Time",   accent: "#e3c34a", accent2: "#352c12", cover: "ocarina" },
-  mm:    { console: "Nintendo 64",     consoleShort: "N64",      consoleRank: 1, year: 2000, era: "Era of the Hero of Time",   accent: "#b07be0", accent2: "#2c1d3e", cover: "moon" },
-  alttp: { console: "Super Nintendo",  consoleShort: "SNES",     consoleRank: 2, year: 1991, era: "Era of Light and Dark",     accent: "#6f93e0", accent2: "#1b2a4a", cover: "triforce" },
-  la:    { console: "Game Boy",        consoleShort: "Game Boy", consoleRank: 3, year: 1993, era: "A Dream of Koholint",       accent: "#9bbc0f", accent2: "#1e2a10", cover: "windfish" },
+  botw:  { console: "Nintendo Switch",   consoleShort: "Switch",   consoleRank: 0, year: 2017, era: "Era of the Wilds",        accent: "#5fd6e2", accent2: "#16323a", cover: "slate" },
+  totk:  { console: "Nintendo Switch",   consoleShort: "Switch",   consoleRank: 0, year: 2023, era: "Era of the Wilds",        accent: "#9bd16a", accent2: "#23341a", cover: "tears" },
+  albw:  { console: "Nintendo 3DS",      consoleShort: "3DS",      consoleRank: 1, year: 2013, era: "A Crack Between Worlds",  accent: "#d0739e", accent2: "#3a1f2e", cover: "painting" },
+  ww:    { console: "Nintendo GameCube", consoleShort: "GameCube", consoleRank: 2, year: 2002, era: "The Great Sea",          accent: "#2f9fd6", accent2: "#10303f", cover: "sail" },
+  minish:{ console: "Game Boy Advance",  consoleShort: "GBA",      consoleRank: 3, year: 2004, era: "The Minish World",        accent: "#3fae8e", accent2: "#123129", cover: "cap" },
+  oos:   { console: "Game Boy Color",    consoleShort: "GBC",      consoleRank: 4, year: 2001, era: "The Land of Holodrum",    accent: "#e0883a", accent2: "#3a2410", cover: "season" },
+  ooa:   { console: "Game Boy Color",    consoleShort: "GBC",      consoleRank: 4, year: 2001, era: "The Land of Labrynna",    accent: "#4a9fc2", accent2: "#10303a", cover: "harp" },
+  oot:   { console: "Nintendo 64",       consoleShort: "N64",      consoleRank: 5, year: 1998, era: "Era of the Hero of Time", accent: "#e3c34a", accent2: "#352c12", cover: "ocarina" },
+  mm:    { console: "Nintendo 64",       consoleShort: "N64",      consoleRank: 5, year: 2000, era: "Era of the Hero of Time", accent: "#b07be0", accent2: "#2c1d3e", cover: "moon" },
+  alttp: { console: "Super Nintendo",    consoleShort: "SNES",     consoleRank: 6, year: 1991, era: "Era of Light and Dark",   accent: "#6f93e0", accent2: "#1b2a4a", cover: "triforce" },
+  la:    { console: "Game Boy",          consoleShort: "Game Boy", consoleRank: 7, year: 1993, era: "A Dream of Koholint",     accent: "#9bbc0f", accent2: "#1e2a10", cover: "windfish" },
 };
 
 // TotK bundle (optional — present once build/assemble-totk.mjs has run)
@@ -88,6 +93,19 @@ try {
   laInGames = ", la: LA";
 } catch (e) { /* Link's Awakening not assembled yet */ }
 
+// v16-queue bundles (optional — each present once its build/assemble-<id>.mjs has run):
+// albw (3DS, game 7), ww (GameCube, 8), minish (GBA, 9), oos + ooa (GBC, 10–11). const-name = id uppercased.
+let queueLines = "", queueInGames = "";
+for (const id of ["albw", "ww", "minish", "oos", "ooa"]) {
+  try {
+    const bundle = JSON.parse(fs.readFileSync(join(ROOT, "knowledge", id, "app-data.json"), "utf8"));
+    bundle.meta = META[id];
+    const VAR = id.toUpperCase();
+    queueLines += `const ${VAR} = ${JSON.stringify(bundle, null, 1)};\n`;
+    queueInGames += `, ${id}: ${VAR}`;
+  } catch (e) { /* not assembled yet */ }
+}
+
 // the BotW game bundle references the module-global consts (defined above) by name
 const BOTW_GAME =
   `const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:${JSON.stringify(META.botw)}, ` +
@@ -95,12 +113,12 @@ const BOTW_GAME =
   `RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, ` +
   `terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, ` +
   `guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], ` +
-  `postRegionId:"destroy_ganon" }${totkInGames}${ootInGames}${mmInGames}${alttpInGames}${laInGames} };`;
+  `postRegionId:"destroy_ganon" }${totkInGames}${ootInGames}${mmInGames}${alttpInGames}${laInGames}${queueInGames} };`;
 
 const block =
   "/* GEN:DATA:START — generated by build/inline-data.mjs from knowledge/*.json; do not hand-edit */\n" +
   Object.entries(data).map(([k, v]) => `const ${k} = ${JSON.stringify(v, null, 1)};`).join("\n") +
-  "\n" + totkLine + ootLine + mmLine + alttpLine + laLine + BOTW_GAME +
+  "\n" + totkLine + ootLine + mmLine + alttpLine + laLine + queueLines + BOTW_GAME +
   "\n/* GEN:DATA:END */";
 
 let src = fs.readFileSync(SRC, "utf8");
