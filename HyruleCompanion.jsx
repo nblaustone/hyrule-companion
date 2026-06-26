@@ -42504,6 +42504,851 @@ const MINISH = {
      ]
     }
    ]
+  },
+  {
+   "id": "minish_deepwood",
+   "name": "Deepwood Shrine",
+   "sub": "Earth Element",
+   "champion": "Earth Element",
+   "tagline": "Tiny inside a giant barrel, with a jar that swallows the wind.",
+   "sections": [
+    {
+     "id": "minish_deepwood_enter",
+     "name": "Into the Shrine",
+     "sub": "Shrink down and step inside",
+     "steps": [
+      {
+       "id": "minish_deepwood_woods",
+       "k": "step",
+       "t": "Head into the Minish Woods, west of Hyrule Town. Before the shrine will let you in you need three things: eat the Jabber Nut (so you can understand the Minish), hear out the Elder (who marks the four elements on your map), and get Festari to open the door behind his abbey — the path to the Deepwood Shrine lies through it.",
+       "stuck": "Lost the order? Jabber Nut first (in the barrel house south of the Minish village — push the crate, grab it, press R to eat). Then talk to the Elder west of the abbey, then return to Festari to have him open the door behind him."
+      },
+      {
+       "id": "minish_deepwood_shrink",
+       "k": "step",
+       "t": "Find the tree stump in the Minish Woods. Jump up onto it and press R — Ezlo shrinks you down to Picori size. Now slip north through the little holes; at your tiny scale the Deepwood Shrine is a giant barrel-shaped house with a doorway you can walk into.",
+       "stuck": "You shrink at the stump, not by walking past it: stand on top and press R. While tiny, the gap at the base of the giant barrel is a normal-sized door."
+      },
+      {
+       "id": "minish_deepwood_first_room",
+       "k": "step",
+       "t": "Inside, follow the path north. Cut the spiderwebs and small enemies, step on floor switches and push blocks to open the barred doors, and work your way deeper toward the mini-boss room."
+      }
+     ]
+    },
+    {
+     "id": "minish_deepwood_gustjar",
+     "name": "The Gust Jar",
+     "sub": "The dungeon item that swallows wind",
+     "steps": [
+      {
+       "id": "minish_deepwood_madderpillar",
+       "k": "step",
+       "t": "In the large room you face the mini-boss Madderpillar — a big armored caterpillar that crawls at you. Its body hurts to touch; the only opening is its NOSE at the front.",
+       "stuck": "Slash Madderpillar's nose. It seizes up and its tail unfurls, baring a heart-shaped segment at the very back. Run around and hit that heart. It takes about 16 hits to the heart — and as it weakens it turns red and crawls faster, so dodge until it slows, then strike the heart again."
+      },
+      {
+       "id": "minish_deepwood_get_gustjar",
+       "k": "loot",
+       "t": "A large chest appears once Madderpillar dies — open it for the Gust Jar, the dungeon item. Hold the button to vacuum air: it pulls objects and enemies toward you and clears webs and dust; release for a puff of air.",
+       "items": [
+        {
+         "name": "Gust Jar",
+         "cat": "item",
+         "note": "Vacuum: pulls objects/enemies in, clears webs and dust; release to puff."
+        }
+       ]
+      },
+      {
+       "id": "minish_deepwood_practice",
+       "k": "tip",
+       "t": "Practice the Gust Jar: vacuum spiderwebs and dust to open blocked paths, pull mushrooms and loose objects, and suck floating spores or stunnable enemies (like Puffshrooms) toward you."
+      },
+      {
+       "id": "minish_deepwood_use_gustjar",
+       "k": "step",
+       "t": "Use the Gust Jar to clear the webs and dust blocking doorways and to pull the stretchy mushroom-platforms so you can reach new areas. Press switches and work your way up toward the boss door.",
+       "stuck": "Stuck at a gap? Aim the Gust Jar at a stretchy mushroom across it and hold — it pulls you across. Clear every web and dust pile; one of them hides the way forward."
+      },
+      {
+       "id": "minish_deepwood_fusion",
+       "k": "optional",
+       "t": "Optional (not required to finish the shrine): if you're carrying a matching Kinstone half, you can fuse with Minish or folk you meet in the woods. A green beam links the halves and triggers an event elsewhere in Hyrule — often a far-off chest or Heart Piece to claim later.",
+       "stuck": "Kinstone Fusion: open the menu, pick a half, and aim the green beam at someone showing a '!'. A match sets off an event in the world — chase the new sparkle on your map afterward."
+      },
+      {
+       "id": "minish_deepwood_bosskey",
+       "k": "loot",
+       "t": "Find the Big Key in this wing — it's behind one of the Gust-Jar puzzles — then return to the locked boss door and open it."
+      }
+     ]
+    },
+    {
+     "id": "minish_deepwood_boss",
+     "name": "Big Green ChuChu",
+     "sub": "Boss · the Earth Element",
+     "reward": "Earth Element",
+     "steps": [
+      {
+       "id": "minish_deepwood_boss_fight",
+       "k": "step",
+       "t": "The boss is the Big Green ChuChu — a wobbling jelly blob (it only looks huge because you're tiny). Sword hits to its body bounce off. Instead, face its jelly base and use the Gust Jar to suck the jelly out of its feet.",
+       "stuck": "Stay fairly close (stray too far and it jumps more). Hold the Gust Jar on its base/feet to vacuum the jelly away. Once enough is gone it loses balance and topples onto its side, stunned — rush in and slash its exposed head until it recovers."
+      },
+      {
+       "id": "minish_deepwood_boss_loop",
+       "k": "tip",
+       "t": "Keep the loop tight: Gust Jar on its feet until it tips over, dash in for sword hits while it's down, back off as it rights itself and jumps. A few cycles finish it."
+      },
+      {
+       "id": "minish_deepwood_earth_element",
+       "k": "reward",
+       "t": "Beat the ChuChu and a Heart Container appears — grab it — then the Earth Element rises in the now-open shrine. Take it: the first of the four elements is yours.",
+       "items": [
+        {
+         "name": "Earth Element",
+         "cat": "key",
+         "note": "First of the four elements. Used to reforge the Picori Blade toward the Four Sword."
+        }
+       ]
+      },
+      {
+       "id": "minish_deepwood_sanctuary",
+       "k": "step",
+       "t": "Return toward Hyrule and bring the Picori Blade to the Elemental Sanctuary, where the Earth Element is infused into the blade — one step along the path to restoring it as the Four Sword."
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "minish_crenel",
+   "name": "Mount Crenel & the Cave of Flames",
+   "sub": "Fire Element",
+   "champion": "Fire Element",
+   "tagline": "Climb the crag, flip the world with a cane.",
+   "kind": "region",
+   "sections": [
+    {
+     "id": "minish_crenel_climb",
+     "name": "Climbing Mount Crenel",
+     "sub": "Get the Grip Ring and reach the cave",
+     "reward": "Grip Ring",
+     "steps": [
+      {
+       "id": "minish_crenel_road",
+       "k": "step",
+       "t": "From Hyrule Town, dash across the muddy Castor Wilds with the Pegasus Boots and shrink at a stump to slip through to Mount Crenel's Base. Start working your way up the rocky path, dodging rolling boulders and falling rocks as you climb.",
+       "stuck": "Can't cross the swamp to reach Crenel? You need the Pegasus Boots (from Rem the shoemaker in Hyrule Town) to dash over the mud in the northwest of Castor Wilds, then a tree stump to shrink and pass through."
+      },
+      {
+       "id": "minish_crenel_water",
+       "k": "tip",
+       "t": "Falling rocks and bottomless cliffs are everywhere here. Hug the inner wall, wait for boulders to pass, and refill hearts from grass and pots whenever you can."
+      },
+      {
+       "id": "minish_crenel_grip",
+       "k": "loot",
+       "t": "On the lower mountain, drop a Bomb between the small poles to blast open a cave. Inside, talk to the Business Scrub and pay 40 rupees for the Grip Ring — the ring that lets Link cling to climbing walls.",
+       "stuck": "No bombs yet, or can't find the cave? Look for the pair of small poles on the lower slopes and set a Bomb between them to open the wall; the Scrub inside sells the Grip Ring for 40 rupees. Without it you simply cannot grab the climbing walls higher up.",
+       "items": [
+        {
+         "name": "Grip Ring",
+         "cat": "item",
+         "note": "Cling to cracked climbing walls and shimmy across them."
+        }
+       ]
+      },
+      {
+       "id": "minish_crenel_walls",
+       "k": "step",
+       "t": "With the Grip Ring, press against the cracked climbing walls to grab on, then shimmy sideways across the gaps that blocked you before. Keep climbing toward the upper slopes.",
+       "stuck": "Walk into the wall and hold the direction toward it — Link grabs automatically once you own the Grip Ring. Move left/right along the wall to cross; let go over solid ground, never over a pit."
+      },
+      {
+       "id": "minish_crenel_mushroom",
+       "k": "tip",
+       "t": "Crenel mushrooms (toadstools) dot the upper paths. Some are springboards: step on a big one to bounce up to a higher ledge you can't otherwise reach."
+      },
+      {
+       "id": "minish_crenel_shrink",
+       "k": "step",
+       "t": "Near the top, a gap stops your normal-size self. Find a glowing Minish stump or hole and shrink down — as a Picori you can slip through a tiny crack or cross a mushroom 'bridge' to the far side, then return to size.",
+       "stuck": "Step onto the glowing portal with Ezlo on your head to shrink. Tiny Link can pass through small holes at the base of walls; follow the path through and find a portal on the other side to grow back."
+      },
+      {
+       "id": "minish_crenel_fuse",
+       "k": "optional",
+       "t": "Crenel is full of Kinstone fusion partners. Fuse Kinstones with the Minish and hikers you meet on the mountain to open new chests and ledges — several reveal Heart Pieces and rupees along the climb.",
+       "stuck": "Open the Kinstone menu near a character who shows the fusion prompt; line up the matching halves until the beam connects. Then explore — fusions on Crenel commonly pop a chest on a nearby ledge."
+      },
+      {
+       "id": "minish_crenel_entrance",
+       "k": "step",
+       "t": "At the summit, find Melari the Minish blacksmith — he takes your broken Picori Blade to reforge while you fetch the Fire Element. Then head to the cave mouth nearby: the entrance to the Cave of Flames. Heal up and step inside.",
+       "stuck": "The dungeon door is high on the mountain, past the climbing walls and the shrink-crossing. If you're stuck below them, you skipped either the Grip Ring or a Minish portal — backtrack and grab both. (You'll collect the reforged White Sword from Melari AFTER the dungeon, not before.)"
+      }
+     ]
+    },
+    {
+     "id": "minish_crenel_cave",
+     "name": "The Cave of Flames",
+     "sub": "The Cane of Pacci and the lava rooms",
+     "reward": "Cane of Pacci",
+     "steps": [
+      {
+       "id": "minish_crenel_map",
+       "k": "step",
+       "t": "Work through the early rooms grabbing the dungeon Map and Compass. Watch for lava: ride moving platforms across it and never step onto bare lava.",
+       "stuck": "Most lava crossings here use floating stone platforms that slide on a timer. Wait at the edge, hop on as the platform arrives, and ride it to the far side — don't rush and miss it."
+      },
+      {
+       "id": "minish_crenel_cane",
+       "k": "loot",
+       "t": "Clear the room of Spiny Chuchus, then open the dungeon-item chest to get the Cane of Pacci. A swing of it flips over an object or enemy — and launches Link straight up out of a special hole.",
+       "stuck": "The Cane chest appears once the room's enemies are dealt with — defeat every Spiny Chuchu (a spin attack or shield knocks off their spikes so you can finish them), then open the chest.",
+       "items": [
+        {
+         "name": "Cane of Pacci",
+         "cat": "item",
+         "note": "Flips objects and stunned enemies over; launches Link up out of yellow holes."
+        }
+       ]
+      },
+      {
+       "id": "minish_crenel_holes",
+       "k": "step",
+       "t": "Now use the Cane on the glowing yellow holes in the floor: swing it at a hole, then step in to be flung up to a ledge or platform you couldn't reach. This is how you cross most of the dungeon's gaps from here on.",
+       "stuck": "Stand next to the marked hole, swing the Cane to charge it, then walk onto the hole — Link is launched upward. Line up your landing ledge before you drop in."
+      },
+      {
+       "id": "minish_crenel_minecart",
+       "k": "step",
+       "t": "Reach the minecart room and ride the cart along the tracks. Use the switch levers to flip the track direction so the cart carries you to the locked doors and chests on the far side.",
+       "stuck": "Hit the track-switch levers (or hop off to throw a switch, then re-board) so the rails point where you need to go. If you keep looping, you missed a switch — ride a full circuit and watch for an untriggered lever."
+      },
+      {
+       "id": "minish_crenel_flipblocks",
+       "k": "step",
+       "t": "Several rooms have flippable blocks or pegs — swing the Cane of Pacci to turn them over and form a path or expose a switch. Combine flips with the launch-holes to reach the Big Door.",
+       "stuck": "If a block has a glowing/marked face, hit it with the Cane to flip it. A flipped block can become a step, plug a gap, or trigger a floor switch — look for what changed after each flip."
+      },
+      {
+       "id": "minish_crenel_bigdoor",
+       "k": "step",
+       "t": "With the Big Key in hand, open the great locked door deep in the cave and step into the boss arena over the lava.",
+       "stuck": "No Big Key yet? It's in a chest in a late room past the minecart and launch-hole puzzles — finish those before the boss door will open."
+      }
+     ]
+    },
+    {
+     "id": "minish_crenel_boss",
+     "name": "Boss: Gleerok",
+     "sub": "Flip the shell, claim the Fire Element",
+     "reward": "Fire Element",
+     "steps": [
+      {
+       "id": "minish_crenel_boss_intro",
+       "k": "warn",
+       "t": "Gleerok is a lava dragon: a long armored neck and shell rise from the molten pit, and its head spits fireballs and sweeps a stream of flame. The shell is its armor — the weak point is the glowing jewel on its back, exposed only after you flip the shell."
+      },
+      {
+       "id": "minish_crenel_boss_flip",
+       "k": "step",
+       "t": "Equip the Cane of Pacci and fire it at Gleerok's shell. A clean hit flips the heavy shell upside-down and pins the dragon, dropping its neck so it forms a ramp up to its back.",
+       "stuck": "The head and neck block the Cane's beam, so press R to roll around the arena until you're beside or behind Gleerok with a clear line to the shell — then swing the Cane (not the sword) to flip it."
+      },
+      {
+       "id": "minish_crenel_boss_hit",
+       "k": "step",
+       "t": "While the shell is flipped, run up the lowered neck onto Gleerok's back and slash the glowing jewel with your sword as fast as you can. Then back off, dodge, and wait for the next opening to flip-and-slash again.",
+       "stuck": "The jewel on the back is the only weak point, and the sword does the damage — the Cane only sets up the flip. Roll clear, re-flip the shell each cycle, and a few rounds up the neck finish it."
+      },
+      {
+       "id": "minish_crenel_boss_dodge",
+       "k": "tip",
+       "t": "Between flips, keep circling to dodge the fireballs and the sweeping flame stream (it leaves a lingering line of fire), and grab any hearts the boss drops to stay topped up."
+      },
+      {
+       "id": "minish_crenel_element",
+       "k": "reward",
+       "t": "With Gleerok destroyed, the Fire Element floats down — step in and claim it. Now return to Melari's Mine at the summit: he'll hand you the reforged White Sword, which you can infuse with the elements.",
+       "items": [
+        {
+         "name": "Fire Element",
+         "cat": "key",
+         "note": "Second of the four Elements that empower the blade; infuses the sword with fire."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "minish_fortress",
+   "name": "Castor Wilds & the Fortress of Winds",
+   "sub": "The way to the wind",
+   "champion": null,
+   "tagline": "Dash across the swamp, dig with mole paws, topple a stone idol.",
+   "sections": [
+    {
+     "id": "minish_fortress_wilds",
+     "name": "Castor Wilds",
+     "sub": "Dash across the swamp to the fortress",
+     "steps": [
+      {
+       "id": "minish_fortress_enter",
+       "k": "step",
+       "t": "Head west into the Castor Wilds — a wide green swamp dotted with marsh, deep water, and weathered statues. Your goal is the Wind Ruins and the Fortress of Winds buried at the far southwest end."
+      },
+      {
+       "id": "minish_fortress_boots",
+       "k": "step",
+       "t": "You need the Pegasus Boots to cross. The boggy ground and water block normal walking, but a running dash carries Link straight over the marsh. Charge the Boots and dash west across the swamp from one solid patch to the next.",
+       "stuck": "Hold the Pegasus Boots button until Link glows and his foot taps, then release to dash. Line yourself up with the far bank first — the dash goes in a straight line and skims you across water and mud you couldn't otherwise step on. If you don't have the Boots yet, you got them from Rem the shoemaker back in town; that's the prerequisite for this area."
+      },
+      {
+       "id": "minish_fortress_bow",
+       "k": "loot",
+       "t": "Pick up the Bow in this area. You'll need its arrows for the fortress boss, so don't leave without it.",
+       "items": [
+        {
+         "name": "Bow",
+         "cat": "bow",
+         "note": "Fire arrows at distant switches and enemies; needed for the Fortress of Winds boss."
+        }
+       ]
+      },
+      {
+       "id": "minish_fortress_kinstones",
+       "k": "step",
+       "t": "A giant boulder seals the Wind Ruins. The only way in is to collect three gold Kinstone pieces hidden around the Wilds, then fuse them. Hunt down all three before heading to the gate.",
+       "stuck": "The three gold Kinstones are: one held by a Darknut in a cave in the center of the marsh (beat it), one in a chest reached past a one-eyed statue in the southeast, and one in a chest past another one-eyed statue to the south. Reaching some of these means dashing across water with the Pegasus Boots."
+      },
+      {
+       "id": "minish_fortress_fuse_gate",
+       "k": "step",
+       "t": "Carry the three gold Kinstones to the large statues in the southwest corner of the Wilds and fuse a Kinstone with each one. When all three are matched, the boulder blocking the Wind Ruins clears and the way to the Fortress of Winds opens.",
+       "stuck": "Stand in front of a big statue, open your Kinstone bag, and pick a gold piece to fuse with it — the green fusion beam fires across Hyrule. Do this for all three statues. With every statue matched, the rock sealing the Wind Ruins crumbles and the path north to the fortress is open."
+      },
+      {
+       "id": "minish_fortress_gate",
+       "k": "step",
+       "t": "Pass through the cleared Wind Ruins to reach the entrance of the Fortress of Winds at the north end."
+      }
+     ]
+    },
+    {
+     "id": "minish_fortress_dungeon",
+     "name": "Fortress of Winds",
+     "sub": "Earn the Mole Mitts and dig deep",
+     "steps": [
+      {
+       "id": "minish_fortress_explore",
+       "k": "step",
+       "t": "Enter the Fortress of Winds. Note: this dungeon gives no Element. Its purpose is the Mole Mitts and the boss — clearing it earns the Ocarina of Wind, which opens warp travel and the road onward toward the Wind Tribe."
+      },
+      {
+       "id": "minish_fortress_smallkeys",
+       "k": "step",
+       "t": "Work through the early rooms, killing enemies and hitting switches to open the locked doors. Grab Small Keys from chests and defeated foes to push deeper into the fortress.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Opens a locked door inside the Fortress of Winds."
+        }
+       ]
+      },
+      {
+       "id": "minish_fortress_molemitts",
+       "k": "loot",
+       "t": "Open the big chest to claim the Mole Mitts — clawed paws that dig through soft sand, dirt walls, and crumbly floor patches. Equip them and burrow through the diggable panels to reach rooms you couldn't enter before.",
+       "stuck": "Stand facing a wall or floor of soft, crumbly sand or dirt and press the Mole Mitts button to dig. Use them to tunnel through dead-end walls and to dig down through diggable floor patches into the room below.",
+       "items": [
+        {
+         "name": "Mole Mitts",
+         "cat": "item",
+         "note": "Fortress of Winds dungeon item — dig through soft sand, dirt walls, and floors."
+        }
+       ]
+      },
+      {
+       "id": "minish_fortress_dig_through",
+       "k": "step",
+       "t": "Use the Mole Mitts to clear blocked passages and burrow downward through diggable floors. This is how you cross the back half of the fortress and reach the boss door.",
+       "stuck": "When a path dead-ends at a sand-filled wall or a patch of diggable floor, that's your cue — dig straight through it. Watch for crumbly panels that hide chests and shortcuts."
+      },
+      {
+       "id": "minish_fortress_bigkey",
+       "k": "loot",
+       "t": "Find the Big Key, then return to the locked boss door at the top of the fortress to open it.",
+       "items": [
+        {
+         "name": "Big Key",
+         "cat": "key",
+         "note": "Opens the boss door in the Fortress of Winds."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "minish_fortress_boss",
+     "name": "Boss: Mazaal",
+     "sub": "Topple the stone idol",
+     "reward": "Heart Container + Ocarina of Wind",
+     "steps": [
+      {
+       "id": "minish_fortress_mazaal_intro",
+       "k": "step",
+       "t": "Through the boss door waits Mazaal — a giant stone idol whose two huge hands rest on the ground. Keep your Bow and sword ready and watch the hands; they slam and sweep."
+      },
+      {
+       "id": "minish_fortress_mazaal_hands",
+       "k": "step",
+       "t": "Shoot an arrow into the middle of one of Mazaal's hands, then run in and slash that same spot with your sword. Do this to both hands until they smoke and go limp — that forces Mazaal's head to drop down to your level.",
+       "stuck": "Hit the center of a hand with an arrow first, then close in and sword the same middle spot before it recovers. Dodge the slams and sweeps between hits. Damage both hands and the big head sinks down where you can reach it."
+      },
+      {
+       "id": "minish_fortress_mazaal_head",
+       "k": "step",
+       "t": "With the head lowered, step on the Minish Portal in the corner of the room to shrink, then go inside Mazaal through its open mouth. Inside, slash the glowing pillar with the eye on it to deal real damage.",
+       "stuck": "Shrink at the Minish Portal (the stump/hole in the corner) while Ezlo is on, walk into the lowered mouth, and attack the shining eye-pillar inside. After you've hit it, get out before the head lifts again."
+      },
+      {
+       "id": "minish_fortress_mazaal_repeat",
+       "k": "step",
+       "t": "Repeat the cycle — arrows and sword on the hands to drop the head, then shrink, enter the mouth, and strike the pillar — about three times. On the final round the pillar is buried in sand: dig it free with the Mole Mitts, then slash it to finish Mazaal off.",
+       "stuck": "Same loop each time: down the hands, shrink, enter, hit the pillar. If the inside of the head is filled with sand and you can't see the pillar, equip the Mole Mitts and dig through the sand to uncover it, then attack."
+      },
+      {
+       "id": "minish_fortress_clear",
+       "k": "reward",
+       "t": "Mazaal crumbles and the Fortress of Winds is cleared. Take the Heart Container, then read the tablet outside to receive the Ocarina of Wind — it warps you out and lets you travel between wind crests. (No Element here; that comes later, on the wind.)",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Full extra heart for beating Mazaal."
+        },
+        {
+         "name": "Ocarina of Wind",
+         "cat": "item",
+         "note": "Warp between activated wind crests across Hyrule."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "minish_droplets",
+   "name": "The Temple of Droplets",
+   "sub": "Water Element",
+   "champion": "Water Element",
+   "tagline": "A frozen temple under the lake, thawed with a lantern.",
+   "sections": [
+    {
+     "id": "minish_droplets_approach",
+     "name": "Down to Lake Hylia",
+     "sub": "Swim out with the Flippers, then shrink into the ice",
+     "steps": [
+      {
+       "id": "minish_droplets_flippers",
+       "k": "tip",
+       "t": "You can't reach this temple without the Flippers. If you don't have them yet, grab them first (Librari at the Royal Hyrule Library points you to the lake cave that holds them) — they let you swim Lake Hylia's deep water to the ice block in the middle."
+      },
+      {
+       "id": "minish_droplets_lake",
+       "k": "step",
+       "t": "Travel to Lake Hylia (south-central Hyrule) and swim out to the big block of ice in the middle of the lake. The temple is sealed inside it, Minish-sized — you'll need to shrink to get in."
+      },
+      {
+       "id": "minish_droplets_shrink",
+       "k": "step",
+       "t": "Climb onto the little glacier and shrink to Picori size — the temple has its own entrance, a crack in the ice you slip down into. No tree stump or flipped pot here.",
+       "stuck": "This dungeon doesn't use the usual stump/pot portals. Get onto the small ice ledge atop the block; with Ezlo on your head you shrink and drop through a tiny crack in the ice into the temple below."
+      },
+      {
+       "id": "minish_droplets_fuse",
+       "k": "optional",
+       "t": "If you have a spare Kinstone half, the Minish near Lake Hylia is a fusion target — it's an optional sidequest (it clears vines on a Western Wood tree for a Piece of Heart), not something you need to enter the temple.",
+       "stuck": "Press the fuse button when matching halves line up the green beam. This Lake Hylia fusion is purely a bonus — skip it if you just want to dive into the dungeon."
+      }
+     ]
+    },
+    {
+     "id": "minish_droplets_lantern",
+     "name": "The Frozen Temple",
+     "sub": "Beat the Big Blue ChuChu for the Flame Lantern, then melt the ice",
+     "steps": [
+      {
+       "id": "minish_droplets_ice",
+       "k": "tip",
+       "t": "The whole temple is choked with ice. Most rooms are blocked, slippery, or dark until you find the dungeon item — don't fight the ice with your sword, you'll need a flame."
+      },
+      {
+       "id": "minish_droplets_explore",
+       "k": "step",
+       "t": "Work through the early rooms, sliding across frozen floors and using your Gust Jar to clear loose ice and pull yourself across gaps. Find the map, compass, and small keys as you go, and open the door to the mini-boss room."
+      },
+      {
+       "id": "minish_droplets_miniboss",
+       "k": "step",
+       "t": "The Flame Lantern is guarded by a Big Blue ChuChu — a giant electrified blob. Wait out its electric charge, then hit its base with the Gust Jar to shrink and topple it, and slash it while it's down. Repeat until it bursts.",
+       "stuck": "Don't touch it while it's crackling with electricity (you'll get zapped). The moment the sparks fade, blast its base with the Gust Jar to flatten it, get your sword hits in, then back off before it recharges."
+      },
+      {
+       "id": "minish_droplets_get_lantern",
+       "k": "loot",
+       "t": "With the ChuChu gone, open the chest it leaves to claim the Flame Lantern. Hold it out to light dark rooms, light torches, and melt the ice that's been blocking your path.",
+       "items": [
+        {
+         "name": "Flame Lantern",
+         "cat": "item",
+         "note": "Lights dark rooms and melts ice — the Temple of Droplets dungeon item."
+        }
+       ]
+      },
+      {
+       "id": "minish_droplets_melt",
+       "k": "step",
+       "t": "Backtrack with the Flame Lantern out, melting ice blocks and lighting frozen torches to open barred gates and reveal new routes deeper in.",
+       "stuck": "Hold the lantern toward an ice block to thaw it, or toward an unlit torch to light it. Some rooms need every torch lit at once — light them in a quick loop before the first ones go out, then the door unbars."
+      },
+      {
+       "id": "minish_droplets_dark",
+       "k": "tip",
+       "t": "In pitch-dark rooms, keep the Flame Lantern out — it casts a small ring of light so you can spot pits, switches, and enemies."
+      },
+      {
+       "id": "minish_droplets_keys",
+       "k": "step",
+       "t": "Melt and push your way to the boss door, thawing the thick ice that seals it. Have full hearts and a fairy or potion before you step through — there's no shop down here."
+      }
+     ]
+    },
+    {
+     "id": "minish_droplets_boss",
+     "name": "Big Octorok",
+     "sub": "Deflect its rocks, freeze it, burn the flower on its back",
+     "reward": "Water Element",
+     "steps": [
+      {
+       "id": "minish_droplets_boss_intro",
+       "k": "tip",
+       "t": "The boss is the Big Octorok — to a Minish, an ordinary Octorok looks enormous. You first found it frozen solid earlier; now it's awake and spits rocks at you."
+      },
+      {
+       "id": "minish_droplets_reflect",
+       "k": "step",
+       "t": "Face the Big Octorok and let it spit a rock, then swing your sword to knock the rock straight back into it (your shield works too). Deflect three rocks to stagger it — don't stand too close or it'll vacuum you in.",
+       "stuck": "Time your sword swing as the rock reaches you so it bounces back into the Octorok's mouth. Three returned rocks in a row triggers the next phase — keep your distance so you don't get sucked in."
+      },
+      {
+       "id": "minish_droplets_thaw",
+       "k": "step",
+       "t": "After three hits it freezes itself and ices over the floor, and the flower on its back dries out and droops down to your level. Run around to its back and torch that dried flower with the Flame Lantern.",
+       "stuck": "In its iced-up form it won't spit rocks — that's your window. Circle behind it and hold the Flame Lantern to the wilted flower on its back; the flame runs up the stem and sets the whole boss ablaze."
+      },
+      {
+       "id": "minish_droplets_strike",
+       "k": "step",
+       "t": "Once it's burning it panics and charges around the room until the ice melts off it and the floor — then it's back to spitting rocks. Repeat the deflect-three-rocks then burn-the-flower cycle (later rounds add a smokescreen — keep the lantern out to see) until it falls.",
+       "stuck": "Each cycle is the same: deflect three rocks to freeze it, then burn the back flower. If it throws up a smoke cloud, the Flame Lantern's light lets you see through it. Stick to the loop and it goes down."
+      },
+      {
+       "id": "minish_droplets_heart",
+       "k": "loot",
+       "t": "Grab the Heart Container the Big Octorok leaves behind to permanently raise your max hearts."
+      },
+      {
+       "id": "minish_droplets_element",
+       "k": "reward",
+       "t": "Take the Water Element the Octorok had swallowed, then step into the green warp out. Three of the four Elements are now yours — bring it to the Elemental Sanctuary to power up the sword.",
+       "items": [
+        {
+         "name": "Water Element",
+         "cat": "key",
+         "note": "The third of the four Elements — the trophy of the Temple of Droplets."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "minish_palace",
+   "name": "The Cloud Tops & Palace of Winds",
+   "sub": "Wind Element",
+   "champion": "Wind Element",
+   "tagline": "Up into the clouds on a tornado, and a cape that lets you fly.",
+   "sections": [
+    {
+     "id": "minish_palace_cloudtops",
+     "name": "Up to the Cloud Tops",
+     "sub": "Veil Falls, the Veil Springs tornado, and the Wind Tribe",
+     "steps": [
+      {
+       "id": "minish_palace_veil",
+       "k": "step",
+       "t": "Head north to the Royal Valley and through Veil Falls, climbing the mountain path toward the upper waterfalls. The cave door that leads up is sealed by a Kinstone slot — you'll need the matching half first.",
+       "stuck": "Veil Falls is the long climbing path north (past the Royal Valley / Royal Crypt). Work up the ledges and waterfalls toward the very top of the mountain — Veil Springs."
+      },
+      {
+       "id": "minish_palace_gustaf_kinstone",
+       "k": "step",
+       "t": "The sealed Veil Falls door needs a fused Kinstone. Its other half comes from the ghost of King Gustaf in the Royal Crypt — find and free him there (after the Temple of Droplets), then fuse to open the way up.",
+       "stuck": "In the Royal Crypt, reach King Gustaf's spirit; he hands you the golden Kinstone half. Press R at the slotted door in Veil Falls to fuse it — a green beam links the halves and the door opens."
+      },
+      {
+       "id": "minish_palace_shrink_cave",
+       "k": "step",
+       "t": "Veil Falls has tiny Minish-only routes. Put Ezlo on and step onto a Minish Portal (a glowing stump or hole) to shrink down and slip through cracks a full-size Link can't pass, then find a return portal to grow back.",
+       "stuck": "Look for a glowing tree-stump portal. Shrink, cross the cracks and tiny ledges as Picori-size, then return to normal before the next full-size puzzle."
+      },
+      {
+       "id": "minish_palace_tornado",
+       "k": "step",
+       "t": "At the top of Veil Falls is Veil Springs. Jump into the whirling tornado (the wind vortex) there to be lifted up into the Cloud Tops — a floating world of clouds above Hyrule, home of the Wind Tribe.",
+       "stuck": "There's no beanstalk — the tornado at Veil Springs is the elevator. Step into the swirling wind column at the top of the springs and it carries you up to the clouds."
+      },
+      {
+       "id": "minish_palace_cloud_fuse",
+       "k": "step",
+       "t": "On the Cloud Tops, collect the golden Kinstones (from enemies and puzzles) and fuse them with the Mysterious Clouds. Completing these fusions raises a large updraft that carries you up to the Wind Tribe's town.",
+       "stuck": "Press R near a glowing Mysterious Cloud to fuse a golden Kinstone half. If the big updraft to the town hasn't started, you're still missing a cloud fusion — sweep both cloud levels for more golden halves."
+      },
+      {
+       "id": "minish_palace_wind_tribe",
+       "k": "step",
+       "t": "Reach the Wind Tribe's village and climb to the top floor of their building to speak with the elder, Siroc. He grants you passage onward to the Palace of Winds, where the final element is kept.",
+       "stuck": "Activate the wind crest, enter, and go up to the highest floor to talk to Siroc. (If you saved the old man Gregal from a ghost in the Royal Valley earlier, find him up here too — he gives you the Light Arrows.)"
+      }
+     ]
+    },
+    {
+     "id": "minish_palace_dungeon",
+     "name": "Palace of Winds",
+     "sub": "The sky dungeon — and Roc's Cape",
+     "reward": "Roc's Cape",
+     "steps": [
+      {
+       "id": "minish_palace_enter",
+       "k": "step",
+       "t": "Enter the Palace of Winds — the final dungeon: windy gaps, moving platforms, and updrafts. Strong gusts will try to blow you off ledges, so watch your footing.",
+       "stuck": "If a gust keeps shoving you, hug the inner wall or wait for the wind to lull. Some platforms only appear or move while the wind is blowing."
+      },
+      {
+       "id": "minish_palace_small_keys",
+       "k": "loot",
+       "t": "As you clear rooms, grab Small Keys from chests and defeated enemies to open the dungeon's locked doors. The Big Key opens the way to the boss.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Opens one locked door in the Palace of Winds."
+        }
+       ]
+      },
+      {
+       "id": "minish_palace_rocs_cape",
+       "k": "reward",
+       "t": "Find the dungeon chest holding Roc's Cape. Equip it: tap to jump, and hold to glide a short way through the air — clearing gaps, spikes, and reaching ledges nothing else could.",
+       "stuck": "After the cape you can leap pits you couldn't before. From here on, gliding over gaps and onto out-of-reach ledges is how most of the palace opens up.",
+       "items": [
+        {
+         "name": "Roc's Cape",
+         "cat": "item",
+         "note": "Jump, then hold to glide over gaps and hazards — the Palace of Winds dungeon item."
+        }
+       ]
+      },
+      {
+       "id": "minish_palace_glide_puzzles",
+       "k": "step",
+       "t": "Use Roc's Cape to cross the wide wind-swept gaps and reach the upper floors. Glide onto distant ledges, ride updrafts higher mid-jump, and leap floor hazards on your way to the boss door.",
+       "stuck": "Stand at a gap's edge, jump with the cape, then hold to glide across. Updrafts (rising air columns) carry you higher mid-glide — use them to reach platforms above you."
+      },
+      {
+       "id": "minish_palace_bigkey",
+       "k": "loot",
+       "t": "Claim the Big Key, then take it to the large locked boss door near the top of the palace to open the way to the final fight.",
+       "items": [
+        {
+         "name": "Big Key",
+         "cat": "key",
+         "note": "Opens the boss door of the Palace of Winds."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "minish_palace_boss",
+     "name": "Boss: The Gyorg Pair",
+     "sub": "Twin sky serpents — and the Wind Element",
+     "reward": "Wind Element",
+     "steps": [
+      {
+       "id": "minish_palace_gyorg_intro",
+       "k": "warn",
+       "t": "The Gyorg Pair are two giant flying eel-serpents — a red one (female) and a blue one (male) — that you fight while standing on their backs high in the air. The fight uses the cloning panels: step on a tile to split into copies of Link.",
+       "stuck": "You start dropped onto the blue Gyorg, which tosses you onto the red one. Watch where its eyes open — that pattern is the whole puzzle. Use the clone tiles to make matching copies of Link."
+      },
+      {
+       "id": "minish_palace_gyorg_red",
+       "k": "step",
+       "t": "On the red (female) Gyorg, three eyes open in a pattern. Use the tiles to split into multiple Links arranged to match that pattern, then slash so you hit all the open eyes at the same time. Repeat until it's defeated.",
+       "stuck": "Line your clones up so one Link stands in front of each open eye, then attack together. If the eyes are spread out, step on a clone tile again to split into more copies before you strike."
+      },
+      {
+       "id": "minish_palace_gyorg_blue",
+       "k": "step",
+       "t": "When the red Gyorg starts smoking, use Roc's Cape to jump across onto the blue (male) Gyorg as it flies past. An eye opens here too — slash it fast, then immediately cape-jump to dodge the tail whip and the fireballs it spits.",
+       "stuck": "Time the cape-jump to the blue Gyorg as it swoops near. The instant you hit its eye, its tail whips around — jump with Roc's Cape right away to clear it. Later rounds add green mini-Gyorgs and more fireballs; keep splitting and jumping."
+      },
+      {
+       "id": "minish_palace_wind_element",
+       "k": "reward",
+       "t": "With both Gyorg defeated, claim a Heart Container and the Wind Element — the fourth and final element. The path to reforging the Four Sword is now open.",
+       "stuck": "Collect the Wind Element where the boss fell. With Earth, Fire, Water, and Wind all gathered, your blade can finally be made into the true Four Sword.",
+       "items": [
+        {
+         "name": "Wind Element",
+         "cat": "key",
+         "note": "The fourth element — completes the Four Sword."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "minish_vaati",
+   "name": "Dark Hyrule Castle",
+   "sub": "The final battle",
+   "champion": null,
+   "tagline": "Four Links, one sorcerer, and the curse broken.",
+   "sections": [
+    {
+     "id": "minish_vaati_enter",
+     "name": "Into the Dark Castle",
+     "sub": "Vaati has twisted Hyrule Castle into his fortress",
+     "steps": [
+      {
+       "id": "minish_vaati_arrive",
+       "k": "step",
+       "t": "With all four Elements infused into the blade (now the Four Sword), the broken bridge to Hyrule Castle restores itself. Cross it and step through the front gate — the castle has become Dark Hyrule Castle, Vaati's stronghold, where he is draining the Light Force from the turned-to-stone Princess Zelda."
+      },
+      {
+       "id": "minish_vaati_save",
+       "k": "tip",
+       "t": "This is the final dungeon. Before you enter, top up: fill empty Bottles with fairies or Red Potion, and make sure your hearts are full. There are no shops past this gate."
+      },
+      {
+       "id": "minish_vaati_allitems",
+       "k": "warn",
+       "t": "Dark Hyrule Castle reuses every tool you own — Gust Jar, Cane of Pacci, Mole Mitts, Bombs, Bow, Boomerang, Lantern. If a room looks like a dead end, you almost always already have the item that opens it."
+      }
+     ]
+    },
+    {
+     "id": "minish_vaati_foursword",
+     "name": "The Four Sword Puzzles",
+     "sub": "Splitting into copies to clear the castle",
+     "steps": [
+      {
+       "id": "minish_vaati_split_how",
+       "k": "step",
+       "t": "Inside, you'll find glowing Force tiles laid out in patterns. Stand on the tiles and charge the sword — Link splits into copies of himself, one per tile. Up to four Links can act at once, all moving together.",
+       "stuck": "To split, stand on the Force-tiles (the colored floor panels), then HOLD the attack button to charge a spin attack and release it. Link divides into clones — one for each tile in the set — and they line up. When you move, every copy mirrors you, so position the lead Link to set the others where you need them."
+      },
+      {
+       "id": "minish_vaati_fourblocks",
+       "k": "step",
+       "t": "Several rooms have four floor switches (or four heavy blocks) that must all be pressed or pushed at the same time. Split into four Links, line one up on each switch (or behind each block), then act as one to open the locked door.",
+       "stuck": "A single Link can't cover four switches. Split on the Force-tiles into FOUR copies, then walk so each clone lands on its own switch (or behind its own block) at once. The door opens only while all four are engaged — so move them into place together, not one at a time."
+      },
+      {
+       "id": "minish_vaati_elementdoors",
+       "k": "step",
+       "t": "Some doors are sealed and need the right tool: light braziers with the Lantern, douse or freeze flames with the Gust Jar's pulls and the room's water, and use wind currents where the room demands. Work through each room in turn to climb deeper into the castle."
+      },
+      {
+       "id": "minish_vaati_shrink_room",
+       "k": "step",
+       "t": "When a passage just stops with no door, look for a Minish Portal — a stump, jar, or small hole. Shrink down, slip through the tiny gap (a crack in the wall, a space under a door), and return to size on the far side to keep going.",
+       "stuck": "Stand on the Minish Portal with Ezlo on your head and press the action button to shrink. Tiny Link can walk through cracks and small holes full-size Link can't. Cross to the other side, find the matching portal or stump, and step on it to grow back."
+      },
+      {
+       "id": "minish_vaati_kinstone",
+       "k": "optional",
+       "t": "If a Kinstone fusion still glows unmatched on your map back in Hyrule, fuse it before the point of no return — late fusions can open a chest or a Heart Piece. Going into the final boss with full hearts is worth the detour.",
+       "stuck": "Open the Kinstone fusion screen to see who still wants a half, then fuse with the matching NPC or stone to fire the green beam. The event it triggers (a chest, a Heart Piece) appears out in Hyrule, so check the map for the new sparkle."
+      },
+      {
+       "id": "minish_vaati_bigkey",
+       "k": "loot",
+       "t": "Clear the castle's puzzle and combat rooms (Darknuts and all) to reach the Big Key, then climb to the great sealed door — Vaati's chamber. Save your fairies for what's behind it.",
+       "items": [
+        {
+         "name": "Big Key",
+         "cat": "key",
+         "note": "Opens the boss door in Dark Hyrule Castle. (No new item or Element is found here — this is the finale.)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "minish_vaati_boss",
+     "name": "Vaati",
+     "sub": "The sorcerer in three forms",
+     "reward": "The Light Force restored, Zelda freed, and the curse broken",
+     "steps": [
+      {
+       "id": "minish_vaati_reborn",
+       "k": "step",
+       "t": "Phase 1 — Vaati Reborn. Vaati floats in humanoid form, ringed by orbiting eyes that shield him and fire at you. Slash the orbiting eyes to break the shield, then rush in and hit Vaati directly. When he throws slow black energy balls, suck them up with the Gust Jar; later, dodge the lasers from the four eyes by staying clear of their lines.",
+       "stuck": "Destroy the circling eyes with your sword FIRST — only then is Vaati himself open. Use the Gust Jar to vacuum the dark projectiles (and the black 'mantle' that protects the later eyes), stay mobile to avoid the lasers, then close in and hit Vaati before he teleports away."
+      },
+      {
+       "id": "minish_vaati_transfigured",
+       "k": "step",
+       "t": "Phase 2 — Vaati Transfigured. He becomes a large central eye surrounded by a ring of small orbs. Four of those orbs hide eyes, lined up in a row (above, below, left, or right). Shoot the orbs with the Bow to reveal the four eyes, then split into four Links facing that row and slash all four at once.",
+       "stuck": "Fire ARROWS at the small orbs around him — a hit reveals an eye. Reveal all four (they're in a straight line), then split on the Force-tiles into four Links oriented the same way as the row, walk up, and hit all four eyes together. He gets faster and shifts the pattern on the second round, but the method is the same."
+      },
+      {
+       "id": "minish_vaati_pacci",
+       "k": "step",
+       "t": "Phase 3 — Vaati's Wrath (arms). He rears up as a huge monster with two long arms that slam down from the sides. Hit an arm with the Cane of Pacci to flip it open, then step on a Minish Portal, shrink, and walk INSIDE the arm. Find the eye whose pupil keeps moving and strike it to destroy the arm — repeat for the other (the Lantern helps you see inside it).",
+       "stuck": "The Cane of Pacci flips the arm and opens a hole. Use a nearby Minish Portal to shrink and enter the arm before he reattaches it; inside are several eyes — only the one with a moving pupil is the core. Slash that core to take the arm off. Do both arms."
+      },
+      {
+       "id": "minish_vaati_final",
+       "k": "step",
+       "t": "Phase 3 — Vaati's Wrath (final). With the arms gone, he exposes a body of eyes that fire bolts of lightning at you. Split into four Links, line up in front of the eyes, and swing your sword at the right instant to DEFLECT the lightning back into them — that stuns him. While he's stunned, pile every clone's strike onto the eyes. Keep a Bottled fairy ready.",
+       "stuck": "Don't just attack — REFLECT. Split on the Force-tiles, stand facing the eyes, and swing the Four Sword as each lightning ball reaches you to bounce it back at him. The hit stuns him; then rush in with all four Links and slash the eyes. Repeat the deflect-then-strike loop until he falls."
+      },
+      {
+       "id": "minish_vaati_victory",
+       "k": "reward",
+       "t": "Vaati is destroyed and the Light Force is restored. Ezlo returns to his true form, finds the magic cap of wishes he had made, and gives it to Princess Zelda — freed from stone, she wears it and wishes Vaati's cruelty undone. The curse on Hyrule's people lifts and the castle is whole again. The legend of the Minish Cap is complete."
+      }
+     ]
+    }
+   ],
+   "kind": "region"
   }
  ],
  "SHRINES": [],
@@ -42591,6 +43436,21 @@ const MINISH = {
    "name": "Smith's Sword",
    "glyph": "sword",
    "step": "minish_ezlo_1"
+  },
+  {
+   "name": "Gust Jar",
+   "glyph": "stasis",
+   "step": "minish_deepwood_get_gustjar"
+  },
+  {
+   "name": "Cane of Pacci",
+   "glyph": "stasis",
+   "step": "minish_crenel_cane"
+  },
+  {
+   "name": "Roc's Cape",
+   "glyph": "leaf",
+   "step": "minish_palace_rocs_cape"
   }
  ],
  "CHAMPIONS": [
@@ -42598,25 +43458,25 @@ const MINISH = {
    "name": "Earth Element",
    "from": "Deepwood Shrine",
    "note": "The first of the four Elements, won from the Deepwood Shrine deep in the Minish Woods.",
-   "step": null
+   "step": "minish_deepwood_earth_element"
   },
   {
    "name": "Fire Element",
    "from": "Cave of Flames",
    "note": "The second Element, won from the Cave of Flames inside Mount Crenel.",
-   "step": null
+   "step": "minish_crenel_element"
   },
   {
    "name": "Water Element",
    "from": "Temple of Droplets",
    "note": "The third Element, won from the frozen Temple of Droplets beneath Lake Hylia.",
-   "step": null
+   "step": "minish_droplets_element"
   },
   {
    "name": "Wind Element",
    "from": "Palace of Winds",
    "note": "The fourth and last Element, won from the Palace of Winds high in the Cloud Tops — completing the Four Sword.",
-   "step": null
+   "step": "minish_palace_wind_element"
   }
  ],
  "CATS": [
