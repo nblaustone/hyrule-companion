@@ -428,12 +428,19 @@ layout, `REGION_MAPS` = the per-region coords.
     v13.0–13.3 verified in-browser (0 console errors, 0 meta leaks).
   - **TotK region maps DONE (v14.6)** — `gen-totk-region-maps` (24 agents) → `region-maps.json` (all 152 shrines
     on per-region 0-100 grids + towers/landmarks); the Shrines-tab RegionMap now renders for TotK like BotW.
-  - **TotK remaining (1 gap, generators staged, run ≤2 at a time):** **shrine solutions** (152 — the
-    Stuck-reveal/search centerpiece; `gen-totk-shrine-solutions`, **resume `wf_ebb10104-cfd`**, ~150 left);
-    **compendium** (`gen-totk-compendium`, Items-tab catalog, not yet run — lower priority).
-  - **⚠ RATE-LIMIT RULE (learned the hard way):** **3+ Workflows concurrently** (~360 agents) triggers server-side
-    **529 overload** — shrine-solutions came back 2/152. **Run ≤2 workflows at a time**; `resumeFromRunId` mops up
-    failures (cached successes return instantly). Heavy runs are ~1.5–2M tokens each.
+  - **TotK shrine solutions DONE (v17.12)** — all **152** spoiler-gated solutions authored + adversarially
+    verified (Stuck-reveal on every shrine row + answer-first global search). `build/gen-totk-shrine-solutions-workflow.mjs`
+    was **rewritten to BATCH per AGENT_WORKFLOW.md** (~12 region-coherent shrines/agent → **19 author + 19 verify =
+    38 agents** in ONE solo workflow, vs the old ~304 one-per-item) → `knowledge/totk/shrine-solutions.json` →
+    assemble-totk splices `solution` by region+name. Verified in-browser (reveal + search render, 0 console errors,
+    0 meta leaks). **TotK is now FULLY at parity** save the lower-priority Items-tab compendium.
+  - **TotK remaining (1 lower-priority gap):** **compendium** (`gen-totk-compendium`, Items-tab catalog, not yet run).
+  - **⚠ RATE-LIMIT RULE (learned the hard way, twice):** the worst combo is **one-agent-per-item × multiple
+    concurrent workflows**. **3+ Workflows concurrently** (~360 agents) trips server-side **529** (shrine-solutions
+    once came back 2/152); and even **2 one-per-item workflows launched at the same instant** (16 web-fetching agents
+    firing together) trips it INSTANTLY → 0/152 in ~36s. Two fixes, both required: **(1) BATCH ~12 items/agent**
+    (AGENT_WORKFLOW.md's #1 token lever — 304→38 agents) and **(2) run ONE solo workflow** for a heavy web sweep.
+    `resumeFromRunId` mops up partials (cached successes return instantly). A successful batched run ≈ 2.5M tokens.
 - **v14 — Ocarina of Time as game 3 (STARTED):** **v14.0** (801506f) scaffolded OoT into the `GAMES` picker
   (now **BotW · TotK · OoT**). `build/assemble-oot.mjs`: `knowledge/oot/{walkthrough,globals}.json` →
   `app-data.json` (same bundle shape; derives STATUS_RUNES, wires the 3 Spiritual Stones/CHAMPIONS to their grant
@@ -571,7 +578,15 @@ layout, `REGION_MAPS` = the per-region coords.
   walkthrough run had 0 failures** — the v16 "heavy workflows run SOLO" lesson held all five times. 5 new
   `GameCover` emblems (painting/sail/cap/season/harp); META re-ranked for the new consoles. All verified in-browser
   (11 games grouped, each at its game-appropriate tab set, 0 console errors, BotW/MM unregressed).
-- **Biggest remaining build (whole app):** TotK **shrine solutions** (152 — the Stuck-reveal/answer-first-search
-  centerpiece; the only major functional gap left in any game). Resume `wf_ebb10104-cfd` (~150 left), ≤2
-  workflows at a time. Lower-priority: TotK Items-tab compendium. Lore is shared/cross-game and could gain
-  era chapters for any of the 11 games (needs the writers'-room workflow + the no-AI-slop bar — vet a sample first).
+- **v17.12 — TotK shrine solutions (DONE): all 152.** Closed the single biggest remaining functional gap in the
+  whole app. Every TotK shrine row now has a spoiler-gated `solution` Stuck-reveal and answer-first search payload,
+  authored + adversarially verified (second-source web check). The big lesson: I first did it WRONG —
+  one-agent-per-shrine (304 agents) AND two workflows launched at once → instant 529, 0 results. Rebuilt per
+  AGENT_WORKFLOW.md: **batched ~12 region-coherent shrines/agent (38 agents) in ONE solo workflow** → 152/152,
+  0 failures, ~2.45M tokens. `gen-totk-shrine-solutions-workflow.mjs` now emits the batched form (region-coherent
+  chunks of ≤12, `args` = regionKeys for resume). Verified in-browser (reveal + global search render, 0 console
+  errors, 0 meta leaks). **TotK is now FULLY at parity** with the deeply-built games.
+- **Biggest remaining build (whole app):** none major. The only content gap left anywhere is the **TotK Items-tab
+  compendium** (lower priority; `gen-totk-compendium` staged, not yet run — the Items tab falls back to PouchView
+  until then). Lore is shared/cross-game and could gain era chapters for any of the 11 games (needs the
+  writers'-room workflow + the no-AI-slop bar — vet a sample first).

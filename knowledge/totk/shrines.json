@@ -8,28 +8,32 @@
     "location": "Southwest of the Temple of Time, just past the first pond at the start of the game.",
     "category": "puzzle",
     "oneLine": "Grants Ultrahand. Build a bridge across the gap, then attach a hook to a plank and ride it along the rail to reach the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Touch the pedestal to receive Ultrahand. You're meant to build, not climb. Use Ultrahand to grab the large boards lying on the ground and lay one across the first gap to make a bridge, then walk over. At the next gap, line a board up across it; if one won't reach, attach a second board to the first (move them together until they turn yellow to show they'll stick, then press the attach button) to extend it. For the optional chest on a raised stone ledge in the corner, grab a long slab and prop it as a ramp to reach it, then open it for a piece of Amber. At the last section, grab the hook lying nearby, attach it to the middle of a board so the hook catches the overhead rail, then jump on and ride it across. Step off at the far end and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "In-isa Shrine",
     "location": "West side of the island, south across the frozen lake near a stone ruin and the In-isa cold cave.",
     "category": "puzzle",
     "oneLine": "Grants Fuse. Fuse a rock to your sword, fire fruit to arrows, and a rock to your shield to clear the rooms, then beat the Construct.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Touch the pedestal to receive Fuse, which sticks a material onto your weapon, shield, or arrows. Pick up the Rusty Claymore on the ground, open Fuse, and stick one of the boulders to it to make a heavy Boulder Hammer, then smash the cracked stone door to move on. In the next room you can also fuse a boulder to your shield to try it out. Grab the arrows and Old Wooden Bow, then fuse a Fire Fruit to an arrow (hold the aim button and press up on the D-pad) and shoot the dried leaves on the high wooden shelf to burn them away and drop a chest holding a Small Key. For an optional chest, smash the cracked stone pillar in the far corner with your boulder weapon to drop a chest with 5 Arrows. Use the Small Key on the locked door upstairs, then beat the Captain Construct (fused fire arrows work well), smash the last cracked wall, and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Gutanbac Shrine",
     "location": "Snowy peak in the island's upper northwest area, reached by climbing up through the cold caves.",
     "category": "puzzle",
     "oneLine": "Grants Ascend. Ascend through ceilings to bypass obstacles, including rising through a moving spike door, then defeat the Construct.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Touch the pedestal to receive Ascend, which lets you swim straight up through any ceiling and pop out on top. Walk to the end of the path, aim Ascend at the ceiling and rise through it. For the optional chests, stand under the shorter block on the left and Ascend up into it to reach a chest with a Stone Axe; later, after climbing higher, a second chest holds a Construct Bow. A Soldier Construct guards the way, so shoot its glowing eye to take it down quickly. Break the wooden crates blocking a small alcove on the right, step inside, and Ascend through that ceiling to reach the upper level. At the end, a hanging slab blocks you, so cut its two ropes (an arrow works) to drop it, then Ascend up through it. For the last gap, stand under the moving spike-topped platform, Ascend up into it, ride it until it lines up beneath the ledge above, and Ascend again to reach the exit. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Nachoyah Shrine",
     "location": "Near the Temple of Time; unlocks after the first three shrines and getting Recall at the Temple of Time.",
     "category": "puzzle",
     "oneLine": "Practice Recall. Rewind water-borne planks and waterwheels to cross, rewind a cogwheel to climb to a chest, then stack and rewind the clock hands to open the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine opens after you clear the first three Great Sky Island shrines and earn Recall at the Temple of Time; Recall rewinds an object back along the path it just moved. Inside, get onto one of the floating planks in the water, then aim Recall at it to send it rewinding back the way it drifted and carry you across. Hop onto the next raft that comes down the waterfall and use Recall on it to ride it back up the falls to the higher area. For the optional chest, find the large spinning cogwheel, use Recall on it so it reverses, jump on, and let it carry you up to the ledge with a chest holding 10 Arrows. At the exit, a gate is blocked by two clock hands that only line up briefly; Recall them while they're aligned to hold the gate open, or grab one hand with Ultrahand and attach it to the other so they stay stuck together. Pass through and touch the monk's altar to claim your Light of Blessing and finish the Great Sky Island."
    }
   ]
  },
@@ -42,133 +46,152 @@
     "location": "Hyrule Castle Town Ruins central square, north of Lookout Landing",
     "category": "combat",
     "oneLine": "Combat Training: a training Construct teaches side hop, backflip, perfect guard (parry) and charged attacks; clear the drills to finish.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the Combat Training shrine, so there's no puzzle - just follow the drills a Soldier Construct walks you through. First it teaches the Side Hop: ZL-target the Construct, then dodge sideways the instant it does a vertical (overhead) slash to trigger a perfect dodge. Next is the Backflip: dodge backward when it does a horizontal (sideways) swing. Then the Parry: raise your shield and parry right as its attack lands to knock it back. Finally the Charged Attack: hold the attack button to wind up, then release. Do each move when prompted and the gate opens. Open the chest in the altar room for a Zonaite Sword, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Yamiyo Shrine",
     "location": "Romani Plains, east of Hyrule Castle Town Ruins, northeast of Lookout Landing",
     "category": "combat",
     "oneLine": "Combat Training: Throwing - learn to throw materials and fused weapons as projectiles, then defeat the Constructs to pass.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the Combat Training: Throwing shrine, where your normal melee attacks are disabled, so you fight by throwing things. Pick up the Fire Fruit growing inside the room, then hold R to bring up your materials, press up on the D-pad to select the Fire Fruit, aim at the Soldier Construct and release to throw it. After the first hit the Construct starts moving around; keep your aim on it (it's easiest to throw the moment it stops) and pelt it until it's destroyed. You can also throw or fuse-throw any handy weapon. With the Construct down the back door opens. Open the chest beyond it for three Bomb Flowers, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Teniten Shrine",
     "location": "South of Lookout Landing near Lake Kolomo, Hyrule Field",
     "category": "combat",
     "oneLine": "Combat Training: Throwing - ZL-target and throw weapons to hit out-of-reach Constructs; aim carefully to clear the room.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Combat Training: Throwing shrine, so you clear it by throwing weapons rather than swinging them. A Training Construct stands on a raised platform out of melee reach. Pick from the assortment of weapons offered (you can also throw items from your own inventory), then hold R to aim at the Construct and release R to throw. Land a hit, and for the second part the Construct starts moving - track it with your aim and throw again to finish it. The barred door then opens. Head up to the treasure chest just past it for a Zonaite Spear, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Kamizun Shrine",
     "location": "West of East Post Ruins, southern Hyrule Field",
     "category": "combat",
     "oneLine": "Proving Grounds: Beginner - stripped of gear, grab only the weapons in the arena; fuse a spiked ball and defeat every enemy to pass.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds: Beginner shrine, so all your gear is stripped at the door and you fight with only what's in the room. First grab the starter kit lying nearby: the Old Wooden Bow, Old Wooden Shield, Wooden Stick and ten Arrows. Use these on the Soldier Constructs roaming the floor (they're weak). By the gate to the altar you'll find a Spiked-Iron Ball and a Long Stick; use Fuse to combine them into a heavy spiked club that hits much harder. One archer Construct stands on a raised pillar near the gate - pick it off with arrows, or smash the pillar out from under it with the spiked club so it drops into melee range. Clear them all and the gate opens; grab the Spring Shield from the chest inside, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jojon Shrine",
     "location": "Crenel Peak Cave, east of Lookout Landing across the river, Hyrule Field",
     "category": "combat",
     "oneLine": "Proving Grounds: Rotation - enter with no gear; dodge the rotating flame emitters and use arena weapons to defeat all enemies.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds: Rotation shrine, so your gear is stripped at the door and the room is full of spinning hazards. Grab the weapons lying around and turn the room's own flame emitters against the Soldier Constructs: with Ultrahand you can pick up a rotating flame emitter and plant it next to a Construct (or fuse one to your shield), or lure enemies into the spinning flames. Pick off the archer Constructs up high with your bow. To reach the upper level, use Recall on the big rotating vertical gear to reverse its spin and ride it up. Defeat every Construct to open the gate and get your gear back; open the chest beyond it for a Magic Rod, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ishodag Shrine",
     "location": "Rocky hill west of Hyrule Castle Town Ruins, Hyrule Field",
     "category": "puzzle",
     "oneLine": "An Uplifting Device: attach Zonai fans/lift devices with Ultrahand to raise platforms and carry yourself up to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Despite the 'uplifting' label in our notes, the game calls this A Windy Device, and you solve it with Ultrahand and Zonai fans. First set a fan on the floor pointing up, hit it to switch it on, and ride the updraft with your paraglider to the next ledge. Next attach a fan to the wooden plank on the water (fan facing off one end), hop on and turn it on to motor across. For the side treasure, a long platform on a pivot has a chest end; attach a fan to the opposite end and switch it on to tip the platform level, then use Ascend to pop up onto it and open the chest for an Opal. For the exit, attach two fans to the underside of the lift platform at the back, both facing down, stand on it and turn them on to ride it up to the top ledge. Then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Sinakawak Shrine",
     "location": "Near New Serenne Stable, northwest Hyrule Field",
     "category": "puzzle",
     "oneLine": "An Uplifting Device: build with fans and platforms so a lifting rig rises high enough to reach the upper ledge.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is An Uplifting Device shrine, where you build little hot-air rigs (a flame source heats a balloon to float upward). For the first lift, use Ultrahand to attach one of the lit torch/flame pillars to a wooden platform, then attach a Balloon on top of it; stand on the platform and it rises - hop off on the higher ledge. Next, attach a torch to a balloon and float it up under the door's ceiling button to open the gate. In the lower chamber with two orbs, a balloon and flame emitters: stack the smaller orb on the larger one, attach a balloon to it and a flame emitter to the balloon so it floats to the top, then use Ascend in the nearby nook to get back up. Up top, place the larger orb on the right vessel to open a side room with a chest holding an Opal, and the smaller orb on the left vessel to open the gate to the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jiosin Shrine",
     "location": "South of Lookout Landing, beside the Hyrule Field Chasm",
     "category": "puzzle",
     "oneLine": "Shape Rotation: rotate the irregular stone blocks with Ultrahand so they pass through the matching symbol-shaped holes.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the Shape Rotation shrine: use Ultrahand to turn each oddly shaped stone block so its profile matches the symbol-shaped hole in the wall, then pull it through. For the first block, line up its outline with the X-shaped hole and slide it out (it's often easiest to grab and rotate it from the far side). Once it's free, lay it across the nearby gap to make a bridge. In the next room rotate the block to fit its hole the same way. For the treasure, look to a chest on a higher ledge: stand a freed block upright as a step and use Ascend to rise through it onto the platform; the chest holds a Hasty Elixir. For the exit, stand the final block upright on the raised platform and use Ascend to reach the top. Then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Susuyai Shrine",
     "location": "Passeri Greenbelt, southwest of Lookout Landing, Hyrule Field",
     "category": "puzzle",
     "oneLine": "A Spinning Device: use Zonai small wheels to power and time the spinning carts so they carry you across to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is A Spinning Device shrine, which teaches the Small Wheel Zonai device. A line of carts rides past on a track; the middle cart carries a treasure chest, so use Ultrahand to grab that cart, lift the chest off onto safe ground, and open it for five Arrows. For the gate ahead, a crank normally has to be held to keep the gate up - detach a Small Wheel from a cart, attach it to the steering crank and switch it on so it keeps cranking on its own while you walk under. At the final gap, take a Small Wheel and attach it to the hanging platform so it grips the rail above, point it the right way, hop on and activate it so the spinning wheel pulls the platform across to the exit. Then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Mayachin Shrine",
     "location": "North of Hyrule Field Skyview Tower, next to Exchange Ruins, Hyrule Field",
     "category": "puzzle",
     "oneLine": "A Fixed Device: anchor and arrange Zonai devices so a fixed mechanism moves you or objects to open the path.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is A Fixed Device shrine - a sort of Zonai baseball: you build a swinging bat and use it to knock a rolling ball into a target. Step on the orange floor switch by the pillar to make the orange target appear. Then pull a green Stake from the ground with Ultrahand, jam it into the flat side of the rotating device, and attach a wooden log to the end of the stake to give it bat-like reach. Go back up and hit the orange pillar with a weapon at the moment the ball lines up so the bat swings and knocks it into the target, opening the way to the altar. For the bonus chest, a second target is blocked by a hanging stone slab; attach stakes to the slab and rotate it with Ultrahand so the stakes pin into the ceiling, turning the slab into a second bat - then time the swing to send the ball into that target. The chest holds an Energizing Elixir. Then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Tajikats Shrine",
     "location": "Near Riverside Stable, south of Lookout Landing, Hyrule Field",
     "category": "puzzle",
     "oneLine": "Building With Logs: use Ultrahand to assemble logs into a bridge or raft to cross the water and reach the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a puzzle shrine called Building With Logs, and the idea is to assemble logs with Ultrahand rather than climb. In the first area grab a log and lean it as a ramp to reach the higher ledge. Further on, glue logs together to span the gaps: attach two logs end to end to make one long beam and lay it across a chasm to walk over, and where you need to climb higher, fuse several logs into one long pole. Held pieces glow yellow when they will stick, and pressing up on the D-pad detaches a mistake. The last room is water: grab about three logs and attach them side by side into a flat raft, stick a Zonai fan on the back so it drives you forward, then ride it across. There's an optional treasure chest off to the left wall holding a Spiky Shield, reachable by steering your raft over to it. Step onto the pad and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Kyokugon Shrine",
     "location": "Great Plateau foothill, southwest Hyrule Field",
     "category": "puzzle",
     "oneLine": "Alignment of the Circles: rotate and line up the circular gears/discs with Ultrahand so the mechanism unlocks the way forward.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine is called Alignment of the Circles, and the trick is to read the ceiling. Look up: there are green glowing glyphs marking certain spots, and on the floor there are bowl-shaped receptacles. Grab the round stone spheres sitting around the room with Ultrahand and drop each one into the pit that sits directly beneath a green glyph on the ceiling. Match every glyph and the gate opens. In the next area there's a hidden bit: use Ultrahand to lift the loose stone floor tile on your left, which uncovers another receptacle, then grab the nearby stone sphere and drop it in to open a side gate to a treasure chest. That chest holds a Hearty Elixir. Continue to the back and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Tsutsu-um Shrine",
     "location": "South of Outskirts Stable, southwest Hyrule Field",
     "category": "puzzle",
     "oneLine": "The Stakes Guide You: drive and use the protruding stakes as steps and anchors to climb and reach the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine is called The Stakes Guide You, and stakes are how you pin and steer things. At the start, use Ultrahand to grab a stake and stick it into the rising-and-falling pillar when it's low, then ride the attached platform up and paraglide to the higher ledge. For the optional chest, attach a metal panel to a stake, set it on the posts above you as a ledge, then use Ascend to pop up through it; that chest holds 5 Arrows. The main puzzle is getting a glowing ball into a hole on the far rail. The ball falls from a spinning panel, so stick stakes to keep it on course and stop or steer the rotating mechanism with a stake so the ball lands on the rails, then attach a stake to the spinning panel's edge so it nudges the ball along the rail and into the hole, opening the gate. Walk to the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Riogok Shrine",
     "location": "East of Hyrule Field Mini Stable, west of Hopper Pond, Hyrule Field",
     "category": "puzzle",
     "oneLine": "Force Transfer: route Zonai energy/motion through connected devices so the transferred force opens the gates.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine is called Force Transfer, and the idea is to route spinning force through connected parts. In the first chamber, grab the white cylinder off the ground with Ultrahand and wedge it so it meshes between the teeth of the two gears overhead, then hit the orange glowing pillar on your right with a melee swing to spin the gears, which transfers the motion and opens the path. For the optional chest high on a back-right ledge, attach the two cylinders end to end, stick the far end onto the chest, and pull it down off its perch; it contains a Mighty Construct Bow. For the final climb, attach a cylinder horizontally under the white platform on the left wall so a turning gear catches it and lifts the platform, then ride it up (use Ascend if you need to get aboard) as the gear pushes it higher. Climb up and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Tadarok Shrine",
     "location": "Waterfall cave near the River of the Dead, southwest Hyrule Field",
     "category": "puzzle",
     "oneLine": "Fire and Water: use flame and water elements together (melt ice / douse fire) to clear the path and finish.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine is called Fire and Water and mixes both elements with Ultrahand and Recall. To cross the first electrified pool, grab the big stone cube with Ultrahand and drop it in to make a safe stepping stone, then jump across. Next, ice blocks keep falling and melting against wall-mounted flames, so slide a cube in front of the flames to block the heat and preserve an ice block. For the optional chest, use a preserved ice block as a step up to the elevated ledge to open the chest for a Mighty Zonaite Shield. For the final stretch, pull the electrified metal cube out of its pool, then stack the ice cube on top of the stone cube, climb on, and use Recall to reverse their descent so the stack rises; stick the rising stack onto the metal cube, then use Ascend to reach the top platform. Walk to the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Serutabomac Shrine",
     "location": "Floating island behind/northeast of Hyrule Castle (reached from the castle)",
     "category": "puzzle",
     "oneLine": "The Way Up: build and stack Zonai devices to ascend the vertical chamber and reach the altar at the top.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine sits at the back of Hyrule Castle, overlooking the castle moat (not on a separate sky island). Reach it by gliding to the rear of the castle; grabbing it early gives you a fast-travel point right at the castle. Heads-up: Hyrule Castle is steeped in Gloom, so bring gloom-resistant gear or food that restores gloom-darkened hearts. It's called The Way Up, and it's all about climbing the vertical chamber with Ultrahand and Ascend. First, grab a stone slab and lay it across the two posts on the wall, then stand under it and Ascend up through it. Next, attach two slabs into an L, prop it upright on a post, and Ascend through the ledge you made. For the optional chest near the spikes, use Ultrahand and Recall on a slab to make a vertical moving platform and ride it to the chest, which holds a Magic Rod. Finally, join three slabs into a flat platform above the pegs and Ascend up to the exit. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Sepapa Shrine",
     "location": "Small land between Hyrule Castle and Crenel Hills, north-northeast Central Hyrule",
     "category": "puzzle",
     "oneLine": "Backtrack: use Recall to send moving objects (gears, platforms, debris) back through time and ride them to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine is called Backtrack, and it leans on Recall to send moving objects back the way they came. In the first room, cast Recall on the large moving platform so it travels back through the gap in the wall, then hop on as it returns and ride it up to the upper room. There, light a torch and ride a wooden raft across the water, then on the far side use the flame to burn the dead leaves/vines on the wall, dropping an optional chest that holds a Strong Construct Bow. Recall the raft to ride back, relight your torch on the braziers, and light the two stands by the door to open it. In the final room the puzzle is a ball and two sockets: place the ball in the top dish, wait a moment, then move it to the bottom dish; once it's there, cast Recall on the ball so it retraces its path back up and seats correctly to open the gate. Walk to the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ren-iz Shrine",
     "location": "Carved tree at Crenel Hills, northern Hyrule Field",
     "category": "puzzle",
     "oneLine": "Jump the Gaps: time jumps and glides across moving/disappearing platforms to cross the chasms to the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine is called Jump the Gaps, and despite the name it's about getting fast-moving balls across chasms with Ultrahand-built ramps, not jumping yourself. In the first room, grab the metal plate near the edge with Ultrahand and set it as a ramp, one end on the white wall and the other on your side of the gap, then hit the pillar to turn it green and release the ball; if your ramp is angled right, the ball arcs across and lands in the net/basket across the gap, which after a moment opens the door. In the next room, combine the plates into a steeper ramp to launch a larger ball into its basket and unlock the final gate. For the optional chest, instead attach the two plates into one long flat plate and bridge the gap to its ledge; it holds a Mighty Zonaite Shield. Cross to the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Tenmaten Shrine",
     "location": "drop in, light the cavern with Brightbloom seeds, grab the chest and blessing.",
     "category": "blessing",
     "oneLine": "Rauru's Blessing inside Elma Knolls Well in Hyrule Field — drop in, light the cavern with Brightbloom seeds, grab the chest and blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Rauru's Blessing shrine hidden at the bottom of Elma Knolls Well in Hyrule Field, so the work is getting down to it, not solving a puzzle. Drop into the well and drop again through the lower hole to splash into water in a pitch-black cavern. Light it up: fuse Brightbloom Seeds onto arrows and fire them around to illuminate the cave, or hit the Brightbloom flowers already growing down here (eating a Bright-effect dish so Link glows helps too). Watch out for a couple of Horriblins that drop from the ceiling, and a Fire-Like blocks the way just before the shrine, so deal with them as you cross. Cross the water using Ultrahand-floated slabs (a fan helps) or by freezing the surface with a Sapphire-fused weapon. The shrine itself has no puzzle: open the treasure chest inside for a Large Zonai Charge, then head to the monk's altar at the back and touch it to claim your Light of Blessing."
    }
   ]
  },
@@ -181,91 +204,104 @@
     "location": "West Necluda, on a cliff just west/southwest above Kakariko Village; NE of Sahasra Slope Skyview Tower.",
     "category": "puzzle",
     "oneLine": "Use Ascend through the rock ceilings and ride the stone platforms up; cross the gaps to reach the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"An Upright Device\" puzzle, built around Zonai Stabilizers (the device that snaps a tipped object upright when you hit or shoot it). Drop in, stand under the first platform, and use Ascend to pop up onto it. Ahead, hit the Stabilizer on the metal structure so it stands up like a ramp at the edge, then climb it and paraglide across. At the tall metal fence, use Ultrahand to set the next Stabilizer-equipped metal piece beside it, hit the Stabilizer to raise it, and climb over. For the optional treasure, attach a Stabilizer to the metal piece with the bowl, stand in the bowl, and activate the Stabilizer (hit or shoot it) to be flung onto a ledge with a chest holding a Fairy Tonic. Next, drop the round Shrine Sphere (orb) into the bowl, aim the Stabilizer end at the fence and activate it to fling the orb across, then drop the orb into the slot to open the gate and grab the metal piece inside. Finally, use Ultrahand to glue the two metal pieces into one long arm, stand in the bowl at the end, and activate the Stabilizer to be launched to the altar. Touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Joju-u-u Shrine",
     "location": "West Necluda, Ubota Point south of Lakeside Stable, above the cliffs by Lake Floria.",
     "category": "puzzle",
     "oneLine": "Building Bridges: use Ultrahand to drape the hinged bridge over the post and add the stone box as a counterweight.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Building Bridges\" puzzle, all Ultrahand. Cross the first hanging bridge as-is. At the next gap the loose bridge is too long to lay flat, so grab it with Ultrahand and stick its far end a few planks onto the next platform; walk out and jump across at the sagging middle. At the following section, grab the large stone block nearby and glue it to one end of the bridge, then hang that weighted end over the metal stake jutting from the wall so the block acts as a counterweight and holds the bridge taut while you climb up and cross. For the optional treasure, stand on the ledge and use Ultrahand to lift the middle of the hanging bridge and connect it across to the lone bridge piece on the side, making a path to a chest containing Large Zonaite. Cross the final span and touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Jochisiu Shrine",
     "location": "West Necluda, west side of South Dueling Peaks by Squabble River.",
     "category": "puzzle",
     "oneLine": "Keys Born of Water quest: use the fire and ice emitters to melt/freeze ice and clear the path, then enter.",
-    "shrineQuest": "Keys Born of Water"
+    "shrineQuest": "Keys Born of Water",
+    "solution": "This shrine stays buried until you finish the shrine quest \"Keys Born of Water,\" so do that first. Go to the marked spot on the west side of South Dueling Peaks by the Squabble River and talk to the Steward Construct, who gives the riddle that ice is the key. You need ice \"keys\" for three stone altars near the water: the easiest way is to fire Ice-Fruit-fused arrows (or attach a Frost Emitter to a weapon/shield) at the river to freeze diamond-shaped ice blocks, then carry each one over with Ultrahand without getting too close to any fire, which would melt it. Slot one ice key into each of the three altars. Once all three are seated the quest completes, a green crystal rises, and it becomes the shrine entrance, so walk in to activate it. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free. Open the chest, which holds a Big Battery, then touch the altar at the back to claim your Light of Blessing."
    },
    {
     "name": "Eshos Shrine",
     "location": "West Necluda, on the eastern cliff of Dueling Peaks.",
     "category": "combat",
     "oneLine": "Combat Training: Shields. Parry the Training Constructs' attacks; use a non-metallic shield against the electric one.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Combat Training: Shields\" shrine, which teaches you to parry. If you need gear, several shields are provided near the base of the stairs, including a wooden shield and a metal one, so grab both. Approach the center and the first Training Construct appears, lobbing fireballs. Raise your shield with ZL, then press A right as the fireball hits to deflect it straight back and destroy the construct. In the second phase a construct on the right adds electric (shock) projectiles while the other keeps throwing fire. The key trick: never face the shock attack with a metal shield, it will zap you, so switch to a wooden (non-metallic) shield to parry the lightning, and use a metal shield for the fire. Time each parry to send the projectiles back and clear both constructs. Open the treasure chest for a Mighty Zonaite Shield, then walk to the altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Susub Shrine",
     "location": "West Necluda, inside Deya Village Ruins East Well, south of Deya Village Ruins.",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: no puzzle. Drop into the well and reach the shrine; grab the chest and the Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Rauru's Blessing shrine, so there's no puzzle, but the catch is getting to it: it sits at the bottom of the Deya Village Ruins East Well, south of the ruins. From the Popla Foothills Skyview Tower, glide northeast to the ruins; the well mouth is sealed, so blast it open with a Bomb-Flower-fused arrow (or anything that smashes rock) and drop in. The walls down here drip water and are slippery, so a Sticky Elixir or Frog armor helps if you keep sliding, and there's a Stone Talus near the bottom platform you can simply avoid. Make your way over to the shrine entrance. There's no challenge inside: open the treasure chest for a Magic Staff, then touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Utojis Shrine",
     "location": "West Necluda, inside Tobio's Hollow Cave.",
     "category": "puzzle",
     "oneLine": "Legend of the Soaring Spear: fuse a Keese Wing to a spear, stand on the glowing pedestal and throw it through the ring.",
-    "shrineQuest": "Legend of the Soaring Spear"
+    "shrineQuest": "Legend of the Soaring Spear",
+    "solution": "This shrine is hidden until you finish the shrine quest \"Legend of the Soaring Spear,\" inside Tobio's Hollow Cave in East Necluda. Work through the cave tunnel, dealing with the Keese hanging from the ceiling, and be sure to grab a Keese Wing they drop since you'll need one. At the end is an abandoned campsite with an old notebook; read it to start the quest, and note the scattered Zonaite Spears. Pick up a Zonaite Spear and use Fuse to attach a Keese Wing to it, which makes a spear that flies far. Then stand on the circular pedestal and throw the fused spear so it sails through the ring of green energy ahead. Land the throw and a green crystal rises and becomes the shrine entrance. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free: open the chest for a Large Zonai Charge, then touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Tokiy Shrine",
     "location": "East Necluda, inside Oakle's Navel Cave (north of Rabella Wetlands Skyview Tower).",
     "category": "blessing",
     "oneLine": "The Oakle's Navel Cave Crystal: carry the crystal past falling boulders (Recall the big one) to its stand to reveal it.",
-    "shrineQuest": "The Oakle's Navel Cave Crystal"
+    "shrineQuest": "The Oakle's Navel Cave Crystal",
+    "solution": "This shrine is hidden behind the shrine quest \"The Oakle's Navel Cave Crystal,\" inside Oakle's Navel Cave in East Necluda (north of the Rabella Wetlands Skyview Tower). Head into the cave (clearing the Like enemy on the way) until you find a glowing green crystal on a pedestal; examining it starts the quest. Pick the crystal up with Ultrahand and follow the beam of green light it shines, which marks the way through the cave. The path runs through a boulder run, so time your steps between the rolling rocks. When a boulder comes straight down the path at you, use Recall to send it rolling back the way it came and clear your route. Keep following the beam to its end and set the crystal down where the light points to reveal the shrine entrance. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free: open the lone chest for a Large Zonai Charge, then touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Zanmik Shrine",
     "location": "East Necluda, on a hill southwest of Hateno Village.",
     "category": "puzzle",
     "oneLine": "Scoop it Out: Ultrahand four plates into a box, attach it to the wheel as a scoop, then plate the nodes to power it.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"Scoop it Out\" puzzle is all Ultrahand. First get the big wheel turning: pick up one of the loose metal plates from the lower floor and lay it across the gap in the yellow electric circuit so the current connects and the wheel starts spinning. Now build a scoop. Attach a metal plate to the rim of the spinning wheel so it dips into the pit of balls as it turns and carries one up. When a ball reaches the top, grab it with Ultrahand and drop it into the empty slot (the goal) to score your \"hole in one.\" Tip: if you clear out enough balls from the pit while you work, you'll uncover an optional chest on the left side holding a Strong Zonaite Longsword. Once the ball is in the slot the gate opens, so head to the back and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Mayahisik Shrine",
     "location": "East Necluda, inside Retsam Forest Cave near the Hateno Ancient Tech Lab.",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: no puzzle. Enter the cave, break the rocks and follow the path to the shrine for the Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "There's no puzzle here at all, this is a Rauru's Blessing shrine, so the Light of Blessing is basically free once you reach it. The catch is getting in: the shrine sits inside Retsam Forest Cave near the Hateno Ancient Tech Lab, and the cave mouth is sealed by a pile of breakable rocks. Smash them open (a Bomb Flower, a hammer-type weapon, or fire all work), head inside, and follow the passage down until you spot the shrine. Inside, open the treasure chest near the altar for a Magic Scepter (a stronger version of the Magic Rod), then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Anedamimik Shrine",
     "location": "East Necluda, inside Deepback Bay Cave, east of Hateno Village.",
     "category": "puzzle",
     "oneLine": "A Retraced Path: ride the moving platform across, then use Recall on the rolling ball to send it into the receptacle.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"A Retraced Path\" shrine sits in Deepback Bay Cave east of Hateno Village, and its entrance is underwater at first, so you must drain it. Drop through one of the holes beside the shrine to a lower ledge (you'll meet a Like Like here, which drops a chest), then aim a Bomb Arrow at the cracked rock wall; breaking it lets the water drain out around the shrine. Use Ascend to get back up, then enter. Inside, hit the orange switch to start the platform structure moving, drop beneath the ledge holding the treasure chest and Ascend up to open it for a Large Zonai Charge. Now the trick: hit the switch again and watch the ball roll toward the gate; just before it arrives, use Recall on the ball and hit the switch once more, sending the ball traveling backward into the orange receptacle. That opens the gate, so step through and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Bamitok Shrine",
     "location": "East Necluda, inside Mount Dunsel Cave near Lurelin Village.",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: no puzzle. Swim across, lift the plank and Ascend up to reach the shrine and Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "No puzzle inside, this is a Rauru's Blessing shrine, so the Light of Blessing is free once you fight through the cave to reach it. The shrine is inside Mount Dunsel Cave near Lurelin Village; the entrance is surrounded by water, so swim across to get in. Inside you'll meet a Horriblin and a pair of Shock Likes along the route, plus a Rock/Stone Like blocking the way (Bomb Arrows make short work of it). Two optional chests sit along the path: the first chest, soon after the entrance, holds a Royal Bow, and a chest up on an elevated ledge holds a Royal Shield. To reach that ledge, grab the nearby wooden board with Ultrahand, set it under the overhang, then climb on and use Ascend to rise up through the ledge. Push on to the shrine, open the chest inside for a Big Battery, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Sifumim Shrine",
     "location": "East Necluda, on a hill just northwest of Lurelin Village.",
     "category": "combat",
     "oneLine": "Proving Grounds: Flow. Weapons removed. Knock the Soldier Constructs off the rotating platforms into the water.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a \"Proving Grounds: Flow\" combat trial, so all your gear is taken away at the entrance, leaving only a few basic weapons on a stand to the left to grab. The whole arena floats over water and the Soldier Constructs can't swim, so water is your weapon: knock them in and they die in seconds. Hide behind the crates, and when a Construct stands on its wooden tower platform near you, use Ultrahand to grab the platform and shake it so the Construct tumbles into the water. Clear the outer ring this way, then collect the bows, arrows, and Ice Fruits they drop. Move up to the inner ring and repeat the platform-shake trick. For the tougher final Construct, fuse an Ice Fruit to an arrow and shoot to freeze it, then rush in and hit it with a stick (fuse a spiked metal ball or rock for real damage), knocking it off into the water. Grab the chest (a Captain II weapon) and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Marari-In Shrine",
     "location": "Necluda Sea, on Eventide Island via the sea cave entrance (far southeast).",
     "category": "puzzle",
     "oneLine": "Solve the puzzle inside the Eventide cave to reveal it; reach it by raft/boat or paraglide from the Hateno coast.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "First you have to reach Eventide Island, off the far southeast coast in the Necluda Sea, easiest by air (a flying machine or paraglide from the Hateno coast) or by building a boat. The shrine stays locked behind a gate until you finish its side quest, \"Seeking the Pirate Hideout.\" Land at Toronbo Beach, talk to a man named Sesami standing by a red tent to start it, then clear out the monsters holding the island's three strongholds. After that, head to the easternmost part of the island where the tallest stronghold stood and drop down the cliff there to find a cave entrance; inside, defeat the Bokoblins guarding the pirate ship. The shrine sits across from the ship but stone spikes line the gap, so use Ultrahand to pull the loose wooden planks from the ship's stern and lay them across as a makeshift bridge. It's a Rauru's Blessing shrine, so there's no puzzle inside; open the treasure chest for a Ruby, then touch the monk's altar to claim your Light of Blessing."
    }
   ]
  },
@@ -278,98 +314,112 @@
     "location": "Lanayru Wetlands, just south of Wetland Stable",
     "category": "puzzle",
     "oneLine": "Forward Force. Stick the ball to a wheeled cart and ride it across lava, then build a paddle raft to ferry the ball to the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a three-stage \"Forward Force\" puzzle where you ferry a glowing ball across three hazards using Zonai wheels. First, drop down to the ball and use Ultrahand to attach it to the four-wheeled cart, hop on, hit a wheel with a weapon to start it, and ride across the lava. Second, stick the ball onto the stone slab that sits on the rail to your right, Ultrahand a big Zonai wheel onto that slab's side with its arrows pointing into the slope, add a tall slab from the wall onto the wheel's open face, then shoot or hit the wheel so the whole rig climbs the incline. Third, attach the ball to the top of a wheeled raft and stick the long wooden boards onto the wheels on each side so they paddle; set it in the water with the arrows facing forward and ride it across (the sunken chest in this room holds a Strong Zonaite Sword). At the end, step on the glowing floor switch to open the gate, then place the ball into its glowing vessel. Walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Morok Shrine",
     "location": "Lanayru Wetlands, atop a floating island near Sahasra Slope, northwest of Sahasra Slope Skyview Tower",
     "category": "puzzle",
     "oneLine": "A Bouncy Device. Stack and fuse the Zonai springs, then activate them to launch yourself up to the chest and the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"A Bouncy Device\" shrine is about stacking Zonai springs to bounce ever higher. From the entry, step onto the launchpad ahead to be flung up, then glide to the next level. There, stand on the single spring and hit it with a weapon to fire yourself upward; a ball needs to roll into a floor hole to open a gate (nudge it with Ultrahand if it stalls). Move the two-spring stack into position, stand on it, and strike it to bounce up to a ledge with a treasure chest holding a Sneaky Elixir. Then drop back down, reset the springs, and use Ultrahand to glue the single spring onto the top of the two-spring stack to make a taller three-spring tower. Stand on it and strike it to launch up to the shrine's top level. Walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Jonsau Shrine",
     "location": "Lanayru Wetlands, on the southern hills of Mercay Island near the center of the Wetlands",
     "category": "puzzle",
     "oneLine": "Deep Force. Ultrahand the ball under the target and push it deep underwater so it rockets up and strikes the switch.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"Deep Force\" shrine relies on dense water shooting a light object skyward. For the first puzzle, use Ultrahand to grab the yellow ball floating on the water, hold it directly under the target-shaped device overhead, push it down into the water, and let go; the ball rockets up, sticks to the upside-down platform, and opens the door. Before moving on, look into the water for a sunken treasure chest, drag it up with Ultrahand and open it for a Strong Construct Bow. The second puzzle is the same trick: hold the ball (or a yellow plank) under the target and release it from underwater to open the next door. For the final puzzle, place the ball at the front center of the slim pillar, push it underwater and let go so it knocks loose a wooden board above; a basket then drops onto the water. Stand in the basket and launch it one last time with the ball to reach the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Maoikes Shrine",
     "location": "Lanayru Wetlands, inside Bone Pond Cave (drop in through the skull on the hilltop)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. No puzzle inside; just reach it through the cave, grab the chest, and touch the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Maoikes is a Rauru's Blessing shrine, so there is no puzzle once you get inside. The work is reaching it: it sits inside Bone Pond East Cave. Head to the huge skull resting on top of the hill and drop in through the skull's mouth, which lets you glide straight down to the shrine and skip the monsters lurking in the cave's other passages. Inside, the Light of Blessing is essentially free. Grab the treasure chest in the middle of the chamber for a Diamond, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Mogawak Shrine",
     "location": "Lanayru Great Spring, below the walkways of Zora's Domain beneath the Great Zora Bridge",
     "category": "puzzle",
     "oneLine": "The Power of Water. Charge the battery with the waterfall's hydro power to run the elevator up to the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"The Power of Water\" shrine runs on a battery you charge from the waterfall. Head down and use Ultrahand to attach the square panel from the water onto the device by the waterfall to make a water wheel; the falling water spins it and the circuit lights up. Grab the energy cell from the middle of the room and set it on the charging pad beside the wheel to charge it. For the optional chests: pull the sunken chest from the water near the start for a Magic Scepter, and to open the locked side gate carry the charged cell to its left-hand pad, then Ultrahand the two big metal balls in the water together so the current bridges them — that gate's chest holds an Opal. Once the cell is charged, step into the lift basket first, then place the charged cell on its port so it powers the lift and carries you up to the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ihen-a Shrine",
     "location": "Lanayru Great Spring, Mipha Court atop Ploymus Mountain, east of Zora's Domain",
     "category": "puzzle",
     "oneLine": "Midair Perch. Splash-arrow the gooped entrance, then Ascend up a Hover Stone and lay the bridge as a ramp to cross the gaps.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Before completing the Sidon of the Zora quest the shrine entrance is buried in sludge, so fuse a Splash Fruit to an arrow and shoot the doorway to wash it clean (Chuchu Jelly or a hydrant work too). This \"Midair Perch\" shrine has you bridging gaps with floating Hover Stones. Hit the hover stones to switch them on so they hang in place, then stack them into a staircase up to the first ledge. At the gap, attach a metal panel onto a floating stone to form a bridge across; at the next gap, carry that bridge over and tilt it into an angled ramp to walk up. Stack more hover stones to climb to a ledge with a treasure chest holding 5 Arrows. For the final gap, set the small ball on a hover stone near the ram (don't fuse it), climb on, then hit the orange crystal so the ram shoves you and the ball across. Pull the ball off, drop it into the floor socket to open the gate, then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Apogek Shrine",
     "location": "Lanayru Great Spring, southeast of East Reservoir Lake near Zora's Domain",
     "category": "puzzle",
     "oneLine": "Wings on the Wind. Fuse a fan to a Zonai wing, set it on the rail, then ride it across the room to the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"Wings on the Wind\" shrine has you riding Zonai wings on rails. In the first room, use Ultrahand to pluck a wing as it glides past, stick the glowing ball to it, set it on the rail, and ride it down the slope to the gate; pull the ball off and drop it into the dish to open the door. Next is a fan section: paraglide in the updraft off the Zonai fans to reach the upper platform. For the optional chest, take one of the wing devices, Ultrahand it up beside the chest's platform, bring it back down, climb on, and use Recall to ride it back up to a Strong Zonaite Spear. For the final stretch, look over the ledge and grab two fans, fuse one to each side of a wing, set it on the rail (stand in front so it doesn't leave without you), hit a fan to start it, and ride it across to the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Yomizuk Shrine",
     "location": "Lanayru Great Spring, inside Tarm Point Cave, north of Tarm Point",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. No puzzle; find it through the cave, open the chest, and touch the altar for the Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is visible on the map but sits at the far end of Tarm Point Cave, north of Tarm Point. From the Mount Lanayru Skyview Tower, glide northeast toward the column ruins and drop through the hole in the ground to enter the cave. Inside is a flooded passage that periodically rises and drains; you must cross the water to reach the far end. The simplest way is to swim, resting on the large rocks between strokes when your stamina runs low (a stamina dish or Zora Armor helps); if you'd rather not swim, fuse a Sapphire to a weapon and strike the water to freeze stepping stones. Once across, the shrine itself is a Rauru's Blessing with no puzzle. Open the treasure chest for a Diamond (a gem worth a lot of rupees), then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Joniu Shrine",
     "location": "Lanayru Great Spring, inside Ralis Channel, northwest of Veiled Falls",
     "category": "blessing",
     "oneLine": "Rauru's Blessing, unlocked via a shrine quest. Toss a Brightbloom Seed to light the dark channel and follow the right path in.",
-    "shrineQuest": "The Ralis Channel Crystal"
+    "shrineQuest": "The Ralis Channel Crystal",
+    "solution": "This shrine stays hidden until you finish the shrine quest \"The Ralis Channel Crystal,\" so do that first. From the Upland Zorana Skyview Tower, glide southeast to the entrance of Ralis Channel; drop in and head down to the water below, where you'll find Zonai parts and a glowing green crystal. Examine the green crystal to start the quest, then build a small boat: lay a wooden plank in the water, attach a Zonai Steering Stick and a Zonai Fan, and glue the green crystal anywhere on it. Hit the fan and steer down the winding channel (a steering-stick boat handles the turns better than a kite) until you reach the shrine's lit entrance. Pull the crystal off with Ultrahand and set it on the shrine platform to make Joniu Shrine rise. Inside it's a Rauru's Blessing with no puzzle. Open the chest for a Large Zonai Charge, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Kurakat Shrine",
     "location": "Lanayru Great Spring, northwest of Quatta's Shelf",
     "category": "blessing",
     "oneLine": "Rauru's Blessing behind a dyeing riddle: read the clue, dye your armor the right color at Hateno, then claim the chest and altar.",
-    "shrineQuest": "Dyeing to Find It"
+    "shrineQuest": "Dyeing to Find It",
+    "solution": "This shrine is hidden behind the shrine quest \"Dyeing to Find It,\" northwest of Quatta's Shelf, and despite the name it's a shadow puzzle, not an armor-dyeing one. A Steward Construct gives the riddle: dye the white pattern black when the sun awakens. You must make a stone structure cast its shadow exactly over a white pattern on the cliff at dawn. Use the nearby axle/crank to rotate the structure into position, then grab the loose wooden board with Ultrahand and stick it onto the left side so the combined shape will match the white pattern. When it lines up, light the nearby campfire (a thrown or fired Fire Fruit works) and rest there until morning. Around 6 a.m. the rising sun throws the structure's shadow over the pattern and the shrine appears. Inside it's a Rauru's Blessing with no puzzle. Open the chest for a Magic Scepter, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "O-ogim Shrine",
     "location": "Lanayru Great Spring, south of Lanayru Heights below the broken Lanayru Bridge",
     "category": "blessing",
     "oneLine": "Rauru's Blessing reward for a shrine quest; deliver the crystal to make the shrine appear, then take the chest and altar.",
-    "shrineQuest": "The Lanayru Road Crystal"
+    "shrineQuest": "The Lanayru Road Crystal",
+    "solution": "This shrine stays buried until you finish the shrine quest \"The Lanayru Road Crystal,\" south of Lanayru Heights below the broken Lanayru Bridge. Activate the shrine entrance to fire a green beam, then follow that beam into Lanayru Road South Cave. Inside, a rock wall blocks the green crystal, break it with a Bomb Flower or a boulder-fused weapon, then grab the green crystal with Ultrahand and carry it back outside to the open runway. Build a quick flyer from a Zonai Wing with a Zonai Fan attached, glue the crystal on, and ride it back to the shrine; pull the crystal off and set it on the entrance to make O-ogim Shrine appear. Inside it's a Rauru's Blessing with no puzzle. Open the chest for a Big Battery, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jikais Shrine",
     "location": "Mount Lanayru, east of the Lanayru Range beyond Madorna Mountain",
     "category": "puzzle",
     "oneLine": "Jailbreak. Use Ultrahand to stack and move blocks, then Ascend up through them to reach the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"Jailbreak\" puzzle, east of the Lanayru Range. In the first room, slide the blocks on rails with Ultrahand so you can Ascend up instead of climb: on the right side push the bottom block right and the top block left; on the left side slide the top block right, under the torch alcove. Ascend up the right side, paraglide left, Ascend through the upper-left block, jump into the alcove, and Ascend once more into the next room. There, drag the long stone slab so it balances over the right edge with part overhanging, stand under the overhang, and Ascend up to advance, and look for a metal platform overhead with the chest, Ascend straight up to it for a Magic Staff. The final room locks you in a cell with non-climbable bars, the slab you need is OUTSIDE the bars, so grab it with Ultrahand and pull it inside, then climb it (or Recall it) to get out. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Zakusu Shrine",
     "location": "Mount Lanayru, Naydra Snowfield, southwest of Mount Lanayru Skyview Tower",
     "category": "combat",
     "oneLine": "Proving Grounds: Ascension. Stripped of gear, use only the shrine's weapons and Ascend to beat the foes; gated behind a shrine quest.",
-    "shrineQuest": "The High Spring and the Light Rings"
+    "shrineQuest": "The High Spring and the Light Rings",
+    "solution": "This shrine is hidden behind the shrine quest \"The High Spring and the Light Rings,\" given by Nazbi, who camps outside the Spring of Wisdom up on Mount Lanayru. Climb to the sky island terminal above the spring and activate it, then dive to the slope and shield surf down the mountain (equip a shield, jump, and press A to drop onto it) and ride straight through all 7 glowing light rings before the timer runs out. Clear them in time and Zakusu Shrine appears, southwest of the Mount Lanayru Skyview Tower. Inside it's Proving Grounds: Ascension, a combat trial that strips ALL your gear, so use only the weapons provided at the entrance (Fuse rockets or monster parts on for more punch). Use Ascend and the Zonai balloon/candle to reach the upper levels and defeat every Construct. Clearing them returns your gear and opens a chest holding a Soldier III Spear; then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jogou Shrine",
     "location": "Mount Lanayru, inside Lanayru Road East Cave on the northwest slopes (below the Lanayru Road East Gate)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. No puzzle inside; just find it within the cave and touch the altar for the Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is visible on the map but tucked inside Lanayru Road East Cave on the northwest slopes, below the Lanayru Road - East Gate. From the Mount Lanayru Skyview Tower, head west to the East Gate, then go under the ruins below the gate to find the cave entrance. Inside, swim across the water to a shore guarded by two Horriblins and a Rock Like, then push deeper to an underwater lake with a central landmass where a Boss Bokoblin leads a pack, fight or simply slip past them. The way to the shrine is sealed behind a cracked rock wall: break it with a Bomb Flower (or a boulder-fused weapon) to open the path, then reach the shrine and activate it. The shrine itself is a Rauru's Blessing with no puzzle. Open the treasure chest for a Hearty Elixir, then touch the monk's altar to claim your Light of Blessing."
    }
   ]
  },
@@ -382,77 +432,88 @@
     "location": "Lake Hylia Whirlpool Cave, beneath Lake Hylia (approx 0105, -2514, 0088); enter by letting the visible whirlpool suck Link down",
     "category": "blessing",
     "oneLine": "No trial inside; reward for The Lake Hylia Crystal quest. Grab the crystal on the sky island above the whirlpool and drop it into the hole below.",
-    "shrineQuest": "The Lake Hylia Crystal"
+    "shrineQuest": "The Lake Hylia Crystal",
+    "solution": "This shrine stays sealed until you finish its shrine quest, The Lake Hylia Crystal, so do that first. The shrine sits in a cave under Lake Hylia, reached by letting the big whirlpool in the lake suck you down. The crystal that opens it is high above, on a small floating island in the Faron Sky Archipelago directly over the whirlpool. The easiest route is to fast-travel to Popla Foothills Skyview Tower, launch up, and glide southwest toward the whirlpool, then up to that island; the crystal sits on a pedestal inside a small square structure. Grab it with Ultrahand and drop it straight down through the square hole nearby; it falls toward the whirlpool below. Then jump in after it and dive into the whirlpool yourself, get drawn down into the cave, and set the crystal into the shrine entrance to raise it. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free. Open the chest right in front of you for a Mighty Zonaite Sword, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ishokin Shrine",
     "location": "Faron Grasslands near Zokassa Ridge, east of Oseira Plains (approx -0565, -3524, 0129)",
     "category": "blessing",
     "oneLine": "No trial inside; appears after Ride the Giant Horse. Tame the Giant White Stallion in the nearby grove and show it to Baddek for the crystal.",
-    "shrineQuest": "Ride the Giant Horse"
+    "shrineQuest": "Ride the Giant Horse",
+    "solution": "This shrine only appears once you finish its shrine quest, Ride the Giant Horse, so start there. Near Zokassa Ridge you'll meet Baddek, who guards a shrine crystal and won't hand it over until you bring him a fabled giant horse. Head to Highland Stable, ask around for clues, then cross the Horse God Bridge over the Lake of the Horse God to find the huge Giant White Stallion grazing in a glade beyond. It's a tough tame: you'll want nearly three full wheels of stamina, so eat stamina-restoring food (or sleep on the Malanya bed at Highland Stable for an extra ring); sneak up, mount it, and mash to soothe it, pausing to refill stamina as needed. Ride it back to Baddek and speak to him while still mounted, and he gives up the crystal regardless of whether you keep the horse. Pick it up, follow the green beam it shines, and carry it down to set it into the shrine. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free. Open the chest for a Topaz, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jiukoum Shrine",
     "location": "Faron Grasslands, south side of Popla Foothills overlooking Dracozu Lake, SE of Popla Foothills Skyview Tower (approx 0867, -2279, 0141)",
     "category": "puzzle",
     "oneLine": "Built for Rails: use Ultrahand to join the boards into a stable platform, set it on the rails, and ride it across each gap to the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Built for Rails shrine, so you ride your own creations along the tracks. In the first room, use Ultrahand to attach the two boards end to end into one long platform, lay it lengthways across the two rails, climb on, and ride it to the far side. For the optional chest, grab more boards and build a ramp across to the alcove on your left to reach the treasure chest, which holds a Sticky Elixir. Back on the rails, build the next platform into a box shape (a square with one side open), set it on the rails with the open side down, then close it off so you can climb inside and ride it deeper in. At the final stretch, arrange four panels into a capital E, set it on the rails so the prongs sit between the rail pairs, and attach the nearby fans so they face opposite your direction of travel. Climb on and turn the fans on (a melee hit on the rear fan switches it on) to ride the contraption all the way to the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Utsushok Shrine",
     "location": "Faron Grasslands, northeast of Highland Stable, east of Fural Plain atop a hill (approx 0668, -3358, 0072)",
     "category": "puzzle",
     "oneLine": "Long or Wide: with Ultrahand add length or weight to the paddle to knock balls into switches, then ride the spawned cart along the rails.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Long or Wide shrine built around a swinging paddle that knocks a big ball along a rail. First, grab the paddle with Ultrahand, pull it back as high as you can, and release to bat the ball down the rail into its socket. For the next ball the paddle needs more punch, so use Ultrahand to stick the large metal cube onto the back of the paddle, then swing again to drive the ball home and open the door. In the final room you need the paddle to both reach the ball and hit hard: attach the metal panel to the bottom edge of the paddle to extend its reach, then add another panel to the side facing the rail cart. Swing it to smack the orb, which spawns a rail cart. Climb into the cart and swing the paddle at it to launch yourself along the track. As you ride, watch the wall near the rail for a treasure chest; snatch it with Ultrahand on the way past (Recall on the cart can slow you down to aim) and open it for a Sneaky Elixir. Ride to the end and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ekochiu Shrine",
     "location": "Rise and Fall: ride rising/falling platforms and time Ultrahand to cross. North ",
     "category": "puzzle",
     "oneLine": "Rise and Fall: ride rising/falling platforms and time Ultrahand to cross. North of Woodland Stable, Great Hyrule Forest.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Rise and Fall shrine all about timing Recall on moving blocks. In the first room, step on the glowing floor tile to send the white block gliding to the far side, then wait for it to slide back toward you. The moment it returns, hop on top of it and use Recall; the block rewinds its path and carries you across to the next ledge. For the optional chest, use the block to reach the raised section on the right (paraglide over), where the chest holds a Zonaite Shield (it lowers the energy any attached Zonai device uses). In the final room, use Ultrahand to set the loose block onto the platform in the center, lying across the pressure plate, then step on the pressure plate to fling the block high into the air. As soon as it's airborne, jump onto it and use Recall, which lifts the block (and you) back up to its peak; at the top, leap off and glide over to the monk's altar. Touch it to claim your Light of Blessing."
    },
    {
     "name": "Kikakin Shrine",
     "location": "Shining in Darkness: cross a pitch-black shrine using light orbs / Brightbloom s",
     "category": "puzzle",
     "oneLine": "Shining in Darkness: cross a pitch-black shrine using light orbs / Brightbloom seeds. NE of Mount Drena, west Great Hyrule Forest.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Shining in Darkness shrine: the whole place is pitch black, so first pick up the portable lantern at the entrance and carry it in your hand as you go (throwing your own Brightbloom Seeds works too if you have them). From the locked altar gate, head into the left hallway and turn right, then use Ultrahand to pull a square block out of the wall to reveal a side chest holding Amber. Use Ascend on a ledge along the left wall and follow it to a bright room with a chest containing a Zonaite Bow. Drop back down and push through the central spike-lined corridor to a chest holding a Luminous Stone, and there's a laser hallway with a chest holding an Opal if you want it. At the end of the hallway, use Ultrahand to lift a block out of the floor; the chest underneath holds the Small Key. Bring the key back to the locked door by the altar, walk in to the monk's altar, and touch it to claim your Light of Blessing."
    },
    {
     "name": "Kiuyoyou Shrine",
     "location": "Fire and Ice: melt and freeze ice blocks with flame and Zonai devices to align p",
     "category": "puzzle",
     "oneLine": "Fire and Ice: melt and freeze ice blocks with flame and Zonai devices to align platforms. Rowan Plain, east of the Forgotten Temple.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Fire and Ice shrine where you melt ice to size and then shield it from flames. In the first room, grab the big ice block with Ultrahand and hold it briefly under the flame jet to shrink it down, taking it out before it melts away, then set the trimmed block onto the switch to open the bars into the main chamber. For the optional chest, ride the wind current forward to grab a stone slab, stick it on top of an ice block, slide that down the spiked slope, shake off the slab, and pop the ice onto the ledge below the chest; get under the ledge, use Ascend to come up beside the ice, then stand on it and Recall it (or use it as a step) to reach the chest, which holds a Zonaite Spear. For the final puzzle the trick is to keep ice from melting: put the stone slab back on top of an ice block so it shields it, then set that ice-and-stone piece onto the switch under the downward flame. The slab keeps the ice from melting and its weight holds the switch, opening the door; walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Musanokir Shrine",
     "location": "Swing to Hit: build a weighted pendulum with Ultrahand to smash targets and ball",
     "category": "puzzle",
     "oneLine": "Swing to Hit: build a weighted pendulum with Ultrahand to smash targets and balls into goals. Within Korok Forest.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Swing to Hit shrine that has you build weighted pendulums with Ultrahand. In the first room, grab the metal ball hanging under the white platform and attach it to the large metal cube to swing the platform down into place as a bridge so you can cross. In the next room, detach the cube and stick it onto the ball on the chain by the big orange target to make a heavy pendulum, then pull the cube back and let it swing into the target to open the door. For the optional chest, stand the wooden log upright on the platform beside the chest, climb up, and glide across to the treasure chest, which holds a Large Zonai Charge. For the final puzzle, attach the pole to the top of the stone block so it points horizontally toward the far switch like a battering ram, then attach the cube to the bottom of the hanging ball. Pull the cube back as far as it goes and release so its momentum drives the block forward and rams the pole into the switch, opening the last door. Walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Ninjis Shrine",
     "location": "appears after the 'Maca's Special Place' quest (post-Phantom Ganon). South edge ",
     "category": "blessing",
     "oneLine": "Rauru's Blessing — appears after the 'Maca's Special Place' quest (post-Phantom Ganon). South edge of Korok Forest; collect the blessing.",
-    "shrineQuest": "Maca's Special Place"
+    "shrineQuest": "Maca's Special Place",
+    "solution": "This shrine stays hidden until you finish its shrine quest, Maca's Special Place, which only becomes available after you've restored Korok Forest by curing the Great Deku Tree (the storyline that involves beating Phantom Ganon beneath the forest). Then go to the southern part of Korok Forest and talk to a little Korok named Maca; he marks his special place on your map, out in the foggy depths-like wilds you can't simply walk to. Travel to the Thyphlo Ruins Skyview Tower and launch up, then glide toward Maca's pin, touching down on floating islands along the way to top off your stamina. As you near the marker you'll spot a green swirl around the shrine entrance below; dive and land beside it. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free. Open the chest for a Mighty Construct Bow, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Pupunke Shrine",
     "location": "Quest-gated blessing: finish 'A Pretty Stone and Five Golden Apples' (give a lum",
     "category": "quest",
     "oneLine": "Quest-gated blessing: finish 'A Pretty Stone and Five Golden Apples' (give a luminous stone + 5 golden apples), then walk in.",
-    "shrineQuest": "A Pretty Stone and Five Golden Apples"
+    "shrineQuest": "A Pretty Stone and Five Golden Apples",
+    "solution": "This shrine won't appear until you finish its shrine quest, A Pretty Stone and Five Golden Apples, so do that first. Near the eastern exit of Korok Forest, speak to a Korok named Damia, who offers to trade his pretty green stone (a shrine crystal) for five Golden Apples. Golden Apples grow on trees you can cut down in the Mido Swamp area to the north (trees near Sonapan Shrine work too); follow the path carefully, because touching the fog there warps you back to where you started, and watch for Evermeans and Stalkoblins. Gather at least five and bring them to Damia, and he hands over the crystal. Carry it and follow its green beam of light to the shrine entrance, then place it to raise the shrine. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free. Open the chest for a Mighty Zonaite Sword, then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Sakunbomar Shrine",
     "location": "Quest-gated blessing: complete 'None Shall Pass' in Great Hyrule Forest, then fo",
     "category": "quest",
     "oneLine": "Quest-gated blessing: complete 'None Shall Pass' in Great Hyrule Forest, then follow the light beam to the shrine.",
-    "shrineQuest": "None Shall Pass"
+    "shrineQuest": "None Shall Pass",
+    "solution": "This shrine stays buried until you finish its shrine quest, None Shall Pass?, so start there. On the west side of Korok Forest, talk to a Korok named Zooki, then follow the trail he points out, staying on the path marked by Blue Nightshade flowers; Evermeans, Stalkoblins, and Stalmoblins will ambush you, so fight through them. At the shrine site, interact to fire off a green beam of light, then follow it to the crystal, which is stuck to a suspicious buried boulder that wakes up as a Stone Talus, with the green crystal sitting where its weak point would be. Use Ascend from underneath to pop up onto its top surface, then hack at the green crystal until the Talus falls (you can also shoot the crystal with arrows). Carry the freed crystal back and set it at the shrine entrance to raise the shrine. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free. Open the chest for a Diamond, then walk to the monk's altar and touch it to claim your Light of Blessing."
    }
   ]
  },
@@ -465,112 +526,128 @@
     "location": "Gerudo Desert, west of Gerudo Town near the Statue of the Eighth Heroine",
     "category": "puzzle",
     "oneLine": "Bridging the Sands: use Ultrahand to build wooden bridges and a fan-cart to cross the stamina-draining quicksand to the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This one is all Ultrahand and quicksand, so don't try to walk on the sand. At the first gap, grab the loose wooden board and lay it across to make a bridge, then walk over; if a board won't reach, glue a second one onto it (held pieces turn yellow when they'll stick). Keep building plank bridges and ramps across the flowing sand, dealing with a Soldier Construct on the way. Partway through you reach Zonai parts: attach a Fan to a board to make a little motorboat and ride it across the sand to the platforms. Step on the trigger to launch a stone sphere, then use Ultrahand to stick that sphere onto your fan-cart, drive it back, and drop it into the bowl-shaped socket to open the final gate. Two optional chests are worth grabbing: shoot the rope holding the hanging chest, grab it with Ultrahand for Arrow x10, and stack two boards into a ramp to climb to a higher ledge for a Hasty Elixir. Then step onto the altar at the end and touch it to claim your Light of Blessing."
    },
    {
     "name": "Mayatat Shrine",
     "location": "Gerudo Desert, southwest of Gerudo Desert Gateway near Kara Kara Bazaar",
     "category": "puzzle",
     "oneLine": "A Sliding Device: hop onto one of the descending sleds, then use Recall to ride it back up across the quicksand to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "The trick here is to stop building and start riding. At the entrance, wait for one of the sleds to slide down the rail from the right; hop onto it and immediately use Recall to send it back up, carrying you to the upper level. In the next area you make your own sand-boat: use Ultrahand to set a Steering Stick on top of a sled, then grab a Fan from nearby and stick it on the back so it can push you. Hop on, smack the fan to start it, and steer across the quicksand. Before you finish, drive to the back-left platform and climb the steps to open the chest there for Arrow x10. Then steer your fan-sled to the altar on the back-right side, step off, and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Soryotanog Shrine",
     "location": "Gerudo Desert, high on the cliffs directly above Gerudo Town",
     "category": "puzzle",
     "oneLine": "Buried Light: turn on a fan with Ultrahand to blow away the sand, then guide the light beam to the crystal to open the way.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "In the first room, use Ultrahand to pull the Zonai Fan out of the sand pile and turn it on (hit it once), then aim its wind at the heaps of sand to blow them away — this uncovers a chest holding a Small Key. Use that key on the locked door. In the next room, blow away the sand in the right corner to reveal a small hole and crawl through. Clear more sand to find a fan, set it upright against the wall so its updraft lifts you to the upper ledge, then defeat the Construct up there. For the optional chest, use the Fan Guster you picked up to blow the sand off the big gear — that uncovers a chest holding Arrow x10. The finale is a light puzzle: place the Zonai Mirror on the source of the big light beam and angle it so it shines back into the previous room, then use Ultrahand on the second mirror there to redirect that beam onto the hexagonal receptor above the door to open it. Then step inside and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Siwakama Shrine",
     "location": "Gerudo Desert, north of the East Barrens",
     "category": "puzzle",
     "oneLine": "Moving the Spheres: Ultrahand the big balls to bridge the gaps, then use Recall to ride a returning sphere across to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine teaches Ultrahand and Recall with big stone spheres. First, use Ultrahand to grab a sphere and drop it into the gap below you, then walk across it to the next platform. For the optional chest, grab a sphere, set it at the top of the ramp and let it roll down to smash the breakable rock wall, then open the chest behind it for Bomb Flower x5. Now combine spheres: stick two together side by side and lay them across the next gap as a bridge to walk over; further on, fuse three spheres into a rough triangle and set them on the pointed pillar to make a crossing toward the exit. The classic stuck-point is the moving sphere — use Ultrahand to hold a sphere up on the ramp for several seconds, then switch to Recall so it stays put (Recall makes it retrace where it just was) and quickly scramble across it. Reach the back, step on the altar, and touch it to claim your Light of Blessing."
    },
    {
     "name": "Chichim Shrine",
     "location": "Gerudo Desert, inside the Ancient Prison Ruins reached by sinking through the quicksand at Palu Wasteland east of Gerudo Town",
     "category": "puzzle",
     "oneLine": "Drop into the Ancient Prison Ruins via the sinkhole, flip the Ultrahand switches and dodge Gibdos, then clear the shrine inside.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Chichim is hidden underground in the Ancient Prison Ruins, so the real puzzle is just getting in. East of Gerudo Town in the Palu Wasteland there's a patch of quicksand (around coordinates -3114, -3074); sink through it to drop into the ruins. Inside, use Ultrahand to pull the lever and open the first gate, then follow the corridor past the Gibdos (hit them with a fire or shock arrow first to make them collapse, then finish with melee) to a second lever that opens more cells. Reach the statue of a woman holding a sword and use Ascend on the opening above it to reach an upper cell with a chest holding a Gerudo Scimitar, then Ultrahand the stone slabs on the floor to expose a hidden lever; pull it to open the way to the shrine. Inside it's a Rauru's Blessing shrine — no puzzle, so the Light of Blessing is basically free. Grab the chest straight ahead for a Mighty Zonaite Spear, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Karahatag Shrine",
     "location": "Gerudo Desert, south of the Southern Oasis",
     "category": "puzzle",
     "oneLine": "Drifting Flame: lift a lit brazier high with Ultrahand, hit Recall so it hangs, then run to light the inverted ceiling pillars.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "First room: there's a closed gate with an unlit, upside-down ceiling torch above it and a lit flame nearby. Light an arrow on the flame (or toss a Fire Fruit / lit torch) and hit the inverted torch to ignite it and open the gate. The second room is the Recall trick. Glide down to the lower platform first and open the chest there for a Mighty Construct Bow, then Ascend back up. Now use Ultrahand to lift the movable stone torch up into one of the three hollow chambers in the ceiling so it can light that pillar's wick. The reliable way: set the torch down, activate Recall on it, then step on the pressure pad — the floor drops while Recall floats the torch up into the chamber to light the candle as it returns. Step off, stop Recall, move the torch under the next chamber, and repeat for all three. Once all three are lit, walk to the altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Irasak Shrine",
     "location": "Gerudo Desert, south of Arbiter's Grounds",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: no trial inside. Just reach it across the desert, open the chest, and claim the Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Rauru's Blessing shrine, so there's no trial inside — the whole challenge is reaching it across the quicksand south of Arbiter's Grounds. The cleanest approach is from above: if you've cleared the Lightning Temple, fast-travel there, Ascend to its roof, look southeast to spot the shrine, then glide down (Tulin's gust helps you land right on the platform), since touching the surrounding quicksand will pull you under. If you can't, use Recall on the wooden boards drifting across the sand to ride them, hopping between boards and the ruins poking up until you reach the shrine. Once you're inside there's nothing to solve — open the chest straight ahead for a Large Zonai Charge, then continue to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Miryotanog Shrine",
     "location": "Gerudo Desert, south of Toruma Dunes, east of Gerudo Town and north of the Lightning Temple",
     "category": "combat",
     "oneLine": "Proving Grounds: Lure. Stripped of gear, grab the local weapons and lure the five constructs into the rolling-boulder traps.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds trial, so all your own gear is stripped — you fight with only what's inside. Grab the starter weapons on your left (Old Wooden Bow, Thick Stick, Long Stick) and the Fire Fruits near the wall; fusing a wooden crate onto a stick makes a solid two-hander. The room's flashing wall lasers are the weapon: tripping one drops heavy metal boulders that roll across the floor. Lure the roaming Soldier Constructs into the boulders' path (or trip a laser from a distance) so they get flattened — flaming arrows from Fire-Fruit-fused shots also work, and one headshot drops the lone archer construct across the water. Once every construct is down, run up the ramp and use Ascend on the mesh overhang to reach the exit; the chest up there holds a Captain II Blade. Then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Motsusis Shrine",
     "location": "Gerudo Desert, hidden inside the South Lomei Labyrinth maze southeast of the desert",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: the only challenge is reaching it. Solve the South Lomei Labyrinth maze, then claim the free Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "There's no puzzle here, just the maze in the way, so this is a Rauru's Blessing shrine and the Light of Blessing is free once you reach it. The shrine sits at the heart of the South Lomei Labyrinth in the Gerudo Highlands. The simplest route is to launch from Gerudo Canyon Skyview Tower and glide in, then work down through the maze toward the center, following the trail of acorns and Chickaloo Tree Nuts that marks the path; Tulin's gust helps clear blocking sand. Parts of the labyrinth are coated in Gloom, so bring gloom-resistant food or armor before you go in. Inside, open the treasure chest for a Large Zonai Charge, then touch the monk's altar at the back to claim your Light of Blessing."
    },
    {
     "name": "Rakakudaj Shrine",
     "location": "Gerudo Highlands, along the Gerudo Canyon Path near Gerudo Canyon Stable",
     "category": "blessing",
     "oneLine": "Rauru's Blessing unlocked by The Gerudo Canyon Crystal quest: deliver the crystal along the path to make the shrine appear.",
-    "shrineQuest": "The Gerudo Canyon Crystal"
+    "shrineQuest": "The Gerudo Canyon Crystal",
+    "solution": "This shrine stays sealed until you finish its shrine quest, The Gerudo Canyon Crystal, so do that first. Go to the shrine and interact with it to start the quest; it's missing its crystal, and a beam of light points the way down the canyon toward it. Follow the beam to a green crystal hidden among rocks and debris to the south, near the water. Nearby you'll find Zonai parts (big wheels on stone slabs and a steering stick); use Ultrahand to build a small cart, attach the crystal to it, and drive it back along the path the beam shows, up the sloping rocks and small waterfalls. If you get hung up on a ledge, hop off and lift the cart over with Ultrahand. At the end, set the crystal into the shrine's empty socket to unlock it. Inside it's a Rauru's Blessing shrine, so there's no puzzle: open the chest for a Mighty Zonaite Longsword, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Turakamik Shrine",
     "location": "Gerudo Highlands, north of Gerudo Canyon Mine, east of Gerudo Canyon Stable",
     "category": "puzzle",
     "oneLine": "Hidden Metal: use Ultrahand to clink the electrified metal balls onto the others, sending current through gears to open the gates.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is an electricity puzzle. In the first room, use Ultrahand to grab the charged metal ball hanging from the battery and clink it onto the other metal ball beside it; current flows and a big gear starts turning. Use Recall to reverse the slowly spinning gear, then climb on and ride it up to the higher platform. The next room has two ball-and-chains hung slightly too far apart: grab the right-hand ball, pull it as far right as you can and let go so it swings, then grab the second ball and attach it as the first swings close, completing the circuit. Use Ascend on the platforms jutting from the wall to climb to the top room, where another gear guards a chest holding a Strong Zonaite Shield; Recall it to reach the chest. For the final gate, hang the charged ball over one of the two wall poles, then lay a metal beam across both poles so the current bridges them, opening the gate. Step through and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Kitawak Shrine",
     "location": "Gerudo Highlands area, on the East Gerudo Mesa ridge that separates the desert from Faron",
     "category": "puzzle",
     "oneLine": "Upward and Forward: Ultrahand planks onto the raised bridges to lower them, then use the gears and catapults to launch upward.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle is about using stone slabs to cross gaps and then catapulting upward. At the first gap, use Ultrahand to grab the stone slab from the wall on your right and attach it to the far end of the standing platform ahead so it tips over into a bridge; walk across. Take a slab and stick it onto the slowly spinning gear, then hop on as it comes back around and ride it across to a chest holding Arrows x10. To reach the altar you need a catapult: take the slab you used as a ramp and attach it to the far end of the hinged launch platform on the right. Stand on the far edge and shoot the glowing switch with a bow and arrow; the platform flings you up to the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Otutsum Shrine",
     "location": "Gerudo Highlands, in the north of Risoka Snowfield, far northeast of Gerudo Highlands Skyview Tower",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: no trial. Brave the cold snowfield to reach it, then grab the Light of Blessing and the chest inside.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "There's no trial inside, so this is a Rauru's Blessing shrine and the Light of Blessing is free; the only real challenge is surviving the cold to reach it, in Risoka Snowfield in the Gerudo Highlands. Before you go, cook cold-resistance food or equip warm gear like the Snowquill set, since this corner of the snowfield is freezing. Once you're inside, open the treasure chest in front of you for a Topaz (a gem you can sell or fuse onto a weapon for a lightning attack), then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Mayamats Shrine",
     "location": "Gerudo Highlands, southeast of Gerudo Highlands Skyview Tower",
     "category": "puzzle",
     "oneLine": "A Route for a Ball: build a track with Ultrahand and use Ascend, then roll the correct ball into the floor socket by the gate.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle is about moving a large ball and a small ball with Ultrahand and Ascend. Ride the wind across to the next ledge, then use Ascend to pop up beneath the platform holding the big ball, and grab the ball with Ultrahand. For the optional chest, set the big ball in the middle of the gap and use it as a stepping stone to cross to the chest, which holds a Large Zonai Charge. Now wedge the big ball into the funnel-shaped notch in the wall and Ascend up through it to the higher platform. From there, extend the big ball out over the railing toward the back of the room and, when the small ball swings close, press the attach button to stick the two together. Drop both onto the railing with the big ball resting on top, then take the small ball and place it in the vessel in front of the altar room to open the gate. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Suariwak Shrine",
     "location": "Gerudo Highlands, inside Taafei Hill Cave (the Yiga Blademaster Station) northeast of Gerudo Canyon Stable",
     "category": "blessing",
     "oneLine": "Rauru's Blessing with no puzzle, but the door stays locked until you pass The Yiga Clan Exam side quest in Yiga disguise.",
-    "shrineQuest": "The Yiga Clan Exam"
+    "shrineQuest": "The Yiga Clan Exam",
+    "solution": "The shrine's door stays locked until you pass its quest, The Yiga Clan Exam, so do that first. The shrine sits inside Taafei Hill Cave, reached through the Yiga Blademaster Station whose entrance is behind a big waterfall in the Gerudo Highlands (look for the door with two frog statues outside). Equip the full Yiga Set so you're in disguise, then talk to the Blademaster to start the exam. He tasks you with offering a Mighty Banana at each of five frog statues scattered around the region (he provides the bananas and marks the spots); drop one in each statue's bowl, then return to him. He opens the inner door, where chests hold a Ruby and a Pristine Eightfold Longblade, and grants access to the shrine. Inside it's a Rauru's Blessing shrine with no puzzle: open the chest ahead for a Big Battery, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Rotsumamu Shrine",
     "location": "Gerudo Highlands, in a gully between Vatorsa Snowfield and Sapphia's Table beside a Depths chasm",
     "category": "puzzle",
     "oneLine": "A Balanced Plan: attach heavy weights to the seesaws with Ultrahand to balance and ride them up, or shortcut with Recall.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle is about balancing seesaws with heavy weights so you can climb them. Cross the first seesaw to the upper area, then attach the heavy barrel to the lower (left) side of the next seesaw with Ultrahand so it holds level and you can walk up it. For the optional chest, attach a plank to the left side of the last seesaw and a heavy block onto that, ride the seesaw down to its lowest point, then grab the heavy block with Ultrahand and yank it loose; as the seesaw snaps up it launches you, so jump and glide across to the chest, which holds Large Zonaite. To finish, reattach the heavy block to the left side, walk up the now-balanced seesaw, and go through the door. Touch the monk's altar to claim your Light of Blessing."
    }
   ]
  },
@@ -583,35 +660,40 @@
     "location": "Hyrule Ridge Surface, north of Tabantha Bridge Stable on a ledge of Mount Rhoam (approx -2847, 0630, 0233).",
     "category": "combat",
     "oneLine": "Combat Training: Archery. Grab the bow by the door and headshot each construct. For the trio, Ascend a side pillar and shoot in bullet time as you fall.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a combat-training shrine that teaches bow headshots. There's a bow and arrows on the rack by the entrance if you need them, so grab those first. The first challenge is a single Training Construct: take aim the moment you can move and put an arrow through its head before it reacts (if it lines up a shot at you, just strafe left or right to dodge). Landing that headshot triggers the second challenge, three constructs at once. The key trick is to get airborne: jump off any raised edge or pillar in the arena and aim your bow while you're falling, which slows time to a crawl and gives you plenty of room to put an arrow through all three heads before you land. Clearing them opens the way to a chest holding a Strong Construct Bow. Then step to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Runakit Shrine",
     "location": "Hyrule Ridge Surface, west of Lindor's Brow Skyview Tower between Upland Lindor and Mount Rhoam (approx -2531, 1170, 0178).",
     "category": "puzzle",
     "oneLine": "Built to Carry. Use Ultrahand to attach stone cylinders or slabs to the orb so it rolls down the rails, then drop it into the floor switch to open the bars.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle is about making a ball roll down sloped rails to a floor switch. At the start, jump to the two ladders and use Ascend to pop straight up to the top quickly. Use Ultrahand to set the ball on the first railing so it rolls down on its own to the next platform. For the next stretch the ball needs help to ride the rail: grab the loose poles nearby and Ultrahand them onto the ball in a cross shape so the poles sit on the rails and carry the ball down with them. Keep ferrying the ball forward this way, building a simple minecart from the loose slabs and poles where there's no clean rail to carry it across. For the optional treasure, use Ultrahand to lean the flat stone slabs together into a long ramp up to the raised alcove and cross to a chest holding a Construct Bow. Finally, pull the ball free and drop it into the round hole in the floor; its weight presses the switch and the gate opens. Walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Sonapan Shrine",
     "location": "Hyrule Ridge Surface, on the eastern cliff of Satori Mountain, southwest of Lookout Landing (approx -1921, 0357, 0228).",
     "category": "puzzle",
     "oneLine": "Missing Pathways. Use Ascend on overhangs and slide the stone bricks to build paths across the gaps, repositioning blocks to reach each higher ledge.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "There are gaps everywhere here, and the answer is Ascend plus a movable metal cube rather than climbing. From the start, stand under the overhang and use Ascend to rise up through it to the next level. For the side chest, grab the metal cube with Ultrahand and set it on top of the stone block so that part of it juts out as an overhang, then stand beneath the exposed part and use Ascend to pass straight up through it, then drop down to the chest holding five Arrows. To keep climbing, reposition that same cube: set it directly on top of a central ledge, stand underneath, and Ascend up through both the ledge and the cube to reach the next platform. Repeat the pattern, sliding the cube into place under wherever you need to reach and Ascending through it, and use your paraglider to glide across any gap a cube can't bridge. Once you reach the top, walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Taki-ihaban Shrine",
     "location": "Hyrule Ridge Surface, inside Lindor's Brow Cave just east of Lindor's Brow Skyview Tower (approx -1829, 1149, 0147).",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. No puzzle inside; the cave is the trial. Gloom Hands lurk at the platform base, so sprint past and climb up to claim the Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine sits inside Lindor's Brow Cave, so reaching it is the trial. Fast-travel to Lindor's Brow Skyview Tower and head east along the cliff to find a hole; drop in and glide down through the chasm to the pool below. Make for the cave mouth with the big stone structure glowing greenish. As you near the shrine platform, Gloom Hands rise out of the ground and chase you. You don't have to fight them: just sprint straight for the platform and scramble up the wall to the shrine, which puts you out of their reach (lingering to fight risks summoning Phantom Ganon, so running past is the safe call for a beginner). Activate the terminal. This is a Rauru's Blessing shrine with no puzzle inside, so the Light of Blessing is essentially free. Open the treasure chest straight ahead for a Large Zonai Charge, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Usazum Shrine",
     "location": "Hyrule Ridge Surface, just south of Satori Mountain Foothill Cave at the foot of Satori Mountain (approx -2139, -0874, 0093).",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Activate the shrine; its green beam points to the cave. Take the crystal from the Hinox inside, then carry it back to the shrine to claim the blessing.",
-    "shrineQuest": "The Satori Mountain Crystal"
+    "shrineQuest": "The Satori Mountain Crystal",
+    "solution": "This shrine stays sealed until you do its shrine quest, The Satori Mountain Crystal, so tackle that first. Make your way to the shrine at the southeast foot of Satori Mountain and activate the pedestal; a green beam shoots out pointing toward the nearby Satori Mountain Foothill Cave. Follow the beam into that cave and head around the bend, where you'll find a Hinox with the green crystal worn as a necklace. To beat it, shoot its single eye with a bow to stun it, then rush in and attack while it's down (you can also fire at its eye from a distance and dodge the rocks it throws). When it falls it drops the Satori Mountain Crystal. Pick the crystal up with Ultrahand, carry it back to the shrine, and set it in place; the shrine rises and opens. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free. Open the treasure chest straight ahead for a Strong Zonaite Spear, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    }
   ]
  },
@@ -624,56 +706,64 @@
     "location": "Southwest of Tanagar Canyon, in the far southwest corner of Tabantha Frontier (approx -4153, 0098, 0055).",
     "category": "puzzle",
     "oneLine": "Well-Timed Cuts: cut the rope to drop the big cube onto the ramp with an overhang, then Ascend up through it to cross the gap.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This one is named Well-Timed Cuts, and the trick is cutting ropes at the right moment. At the first gap a large cube hangs from a rope above a sloped wall: shoot the rope with an arrow so the cube drops and wedges against the ramp at an angle, then use Ascend to rise straight up through it and reach the next ledge. Next, use Ultrahand to join the two long metal slabs into a bridge to cross, and watch for two treasure chests hanging overhead. Slide your bridge under each chest in turn and shoot its rope so it drops onto the bridge instead of into the pit; one holds a Large Zonai Charge and the other a Small Key. For the final part, a ball swings on a rope: as it swings toward you, shoot the rope so the ball drops onto the platform and rolls into the floor recess, opening the way out. Step to the altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Gatakis Shrine",
     "location": "North of Rospro Pass Skyview Tower; launch from the tower and glide north to reach it (approx -3652, 1806, 0168).",
     "category": "puzzle",
     "oneLine": "Ride the Winds: glide on the updrafts, weave through the laser gaps, and open your paraglider in the gusts to rise to each exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is Ride the Winds, a gliding-and-wind shrine, so keep your paraglider handy throughout. From the entrance, run forward and jump off the ledge to glide across the first gap. Line up with the two vertical laser beams ahead and gently steer the glider through the gap between them without touching them. Drop down the big hole in the center; a slab spins inside it, so dive (press the jump/dive button) through the opening in the slab as it lines up. In the next chamber there's a large block of ice below you, plus enemies on platforms. Jump on the ice a few times to shatter it and clear your footing. Before leaving, glide over to the tallest platform, defeat the Construct guarding it, and open the treasure chest for a Strong Construct Bow. Then glide toward the exit, and the updraft there will carry you upward when you open your paraglider, lifting you to the altar. Touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Ikatak Shrine",
     "location": "Southwestern Tabantha Frontier, just above Gisa Crater south of Rito Village (approx -3950, 1138, 0112).",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: no puzzle inside. Appears after the shrine quest. Open the chest and touch the altar for the Light of Blessing.",
-    "shrineQuest": "The Gisa Crater Crystal"
+    "shrineQuest": "The Gisa Crater Crystal",
+    "solution": "This shrine stays buried until you finish its shrine quest, The Gisa Crater Crystal, so do that first. Walk up to the empty shrine pad and examine it to start the quest; a thin beam of green light points from it toward the crystal you need, and there's a hole nearby to drop into. Head down into the Gisa Crater Cave (go by daylight so there are fewer enemies) and deal with the Ice Likes and other foes inside. At the bottom you'll find the green crystal plus a pair of Zonai rockets. Use Ultrahand to attach a rocket to each side of the crystal, stand it so the rockets point almost straight up, then strike a rocket to blast the crystal up and out of the crater; use Ascend to get yourself back to the surface. Find the crystal up top and carry it back to the shrine pad to make the shrine rise. Inside it's a Rauru's Blessing shrine with no puzzle: open the treasure chest for a Big Battery (a large Zonai battery capsule), then touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Iun-orok Shrine",
     "location": "Underground inside Tanagar Canyon West Cave, in the valley below the canyon (approx -3539, 0851, -0119).",
     "category": "puzzle",
     "oneLine": "The Right Roll: glue only TWO balls together (not three) so the orb rolls straight down the ramp and lands on the target.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is The Right Roll, where you roll heavy balls down ramps onto targets. In the first room, use Ultrahand to grab the ball and roll it down the ramp into the big floor button to open the door. In the next room the ramp is too steep for a single ball, so glue TWO balls together with Ultrahand, set them at the top of the ramp balanced on each side, and let them roll down to strike the target, which opens the next gate. The room after that has three balls of different sizes: for the optional chest, stack them largest-to-smallest into a staircase leaned against the pillar (smallest at the base so you can step up) and climb to the chest for 10 Arrows. For that final target, instead of rolling the balls you carry them up and tap the target directly to open the last gate. Then head to the altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Mayausiy Shrine",
     "location": "Deep inside the Forgotten Temple, north of Tanagar Canyon near Lindor's Brow (approx -1165, 2602, -0083).",
     "category": "puzzle",
     "oneLine": "Building Blocks: use Ultrahand to grab and rotate the loose L-pieces so the incomplete square matches the finished model beside it.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is Building Blocks, hidden deep inside the Forgotten Temple, and it's a shape-matching puzzle. In the first room you'll see a completed cube on the left and an incomplete one on the right; use Ultrahand to grab the loose white L-shaped pieces, rotate them, and fit them onto the unfinished block so it matches the completed cube. That opens the gate. In the next room, defeat the Captain Construct first. Before the main puzzle, grab a couple of the blocks and stack them into a step (or use Ascend) to reach the raised platform in the corner, where the treasure chest holds a Large Zonai Charge. Then solve the room's puzzle the same way as the first, this time fitting three pieces onto the incomplete shape and rotating each until it snaps in to complete the cube, which opens the last gate. Walk to the altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Nouda Shrine",
     "location": "Inside Kopeeki Drifts Cave; ride a horse from Snowfield Stable to reach the snowy cave entrance (approx -2319, 2200, 0173).",
     "category": "combat",
     "oneLine": "Proving Grounds: Intermediate. Stripped of your gear, grab the supplied weapons, fuse enemy parts onto them, and Ascend up to clear each tier.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds: Intermediate combat shrine, so the moment you enter you're stripped of all your weapons, armor, shields, and Zonai devices and must use only what's provided inside. On the ground floor, grab the weapons set out near the entrance and take down the Constructs, including an archer up on a platform; headshots and sneakstrikes help you avoid damage. Burn the leaves on the right wall (Fire Fruit makes a quick fire arrow) to expose a Shock Emitter Zonai device, then Fuse it to a weapon or shield, because it's excellent for stunning the tougher Constructs, and it does wide damage when you strike the metal floor near them. Climb up and clear the upper Constructs, using Ascend where it lets you pop onto a higher platform behind enemies. Once every Construct is defeated, the door to the side chest opens; grab the chest for a Hearty Elixir. Then walk to the altar to claim your Light of Blessing."
    },
    {
     "name": "Oromuwak Shrine",
     "location": "On a mountaintop southeast of the Lucky Clover Gazette, near Brightcap Cave (approx -3079, 1617, 0243).",
     "category": "puzzle",
     "oneLine": "A Launching Device: fuse a Rocket to a minecart, point it up the rails, hop in and ignite it to ride up to the next area.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is A Launching Device, built around fusing Zonai Rockets to minecarts. In the first room, use Ultrahand to set a Rocket on the rail pointed at the large target, then hit it with a weapon to fire it into the target and open the door. In the main room, bring a Rocket over and attach it to the back of the minecart on the rails, hop in, and strike the rocket to blast yourself straight up to the next platform. For the optional chest, build a cart with two Rockets pointing up, ride it high, then hop out and glide over to the platform with the chest, which holds a Ruby. In the final section, fuse Rockets to a cart facing forward, place it carefully (there's no rail here), climb in and ignite it to launch yourself across to the exit. Then touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Turakawak Shrine",
     "location": "Northern Tabantha Frontier near Tabantha Hills, at the region's north edge (approx -3497, -0197, 0066).",
     "category": "puzzle",
     "oneLine": "Stacking a Path: use Ultrahand to stack the climbable blocks into a tower against each ledge, then climb to reach the ladder and exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is Stacking a Path, and it's all about stacking climbable blocks with Ultrahand. In the first room, use Ultrahand to position the large climbable block and add the second on top to make a double stack you can climb. One tip that trips people up: orient the blocks so the climbable (grated) face is reachable; if it's turned the wrong way Link can't grip it. For the optional chest, carry your double stack so it sits under the gated section of the ceiling, climb to the top, and use Ascend to pass up through the grate into the caged area above, where the chest holds a Magic Rod. For the exit, attach your stack on top of the metal block to make a triple stack with the metal block on the bottom, move it to the corner nearest the upper ledge, then climb up and jump across to reach the way out. Then touch the altar to claim your Light of Blessing."
    }
   ]
  },
@@ -686,70 +776,80 @@
     "location": "Hebra Mountains (Surface), inside Goflam's Secret Hot Spring, northern Hebra Mountains",
     "category": "combat",
     "oneLine": "Proving Grounds: Infiltration. You start stripped of gear, so grab the weapons by the entrance, then sneak or fight past the Soldier Constructs.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds: Infiltration combat trial, so it strips all your own weapons, shields, armor, and Zonai devices at the door — you fight only with what's provided. Grab every weapon and bow lying near the entrance before you step into the main room, then sneak instead of charging in. Use Ascend on a nearby ledge to pop up to the walkway above, line up behind a Soldier Construct while its back is turned, and a falling sneakstrike (or a quiet ground sneakstrike) does big damage. Pick up the weapon it drops and use Fuse to attach a Soldier Construct Horn or one of the floor spikes to hit much harder. Lure the rest out one at a time with arrows so you never face the whole room at once, and clear all the constructs to open the way to the altar. Open the chest in the altar room for a Sapphire, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Mayaotaki Shrine",
     "location": "Hebra Mountains (Surface), at the center of North Lomei Labyrinth in North Tabantha Snowfield",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Solving the North Lomei Labyrinth maze to reach it is the trial; the shrine itself has no inner puzzle.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Rauru's Blessing shrine at the heart of the North Lomei Labyrinth — the maze is the whole trial and the shrine itself has no inner puzzle. Bring cold-resistance gear (Snowquill set or spicy food); the labyrinth floor also has patches of dark Gloom, so pack a Gloom-recovery dish or the Depths armor. Enter from the western camp where a trail of Hylian Pine Cones marks the route: light the campfire, toss a pine cone into it to blow an updraft you can glide on, and follow the corridors inward. If you'd rather skip the maze, climb a niche to the top of the labyrinth walls (or drop in from the sky islands above) and glide straight down to the two torches at the shrine. Inside, open the chest for a Diamond, then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Orochium Shrine",
     "location": "Hebra Mountains (Surface), near Snowfield Stable in South Tabantha Snowfield, northwest of the Forgotten Temple",
     "category": "puzzle",
     "oneLine": "Courage to Fall. Step off the edge and ride the rising gusts of wind to drift safely down onto the lower platforms toward the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "The name is the hint — at the laser walls you're meant to step into a beam on purpose so the trapdoor drops you to the level below. Use Ultrahand to open the stone door at the entrance, then take the path to the left, beat the lone Construct, and use Ascend to reach the upper level. Drop down and follow the path for a chest holding 5 arrows. Now touch the lasers to collapse the floor; in the room below, walk to the far end avoiding the beams and use Ascend under a platform for a chest with a Small Key. Ascend back up, defeat the constructs guarding the center, and use the key to open the door. Carry the ball out with Ultrahand, ride a moving platform to the upper level, and drop the ball into its socket to open the final room. There, place the provided Zonai Wing on the rail facing the exit, attach the ball to it, and smack the fans to sail it across; remove the ball, set it in the vessel by the altar room to open it, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Oshozan-u Shrine",
     "location": "Hebra Mountains (Surface), atop an icy hill west of North Lomei Labyrinth",
     "category": "puzzle",
     "oneLine": "Mallet Smash. Wield the big hammer with Ultrahand to smash blocks and pound the switches that open the way forward.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is about building battering rams and spinning mallets with Ultrahand to smack switches. In the first room, grab the log and attach it to the metal cube on the rail so it points at the wall switch, then stick a Zonai rocket on the back of the cube and strike it — the cube slams forward and the log hits the switch, opening the next door. For the side chest, fuse a rocket to your shield and fire it to launch yourself up to the ledge, where the chest holds a Zonaite Bow. In the final room, use Ultrahand to attach the larger log to the spinning gear next to the switch, fix a rocket to the far end of the log, then hit the rocket so the log whips around and strikes the switch, opening the way to the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Otak Shrine",
     "location": "Hebra Mountains (Surface), inside Icefall Foothills Cave (melt the ice blocking the entrance with fire)",
     "category": "combat",
     "oneLine": "Proving Grounds: Traps. You start weaponless, so use the provided gear to fight Constructs while dodging the spike and floor traps.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "The Icefall Foothills Cave mouth is sealed by ice, so melt it with a Fire Fruit, a Bomb Flower, or a flaming torch; inside, melt the ice deeper in and break through the ice floor to drop into the shrine. This is a Proving Grounds: Traps combat trial — it takes away your own gear, so grab the club, bow, and arrows by the entrance before you advance. Six Soldier Constructs wait in pairs, so don't aggro them all at once: shoot to pull them over one at a time, duck behind the pillars, and grab the arrows the archers fire back to refill your ammo. Fuse construct parts onto your club to keep it hitting hard, and lean on the room's own traps — shoot down a hanging lamp so it drops fire onto leaves and a nearby construct. Clear all six and the door opens; the chest holds a Mighty Construct Bow. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Rutafu-um Shrine",
     "location": "Hebra Mountains (Surface), inside Hebra Mountains Northwest Cave, northwest of Hebra East Summit",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Do The Northwest Hebra Cave Crystal quest: carry the crystal through the cave to its pedestal to spawn the shrine.",
-    "shrineQuest": "The Northwest Hebra Cave Crystal"
+    "shrineQuest": "The Northwest Hebra Cave Crystal",
+    "solution": "This shrine stays sealed until you finish its shrine quest, The Northwest Hebra Cave Crystal, so do that first. Find the Hebra Mountains Northwest Cave entrance (west of Selmie's Spot near Hebra East Summit) and drop in; clear the Bokoblins by the frozen lake, then examine the shrine's terminal to start the quest — the green crystal sits underwater out in the lake. To reach it, fuse an icicle (or any ice block) to a weapon and swing it at the water's surface to freeze a sheet of ice; hop across and keep making sheets until you're over the crystal (firing Ice-Fruit arrows works too). Grab the crystal with Ultrahand, haul it back to shore, then set it on the pedestal to raise the shrine. Inside it's a Rauru's Blessing shrine with no puzzle — open the chest for a Topaz, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Sahirow Shrine",
     "location": "Hebra Mountains (Surface), atop Corvash Peak, east of Rospro Pass Skyview Tower, north of Rito Village",
     "category": "puzzle",
     "oneLine": "Aid from Above. Use Ascend to phase up through the ceilings, rising past the laser nets to reach each higher level and the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is all about using Ascend to phase straight up through ceilings to skip the laser nets — Ascend needs something solid overhead, so look for the platform or panel above you each time. In the first room, crouch to slip under the wall lasers. In the next room a metal panel slides along an overhead track — stand directly beneath it and use Ascend the moment it passes over you to ride up onto the platform. For the side chest, grab a nearby metal cube with Ultrahand and set it in the path of the red laser; that trips the gate so you can reach a chest holding a Spicy Elixir. Use a cube to cross the gap, then crouch past the moving laser. At the finale, wait for the moving laser grid to come close, Ascend up onto the structure carrying it to get above the beams, then glide down to the exit. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Sisuran Shrine",
     "location": "Hebra Mountains (Surface), northwest of Pikida Stonegrove Skyview Tower, northeast of Hebra East Summit",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Do The North Hebra Mountains Crystal quest: beat the Frost Talus (Fire Arrows or Yunobo) and haul its crystal to the pedestal.",
-    "shrineQuest": "The North Hebra Mountains Crystal"
+    "shrineQuest": "The North Hebra Mountains Crystal",
+    "solution": "This shrine is buried until you finish its shrine quest, The North Hebra Mountains Crystal, so trigger and complete that first. Examine the Sisuran Shrine pedestal — the crystal is missing, which starts the quest and shoots a green beam toward where it sits. Follow the beam to a frozen boulder: the crystal is the weak point of a Frost Talus you must defeat. Its icy body freezes you on contact, so thaw the ice with fire — Fire-Fruit or Bomb-Flower arrows, or a Ruby-fused weapon — then dash in, climb its back, and pound the green crystal with your strongest weapon; repeat until the Talus falls. Use Ultrahand to lift the freed crystal and haul it back to the pedestal (a vehicle helps over the snow) to raise the shrine. Inside it's a Rauru's Blessing shrine with no puzzle — open the chest in the center for a Sapphire, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Tauyosipun Shrine",
     "location": "Hebra Mountains (Surface), on the western slopes southwest of Hebra West Summit",
     "category": "puzzle",
     "oneLine": "Forward or Backward? Use Recall to reverse moving platforms and rails so they carry you the direction you actually need to go.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Bring cold-resistant gear or warm food before you arrive. This shrine is solved almost entirely with Recall — reversing an object's recent motion. First puzzle: a heavy ball rolls down a ramp at you; aim Recall at it to send it rolling back up the ramp, then run up behind it to the next platform. For the chest, a wheel keeps turning so a chest slides away from you — use Recall on the wheel to reverse it and bring the chest within reach, then grab the Strong Construct Bow inside. The later rooms repeat the idea: a glowing ball rolls down twin ramps, so Recall it over the gap and tap the button again to cancel Recall so it drops straight into the goal; and in the last room, place a ball on a back-and-forth platform with Ultrahand, then Recall it so it retraces the platform's path over the goal and cancel Recall to drop it in. Sink the final ball to open the way, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Wao-os Shrine",
     "location": "Hebra Mountains (Surface), inside West Lake Totori Cave, west of Rito Village",
     "category": "puzzle",
     "oneLine": "Lever Power. Use Ultrahand with the lever-arm contraptions to apply force, swinging platforms or launching yourself across the gaps.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Wao-os sits inside West Lake Totori Cave, west of Rito Village; to find the cave, climb the stone pillar (or Vah Medoh's Perch) at Rito Village and spot the bird-shaped snow patch to the west — the entrance is at the bird's head. Inside, the Lever Power trial has you build seesaw catapults with Ultrahand to fling an iron ball at orange targets. Attach the bowl to the end of the hanging board to make a catapult arm, set the iron ball in the bowl, then lift the metal box high over the opposite end and drop it — the seesaw whips the ball into the first target. For the taller target, attach the wooden plank to extend the board, move the bowl out to the new far end, line the box's drop-shadow over the lever, and launch again. For the side chest, climb into the bowl yourself and drop the box to fling yourself up, then glide right to a ledge with a chest holding a Spicy Elixir. Hit the targets to open the way, then touch the monk's altar to claim your Light of Blessing."
    }
   ]
  },
@@ -762,98 +862,112 @@
     "location": "Eldin Mountains, southeast of Thyphlo Ruins (0696, 2792, 0225)",
     "category": "puzzle",
     "oneLine": "Spinning Gears: use Recall to reverse the big gears so platforms carry you upward, riding them to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a puzzle shrine built around big spinning gears, and Recall is the key. In the first room a ball rides a turning gear; wait for the orb to drop onto the big gear ahead, then use Recall on that gear to reverse its spin so the orb falls into the floor hole and opens the gate ahead. In the next room, use Ultrahand to turn the knob (crank) on the pair of gears to wind them up with motion. For the optional treasure, turn the knob counter-clockwise a few times, Recall the gear to reverse it, then quickly slot yourself into the gear and ride it down into a hidden chamber holding a Zonaite Longsword; use Ascend on the ceiling to climb back up. To finish, turn the knob clockwise, slot into the gear, and Recall again so its reversed motion carries you up to the monk's altar. Touch the altar to claim your Light of Blessing."
    },
    {
     "name": "Marakuguc Shrine",
     "location": "Eldin Canyon, on a cliff above Goron City (1761, 2508, 0437)",
     "category": "puzzle",
     "oneLine": "Wheeled Wonders: Ultrahand the two wheeled carts together, ride your build, and strike the wheels to roll across the lava.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine, Wheeled Wonders, is about building wheeled vehicles with Ultrahand to roll across lava. At the start, use Ultrahand to grab the bridge piece below and reconnect the broken bridge, then cross. Attach a bridge slab to a wheeled platform and activate a wheel by hitting it with a melee strike or arrow so it drives forward, carrying you across. Next, grab one of the two matching wheeled carts with Ultrahand and stick it onto the other to make a bigger four-wheeled platform, then ride it over the lava. After the Soldier Construct's room, attach the large metal slab to the four-wheeled platform and hit a wheel so it drives forward, pushing the loose balls into the hole on the far side to open the gate. For the optional chest, use that curved metal slab as a ramp up the corner pillar (or just use Ascend) to reach the chest holding a Strong Construct Bow. Then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Timawak Shrine",
     "location": "Eldin Canyon, overlooking Bedrock Bistro (1798, 1635, 0311)",
     "category": "puzzle",
     "oneLine": "Against the Flow: cross cooled-lava platforms, then Ultrahand spare platforms into a bridge to reach the orb and chest.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine, Against the Flow, has you crossing lava on stone slabs, and Recall is the trick. A Zonai Hydrant pours water onto the lava to make slabs drift across; wait for several slabs to line up, then hop across (and defeat the Construct on the far side). In the orb room, use Recall on a slab to ride it back along the path it floated in on toward your goal. For the optional treasure, ride toward the elevated ball, spot the chest tucked in an alcove, then grab a slab with Ultrahand, push it toward the chest, pull it back, and Recall it so it carries you in to open the chest for a Strong Zonaite Shield. To finish, hit a Zonai Fan for an updraft, set a Zonai Hydrant to make a slab over the lava, attach a second Zonai Fan to the back of that slab with Ultrahand to make a little raft, then activate the fan to ride across to the monk's altar. Touch it to claim your Light of Blessing."
    },
    {
     "name": "Isisim Shrine",
     "location": "Eldin Canyon, inside YunoboCo HQ East Cave (1841, 2841, 0363)",
     "category": "combat",
     "oneLine": "Proving Grounds: In Reverse. Use only provided gear; Recall the gears to flip enemy approaches and clear the Constructs.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds combat shrine, In Reverse, so your own gear is stripped and you fight with only what's inside. Grab the Wooden Stick, Thick Stick, and Old Wooden Shield by the entrance, head up the first ramp, and take out the first Construct (you can also detonate the Zonai Time Bombs near it). Pick up the bow the bow-wielding Construct drops, then use Recall on the moving gear to ride it up to the next floor and fight the Construct above. When a Construct lobs a Time Bomb at you, use Recall on it while it's still in the air to send it flying back to explode on the enemy; those bombs can also blow open breakable walls/blocks to reveal items and parts you can Fuse onto your weapon. Clear every Construct and the gate to the side chest opens, holding a Magic Rod. Then step to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Sitsum Shrine",
     "location": "Death Mountain, west side near the summit (2367, 2597, 0790)",
     "category": "puzzle",
     "oneLine": "A Controlling Device: take a steering stick, drive a cart across the lava, then attach it to a fan-wing and fly to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine, A Controlling Device, teaches you to drive Zonai vehicles with a Steering Stick. For the first lava river, the path branches three ways; hop on a cart and take it across. For the optional chest, look for a runed orb on a shelf to the right, grab it with Ultrahand and set it into the orb hole on the orange ring at the lava intersection to open the chest doors; the chest holds a Mighty Construct Bow. Drive on around the corner and deal with the Soldier Construct. At the gap, use Ultrahand to take a Steering Stick off a cart and attach it to one of the fan-wings (planes), then fly toward the swirling green light beam, remembering that pushing the stick forward dips the nose down and pulling back lifts it up. Land by the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Sibajitak Shrine",
     "location": "Eldin Canyon, north of Death Caldera (2399, 3269, 0402)",
     "category": "puzzle",
     "oneLine": "Alignment: use Recall to line up the rotating pillar's segments, then Ascend straight up through them to reach the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle shrine, Alignment, is about lining up the segments of a rotating pillar so you can climb straight through it with Ascend. The central pillar is divided into three sections that each rotate; use Recall on a section to spin it back so its opening stacks with the others. For the optional chest, you only need the bottom and middle sections aligned: Recall those two so their openings line up, then stand under the bottom section and use Ascend to pop up onto a platform where a chest holds a Strong Zonaite Longsword. To finish, use Recall to line up all three pillar sections, position yourself beneath the stacked openings, and use Ascend to rise straight up through them to the top. Step to the monk's altar there and touch it to claim your Light of Blessing."
    },
    {
     "name": "Kimayat Shrine",
     "location": "Eldin Canyon, west of Skull Lake (2871, 3625, 0239)",
     "category": "combat",
     "oneLine": "Proving Grounds: Smash. Defeat all the Constructs (melee on the floor, archers above) with only the weapons provided.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds combat shrine, Smash, so your gear is stripped and you fight with only what's provided. Grab the Long Stick, Wooden Stick, and the Old Wooden Bow with its 10 arrows near the entrance. Melee Constructs roam the floor while archer Constructs stand on an elevated platform. Use Ascend to reach the side ledges, grab the Spiked Iron Balls there, and Fuse them onto your sticks for heavy hitters, then clear the ground-level Constructs first. For the archers above, use the room's water: attach an Ice Fruit to an arrow and shoot the pool next to the stone column to freeze an ice block to stand on, then smash the stone column propping up their platform so the remaining Constructs tumble into the water and are defeated. With every Construct down, the gate opens to a chest holding a Captain's Construct reaper-type weapon. Then step to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Mayachideg Shrine",
     "location": "Eldin Canyon, west of Kanalet Ridge (3062, 1817, 0216)",
     "category": "combat",
     "oneLine": "Proving Grounds: The Hunt. Use only the items inside (start with a Wooden Stick) to hunt down and defeat the Constructs.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds shrine, so the moment you enter you lose all your own weapons, bows, shields, and armor — you can only fight with what's provided inside. In the entrance room, grab the Wooden Stick, then notice the two Homing Carts; hit each one to switch it on and it rolls forward to ram nearby enemies. Use Ultrahand to drag those two Homing Carts into the main room, where a group of Soldier Constructs is waiting, and let the carts crash into them. If you get swarmed, knock a Construct down to the lower level with the stick, then Ultrahand the Cannon on the floor: it auto-fires at whatever is in front of it, so just rotate it to aim at the remaining Constructs and let it blast away. Once every Construct is destroyed your own gear is returned and a gate opens to a chest (a Captain-series spear). Walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Mayak Shrine",
     "location": "Eldin Mountains, west of East Deplian Badlands (1270, 3733, 0106)",
     "category": "puzzle",
     "oneLine": "A timing puzzle: launch up, Ultrahand a boulder onto the ramp, then swing the glowing post so it lands on the target.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This whole shrine is a timing trial. Step onto the launching pad to ride up to the platform above, and use Ultrahand to set the stone sphere onto the ball track up there so it starts rolling down toward the gap. Quickly drop back to the floor and stand by the orange pedestal/switch — the trick is the timing: hit the pedestal just before the sphere rolls off the end of the track, and the trigger it reveals opens the gate ahead in time. Repeat the same launch-up, place-the-sphere, dive-down-and-hit-the-pedestal sequence at the next launching pad to clear the second gate. For some treasure, look for a chest hanging from a rope on the wall and shoot the rope with an arrow (or glide over and slash it) to drop it; it holds a Large Zonai Charge. Then head to the far end and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Minetak Shrine",
     "location": "Eldin Mountains, inside Deplian Badlands Cave (0394, 3485, 0068)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: reach the shrine deep in the cave, open the chest, and touch the altar for the Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "There's no puzzle here — Minetak is a Rauru's Blessing shrine — but it's buried inside the dark, dangerous Deplian Badlands Cave, so the real work is getting there. The cave is pitch black, so bring Brightbloom Seeds to throw for light (or wear the Miner armor for a built-in glow), and there's an enemy camp outside you can sneak past. Drop into the hole at the entrance, then make a left at the first intersection and keep heading forward; you'll reach a chamber with a couple of Horriblins guarding a chest. Inside the shrine, the Light of Blessing is essentially free: head to the treasure chest, which holds a Big Battery (it extends your Zonai energy cell), then continue to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Jiotak Shrine",
     "location": "Eldin Canyon, inside Isle of Rabac Gallery cave (1833, 3179, 0257)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: wear Flamebreaker gear, navigate the hot cave to the shrine, grab the chest, and claim the blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Jiotak itself is a Rauru's Blessing shrine with no puzzle — the challenge is the blazing-hot Isle of Rabac Gallery cave you cross to reach it, so equip the Flamebreaker armor set (or down a Fireproof Elixir) before going in or the heat will keep burning you. Inside, use Ultrahand to attach a Zonai Fan to the back of a mining cart and set the cart on the rail tracks, then hop aboard and hit the fan to get rolling. As you ride, watch for target signs beside the rails: shoot one with an arrow (or use Yunobo) to flip the track switch and steer the cart toward the shrine; if you miss, the cart loops around for another try. When the shrine's green light comes into view off the side, jump off and glide over to it. Inside, open the chest for a Magic Staff, then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Momosik Shrine",
     "location": "Eldin Canyon, near Death Caldera (2957, 2759, 0524)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: appears after the crystal quest; enter, open the chest for a Big Battery, and take the blessing.",
-    "shrineQuest": "The Death Caldera Crystal"
+    "shrineQuest": "The Death Caldera Crystal",
+    "solution": "This shrine stays sealed until you finish its shrine quest, The Death Caldera Crystal, so do that first. Find the dormant shrine on the eastern side of Death Mountain and activate its terminal — a bright green tether shoots out pointing toward the shrine's missing crystal. Head northwest to a cave blocked by blue rocks (the Death Mountain East Tunnel); wear the Flamebreaker armor set (or use a Fireproof Elixir) because the heat is extreme. Inside, deal with the Horriblin, then use Ultrahand to build a cart with a Zonai Fan, set it on the tracks, and ride to the end. The crystal sits on a lava rock that turns out to be an Igneo Talus — fire an Ice-fruit-fused arrow to cool it, climb up, and break the ore on its back to free the crystal. Carry the crystal back through the cave (the cart works again) and set it on the shrine to make it rise. Inside it's a free blessing: open the chest for a Big Battery, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Moshapin Shrine",
     "location": "Eldin Canyon, inside Lake Intenoch Cave (2678, 1905, 0131)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: carry the green crystal to the shrine to unlock it, open the chest, then claim the blessing.",
-    "shrineQuest": "The Lake Intenoch Cave Crystal"
+    "shrineQuest": "The Lake Intenoch Cave Crystal",
+    "solution": "Moshapin won't appear until you finish its shrine quest, The Lake Intenoch Cave Crystal, so head into Lake Intenoch Cave in Eldin Canyon first — it's blisteringly hot, so wear the Flamebreaker armor set or carry Fireproof Elixirs. Fuse a rock to a weapon to make a hammer and smash the breakable boulders ahead (the left path hides a side chest with a Strong Construct Bow). Beyond them you reach a lava lake with the green crystal; interact with it and a beam shows where it must go — across the lava. Defeat the fiery monster guarding the device, then pick up the Zonai Hydrant beside it and spray the lava to freeze a solid surface (do NOT rely on Splash Fruit). Attach a nearby Zonai Fan to make a raft, load the crystal aboard, and ride across, following the beam. Set the crystal on the dormant Moshapin Shrine to unlock it. Inside it's a free blessing: open the chest, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Kisinona Shrine",
     "location": "Eldin Canyon, between Maw of Death Mountain and Cephla Lake (2568, 1245, 0173)",
     "category": "puzzle",
     "oneLine": "Wind Power: attach and activate the Zonai fans onto the turbine to generate wind and push platforms to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the Wind Power shrine, a single-room puzzle built around a big wheel ringed by turbine vanes, with two Zonai Fans sitting nearby. Use Ultrahand to pick up both fans and attach them to the wheel on opposite sides, laid on their sides so they face opposite directions — that way they spin the wheel rather than fight each other. Then shoot the fans with an arrow to switch them on; the spinning wheel drives the surrounding turbines, and once it's powered the door to the exit opens (it stays open even after the fans stop). Before you leave, grab the chest on the side ledge: detach one fan and lay it flat at the base of the pillar so its airflow points straight up, then jump into the updraft and open your paraglider to ride up to the ledge. The chest holds a Mighty Construct Bow. Head out and touch the monk's altar to claim your Light of Blessing."
    }
   ]
  },
@@ -866,70 +980,80 @@
     "location": "Akkala Highlands, southeast of South Akkala Stable up the mountain (3305, 1443, 0426)",
     "category": "puzzle",
     "oneLine": "A Prone Pathway: Hit the inside and outside rotation pillars to roll the giant cube until its steps line up, then platform to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This puzzle is all about rolling a giant cube using its two rotation switches — one on the outside, one inside — never climbing. Start by Ascending up the pillar at the entrance, then hit the outer rotation switch to spin the big cube and reveal an opening; walk inside. Look right for a short pillar jutting from the wall and use Ascend underneath it to reach the first chest (Arrows x10). Use the inner switch to roll the cube further so a hole opens, drop down, and grab a second chest (a Zonai Charge). Back in the main room, hit the inner switch three times to bring a long pillar up against the ceiling, then quickly run to grab the Strong Zonaite Shield. To finish, alternate the outer and inner switches so the cube's steps line up with the exit — when a tall pillar nearly touches the ceiling, stand beneath it and use Ascend to pop out on top, then drop down to the green pad. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Gatanisis Shrine",
     "location": "Akkala Highlands, far east near Ulria Grotto by the Akkala Sea coast (4501, 0826, 0095)",
     "category": "puzzle",
     "oneLine": "A Well-Timed Bounce: Recall the spring platform as the ball rolls across it to fling the ball up into the switch.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This one is pure timing with Recall. A large ball rolls down and crosses a springy bounce platform, but on its own it just rolls past a raised bullseye target on the far wall. Watch one full cycle so you learn the ball's path: it drops onto the platform, presses it down, then the platform springs back up. The trick is to use Recall on that spring platform just as the ball is rolling across it — Recall replays its upward bounce at that exact moment, flinging the ball up and into the orange target ring, which turns it green. For the optional chest, stand on the platform, wait for a ball to land and bounce you up, then glide over to the chest (Bomb Flower x5). If you mistime the shot, just wait for the ball to reset and try again. To finish, go to the far end of the platform and use Ascend on the now-green target ring above you, then glide across to the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jochi-iu Shrine",
     "location": "Deep Akkala, just northeast of East Akkala Stable (4350, 2972, 0164)",
     "category": "puzzle",
     "oneLine": "Courage to Pluck: Ultrahand metal blocks out of the Jenga-like tower without toppling it, then climb to the altar.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "A tall Jenga-style tower of metal blocks stands ahead with a stone ball balanced on top, and the goal is to get that ball into the round recess in the floor to open the gate — without toppling the stack onto yourself. Use Ultrahand to pull out the horizontal block holding up the top platform; the top partly drops and the ball rolls free. Grab the ball quickly with Ultrahand before it falls away, carry it to the floor recess, and drop it in to open the door. For the chests, take your time: pull a block from the bottom of the stack and lean it like a ramp against the raised ledge, then climb (or Ascend) up to the first chest (a Zonaite Bow). The second chest sits inside the tower — pull the back piece of the level it rests on and Ultrahand the chest out to the side ledge (Large Zonaite). Pull blocks to the side, not straight out, so the stack doesn't crash down too soon. Once the door is open, walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Gemimik Shrine",
     "location": "Akkala Sea, southeast of East Akkala Stable on the spiral Rist Peninsula island (4521, 2126, 0001)",
     "category": "puzzle",
     "oneLine": "Turbine Power: Attach the propeller to the motor and bridge the wiring with a metal plate to power the fan and braziers.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a wiring-and-fan puzzle. Use Ultrahand to grab the propeller (fan) and attach it to the bare motor in the center of the room — but it won't spin until it has power. Drag the metal plate from the far-left corner over the gap in the electrical wiring on the floor; the metal completes the circuit, electricity flows, and the propeller spins into a strong updraft. Ride that updraft: walk up the ramp, glide into the air current, and from the top glide to the back-right of the room for the chest (a Mighty Zonaite Shield). To finish, fetch the Flame Emitter near the stream of fire at the back-left and attach it to the spinning propeller — the whirling flame lights every brazier at once, opening the way (briefly sliding the metal plate off the wires to stop the spin can make attaching it easier). Then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Rasiwak Shrine",
     "location": "Deep Akkala, northeast of Akkala Ancient Tech Lab (4663, 3263, 0002)",
     "category": "puzzle",
     "oneLine": "Flotational Brilliance: Fuse spheres and fans to metal planks so they float, then ferry a boat onto the exit switch.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "The theme is floating things across water. First, shoot the rope holding a suspended platform so it drops into the pool, then use Ultrahand to stick a floaty sphere onto it so it bobs up — ride it across. In the main room, build a boat: attach a floaty sphere (or two) to a stone plank so it floats, add a Zonai fan to the back for propulsion, and steer it across the water. For the chest, float your boat under the chest hanging by a rope, shoot the rope with an arrow to drop it, and grab it with Ultrahand (it holds a Magic Scepter). To open the exit, peel a floaty sphere off your boat and Ultrahand it onto the trigger so it stays weighed down, opening the gate to the altar. Then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Kamatukis Shrine",
     "location": "Deep Akkala, north of Tempest Gulch (3427, 3345, 0070)",
     "category": "puzzle",
     "oneLine": "A Precise Strike: Aim launched balls and rotating cogs so a ball strikes the target switch to open the way forward.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a pendulum-and-aim puzzle. A ball sits on a launcher and you must knock it across a gap into a target hole. Use Ultrahand to attach a block to the pendulum arm to make a giant hammer, pull it back, and release so it swings and smacks the ball forward into the well — it takes timing and a few tries, so ease off the very-full pull if the ball overshoots. If you miss, hit the reset crystal nearby to spawn a fresh ball and try again. For the optional chest, look to your left for a second, harder version where the target well slides side to side; keep the hammer fully raised and release only as the moving well swings toward the center so the ball drops in — a door opens revealing the chest (a Mighty Zonaite Longsword, which boosts the power of fused Zonai devices). Once the ball drops into the main target, the way opens — walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Sinatanika Shrine",
     "location": "Akkala Highlands, northeast of Ulri Mountain Skyview Tower (3842, 2299, 0048)",
     "category": "combat",
     "oneLine": "Combat Training Sneakstrike: Stay crouched in the patrolling construct's blind spot and slip behind for a one-hit sneakstrike.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a combat-training shrine where only a Sneakstrike — a hit from directly behind an unaware enemy — does any damage; everything else bounces off. Grab one of the provided weapons up front so you don't wear down your own. For the first part, crouch to stay silent and slip along the walls behind the construct, only moving past gaps in cover while its eye-beam is pointed the other way; once you're right behind it and the strike prompt appears, attack for a one-hit Sneakstrike. The second part repeats this against a construct that now patrols a wider area — watch its route first, push the stick gently so you close the gap in time without going full-speed-loud, and stay in its blind spot. Once both are down, head into the inner chamber for the chest (a Sneaky Elixir). Then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Rasitakiwak Shrine",
     "location": "Akkala Highlands, southeast of Tarrey Town near Kaepora Pass (4161, 1324, 0229)",
     "category": "combat",
     "oneLine": "Proving Grounds Vehicles: Stripped of gear, fuse the emitters and cannon to a Zonai vehicle and ride it to crush the constructs.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Proving Grounds shrine, so all your weapons, shields, and Zonai devices are taken away — you fight powerful constructs using only what's provided here. Don't try to brawl; build a war machine. Move forward staying out of the constructs' sight, then use Ascend to reach the elevated platform and board the Zonai plane parked there. Fly it into the central cage, where you'll find a sturdy Zonai vehicle plus a Flame Emitter, Shock Emitter, Hydrant, and Cannon. Use Ultrahand to fuse those weapons onto the spiked front of the vehicle, step on the trigger to open the cage, and drive out, mowing down and burning the constructs (watch you don't beach the vehicle on a wall and stall). When every construct is destroyed your gear is returned and the altar door opens; open the chest in front of the altar for a Magic Rod, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jochi-ihiga Shrine",
     "location": "Akkala Highlands, northeast of Akkala Falls near Lake Akkala (3813, 1218, 0090)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: Buy Hagie's green crystal in Tarrey Town and boat it to the light beam to reveal the shrine, then claim the reward.",
-    "shrineQuest": "Rock for Sale"
+    "shrineQuest": "Rock for Sale",
+    "solution": "This shrine stays hidden until you finish its shrine quest, Rock for Sale, so do that first. Go to Tarrey Town and talk to Hagie, the man standing beside a glowing green crystal near the western edge of town — he offers to sell you the rock for 100 rupees, but his wife Ruli steps in and haggles it down to 50, so you buy it cheap. Pay Hagie the 20-rupee fee to use his railcart, attach the crystal to the railcart with Ultrahand, and ride south to the construction site by Lake Akkala. Carry the crystal to the lakeshore, attach it to a Zonai wing with a fan on the back, and float it across the water; once the quest completes, interact with the crystal and it shines a green beam pointing toward the hidden shrine — follow the beam to raise the shrine. Inside it's a Rauru's Blessing shrine with no puzzle, so the Light of Blessing is essentially free — grab the chest for a Diamond, then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Igashuk Shrine",
     "location": "Akkala Sea, inside Lomei Labyrinth Island in the far northeast (4655, 3712, 0131)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing: Navigate the Lomei Labyrinth Island maze to reach the shrine, then walk to the altar for the free reward.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "There's no puzzle inside this one — the whole challenge is reaching it. The shrine sits in the heart of Lomei Labyrinth Island, the big square maze off the far-northeast coast of Akkala (an easy glide northeast from Ulri Mountain Skyview Tower, or north from the cliffs by Akkala Ancient Tech Lab). Drop in and wind through the corridors toward the center; a researcher has marked the path with acorns and tree nuts to follow, and the simplest finish is to reach the lit ladder that climbs up into the central chamber where the shrine stands. It's a Rauru's Blessing shrine, so once you're inside the Light of Blessing is free. Grab the treasure chest ahead for a Large Zonai Charge, then head up the stairs to the monk's altar and touch it to claim your Light of Blessing."
    }
   ]
  },
@@ -942,196 +1066,224 @@
     "location": "Lomei Sky Labyrinth, Akkala Sea Sky (4655, 3501, 1010)",
     "category": "puzzle",
     "oneLine": "Solve the Lomei Sky Labyrinth maze; ascend and navigate the floating labyrinth to reach the shrine at its heart.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine sits at the heart of the Lomei Sky Labyrinth in the Akkala Sea Sky, so the maze IS the challenge: launch from Ulri Mountain Skyview Tower and glide in, then climb the floating labyrinth, activating the terminals around it; ride the strong updraft that appears up to the top terminal to drop the shrine entrance. Inside it's the 'Courage to Jump' trial, a low-gravity racecourse: glide down to the two parked cars, take the one on your RIGHT, and drive up the right-hand ramp (the left ramp dumps you into the chasm) across the lava pit, past the spikes/lasers and hostile Constructs. Keep to the left of the track. Near the end you'll smash through breakable stone blocks, then stop and bust the wall to reach a chest holding a Mighty Zonaite Shield. At the final gap, grab one of the Zonai Rockets nearby, attach it to your cart facing forward with Ultrahand, and blast across to the altar. Touch it to claim your Light of Blessing."
    },
    {
     "name": "Gikaku Shrine",
     "location": "Sky Mine, Akkala Sea Sky (4506, 2165, 1155)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing 'The Sky Mine Crystal'. Fetch the crystal from Luminous Stone Island and return it to the Sky Mine shrine.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine stays sealed until you finish 'The Sky Mine Crystal' shrine quest, so do that first. Examine the dormant Gikaku Shrine on the Sky Mine island to start the quest, then examine the nearby terminal to power up the launch pads. Ride the launch pads upward island by island to climb the stack. Along the way you'll hit a spherical island with a hole in it: position the moving platform so it faces the sphere and shoot a box through the hole to solve that step, then continue up to the mineral-covered island where the green crystal sits on top. Grab the crystal with Ultrahand and simply drop it straight down onto the shrine island below (if it misses it respawns on its pedestal, so just try again), then climb down, carry it over, and set it on the shrine. Once Gikaku appears it's a Rauru's Blessing with no puzzle inside: open the chest for a Ruby, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Natak Shrine",
     "location": "Sokkala Sky Archipelago, Akkala Sky (3671, 1484, 1158)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing 'The Sokkala Sky Crystal'. Catapult into the sphere, set the spring, and launch the crystal to the shrine.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is hidden behind 'The Sokkala Sky Crystal' shrine quest, so trigger it by examining the dormant Natak Shrine in the Sokkala Sky Archipelago; a green beam then points toward the missing crystal. Use the central launch pad to get airborne and glide into the hole in the side of the big spherical island. Inside, use Ultrahand to rotate the small model orb in the center so its opening faces the direction of the green beam, then position the spring-and-platform launch pad to face that opening. Set the green crystal on the launch pad and strike the spring with a melee hit: it fires both you and the crystal back across to the shrine's island in one shot (it may take a couple of tries to get the orb's angle right). Then carry the crystal over and place it on the shrine to reveal it. Inside Natak there's no puzzle: open the chest for an Enduring Elixir, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Kadaunar Shrine",
     "location": "South Eldin Sky Archipelago, Eldin Sky (1881, 1203, 1251)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing 'Water Makes a Way'. Use a water source to float and route the crystal to the shrine's foundation.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Despite the 'Water Makes a Way' name this is a real puzzle shrine, not a free blessing. In the first room, grab the Hydrant with Ultrahand and carry it to the edge of the lava: its water cools the molten surface into solid Lava Slabs you can stand on. Pick up those hardened slabs and glue them together with Ultrahand into a bridge, holding the Hydrant up to keep making more as you cross. Use the bridge to build a ramp up to the side ledge where a chest holds a Strong Construct Bow. Fuse a rock to a weapon and smash the breakable wall ahead. In the next room the lava is a slow-moving stream, so work fast: keep a Hydrant aimed at it to harden fresh Lava Slabs, chain them with Ultrahand, and lay a bridge (about six slabs long) across to the far side. Cross to the back and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Mayam Shrine",
     "location": "Great Hyrule Forest Sky (0340, 2814, 1821)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Transport the green crystal across the floating islands to the shrine's pedestal to reveal it.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is locked behind 'The North Hyrule Sky Crystal' shrine quest, so examine the dormant Mayam Shrine in the Great Hyrule Forest Sky to start it; a green beam points to the missing crystal on the North Hyrule Sky Archipelago just to the south. Waiting there is a Flux Construct I, a cube-monster boss: hit its glowing weak-spot block (the one with three eyes), and when it scatters into small cubes strike that weak cube with your strongest weapon to bring it down. It drops the green crystal. Use one of the floating platforms parked nearby, attach a couple of Fans and a Rocket with Ultrahand, set the crystal on it, and fly it back to the shrine's island, then grab the crystal and place it on the shrine to reveal it. Inside it's a Rauru's Blessing with no puzzle, so the Light of Blessing is essentially free. Open the chest for a Magic Rod, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Simosiwak Shrine",
     "location": "Bravery Island, Great Hyrule Forest Sky (0163, 1972, 0759)",
     "category": "combat",
     "oneLine": "Proving Grounds: Lights Out. Gear is stripped; grab the provided weapons and flame emitters to defeat three Constructs.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Before this 'Proving Grounds: Lights Out' shrine will appear you have to complete Bravery Island's Dive Ceremony: talk to the Steward Construct at the island's base to begin, climb to the terminal at the top and examine it, then leap off the edge and dive through every green ring on the way down into the pool below. Clear them all and the shrine materializes. Inside, the Proving Grounds strip away all your own gear and the room is dark, so you fight with only what's provided. Grab the Long Stick and Old Wooden Shield on the left and the Light Shield over on the right, then find the Flame Emitter devices on the ground and fuse one to your weapon for fire damage (and light). Hunt down all three Constructs in the dim maze, swapping to a fresh Flame Emitter if your weapon breaks. With them defeated the gate opens; open the chest for a Bright Elixir, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jinodok Shrine",
     "location": "South Hyrule Sky Archipelago (-1256, -1482, 1008)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing 'South Hyrule Sky Crystal'. Guide the crystal across the islands to the shrine to claim the reward.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is hidden behind 'The South Hyrule Sky Crystal' shrine quest, so examine the dormant Jinodok Shrine on the South Hyrule Sky Archipelago to start it; a green beam points to the missing crystal on a separate island. Just to the north is a large apparatus you can grab with Ultrahand: reposition it so the rock path it carries bridges across to the crystal's island, then paraglide over and walk across to reach the crystal (there's also a hanging chest here you can swing up to for an Old Map). Carry the crystal back over, then use Ultrahand on the apparatus again to swing the path around so it bridges back toward the shrine side. Walk the crystal across and set it on the shrine to reveal it. Once it appears it's a Rauru's Blessing with no puzzle inside, so the Light of Blessing is essentially free. Open the chest for a Diamond, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Joku-usin Shrine",
     "location": "Thunderhead Isles, over Sarjon Woods (1077, -3349, 0786)",
     "category": "combat",
     "oneLine": "Proving Grounds: Short Circuit. Use only in-shrine gear; grab the Shock Emitter and use electric attacks to beat the Constructs.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This 'Proving Grounds: Short Circuit' shrine floats in a chamber over the Thunderhead Isles, and that whole storm-shrouded area stays pitch-dark until you've progressed the 'Secret of the Ring Ruins' quest (part of the Find the Fifth Sage chain), which clears the weather, so it's far easier afterward. To get inside, find the rails beneath the chamber, build a big letter 'T' from the nearby wooden platforms, attach a Fan facing backward, set it on the rails, ride it under the shrine, and use Ascend to pop up through the floor. The Proving Grounds strip all your gear. Grab a stick on the left, then cross to the back and fuse the Shock Emitter to it near the altar chamber. The trick is electricity: lure the Constructs onto the central metal-floor platform and swing your Shock-Emitter spear, the charge travels through the metal floor and zaps every Construct standing on it at once; use Ascend to reach any raised archer Constructs. Clear them, open the chest for an Electro Elixir, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Joku-u Shrine",
     "location": "Dragonhead Island, Thunderhead Isles (1378, -3342, 0429)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing inside the eye of Dragonhead Island. Reach it via the Thunderhead Isles for a free Light of Blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a Rauru's Blessing shrine, so there's no puzzle inside, the journey there is the whole challenge. It sits on Dragonhead Island within the Thunderhead Isles, right outside the doorway that leads to Mineru's Mask, and the entire area is wrapped in a blinding lightning storm with near-zero visibility (and a real risk of falling off) until you've progressed the 'Secret of the Ring Ruins' quest, which clears the weather, so it's far easier to reach after that. Make your way through the Thunderhead Isles down to Dragonhead Island (the lower island shaped like a dragon's head) and find the shrine just outside that doorway. Inside, the Light of Blessing is essentially free: open the treasure chest for a Diamond, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Siyamotsus Shrine",
     "location": "South Lomei Castle, Gerudo Sky (-1795, -3296, 1011)",
     "category": "puzzle",
     "oneLine": "Cross the dark castle interior; light torches and time the platforms in the gloom to navigate through to the shrine.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Don't let the 'Unlit Blessing' name fool you, this is a puzzle shrine with a twist: as you climb the entrance stairs the far end seems to zoom away and turn into a vertical wall. At the start, pick a Fire Fruit from the trees by the entrance and grab the provided arrows, and open the central chest for a Mighty Construct Bow. Now look across at the wall for the two UNLIT pillars/torches set among lit ones, one on the lower right and one on the upper left. Take out your bow, fuse the Fire Fruit to an arrow, and shoot each unlit one to light it. Lighting both reveals a moving platform/trampoline beneath the chest behind you, step onto it to be launched up into the air, then glide across to the upper ledge and the altar. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Rakashog Shrine",
     "location": "East Gerudo Sky Archipelago, Gerudo Highlands Sky (-1713, -2120, 1149)",
     "category": "puzzle",
     "oneLine": "A Reflective Device. Use Ultrahand to aim mirrors and bounce light beams onto hexagonal switches to open the doors.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is a light-reflection puzzle (A Reflective Device) that uses Ultrahand and Zonai mirrors. At the entrance, grab the mirror by the gate with Ultrahand and angle it so its reflected light beam hits the orange hexagonal switch above the door, opening it. In the next enclosure, lift the mirror into the rectangular hole in the wall and tilt it until the light reaches the hexagon on the far side. Then aim a mirror at the floor hexagon between the two ramps to start a moving platform, and ride it up. Upstairs, defeat the Constructs; one drops a Mirror Club. Use the mirrors (and the Mirror Club) to bounce light onto the external hexagon, which opens a small side chamber with a chest holding a Large Zonai Charge, then redirect the beam to the last hexagon behind the wall to open the monk's room. Touch the altar at the back to claim your Light of Blessing."
    },
    {
     "name": "Mayasiar Shrine",
     "location": "Starview Island, Gerudo Highlands Sky (-3547, -0320, 1976)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Rotate Starview Island's mirror wheels to light the top switch; the shrine then appears (no interior trial).",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Mayasiar is a Rauru's Blessing shrine, so there is no trial inside, but it stays hidden until you solve the mirror puzzle on Starview Island around it. Reach the spherical island by launching from the Gerudo Highlands Skyview Tower and gliding north. Start by pushing the central mechanism counter-clockwise until its light hits the northern mirror on the same level; that mirror kicks the beam up to a mirror on the ceiling, which bounces it to a mirror on a higher platform. Ride the updrafts that circle the central mechanism up to that platform and rotate its mirror so the light crosses to the next mirror, relaying the beam onward. Finish by turning the mechanisms so the light lands on the orange wall hexagon; once it turns green, the shrine rises. Inside, open the treasure chest for a Star Fragment Staff, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Taunhiy Shrine",
     "location": "Courage Island, Hyrule Ridge Sky (-2402, 0825, 0615)",
     "category": "combat",
     "oneLine": "Combat Training: Archery. Use air vents and your glider to stay airborne, then hit the lone Construct three times with a bow.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is hidden until you finish the Dive Ceremony on Courage Island, so do that first. At the top of the island, examine the sigil/hologram to start it, then dive and glide through every green ring that appears; clear them all and Taunhiy Shrine rises. (Return later and pay the Steward Construct a Zonai Charge to redo the dive within 35 seconds for the Glide Shirt armor.) Inside it's Combat Training: Archery, and only arrows count. Pick up the bow from the shrine floor. In the first phase a lone Construct floats above you; ride the air updraft to get airborne, press and hold ZR to aim in slow motion, and hit it with a few arrows. The second phase works the same way with three Constructs, riding the vent up and shooting each one from the air. Once they're down the way opens; the chest holds a Strong Construct Bow, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ganos Shrine",
     "location": "Tabantha Sky Archipelago (-3370, 0467, 1695)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing 'Tabantha Sky Crystal'. Carry the crystal across the Tabantha islands to the shrine pedestal.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Ganos stays sealed until you complete its shrine quest, The Tabantha Sky Crystal, so start that first by examining the shrine pedestal. Follow the green beam of light down to the island below, where a Flux Construct III guards the green crystal. You can defeat it by hitting its glowing block, but you don't have to; just grab the crystal off it with Ultrahand and shake it free. Then build a flyer from the Zonai fans and batteries on the island (one easy design is fans on each side of a grate, facing down, with a steering stick in the middle), attach the green crystal, and pilot it up to the shrine island. Offer the crystal to the shrine to complete the quest and open it. Inside it's a Rauru's Blessing with no puzzle. Open the chest for a Diamond, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ga-ahisas Shrine",
     "location": "Lightcast Island, Tabantha Frontier Sky (-3596, 0961, 1699)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Drain the water, then redirect mirror light through the cave to open the way to the shrine.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Ga-ahisas is a Rauru's Blessing shrine that stays hidden until you solve the Lightcast Island puzzle above it. First, examine the green terminal at the northern end of the island to drain the water, then clear the boulders blocking the cave mouth (a Bomb Flower works) and head inside. The cave is a mirror-relay puzzle: use Ultrahand to grab the mirror by the entrance and set it so the outside light shines on it, then carry the second mirror to the far platform (you can drop it in the water, climb up, and pull it out) and angle it so the beam relays through the tunnel. Defeat the Construct at the end, grab the light-reflecting shield it drops, and shine light onto the orange hexagon; this opens the doorway and reveals carved steps leading down to the shrine. Inside there is no trial. Open the chest for a Star Fragment, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ijo-o Shrine",
     "location": "West Hebra Sky Archipelago (-3860, 2682, 0702)",
     "category": "puzzle",
     "oneLine": "More Than Defense. Use a shield and Recall to reflect or ride incoming objects and cross the gaps to the exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Ijo-o (More Than Defense) is about using shields creatively, not Recall. In the first room, defeat the Soldier Construct carrying a flame-emitter shield and take it; hold ZL to spray fire and melt the wall of ice blocking the way forward. In the next room, defeat the next Construct and grab its stone-slab shield, then use the flame shield to melt the ice on the right to expose a chest holding 5 Arrows. Hold up the stone-slab shield to block the jet of flames in the corridor and pass through. In the final room, beat the last Construct, take a shield from the rack, and use Fuse to stick a Zonai rocket onto it. Equip the rocket shield, press ZL to blast straight up, then pull your paraglider and glide over to the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Mayaumekis Shrine",
     "location": "Rising Island Chain, Hebra Sky (-2948, 3050, 0896)",
     "category": "puzzle",
     "oneLine": "Downward Force. Bounce off the roofs of the flying ships and use dropped weight to launch yourself up to the terminals.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Mayaumekis (Downward Force) is a vertical platforming puzzle using the bouncy flying ships with springy sails. At the locked gate, shoot the switch on the far side through the bars with an arrow to open it, climb the stairs, and defeat the Soldier Construct II at the top. Now bounce upward: land on a ship's sail to launch high, pull your paraglider at the peak, and glide to the next moving ship, repeating to climb the chamber. There is a hidden chest atop a pillar in a corner; bounce off a sail and glide to it for 10 Arrows. For the final switch, you'll see one in a barred cage near the ceiling; bounce up off a sail and, as you rise past the bars, draw your bow to trigger slow-motion and shoot the switch. With the way open, bounce up through the center of the barred structure on the last ship and glide down to the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Kahatanaum Shrine",
     "location": "Rising Island Chain, Hebra Sky (-3295, 3430, 1347)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Navigate the Rising Island Chain's ascending platforms to reach the shrine for a free blessing.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Kahatanaum is a Rauru's Blessing shrine, so the only real challenge is reaching it; come dressed for the bitter Hebra cold (the Snowquill set from Rito Village helps) for the climb. It sits on the Rising Island Chain northwest of the Wind Temple, the same ascent you make during the Tulin of Rito Village main quest, so glide between the rising islands and use Ascend to pop up through ledges (Tulin's gust ability makes this far easier) until you reach the shrine entrance. Inside there is no puzzle, so the Light of Blessing is essentially free. Open the chest in front of you for a Large Zonai Charge, then walk to the monk's altar at the back and touch it to claim your Light of Blessing."
    },
    {
     "name": "Taninoud Shrine",
     "location": "East Hebra Sky Archipelago (-1801, 3406, 0949)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing 'The East Hebra Sky Crystal'. Build a fan flyer to bring the crystal back to the shrine, then claim it.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Taninoud stays sealed until you finish its shrine quest, The East Hebra Sky Crystal, so start that first by examining the shrine base. Use the moving platform near the shrine to launch toward the larger sky island, then glide underneath a floating platform to a ledge with wooden vines; cut them with a sharp weapon to open the cavern, head in past the Zonai devices, and lift the green Sky Crystal off its pedestal with Ultrahand. Now build a fan flyer: attach the crystal to a floating platform, then place a fan on each side (facing down) and add a battery or two for power so it stays balanced. Ride it back and offer the crystal to the shrine to complete the quest. Inside it's a Rauru's Blessing with no puzzle; open the chest for a Topaz, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Tenbez Shrine",
     "location": "North Lomei Castle, Hebra Sky (-0966, 3540, 1011)",
     "category": "puzzle",
     "oneLine": "Gravity and Velocity. Use ramps and falling momentum to roll balls and carts onto distant switches and targets.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "Tenbez (Gravity and Velocity) is a timing puzzle built around a gravity-changing device, not Ultrahand building. In the first room, a ball sits on a moving platform; hit the grey-and-orange gravity switch in the center so it turns green and the ball flies up to strike the orange target high on the wall, opening the next gate. Before moving on, grab the hidden chest: with the gravity lowered, ride the right-hand catapult/platform up toward the wall and reach the alcove with the chest for a Large Zonai Charge. In the second room, leave the gravity changed and watch the ball float up and over toward the walled enclosure across the way; the instant it is directly above the enclosure, hit the switch to restore normal gravity so the ball drops straight down onto the target inside, opening the final door. Step through and touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Jirutagumac Shrine",
     "location": "Near Wellspring Island, Lanayru Sky (2916, 0534, 0965)",
     "category": "puzzle",
     "oneLine": "A Flying Device. Build a fan-powered flyer with Ultrahand and pilot it across the gaps to the shrine's exit.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is the \"A Flying Device\" puzzle, so you're meant to build a flyer rather than climb. From the entry room, grab a Wing Zonai device with Ultrahand, set it on the incline ahead, and ride it down to the lower area; you can also grab a wheeled cart and attach the Wing to it for the next slope. Before the finale, get the chest the easy way: lay the Wing across the small gap beneath the chest's ledge to make a bridge, stand on it, then use Ascend to pop straight up to the chest, which holds a Large Zonaite. For the exit, carry a Wing to the start of the runway that points at the altar and attach a Fan to its back (held parts glow yellow when they'll stick), with the Fan blasting away from the goal so its thrust pushes the Wing toward the altar. Climb onto the Wing, switch the Fan on, and it rockets down the runway into the air; lean to steer and glide onto the far platform. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Igoshon Shrine",
     "location": "Water Temple path, Lanayru Sky (3481, 0664, 1325)",
     "category": "puzzle",
     "oneLine": "Orbs of Water. Ride water orbs and use Recall and Ultrahand to ferry yourself across the gaps to the goal.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"Orbs of Water\" shrine is about riding floating water orbs across the gaps. At the start, step into an orb rising from its pedestal and let it carry you up, then dash out (press X) and glide to the ledge. Before moving on, grab the chest: a chest keeps dropping in midair nearby, so use Ultrahand to take the nearby water orb and hold it under the falling chest so the chest gets caught inside it, then carry it to solid ground and open it for a Large Zonai Charge. Next, a water orb falls onto the platform's edge, so use Recall on it to reverse its motion and ride it back upward. For the long horizontal gap, just stand in the path of a sideways-traveling orb and let it ferry you across. At the final gap there's a stone block on a metal rail and a loose metal panel: use Ultrahand to slide the block into the path of the water orbs being fired from the wall, then attach the metal panel on top of the block at an angle so it acts as a ramp that launches the incoming orb up toward the altar. Ride that orb across and glide off near the goal. Touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Sihajog Shrine",
     "location": "Valor Island, Lanayru Sky (4546, -0846, 1135)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Complete Valor Island's Dive Ceremony (fall through the green rings) to make the shrine appear.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine stays hidden until you finish Valor Island's Dive Ceremony, so do that first. At the base of Valor Island, find the Steward Construct and tell it you're ready for the Dive Ceremony; it transports you to the island's summit. Jump from the cliff edge and, as you free-fall, a series of green rings appears in the air — pass through every one of them to unlock the shrine (this run is untimed, so take your time and steer carefully). Clear them all and Sihajog Shrine rises into view. (If you later redo the ceremony and pass through all the rings in under 35 seconds, you'll also be awarded the Glide Mask, but that's optional.) Inside it's a Rauru's Blessing shrine, so there's no puzzle. Open the treasure chest for a Diamond, then walk to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Mayanas Shrine",
     "location": "South Lanayru Sky Archipelago, near Valor Island (4613, -0947, 1790)",
     "category": "puzzle",
     "oneLine": "The Ice Guides You. Make ice plates on water with Ice Fruit or Frost Emitters to build sliding ramps onto the targets.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This \"The Ice Guides You\" shrine is about making ice plates float on the water and sliding them into targets. Create ice by throwing an Ice Fruit into the water (or by aiming a Frost Emitter at it), which freezes a flat plate you can grab with Ultrahand. In the first room, grab an ice plate, slide it down the ramp ahead, and time it so it strikes the moving target; expect a few tries. The second room past the altar is trickier and guards the chest: use Ultrahand to join the nearby square metal plates into one long panel, then prop it at a slant near the right wall of the spiky platform so it acts as a guide. Make another ice plate and drop it down the ramp on the right so it hits your metal guide and gets steered left into the target sitting below the spikes. Striking that target opens the way to a chest holding a Mighty Zonaite Shield. With the targets struck, go to the monk's altar and touch it to claim your Light of Blessing."
    },
    {
     "name": "Josiu Shrine",
     "location": "North Necluda Sky Archipelago (1760, -1208, 0924)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing. Ferry the green crystal across the Necluda sky islands to the shrine base to reveal it.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is buried until you finish the shrine quest \"The North Necluda Sky Crystal,\" so do that first. Examining the shrine site starts the quest; you'll see a green crystal stranded on a separate floating island and a rotatable curved-rail apparatus between the islands. Use Ultrahand to rotate the apparatus clockwise until one end connects to the moving island, hop onto the moving island, then use Recall on the apparatus so it swings back and the moving island links up with the island holding the crystal. Step across, pick up the green crystal with Ultrahand, set it on the moving island, glide back, and rotate the apparatus once more to bridge the moving island back to you. Finally carry the crystal to the Josiu Shrine base to make the shrine appear. Inside it's a Rauru's Blessing shrine with no puzzle. Open the treasure chest for a Large Zonai Charge, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Yansamin Shrine",
     "location": "Zonaite Forge Island, Necluda Sky (2353, -1783, 1475)",
     "category": "combat",
     "oneLine": "Proving Grounds: Low Gravity. In reduced gravity with only provided gear, defeat the Constructs to clear the trial.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This is \"Proving Grounds: Low Gravity,\" so all your own gear is taken away and you fight in reduced gravity using only the weapons the shrine provides. Start by taking the weapons from the rack near the entrance, then deal with the first lone Construct; a long polearm lets you poke it from a safe distance. Loot what enemies drop and keep arming yourself as you climb. To move up between the floating platforms you can use Ascend where there's a platform overhead, or fuse a Rocket from the supplies onto a shield and fire it to rocket upward. Work your way through every Construct spread across the upper levels — closing fast on archers, and knocking weapons away from the heavier sword Constructs — and use a shield to break line of sight when more than one comes at you so you can fight them a few at a time. With every Construct down, head into the statue room where a chest holds a Large Zonaite, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Ukoojisi Shrine",
     "location": "West Necluda Sky Archipelago (1468, -2168, 0585)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing 'West Necluda Sky Crystal'. Move the crystal across the islands to the shrine's foundation.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is hidden until you finish the shrine quest \"The West Necluda Sky Crystal,\" so do that first. Examining the shrine site starts it and points you toward a light beam on a nearby island. Drop to the lower island just north of the shrine where there are floating platforms and two Rockets; attach the two Rockets to a platform angled about 45 degrees toward the beam and hit them to launch across to the crystal's island. Land on the ledge curtained by wooden vines, slash through the vines with a sharp weapon, head inside, and use Ultrahand to lift the green crystal off its pedestal. Build a small flyer from the Wing, Steering Stick, Fans, and Batteries stocked in the cave (Autobuild speeds this up if you have it), stick the crystal onto it, and fly the crystal back to the Ukoojisi shrine base to make the shrine appear. Inside there's no puzzle, so open the treasure chest for a Mighty Zonaite Shield, then touch the monk's altar to claim your Light of Blessing."
    },
    {
     "name": "Kumamayn Shrine",
     "location": "South Necluda Sky Archipelago (2856, -2857, 1212)",
     "category": "blessing",
     "oneLine": "Rauru's Blessing 'Necluda Sky Crystal'. Escort the green crystal across the floating islands to the shrine pedestal.",
-    "shrineQuest": null
+    "shrineQuest": null,
+    "solution": "This shrine is hidden until you finish the shrine quest \"The Necluda Sky Crystal,\" so do that first. Examining the shrine site starts it; the green crystal is missing and a light beam points to a nearby island. Use the island's central moving/launch platform to fling yourself toward the beam, where a Flux Construct III guards the crystal. Beat it the usual way: damage the glowing block on its body, grabbing it with Ultrahand when you can (and use Recall on blocks it hurls so you can ride them up to the core); when it crumbles the green crystal drops free. To send the crystal home, head to the southern edge of the island and find the launch pad already assembled there from two Zonai Springs, a Zonai Stake, and platforms (angled around 30 degrees toward the shrine island). Set the crystal on the pad with Ultrahand, climb aboard, and hit the spring to launch yourself and the crystal back across. Offer the crystal at the shrine base to reveal Kumamayn Shrine. Inside it's a Rauru's Blessing shrine with no puzzle, so open the chest for a Zonaite Bow, then touch the monk's altar to claim your Light of Blessing."
    }
   ]
  }

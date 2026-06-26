@@ -5,6 +5,30 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-26 — v17.12: TotK shrine solutions — all 152 (last big gap closed) + a dispatch lesson relearned
+
+- **User: "okay let's finish the totk shrines."** The one major functional gap left in the whole app: TotK's 152
+  shrines had no spoiler-gated `solution` (the Stuck-reveal + answer-first-search centerpiece every other game has).
+- **I botched the dispatch first, and the user caught it.** I ran the staged generator as-is = **one author + one
+  verify agent PER shrine (304 agents)**, and launched **two** workflows at the same instant. Result: instant
+  server-side 529 ("temporarily limiting requests"), **0/152**, ~1.33M tokens burned for nothing in ~36s. The
+  near-instant total failure was the tell: 16 web-fetching agents firing together = thundering herd.
+- **The fix is in AGENT_WORKFLOW.md and I'd skipped it: BATCH ~12 like-items per agent, never one-per-item.**
+  Rewrote `gen-totk-shrine-solutions-workflow.mjs` to chunk shrines into **region-coherent batches of ≤12** → one
+  author agent + one verify agent per batch = **19+19 = 38 agents** (vs 304), in **ONE solo workflow**. Each batch
+  author web-researches all ~12 shrines and returns an array; the verify batch independently re-checks each against
+  a second source (honesty law preserved — dropped redundant agents, not rigor). Region-coherence also helps
+  research (same region guides). Added an `args` = regionKeys filter for cheap per-region resume.
+- **Result:** 152/152 verified, **0 failures**, 768 web tool-uses (real research), ~2.45M tokens, ~18.6 min. Wrote
+  `knowledge/totk/shrine-solutions.json` (sources/corrections stripped) → `assemble-totk` splices `solution` by
+  region+name → inline → build. Verified in-browser on a fresh port: Ukouh/Gutanbac reveals render, hidden shrines
+  lead with "how to make it appear" (Jochisiu → "Keys Born of Water"), global search expands the solution inline,
+  **0 console errors, 0 meta leaks** (grep of index.html: 0 "corrections"/"adversarial").
+- **Lesson banked (two-part, both required for a heavy web sweep):** (1) **batch ~12/agent** — the #1 token lever;
+  (2) **run ONE solo workflow** — for a heavy web-fetching sweep even 2-up launched together trips 529. ≤2 is the
+  ceiling, but prefer 1 here. Logged the closing efficiency line to `.agent-ledger/`. **TotK is now FULLY at
+  parity**; only the lower-priority TotK Items-tab compendium remains anywhere in the app.
+
 ## 2026-06-19 — v12.14: materials + creatures compendium (rounded out to 410 entries)
 
 - **User: "do that! keep building"** — the materials/creatures extension I'd offered. Built it.
