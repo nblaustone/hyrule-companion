@@ -101,6 +101,1258 @@
      ]
     }
    ]
+  },
+  {
+   "id": "oos_gnarled",
+   "name": "Gnarled Root Dungeon",
+   "sub": "Essence: Fertile Soil",
+   "champion": "Fertile Soil",
+   "tagline": "The first dungeon, and a satchel of magic seeds.",
+   "sections": [
+    {
+     "id": "oos_gnarled_road",
+     "name": "The Road to the Tree",
+     "sub": "Wake the Maku Tree and raise the dungeon",
+     "steps": [
+      {
+       "id": "oos_gnarled_sword",
+       "k": "tip",
+       "t": "Before the Maku Tree will see you, you need the Wooden Sword. Grab it from the Hero's Cave on the Western Coast (south-west of Horon Village) — the gate guarding the tree only opens once you can show a blade.",
+       "stuck": "If the gate north of Horon stays shut, you don't have a sword yet. Head to the Western Coast, enter the cave there, and claim the Wooden Sword first."
+      },
+      {
+       "id": "oos_gnarled_maku",
+       "k": "step",
+       "t": "Visit the Maku Tree north of Horon Village. It wakes, asks you to rescue Din — to do that you must gather the 8 Essences of Nature — and hands you the Gnarled Key that raises the first dungeon.",
+       "stuck": "The Maku Tree is up the screen directly north of Horon Village. If the gate is shut, you haven't met it yet — show it the Wooden Sword before heading out."
+      },
+      {
+       "id": "oos_gnarled_north",
+       "k": "step",
+       "t": "Head into North Horon, toward Eyeglass Lake. Make your way to the great gnarled root standing in the middle of the lake — that's where the dungeon will rise.",
+       "stuck": "From Horon Village go north and work toward Eyeglass Lake in North Horon. Look for the lone twisted root out in the water — that's your target."
+      },
+      {
+       "id": "oos_gnarled_winter_ramp",
+       "k": "tip",
+       "t": "If a gap or water blocks the path, find the nearest tree stump and swing the Rod of Seasons. North Horon's stump lets you change the season — Winter piles snow into climbable ramps and freezes water; the same screen becomes a different puzzle each season."
+      },
+      {
+       "id": "oos_gnarled_raise",
+       "k": "step",
+       "t": "Stand on the keyhole on the root and press to use the Gnarled Key. The gnarled tree erupts and its hollow base opens as the dungeon entrance. Step inside.",
+       "stuck": "You must be standing right on the keyhole tile on the root. If nothing happens, line up exactly on the marked spot and try the key again."
+      }
+     ]
+    },
+    {
+     "id": "oos_gnarled_inside",
+     "name": "Inside the Gnarled Root",
+     "sub": "Mini-boss, the Seed Satchel, and torches",
+     "steps": [
+      {
+       "id": "oos_gnarled_blocks",
+       "k": "step",
+       "t": "From the entrance, go north into the block room. Push the upper-right block to open the doors and clear your way deeper into the dungeon.",
+       "stuck": "Four blocks fill the room — only the top-right one matters. Push that one and the sealed doors open."
+      },
+      {
+       "id": "oos_gnarled_stalfos",
+       "k": "step",
+       "t": "In the western Stalfos room, defeat every skeleton on screen. Clearing them all yields the dungeon Map, so you can see the rooms ahead.",
+       "items": [
+        {
+         "name": "Dungeon Map",
+         "cat": "key",
+         "note": "Drops once every Stalfos in the room is defeated."
+        }
+       ],
+       "stuck": "The reward won't appear while even one Stalfos stands. Knock them all down, then collect what drops."
+      },
+      {
+       "id": "oos_gnarled_goriya",
+       "k": "step",
+       "t": "The twin mini-bosses, the Goriya Bros. (Brother Goriyas), pace the room tossing a boomerang back and forth. Dodge the boomerang and slash each brother with your sword — drop both to open the way to the Seed Satchel.",
+       "stuck": "Stay clear of the flying boomerang, then dart in and slash a brother while it's away from him. Both must fall before the door opens."
+      },
+      {
+       "id": "oos_gnarled_satchel",
+       "k": "loot",
+       "t": "Past the mini-boss, open the chest holding the dungeon's prize: the Seed Satchel, already stuffed with 20 Ember Seeds. Ember Seeds set things alight — they're your key to the rest of this dungeon.",
+       "items": [
+        {
+         "name": "Seed Satchel",
+         "cat": "item",
+         "note": "Holds magic seeds; comes filled with 20 Ember Seeds."
+        }
+       ],
+       "stuck": "The Seed Satchel is found inside the dungeon, just beyond the Goriya Bros. — not before the dungeon. You need it to light torches and reach the boss."
+      },
+      {
+       "id": "oos_gnarled_torches",
+       "k": "step",
+       "t": "Several doors stay sealed until the unlit torches beside them are lit. Equip Ember Seeds and drop one onto each cold torch to set it ablaze and open the way — including the path to the Boss Key.",
+       "stuck": "Equip Ember Seeds to a button, face an unlit torch, and drop a seed onto it. Light every torch in a room — a half-lit room keeps its door shut."
+      },
+      {
+       "id": "oos_gnarled_bossdoor",
+       "k": "tip",
+       "t": "Top off your hearts before the final door — break pots and cut grass for drops. Aquamentus waits just beyond the boss-key door."
+      }
+     ]
+    },
+    {
+     "id": "oos_gnarled_boss",
+     "name": "Aquamentus — The Horned Dragon",
+     "sub": "First Essence of Nature",
+     "reward": "Essence: Fertile Soil",
+     "steps": [
+      {
+       "id": "oos_gnarled_fight",
+       "k": "step",
+       "t": "Aquamentus is a green, horned dragon that lumbers forward and spits a fan of energy balls (and sometimes charges). Slip into a gap between its shots, get close, and strike the single horn on its head with your sword.",
+       "stuck": "The horn is the only weak point — body hits do nothing. Its horn lights up just before it fires, so watch for the tell, stand in a gap between the energy balls, then jab the horn. A few solid hits and it falls."
+      },
+      {
+       "id": "oos_gnarled_heart",
+       "k": "loot",
+       "t": "When Aquamentus is destroyed it leaves a Heart Container behind. Grab it to add a full heart to your life bar.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Permanently adds one heart to your life bar."
+        }
+       ]
+      },
+      {
+       "id": "oos_gnarled_essence",
+       "k": "reward",
+       "t": "Step up to the altar beyond the boss room and take the first Essence of Nature: Fertile Soil. Return to the Maku Tree to feed it and push your quest forward.",
+       "items": [
+        {
+         "name": "Fertile Soil",
+         "cat": "key",
+         "note": "The 1st Essence of Nature — feeds the Maku Tree's seed."
+        }
+       ],
+       "stuck": "After the boss, walk up to the glowing altar and press to claim Fertile Soil. Then head back to the Maku Tree to advance the story."
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "oos_snake",
+   "name": "Snake's Remains",
+   "sub": "Essence: Gift of Time",
+   "champion": "Gift of Time",
+   "tagline": "Lift what blocked you, in the second dungeon.",
+   "sections": [
+    {
+     "id": "oos_snake_woods",
+     "name": "Crossing the Woods of Winter",
+     "sub": "Reach the dungeon mouth",
+     "steps": [
+      {
+       "id": "oos_snake_head_east",
+       "k": "step",
+       "t": "From the Woods of Winter, head east into the leafy maze. Snake's Remains sits in the middle of these woods, so plan to cross most of the region to reach it.",
+       "stuck": "The Woods of Winter has several tree stumps. Whenever a screen looks impassable, walk to the nearest stump and swing the Rod of Seasons to try a different season."
+      },
+      {
+       "id": "oos_snake_winter_path",
+       "k": "tip",
+       "t": "These woods are easiest to cross in Winter: leaves fall away to open paths and ponds freeze into walkable ice. Set Winter at a stump if foliage or water is boxing you in."
+      },
+      {
+       "id": "oos_snake_summer_vines",
+       "k": "step",
+       "t": "To climb a bluff, set Summer at a stump. In Summer the vines on the cliffside grow into a ladder you can climb up.",
+       "stuck": "Stand on a tree stump and swing the Rod of Seasons until it reads Summer. Vine ladders only sprout in Summer; in any other season the cliff has no climbable vines."
+      },
+      {
+       "id": "oos_snake_freeze_water",
+       "k": "step",
+       "t": "If deep water blocks the path, set Winter at the stump to freeze it solid, then walk across the ice to the other side.",
+       "stuck": "Deep water can't be swum here yet. Winter freezes it into a floor you can simply walk on — change to Winter at the closest stump."
+      },
+      {
+       "id": "oos_snake_shovel",
+       "k": "step",
+       "t": "In the northeast corner of the woods, find Holly's House. The door is barred, so in Winter climb the snowbank beside it and drop down the chimney. Holly mistakes you for Santa and gives you the Shovel to clear her walkway.",
+       "stuck": "Set Winter, climb the snowy mound next to the house, and step onto the chimney to fall in. You keep the Shovel afterward — you'll need it to dig out the dungeon entrance.",
+       "items": [
+        {
+         "name": "Shovel",
+         "cat": "item",
+         "note": "Dig up snow, soft dirt, and buried items."
+        }
+       ]
+      },
+      {
+       "id": "oos_snake_ember_tree",
+       "k": "optional",
+       "t": "Ember Seeds (from your Seed Satchel) can burn a blocking tree or light an unlit torch along the way. Keep some loaded as you explore.",
+       "stuck": "Equip Ember Seeds from the Seed Satchel and use them on a scrub-tree or torch in your path. (You won't get the Slingshot to fire seeds at range until a later dungeon — here they're used up close.)"
+      },
+      {
+       "id": "oos_snake_enter",
+       "k": "step",
+       "t": "Snow blocks the snake-skull entrance in the heart of the woods. Set Winter, then use the Shovel to dig out the snow and step inside to enter Snake's Remains, the second dungeon.",
+       "stuck": "The doorway is shaped like a coiled snake's skull. If a snowdrift covers it, change to Winter and dig with the Shovel; if you still can't reach the ledge, you need the Summer vines or the frozen water above."
+      }
+     ]
+    },
+    {
+     "id": "oos_snake_dungeon",
+     "name": "Inside Snake's Remains",
+     "sub": "Find the Power Bracelet",
+     "steps": [
+      {
+       "id": "oos_snake_light_torches",
+       "k": "tip",
+       "t": "Inside, several rooms stay dark or sealed until you light torches with Ember Seeds. Keep some loaded — they open doors and reveal stairs throughout the dungeon."
+      },
+      {
+       "id": "oos_snake_keys",
+       "k": "step",
+       "t": "Work through the rooms collecting Small Keys to unlock the locked doors. Clear each room's enemies and push blocks to open the way deeper in.",
+       "stuck": "Snake's Remains hides several Small Keys — knock Hardhat Beetles into holes, clear the snake (Rope) rooms, and sweep the side rooms before backtracking."
+      },
+      {
+       "id": "oos_snake_bracelet",
+       "k": "loot",
+       "t": "Past the gap, stun the Pig Warriors and clear them to make a chest appear — open it for the Power Bracelet, the dungeon's prize. Now you can grab and lift heavy blocks, pots, and bushes out of your way.",
+       "stuck": "Use your Boomerang to stun the Pig Warriors across the gap, then bomb them or knock them into the hole. When they're gone the chest appears. The Power Bracelet is what you'll need against the boss, so don't leave without it.",
+       "items": [
+        {
+         "name": "Power Bracelet",
+         "cat": "item",
+         "note": "Lift heavy blocks, pots, and bushes — and the boss."
+        }
+       ]
+      },
+      {
+       "id": "oos_snake_facade",
+       "k": "step",
+       "t": "Fight the mini-boss Facade, the face in the floor. Drop bombs onto the tiles it surfaces under — your sword can't touch it. Beating it earns the Boss Key.",
+       "stuck": "Don't swing the sword at the face; it does nothing. Set a bomb on the floor and let Facade rise beneath it as it shuffles tiles. A few bomb hits and it's done.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the door to Dodongo."
+        }
+       ]
+      },
+      {
+       "id": "oos_snake_boss_door",
+       "k": "step",
+       "t": "Use the Boss Key on the locked boss door and step inside to face the dungeon's guardian.",
+       "stuck": "Stock up first: refill Bombs from a pot or chest, and top off hearts. The fight needs bombs and the Power Bracelet, not the sword."
+      }
+     ]
+    },
+    {
+     "id": "oos_snake_boss",
+     "name": "Boss: Dodongo",
+     "sub": "Bomb it, lift it, slam it",
+     "reward": "Gift of Time",
+     "steps": [
+      {
+       "id": "oos_snake_dodongo_bomb",
+       "k": "step",
+       "t": "Dodongo, the giant armored lizard, can't be cut by your sword. Stay in front of its face as it lumbers around, and the instant it opens its mouth, throw a Bomb straight in. The bomb explodes inside and bloats it stiff.",
+       "stuck": "Time the throw to its mouth opening (when it's about to breathe fire). Equip Bombs and toss one in as the jaw gapes — only a bomb inside the mouth works."
+      },
+      {
+       "id": "oos_snake_dodongo_slam",
+       "k": "step",
+       "t": "While Dodongo is inflated and frozen, walk up, lift it with the Power Bracelet, and hurl it onto the spikes in the middle of the room. Repeat the bomb-then-throw about four times to finish it.",
+       "stuck": "Grab it like any liftable object (the Power Bracelet does the work) and aim the throw at the spiked floor at the room's center. The spikes deal the real damage — line up the throw so it lands on them."
+      },
+      {
+       "id": "oos_snake_heart",
+       "k": "loot",
+       "t": "With Dodongo destroyed, grab the Heart Container it leaves behind to permanently raise your maximum hearts."
+      },
+      {
+       "id": "oos_snake_essence",
+       "k": "reward",
+       "t": "Step into the light to claim the Gift of Time — the second Essence of Nature. Carry it back to the Maku Tree to keep waking the Maku Seed toward Onox.",
+       "stuck": "The essence appears automatically after the boss. Stand in the glow to collect it; you don't need to do anything else in this room.",
+       "items": [
+        {
+         "name": "Gift of Time",
+         "cat": "key",
+         "note": "Second Essence of Nature."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "oos_moth",
+   "name": "Poison Moth's Lair",
+   "sub": "Essence: Bright Sun",
+   "champion": "Bright Sun",
+   "kind": "region",
+   "tagline": "A feather to leap with, in Spool Swamp.",
+   "sections": [
+    {
+     "id": "oos_moth_swamp",
+     "name": "Into Spool Swamp",
+     "sub": "Drain the pool, power up Summer, find the door",
+     "steps": [
+      {
+       "id": "oos_moth_arrive",
+       "k": "step",
+       "t": "Head from Horon Village out across Holodrum Plain into Spool Swamp, the marshy region in the southwest. The third dungeon hides in the swamp's northwest corner, but it's sealed until you do some groundwork here first."
+      },
+      {
+       "id": "oos_moth_floodkey",
+       "k": "step",
+       "t": "Go to the Floodgate Keeper's House in the northeast corner of the swamp. The keeper tells you he's lost his key. Walk to the lower-right corner of the room and hit the small lever with your sword — the water inside drains, the small pond outside dries up, and the Floodgate Key appears. Grab it.",
+       "stuck": "If the room is flooded and you see nothing, you haven't hit the lever yet. It's a tiny switch in the lower-right of the floor — slash it with your sword to lower the water and reveal the key.",
+       "items": [
+        {
+         "name": "Floodgate Key",
+         "cat": "key",
+         "note": "Unlocks the floodgate keyhole to drain the swamp's big pool."
+        }
+       ]
+      },
+      {
+       "id": "oos_moth_floodgate",
+       "k": "step",
+       "t": "Leave the house — the dried-up pond to the right now has a staircase down. Follow the caves to the keyhole rock beside the large water pool and walk into it to use the Floodgate Key. The gate lowers and the big pool drains away into the swamp, opening paths that were underwater.",
+       "stuck": "The keyhole is on a rock you reach through the cave under the drained pond by the keeper's house. Walk into the rock and the key is used automatically — no need to select it. Once the water lowers, new ground opens up to cross."
+      },
+      {
+       "id": "oos_moth_summer",
+       "k": "step",
+       "t": "Find the Subrosia portal in the swamp and drop through it. In Subrosia, work your way to the Temple of Seasons (you'll meet Rosa along the way) and have your Rod of Seasons imbued with the power of Summer. From here on you can set Summer at any tree stump.",
+       "stuck": "Look for a glowing portal square in the swamp (the drained paths help you reach it). Drop into Subrosia and follow the path to the Temple of Seasons — you'll come back able to turn stumps to Summer."
+      },
+      {
+       "id": "oos_moth_pegasus",
+       "k": "tip",
+       "t": "Spool Swamp is full of gaps and slow, sticky marsh. Pegasus Seeds give Link a brief speed dash when you use them — handy for darting across the swamp while you hunt for the stump and the dungeon door."
+      },
+      {
+       "id": "oos_moth_vines",
+       "k": "step",
+       "t": "Go to the tree stump one screen SOUTH of the dungeon entrance and swing the Rod to set the season to Summer. Then head up one screen — vines have grown up the cliff wall by the entrance. Climb them and step into the door of Poison Moth's Lair.",
+       "stuck": "Only Summer grows the vines you need here. Stand on the stump one screen below the entrance, set Summer, then walk one screen north to the cliff — the green vine ladder is now there, with the dungeon door at the top."
+      }
+     ]
+    },
+    {
+     "id": "oos_moth_dungeon",
+     "name": "The Lair",
+     "sub": "Feather your jump, fight through the moths",
+     "steps": [
+      {
+       "id": "oos_moth_explore",
+       "k": "step",
+       "t": "Work through the early rooms, fighting moth swarms and beetles and grabbing the Small Keys from locked-room battles. Open the Dungeon Map and Compass when you find them so you can see where the unexplored rooms are."
+      },
+      {
+       "id": "oos_moth_feather",
+       "k": "loot",
+       "t": "In a room with shifting floor tiles and a sweeping blade trap, defeat the Arm-Mimics (they copy your movements). When the last one falls, a chest appears — open it for Roc's Feather, which lets Link jump.",
+       "stuck": "The chest won't show until every Arm-Mimic is dead. They mirror your movement, so swing into the spot a mimic moves toward, or back one into a wall and strike. Mind the spinning blade while you fight.",
+       "items": [
+        {
+         "name": "Roc's Feather",
+         "cat": "item",
+         "note": "Press the button to jump — clear gaps, hop over pits and traps, and dodge attacks."
+        }
+       ]
+      },
+      {
+       "id": "oos_moth_useleap",
+       "k": "tip",
+       "t": "With Roc's Feather equipped, you can now jump across the pits and missing-floor gaps that blocked you earlier. Backtrack to any spot you couldn't reach and feather over it to open the rest of the dungeon."
+      },
+      {
+       "id": "oos_moth_omuai",
+       "k": "step",
+       "t": "Face the mini-boss Omuai, a trio of squid-like creatures hiding in a shallow watery room — ripples show where one is about to surface. When an Omuai rises, use the Power Bracelet to lift it out of the water and throw it down, then slash it with your sword while it flops around. Clear all three to earn a Small Key and open the way deeper in.",
+       "stuck": "Your sword alone won't beat them — they're only vulnerable out of the water. Wait for the ripples, and the moment an Omuai surfaces, press to grab it with the Power Bracelet and throw it, then hit it. Feather-hop clear when they lunge.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Opens the next locked door deeper in the lair."
+        }
+       ]
+      },
+      {
+       "id": "oos_moth_bosskey",
+       "k": "step",
+       "t": "Reach the Boss Key chest and claim it, then make your way to the locked boss door. Top up on hearts (smash pots, or pop back to a fairy) before you open it — Mothula hits hard.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the locked door to Mothula's chamber."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oos_moth_boss",
+     "name": "Mothula & the Essence",
+     "sub": "Beat the moth, wake the Bright Sun",
+     "reward": "Essence of Nature: Bright Sun",
+     "steps": [
+      {
+       "id": "oos_moth_fight",
+       "k": "step",
+       "t": "Fight Mothula, the giant poison moth. It flies fast circles around the room hurling fireballs, then lands on one of the two central platforms and spawns small moths. Stand on a center platform, dodge the fireballs, and slash Mothula hard whenever it settles in the middle before it lifts off again.",
+       "stuck": "Don't chase it around the edges — wait on a center platform. When Mothula lands in the middle, hack at it as fast as you can before it takes off. Kill the little moths quickly so they can't gang up on you, and feather-jump over fireballs you can't sidestep. Be careful NOT to fall into a pit — you'll drop to the floor below and the fight restarts with Mothula at full health."
+      },
+      {
+       "id": "oos_moth_warn",
+       "k": "warn",
+       "t": "The small moths and fireballs do most of the damage in this fight. If your hearts get low, prioritize clearing the spawned moths and dodging over getting one more hit on Mothula — a Spin Attack as it flies by is tempting but risky, and a misstep into a pit resets its health."
+      },
+      {
+       "id": "oos_moth_essence",
+       "k": "reward",
+       "t": "With Mothula defeated, climb to the altar in the room beyond and take the third Essence of Nature — the Bright Sun. Return to the Maku Tree when you're ready to continue the gathering.",
+       "items": [
+        {
+         "name": "Bright Sun",
+         "cat": "key",
+         "note": "The third Essence of Nature. Three down toward waking the Maku Seed against Onox."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oos_dragon",
+   "name": "Dancing Dragon Dungeon",
+   "sub": "Essence: Soothing Rain",
+   "champion": "Soothing Rain",
+   "tagline": "A slingshot to fire your seeds across the room.",
+   "sections": [
+    {
+     "id": "oos_dragon_reach",
+     "name": "Climbing to Mt. Cucco",
+     "sub": "Cross Holodrum to the dungeon door",
+     "steps": [
+      {
+       "id": "oos_dragon_sunken",
+       "k": "step",
+       "t": "From the Sunken City, use your Zora's Flippers to dive into a diving hole among the reefs. Swim through the underwater passage, dodging the Cheep-Cheeps, and surface on the other side at the base of Mt. Cucco.",
+       "stuck": "You need the Flippers from the Master Diver first. Find the diving hole in the water, press B to dive, then swim down/left/up and resurface through the hole in the 'ceiling' to reach the mountain base."
+      },
+      {
+       "id": "oos_dragon_mtcucco",
+       "k": "step",
+       "t": "Climb Mt. Cucco. The mountain is split by season — you'll need the Spirit of Spring's power on your Rod of Seasons to clear the way (get it at the Tower of Spring first). Use season-changing stumps as screens block you.",
+       "stuck": "Stand on a tree stump and switch to Spring to sprout vines and bloom flowers that open the path up the mountain. If you don't have Spring yet, finish the Tower of Spring."
+      },
+      {
+       "id": "oos_dragon_moosh",
+       "k": "step",
+       "t": "Find Moosh the blue winged bear on Mt. Cucco and let him join you. Ride him to float across the gaps leading to the dungeon entrance.",
+       "stuck": "Hold the jump/A button while riding Moosh to flap and hover over pits. The dungeon door sits past a gap only Moosh can cross."
+      },
+      {
+       "id": "oos_dragon_door",
+       "k": "step",
+       "t": "Open the Dancing Dragon Dungeon entrance and step inside. This is the fourth dungeon — its Essence is the Soothing Rain.",
+       "stuck": "If the entrance area is walled off, change seasons at the stump out front — Spring usually clears the last screen."
+      }
+     ]
+    },
+    {
+     "id": "oos_dragon_inside",
+     "name": "Inside the Dungeon",
+     "sub": "Earn the Slingshot",
+     "reward": "Slingshot",
+     "steps": [
+      {
+       "id": "oos_dragon_map",
+       "k": "loot",
+       "t": "Work through the early rooms, grabbing the Dungeon Map and Compass and unlocking doors with the small keys you find in chests and under defeated enemies.",
+       "items": [
+        {
+         "name": "Dungeon Map",
+         "cat": "item",
+         "note": "Shows the dungeon's room layout."
+        },
+        {
+         "name": "Compass",
+         "cat": "item",
+         "note": "Pings chests and the boss-key door."
+        }
+       ]
+      },
+      {
+       "id": "oos_dragon_agunima",
+       "k": "step",
+       "t": "Beat the mini-boss Agunima. He splits into three copies. Light the two torches in the room with Ember Seeds — once lit, the REAL Agunima is the only one casting a shadow. Slash that one before he throws a fireball.",
+       "stuck": "Throw Ember Seeds onto both torches (grab more from the bushes if you run out). With the room lit, look for the copy with a shadow under it — that's the real Agunima. You can usually land two hits before the torches gutter out."
+      },
+      {
+       "id": "oos_dragon_slingshot",
+       "k": "loot",
+       "t": "Past Agunima, open the chest to claim the Slingshot — the dungeon's prize item. It fires your seeds across the room.",
+       "stuck": "The Slingshot room is just beyond Agunima's. If you can't reach a door, sweep earlier rooms for a small key under a pot, block, or beaten enemy.",
+       "items": [
+        {
+         "name": "Slingshot",
+         "cat": "item",
+         "note": "Fires your magic seeds across the room — light far torches and flip distant switches."
+        }
+       ]
+      },
+      {
+       "id": "oos_dragon_cart",
+       "k": "step",
+       "t": "With the Slingshot, head back and ride the mine cart. Equip Ember Seeds and fire at the unlit torches as you ride to make a chest appear, then continue toward the deeper rooms.",
+       "stuck": "Equip the Slingshot with Ember Seeds before the cart moves, then snipe each torch you pass. Lighting them all spawns the chest on the lower ledge."
+      },
+      {
+       "id": "oos_dragon_practice",
+       "k": "tip",
+       "t": "The Slingshot takes any seed type as ammo. Ember Seeds light torches from afar, Mystery Seeds and others trigger switches or stun — keep it equipped for the puzzles ahead."
+      },
+      {
+       "id": "oos_dragon_bosskey",
+       "k": "loot",
+       "t": "Find the Boss Key, then use the Slingshot and your seasons to clear the path to the locked boss door at the dungeon's far end.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the door to Gohma."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oos_dragon_boss",
+     "name": "Boss: Gohma",
+     "sub": "Break the claw, then snipe the eye",
+     "reward": "Soothing Rain",
+     "steps": [
+      {
+       "id": "oos_dragon_gohma_claw",
+       "k": "step",
+       "t": "Gohma is a giant one-eyed crab whose big claw shields its eye. When it raises the claw it's about to charge at an angle — side-step the rush, then hack the claw with your sword. About ten hits shatter it.",
+       "stuck": "Stay to the side. When Gohma raises its claw, slip left or right to dodge the charge, then close in and keep slashing the claw until it breaks off."
+      },
+      {
+       "id": "oos_dragon_gohma_eye",
+       "k": "step",
+       "t": "With the claw gone, equip the Slingshot and fire seeds (Ember, Scent, or Mystery) into Gohma's eye whenever it opens. About five clean hits finish it.",
+       "stuck": "The eye is only vulnerable for a moment as Gohma moves around the room. Watch for it to open, then snap a seed into it. Five good hits is enough."
+      },
+      {
+       "id": "oos_dragon_larvae",
+       "k": "warn",
+       "t": "Gohma spits out larvae that crawl or hop at you — they latch on and slow you down. Mash buttons to shake one off, or kill them with the sword (they often drop hearts and seeds), then keep firing at the eye."
+      },
+      {
+       "id": "oos_dragon_heart",
+       "k": "loot",
+       "t": "Defeating Gohma drops a Heart Container — grab it to extend your life bar.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Adds one full heart to your maximum health."
+        }
+       ]
+      },
+      {
+       "id": "oos_dragon_essence",
+       "k": "reward",
+       "t": "Enter the chamber beyond the boss and take the fourth Essence of Nature — the Soothing Rain. Return it to the Maku Tree.",
+       "items": [
+        {
+         "name": "Soothing Rain",
+         "cat": "key",
+         "note": "The 4th Essence of Nature — half of the eight needed to wake the Maku Seed."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "oos_unicorn",
+   "name": "Unicorn's Cave",
+   "sub": "Essence: Nurturing Warmth",
+   "champion": "Nurturing Warmth",
+   "tagline": "Magnetic gloves pull you across the abyss.",
+   "sections": [
+    {
+     "id": "oos_unicorn_approach",
+     "name": "Reaching the Cave",
+     "sub": "Eyeglass Lake · the right season",
+     "steps": [
+      {
+       "id": "oos_unicorn_to_lake",
+       "k": "step",
+       "t": "Make your way to Eyeglass Lake, the big lake in north-central Holodrum. The fifth dungeon sits on a hill just north/northeast of it.",
+       "stuck": "From Horon Village, head north and east. If a screen is blocked by water or a cliff, find the nearest tree stump and try a different season — that is almost always the answer in Holodrum."
+      },
+      {
+       "id": "oos_unicorn_stump",
+       "k": "step",
+       "t": "Find the tree stump near Eyeglass Lake. Stand on it and swing the Rod of Seasons to change the season.",
+       "stuck": "No stump nearby? You can only change seasons while standing on a stump. Walk the lake's edge until you find one, then swing the rod to cycle to the season you need."
+      },
+      {
+       "id": "oos_unicorn_autumn",
+       "k": "step",
+       "t": "Set the season to AUTUMN, then head up to the hill where the cave entrance sits. Autumn is what makes the entrance reachable.",
+       "stuck": "Set Autumn at the stump. The dungeon door is on a hill just north of the lake — autumn is needed because the Rock Mushrooms that block the door only ripen in autumn."
+      },
+      {
+       "id": "oos_unicorn_clear_door",
+       "k": "step",
+       "t": "At the entrance, lift the big Rock Mushrooms out of the way with the Power Bracelet, climb the stairs, and go inside.",
+       "stuck": "The mushrooms only appear in autumn. Stand next to one and press the Power Bracelet button to pick it up and toss it aside, clearing the path to the stairs."
+      },
+      {
+       "id": "oos_unicorn_tip_summer",
+       "k": "tip",
+       "t": "Side note: setting Eyeglass Lake to SUMMER dries it up and opens caves on the lakebed — there's a Piece of Heart down there. Worth grabbing later, but not needed to enter the dungeon."
+      }
+     ]
+    },
+    {
+     "id": "oos_unicorn_dungeon",
+     "name": "Into Unicorn's Cave",
+     "sub": "Find the Magnetic Gloves",
+     "steps": [
+      {
+       "id": "oos_unicorn_explore",
+       "k": "step",
+       "t": "Work through the early rooms, clearing enemies and grabbing small keys to open locked doors. Bomb cracked walls and push blocks to find your way toward the dungeon item.",
+       "stuck": "Stuck behind a locked door with no key? Clear every enemy in the room — many doors only open after the room is cleared — and check side rooms for keys before assuming you missed one."
+      },
+      {
+       "id": "oos_unicorn_get_gloves",
+       "k": "step",
+       "t": "Reach the chest holding the Magnetic Gloves and open it to claim them.",
+       "stuck": "The Magnetic Gloves chest is past the early rooms — after the Iron Masks, head up the stairs and down a ladder to reach it. From here, magnetic balls and walls become your way across the dungeon's gaps.",
+       "items": [
+        {
+         "name": "Magnetic Gloves",
+         "cat": "item",
+         "note": "Switch polarity (N/S) to pull yourself toward or push yourself away from magnetic balls and walls — your way across gaps."
+        }
+       ]
+      },
+      {
+       "id": "oos_unicorn_learn_gloves",
+       "k": "tip",
+       "t": "How the gloves work: equip them and they flip between N (blue) and S (red) polarity each time you use them. Opposite poles ATTRACT (you get pulled in), same poles REPEL (you get pushed away). Use that to drag yourself across pits or shove iron balls."
+      },
+      {
+       "id": "oos_unicorn_cross_abyss",
+       "k": "step",
+       "t": "Use the gloves to cross the dungeon's big gaps: aim at a magnetic ball or plate across the chasm with the opposite pole and let it yank you across.",
+       "stuck": "Stand facing the magnet across the gap, equip the gloves, and set them so your pole is OPPOSITE the magnet so it pulls you over. If you get shoved backward instead, use the gloves again to flip the polarity and try once more."
+      },
+      {
+       "id": "oos_unicorn_syger",
+       "k": "step",
+       "t": "Partway through you'll fight the miniboss Syger — a tiger that leaps and slashes, then curls into a spiked ball and rolls at you. Dodge his charges (a hop with Roc's Feather helps) and strike him with your sword when he's not balled up. Beat him to keep going.",
+       "stuck": "Don't try to hit Syger while he's a rolling spiked ball — that hurts you. Wait for him to unroll into the tiger, jump clear of his charge, then get a sword hit in. Repeat until he's down."
+      },
+      {
+       "id": "oos_unicorn_keys",
+       "k": "loot",
+       "t": "Keep collecting small keys as you go and find the Boss Key, then open the locked boss door at the far side of the dungeon.",
+       "stuck": "The Boss Key is in a chest behind one of the magnetic-gap puzzles. If a key chest sits across a pit, that pit is a gloves crossing — line up with the magnet and let it pull you over.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the door to Digdogger's chamber."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oos_unicorn_boss",
+     "name": "Boss: Digdogger",
+     "sub": "Crush it with the spiked ball",
+     "reward": "Essence of Nature: Nurturing Warmth",
+     "steps": [
+      {
+       "id": "oos_unicorn_boss_intro",
+       "k": "step",
+       "t": "Enter the boss room. Digdogger is the big spotted ball that bounces around and tries to land on you. In the room with it is a large spiked IRON ball — that ball is your weapon.",
+       "stuck": "Your sword does almost nothing to Digdogger. The damage comes entirely from slamming the spiked iron ball into it with the Magnetic Gloves — that is the whole fight."
+      },
+      {
+       "id": "oos_unicorn_boss_hit",
+       "k": "step",
+       "t": "Use the Magnetic Gloves to pull and push the spiked ball so it crashes into Digdogger. Keep working the ball back and forth through the boss to land hits as fast as you can.",
+       "stuck": "Equip the gloves and set polarity to ATTRACT the spiked ball toward you, lining the ball up so it rolls through Digdogger on the way. Yo-yo the ball in and out — keep slamming it into the boss until it breaks apart."
+      },
+      {
+       "id": "oos_unicorn_boss_split",
+       "k": "step",
+       "t": "After about four hits, Digdogger bursts into a swarm of little Digdoggers that scurry around. Roll the spiked ball over them to flatten each one before they regroup.",
+       "stuck": "Sweep the spiked ball across the whole floor with the gloves to crush the little ones — your sword also works on them. Any survivors will merge back into the full boss, so clear them all quickly."
+      },
+      {
+       "id": "oos_unicorn_boss_dead",
+       "k": "loot",
+       "t": "With Digdogger destroyed, grab the Heart Container it leaves behind.",
+       "stuck": "If the mini-Digdoggers reformed into the big boss, just repeat: a few spiked-ball hits to split it, then crush the swarm. The Heart Container appears once they are all gone.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Permanently adds one full heart to your life bar."
+        }
+       ]
+      },
+      {
+       "id": "oos_unicorn_essence",
+       "k": "reward",
+       "t": "Step into the light beyond the boss room to claim the fifth Essence of Nature: Nurturing Warmth. Return to the Maku Tree afterward to feed the seed and learn where to go next.",
+       "items": [
+        {
+         "name": "Nurturing Warmth",
+         "cat": "key",
+         "note": "The fifth Essence of Nature — one of the eight needed to wake the Maku Seed."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "oos_ruins",
+   "name": "Ancient Ruins",
+   "sub": "Essence: Blowing Wind",
+   "champion": "Blowing Wind",
+   "tagline": "A boomerang you can steer, among the old stones.",
+   "kind": "region",
+   "sections": [
+    {
+     "id": "oos_ruins_lostwoods",
+     "name": "Tarm Ruins & the Lost Woods",
+     "sub": "Open the Jewel gate, then solve the season-and-direction maze",
+     "steps": [
+      {
+       "id": "oos_ruins_reach_tarm",
+       "k": "step",
+       "t": "Tarm Ruins sit at the far northwest of Holodrum. Warp to Spool Swamp (Gale Seed), head east one screen, then go up through the hollow log to reach the sealed gate. The gate only opens once you've placed all four Jewels — X-Shaped, Round, Square, and Pyramid.",
+       "stuck": "Walk up to each empty slot in the wall and push to set a Jewel in place; with all four in, the gate opens and you can enter Tarm Ruins. (No season-change is needed at the gate — it's the four Jewels that unlock it.)"
+      },
+      {
+       "id": "oos_ruins_enter_woods",
+       "k": "step",
+       "t": "Inside Tarm Ruins you enter the Lost Woods. Walking out an exit normally just loops you back — the woods are a puzzle, not a path.",
+       "stuck": "There's a tree stump in the Lost Woods where you can change the season. To get through you must leave walking a specific DIRECTION with the correct SEASON set — set the season at the stump first, then exit that way. A Deku Scrub gives the hint: travel west, south, east, then north, each step in a warmer season than the last."
+      },
+      {
+       "id": "oos_ruins_woods_sequence",
+       "k": "step",
+       "t": "Solve the Lost Woods by setting the season at the stump, then leaving in the matching direction — four times, in order — and the woods open onto the Ancient Ruins.",
+       "stuck": "The path is Winter→go Left (west), Autumn→go Down (south), Spring→go Right (east), Summer→go Up (north). Set each season at the stump before each move; that's the \"warmer each step\" hint in action. If you lose track, step back to the start and run the four moves again."
+      },
+      {
+       "id": "oos_ruins_stock_up",
+       "k": "tip",
+       "t": "Before you head in, top off your Bombs and seeds and make sure you have the Roc's Feather equipped — this dungeon leans on jumping gaps. You'll also rely heavily on the Magnetic Gloves and, once you find it, the Magical Boomerang."
+      }
+     ]
+    },
+    {
+     "id": "oos_ruins_dungeon",
+     "name": "Inside the Ancient Ruins",
+     "sub": "Win the Magical Boomerang and reach the boss",
+     "steps": [
+      {
+       "id": "oos_ruins_explore",
+       "k": "step",
+       "t": "Work through the ruins, using small keys on the locked doors as you find them. Bomb cracked walls and use the Roc's Feather to clear the gaps between platforms."
+      },
+      {
+       "id": "oos_ruins_magnetic_gloves",
+       "k": "tip",
+       "t": "Many rooms here run on the Magnetic Gloves: aim them at the N/S magnets to pull yourself across gaps, slide magnetic blocks onto switches, or shove a magnet into enemies. If a ledge or switch looks unreachable, the gloves are usually the answer."
+      },
+      {
+       "id": "oos_ruins_boomerang",
+       "k": "loot",
+       "t": "Open the dungeon's main chest (right side of its room) to claim the Magical Boomerang — an upgraded boomerang you can STEER in flight by holding the throw button and pressing a direction after you throw it.",
+       "stuck": "After tossing it, keep holding the throw button and press a direction on the d-pad to curve the boomerang that way. Steer it onto far switches, distant pots, and out-of-reach enemies.",
+       "items": [
+        {
+         "name": "Magical Boomerang",
+         "cat": "item",
+         "note": "Steerable boomerang — hold the throw button and press a direction to curve it; hits switches and enemies you can't reach by hand."
+        }
+       ]
+      },
+      {
+       "id": "oos_ruins_boomerang_switches",
+       "k": "step",
+       "t": "Backtrack and use the Magical Boomerang to flip the switches and crystals you couldn't reach before — many sit behind statues or walls a straight throw can't touch. Curving it around corners opens the path toward the boss key.",
+       "stuck": "Throw the boomerang and immediately steer it toward the switch — curve it onto distant or blocked switches that a straight throw or your sword can't reach."
+      },
+      {
+       "id": "oos_ruins_boss_key",
+       "k": "loot",
+       "t": "Find and grab the Boss Key, then make your way to the locked boss door to face what guards the essence."
+      }
+     ]
+    },
+    {
+     "id": "oos_ruins_boss",
+     "name": "Boss: Manhandla",
+     "sub": "A four-mouthed plant on the moving floor",
+     "reward": "Essence of Nature: Blowing Wind",
+     "steps": [
+      {
+       "id": "oos_ruins_boss_setup",
+       "k": "warn",
+       "t": "The boss room floor keeps sliding you around, and Manhandla is a plant with FOUR fireball-spitting mouths. Keep the Roc's Feather handy to hop clear, and don't try to fight it with your sword at first.",
+       "stuck": ""
+      },
+      {
+       "id": "oos_ruins_boss_mouths",
+       "k": "step",
+       "t": "Destroy Manhandla's four mouths with the Magical Boomerang. Each mouth is only vulnerable while it's OPEN — steer the boomerang into an open mouth (about three hits each) to take it out.",
+       "stuck": "Wait for a mouth to open, then throw and curve the Magical Boomerang into it; try to arc it across so it grazes more than one mouth on the way back. Manhandla speeds up each time a mouth dies, so use the Roc's Feather to stay clear of contact."
+      },
+      {
+       "id": "oos_ruins_boss_core",
+       "k": "step",
+       "t": "With all four mouths gone, the central body is exposed — but DON'T slash it: the core is a giant Buzz Blob and electrocutes you on a sword hit. Keep hitting it with the Magical Boomerang instead as it races around the room.",
+       "stuck": "Hit the glowing core repeatedly with the Magical Boomerang (about four quick hits) to stun it. It then splits open and reveals a jewel/heart inside — only NOW slash that jewel with your sword to finish Manhandla."
+      },
+      {
+       "id": "oos_ruins_essence",
+       "k": "reward",
+       "t": "With Manhandla destroyed, step onto the altar and take the sixth Essence of Nature — Blowing Wind. The Maku Seed grows stronger; carry your progress back to her later.",
+       "items": [
+        {
+         "name": "Blowing Wind",
+         "cat": "key",
+         "note": "Essence of Nature #6. One of the eight needed to awaken the Maku Seed and reach Onox's Castle."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oos_crypt",
+   "name": "Explorer's Crypt",
+   "sub": "Essence: Seed of Life",
+   "champion": "Seed of Life",
+   "tagline": "A cape that lets you fly, deep in the graveyard.",
+   "sections": [
+    {
+     "id": "oos_crypt_road",
+     "name": "Reaching the Graveyard",
+     "sub": "Return the pirate's bell, then cross into Horon Graveyard",
+     "steps": [
+      {
+       "id": "oos_crypt_bell",
+       "k": "step",
+       "t": "Recover the pirate's bell from the Samasa Desert (entered from the south of the Eastern Coast — it's always summer there). In the northeastern oasis, lift the talking Pirate's Skull with the Power Bracelet and carry it around: when its teeth start chattering you're next to the right quicksand pit. Drop into that pit to fall into a cave and grab the RUSTY BELL.",
+       "stuck": "Pick up the bristly Pirate's Skull in the northeast oasis (you need the Power Bracelet). Walk it across the dunes — its teeth rattle when you're over the correct quicksand. Stand on that quicksand and sink through into the cave below to find the Rusty Bell."
+      },
+      {
+       "id": "oos_crypt_graveyard",
+       "k": "step",
+       "t": "Take the Rusty Bell to the Subrosian Smithy (down a portal into Subrosia) and have it POLISHED — it becomes the Pirate's Bell. Hand the polished bell to the Piratian Captain at the pirate ship; the pirates finally set sail, clearing the way ahead.",
+       "stuck": "Bring the Rusty Bell to the two Subrosian smiths and insist they polish it. Once it's the shiny Pirate's Bell, give it to the Piratian Captain (the big pirate by the ship). He boards the ship and leaves, opening the path."
+      },
+      {
+       "id": "oos_crypt_enter",
+       "k": "step",
+       "t": "Reach the Horon Graveyard: stand on the tree stump near the pirate ship on the Western Coast and set the season to SUMMER, then go back outside the graveyard wall. Summer makes vine ladders sprout, so you can climb up into the graveyard. Then head northwest to the Explorer's Crypt — Level 7, the skull-arched doorway among the graves.",
+       "stuck": "Swing the Rod of Seasons to SUMMER on the stump by the pirate ship. The vines you need only grow in summer — climb them up to the graveyard plateau, then walk northwest to the crypt entrance. (Once you own Roc's Cape, you can cross the graveyard freely.)"
+      },
+      {
+       "id": "oos_crypt_heartpiece",
+       "k": "optional",
+       "t": "Optional Piece of Heart: while at the graveyard, set the season to AUTUMN instead. In autumn the rock mushrooms ripen — pick one and follow the path east to find a Piece of Heart waiting there.",
+       "stuck": "Change the season to AUTUMN at the stump. Pluck the ripe rock mushroom blocking the way (Power Bracelet), then follow the trail east to the Piece of Heart. It can't be reached in summer."
+      }
+     ]
+    },
+    {
+     "id": "oos_crypt_dungeon",
+     "name": "Into the Crypt",
+     "sub": "The Poe Sisters and Roc's Cape",
+     "steps": [
+      {
+       "id": "oos_crypt_explore",
+       "k": "step",
+       "t": "Inside, work your way through the crypt — moving platforms, pits, gravestones, and torch rooms. Grab the keys and the dungeon Map and Compass as you go. Until you have the cape, cross gaps with a running Roc's Feather jump.",
+       "stuck": "When a room looks blocked, look for a lit-torch puzzle, a switch, or a gravestone to push. The Magnetic Gloves move you and metal blocks around several rooms — equip them when you see the glowing magnet poles."
+      },
+      {
+       "id": "oos_crypt_poe",
+       "k": "step",
+       "t": "Mini-boss: the POE SISTERS. Two ghosts drift around a room with four torches and keep blowing them out. Equip EMBER SEEDS in your SLINGSHOT (seed shooter), fire at the unlit torches to relight them — which forces the ghosts to appear — and slash a sister with your sword when she comes near. Always keep the torches lit.",
+       "stuck": "Put EMBER SEEDS in the Slingshot. Job one is keeping torches lit — re-shoot any the sisters snuff, keeping two or three burning at all times, and only press the attack when three are lit. If ALL FOUR torches go out, you're sent back to the start of the dungeon.",
+       "items": []
+      },
+      {
+       "id": "oos_crypt_cape",
+       "k": "loot",
+       "t": "Past the mini-boss, cross the moving-platform room (fighting through a gauntlet of Stalfos and Zols) and time a jump onto the platform to reach the big chest. Open it for ROC'S CAPE — it replaces the Roc's Feather: hold the jump button to glide, or tap it again in the air to double-jump across wide gaps.",
+       "stuck": "Ride the green moving platform and jump off when it lines up with the safe (spike-free) strip of floor to reach the chest. Roc's Cape uses the same button as the feather — tap jump again at the peak for a second hop and glide.",
+       "items": [
+        {
+         "name": "Roc's Cape",
+         "cat": "item",
+         "note": "Replaces Roc's Feather — double-jump in mid-air and glide to clear wide pits."
+        }
+       ]
+      },
+      {
+       "id": "oos_crypt_backtrack",
+       "k": "step",
+       "t": "Now use Roc's Cape to recross the rooms you couldn't before — its double-jump clears wide pits and reaches ledges that were out of range. Work toward the boss door, grabbing the Boss Key along the way.",
+       "stuck": "Any gap too far for a single feather hop is now reachable: jump, then jump again at the top to glide across. The Boss Key sits behind one of these formerly-impossible jumps."
+      },
+      {
+       "id": "oos_crypt_smallkey",
+       "k": "loot",
+       "t": "Pick up the Boss Key before the final door — it opens the locked boss room.",
+       "items": [
+        {
+         "name": "Boss Key",
+         "cat": "key",
+         "note": "Opens the Explorer's Crypt boss door."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "oos_crypt_boss",
+     "name": "Gleeok",
+     "sub": "Two-headed dragon, then the charging skeleton",
+     "reward": "Essence of Nature: Seed of Life",
+     "steps": [
+      {
+       "id": "oos_crypt_gleeok_heads",
+       "k": "step",
+       "t": "Boss: GLEEOK, a two-headed dragon. Both heads spit fire across the floor (one stream splits into three). Use ROC'S CAPE to fly over the flames, then slash a head — charged Spin Attacks work great, and you can swing while gliding. Wear BOTH heads down at roughly the same time.",
+       "stuck": "Don't tank the fire — glide over it with the cape. If you knock off one head but leave the other alive, the loose head flies around the room and re-attaches, restoring it. Spread your damage so both heads fall together."
+      },
+      {
+       "id": "oos_crypt_gleeok_skull",
+       "k": "step",
+       "t": "With both heads gone, Gleeok becomes a skeletal body that leaps and SLAMS the ground (stunning you if you're standing on it) then charges. Be airborne with Roc's Cape the instant it lands so the shock misses you, then strike it as it charges past.",
+       "stuck": "The slam only stuns you on the ground — jump with the cape just before it lands. After a charge it's briefly open; get beside it and hit it repeatedly until the skeleton shatters."
+      },
+      {
+       "id": "oos_crypt_heart",
+       "k": "loot",
+       "t": "With Gleeok destroyed, take the Heart Container it leaves behind.",
+       "items": [
+        {
+         "name": "Heart Container",
+         "cat": "item",
+         "note": "Adds one full heart to your life bar."
+        }
+       ]
+      },
+      {
+       "id": "oos_crypt_essence",
+       "k": "reward",
+       "t": "Head WEST out of the boss room to claim the seventh Essence of Nature: the SEED OF LIFE. Bring it back to the Maku Tree — only one essence remains.",
+       "stuck": "The essence floats in the chamber just west of where Gleeok fell. Walk into it to collect it.",
+       "items": [
+        {
+         "name": "Seed of Life",
+         "cat": "key",
+         "note": "The 7th Essence of Nature — one of the eight needed to awaken the Maku Seed."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "oos_maze",
+   "name": "Sword & Shield Maze",
+   "sub": "Essence: Changing Seasons",
+   "champion": "Changing Seasons",
+   "tagline": "The last dungeon, and the eighth Essence.",
+   "sections": [
+    {
+     "id": "oos_maze_reach",
+     "name": "Down into Subrosia",
+     "sub": "Erupt the volcanoes, then drop in",
+     "steps": [
+      {
+       "id": "oos_maze_intro",
+       "k": "tip",
+       "t": "This is the eighth and final dungeon — and the only one hidden in Subrosia, the under-realm. The Maku Tree needs all 8 Essences before it can open the road to Onox's Castle, so this is the last one. You'll want the Roc's Cape before coming here."
+      },
+      {
+       "id": "oos_maze_portal",
+       "k": "step",
+       "t": "Go to the Temple Remains (the broken ground where the Temple of Seasons once stood) and use the Subrosia portal there to drop into the under-realm. Work through the Temple Remains using the season stumps as the path requires.",
+       "stuck": "The portals are the swirling pits. Step onto the one in the Temple Remains to warp down to Subrosia; stepping on it again warps you back up. The route through the Temple Remains uses the season stumps (Autumn, then Winter) to open the way."
+      },
+      {
+       "id": "oos_maze_erupt",
+       "k": "step",
+       "t": "The dungeon's corner of Subrosia is sealed until the volcanoes erupt. Find the Subrosian by the lava who's tossing junk in trying to make 'fireworks' — throw a Bomb into the lava for him. The volcanoes blow, opening the way through to the dungeon.",
+       "stuck": "It's the cave with a Subrosian standing at a pool of lava. Drop a Bomb into the lava and the eruption clears the path (and floods part of the Temple Remains above). You need the Roc's Cape to cross the lava room afterward — its long jump carries you over the gaps."
+      },
+      {
+       "id": "oos_maze_volcano",
+       "k": "step",
+       "t": "Head to the dungeon entrance: the dark 'mouth' opening in the side of a human-shaped volcano. Walk into it to begin the maze.",
+       "stuck": "It's the cave mouth on the volcano shaped like a face. Use the Roc's Cape to jump the lava gaps on the way; the eruption you set off is what opens the approach."
+      }
+     ]
+    },
+    {
+     "id": "oos_maze_inside",
+     "name": "Inside the Maze",
+     "sub": "The ice floor and the Hyper Slingshot",
+     "steps": [
+      {
+       "id": "oos_maze_ice",
+       "k": "warn",
+       "t": "The first floor is shaped like a shield and coated in ice — Link slides. Move in short taps and line up your slides. If you've had the Snowshoe Ring appraised and equipped, it cancels the sliding entirely. Lower down, the basement (shaped like a sword) is full of magma, so watch your footing.",
+       "stuck": "On ice, tap a direction once and let Link glide to a stop instead of holding it. The Snowshoe Ring (a magic ring you may have found and had Vasu appraise) removes the slide if you equip it."
+      },
+      {
+       "id": "oos_maze_seeds",
+       "k": "tip",
+       "t": "Stock every seed type before going deep: Ember Seeds light torches, Mystery Seeds trigger effects on statues, and Pegasus Seeds you'll want for the boss. The maze leans on torches and switches, so keep Ember Seeds topped up."
+      },
+      {
+       "id": "oos_maze_progress",
+       "k": "step",
+       "t": "Work through the maze rooms — light torches with Ember Seeds, hit switches, and clear enemies — to reach the chest holding the dungeon item.",
+       "stuck": "Stuck on a sealed room? Look for an unlit torch (Ember Seed), a floor switch, or a block to push. Check the dungeon map for rooms you haven't entered yet."
+      },
+      {
+       "id": "oos_maze_slingshot",
+       "k": "loot",
+       "t": "Open the chest to claim the Hyper Slingshot — the upgraded (Level-2) Slingshot that fires three seeds in a spread instead of one. This is your key to the boss.",
+       "items": [
+        {
+         "name": "Hyper Slingshot",
+         "cat": "item",
+         "note": "Fires three seeds at once in a spread; load it with Pegasus Seeds for the boss."
+        }
+       ]
+      },
+      {
+       "id": "oos_maze_frypolar",
+       "k": "step",
+       "t": "Mini-boss — Frypolar: a head that flips between a fire form and an ice form. Use the opposite element: when it's icy/blue, hit it with Ember Seeds; force it to switch with Mystery Seeds when it hides. Keep matching the opposite element until it falls.",
+       "stuck": "Frypolar is invulnerable while matched to your shot's element — that's why you alternate. Fire Mystery Seeds to make it change forms, then strike the ice form with Ember Seeds. The Slingshot makes landing these shots easier."
+      },
+      {
+       "id": "oos_maze_keys",
+       "k": "step",
+       "t": "Use the Hyper Slingshot and your seeds to clear the remaining rooms, collect Small Keys, and open the way down to the boss door.",
+       "stuck": "If a door won't open, you're missing a Small Key — backtrack and check rooms you skipped. Use the map to find unexplored rooms with chests or key-bearing enemies."
+      }
+     ]
+    },
+    {
+     "id": "oos_maze_boss",
+     "name": "Boss: Medusa Head",
+     "sub": "Stun, then strike",
+     "reward": "Essence of Nature: Changing Seasons",
+     "steps": [
+      {
+       "id": "oos_maze_boss_intro",
+       "k": "warn",
+       "t": "Medusa Head floats around the room with three dangerous attacks: it spits red fireballs, fires lasers from its eyes, and throws spinning blue orbs that turn Link to stone. While you're petrified you can't move and its fireballs will hammer you, so dodging the blue orbs is the priority.",
+       "stuck": "If a blue orb touches you, Link turns to stone for a few seconds — mash to break free and back off. Keep moving sideways to slip the eye lasers and fireballs."
+      },
+      {
+       "id": "oos_maze_boss_kill",
+       "k": "step",
+       "t": "Equip the Hyper Slingshot loaded with Pegasus Seeds. Fire a shot to briefly stun Medusa Head, then rush in and slash it with your sword. Repeat the stun-then-strike cycle until it's destroyed.",
+       "stuck": "Pegasus Seeds from the Hyper Slingshot are the reliable stun — fire, then get your sword hits in before it recovers. If you've got the Roc's Cape, you can instead jump over its attacks and dodge in to strike without stunning. Either way, never stand still in a blue orb's path."
+      },
+      {
+       "id": "oos_maze_essence",
+       "k": "reward",
+       "t": "With Medusa Head destroyed, grab the Heart Container, then step into the light to claim the eighth and final Essence of Nature — the Changing Seasons. Return to the Maku Tree, which now grants the Huge Maku Seed and opens the path to Onox's Castle.",
+       "items": [
+        {
+         "name": "Changing Seasons",
+         "cat": "key",
+         "note": "The 8th and final Essence of Nature. All 8 collected — the Maku Tree can now open the way to Onox's Castle."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "region"
+  },
+  {
+   "id": "oos_onox",
+   "name": "Onox's Castle",
+   "sub": "The final battle",
+   "champion": null,
+   "tagline": "Form the Huge Maku Seed, climb the dark keep, and free Din.",
+   "sections": [
+    {
+     "id": "oos_onox_makuseed",
+     "name": "The Huge Maku Seed",
+     "sub": "Eight essences become one",
+     "steps": [
+      {
+       "id": "oos_onox_count",
+       "k": "tip",
+       "t": "Before anything, make sure you truly have all 8 Essences of Nature. Check your inventory — if any of the eight slots is dark, go finish that dungeon first; the Maku Tree can't help until you have the full set."
+      },
+      {
+       "id": "oos_onox_return",
+       "k": "step",
+       "t": "Head back to Horon Village and go up to the Maku Tree at the north end of town. Talk to it and it will draw on the strength of your eight essences."
+      },
+      {
+       "id": "oos_onox_form",
+       "k": "reward",
+       "t": "The Maku Tree creates the Huge Maku Seed — a seed strong enough to dispel the mist sealing off Onox's Castle. Watch the scene, then make for the castle in the far north of Holodrum.",
+       "items": [
+        {
+         "name": "Huge Maku Seed",
+         "cat": "item",
+         "note": "Made by the Maku Tree from all 8 Essences of Nature. Clears the mist blocking the way to Onox's Castle."
+        }
+       ]
+      },
+      {
+       "id": "oos_onox_stock",
+       "k": "tip",
+       "t": "Last chance to prep. Stock a Potion (or a Gasha-grown one) from the shop, top off your Hearts, and fill up on seeds and Bombs. There are no shops once you go in."
+      },
+      {
+       "id": "oos_onox_ring",
+       "k": "optional",
+       "t": "If you have a defensive ring appraised by Vasu — the Blue Ring (half damage) or the Red Ring (double attack) — equip it now for the climb ahead.",
+       "stuck": "Rings only do anything after Vasu appraises them. If your good ring is still unidentified, swing by Vasu's shop in Horon Village first."
+      }
+     ]
+    },
+    {
+     "id": "oos_onox_keep",
+     "name": "Into the Dark Keep",
+     "sub": "Climb to the General",
+     "steps": [
+      {
+       "id": "oos_onox_travel",
+       "k": "step",
+       "t": "Travel to Onox's Castle in the far north of Holodrum. With the Huge Maku Seed, the mist clears and you can walk in."
+      },
+      {
+       "id": "oos_onox_enter",
+       "k": "step",
+       "t": "Inside, fight your way up through the keep — Wizzrobes, Darknuts, Floormasters and the like. Clear rooms to open the way and grab any small keys for the locked doors.",
+       "items": [
+        {
+         "name": "Small Key",
+         "cat": "key",
+         "note": "Found inside the castle; opens its locked doors."
+        }
+       ]
+      },
+      {
+       "id": "oos_onox_facade",
+       "k": "step",
+       "t": "Partway up you meet the mini-boss Façade — a face that surfaces in the floor and drops pots and Spiked Beetles on you. Your sword does nothing to it. Drop Bombs in the center of the room when its face appears; the blast is the only thing that hurts it.",
+       "stuck": "Don't bother swinging your sword — Façade is only damaged by Bombs. Set a Bomb on the spot where the face rises, then move so the falling objects miss you."
+      },
+      {
+       "id": "oos_onox_seasons",
+       "k": "tip",
+       "t": "Keep your Rod of Seasons handy — you'll want it for the boss, and a stump or two on the way up can shift a season to clear a path.",
+       "stuck": "If a path looks sealed, look for a stump nearby and cycle the Rod of Seasons (e.g. Winter to freeze water into a walkway)."
+      },
+      {
+       "id": "oos_onox_heal",
+       "k": "tip",
+       "t": "Refill at any Fairy you find before you take the final stairs. Walk in with full Hearts and a Potion in reserve — there's no checkpoint in the fight."
+      }
+     ]
+    },
+    {
+     "id": "oos_onox_battle",
+     "name": "Onox, General of Darkness",
+     "sub": "The final battle",
+     "reward": "Din is freed",
+     "steps": [
+      {
+       "id": "oos_onox_phase1",
+       "k": "step",
+       "t": "Phase 1 — General Onox. He swings a long ball-and-chain. Normal slashes bounce off — only your charged Spin Attack hurts him. Hold the sword to charge, dodge his swing, then close in and release a Spin Attack. Pegasus Seeds make dashing in and back out far safer.",
+       "stuck": "If your sword seems to do nothing, you're using normal slashes. Charge a Spin Attack (hold the sword button) and release it next to him — that's the only thing that damages this form."
+      },
+      {
+       "id": "oos_onox_din",
+       "k": "step",
+       "t": "After enough hits, Onox raises Din — trapped in a crystal — as a shield. Touch that crystal and you get shocked. Hit the crystal with the Rod of Seasons to knock it clear across the room, then go straight back to Spin-Attacking Onox before he can grab it again.",
+       "stuck": "Electrocuted when you swing? You hit Din's crystal. Switch to the Rod of Seasons and strike the crystal to send it flying — then resume Spin Attacks on Onox."
+      },
+      {
+       "id": "oos_onox_phase2",
+       "k": "step",
+       "t": "Phase 2 — the Dark Dragon. The floor gives way and Onox reveals his true form, a huge dragon whose body shrugs off everything. His one weak point is the red jewel on his forehead. When he tries to crush you with a hand, jump on top of that hand, ride it up toward his head, then leap off and slash the jewel as you fall (a Spin Attack hits harder).",
+       "stuck": "Hitting his body or hands does nothing — aim for the red jewel on his FOREHEAD. Stand where a hand can slam down, hop onto it, and when it lifts near his head, jump off and strike the jewel."
+      },
+      {
+       "id": "oos_onox_dodge",
+       "k": "tip",
+       "t": "Between openings he breathes a wall of blue flame and lobs dark fireballs. The blue flame is tall — sidestep it rather than trying to jump it — and use Pegasus Seeds to weave around the fireballs while you wait for the next hand to come down.",
+       "stuck": "Keep a Potion ready and don't panic-trade hits. Survive his attacks, then take the one clean jewel hit each time a hand offers the ride up."
+      },
+      {
+       "id": "oos_onox_free",
+       "k": "reward",
+       "t": "The jewel shatters and Onox falls. The Temple of Seasons is set right and Din, the Oracle of Seasons, is freed — Holodrum's seasons are saved. Watch the ending."
+      }
+     ]
+    }
+   ],
+   "kind": "region"
   }
  ],
  "SHRINES": [],
@@ -193,6 +1445,16 @@
    "name": "Wooden Sword",
    "glyph": "sword",
    "step": "oos_sword_1"
+  },
+  {
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "step": "oos_moth_feather"
+  },
+  {
+   "name": "Magnetic Gloves",
+   "glyph": "magnesis",
+   "step": "oos_unicorn_get_gloves"
   }
  ],
  "CHAMPIONS": [
@@ -200,49 +1462,49 @@
    "name": "Fertile Soil",
    "from": "Gnarled Root Dungeon",
    "note": "The first Essence of Nature, won from the Gnarled Root Dungeon (boss Aquamentus).",
-   "step": null
+   "step": "oos_gnarled_essence"
   },
   {
    "name": "Gift of Time",
    "from": "Snake's Remains",
    "note": "The second Essence, won from Snake's Remains (boss Dodongo).",
-   "step": null
+   "step": "oos_snake_essence"
   },
   {
    "name": "Bright Sun",
    "from": "Poison Moth's Lair",
    "note": "The third Essence, won from Poison Moth's Lair (boss Mothula).",
-   "step": null
+   "step": "oos_moth_essence"
   },
   {
    "name": "Soothing Rain",
    "from": "Dancing Dragon Dungeon",
    "note": "The fourth Essence, won from the Dancing Dragon Dungeon (boss Gohma).",
-   "step": null
+   "step": "oos_dragon_essence"
   },
   {
    "name": "Nurturing Warmth",
    "from": "Unicorn's Cave",
    "note": "The fifth Essence, won from Unicorn's Cave (boss Digdogger).",
-   "step": null
+   "step": "oos_unicorn_essence"
   },
   {
    "name": "Blowing Wind",
    "from": "Ancient Ruins",
    "note": "The sixth Essence, won from the Ancient Ruins (boss Manhandla).",
-   "step": null
+   "step": "oos_ruins_essence"
   },
   {
    "name": "Seed of Life",
    "from": "Explorer's Crypt",
    "note": "The seventh Essence, won from the Explorer's Crypt (boss Gleeok).",
-   "step": null
+   "step": "oos_crypt_essence"
   },
   {
    "name": "Changing Seasons",
    "from": "Sword & Shield Maze",
    "note": "The eighth and last Essence, won from the Sword & Shield Maze — completing the Maku Seed.",
-   "step": null
+   "step": "oos_maze_essence"
   }
  ],
  "CATS": [
