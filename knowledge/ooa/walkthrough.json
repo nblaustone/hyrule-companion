@@ -1,0 +1,48 @@
+[
+ {
+  "id": "ooa_intro",
+  "name": "Into Labrynna",
+  "sub": "Main Quest — Lynna & the Maku Tree",
+  "kind": "region",
+  "tagline": "An oracle possessed, history unmade, and a harp that turns back time.",
+  "champion": null,
+  "sections": [
+   {
+    "id": "ooa_intro_s_nayru",
+    "name": "Nayru & Veran",
+    "sub": "History comes undone",
+    "reward": null,
+    "steps": [
+     { "id": "ooa_nayru_1", "k": "step", "t": "The Triforce carries Link to the land of Labrynna. You meet Impa, searching for a singer — and then Nayru, the Oracle of Ages, whose song calms the very land.", "items": [] },
+     { "id": "ooa_nayru_2", "k": "warn", "t": "The Sorceress of Shadows, Veran, possesses Nayru's body and flees into the PAST to rewrite history, withering the present. The Maku Tree of the present begins to die." },
+     { "id": "ooa_nayru_3", "k": "step", "t": "Reach the Maku Tree (you'll travel to the PAST to find her healthy). She tells you to gather the eight Essences of Time from Labrynna's dungeons to restore her power and stop Veran.", "stuck": "Follow the story to a time portal and cross into the past; the Maku Tree there is strong and gives your quest. The present-day tree is too weak to help yet." }
+    ]
+   },
+   {
+    "id": "ooa_intro_s_harp",
+    "name": "A Sword & the Harp",
+    "sub": "The instrument of time",
+    "reward": "Wooden Sword & Harp of Ages",
+    "steps": [
+     { "id": "ooa_harp_1", "k": "reward", "t": "Find your first sword near Lynna — open the chest in the starting cave for the Wooden Sword.", "items": [
+        { "name": "Wooden Sword", "cat": "sword", "note": "Your starting blade. Slash, and hold to charge a Spin Attack. Later upgraded to the Noble Sword and Master Sword." }
+     ], "stuck": "The sword is in a small cave near Lynna Village / Nayru's house area. Go in and open the chest." },
+     { "id": "ooa_harp_2", "k": "reward", "t": "Obtain the Harp of Ages, the instrument that lets you cross between the past and present. You learn the Tune of Echoes, which opens time portals.", "items": [
+        { "name": "Harp of Ages", "cat": "item", "note": "Play its tunes to travel between the PAST and PRESENT. The Tune of Echoes opens portals; you learn the Tune of Currents and Tune of Ages later." }
+     ], "stuck": "The Harp comes from Nayru / the early story. Once you have it and the Tune of Echoes, play it on a glowing time-portal tile to switch eras." }
+    ]
+   },
+   {
+    "id": "ooa_intro_s_first",
+    "name": "The First Essence",
+    "sub": "Off to Spirit's Grave",
+    "reward": "The eight-Essence goal",
+    "steps": [
+     { "id": "ooa_first_1", "k": "tip", "t": "Get used to time travel. A change you make in the PAST shows up in the PRESENT: dam a river long ago and a lake runs dry today; move a block in one era to clear a path in the other. When stuck, flip time and look at the same spot." },
+     { "id": "ooa_first_2", "k": "step", "t": "Head to Spirit's Grave, the first of the eight dungeons, in the graveyard area. Use the Harp to reach its entrance across eras, grabbing seed trees and Gasha spots along the way.", "stuck": "Spirit's Grave is in the Yoll Graveyard. You'll likely cross to the past (or back) at a nearby portal to reach the dungeon door." },
+     { "id": "ooa_first_3", "k": "step", "t": "Your quest is set: clear all eight dungeons, claim the eight Essences of Time, wake the Maku Seed, and confront Veran to free Nayru and Labrynna." }
+    ]
+   }
+  ]
+ }
+]

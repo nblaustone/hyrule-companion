@@ -1,0 +1,189 @@
+{
+ "basics": [
+  {
+   "title": "Sword Slash & the Spin Attack",
+   "body": "Tap the A/sword button for a quick slash, and lock onto a foe to circle, block, and keep your blade pointed the right way. Hold the button until the sword flashes, then release to unleash a spinning Spin Attack that hits everything around you — perfect for swarms of Keese, ChuChus, or Moblins. Later, Swiftblade's dojos teach you stronger techniques as you collect Tiger Scrolls (the Roll Attack, Dash Attack, Down Thrust, and finally the Great Spin once you have all seven), so revisit the dojos as your scroll count grows."
+  },
+  {
+   "title": "The Four Sword Clones",
+   "body": "Once you reforge the blade, stepping on special glowing clone tiles spawns Link clones that mirror your every move. Line them up to press several switches at once, hold down multiple weighted plates, or attack a boss from all sides simultaneously. Many late-game puzzles AND the final boss (Vaati) demand that you fan your clones into the right pattern — formation matters more than button-mashing here."
+  },
+  {
+   "title": "Shrinking with Ezlo",
+   "body": "Ezlo, the talking cap, lets you shrink to tiny Minish (Picori) size on special stumps, jars, and portals. Shrunk, you slip through cracks and mouseholes into a hidden Minish world, walk across puddles as if they were lakes, and read things only the little folk can. Shrinking is also a combat tool: some foes (and the boss Mazaal) can only be hurt from the inside or at Minish scale, and shrinking lets you slip past danger you can't fight at full size."
+  },
+  {
+   "title": "The Gust Jar's Pull & Vacuum",
+   "body": "The Gust Jar sucks in air, dust, and light objects — and that's a weapon. Vacuum the shells off Spiny Beetles and Rollobites to flip them helpless, pull mushrooms or boards across gaps to make platforms, and yank cobwebs or dust clutter out of the way. The Deepwood Shrine boss, the Big Green ChuChu, is beaten almost entirely by vacuuming its body down with the Gust Jar until it topples."
+  },
+  {
+   "title": "Kinstone Fusion",
+   "body": "Collect Kinstone halves all over Hyrule, then talk to people, animals, and even statues holding a matching half to fuse them — there are 100 fusions in all (nine gold ones are required to advance the story). Each successful fusion triggers an event somewhere in the world: a new chest appears, a path opens, an enemy or a Heart Piece spawns, or a shortcut unlocks. Fusing is mostly optional but is how you reach a huge share of the game's secrets, so fuse with everyone and watch the map for the swirl that marks what changed."
+  },
+  {
+   "title": "Bottled Fairies & Picolyte Buffs",
+   "body": "Keep a fairy in a bottle: if you run out of hearts, it revives you automatically and refills your health, so always carry one into a dungeon or boss. You can also bottle Picolyte (bought in the Minish-shop) for a temporary luck buff that raises drop rates for a short time. Bottles also hold water, fairies, and other liquids, so grab every empty bottle you find."
+  }
+ ],
+ "enemies": [
+  {
+   "name": "Green ChuChu",
+   "tier": "common",
+   "tactic": "The basic gelatinous blob — one or two sword slashes pops it. A charged Spin Attack clears a whole cluster at once. First seen in Minish Woods.",
+   "drops": "Recovery Hearts, Rupees"
+  },
+  {
+   "name": "Red ChuChu",
+   "tier": "common",
+   "tactic": "Just a tougher ChuChu with more health than the green kind (first appears on Mt. Crenel). Lock on and trade a couple of slashes, or wipe a group with a Spin Attack.",
+   "drops": "Recovery Hearts, Rupees"
+  },
+  {
+   "name": "Blue ChuChu",
+   "tier": "common",
+   "tactic": "The rare, electrified ChuChu — its body holds a charge, so a direct sword hit while it's sparking shocks YOU. The charge flickers off now and then; strike only in those gaps, or just pick it off with the Bow from range.",
+   "drops": "Recovery Hearts, Rupees"
+  },
+  {
+   "name": "Octorok",
+   "tier": "common",
+   "tactic": "It spits a rock at you from range — raise your shield to bounce the rock back for an easy hit, or close in and slash it. Targeting helps you read the spit.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Moblin",
+   "tier": "common",
+   "tactic": "A pig/boar-faced grunt that charges and swings; lock on, circle to its flank, and slash, or roll behind it. A few hits drops it.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Spear Moblin",
+   "tier": "common",
+   "tactic": "Carries a long spear and charges/thrusts from a distance, so don't rush straight in. Sidestep the lunge, then close the gap and slash its side; a Spin Attack punishes the recovery after a missed thrust.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Bow Moblin",
+   "tier": "common",
+   "tactic": "Stands back and fires arrows at you, so don't get pinned at range — close the distance with a dash or weave, then slash it down. A bomb or Spin Attack handles it once you're in its face.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Keaton",
+   "tier": "common",
+   "tactic": "A fox-faced thief that dashes straight at you and, on contact, knocks Rupees and items out of your wallet. Lock on and cut it down fast before it can rob you; a Spin Attack catches it as it rushes in.",
+   "drops": "Rupees, Recovery Hearts (often gives back what it stole)"
+  },
+  {
+   "name": "Keese",
+   "tier": "common",
+   "tactic": "A flapping bat that flits around randomly — swat it with the sword, or pick it off with the Bow before it reaches you. A Spin Attack is the cleanest answer to a swarm.",
+   "drops": "Recovery Hearts, Rupees"
+  },
+  {
+   "name": "Spiny Beetle",
+   "tier": "common",
+   "tactic": "Hides under a bush or rock and walks toward you when you get close; a normal slash bounces off the shell on its back. Suck the shell off with the Gust Jar to expose the soft body, then slash it.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Spiked Beetle",
+   "tier": "common",
+   "tactic": "Armored on top and invulnerable to the sword — use your shield to bump it onto its back, then slash the soft underside before it rights itself.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Rollobite",
+   "tier": "common",
+   "tactic": "A roly-poly bug that curls into an armored ball when you strike it, deflecting sword hits while balled up. Wait for it to unroll, or scoop the curled ball with the Gust Jar (you can even carry and toss it into a hole).",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Mulldozer",
+   "tier": "common",
+   "tactic": "Only encountered while you're shrunk to Minish size. It wanders until you near it, then dashes around frantically — the blue ones dash in circles, the red ones dash toward you. Time a slash as it passes, or trap it against a wall.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Crow",
+   "tier": "common",
+   "tactic": "Sits on a tree until you walk near, then flies out to dive-bomb you. Sidestep the swoop and swing your sword a few times to drop it, or shoot it off its perch with the Bow before it wakes.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Wisp",
+   "tier": "common",
+   "tactic": "A floating ghost-light that doesn't deal damage but, if it latches onto you, stops you from using your sword. Don't let it touch you — make it vanish with the Boomerang or pick it off with the Bow from range.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Ghini",
+   "tier": "common",
+   "tactic": "A one-eyed ghost that sticks out its tongue; if it grabs you it slowly drains your health until you shake free. Lock on and slash it down — the sword kills it cleanly.",
+   "drops": "Rupees, Recovery Hearts"
+  },
+  {
+   "name": "Madderpillar",
+   "tier": "mini-boss",
+   "tactic": "Slash its glowing red nose to stun it, which makes the flower at its tail open and expose a heart-shaped core; run to the tail and hit the core, then dodge while it frenzies red.",
+   "drops": "Opens the chest holding the Gust Jar (Deepwood Shrine mini-boss)",
+   "battle": "Fought in Deepwood Shrine. Bring a full health bar and a bottled fairy as backup; no special item is required — just your sword. ARENA: a sticky room webbed with bouncy walls — try not to get knocked into the webs while you dodge. OPENING: the giant caterpillar crawls in a loop around the room. Its only vulnerable spot is the heart-shaped core hidden inside the flower at its TAIL, but that flower stays shut until you stun the head. LOOP: as the Madderpillar charges or passes, slash its glowing red NOSE — a clean hit stuns it and the tail flower springs open to reveal the heart core. Immediately run around to the tail end and slash the core as many times as you can. After a few seconds it turns angry bright red and speeds up; you can't hurt it during this phase, so just dodge (and avoid the webs) until it calms back to its normal color. Then repeat: nose to stun, then hammer the tail core. It takes roughly 16 tail hits over several cycles. AFTER: open the chest it leaves to claim the Gust Jar — the dungeon's key item. WEAK POINT: the heart-shaped core in the tail flower (only open after a nose-stun)."
+  },
+  {
+   "name": "Big Green ChuChu",
+   "tier": "boss",
+   "tactic": "Use the Gust Jar to vacuum the giant blob's base until it shrinks, wobbles, and topples onto its side, then rush in and slash its exposed head/body before it stands back up. Repeats for about three knockdowns.",
+   "drops": "Heart Container, Earth Element (Deepwood Shrine boss)",
+   "battle": "Boss of Deepwood Shrine. Bring the Gust Jar (the key item you just found here), a full health bar, and a bottled fairy. OPENING: a huge gelatinous ChuChu wobbles around the room on a broad jelly base, its head held up out of easy sword range. You cannot meaningfully damage it while it stands. LOOP: aim the Gust Jar at the ChuChu and SUCK — keep vacuuming and its base visibly shrinks while it struggles to keep its balance. Watch its movement: if it winds up a jumping attack, dodge aside, then resume vacuuming. Once enough of its base is gone it loses balance and topples onto its side with a thud — that's your window: rush in and slash the exposed body/head as fast as you can before it reforms and stands up. Repeat — vacuum it down, dodge its hops, then slash. It takes roughly three knockdowns' worth of sword strikes. WEAK POINT: the body, reachable only after the Gust Jar shrinks its base and it topples over."
+  },
+  {
+   "name": "Gleerok",
+   "tier": "boss",
+   "tactic": "Roll around to its side or back so its head doesn't block you, and when its shell is NOT glowing brightly (right after it spits flame) fire the Cane of Pacci to flip the shell, then run up its neck and slash the jewel on its back.",
+   "drops": "Heart Container, Fire Element (Cave of Flames boss)",
+   "battle": "Boss of the Cave of Flames. Bring the Cane of Pacci (the key item from this dungeon), the sword, a full health bar, and ideally a bottled fairy. ARENA: a platform over lava; spat flames turn into burning patches on the ground. OPENING: the lava dragon Gleerok rises and spits fireballs and flame that pool on the floor — keep rolling (R) around the room to dodge. Attacking from the front is useless: its head and neck block everything. LOOP: roll AROUND to its side or behind. Wait for a moment when its shell is NOT glowing brightly (the glow fades just after it spits a burst of flame), then fire the Cane of Pacci at the shell to flip it, which pins the dragon and drops its neck like a bridge. Run UP the neck to its back and slash the glowing JEWEL there repeatedly. When it starts to recover, dash back across the neck to safety. Repeat: dodge fire and flame-pools, flip with the Cane while the shell is dim, climb, hit the jewel. WEAK POINT: the jewel on its back, exposed only after a Cane of Pacci flip."
+  },
+  {
+   "name": "Mazaal",
+   "tier": "boss",
+   "tactic": "Shoot the pink eye on each giant hand with the Bow to drop it, slash that eye until the hand goes limp, and once both hands and the head are down, shrink to Minish size, enter the head, and smash the glowing statue inside (in later rounds you also dig through sand to find it).",
+   "drops": "Heart Container, and the Ocarina of Wind from Zeffa (Fortress of Winds boss — the Wind Element is NOT here; the Wind Tribe took it to the Cloud Tops)",
+   "battle": "Boss of the Fortress of Winds. Bring the Bow with plenty of arrows, a full health bar, and a bottled fairy (clone/shrink pedestals are in the arena). OPENING: a giant stone idol head flanked by two enormous floating HANDS, each with a small pink eye. The head is invulnerable until both hands are dealt with. LOOP (hands): shoot the pink eye on a hand with an arrow — the hand crashes to the floor. Run over and slash that eye several times until the hand smokes and deactivates. Do the same to the other hand quickly, while the first is still down. With both hands disabled, the big HEAD drops to the floor. PHASE 2 (inside): step onto one of the pedestals and SHRINK to Minish size, then enter the small opening in Mazaal's fallen head. Inside, slash the glowing statue until you're knocked back out. Repeat the cycle; in later rounds Mazaal also slams its fists (sidestep them), and inside the head you must DIG through the sand to uncover the glowing statue before striking it. AFTER: claim the Heart Container, then Zeffa the bird gives you the Ocarina of Wind. WEAK POINTS: the pink eye on each hand (Bow then sword), then the glowing statue INSIDE the head (reachable only at Minish size)."
+  },
+  {
+   "name": "Big Octorok",
+   "tier": "boss",
+   "tactic": "Deflect its spat rocks back with sword or shield to hurt it, then once it and the floor ice over, run to its back and set the plant growing on it ablaze with the Flame Lantern; use the Lantern again to see through the ink it later spits.",
+   "drops": "Heart Container, Water Element (Temple of Droplets boss)",
+   "battle": "Boss of the Temple of Droplets. Bring the Flame Lantern (the dungeon's key item) and your shield, plus a full health bar and a bottled fairy. ARENA: shallow water the boss can freeze over. OPENING: the Big Octorok spits ROCKS at you. Raise your shield (or time a sword swing) to deflect a rock straight back into its face for damage. LOOP: after enough deflected rocks, the boss and the floor become covered in ICE — and it stops spitting rocks. Slip-run around to its BACK, where a plant grows, and set that plant on FIRE with the Flame Lantern. The Octorok panics and charges wildly around the room while burning; stay clear, and soon the ice melts. Then it's back to deflecting rocks. In a later phase it spits an inky substance that DARKENS the room — hold up the Flame Lantern to light your way and dodge its charges. Repeat: deflect rocks, burn the back-plant when iced over. WEAK POINTS: its face (deflected rocks) and the plant on its back (Flame Lantern while iced over)."
+  },
+  {
+   "name": "Gyorg Pair",
+   "tier": "boss",
+   "tactic": "Use Roc's Cape to leap onto each airborne Gyorg; on the red one, multiply your Links on the clone tiles and slash all three eyes at once until it smokes, and on the blue one slash the single open eye then immediately Cape-jump its tail whip.",
+   "drops": "Heart Container, Wind Element (Palace of Winds boss)",
+   "battle": "Boss of the Palace of Winds, fought MID-AIR. Bring Roc's Cape (essential — you need its glide/jump), the sword, a full health bar, and a bottled fairy. The arena has clone (split) tiles. OPENING: two flying eel-like Gyorgs, RED and BLUE, soar around you. RED GYORG: when it flies past, Roc's-Cape jump onto it — a trio of EYES opens. Step onto the clone tiles to MULTIPLY your Links and hit all three eyes SIMULTANEOUSLY; keep doing this until the Red Gyorg starts smoking. BLUE GYORG: Cape-jump onto it as it passes; one of its eyes opens — slash it fast, but the instant you hit it the Gyorg's TAIL whips around, so immediately use Roc's Cape to hop OVER the tail. In later rounds the Red Gyorg turns on its side, the Blue Gyorg strafes across shooting fireballs, and small green Gyorgs fly by (slash or dodge them). Stay airborne with the Cape, hit the red one's eyes in unison via clones, and slash-then-hop the blue one. WEAK POINTS: the red Gyorg's three eyes (all hit at once using clones) and the blue Gyorg's open eye (then dodge the tail)."
+  },
+  {
+   "name": "Vaati Reborn",
+   "tier": "boss",
+   "tactic": "Destroy the small eyes circling Vaati's body, which opens the big central eye — slash it until it shuts, then repeat as more eyes appear; in the later stage a shield covers the eyes, so use the Gust Jar to pull it away before you can hit them.",
+   "drops": "Progress to the next form (final boss, first form)",
+   "battle": "First form of the final boss. Bring the sword, the Gust Jar, a full health bar, and a bottled fairy (carry one for every Vaati form). OPENING: Vaati floats as a body ringed by circling EYES, with a large central eye. He shoots fireballs and slow-homing black energy balls — keep moving and don't get cornered. LOOP: destroy the small circling eyes (lock on and slash them as they pass). Once they're gone, the big central EYE opens — rush in and slash it before it shuts. He escalates to more eyes (up to four) that fire downward beams you must sidestep; in a later stage the eyes are protected by a shield, so use the GUST JAR to draw the shield away first, then slash. WEAK POINT: the central eye, exposed only after the circling eyes are cleared (Gust Jar removes the shield in the later stage)."
+  },
+  {
+   "name": "Vaati Transfigured",
+   "tier": "boss",
+   "tactic": "Shoot the four small eyes with arrows to make them vulnerable, using the clone tiles to hit all four at once, then slash his main body; break the spiky rocks he throws to replenish arrows.",
+   "drops": "Progress to the final form (final boss, second form)",
+   "battle": "Second form of the final boss. Bring the Bow with as many arrows as you can carry, the sword, a full health bar, and a fresh bottled fairy. Use the clone tiles in the arena. OPENING: Vaati's transfigured shape drifts around the room hurling spiky rocks, dropping rocks from the ceiling, and firing balls of ELECTRICITY that do heavy damage — prioritize dodging the electric balls. LOOP: he reveals four small EYES. Shoot them with ARROWS to make them vulnerable, and use the CLONE tiles to split into the formation that lets you hit all four eyes at once. With the eyes opened, slash his MAIN BODY repeatedly. If you run low on arrows, break the spiky rocks he throws — they drop arrows. Repeat (arrows to the four eyes via clones, then body slashes) until this form falls. WEAK POINTS: the four small eyes (Bow, hit together using clones), then the main body (sword)."
+  },
+  {
+   "name": "Vaati's Wrath (Final Form)",
+   "tier": "boss",
+   "tactic": "Flip each arm with the Cane of Pacci, shrink to Minish size and use the Lantern to destroy the vulnerable eye inside (the one whose pupil moves); once both arms are gone, split on the clone tiles and reflect his electric balls back at his eyes with timed sword swings, then rush the body.",
+   "drops": "Victory — Vaati is destroyed and the Four Sword is restored",
+   "battle": "The final form (Vaati's Wrath). Bring EVERYTHING: the Cane of Pacci, the Flame Lantern, the sword, the Gust Jar, a full health bar, and your last bottled fairy. This fight uses the clone tiles and shrinking. OPENING: Vaati fights with two massive ARMS fronted by eyes and fires fast ELECTRICITY balls — the arms must go first. LOOP (arms): hit an arm with the Cane of Pacci to FLIP it and expose a hole; SHRINK to Minish size and go inside, using the Flame Lantern to light it, and destroy the vulnerable EYE — it's the one whose pupil moves around. Return to normal size and do the same to the other arm. PHASE 2 (body): with both arms gone, Vaati fires electric balls from his front eyes, so SPLIT onto the clone tiles into four Links and time your sword SWINGS to REFLECT all the balls back at him at once (if a ball hits you or any clone you're shocked and lose your clones). When he's stunned and open, rush the BODY and slash it repeatedly. Repeat until Vaati is destroyed. WEAK POINTS: the eye inside each flipped arm (Cane of Pacci → shrink + Lantern → slash), then the body (reflect his own electric balls with timed clone swings, then slash)."
+  }
+ ]
+}

@@ -1,0 +1,373 @@
+{
+ "id": "oos",
+ "label": "Oracle of Seasons",
+ "short": "Seasons",
+ "REGIONS": [
+  {
+   "id": "oos_intro",
+   "name": "Into Holodrum",
+   "sub": "Main Quest — Horon Village & Subrosia",
+   "kind": "region",
+   "tagline": "A dancer stolen, the seasons shattered, and a rod that bends the year.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "oos_intro_s_din",
+     "name": "Din & Onox",
+     "sub": "The seasons go mad",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oos_din_1",
+       "k": "step",
+       "t": "The Triforce whisks Link away to the land of Holodrum. You come upon a troupe in the woods and a cheerful dancer named Din, who befriends you.",
+       "items": []
+      },
+      {
+       "id": "oos_din_2",
+       "k": "warn",
+       "t": "The sky darkens: the General of Darkness, Onox, descends, reveals Din is the Oracle of Seasons, and seals her away — throwing Holodrum's seasons into chaos."
+      },
+      {
+       "id": "oos_din_3",
+       "k": "step",
+       "t": "Impa helps you to Horon Village. Visit the great Maku Tree there; weakened by the chaos, she tells you to gather the eight Essences of Nature from Holodrum's dungeons to restore her power.",
+       "stuck": "The Maku Tree is in the walled grove in Horon Village — you reach her by cutting the bushes / lifting the right way in. Talk to her fully to set the eight-Essence goal."
+      }
+     ]
+    },
+    {
+     "id": "oos_intro_s_sword",
+     "name": "A Sword & the Rod",
+     "sub": "Your tools of the trade",
+     "reward": "Wooden Sword & Rod of Seasons",
+     "steps": [
+      {
+       "id": "oos_sword_1",
+       "k": "reward",
+       "t": "Find your first sword. Enter the Hero's Cave near Horon Village (south) and grab the Wooden Sword from the chest.",
+       "items": [
+        {
+         "name": "Wooden Sword",
+         "cat": "sword",
+         "note": "Your starting blade. Slash, and hold to charge a Spin Attack. Later upgraded to the Noble Sword and Master Sword."
+        }
+       ],
+       "stuck": "The cave is just south/southeast of Horon Village. Go in, beat the simple room, and open the chest for the Wooden Sword."
+      },
+      {
+       "id": "oos_sword_2",
+       "k": "step",
+       "t": "Step into a Subrosia portal (a glowing hole in the ground) to drop into the fiery under-realm. Make your way to the Temple of Seasons.",
+       "stuck": "Portals look like swirling pits — step onto one to fall through to Subrosia. From the landing, follow the path to the large Temple of Seasons."
+      },
+      {
+       "id": "oos_sword_3",
+       "k": "reward",
+       "t": "Inside the Temple of Seasons, claim the Rod of Seasons. (You can set only one season at first; you'll earn the other three from the Season Spirits as you go.)",
+       "items": [
+        {
+         "name": "Rod of Seasons",
+         "cat": "item",
+         "note": "Swing it on a season stump to change Holodrum's season — each season reshapes the land to open new paths."
+        }
+       ],
+       "stuck": "The Rod sits on a pedestal in the temple. Once you have it, find a tree stump on the surface, stand on it, and swing the Rod to change the season."
+      }
+     ]
+    },
+    {
+     "id": "oos_intro_s_first",
+     "name": "The First Essence",
+     "sub": "Off to the Gnarled Root",
+     "reward": "The eight-Essence goal",
+     "steps": [
+      {
+       "id": "oos_first_1",
+       "k": "tip",
+       "t": "Get used to the season stumps. The SAME screen changes with the season: Spring grows flowers and vines, Summer dries water and raises vine ladders, Autumn raises mushrooms, Winter freezes water and piles snow. When blocked, try every season at the nearest stump."
+      },
+      {
+       "id": "oos_first_2",
+       "k": "step",
+       "t": "Head to the Gnarled Root Dungeon, the first of the eight, north of Horon Village. Change the season as needed to reach its entrance, and grab the Gasha and seed trees along the way.",
+       "stuck": "The first dungeon is in North Horon. You may need to set Spring (or the season the path requires) at a stump to clear the way to its door."
+      },
+      {
+       "id": "oos_first_3",
+       "k": "step",
+       "t": "Your quest is set: clear all eight dungeons, claim the eight Essences of Nature, wake the Maku Seed, and storm Onox's Castle to save Din."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "rod_of_seasons",
+   "name": "Rod of Seasons",
+   "glyph": "stasis",
+   "from": "Won from the four Season Spirits in the Temple of Seasons, down in Subrosia.",
+   "what": "Stand on a season stump and swing the Rod to change Holodrum's season — Spring sprouts flowers and vines, Summer dries water and grows climbing vines, Autumn raises mushrooms and drops leaves, Winter freezes water and piles snow into ramps.",
+   "tip": "The same screen is four different puzzles depending on the season. Stuck? Hop on the nearest stump and cycle seasons until a path opens."
+  },
+  {
+   "id": "wooden_sword",
+   "name": "Wooden Sword",
+   "glyph": "sword",
+   "from": "Your first blade, found near Horon Village at the start.",
+   "what": "Basic sword for slashing and a charged Spin Attack. Upgrades to the Noble Sword and Master Sword later.",
+   "tip": "Hold the button to charge the Spin Attack; it hits all around you."
+  },
+  {
+   "id": "seed_satchel",
+   "name": "Seed Satchel",
+   "glyph": "leaf",
+   "from": "The Gnarled Root Dungeon (first dungeon) — and refilled from the Mystery/▼ seed trees.",
+   "what": "Holds the magic seeds you fire with the Slingshot or drop: Ember (fire), Scent (lure/damage), Pegasus (speed), Gale (warp), Mystery (random).",
+   "tip": "Different seeds solve different puzzles — Ember lights torches and burns bushes, Gale Seeds warp you to seed trees you've found."
+  },
+  {
+   "id": "power_bracelet",
+   "name": "Power Bracelet",
+   "glyph": "champion",
+   "from": "Snake's Remains (the second dungeon).",
+   "what": "Lets you lift and throw pots, bushes, and rocks blocking your way.",
+   "tip": "Many overworld rocks you couldn't move become liftable once you have this — backtrack for secrets."
+  },
+  {
+   "id": "rocs_feather",
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "from": "Poison Moth's Lair (the third dungeon).",
+   "what": "Lets Link jump over pits, spikes, and gaps. Upgrades to Roc's Cape (double jump/glide) late in the game.",
+   "tip": "Jumping is core to nearly every later dungeon; pair it with Pegasus Seeds for longer leaps."
+  },
+  {
+   "id": "magnetic_gloves",
+   "name": "Magnetic Gloves",
+   "glyph": "magnesis",
+   "from": "Unicorn's Cave (the fifth dungeon).",
+   "what": "Attract or repel magnetic blocks and balls — pull yourself across gaps to magnetic anchors, or fling iron balls.",
+   "tip": "Switch polarity (N/S) to pull toward or push away; it solves the trickiest mid-late puzzles."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Rod of Seasons",
+   "glyph": "stasis",
+   "step": "oos_sword_3"
+  },
+  {
+   "name": "Wooden Sword",
+   "glyph": "sword",
+   "step": "oos_sword_1"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Fertile Soil",
+   "from": "Gnarled Root Dungeon",
+   "note": "The first Essence of Nature, won from the Gnarled Root Dungeon (boss Aquamentus).",
+   "step": null
+  },
+  {
+   "name": "Gift of Time",
+   "from": "Snake's Remains",
+   "note": "The second Essence, won from Snake's Remains (boss Dodongo).",
+   "step": null
+  },
+  {
+   "name": "Bright Sun",
+   "from": "Poison Moth's Lair",
+   "note": "The third Essence, won from Poison Moth's Lair (boss Mothula).",
+   "step": null
+  },
+  {
+   "name": "Soothing Rain",
+   "from": "Dancing Dragon Dungeon",
+   "note": "The fourth Essence, won from the Dancing Dragon Dungeon (boss Gohma).",
+   "step": null
+  },
+  {
+   "name": "Nurturing Warmth",
+   "from": "Unicorn's Cave",
+   "note": "The fifth Essence, won from Unicorn's Cave (boss Digdogger).",
+   "step": null
+  },
+  {
+   "name": "Blowing Wind",
+   "from": "Ancient Ruins",
+   "note": "The sixth Essence, won from the Ancient Ruins (boss Manhandla).",
+   "step": null
+  },
+  {
+   "name": "Seed of Life",
+   "from": "Explorer's Crypt",
+   "note": "The seventh Essence, won from the Explorer's Crypt (boss Gleeok).",
+   "step": null
+  },
+  {
+   "name": "Changing Seasons",
+   "from": "Sword & Shield Maze",
+   "note": "The eighth and last Essence, won from the Sword & Shield Maze — completing the Maku Seed.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Rings & Collectibles",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "essences",
+   "name": "The Eight Essences of Nature",
+   "sub": "To wake the Maku Seed",
+   "note": "One Essence waits in each of Holodrum's eight dungeons. Gather all eight and the Maku Tree forms the Maku Seed, your key to Onox's Castle.",
+   "reward": "Maku Seed"
+  },
+  {
+   "id": "rod",
+   "name": "The Rod of Seasons",
+   "sub": "Master the four seasons",
+   "note": "Won from the four Season Spirits in Subrosia, the Rod lets you change the season at stumps — reshaping the land to open every path.",
+   "reward": "Season control"
+  },
+  {
+   "id": "rings",
+   "name": "Magic Rings",
+   "sub": "Sixty-four to collect",
+   "note": "Find ring boxes and Gasha-nut seeds, then have Vasu appraise them. Equip rings for powers — extra damage, defense, new abilities. There are 64 in all (shareable with a linked Oracle of Ages game).",
+   "reward": "Ring powers"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Twelve are hidden across Holodrum — some only reachable in a particular season.",
+   "reward": "More hearts"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "seasons",
+   "name": "Changing the seasons",
+   "items": [
+    "The Rod of Seasons (from Subrosia) changes Holodrum's season when you stand on a stump and swing it. Each season transforms the SAME map: Spring blooms flowers/vines to climb, Summer dries up water and grows vine ladders, Autumn raises mushrooms and clears leaves, Winter freezes water solid and heaps snow into ramps.",
+    "If a screen looks impassable, find the nearest season stump and try all four seasons — one of them opens the way.",
+    "You start only able to set ONE season; you earn the others from the Season Spirits as you progress."
+   ]
+  },
+  {
+   "id": "subrosia",
+   "name": "Subrosia & seeds",
+   "items": [
+    "Portals (glowing holes) drop you into Subrosia, the fiery under-realm — home of the Temple of Seasons, the smithy (sword/shield upgrades), and trading sidequests.",
+    "Magic Seeds power your Slingshot and tools: Ember (fire/torches), Scent (lure & damage), Pegasus (speed), Gale (warp to seed trees), Mystery (random). Refill from the seed trees dotted around Holodrum.",
+    "Gasha Seeds planted in soft soil grow Gasha Nuts that hold rings, rupees, and items."
+   ]
+  },
+  {
+   "id": "rings",
+   "name": "Rings & the linked game",
+   "items": [
+    "Collect ring boxes and have Vasu (in Horon Village) appraise unidentified rings. Equip one at a time for effects — the Power Ring boosts attack, the Armor Ring defense, and dozens more.",
+    "Oracle of Seasons and Oracle of Ages are a linked pair: beat one, then enter its password into the other to play a harder 'linked' quest, share rings, and unlock the TRUE final boss (Twinrova → Ganon).",
+    "A bottled Fairy or a Gasha Nut potion can save you in a tough dungeon."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 12,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container — some only reachable in a particular season."
+  },
+  {
+   "id": "rings",
+   "label": "Magic Rings",
+   "total": 64,
+   "glyph": "gem",
+   "note": "Appraised by Vasu; equip one for a power. 64 in all (shareable with a linked Oracle of Ages)."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Essences of Nature",
+  "regionBanner": "Dungeon",
+  "worldName": "Holodrum"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "oos_onox"
+}

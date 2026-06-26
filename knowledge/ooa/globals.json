@@ -1,0 +1,66 @@
+{
+ "_note": "Oracle of Ages (game 11, Game Boy Color 2001) static bundle fields. assemble-ooa.mjs merges these with walkthrough.json (REGIONS) into app-data.json. Set in LABRYNNA: the Sorceress of Shadows, Veran, possesses Nayru the Oracle of Ages and warps history. Link wields the Harp of Ages (travel between the PAST and the PRESENT) and gathers the 8 ESSENCES OF TIME from 8 dungeons to wake the Maku Tree's seed and defeat Veran. The puzzle-heavy twin of Oracle of Seasons; the magic-ring system + the linked password are shared signatures. Empty datasets degrade gracefully like the other classic games.",
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Essences of Time",
+  "regionBanner": "Dungeon",
+  "worldName": "Labrynna"
+ },
+ "guideSegs": [["runes", "Items"], ["tips", "Tips"], ["settings", "Settings"]],
+ "postRegionId": "ooa_veran",
+ "CATS": [
+  { "id": "sword", "name": "Swords", "glyph": "sword" },
+  { "id": "shield", "name": "Shields", "glyph": "shield" },
+  { "id": "item", "name": "Items & Tools", "glyph": "bag" },
+  { "id": "key", "name": "Key Items", "glyph": "key" },
+  { "id": "material", "name": "Rings & Collectibles", "glyph": "gem" }
+ ],
+ "RUNES": [
+  { "id": "harp_of_ages", "name": "Harp of Ages", "glyph": "stasis", "from": "Entrusted by Nayru (or recovered early in the quest) — the instrument of time.", "what": "Play its tunes to travel between the PAST and the PRESENT: the Tune of Echoes opens time portals, the Tune of Currents warps you to the present, and the Tune of Ages warps you freely between eras.", "tip": "A change you make in the PAST ripples into the PRESENT — plant or move something long ago to find it grown or shifted now. That's the core of nearly every puzzle." },
+  { "id": "wooden_sword", "name": "Wooden Sword", "glyph": "sword", "from": "Your first blade, found near Lynna Village at the start.", "what": "Basic sword for slashing and a charged Spin Attack. Upgrades to the Noble Sword and Master Sword later.", "tip": "Hold the button to charge the Spin Attack; it hits all around you." },
+  { "id": "power_bracelet", "name": "Power Bracelet", "glyph": "champion", "from": "Spirit's Grave (the first dungeon).", "what": "Lets you lift and throw pots, bushes, and rocks blocking your way.", "tip": "Many blocked overworld rocks become liftable once you have this — across both the past and present." },
+  { "id": "rocs_feather", "name": "Roc's Feather", "glyph": "leaf", "from": "Wing Dungeon (the second dungeon).", "what": "Lets Link jump over pits, spikes, and gaps.", "tip": "Core to most later dungeons; pair with Pegasus Seeds for longer leaps." },
+  { "id": "switch_hook", "name": "Switch Hook", "glyph": "magnesis", "from": "Skull Dungeon (the fourth dungeon).", "what": "Fires a hook that SWAPS Link's place with the object or enemy it hits — trade places with blocks across gaps and across time-locked walls. Upgrades to the Long Hook.", "tip": "Switching places with a block lets you cross a pit you can't jump; switch with an enemy to reposition it onto a switch." },
+  { "id": "seed_shooter", "name": "Seed Shooter", "glyph": "leaf", "from": "Moonlit Grotto (the third dungeon).", "what": "Fires magic seeds in a straight line that BOUNCE off walls — hit far switches and torches around corners.", "tip": "Aim ricochets off walls to reach a switch you can't line up directly — a favorite Ages puzzle." }
+ ],
+ "CHAMPIONS": [
+  { "name": "Eternal Spirit", "from": "Spirit's Grave", "note": "The first Essence of Time, won from Spirit's Grave." },
+  { "name": "Ancient Wood", "from": "Wing Dungeon", "note": "The second Essence, won from the Wing Dungeon." },
+  { "name": "Echoing Howl", "from": "Moonlit Grotto", "note": "The third Essence, won from the Moonlit Grotto (boss Shadow Hag)." },
+  { "name": "Burning Flame", "from": "Skull Dungeon", "note": "The fourth Essence, won from the Skull Dungeon (boss Eyesoar)." },
+  { "name": "Sacred Soil", "from": "Crown Dungeon", "note": "The fifth Essence, won from the Crown Dungeon (boss Smog)." },
+  { "name": "Lonely Peak", "from": "Mermaid's Cave", "note": "The sixth Essence, won from Mermaid's Cave (boss Octogon)." },
+  { "name": "Rolling Sea", "from": "Jabu-Jabu's Belly", "note": "The seventh Essence, won from Jabu-Jabu's Belly (boss Plasmarine)." },
+  { "name": "Falling Star", "from": "Ancient Tomb", "note": "The eighth and last Essence, won from the Ancient Tomb — completing the Maku Seed." }
+ ],
+ "ROADMAP": [
+  { "id": "essences", "name": "The Eight Essences of Time", "sub": "To wake the Maku Seed", "note": "One Essence waits in each of Labrynna's eight dungeons. Gather all eight and the Maku Tree forms the Maku Seed, your key to Veran's seat of power.", "reward": "Maku Seed" },
+  { "id": "harp", "name": "The Harp of Ages", "sub": "Past and present", "note": "The Harp lets you cross between the past and the present at time portals. Reshape history — what you do long ago changes the world today.", "reward": "Time travel" },
+  { "id": "rings", "name": "Magic Rings", "sub": "Sixty-four to collect", "note": "Find ring boxes and Gasha nuts, then have Vasu appraise them. Equip rings for powers. There are 64 in all (shareable with a linked Oracle of Seasons game).", "reward": "Ring powers" },
+  { "id": "hearts", "name": "Pieces of Heart", "sub": "Four = one Heart Container", "note": "Twelve are hidden across Labrynna — some only reachable in one era.", "reward": "More hearts" }
+ ],
+ "TIPS": [
+  { "id": "time", "name": "Traveling through time", "items": [
+   "The Harp of Ages moves you between the PAST and the PRESENT at time portals. The Tune of Echoes opens portals; the Tune of Currents and Tune of Ages warp you between eras directly once learned.",
+   "Cause and effect across time is the whole game: block a river in the past and a lake is dry in the present; plant a seed long ago and a tree stands today. When stuck, ask 'what could I change in the OTHER era?'",
+   "Some screens exist only in one era, or are blocked in one and open in the other — flip time and look again."
+  ] },
+  { "id": "seeds", "name": "Seeds, hooks & tools", "items": [
+   "Magic Seeds power the Seed Shooter and tools: Ember (fire), Scent (lure/damage), Pegasus (speed), Gale (warp), Mystery (random). Refill from seed trees.",
+   "The Switch Hook swaps Link's place with a block or enemy — cross gaps and reposition things; it later becomes the Long Hook with longer reach.",
+   "Gasha Seeds planted in soft soil grow Gasha Nuts holding rings, rupees, and items."
+  ] },
+  { "id": "rings", "name": "Rings & the linked game", "items": [
+   "Collect ring boxes and have Vasu (in Lynna) appraise unidentified rings; equip one for effects (Power Ring boosts attack, Armor Ring defense, and dozens more).",
+   "Oracle of Ages and Oracle of Seasons are a linked pair: beat one, then enter its password into the other for a harder 'linked' quest, shared rings, and the TRUE final boss (Twinrova → Ganon).",
+   "Ages leans more on puzzles than combat — take your time reading each room; a bottled Fairy helps in the harder dungeons."
+  ] }
+ ],
+ "WORLD": { "upgrades": [], "systems": [], "fairies": [] },
+ "COLLECTIBLES": [
+  { "id": "hearts", "label": "Pieces of Heart", "total": 12, "glyph": "heart", "note": "Every 4 make a full Heart Container — some only reachable in one era." },
+  { "id": "rings", "label": "Magic Rings", "total": 64, "glyph": "gem", "note": "Appraised by Vasu; equip one for a power. 64 in all (shareable with a linked Oracle of Seasons)." }
+ ]
+}

@@ -1,0 +1,270 @@
+{
+ "items": [
+  {
+   "name": "Smith's Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Your starting blade, a plain sword forged by your grandfather Smith. It handles the basic slash and charge attack and serves until the Picori Blade is reforged into the White Sword. (You don't keep this once the White Sword is forged.)",
+   "where": "Given by Smith at the very start in your house, but you can't actually draw it until after the Picori Festival tournament awards ceremony at Hyrule Castle."
+  },
+  {
+   "name": "White Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The shattered Picori Blade reforged by the Minish smith Melari. As the sacred blade it is stronger than the Smith's Sword, can charge to create a single duplicate of Link on glowing tiles, and is the base into which the Four Elements are infused.",
+   "where": "Reforged at Melari's Mine atop Mount Crenel after you deliver the Broken Picori Blade to Melari (you must shrink to Minish size, using the Earth Element from Deepwood Shrine, to reach him)."
+  },
+  {
+   "name": "White Sword (Two Elements)",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The White Sword after the Earth and Fire Elements are infused into it — noticeably more powerful, and it can now charge to create two duplicates of Link on glowing tiles. Each Element infused raises the blade's strength on the way to the Four Sword.",
+   "where": "Earth Element comes from Deepwood Shrine; Fire Element from the Cave of Flames beneath Mount Crenel. Infuse both at the Elemental Sanctuary (reached through Hyrule Castle) to upgrade the White Sword."
+  },
+  {
+   "name": "White Sword (Three Elements)",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The further-empowered White Sword after the Water Element is added — stronger still, and one Element short of the legendary blade.",
+   "where": "Add the Water Element (from the Temple of Droplets in Lake Hylia) to the two-Element blade at the Elemental Sanctuary."
+  },
+  {
+   "name": "Four Sword",
+   "cat": "sword",
+   "type": "Legendary Sword",
+   "effect": "The legendary blade born when all four Elements (Earth, Fire, Water, Wind) are infused into the White Sword. It is Hyrule's strongest sword and, when charged on glowing tiles, splits Link into multiple copies to fight together and solve multi-switch puzzles. It's the weapon used to defeat Vaati.",
+   "where": "Forged by infusing the final Wind Element (from the Palace of Winds in the Cloud Tops) into the three-Element White Sword at the Elemental Sanctuary, just before the final battle."
+  },
+  {
+   "name": "Shield",
+   "cat": "shield",
+   "type": "Small Shield",
+   "effect": "The basic Small Shield, used to block enemy attacks and projectiles from the front — sword strikes, Octorok rocks, and the like. Hold it up to guard.",
+   "where": "Won by Princess Zelda in a raffle at the Picori Festival early in the game; she chooses the shield as her prize and gives it to Link."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "A sturdier upgrade to the Small Shield that can reflect certain beam and magic attacks back at enemies. It's an optional late/post-game reward, not required to finish the game.",
+   "where": "Post-game: complete the Goron Kinstone quest (fuse with the 5 Mysterious Walls plus the final cave Goron — six Goron fusions in all) to awaken Biggoron at Veil Falls, then after defeating Vaati give him your Small Shield; he chews on it and, ~20 minutes later, returns it transformed into the Mirror Shield."
+  },
+  {
+   "name": "Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Fires arrows to hit distant enemies, activate switches and eye targets, and destroy Eyegore statues. Arrows draw from your arrow supply.",
+   "where": "Found in Castor Wilds — shrink to Minish size, cross to a lily pad, enter the small hole, and defeat the Mulldozers inside to make the chest appear. (Castor Wilds is the area before the Fortress of Winds dungeon.)"
+  },
+  {
+   "name": "Light Arrow",
+   "cat": "bow",
+   "type": "Bow upgrade",
+   "effect": "Upgrades your Bow so its arrows fly imbued with holy light, dealing extra damage to enemies. It's an optional power-up for the existing Bow, not a separate weapon.",
+   "where": "Reward from the old man Gregal at the Home of the Wind Tribe (Cloud Tops). You must first save him by using the Gust Jar to suck up the ghost circling him in his house — done before you reach the Wind Tribe's home via Veil Falls / the Cloud Tops, or he passes away and the Light Arrow becomes permanently unobtainable. (Saving him also earns 100 Mysterious Shells up front.)"
+  },
+  {
+   "name": "Ezlo",
+   "cat": "item",
+   "type": "Hat / talking cap",
+   "effect": "The enchanted Minish cap who rides on Link's head all game. He lets Link shrink to Minish size by stepping onto special portals (stumps, jars, doorways), and once you have Roc's Cape he can spread out to slow your fall and glide short gaps. He also narrates hints.",
+   "where": "Joins Link in the opening: you rescue him in the Minish Woods after the Picori Blade shatters and Vaati turns Princess Zelda to stone. He stays with you for the entire game."
+  },
+  {
+   "name": "Gust Jar",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Vacuum tool. Hold to suck in air, dust, sand, light objects and certain enemies (like Mushrooms and Mandibles); release to puff a small gust that can spin fans, push things, or knock foes back. Also clears cobwebs and pulls in distant items.",
+   "where": "Found inside the first dungeon, Deepwood Shrine (Minish Woods) — in the chest after defeating the Madderpillar mini-boss."
+  },
+  {
+   "name": "Cane of Pacci",
+   "cat": "item",
+   "type": "Magic cane",
+   "effect": "Fires a ring of magic that flips objects and enemies upside-down. Flip a hole in the floor to turn it into a launch pad (jump up to higher ledges), flip overturned enemies to expose them, and reveal hidden shrinking portals.",
+   "where": "Found in the second dungeon, Cave of Flames (Mount Crenel)."
+  },
+  {
+   "name": "Mole Mitts",
+   "cat": "item",
+   "type": "Digging gauntlets",
+   "effect": "Let Link dig through soft dirt walls and floors, tunneling to new areas and uncovering buried passages and treasure.",
+   "where": "Found in the third dungeon, the Fortress of Winds (reached via the Wind Ruins, past Castor Wilds)."
+  },
+  {
+   "name": "Flame Lantern",
+   "cat": "item",
+   "type": "Lantern",
+   "effect": "Lights up dark rooms, burns away dry brush and webs, and melts ice. A torch you carry rather than a one-use fire.",
+   "where": "Found in the fourth dungeon, Temple of Droplets (Lake Hylia)."
+  },
+  {
+   "name": "Roc's Cape",
+   "cat": "item",
+   "type": "Cape",
+   "effect": "Press to make Link jump into the air; while airborne Ezlo spreads out so you hover and glide for a moment, clearing pits and gaps and letting you drop attacks from above. An upgrade in feel from a normal jump.",
+   "where": "Found in the final dungeon, the Palace of Winds (Cloud Tops)."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Thrown tool",
+   "effect": "Throw to stun enemies, hit distant switches, and drag in rupees and items from afar. It flies a fixed arc and returns to you.",
+   "where": "Bought from Stockwell's shop in Hyrule Town for 300 Rupees."
+  },
+  {
+   "name": "Magical Boomerang",
+   "cat": "item",
+   "type": "Thrown tool (upgrade)",
+   "effect": "An upgraded Boomerang you can steer in flight by holding a direction, giving it longer range and letting you curve it around obstacles to hit switches and enemies the normal one can't reach.",
+   "where": "Won by fusing Kinstones with Tingle and his three brothers — Tingle (South Hyrule Field), Ankle (Lon Lon Ranch cave), Knuckle (Trilby Highlands) and David Jr. (Lake Hylia). Each fusion lights a tree in the four-tree grove of North Hyrule Field; with all four lit, a ladder appears to a chest holding the Magical Boomerang."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Explosive",
+   "effect": "Set a bomb to blow open cracked walls and floors and to damage enemies. Carried via the Bomb Bag, whose capacity can be upgraded.",
+   "where": "Receive the Bomb Bag from a Minish (Picori) in a house just outside Deepwood Shrine after clearing the first dungeon."
+  },
+  {
+   "name": "Remote Bombs",
+   "cat": "item",
+   "type": "Explosive (upgrade)",
+   "effect": "A bomb variant you detonate manually with a button press instead of on a timer, so you can place it and choose the exact moment it explodes. You can hold only one Remote Bomb out at a time — talk to Belari again to swap back and forth between Remote and regular Bombs.",
+   "where": "Granted by the Minish inventor Belari (just outside the Minish Village) after you fuse Kinstones with the Minish Elder Gentari, which you can do once you've completed the Temple of Droplets."
+  },
+  {
+   "name": "Pegasus Boots",
+   "cat": "item",
+   "type": "Boots",
+   "effect": "Hold the button to charge, then dash at high speed. The dash crosses swamp without sinking, knocks down trees and dazes enemies when you ram walls, and can break through some obstacles.",
+   "where": "Given by Rem the shoemaker in Hyrule Town. He's asleep on the job — wake him with the Wake-Up Mushroom bought from Syrup the witch (her hut in the northeast Minish Woods) for 60 Rupees, then return to his shop for the boots."
+  },
+  {
+   "name": "Grip Ring",
+   "cat": "item",
+   "type": "Ring (accessory)",
+   "effect": "Lets Link cling to and climb special rocky walls and cliff faces, and resist being blown off by strong gusts, opening routes up Mount Crenel.",
+   "where": "Bought from a Business Scrub on Mount Crenel for 80 Rupees."
+  },
+  {
+   "name": "Flippers",
+   "cat": "item",
+   "type": "Accessory",
+   "effect": "Let Link swim across deep water and dive, reaching areas he otherwise can't cross.",
+   "where": "Reward for returning all the overdue books in the Hyrule Town Library book-collecting sidequest."
+  },
+  {
+   "name": "Bottle",
+   "cat": "item",
+   "type": "Empty Bottle (x4)",
+   "effect": "Reusable containers (four total). Store fairies, Red/Blue Potion, water (to grow the Magical Boomerang flower), Picolyte, and other liquids for later use.",
+   "where": "Four Empty Bottles are scattered across the world: bought from a Business Scrub in Trilby Highlands (20 Rupees), given by Stockwell after you fetch the bottle behind his counter and feed his dog Fifi, and won in/near Lon Lon Ranch through Kinstone-fusion side content. Earned through exploration and sidequests."
+  },
+  {
+   "name": "Picolyte",
+   "cat": "item",
+   "type": "Potion (find-booster)",
+   "effect": "A drink stored in a Bottle that briefly (about 30 seconds) raises how often a specific thing drops: White = Kinstone pieces, Red = Recovery Hearts, Green = Mysterious Shells, Yellow = Rupees, Blue = items like Bombs/Arrows, Orange = fairies. Only one effect active at a time.",
+   "where": "Bought at the shop in Hyrule Town for 200 Rupees each (NTSC). White, Red, and Green are sold from the start; Yellow, Blue, and Orange unlock after you bring the Minish researcher in the Minish Village's Barrel House the right samples (Lon Lon Milk, Mt. Crenel Mineral Water, and a Red Potion) to grow their Pico Blooms."
+  },
+  {
+   "name": "Earth Element",
+   "cat": "key",
+   "type": "Element",
+   "effect": "One of the four sacred Elements needed to reforge the sword. Infusing it adds to the blade's power on the path to the Four Sword (each Element brings the finished sword closer to its split-into-four power).",
+   "where": "Won by defeating the Big Green ChuChu in the first dungeon, Deepwood Shrine."
+  },
+  {
+   "name": "Fire Element",
+   "cat": "key",
+   "type": "Element",
+   "effect": "One of the four sacred Elements. Charges the sword with fire's power as you gather all four to remake the Picori Blade into the Four Sword.",
+   "where": "Won by defeating Gleerok in the second dungeon, the Cave of Flames, on Mount Crenel."
+  },
+  {
+   "name": "Water Element",
+   "cat": "key",
+   "type": "Element",
+   "effect": "One of the four sacred Elements, carrying water's power. Needed to upgrade the sword toward the Four Sword.",
+   "where": "Won in the fourth dungeon, the Temple of Droplets, at Lake Hylia — the boss Big Octorok snatches it when you melt the ice around it, so you must beat him to take it back."
+  },
+  {
+   "name": "Wind Element",
+   "cat": "key",
+   "type": "Element",
+   "effect": "The fourth and final sacred Element, carrying wind's power. With all four gathered, the White Sword can be reforged into the legendary Four Sword.",
+   "where": "Won by defeating the Gyorg Pair in the final dungeon, the Palace of Winds, in the Cloud Tops (it is NOT in the similarly named Fortress of Winds)."
+  },
+  {
+   "name": "Picori Blade",
+   "cat": "sword",
+   "type": "Sacred sword (broken)",
+   "effect": "The legendary blade the Picori once gave a hero to seal evil. Vaati shatters it in the opening, freeing the monsters and turning Zelda to stone. Repairing and empowering it is the spine of the whole quest.",
+   "where": "Seen broken at the start; you take the shards to the Minish smith Melari on Mount Crenel, who reforges it into the White Sword."
+  },
+  {
+   "name": "Kinstone Bag",
+   "cat": "key",
+   "type": "Key item (pouch)",
+   "effect": "Holds the Kinstone halves you collect so you can carry and fuse them. Fusing matching halves with people and creatures triggers events across Hyrule — opening chests, paths, and bonuses.",
+   "where": "Given by the wandering musician on the road into Hyrule Town, after you finish Deepwood Shrine — along with your very first Kinstone."
+  },
+  {
+   "name": "Ocarina of Wind",
+   "cat": "key",
+   "type": "Key item (instrument)",
+   "effect": "Play it to summon Zeffa the great bird, who whisks Link to any activated Wind Crest he's uncovered around Hyrule — the game's fast-travel system (press B to be returned to where you were picked up).",
+   "where": "Received at the top of the Fortress of Winds: after you defeat the boss Mazaal, Zeffa drops the Ocarina behind Link at the Wind Tribe's stone tablet."
+  },
+  {
+   "name": "Big Key",
+   "cat": "key",
+   "type": "Dungeon key (big)",
+   "effect": "The oversized key that opens a dungeon's locked boss door. Each dungeon has its own Big Key, used only within that dungeon.",
+   "where": "Found inside each full dungeon — Deepwood Shrine, Cave of Flames, Fortress of Winds, Temple of Droplets, Palace of Winds, and Dark Hyrule Castle — usually guarded behind a puzzle or sub-boss. (The Royal Crypt is a mini-dungeon and uses only small keys.)"
+  },
+  {
+   "name": "Kinstone",
+   "cat": "material",
+   "type": "Fusion piece",
+   "effect": "A colored stone broken into two matching halves. When you find someone (or something) holding the half that fits yours, you 'fuse' Kinstones — triggering a chime and an event somewhere in the world, like a new chest, a sprouting beanstalk, or a cleared path. Dozens of fusions gate secrets and Heart Pieces.",
+   "where": "Half-stones are everywhere: cut grass, smash pots and rocks, defeat enemies, open chests, and receive them from characters. The matching halves are held by NPCs, animals, and statues across Hyrule."
+  },
+  {
+   "name": "Mysterious Shell",
+   "cat": "material",
+   "type": "Collectible currency",
+   "effect": "The currency of the Figurine Gallery. Feed Shells into Carlov's figurine machine — the more you spend per pull, the better your odds of winning a figurine you don't yet own. Holds up to 999.",
+   "where": "Found in chests, bushes, grass, and rocks throughout Hyrule, dropped by enemies, and bought in bulk from Stockwell's shop. Green Picolyte raises the find rate."
+  },
+  {
+   "name": "Figurine",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "A small statue of a Minish Cap character, enemy, or object for the in-game gallery. Pure collectible / completion goal — gathering them all earns rewards (a Piece of Heart, rupee chests, a Phonograph, and the Carlov Medal).",
+   "where": "Won from Carlov's figurine-dispensing machine in Hyrule Town by spending Mysterious Shells. 136 in total — 130 standard plus a final 6 unlocked after defeating Vaati."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Heart fragment",
+   "effect": "A quarter of a Heart Container. Collect four Pieces of Heart and your maximum life expands by one full heart.",
+   "where": "Hidden across Hyrule — in chests, behind Kinstone fusions, as minigame and sidequest rewards, and in secret spots. There are 44 in all (enough for 11 full hearts)."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Max-health upgrade",
+   "effect": "Permanently adds one full heart to Link's maximum life gauge and refills your health when obtained.",
+   "where": "Awarded for defeating each dungeon's boss; additional hearts come from assembling Pieces of Heart (four per heart)."
+  },
+  {
+   "name": "Rupee",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "Hyrule's money, in colored denominations (green 1, blue 5, red 20, big green 100, big red 200, and more). Spend on equipment, Picolyte, Mysterious Shells, potions, and shop upgrades; wallet upgrades raise how many you can hold.",
+   "where": "Found everywhere — cut grass, smash pots and rocks, open chests, defeat enemies, and complete Kinstone fusions and sidequests."
+  }
+ ]
+}

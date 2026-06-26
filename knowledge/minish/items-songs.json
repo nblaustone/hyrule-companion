@@ -1,0 +1,268 @@
+{
+ "items": [
+  {
+   "id": "ezlo",
+   "name": "Ezlo",
+   "glyph": "mask",
+   "from": "Story — the talking cap (a transformed Minish sage) you wear after the start; he's your map/menu helper for the whole game.",
+   "what": "The Minish Cap itself. On Minish portals he shrinks Link to tiny Picori size to enter the Minish world; once you have Roc's Cape he also lets you glide across gaps on updrafts.",
+   "tip": "Whenever you're stuck on a gap or a wall too small to climb, look for a green Minish portal (tree stump, jar, table) — Ezlo shrinks you there to find a hidden path."
+  },
+  {
+   "id": "smiths-sword",
+   "name": "Smith's Sword",
+   "glyph": "sword",
+   "from": "Given by Smith (your grandfather) at home in Hyrule near the very start.",
+   "what": "Your starting sword and main attack. Swing it, and hold to charge a Spin Attack.",
+   "tip": "Hold the attack button until Link flashes, then release for a Spin Attack that hits all around you — great for crowds."
+  },
+  {
+   "id": "white-sword",
+   "name": "White Sword",
+   "glyph": "sword",
+   "from": "Melari, the Minish smith at the top of Mt. Crenel, reforges the Broken Picori Blade into it once you've collected the first Element (Earth, from Deepwood Shrine).",
+   "what": "A stronger blade that holds the power of the Elements. As you infuse each Element at the Elemental Sanctuary in Hyrule Castle, it gains the split (clone) power and grows toward the Four Sword.",
+   "tip": "After gathering Elements, return to the Elemental Sanctuary inside Hyrule Castle to infuse them — the blade unlocks an extra clone with each step."
+  },
+  {
+   "id": "four-sword",
+   "name": "Four Sword",
+   "glyph": "sword",
+   "from": "The White Sword infused with all four Elements (Earth, Fire, Water, Wind) at the Elemental Sanctuary.",
+   "what": "The legendary blade that seals Vaati. It's your strongest sword and reaches the full clone (split) power used to beat the final boss.",
+   "tip": "This is the goal of the whole quest — you can't truly finish Vaati without it."
+  },
+  {
+   "id": "sword-beam",
+   "name": "Sword Beam (charged shot)",
+   "glyph": "sword",
+   "from": "A power of your sword when you're at full hearts (the technique is taught by Grimblade in the Hyrule Castle garden).",
+   "what": "At full health, a normal swing fires a beam of energy that travels across the screen and hits distant enemies and switches.",
+   "tip": "Keep your hearts topped up — the free ranged beam makes fights much safer."
+  },
+  {
+   "id": "clone-split",
+   "name": "Clone Ability (Split)",
+   "glyph": "champion",
+   "from": "Gained as you infuse Elements into the sword (one clone after the first two Elements, more with each, up to four at the Four Sword); used on glowing rune-tile pads in dungeons and the final fight.",
+   "what": "Charge the sword on a marked tile, then step onto the second tile to split into up to four Links that move in formation, letting you press several switches or strike several targets at once.",
+   "tip": "A clone vanishes if it touches a wall, enemy, or barrier (or the gauge empties) — line them up, then act fast."
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "Post-game only — after you beat Vaati and finish the Goron Kinstone quest, give your shield to Biggoron at Veil Falls and return later to receive it. (You start the game with a Small Shield that Zelda wins for you at the Picori Festival.)",
+   "what": "Blocks attacks like the normal shield, and also reflects projectiles and beams back at the enemy.",
+   "tip": "Hold it up against magic shots and beams to bounce them back instead of just blocking."
+  },
+  {
+   "id": "gust-jar",
+   "name": "Gust Jar",
+   "glyph": "pot",
+   "from": "Deepwood Shrine (Dungeon 1), in the chest after you beat the Madderpillar mini-boss.",
+   "what": "Hold the button to suck in air — it pulls items, mushrooms, and light enemies toward you, clears sand/cobwebs, and tugs you along lilypads. Release for a puff of air.",
+   "tip": "It's also a tool against enemies and ghosts: vacuum up small spinning foes and dust piles, and use it to topple the Big Green ChuChu boss."
+  },
+  {
+   "id": "cane-of-pacci",
+   "name": "Cane of Pacci",
+   "glyph": "scroll",
+   "from": "Cave of Flames (Dungeon 2).",
+   "what": "Flips objects and enemies over with a magic ring, and turns holes into launch pads — stand on a flipped hole to be shot upward to a higher ledge.",
+   "tip": "Flip an armored enemy onto its back to expose it, then strike. Use it on dark holes to reach ledges you can't jump to."
+  },
+  {
+   "id": "mole-mitts",
+   "name": "Mole Mitts",
+   "glyph": "bag",
+   "from": "Fortress of Winds (Dungeon 3).",
+   "what": "Claw gloves that dig through soft dirt walls and floors, opening new tunnels and uncovering buried paths.",
+   "tip": "Any crumbly brown wall or dirt patch can be dug — look for them to find shortcuts and hidden rooms (and the Goron-quest caves)."
+  },
+  {
+   "id": "flame-lantern",
+   "name": "Flame Lantern",
+   "glyph": "orb",
+   "from": "Temple of Droplets (Dungeon 4).",
+   "what": "Shoots a small flame to light torches, burn obstacles, and melt hunks of ice — and the light lets you see in dark rooms.",
+   "tip": "Use it to thaw the frozen blocks and enemies in the icy temple, and to light far-off torches you can't reach by hand."
+  },
+  {
+   "id": "rocs-cape",
+   "name": "Roc's Cape",
+   "glyph": "leaf",
+   "from": "Palace of Winds (Dungeon 5).",
+   "what": "Lets Link jump and briefly hover/glide, crossing wide gaps and floating over spikes and pits.",
+   "tip": "Tap to jump short gaps; hold to glide a little farther. Combine the jump with a downward sword stab for extra reach."
+  },
+  {
+   "id": "bow",
+   "name": "Bow",
+   "glyph": "bow",
+   "from": "Found in northwest Castor Wilds (reachable only at Minish size).",
+   "what": "Fires arrows at distant enemies, switches, and eye targets. Your main ranged weapon.",
+   "tip": "Arrows are limited — pick up dropped and grass-cut arrows, and save the Bow for switches you can't reach with the sword beam."
+  },
+  {
+   "id": "light-arrow",
+   "name": "Light Arrow",
+   "glyph": "bow",
+   "from": "Fuse Kinstones with Strato in western Hyrule Town to open a portal in South Hyrule Field to the Wind Tribe's home; there, use the Gust Jar to drive the ghost off the bedridden old man Gregal — do it before reaching the Wind Tribe via Veil Falls. A side reward, not a dungeon item.",
+   "what": "Upgrades your arrows: hold an arrow to charge a glowing Light Arrow that deals extra damage, especially to dark/evil foes (uncharged, it fires as a normal arrow).",
+   "tip": "Optional and missable — save Gregal in time or the Light Arrow is gone for that file."
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "leaf",
+   "from": "Bought from Stockwell's shop in Hyrule Town (300 Rupees).",
+   "what": "Throws and returns, stunning enemies and grabbing distant items, switches, and levers.",
+   "tip": "Great for hitting far switches and snagging items over gaps without crossing — it also briefly freezes many enemies."
+  },
+  {
+   "id": "magical-boomerang",
+   "name": "Magical Boomerang",
+   "glyph": "leaf",
+   "from": "Fuse Kinstones with all four Tingle siblings, which opens four trees in North Hyrule Field; press the switches in them, then take the chest from the central tree.",
+   "what": "A steerable, longer-range boomerang — you can curve its flight to reach awkward switches and items.",
+   "tip": "Guide it with the d-pad mid-flight, so aim around walls to hit things a straight throw would miss."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "The Bomb Bag is given by a Picori in a house near Hyrule Town after you clear Deepwood Shrine.",
+   "what": "Throw or set bombs to blow open cracked walls, damage enemies, and hit switches. Carried in the Bomb Bag.",
+   "tip": "Watch walls and floors for thin cracks — bomb them to find hidden rooms full of Rupees and Kinstones."
+  },
+  {
+   "id": "remote-bombs",
+   "name": "Remote Bombs",
+   "glyph": "bomb",
+   "from": "Fuse Kinstones with Elder Gentari in Minish Village, then visit Belari to unlock them.",
+   "what": "A second bomb type you can detonate on command — set one, then press the button again to blow it exactly when you want.",
+   "tip": "Toggle between normal and Remote Bombs in the menu; Remote Bombs are perfect for timing a blast as an enemy walks past."
+  },
+  {
+   "id": "pegasus-boots",
+   "name": "Pegasus Boots",
+   "glyph": "armor",
+   "from": "Buy the Wake-Up Mushroom from Syrup the witch (60 Rupees), then use it on Rem the sleeping shoemaker in Hyrule Town — he gives you the Boots he was making.",
+   "what": "Hold the button to charge, then dash forward fast — smash into cracked blocks/trees, stun enemies, and cross slippery or timed gaps.",
+   "tip": "Dashing into certain trees and posts shakes loose Rupees, hearts, and Mysterious Shells; the boots also let you cross Castor Wilds."
+  },
+  {
+   "id": "grip-ring",
+   "name": "Grip Ring",
+   "glyph": "key",
+   "from": "Bought from a Business Scrub in a bomb-opened cave on Mt. Crenel (40 Rupees).",
+   "what": "Lets Link cling to and climb rocky walls without being blown or knocked off by the wind.",
+   "tip": "You need it to scale the windy cliffs of Mt. Crenel toward the Cave of Flames — buy it before trying to climb."
+  },
+  {
+   "id": "flippers",
+   "name": "Flippers",
+   "glyph": "armor",
+   "from": "Return the three overdue library books to the Hyrule Town library, which opens the way to Librari; clear his short trial to receive the Flippers.",
+   "what": "Let Link swim and dive across deep water instead of being blocked at the edge.",
+   "tip": "Once you can swim, revisit earlier areas — plenty of islands and underwater paths were unreachable before."
+  },
+  {
+   "id": "bottle",
+   "name": "Bottle (Empty Bottle)",
+   "glyph": "pot",
+   "from": "Four total around Hyrule: a Business Scrub in Trilby Highlands (~20 Rupees), Stockwell's shop (free after feeding his dog at Lake Hylia), Eastern Hills (Kinstone-fuse with Smith, your grandfather), and Lon Lon Ranch's Goron Cave (after the Goron Kinstone quest).",
+   "what": "Stores fairies, potions, water, milk, Picolyte, and small creatures. A bottled fairy auto-revives you when you fall.",
+   "tip": "Always keep at least one fairy in a bottle before a dungeon or boss — it's a free second life."
+  },
+  {
+   "id": "red-potion",
+   "name": "Red Potion",
+   "glyph": "heart",
+   "from": "Bought from the witch Syrup's shop and stored in a Bottle.",
+   "what": "Drink to refill several hearts of health.",
+   "tip": "Buy and bottle one before tough fights — it's faster than hunting for hearts mid-battle."
+  },
+  {
+   "id": "picolyte-white",
+   "name": "White Picolyte",
+   "glyph": "pot",
+   "from": "Bought at the Hyrule Town potion shop (available early), stored in a Bottle.",
+   "what": "Temporarily raises your chance of finding Kinstone pieces from grass, pots, and enemies.",
+   "tip": "Drink it before sweeping an area you're farming for Kinstones to fill your bag faster."
+  },
+  {
+   "id": "picolyte-blue",
+   "name": "Blue Picolyte",
+   "glyph": "pot",
+   "from": "Unlocked at the Hyrule Town potion shop once the matching Pico Bloom is grown, stored in a Bottle.",
+   "what": "Temporarily raises your chance of finding item drops (hearts, arrows, bombs) from enemies and grass.",
+   "tip": "Pair it with a clearing run when you want consumables to drop more often."
+  },
+  {
+   "id": "picolyte-green",
+   "name": "Green Picolyte",
+   "glyph": "pot",
+   "from": "Unlocked at the Hyrule Town potion shop once the matching Pico Bloom is grown, stored in a Bottle.",
+   "what": "Temporarily raises your chance of finding Mysterious Shells.",
+   "tip": "Drink it before farming Shells so you can afford Carlov's figurines sooner."
+  },
+  {
+   "id": "picolyte-yellow",
+   "name": "Yellow Picolyte",
+   "glyph": "pot",
+   "from": "Unlocked at the Hyrule Town potion shop once the matching Pico Bloom is grown, stored in a Bottle.",
+   "what": "Temporarily raises your chance of finding Rupees.",
+   "tip": "Handy when you're saving up for the Boomerang or a wallet/quiver upgrade."
+  },
+  {
+   "id": "kinstone-bag",
+   "name": "Kinstone Bag",
+   "glyph": "bag",
+   "from": "Given early in the story as you learn to fuse Kinstones.",
+   "what": "Holds the Kinstone halves you collect. Match a half with an NPC or creature who has the other half to 'fuse' and trigger an event somewhere in Hyrule (chests appear, paths open, plants grow).",
+   "tip": "Talk to everyone and fuse whenever the icon appears — many fusions open shortcuts and reward chests you'd otherwise never reach."
+  },
+  {
+   "id": "mysterious-shell",
+   "name": "Mysterious Shell",
+   "glyph": "gem",
+   "from": "Found all over Hyrule — in grass, pots, dig spots, and from dashing into trees.",
+   "what": "The figurine currency. Trade Shells to Carlov in Hyrule Town to roll for collectible figurines of the game's characters.",
+   "tip": "Pick up every Shell you see; figurine-hunting is a long optional collection, and Green Picolyte makes Shells drop more."
+  },
+  {
+   "id": "figurines",
+   "name": "Figurines",
+   "glyph": "book",
+   "from": "Won from Carlov's figurine machine by spending Mysterious Shells.",
+   "what": "Collectible statuettes of nearly every character and enemy; collecting them all is the game's big optional completion goal and unlocks a few small rewards.",
+   "tip": "Purely optional — chase these only if you enjoy 100% completion, since it takes a lot of Shells."
+  },
+  {
+   "id": "large-bomb-bag",
+   "name": "Bomb Bag Upgrade",
+   "glyph": "bag",
+   "from": "Three upgrades around Hyrule (the Mt. Crenel Great Fairy, an Elder Gentari Kinstone fusion, and Stockwell's shop), collected in any order.",
+   "what": "Each raises how many Bombs you can carry — to 30, then 50, then 99.",
+   "tip": "More bombs means less backtracking to refill; grab these as they open up."
+  },
+  {
+   "id": "big-quiver",
+   "name": "Big Quiver",
+   "glyph": "bag",
+   "from": "Three upgrades: a Kinstone fusion with Strato, Stockwell's shop (600 Rupees), and the Great Butterfly Fairy in Royal Valley.",
+   "what": "Raises how many arrows you can hold — to 50, then 70, then 99.",
+   "tip": "Worth it once you rely on the Bow — a bigger quiver saves trips back for arrows."
+  },
+  {
+   "id": "big-wallet",
+   "name": "Big Wallet",
+   "glyph": "bag",
+   "from": "Three upgrades: Stockwell's shop (80 Rupees), the Great Fairy in Eastern Hills, and a Lon Lon Ranch reward (the base wallet holds 100).",
+   "what": "Raises your Rupee carrying limit — to 300, then 500, then 999.",
+   "tip": "Grab the first wallet upgrade early so you stop wasting Rupees when chests overfill your purse."
+  }
+ ]
+}

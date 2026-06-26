@@ -1,0 +1,49 @@
+[
+ {
+  "id": "oos_intro",
+  "name": "Into Holodrum",
+  "sub": "Main Quest — Horon Village & Subrosia",
+  "kind": "region",
+  "tagline": "A dancer stolen, the seasons shattered, and a rod that bends the year.",
+  "champion": null,
+  "sections": [
+   {
+    "id": "oos_intro_s_din",
+    "name": "Din & Onox",
+    "sub": "The seasons go mad",
+    "reward": null,
+    "steps": [
+     { "id": "oos_din_1", "k": "step", "t": "The Triforce whisks Link away to the land of Holodrum. You come upon a troupe in the woods and a cheerful dancer named Din, who befriends you.", "items": [] },
+     { "id": "oos_din_2", "k": "warn", "t": "The sky darkens: the General of Darkness, Onox, descends, reveals Din is the Oracle of Seasons, and seals her away — throwing Holodrum's seasons into chaos." },
+     { "id": "oos_din_3", "k": "step", "t": "Impa helps you to Horon Village. Visit the great Maku Tree there; weakened by the chaos, she tells you to gather the eight Essences of Nature from Holodrum's dungeons to restore her power.", "stuck": "The Maku Tree is in the walled grove in Horon Village — you reach her by cutting the bushes / lifting the right way in. Talk to her fully to set the eight-Essence goal." }
+    ]
+   },
+   {
+    "id": "oos_intro_s_sword",
+    "name": "A Sword & the Rod",
+    "sub": "Your tools of the trade",
+    "reward": "Wooden Sword & Rod of Seasons",
+    "steps": [
+     { "id": "oos_sword_1", "k": "reward", "t": "Find your first sword. Enter the Hero's Cave near Horon Village (south) and grab the Wooden Sword from the chest.", "items": [
+        { "name": "Wooden Sword", "cat": "sword", "note": "Your starting blade. Slash, and hold to charge a Spin Attack. Later upgraded to the Noble Sword and Master Sword." }
+     ], "stuck": "The cave is just south/southeast of Horon Village. Go in, beat the simple room, and open the chest for the Wooden Sword." },
+     { "id": "oos_sword_2", "k": "step", "t": "Step into a Subrosia portal (a glowing hole in the ground) to drop into the fiery under-realm. Make your way to the Temple of Seasons.", "stuck": "Portals look like swirling pits — step onto one to fall through to Subrosia. From the landing, follow the path to the large Temple of Seasons." },
+     { "id": "oos_sword_3", "k": "reward", "t": "Inside the Temple of Seasons, claim the Rod of Seasons. (You can set only one season at first; you'll earn the other three from the Season Spirits as you go.)", "items": [
+        { "name": "Rod of Seasons", "cat": "item", "note": "Swing it on a season stump to change Holodrum's season — each season reshapes the land to open new paths." }
+     ], "stuck": "The Rod sits on a pedestal in the temple. Once you have it, find a tree stump on the surface, stand on it, and swing the Rod to change the season." }
+    ]
+   },
+   {
+    "id": "oos_intro_s_first",
+    "name": "The First Essence",
+    "sub": "Off to the Gnarled Root",
+    "reward": "The eight-Essence goal",
+    "steps": [
+     { "id": "oos_first_1", "k": "tip", "t": "Get used to the season stumps. The SAME screen changes with the season: Spring grows flowers and vines, Summer dries water and raises vine ladders, Autumn raises mushrooms, Winter freezes water and piles snow. When blocked, try every season at the nearest stump." },
+     { "id": "oos_first_2", "k": "step", "t": "Head to the Gnarled Root Dungeon, the first of the eight, north of Horon Village. Change the season as needed to reach its entrance, and grab the Gasha and seed trees along the way.", "stuck": "The first dungeon is in North Horon. You may need to set Spring (or the season the path requires) at a stump to clear the way to its door." },
+     { "id": "oos_first_3", "k": "step", "t": "Your quest is set: clear all eight dungeons, claim the eight Essences of Nature, wake the Maku Seed, and storm Onox's Castle to save Din." }
+    ]
+   }
+  ]
+ }
+]

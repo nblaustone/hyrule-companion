@@ -43356,7 +43356,193 @@ const MINISH = {
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "Green ChuChu",
+    "tier": "common",
+    "tactic": "The basic gelatinous blob — one or two sword slashes pops it. A charged Spin Attack clears a whole cluster at once. First seen in Minish Woods.",
+    "drops": "Recovery Hearts, Rupees"
+   },
+   {
+    "name": "Red ChuChu",
+    "tier": "common",
+    "tactic": "Just a tougher ChuChu with more health than the green kind (first appears on Mt. Crenel). Lock on and trade a couple of slashes, or wipe a group with a Spin Attack.",
+    "drops": "Recovery Hearts, Rupees"
+   },
+   {
+    "name": "Blue ChuChu",
+    "tier": "common",
+    "tactic": "The rare, electrified ChuChu — its body holds a charge, so a direct sword hit while it's sparking shocks YOU. The charge flickers off now and then; strike only in those gaps, or just pick it off with the Bow from range.",
+    "drops": "Recovery Hearts, Rupees"
+   },
+   {
+    "name": "Octorok",
+    "tier": "common",
+    "tactic": "It spits a rock at you from range — raise your shield to bounce the rock back for an easy hit, or close in and slash it. Targeting helps you read the spit.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Moblin",
+    "tier": "common",
+    "tactic": "A pig/boar-faced grunt that charges and swings; lock on, circle to its flank, and slash, or roll behind it. A few hits drops it.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Spear Moblin",
+    "tier": "common",
+    "tactic": "Carries a long spear and charges/thrusts from a distance, so don't rush straight in. Sidestep the lunge, then close the gap and slash its side; a Spin Attack punishes the recovery after a missed thrust.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Bow Moblin",
+    "tier": "common",
+    "tactic": "Stands back and fires arrows at you, so don't get pinned at range — close the distance with a dash or weave, then slash it down. A bomb or Spin Attack handles it once you're in its face.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Keaton",
+    "tier": "common",
+    "tactic": "A fox-faced thief that dashes straight at you and, on contact, knocks Rupees and items out of your wallet. Lock on and cut it down fast before it can rob you; a Spin Attack catches it as it rushes in.",
+    "drops": "Rupees, Recovery Hearts (often gives back what it stole)"
+   },
+   {
+    "name": "Keese",
+    "tier": "common",
+    "tactic": "A flapping bat that flits around randomly — swat it with the sword, or pick it off with the Bow before it reaches you. A Spin Attack is the cleanest answer to a swarm.",
+    "drops": "Recovery Hearts, Rupees"
+   },
+   {
+    "name": "Spiny Beetle",
+    "tier": "common",
+    "tactic": "Hides under a bush or rock and walks toward you when you get close; a normal slash bounces off the shell on its back. Suck the shell off with the Gust Jar to expose the soft body, then slash it.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Spiked Beetle",
+    "tier": "common",
+    "tactic": "Armored on top and invulnerable to the sword — use your shield to bump it onto its back, then slash the soft underside before it rights itself.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Rollobite",
+    "tier": "common",
+    "tactic": "A roly-poly bug that curls into an armored ball when you strike it, deflecting sword hits while balled up. Wait for it to unroll, or scoop the curled ball with the Gust Jar (you can even carry and toss it into a hole).",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Mulldozer",
+    "tier": "common",
+    "tactic": "Only encountered while you're shrunk to Minish size. It wanders until you near it, then dashes around frantically — the blue ones dash in circles, the red ones dash toward you. Time a slash as it passes, or trap it against a wall.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Crow",
+    "tier": "common",
+    "tactic": "Sits on a tree until you walk near, then flies out to dive-bomb you. Sidestep the swoop and swing your sword a few times to drop it, or shoot it off its perch with the Bow before it wakes.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Wisp",
+    "tier": "common",
+    "tactic": "A floating ghost-light that doesn't deal damage but, if it latches onto you, stops you from using your sword. Don't let it touch you — make it vanish with the Boomerang or pick it off with the Bow from range.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Ghini",
+    "tier": "common",
+    "tactic": "A one-eyed ghost that sticks out its tongue; if it grabs you it slowly drains your health until you shake free. Lock on and slash it down — the sword kills it cleanly.",
+    "drops": "Rupees, Recovery Hearts"
+   },
+   {
+    "name": "Madderpillar",
+    "tier": "mini-boss",
+    "tactic": "Slash its glowing red nose to stun it, which makes the flower at its tail open and expose a heart-shaped core; run to the tail and hit the core, then dodge while it frenzies red.",
+    "drops": "Opens the chest holding the Gust Jar (Deepwood Shrine mini-boss)",
+    "battle": "Fought in Deepwood Shrine. Bring a full health bar and a bottled fairy as backup; no special item is required — just your sword. ARENA: a sticky room webbed with bouncy walls — try not to get knocked into the webs while you dodge. OPENING: the giant caterpillar crawls in a loop around the room. Its only vulnerable spot is the heart-shaped core hidden inside the flower at its TAIL, but that flower stays shut until you stun the head. LOOP: as the Madderpillar charges or passes, slash its glowing red NOSE — a clean hit stuns it and the tail flower springs open to reveal the heart core. Immediately run around to the tail end and slash the core as many times as you can. After a few seconds it turns angry bright red and speeds up; you can't hurt it during this phase, so just dodge (and avoid the webs) until it calms back to its normal color. Then repeat: nose to stun, then hammer the tail core. It takes roughly 16 tail hits over several cycles. AFTER: open the chest it leaves to claim the Gust Jar — the dungeon's key item. WEAK POINT: the heart-shaped core in the tail flower (only open after a nose-stun)."
+   },
+   {
+    "name": "Big Green ChuChu",
+    "tier": "boss",
+    "tactic": "Use the Gust Jar to vacuum the giant blob's base until it shrinks, wobbles, and topples onto its side, then rush in and slash its exposed head/body before it stands back up. Repeats for about three knockdowns.",
+    "drops": "Heart Container, Earth Element (Deepwood Shrine boss)",
+    "battle": "Boss of Deepwood Shrine. Bring the Gust Jar (the key item you just found here), a full health bar, and a bottled fairy. OPENING: a huge gelatinous ChuChu wobbles around the room on a broad jelly base, its head held up out of easy sword range. You cannot meaningfully damage it while it stands. LOOP: aim the Gust Jar at the ChuChu and SUCK — keep vacuuming and its base visibly shrinks while it struggles to keep its balance. Watch its movement: if it winds up a jumping attack, dodge aside, then resume vacuuming. Once enough of its base is gone it loses balance and topples onto its side with a thud — that's your window: rush in and slash the exposed body/head as fast as you can before it reforms and stands up. Repeat — vacuum it down, dodge its hops, then slash. It takes roughly three knockdowns' worth of sword strikes. WEAK POINT: the body, reachable only after the Gust Jar shrinks its base and it topples over."
+   },
+   {
+    "name": "Gleerok",
+    "tier": "boss",
+    "tactic": "Roll around to its side or back so its head doesn't block you, and when its shell is NOT glowing brightly (right after it spits flame) fire the Cane of Pacci to flip the shell, then run up its neck and slash the jewel on its back.",
+    "drops": "Heart Container, Fire Element (Cave of Flames boss)",
+    "battle": "Boss of the Cave of Flames. Bring the Cane of Pacci (the key item from this dungeon), the sword, a full health bar, and ideally a bottled fairy. ARENA: a platform over lava; spat flames turn into burning patches on the ground. OPENING: the lava dragon Gleerok rises and spits fireballs and flame that pool on the floor — keep rolling (R) around the room to dodge. Attacking from the front is useless: its head and neck block everything. LOOP: roll AROUND to its side or behind. Wait for a moment when its shell is NOT glowing brightly (the glow fades just after it spits a burst of flame), then fire the Cane of Pacci at the shell to flip it, which pins the dragon and drops its neck like a bridge. Run UP the neck to its back and slash the glowing JEWEL there repeatedly. When it starts to recover, dash back across the neck to safety. Repeat: dodge fire and flame-pools, flip with the Cane while the shell is dim, climb, hit the jewel. WEAK POINT: the jewel on its back, exposed only after a Cane of Pacci flip."
+   },
+   {
+    "name": "Mazaal",
+    "tier": "boss",
+    "tactic": "Shoot the pink eye on each giant hand with the Bow to drop it, slash that eye until the hand goes limp, and once both hands and the head are down, shrink to Minish size, enter the head, and smash the glowing statue inside (in later rounds you also dig through sand to find it).",
+    "drops": "Heart Container, and the Ocarina of Wind from Zeffa (Fortress of Winds boss — the Wind Element is NOT here; the Wind Tribe took it to the Cloud Tops)",
+    "battle": "Boss of the Fortress of Winds. Bring the Bow with plenty of arrows, a full health bar, and a bottled fairy (clone/shrink pedestals are in the arena). OPENING: a giant stone idol head flanked by two enormous floating HANDS, each with a small pink eye. The head is invulnerable until both hands are dealt with. LOOP (hands): shoot the pink eye on a hand with an arrow — the hand crashes to the floor. Run over and slash that eye several times until the hand smokes and deactivates. Do the same to the other hand quickly, while the first is still down. With both hands disabled, the big HEAD drops to the floor. PHASE 2 (inside): step onto one of the pedestals and SHRINK to Minish size, then enter the small opening in Mazaal's fallen head. Inside, slash the glowing statue until you're knocked back out. Repeat the cycle; in later rounds Mazaal also slams its fists (sidestep them), and inside the head you must DIG through the sand to uncover the glowing statue before striking it. AFTER: claim the Heart Container, then Zeffa the bird gives you the Ocarina of Wind. WEAK POINTS: the pink eye on each hand (Bow then sword), then the glowing statue INSIDE the head (reachable only at Minish size)."
+   },
+   {
+    "name": "Big Octorok",
+    "tier": "boss",
+    "tactic": "Deflect its spat rocks back with sword or shield to hurt it, then once it and the floor ice over, run to its back and set the plant growing on it ablaze with the Flame Lantern; use the Lantern again to see through the ink it later spits.",
+    "drops": "Heart Container, Water Element (Temple of Droplets boss)",
+    "battle": "Boss of the Temple of Droplets. Bring the Flame Lantern (the dungeon's key item) and your shield, plus a full health bar and a bottled fairy. ARENA: shallow water the boss can freeze over. OPENING: the Big Octorok spits ROCKS at you. Raise your shield (or time a sword swing) to deflect a rock straight back into its face for damage. LOOP: after enough deflected rocks, the boss and the floor become covered in ICE — and it stops spitting rocks. Slip-run around to its BACK, where a plant grows, and set that plant on FIRE with the Flame Lantern. The Octorok panics and charges wildly around the room while burning; stay clear, and soon the ice melts. Then it's back to deflecting rocks. In a later phase it spits an inky substance that DARKENS the room — hold up the Flame Lantern to light your way and dodge its charges. Repeat: deflect rocks, burn the back-plant when iced over. WEAK POINTS: its face (deflected rocks) and the plant on its back (Flame Lantern while iced over)."
+   },
+   {
+    "name": "Gyorg Pair",
+    "tier": "boss",
+    "tactic": "Use Roc's Cape to leap onto each airborne Gyorg; on the red one, multiply your Links on the clone tiles and slash all three eyes at once until it smokes, and on the blue one slash the single open eye then immediately Cape-jump its tail whip.",
+    "drops": "Heart Container, Wind Element (Palace of Winds boss)",
+    "battle": "Boss of the Palace of Winds, fought MID-AIR. Bring Roc's Cape (essential — you need its glide/jump), the sword, a full health bar, and a bottled fairy. The arena has clone (split) tiles. OPENING: two flying eel-like Gyorgs, RED and BLUE, soar around you. RED GYORG: when it flies past, Roc's-Cape jump onto it — a trio of EYES opens. Step onto the clone tiles to MULTIPLY your Links and hit all three eyes SIMULTANEOUSLY; keep doing this until the Red Gyorg starts smoking. BLUE GYORG: Cape-jump onto it as it passes; one of its eyes opens — slash it fast, but the instant you hit it the Gyorg's TAIL whips around, so immediately use Roc's Cape to hop OVER the tail. In later rounds the Red Gyorg turns on its side, the Blue Gyorg strafes across shooting fireballs, and small green Gyorgs fly by (slash or dodge them). Stay airborne with the Cape, hit the red one's eyes in unison via clones, and slash-then-hop the blue one. WEAK POINTS: the red Gyorg's three eyes (all hit at once using clones) and the blue Gyorg's open eye (then dodge the tail)."
+   },
+   {
+    "name": "Vaati Reborn",
+    "tier": "boss",
+    "tactic": "Destroy the small eyes circling Vaati's body, which opens the big central eye — slash it until it shuts, then repeat as more eyes appear; in the later stage a shield covers the eyes, so use the Gust Jar to pull it away before you can hit them.",
+    "drops": "Progress to the next form (final boss, first form)",
+    "battle": "First form of the final boss. Bring the sword, the Gust Jar, a full health bar, and a bottled fairy (carry one for every Vaati form). OPENING: Vaati floats as a body ringed by circling EYES, with a large central eye. He shoots fireballs and slow-homing black energy balls — keep moving and don't get cornered. LOOP: destroy the small circling eyes (lock on and slash them as they pass). Once they're gone, the big central EYE opens — rush in and slash it before it shuts. He escalates to more eyes (up to four) that fire downward beams you must sidestep; in a later stage the eyes are protected by a shield, so use the GUST JAR to draw the shield away first, then slash. WEAK POINT: the central eye, exposed only after the circling eyes are cleared (Gust Jar removes the shield in the later stage)."
+   },
+   {
+    "name": "Vaati Transfigured",
+    "tier": "boss",
+    "tactic": "Shoot the four small eyes with arrows to make them vulnerable, using the clone tiles to hit all four at once, then slash his main body; break the spiky rocks he throws to replenish arrows.",
+    "drops": "Progress to the final form (final boss, second form)",
+    "battle": "Second form of the final boss. Bring the Bow with as many arrows as you can carry, the sword, a full health bar, and a fresh bottled fairy. Use the clone tiles in the arena. OPENING: Vaati's transfigured shape drifts around the room hurling spiky rocks, dropping rocks from the ceiling, and firing balls of ELECTRICITY that do heavy damage — prioritize dodging the electric balls. LOOP: he reveals four small EYES. Shoot them with ARROWS to make them vulnerable, and use the CLONE tiles to split into the formation that lets you hit all four eyes at once. With the eyes opened, slash his MAIN BODY repeatedly. If you run low on arrows, break the spiky rocks he throws — they drop arrows. Repeat (arrows to the four eyes via clones, then body slashes) until this form falls. WEAK POINTS: the four small eyes (Bow, hit together using clones), then the main body (sword)."
+   },
+   {
+    "name": "Vaati's Wrath (Final Form)",
+    "tier": "boss",
+    "tactic": "Flip each arm with the Cane of Pacci, shrink to Minish size and use the Lantern to destroy the vulnerable eye inside (the one whose pupil moves); once both arms are gone, split on the clone tiles and reflect his electric balls back at his eyes with timed sword swings, then rush the body.",
+    "drops": "Victory — Vaati is destroyed and the Four Sword is restored",
+    "battle": "The final form (Vaati's Wrath). Bring EVERYTHING: the Cane of Pacci, the Flame Lantern, the sword, the Gust Jar, a full health bar, and your last bottled fairy. This fight uses the clone tiles and shrinking. OPENING: Vaati fights with two massive ARMS fronted by eyes and fires fast ELECTRICITY balls — the arms must go first. LOOP (arms): hit an arm with the Cane of Pacci to FLIP it and expose a hole; SHRINK to Minish size and go inside, using the Flame Lantern to light it, and destroy the vulnerable EYE — it's the one whose pupil moves around. Return to normal size and do the same to the other arm. PHASE 2 (body): with both arms gone, Vaati fires electric balls from his front eyes, so SPLIT onto the clone tiles into four Links and time your sword SWINGS to REFLECT all the balls back at him at once (if a ball hits you or any clone you're shocked and lose your clones). When he's stunned and open, rush the BODY and slash it repeatedly. Repeat until Vaati is destroyed. WEAK POINTS: the eye inside each flipped arm (Cane of Pacci → shrink + Lantern → slash), then the body (reflect his own electric balls with timed clone swings, then slash)."
+   }
+  ],
+  "basics": [
+   {
+    "title": "Sword Slash & the Spin Attack",
+    "body": "Tap the A/sword button for a quick slash, and lock onto a foe to circle, block, and keep your blade pointed the right way. Hold the button until the sword flashes, then release to unleash a spinning Spin Attack that hits everything around you — perfect for swarms of Keese, ChuChus, or Moblins. Later, Swiftblade's dojos teach you stronger techniques as you collect Tiger Scrolls (the Roll Attack, Dash Attack, Down Thrust, and finally the Great Spin once you have all seven), so revisit the dojos as your scroll count grows."
+   },
+   {
+    "title": "The Four Sword Clones",
+    "body": "Once you reforge the blade, stepping on special glowing clone tiles spawns Link clones that mirror your every move. Line them up to press several switches at once, hold down multiple weighted plates, or attack a boss from all sides simultaneously. Many late-game puzzles AND the final boss (Vaati) demand that you fan your clones into the right pattern — formation matters more than button-mashing here."
+   },
+   {
+    "title": "Shrinking with Ezlo",
+    "body": "Ezlo, the talking cap, lets you shrink to tiny Minish (Picori) size on special stumps, jars, and portals. Shrunk, you slip through cracks and mouseholes into a hidden Minish world, walk across puddles as if they were lakes, and read things only the little folk can. Shrinking is also a combat tool: some foes (and the boss Mazaal) can only be hurt from the inside or at Minish scale, and shrinking lets you slip past danger you can't fight at full size."
+   },
+   {
+    "title": "The Gust Jar's Pull & Vacuum",
+    "body": "The Gust Jar sucks in air, dust, and light objects — and that's a weapon. Vacuum the shells off Spiny Beetles and Rollobites to flip them helpless, pull mushrooms or boards across gaps to make platforms, and yank cobwebs or dust clutter out of the way. The Deepwood Shrine boss, the Big Green ChuChu, is beaten almost entirely by vacuuming its body down with the Gust Jar until it topples."
+   },
+   {
+    "title": "Kinstone Fusion",
+    "body": "Collect Kinstone halves all over Hyrule, then talk to people, animals, and even statues holding a matching half to fuse them — there are 100 fusions in all (nine gold ones are required to advance the story). Each successful fusion triggers an event somewhere in the world: a new chest appears, a path opens, an enemy or a Heart Piece spawns, or a shortcut unlocks. Fusing is mostly optional but is how you reach a huge share of the game's secrets, so fuse with everyone and watch the map for the swirl that marks what changed."
+   },
+   {
+    "title": "Bottled Fairies & Picolyte Buffs",
+    "body": "Keep a fairy in a bottle: if you run out of hearts, it revives you automatically and refills your health, so always carry one into a dungeon or boss. You can also bottle Picolyte (bought in the Minish-shop) for a temporary luck buff that raises drop rates for a short time. Bottles also hold water, fairies, and other liquids, so grab every empty bottle you find."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -43373,10 +43559,491 @@ const MINISH = {
   "fairies": []
  },
  "ECONOMY": null,
- "COMPENDIUM": [],
- "SIDE_QUESTS": [],
+ "COMPENDIUM": [
+  {
+   "name": "Smith's Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "Your starting blade, a plain sword forged by your grandfather Smith. It handles the basic slash and charge attack and serves until the Picori Blade is reforged into the White Sword. (You don't keep this once the White Sword is forged.)",
+   "where": "Given by Smith at the very start in your house, but you can't actually draw it until after the Picori Festival tournament awards ceremony at Hyrule Castle."
+  },
+  {
+   "name": "White Sword",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The shattered Picori Blade reforged by the Minish smith Melari. As the sacred blade it is stronger than the Smith's Sword, can charge to create a single duplicate of Link on glowing tiles, and is the base into which the Four Elements are infused.",
+   "where": "Reforged at Melari's Mine atop Mount Crenel after you deliver the Broken Picori Blade to Melari (you must shrink to Minish size, using the Earth Element from Deepwood Shrine, to reach him)."
+  },
+  {
+   "name": "White Sword (Two Elements)",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The White Sword after the Earth and Fire Elements are infused into it — noticeably more powerful, and it can now charge to create two duplicates of Link on glowing tiles. Each Element infused raises the blade's strength on the way to the Four Sword.",
+   "where": "Earth Element comes from Deepwood Shrine; Fire Element from the Cave of Flames beneath Mount Crenel. Infuse both at the Elemental Sanctuary (reached through Hyrule Castle) to upgrade the White Sword."
+  },
+  {
+   "name": "White Sword (Three Elements)",
+   "cat": "sword",
+   "type": "Sword",
+   "effect": "The further-empowered White Sword after the Water Element is added — stronger still, and one Element short of the legendary blade.",
+   "where": "Add the Water Element (from the Temple of Droplets in Lake Hylia) to the two-Element blade at the Elemental Sanctuary."
+  },
+  {
+   "name": "Four Sword",
+   "cat": "sword",
+   "type": "Legendary Sword",
+   "effect": "The legendary blade born when all four Elements (Earth, Fire, Water, Wind) are infused into the White Sword. It is Hyrule's strongest sword and, when charged on glowing tiles, splits Link into multiple copies to fight together and solve multi-switch puzzles. It's the weapon used to defeat Vaati.",
+   "where": "Forged by infusing the final Wind Element (from the Palace of Winds in the Cloud Tops) into the three-Element White Sword at the Elemental Sanctuary, just before the final battle."
+  },
+  {
+   "name": "Shield",
+   "cat": "shield",
+   "type": "Small Shield",
+   "effect": "The basic Small Shield, used to block enemy attacks and projectiles from the front — sword strikes, Octorok rocks, and the like. Hold it up to guard.",
+   "where": "Won by Princess Zelda in a raffle at the Picori Festival early in the game; she chooses the shield as her prize and gives it to Link."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield",
+   "effect": "A sturdier upgrade to the Small Shield that can reflect certain beam and magic attacks back at enemies. It's an optional late/post-game reward, not required to finish the game.",
+   "where": "Post-game: complete the Goron Kinstone quest (fuse with the 5 Mysterious Walls plus the final cave Goron — six Goron fusions in all) to awaken Biggoron at Veil Falls, then after defeating Vaati give him your Small Shield; he chews on it and, ~20 minutes later, returns it transformed into the Mirror Shield."
+  },
+  {
+   "name": "Bow",
+   "cat": "bow",
+   "type": "Bow",
+   "effect": "Fires arrows to hit distant enemies, activate switches and eye targets, and destroy Eyegore statues. Arrows draw from your arrow supply.",
+   "where": "Found in Castor Wilds — shrink to Minish size, cross to a lily pad, enter the small hole, and defeat the Mulldozers inside to make the chest appear. (Castor Wilds is the area before the Fortress of Winds dungeon.)"
+  },
+  {
+   "name": "Light Arrow",
+   "cat": "bow",
+   "type": "Bow upgrade",
+   "effect": "Upgrades your Bow so its arrows fly imbued with holy light, dealing extra damage to enemies. It's an optional power-up for the existing Bow, not a separate weapon.",
+   "where": "Reward from the old man Gregal at the Home of the Wind Tribe (Cloud Tops). You must first save him by using the Gust Jar to suck up the ghost circling him in his house — done before you reach the Wind Tribe's home via Veil Falls / the Cloud Tops, or he passes away and the Light Arrow becomes permanently unobtainable. (Saving him also earns 100 Mysterious Shells up front.)"
+  },
+  {
+   "name": "Ezlo",
+   "cat": "item",
+   "type": "Hat / talking cap",
+   "effect": "The enchanted Minish cap who rides on Link's head all game. He lets Link shrink to Minish size by stepping onto special portals (stumps, jars, doorways), and once you have Roc's Cape he can spread out to slow your fall and glide short gaps. He also narrates hints.",
+   "where": "Joins Link in the opening: you rescue him in the Minish Woods after the Picori Blade shatters and Vaati turns Princess Zelda to stone. He stays with you for the entire game."
+  },
+  {
+   "name": "Gust Jar",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Vacuum tool. Hold to suck in air, dust, sand, light objects and certain enemies (like Mushrooms and Mandibles); release to puff a small gust that can spin fans, push things, or knock foes back. Also clears cobwebs and pulls in distant items.",
+   "where": "Found inside the first dungeon, Deepwood Shrine (Minish Woods) — in the chest after defeating the Madderpillar mini-boss."
+  },
+  {
+   "name": "Cane of Pacci",
+   "cat": "item",
+   "type": "Magic cane",
+   "effect": "Fires a ring of magic that flips objects and enemies upside-down. Flip a hole in the floor to turn it into a launch pad (jump up to higher ledges), flip overturned enemies to expose them, and reveal hidden shrinking portals.",
+   "where": "Found in the second dungeon, Cave of Flames (Mount Crenel)."
+  },
+  {
+   "name": "Mole Mitts",
+   "cat": "item",
+   "type": "Digging gauntlets",
+   "effect": "Let Link dig through soft dirt walls and floors, tunneling to new areas and uncovering buried passages and treasure.",
+   "where": "Found in the third dungeon, the Fortress of Winds (reached via the Wind Ruins, past Castor Wilds)."
+  },
+  {
+   "name": "Flame Lantern",
+   "cat": "item",
+   "type": "Lantern",
+   "effect": "Lights up dark rooms, burns away dry brush and webs, and melts ice. A torch you carry rather than a one-use fire.",
+   "where": "Found in the fourth dungeon, Temple of Droplets (Lake Hylia)."
+  },
+  {
+   "name": "Roc's Cape",
+   "cat": "item",
+   "type": "Cape",
+   "effect": "Press to make Link jump into the air; while airborne Ezlo spreads out so you hover and glide for a moment, clearing pits and gaps and letting you drop attacks from above. An upgrade in feel from a normal jump.",
+   "where": "Found in the final dungeon, the Palace of Winds (Cloud Tops)."
+  },
+  {
+   "name": "Boomerang",
+   "cat": "item",
+   "type": "Thrown tool",
+   "effect": "Throw to stun enemies, hit distant switches, and drag in rupees and items from afar. It flies a fixed arc and returns to you.",
+   "where": "Bought from Stockwell's shop in Hyrule Town for 300 Rupees."
+  },
+  {
+   "name": "Magical Boomerang",
+   "cat": "item",
+   "type": "Thrown tool (upgrade)",
+   "effect": "An upgraded Boomerang you can steer in flight by holding a direction, giving it longer range and letting you curve it around obstacles to hit switches and enemies the normal one can't reach.",
+   "where": "Won by fusing Kinstones with Tingle and his three brothers — Tingle (South Hyrule Field), Ankle (Lon Lon Ranch cave), Knuckle (Trilby Highlands) and David Jr. (Lake Hylia). Each fusion lights a tree in the four-tree grove of North Hyrule Field; with all four lit, a ladder appears to a chest holding the Magical Boomerang."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Explosive",
+   "effect": "Set a bomb to blow open cracked walls and floors and to damage enemies. Carried via the Bomb Bag, whose capacity can be upgraded.",
+   "where": "Receive the Bomb Bag from a Minish (Picori) in a house just outside Deepwood Shrine after clearing the first dungeon."
+  },
+  {
+   "name": "Remote Bombs",
+   "cat": "item",
+   "type": "Explosive (upgrade)",
+   "effect": "A bomb variant you detonate manually with a button press instead of on a timer, so you can place it and choose the exact moment it explodes. You can hold only one Remote Bomb out at a time — talk to Belari again to swap back and forth between Remote and regular Bombs.",
+   "where": "Granted by the Minish inventor Belari (just outside the Minish Village) after you fuse Kinstones with the Minish Elder Gentari, which you can do once you've completed the Temple of Droplets."
+  },
+  {
+   "name": "Pegasus Boots",
+   "cat": "item",
+   "type": "Boots",
+   "effect": "Hold the button to charge, then dash at high speed. The dash crosses swamp without sinking, knocks down trees and dazes enemies when you ram walls, and can break through some obstacles.",
+   "where": "Given by Rem the shoemaker in Hyrule Town. He's asleep on the job — wake him with the Wake-Up Mushroom bought from Syrup the witch (her hut in the northeast Minish Woods) for 60 Rupees, then return to his shop for the boots."
+  },
+  {
+   "name": "Grip Ring",
+   "cat": "item",
+   "type": "Ring (accessory)",
+   "effect": "Lets Link cling to and climb special rocky walls and cliff faces, and resist being blown off by strong gusts, opening routes up Mount Crenel.",
+   "where": "Bought from a Business Scrub on Mount Crenel for 80 Rupees."
+  },
+  {
+   "name": "Flippers",
+   "cat": "item",
+   "type": "Accessory",
+   "effect": "Let Link swim across deep water and dive, reaching areas he otherwise can't cross.",
+   "where": "Reward for returning all the overdue books in the Hyrule Town Library book-collecting sidequest."
+  },
+  {
+   "name": "Bottle",
+   "cat": "item",
+   "type": "Empty Bottle (x4)",
+   "effect": "Reusable containers (four total). Store fairies, Red/Blue Potion, water (to grow the Magical Boomerang flower), Picolyte, and other liquids for later use.",
+   "where": "Four Empty Bottles are scattered across the world: bought from a Business Scrub in Trilby Highlands (20 Rupees), given by Stockwell after you fetch the bottle behind his counter and feed his dog Fifi, and won in/near Lon Lon Ranch through Kinstone-fusion side content. Earned through exploration and sidequests."
+  },
+  {
+   "name": "Picolyte",
+   "cat": "item",
+   "type": "Potion (find-booster)",
+   "effect": "A drink stored in a Bottle that briefly (about 30 seconds) raises how often a specific thing drops: White = Kinstone pieces, Red = Recovery Hearts, Green = Mysterious Shells, Yellow = Rupees, Blue = items like Bombs/Arrows, Orange = fairies. Only one effect active at a time.",
+   "where": "Bought at the shop in Hyrule Town for 200 Rupees each (NTSC). White, Red, and Green are sold from the start; Yellow, Blue, and Orange unlock after you bring the Minish researcher in the Minish Village's Barrel House the right samples (Lon Lon Milk, Mt. Crenel Mineral Water, and a Red Potion) to grow their Pico Blooms."
+  },
+  {
+   "name": "Earth Element",
+   "cat": "key",
+   "type": "Element",
+   "effect": "One of the four sacred Elements needed to reforge the sword. Infusing it adds to the blade's power on the path to the Four Sword (each Element brings the finished sword closer to its split-into-four power).",
+   "where": "Won by defeating the Big Green ChuChu in the first dungeon, Deepwood Shrine."
+  },
+  {
+   "name": "Fire Element",
+   "cat": "key",
+   "type": "Element",
+   "effect": "One of the four sacred Elements. Charges the sword with fire's power as you gather all four to remake the Picori Blade into the Four Sword.",
+   "where": "Won by defeating Gleerok in the second dungeon, the Cave of Flames, on Mount Crenel."
+  },
+  {
+   "name": "Water Element",
+   "cat": "key",
+   "type": "Element",
+   "effect": "One of the four sacred Elements, carrying water's power. Needed to upgrade the sword toward the Four Sword.",
+   "where": "Won in the fourth dungeon, the Temple of Droplets, at Lake Hylia — the boss Big Octorok snatches it when you melt the ice around it, so you must beat him to take it back."
+  },
+  {
+   "name": "Wind Element",
+   "cat": "key",
+   "type": "Element",
+   "effect": "The fourth and final sacred Element, carrying wind's power. With all four gathered, the White Sword can be reforged into the legendary Four Sword.",
+   "where": "Won by defeating the Gyorg Pair in the final dungeon, the Palace of Winds, in the Cloud Tops (it is NOT in the similarly named Fortress of Winds)."
+  },
+  {
+   "name": "Picori Blade",
+   "cat": "sword",
+   "type": "Sacred sword (broken)",
+   "effect": "The legendary blade the Picori once gave a hero to seal evil. Vaati shatters it in the opening, freeing the monsters and turning Zelda to stone. Repairing and empowering it is the spine of the whole quest.",
+   "where": "Seen broken at the start; you take the shards to the Minish smith Melari on Mount Crenel, who reforges it into the White Sword."
+  },
+  {
+   "name": "Kinstone Bag",
+   "cat": "key",
+   "type": "Key item (pouch)",
+   "effect": "Holds the Kinstone halves you collect so you can carry and fuse them. Fusing matching halves with people and creatures triggers events across Hyrule — opening chests, paths, and bonuses.",
+   "where": "Given by the wandering musician on the road into Hyrule Town, after you finish Deepwood Shrine — along with your very first Kinstone."
+  },
+  {
+   "name": "Ocarina of Wind",
+   "cat": "key",
+   "type": "Key item (instrument)",
+   "effect": "Play it to summon Zeffa the great bird, who whisks Link to any activated Wind Crest he's uncovered around Hyrule — the game's fast-travel system (press B to be returned to where you were picked up).",
+   "where": "Received at the top of the Fortress of Winds: after you defeat the boss Mazaal, Zeffa drops the Ocarina behind Link at the Wind Tribe's stone tablet."
+  },
+  {
+   "name": "Big Key",
+   "cat": "key",
+   "type": "Dungeon key (big)",
+   "effect": "The oversized key that opens a dungeon's locked boss door. Each dungeon has its own Big Key, used only within that dungeon.",
+   "where": "Found inside each full dungeon — Deepwood Shrine, Cave of Flames, Fortress of Winds, Temple of Droplets, Palace of Winds, and Dark Hyrule Castle — usually guarded behind a puzzle or sub-boss. (The Royal Crypt is a mini-dungeon and uses only small keys.)"
+  },
+  {
+   "name": "Kinstone",
+   "cat": "material",
+   "type": "Fusion piece",
+   "effect": "A colored stone broken into two matching halves. When you find someone (or something) holding the half that fits yours, you 'fuse' Kinstones — triggering a chime and an event somewhere in the world, like a new chest, a sprouting beanstalk, or a cleared path. Dozens of fusions gate secrets and Heart Pieces.",
+   "where": "Half-stones are everywhere: cut grass, smash pots and rocks, defeat enemies, open chests, and receive them from characters. The matching halves are held by NPCs, animals, and statues across Hyrule."
+  },
+  {
+   "name": "Mysterious Shell",
+   "cat": "material",
+   "type": "Collectible currency",
+   "effect": "The currency of the Figurine Gallery. Feed Shells into Carlov's figurine machine — the more you spend per pull, the better your odds of winning a figurine you don't yet own. Holds up to 999.",
+   "where": "Found in chests, bushes, grass, and rocks throughout Hyrule, dropped by enemies, and bought in bulk from Stockwell's shop. Green Picolyte raises the find rate."
+  },
+  {
+   "name": "Figurine",
+   "cat": "material",
+   "type": "Collectible",
+   "effect": "A small statue of a Minish Cap character, enemy, or object for the in-game gallery. Pure collectible / completion goal — gathering them all earns rewards (a Piece of Heart, rupee chests, a Phonograph, and the Carlov Medal).",
+   "where": "Won from Carlov's figurine-dispensing machine in Hyrule Town by spending Mysterious Shells. 136 in total — 130 standard plus a final 6 unlocked after defeating Vaati."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Heart fragment",
+   "effect": "A quarter of a Heart Container. Collect four Pieces of Heart and your maximum life expands by one full heart.",
+   "where": "Hidden across Hyrule — in chests, behind Kinstone fusions, as minigame and sidequest rewards, and in secret spots. There are 44 in all (enough for 11 full hearts)."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Max-health upgrade",
+   "effect": "Permanently adds one full heart to Link's maximum life gauge and refills your health when obtained.",
+   "where": "Awarded for defeating each dungeon's boss; additional hearts come from assembling Pieces of Heart (four per heart)."
+  },
+  {
+   "name": "Rupee",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "Hyrule's money, in colored denominations (green 1, blue 5, red 20, big green 100, big red 200, and more). Spend on equipment, Picolyte, Mysterious Shells, potions, and shop upgrades; wallet upgrades raise how many you can hold.",
+   "where": "Found everywhere — cut grass, smash pots and rocks, open chests, defeat enemies, and complete Kinstone fusions and sidequests."
+  }
+ ],
+ "SIDE_QUESTS": [
+  {
+   "region": "Kinstone Fusions",
+   "quests": [
+    {
+     "id": "kinstone-fusions-overview",
+     "name": "Kinstone Fusions (overview)",
+     "giver": "Anyone with a glowing thought bubble",
+     "location": "All over Hyrule",
+     "reward": "Triggers chests, beanstalks, Heart Pieces, rupees, and shells; all 100 = Tingle Trophy",
+     "oneLine": "Match your Kinstone halves with people, animals, and signs across the world to spring open new treasures and paths.",
+     "how": "Whenever a character (or even a sign or animal) shows a glowing thought bubble over their head, talk to them and pick a Kinstone half from your bag whose color and shape matches what they want. A successful fusion plays a short cutscene showing something opening somewhere in the world (a chest, a beanstalk, a hole) — go investigate that spot. There are 100 fusions total (9 of them are required gold-Kinstone story fusions). Collect halves by cutting grass, opening chests, and beating enemies, and revisit areas as you gain new abilities. Don't do them in order — keep fusing and the world keeps unlocking."
+    },
+    {
+     "id": "beanstalk-heart-pieces-eastern-hills-lake-hylia",
+     "name": "Beanstalk Heart Pieces (Eastern Hills & Lake Hylia)",
+     "giver": "Forest Minish (tiny)",
+     "location": "Eastern Hills and Lake Hylia",
+     "reward": "A Piece of Heart, plus ~200 Rupees and ~200 Mysterious Shells each",
+     "oneLine": "Certain Forest Minish fusions sprout giant beanstalks you can climb to little treasure platforms in the sky.",
+     "how": "Shrink to Minish size in Eastern Hills and at Lake Hylia and find the tiny Forest Minish hidden in the grass and stumps, then fuse a matching Kinstone with one. A huge beanstalk grows nearby; climb it to a floating platform. Each of these stalks holds a Piece of Heart plus large piles of Rupees and Mysterious Shells, so they are among the most valuable fusions in the game — prioritize them. (Some Minish are only reachable after you can swim or as you gain new tools, so revisit.)"
+    },
+    {
+     "id": "wind-ruins-mt-crenel-beanstalks",
+     "name": "Wind Ruins & Mt. Crenel Beanstalks",
+     "giver": "Forest Minish / Melari (the Minish elder)",
+     "location": "Wind Ruins and Mount Crenel",
+     "reward": "Large Quiver (Wind Ruins); a Piece of Heart (Mt. Crenel)",
+     "oneLine": "More beanstalk fusions reward a bigger arrow capacity and another Heart Piece.",
+     "how": "In the Wind Ruins, fuse a matching Kinstone with the Forest Minish there to grow a beanstalk whose summit holds the Large Quiver, letting you carry far more arrows. On Mount Crenel, fuse with Melari (the Minish elder, in Melari's Mines) to sprout a beanstalk at the northwest of the peak that leads to a Piece of Heart (and some red Rupees). As always, watch the fusion cutscene to see roughly where the stalk appears, then climb it."
+    },
+    {
+     "id": "wake-the-goron-merchant",
+     "name": "Wake the Goron Merchant",
+     "giver": "Goron at Lon Lon Ranch",
+     "location": "Southwest corner of Lon Lon Ranch → Hyrule Town Square",
+     "reward": "A Goron Merchant who sells Kinstone halves",
+     "oneLine": "One fusion with a Goron at the ranch brings a traveling Kinstone seller into town so you can buy the halves you're missing.",
+     "how": "Ride the wind vortices to reach the Goron tucked in the southwest corner of Lon Lon Ranch and fuse a matching Kinstone with him. Afterward the Goron Merchant sets up in Hyrule Town Square, selling green Kinstone halves for 50 Rupees, blue for 200, and red for 300 (he restocks after you clear him out). Buying from him is the reliable way to finish stubborn fusions late in the game when you can't find a matching half."
+    },
+    {
+     "id": "the-goron-cave-the-mirror-shield",
+     "name": "The Goron Cave & the Mirror Shield",
+     "giver": "Gorons (diggers)",
+     "location": "Cave near Lon Lon Ranch → Veil Falls",
+     "reward": "Mirror Shield (post-game, via Biggoron)",
+     "oneLine": "A chain of fusions clears a digging cave and, after the game is beaten, wakes Biggoron, who upgrades your shield.",
+     "how": "After the Goron Merchant fusion, fuse with the farmer Eenie (in the Eastern Hills) so the Goron south of Lon Lon Ranch digs open a cave, then fuse with the five Mysterious Walls inside the Mole-Mitt caves scattered across Hyrule (Mount Crenel, Eastern Hills, Minish Woods, Trilby Highlands, Lake Hylia) to summon Gorons that clear the inner barriers. This is a post-game payoff: after Vaati is defeated, a final fusion with the Goron makes Biggoron appear atop Veil Falls. Give him your Small Shield and return in about 20 minutes to receive the Mirror Shield."
+    }
+   ]
+  },
+  {
+   "region": "Figurines & Mysterious Shells",
+   "quests": [
+    {
+     "id": "complete-the-figurine-gallery-all-136",
+     "name": "Complete the Figurine Gallery (all 136)",
+     "giver": "Carlov",
+     "location": "Carlov's Figurine Gallery, Hyrule Town",
+     "reward": "The full 136-figurine collection and the Carlov Medal",
+     "oneLine": "Trade Mysterious Shells at Carlov's machine to collect a figurine of every character and enemy in the game.",
+     "how": "Bring Mysterious Shells to Carlov's gallery and spend them on his figurine machine. As your collection fills you must bet more shells per draw to guarantee a new figurine (two for the next new one, three for the one after, and so on). New figurines only become available as you explore and meet new allies and enemies, so keep playing and come back. There are 130 to win during the game plus 6 more available after you beat it, for 136 total; finishing the set replaces your shell counter with the golden Carlov Medal (and chests that held shells then give Rupees instead)."
+    },
+    {
+     "id": "farming-mysterious-shells",
+     "name": "Farming Mysterious Shells",
+     "location": "Beanstalks, grass, chests, the Wind Tribe",
+     "reward": "Mysterious Shells (the figurine currency)",
+     "oneLine": "Shells are the only currency Carlov accepts, so it helps to know the fastest places to stockpile them.",
+     "how": "The biggest single hauls are the beanstalk fusion platforms (the Eastern Hills and Lake Hylia stalks each drop around 200 shells) and Gregal of the Wind Tribe, who hands over 100 shells when you save him. Beyond that, cut grass, smash pots, and open chests throughout Hyrule, since small shell drops are common. Stockpile a big reserve before a gallery session so you can cover the rising per-draw cost without running dry."
+    },
+    {
+     "id": "borlov-s-chest-minigame",
+     "name": "Borlov's Chest Minigame",
+     "giver": "Borlov",
+     "location": "Chest Mini-Game Shop, Hyrule Town",
+     "reward": "Rupees (varies)",
+     "oneLine": "Carlov's younger brother Borlov runs a pick-a-chest gamble for a Rupee payout.",
+     "how": "The shop opens after you defeat Mazaal and get the Ocarina of Wind. Pay the 10-Rupee fee and pick one of the chests; you keep whatever Rupees are inside (sometimes more than you paid, sometimes nothing). It's pure luck — and Borlov himself dislikes gambling — so treat it as a fun side stop, not a reliable earner. Both Borlov and Carlov also appear as figurines you can win in the gallery."
+    }
+   ]
+  },
+  {
+   "region": "Town, Trades & Townsfolk",
+   "quests": [
+    {
+     "id": "fifi-and-the-free-bottle-stockwell",
+     "name": "Fifi and the Free Bottle (Stockwell)",
+     "giver": "Stockwell",
+     "location": "Stockwell's Shop, Hyrule Town → Stockwell's house, Lake Hylia",
+     "reward": "An empty Bottle",
+     "oneLine": "Deliver Stockwell's dog food to his dog Fifi and the shopkeeper lets you keep the Bottle for free.",
+     "how": "When you try to take the Bottle of Dog Food from behind Stockwell's counter, he agrees to let you keep the empty Bottle if you go feed it to his dog, Fifi. Fifi lives in Stockwell's house in northern Lake Hylia, reachable after you get the Spare Key and pass through Talon and Malon's house at Lon Lon Ranch. Pour the dog food into Fifi's dish there to claim the Bottle. (If you shrink to Minish size you can even talk to Fifi, who misses his busy owner.)"
+    },
+    {
+     "id": "the-lost-library-books",
+     "name": "The Lost Library Books",
+     "giver": "The librarians (to reach Librari)",
+     "location": "Royal Hyrule Library, Hyrule Town",
+     "reward": "Reach Librari → the Flippers and the way to the Temple of Droplets",
+     "oneLine": "Track down three overdue books so the librarians reshelve them, letting you reach the Minish Librari and earn the Flippers.",
+     "how": "Recover three checked-out books and return them so they go back on the shelf, opening the path to Librari (the Minish who once entered the Temple of Droplets): 'A Hyrulean Bestiary' (from Julietta's house, the blue-roofed place in the southeast of town — a Minish must climb in and knock the book down), 'Legend of the Picori' (from the absent-minded scholar Dr. Left's house in the southwest — shrink down, climb to the rafters, and topple it), and 'A History of Masks' (from Mayor Hagen's house near the bell in central Hyrule Town). Once all three are back, talk to Librari; after his trial he gives you the Flippers and points you toward the Temple of Droplets. This is a required story chain, but it's easy to get stuck on."
+    },
+    {
+     "id": "anju-s-cucco-roundup",
+     "name": "Anju's Cucco Roundup",
+     "giver": "Anju",
+     "location": "Anju's henhouse, Hyrule Town",
+     "reward": "Mysterious Shells and Rupees, then a Piece of Heart",
+     "oneLine": "Round up escaped Cuccos against the clock over ten increasingly tricky rounds for a Heart Piece.",
+     "how": "Talk to Anju and accept the round-up; each of the ten rounds asks you to gather a set number of Cuccos within a time limit (it ramps from 2 birds up through fast rounds of 6–7). Pick Cuccos up and carry or toss them into the pen, and use roll/dash to cover ground. You earn Rupees and Mysterious Shells along the way, and clearing the tenth round earns a Piece of Heart. The final round needs the Flippers, since one Cucco sits across the river and must be swum to and thrown back."
+    },
+    {
+     "id": "simon-s-simulation",
+     "name": "Simon's Simulation",
+     "giver": "Simon",
+     "location": "Green-roofed building, central Hyrule Town",
+     "reward": "Piece of Heart (first clear), then random Rupees/Kinstones/Shells",
+     "oneLine": "Pay to nap into a combat dream and clear the monster room for a Heart Piece.",
+     "how": "Simon opens his green, ghost-topped building in the central plaza after you clear the Fortress of Winds. Pay 10 Rupees to lie down and enter the simulation, then defeat every enemy in the dream room (the lineup changes with your progress in the quest). Clearing it the first time rewards a Piece of Heart; later clears give random Rupees, Kinstones, or Mysterious Shells."
+    },
+    {
+     "id": "the-caf-shrink-pot",
+     "name": "The Café Shrink Pot",
+     "location": "Mama's Café, Hyrule Town",
+     "reward": "A shortcut for shrinking to Minish size in town",
+     "oneLine": "Flip the café's big pot to open a Minish portal you can use to shrink down right in the middle of town.",
+     "how": "After you get the Cane of Pacci from the Cave of Flames, go to Mama's Café and use the cane to flip over the large pot inside. Flipping it turns the pot into a Minish portal you can hop into to become Minish-sized whenever you're in town. This makes several town fusions, chimney climbs, and the book-quest steps far quicker to reach."
+    }
+   ]
+  },
+  {
+   "region": "Sword Techniques (Blade Brothers)",
+   "quests": [
+    {
+     "id": "learn-the-tiger-scrolls",
+     "name": "Learn the Tiger Scrolls",
+     "giver": "Swiftblade and the Blade Brothers",
+     "location": "Swiftblade's dojo (Hyrule Town) and dojos scattered across Hyrule",
+     "reward": "Tiger Scrolls — Spin Attack, Dash Attack, Rock Breaker, Down Thrust, Sword Beam, Peril Beam, Roll Attack",
+     "oneLine": "Visit the scattered Blade Brothers as you gain new gear to learn powerful sword techniques.",
+     "how": "Return to Swiftblade's dojo (southwest Hyrule Town) as you gain key items: he teaches the Spin Attack (charge and release), then the Dash Attack (Pegasus Boots), Rock Breaker (White Sword), and Down Thrust (Roc's Cape). The other brothers each live in their own spot: Grayblade (a cave on Mount Crenel) teaches the Roll Attack (swing as a roll ends), Grimblade (a cave by Hyrule Castle Garden) teaches the Sword Beam (swing at full hearts, needs the Lantern), and Waveblade (under a tree at Lake Hylia) teaches the Peril Beam (swing at one heart). Each move arrives as a Tiger Scroll, so collecting them is a tidy checklist."
+    },
+    {
+     "id": "the-great-spin-attack",
+     "name": "The Great Spin Attack",
+     "giver": "Swiftblade the First",
+     "location": "Swiftblade the First's grave, Castor Wilds",
+     "reward": "Great Spin Attack (chained spin attacks)",
+     "oneLine": "Collect all seven other Tiger Scrolls and the original Swiftblade teaches the ultimate spin.",
+     "how": "Once you've earned the other seven Tiger Scrolls from the Blade Brothers, seek out the spirit of Swiftblade the First at his grave in Castor Wilds. He teaches the Great Spin Attack: perform a Spin Attack, then tap the button repeatedly to chain several spins together. It's the strongest melee move in the game and clears crowds fast."
+    },
+    {
+     "id": "spin-gauge-upgrades-optional-brothers",
+     "name": "Spin & Gauge Upgrades (optional brothers)",
+     "giver": "Scarblade, Splitblade, Greatblade",
+     "location": "Their hidden dojos (reached via Kinstone fusions)",
+     "reward": "Faster Spin charge; faster gauge fill; longer Great Spin",
+     "oneLine": "Three optional Blade Brothers, reached by Kinstone fusions, refine your spin attacks rather than teaching new ones.",
+     "how": "After Kinstone fusions reveal them, train with Scarblade (in Castor Wilds) to make the Spin Attack charge faster, Splitblade (behind a Veil Falls waterfall) to make your gauge fill faster, and Greatblade to make the Great Spin Attack last longer. All three are optional polish on moves you already know, but they make spin-heavy fights noticeably smoother."
+    }
+   ]
+  },
+  {
+   "region": "Wind Tribe & Tingle Siblings",
+   "quests": [
+    {
+     "id": "save-gregal-of-the-wind-tribe",
+     "name": "Save Gregal of the Wind Tribe",
+     "giver": "Gregal",
+     "location": "Home of the Wind Tribe, the Cloud Tops",
+     "reward": "100 Mysterious Shells, later the Light Arrows",
+     "oneLine": "Gust-Jar the ghost haunting a bedridden Wind Tribe elder — do it in time and he upgrades your arrows.",
+     "how": "In the Wind Tribe's home you'll find Gregal lying in bed with a Ghost circling him. Equip the Gust Jar and suck the ghost off of him; freeing Gregal nets 100 Mysterious Shells on the spot. Return to him just before you enter the Palace of Winds and he upgrades your Arrows into Light Arrows. Important: you must save Gregal BEFORE you first reach the Cloud Tops — if you arrive without freeing him he dies, and the Light Arrows are lost for that file."
+    },
+    {
+     "id": "reach-the-wind-tribe-cloud-tops",
+     "name": "Reach the Wind Tribe (Cloud Tops)",
+     "giver": "Siroc, Wind Tribe leader",
+     "location": "Cloud Tops above Hyrule",
+     "reward": "Passage to the Palace of Winds (story progress)",
+     "oneLine": "Find your way up to the Wind Tribe's home in the clouds, where Siroc grants passage to the final dungeon.",
+     "how": "Fuse Kinstones with the stranger in the western Hyrule Town house to open a portal in South Hyrule Field, step in, and you're carried up to the Cloud Tops. Speak with Siroc, the Wind Tribe's leader, and she opens the way to the tornado atop the house that whisks you to the Palace of Winds. While you're up here, save Gregal and do the Wind Tribe Kinstone fusions first — this area is easy to leave behind."
+    },
+    {
+     "id": "the-tingle-siblings-the-tingle-trophy",
+     "name": "The Tingle Siblings & the Tingle Trophy",
+     "giver": "Tingle, David Jr., Ankle, and Knuckle",
+     "location": "Scattered around Hyrule",
+     "reward": "Magical Boomerang (all four siblings); Tingle Trophy (all 100 fusions)",
+     "oneLine": "Fuse a Kinstone with each Tingle sibling for the Magical Boomerang, and finish all 100 fusions for the Tingle Trophy.",
+     "how": "Find and fuse a Kinstone with each of the four Tingle siblings (Tingle, David Jr., Ankle, Knuckle) scattered across Hyrule — doing all four makes trees grow in North Hyrule Field that lead to the Magical Boomerang. Separately, once you've completed all 100 Kinstone fusions in the game, Tingle converts your Kinstone Bag into the Tingle Trophy. Be aware that earning the Trophy stops Kinstone halves from dropping in the overworld, so it doubles as a 'you're done fusing' marker."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Great Mayfly Fairy",
+   "region": "Mt. Crenel",
+   "location": "On an eastern ledge of the Crenel Wall (the big climbing wall on Mt. Crenel, far-right/southeast side). Look for the warning sign about throwing bombs, set a bomb to blow open the wall there, then enter and throw a bomb into her fountain. She asks if it was a golden bomb, a silver bomb, or neither, answer honestly: \"Neither.\" (Lying makes her take all your bombs.)",
+   "cost": "Bomb Bag upgrade, a larger bomb bag that lets Link carry up to 30 bombs."
+  },
+  {
+   "name": "Great Butterfly Fairy",
+   "region": "Minish Woods (her tree sits in the northwest of Minish Woods, reached from the Eastern Hills)",
+   "location": "After getting the Cane of Pacci from the Cave of Flames, go to the far northeast corner of the Eastern Hills and use the cane on the small hole to flip up to the higher ledge, then head west into the Minish Woods to her lone tree. Throw all of your rupees into her fountain and she rewards your generosity.",
+   "cost": "Wallet upgrade, a Big Wallet. (There are three Big Wallets in the game from different sources that raise your rupee cap 99 to 300 to 500 to 999, so the exact cap after this gift depends on which others you already have.)"
+  },
+  {
+   "name": "Great Dragonfly Fairy",
+   "region": "Royal Valley",
+   "location": "Just inside the Royal Valley, go down the stairs and bomb the wall to the right to open a cave, then enter and approach her fountain. She asks five trivia questions, answer all correctly: No, No, Yes, No, No.",
+   "cost": "Quiver upgrade, a larger quiver that holds up to 50 arrows. (The 99-arrow quiver comes later from a Kinstone fusion, not from this fairy.)"
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
@@ -43386,49 +44053,265 @@ const MINISH = {
    "id": "ezlo",
    "name": "Ezlo",
    "glyph": "mask",
-   "from": "A strange talking cap you rescue early on — really the Minish sage Ezlo, cursed into hat form.",
-   "what": "Worn on Link's head, Ezlo lets you SHRINK to Minish size at special stumps and portals, and later spreads into a glider. He also advises you throughout.",
-   "tip": "Whenever you see a Minish Portal (a glowing stump or hole), wear Ezlo and step in to shrink — a whole tiny world opens up underfoot."
+   "from": "Story — the talking cap (a transformed Minish sage) you wear after the start; he's your map/menu helper for the whole game.",
+   "what": "The Minish Cap itself. On Minish portals he shrinks Link to tiny Picori size to enter the Minish world; once you have Roc's Cape he also lets you glide across gaps on updrafts.",
+   "tip": "Whenever you're stuck on a gap or a wall too small to climb, look for a green Minish portal (tree stump, jar, table) — Ezlo shrinks you there to find a hidden path."
   },
   {
-   "id": "four_sword",
+   "id": "smiths-sword",
+   "name": "Smith's Sword",
+   "glyph": "sword",
+   "from": "Given by Smith (your grandfather) at home in Hyrule near the very start.",
+   "what": "Your starting sword and main attack. Swing it, and hold to charge a Spin Attack.",
+   "tip": "Hold the attack button until Link flashes, then release for a Spin Attack that hits all around you — great for crowds."
+  },
+  {
+   "id": "white-sword",
+   "name": "White Sword",
+   "glyph": "sword",
+   "from": "Melari, the Minish smith at the top of Mt. Crenel, reforges the Broken Picori Blade into it once you've collected the first Element (Earth, from Deepwood Shrine).",
+   "what": "A stronger blade that holds the power of the Elements. As you infuse each Element at the Elemental Sanctuary in Hyrule Castle, it gains the split (clone) power and grows toward the Four Sword.",
+   "tip": "After gathering Elements, return to the Elemental Sanctuary inside Hyrule Castle to infuse them — the blade unlocks an extra clone with each step."
+  },
+  {
+   "id": "four-sword",
    "name": "Four Sword",
    "glyph": "sword",
-   "from": "Reforged from the Smith's Sword / Picori Blade once you gather all four Elements (forged at the Elemental Sanctuary).",
-   "what": "The legendary blade that seals Vaati. Its signature power: create copies of Link to push heavy blocks and fight together.",
-   "tip": "Stand on the special tiles and hold the sword to spawn Link clones — needed for several four-way switch puzzles."
+   "from": "The White Sword infused with all four Elements (Earth, Fire, Water, Wind) at the Elemental Sanctuary.",
+   "what": "The legendary blade that seals Vaati. It's your strongest sword and reaches the full clone (split) power used to beat the final boss.",
+   "tip": "This is the goal of the whole quest — you can't truly finish Vaati without it."
   },
   {
-   "id": "gust_jar",
-   "name": "Gust Jar",
-   "glyph": "stasis",
-   "from": "The Deepwood Shrine dungeon item.",
-   "what": "Sucks in air to pull objects, vacuum up dust and Mysterious Shells, drain some enemies, and reel yourself along.",
-   "tip": "Use it to pull far chests and to suck up the cobwebs and dust blocking Minish-sized passages."
+   "id": "sword-beam",
+   "name": "Sword Beam (charged shot)",
+   "glyph": "sword",
+   "from": "A power of your sword when you're at full hearts (the technique is taught by Grimblade in the Hyrule Castle garden).",
+   "what": "At full health, a normal swing fires a beam of energy that travels across the screen and hits distant enemies and switches.",
+   "tip": "Keep your hearts topped up — the free ranged beam makes fights much safer."
   },
   {
-   "id": "cane_of_pacci",
-   "name": "Cane of Pacci",
-   "glyph": "stasis",
-   "from": "The Cave of Flames dungeon item.",
-   "what": "Flips objects and enemies upside-down, and launches Link up out of certain holes.",
-   "tip": "Flip an overturned pot or a beetle to expose its weak side; cane a hole to spring up to a higher floor."
-  },
-  {
-   "id": "mole_mitts",
-   "name": "Mole Mitts",
+   "id": "clone-split",
+   "name": "Clone Ability (Split)",
    "glyph": "champion",
-   "from": "The Fortress of Winds dungeon item.",
-   "what": "Dig through soft dirt walls and floors to carve new paths.",
-   "tip": "Dig where the ground looks soft or cracked — they open shortcuts and reveal buried rooms."
+   "from": "Gained as you infuse Elements into the sword (one clone after the first two Elements, more with each, up to four at the Four Sword); used on glowing rune-tile pads in dungeons and the final fight.",
+   "what": "Charge the sword on a marked tile, then step onto the second tile to split into up to four Links that move in formation, letting you press several switches or strike several targets at once.",
+   "tip": "A clone vanishes if it touches a wall, enemy, or barrier (or the gauge empties) — line them up, then act fast."
   },
   {
-   "id": "rocs_cape",
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "Post-game only — after you beat Vaati and finish the Goron Kinstone quest, give your shield to Biggoron at Veil Falls and return later to receive it. (You start the game with a Small Shield that Zelda wins for you at the Picori Festival.)",
+   "what": "Blocks attacks like the normal shield, and also reflects projectiles and beams back at the enemy.",
+   "tip": "Hold it up against magic shots and beams to bounce them back instead of just blocking."
+  },
+  {
+   "id": "gust-jar",
+   "name": "Gust Jar",
+   "glyph": "pot",
+   "from": "Deepwood Shrine (Dungeon 1), in the chest after you beat the Madderpillar mini-boss.",
+   "what": "Hold the button to suck in air — it pulls items, mushrooms, and light enemies toward you, clears sand/cobwebs, and tugs you along lilypads. Release for a puff of air.",
+   "tip": "It's also a tool against enemies and ghosts: vacuum up small spinning foes and dust piles, and use it to topple the Big Green ChuChu boss."
+  },
+  {
+   "id": "cane-of-pacci",
+   "name": "Cane of Pacci",
+   "glyph": "scroll",
+   "from": "Cave of Flames (Dungeon 2).",
+   "what": "Flips objects and enemies over with a magic ring, and turns holes into launch pads — stand on a flipped hole to be shot upward to a higher ledge.",
+   "tip": "Flip an armored enemy onto its back to expose it, then strike. Use it on dark holes to reach ledges you can't jump to."
+  },
+  {
+   "id": "mole-mitts",
+   "name": "Mole Mitts",
+   "glyph": "bag",
+   "from": "Fortress of Winds (Dungeon 3).",
+   "what": "Claw gloves that dig through soft dirt walls and floors, opening new tunnels and uncovering buried paths.",
+   "tip": "Any crumbly brown wall or dirt patch can be dug — look for them to find shortcuts and hidden rooms (and the Goron-quest caves)."
+  },
+  {
+   "id": "flame-lantern",
+   "name": "Flame Lantern",
+   "glyph": "orb",
+   "from": "Temple of Droplets (Dungeon 4).",
+   "what": "Shoots a small flame to light torches, burn obstacles, and melt hunks of ice — and the light lets you see in dark rooms.",
+   "tip": "Use it to thaw the frozen blocks and enemies in the icy temple, and to light far-off torches you can't reach by hand."
+  },
+  {
+   "id": "rocs-cape",
    "name": "Roc's Cape",
    "glyph": "leaf",
-   "from": "The Palace of Winds dungeon item.",
-   "what": "Lets Link jump and glide over gaps, spikes, and enemies — the upgrade to the Pegasus Boots' reach.",
-   "tip": "Press to leap; you can cross wide chasms and dodge attacks by hopping clean over them."
+   "from": "Palace of Winds (Dungeon 5).",
+   "what": "Lets Link jump and briefly hover/glide, crossing wide gaps and floating over spikes and pits.",
+   "tip": "Tap to jump short gaps; hold to glide a little farther. Combine the jump with a downward sword stab for extra reach."
+  },
+  {
+   "id": "bow",
+   "name": "Bow",
+   "glyph": "bow",
+   "from": "Found in northwest Castor Wilds (reachable only at Minish size).",
+   "what": "Fires arrows at distant enemies, switches, and eye targets. Your main ranged weapon.",
+   "tip": "Arrows are limited — pick up dropped and grass-cut arrows, and save the Bow for switches you can't reach with the sword beam."
+  },
+  {
+   "id": "light-arrow",
+   "name": "Light Arrow",
+   "glyph": "bow",
+   "from": "Fuse Kinstones with Strato in western Hyrule Town to open a portal in South Hyrule Field to the Wind Tribe's home; there, use the Gust Jar to drive the ghost off the bedridden old man Gregal — do it before reaching the Wind Tribe via Veil Falls. A side reward, not a dungeon item.",
+   "what": "Upgrades your arrows: hold an arrow to charge a glowing Light Arrow that deals extra damage, especially to dark/evil foes (uncharged, it fires as a normal arrow).",
+   "tip": "Optional and missable — save Gregal in time or the Light Arrow is gone for that file."
+  },
+  {
+   "id": "boomerang",
+   "name": "Boomerang",
+   "glyph": "leaf",
+   "from": "Bought from Stockwell's shop in Hyrule Town (300 Rupees).",
+   "what": "Throws and returns, stunning enemies and grabbing distant items, switches, and levers.",
+   "tip": "Great for hitting far switches and snagging items over gaps without crossing — it also briefly freezes many enemies."
+  },
+  {
+   "id": "magical-boomerang",
+   "name": "Magical Boomerang",
+   "glyph": "leaf",
+   "from": "Fuse Kinstones with all four Tingle siblings, which opens four trees in North Hyrule Field; press the switches in them, then take the chest from the central tree.",
+   "what": "A steerable, longer-range boomerang — you can curve its flight to reach awkward switches and items.",
+   "tip": "Guide it with the d-pad mid-flight, so aim around walls to hit things a straight throw would miss."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "The Bomb Bag is given by a Picori in a house near Hyrule Town after you clear Deepwood Shrine.",
+   "what": "Throw or set bombs to blow open cracked walls, damage enemies, and hit switches. Carried in the Bomb Bag.",
+   "tip": "Watch walls and floors for thin cracks — bomb them to find hidden rooms full of Rupees and Kinstones."
+  },
+  {
+   "id": "remote-bombs",
+   "name": "Remote Bombs",
+   "glyph": "bomb",
+   "from": "Fuse Kinstones with Elder Gentari in Minish Village, then visit Belari to unlock them.",
+   "what": "A second bomb type you can detonate on command — set one, then press the button again to blow it exactly when you want.",
+   "tip": "Toggle between normal and Remote Bombs in the menu; Remote Bombs are perfect for timing a blast as an enemy walks past."
+  },
+  {
+   "id": "pegasus-boots",
+   "name": "Pegasus Boots",
+   "glyph": "armor",
+   "from": "Buy the Wake-Up Mushroom from Syrup the witch (60 Rupees), then use it on Rem the sleeping shoemaker in Hyrule Town — he gives you the Boots he was making.",
+   "what": "Hold the button to charge, then dash forward fast — smash into cracked blocks/trees, stun enemies, and cross slippery or timed gaps.",
+   "tip": "Dashing into certain trees and posts shakes loose Rupees, hearts, and Mysterious Shells; the boots also let you cross Castor Wilds."
+  },
+  {
+   "id": "grip-ring",
+   "name": "Grip Ring",
+   "glyph": "key",
+   "from": "Bought from a Business Scrub in a bomb-opened cave on Mt. Crenel (40 Rupees).",
+   "what": "Lets Link cling to and climb rocky walls without being blown or knocked off by the wind.",
+   "tip": "You need it to scale the windy cliffs of Mt. Crenel toward the Cave of Flames — buy it before trying to climb."
+  },
+  {
+   "id": "flippers",
+   "name": "Flippers",
+   "glyph": "armor",
+   "from": "Return the three overdue library books to the Hyrule Town library, which opens the way to Librari; clear his short trial to receive the Flippers.",
+   "what": "Let Link swim and dive across deep water instead of being blocked at the edge.",
+   "tip": "Once you can swim, revisit earlier areas — plenty of islands and underwater paths were unreachable before."
+  },
+  {
+   "id": "bottle",
+   "name": "Bottle (Empty Bottle)",
+   "glyph": "pot",
+   "from": "Four total around Hyrule: a Business Scrub in Trilby Highlands (~20 Rupees), Stockwell's shop (free after feeding his dog at Lake Hylia), Eastern Hills (Kinstone-fuse with Smith, your grandfather), and Lon Lon Ranch's Goron Cave (after the Goron Kinstone quest).",
+   "what": "Stores fairies, potions, water, milk, Picolyte, and small creatures. A bottled fairy auto-revives you when you fall.",
+   "tip": "Always keep at least one fairy in a bottle before a dungeon or boss — it's a free second life."
+  },
+  {
+   "id": "red-potion",
+   "name": "Red Potion",
+   "glyph": "heart",
+   "from": "Bought from the witch Syrup's shop and stored in a Bottle.",
+   "what": "Drink to refill several hearts of health.",
+   "tip": "Buy and bottle one before tough fights — it's faster than hunting for hearts mid-battle."
+  },
+  {
+   "id": "picolyte-white",
+   "name": "White Picolyte",
+   "glyph": "pot",
+   "from": "Bought at the Hyrule Town potion shop (available early), stored in a Bottle.",
+   "what": "Temporarily raises your chance of finding Kinstone pieces from grass, pots, and enemies.",
+   "tip": "Drink it before sweeping an area you're farming for Kinstones to fill your bag faster."
+  },
+  {
+   "id": "picolyte-blue",
+   "name": "Blue Picolyte",
+   "glyph": "pot",
+   "from": "Unlocked at the Hyrule Town potion shop once the matching Pico Bloom is grown, stored in a Bottle.",
+   "what": "Temporarily raises your chance of finding item drops (hearts, arrows, bombs) from enemies and grass.",
+   "tip": "Pair it with a clearing run when you want consumables to drop more often."
+  },
+  {
+   "id": "picolyte-green",
+   "name": "Green Picolyte",
+   "glyph": "pot",
+   "from": "Unlocked at the Hyrule Town potion shop once the matching Pico Bloom is grown, stored in a Bottle.",
+   "what": "Temporarily raises your chance of finding Mysterious Shells.",
+   "tip": "Drink it before farming Shells so you can afford Carlov's figurines sooner."
+  },
+  {
+   "id": "picolyte-yellow",
+   "name": "Yellow Picolyte",
+   "glyph": "pot",
+   "from": "Unlocked at the Hyrule Town potion shop once the matching Pico Bloom is grown, stored in a Bottle.",
+   "what": "Temporarily raises your chance of finding Rupees.",
+   "tip": "Handy when you're saving up for the Boomerang or a wallet/quiver upgrade."
+  },
+  {
+   "id": "kinstone-bag",
+   "name": "Kinstone Bag",
+   "glyph": "bag",
+   "from": "Given early in the story as you learn to fuse Kinstones.",
+   "what": "Holds the Kinstone halves you collect. Match a half with an NPC or creature who has the other half to 'fuse' and trigger an event somewhere in Hyrule (chests appear, paths open, plants grow).",
+   "tip": "Talk to everyone and fuse whenever the icon appears — many fusions open shortcuts and reward chests you'd otherwise never reach."
+  },
+  {
+   "id": "mysterious-shell",
+   "name": "Mysterious Shell",
+   "glyph": "gem",
+   "from": "Found all over Hyrule — in grass, pots, dig spots, and from dashing into trees.",
+   "what": "The figurine currency. Trade Shells to Carlov in Hyrule Town to roll for collectible figurines of the game's characters.",
+   "tip": "Pick up every Shell you see; figurine-hunting is a long optional collection, and Green Picolyte makes Shells drop more."
+  },
+  {
+   "id": "figurines",
+   "name": "Figurines",
+   "glyph": "book",
+   "from": "Won from Carlov's figurine machine by spending Mysterious Shells.",
+   "what": "Collectible statuettes of nearly every character and enemy; collecting them all is the game's big optional completion goal and unlocks a few small rewards.",
+   "tip": "Purely optional — chase these only if you enjoy 100% completion, since it takes a lot of Shells."
+  },
+  {
+   "id": "large-bomb-bag",
+   "name": "Bomb Bag Upgrade",
+   "glyph": "bag",
+   "from": "Three upgrades around Hyrule (the Mt. Crenel Great Fairy, an Elder Gentari Kinstone fusion, and Stockwell's shop), collected in any order.",
+   "what": "Each raises how many Bombs you can carry — to 30, then 50, then 99.",
+   "tip": "More bombs means less backtracking to refill; grab these as they open up."
+  },
+  {
+   "id": "big-quiver",
+   "name": "Big Quiver",
+   "glyph": "bag",
+   "from": "Three upgrades: a Kinstone fusion with Strato, Stockwell's shop (600 Rupees), and the Great Butterfly Fairy in Royal Valley.",
+   "what": "Raises how many arrows you can hold — to 50, then 70, then 99.",
+   "tip": "Worth it once you rely on the Bow — a bigger quiver saves trips back for arrows."
+  },
+  {
+   "id": "big-wallet",
+   "name": "Big Wallet",
+   "glyph": "bag",
+   "from": "Three upgrades: Stockwell's shop (80 Rupees), the Great Fairy in Eastern Hills, and a Lon Lon Ranch reward (the base wallet holds 100).",
+   "what": "Raises your Rupee carrying limit — to 300, then 500, then 999.",
+   "tip": "Grab the first wallet upgrade early so you stop wasting Rupees when chests overfill your purse."
   }
  ],
  "STATUS_RUNES": [
@@ -43604,6 +44487,18 @@ const MINISH = {
    "Tips"
   ],
   [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
+  ],
+  [
    "settings",
    "Settings"
   ]
@@ -43620,5 +44515,765 @@ const MINISH = {
   "cover": "cap"
  }
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW, ww: WW, minish: MINISH };
+const OOS = {
+ "id": "oos",
+ "label": "Oracle of Seasons",
+ "short": "Seasons",
+ "REGIONS": [
+  {
+   "id": "oos_intro",
+   "name": "Into Holodrum",
+   "sub": "Main Quest — Horon Village & Subrosia",
+   "kind": "region",
+   "tagline": "A dancer stolen, the seasons shattered, and a rod that bends the year.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "oos_intro_s_din",
+     "name": "Din & Onox",
+     "sub": "The seasons go mad",
+     "reward": null,
+     "steps": [
+      {
+       "id": "oos_din_1",
+       "k": "step",
+       "t": "The Triforce whisks Link away to the land of Holodrum. You come upon a troupe in the woods and a cheerful dancer named Din, who befriends you.",
+       "items": []
+      },
+      {
+       "id": "oos_din_2",
+       "k": "warn",
+       "t": "The sky darkens: the General of Darkness, Onox, descends, reveals Din is the Oracle of Seasons, and seals her away — throwing Holodrum's seasons into chaos."
+      },
+      {
+       "id": "oos_din_3",
+       "k": "step",
+       "t": "Impa helps you to Horon Village. Visit the great Maku Tree there; weakened by the chaos, she tells you to gather the eight Essences of Nature from Holodrum's dungeons to restore her power.",
+       "stuck": "The Maku Tree is in the walled grove in Horon Village — you reach her by cutting the bushes / lifting the right way in. Talk to her fully to set the eight-Essence goal."
+      }
+     ]
+    },
+    {
+     "id": "oos_intro_s_sword",
+     "name": "A Sword & the Rod",
+     "sub": "Your tools of the trade",
+     "reward": "Wooden Sword & Rod of Seasons",
+     "steps": [
+      {
+       "id": "oos_sword_1",
+       "k": "reward",
+       "t": "Find your first sword. Enter the Hero's Cave near Horon Village (south) and grab the Wooden Sword from the chest.",
+       "items": [
+        {
+         "name": "Wooden Sword",
+         "cat": "sword",
+         "note": "Your starting blade. Slash, and hold to charge a Spin Attack. Later upgraded to the Noble Sword and Master Sword."
+        }
+       ],
+       "stuck": "The cave is just south/southeast of Horon Village. Go in, beat the simple room, and open the chest for the Wooden Sword."
+      },
+      {
+       "id": "oos_sword_2",
+       "k": "step",
+       "t": "Step into a Subrosia portal (a glowing hole in the ground) to drop into the fiery under-realm. Make your way to the Temple of Seasons.",
+       "stuck": "Portals look like swirling pits — step onto one to fall through to Subrosia. From the landing, follow the path to the large Temple of Seasons."
+      },
+      {
+       "id": "oos_sword_3",
+       "k": "reward",
+       "t": "Inside the Temple of Seasons, claim the Rod of Seasons. (You can set only one season at first; you'll earn the other three from the Season Spirits as you go.)",
+       "items": [
+        {
+         "name": "Rod of Seasons",
+         "cat": "item",
+         "note": "Swing it on a season stump to change Holodrum's season — each season reshapes the land to open new paths."
+        }
+       ],
+       "stuck": "The Rod sits on a pedestal in the temple. Once you have it, find a tree stump on the surface, stand on it, and swing the Rod to change the season."
+      }
+     ]
+    },
+    {
+     "id": "oos_intro_s_first",
+     "name": "The First Essence",
+     "sub": "Off to the Gnarled Root",
+     "reward": "The eight-Essence goal",
+     "steps": [
+      {
+       "id": "oos_first_1",
+       "k": "tip",
+       "t": "Get used to the season stumps. The SAME screen changes with the season: Spring grows flowers and vines, Summer dries water and raises vine ladders, Autumn raises mushrooms, Winter freezes water and piles snow. When blocked, try every season at the nearest stump."
+      },
+      {
+       "id": "oos_first_2",
+       "k": "step",
+       "t": "Head to the Gnarled Root Dungeon, the first of the eight, north of Horon Village. Change the season as needed to reach its entrance, and grab the Gasha and seed trees along the way.",
+       "stuck": "The first dungeon is in North Horon. You may need to set Spring (or the season the path requires) at a stump to clear the way to its door."
+      },
+      {
+       "id": "oos_first_3",
+       "k": "step",
+       "t": "Your quest is set: clear all eight dungeons, claim the eight Essences of Nature, wake the Maku Seed, and storm Onox's Castle to save Din."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "rod_of_seasons",
+   "name": "Rod of Seasons",
+   "glyph": "stasis",
+   "from": "Won from the four Season Spirits in the Temple of Seasons, down in Subrosia.",
+   "what": "Stand on a season stump and swing the Rod to change Holodrum's season — Spring sprouts flowers and vines, Summer dries water and grows climbing vines, Autumn raises mushrooms and drops leaves, Winter freezes water and piles snow into ramps.",
+   "tip": "The same screen is four different puzzles depending on the season. Stuck? Hop on the nearest stump and cycle seasons until a path opens."
+  },
+  {
+   "id": "wooden_sword",
+   "name": "Wooden Sword",
+   "glyph": "sword",
+   "from": "Your first blade, found near Horon Village at the start.",
+   "what": "Basic sword for slashing and a charged Spin Attack. Upgrades to the Noble Sword and Master Sword later.",
+   "tip": "Hold the button to charge the Spin Attack; it hits all around you."
+  },
+  {
+   "id": "seed_satchel",
+   "name": "Seed Satchel",
+   "glyph": "leaf",
+   "from": "The Gnarled Root Dungeon (first dungeon) — and refilled from the Mystery/▼ seed trees.",
+   "what": "Holds the magic seeds you fire with the Slingshot or drop: Ember (fire), Scent (lure/damage), Pegasus (speed), Gale (warp), Mystery (random).",
+   "tip": "Different seeds solve different puzzles — Ember lights torches and burns bushes, Gale Seeds warp you to seed trees you've found."
+  },
+  {
+   "id": "power_bracelet",
+   "name": "Power Bracelet",
+   "glyph": "champion",
+   "from": "Snake's Remains (the second dungeon).",
+   "what": "Lets you lift and throw pots, bushes, and rocks blocking your way.",
+   "tip": "Many overworld rocks you couldn't move become liftable once you have this — backtrack for secrets."
+  },
+  {
+   "id": "rocs_feather",
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "from": "Poison Moth's Lair (the third dungeon).",
+   "what": "Lets Link jump over pits, spikes, and gaps. Upgrades to Roc's Cape (double jump/glide) late in the game.",
+   "tip": "Jumping is core to nearly every later dungeon; pair it with Pegasus Seeds for longer leaps."
+  },
+  {
+   "id": "magnetic_gloves",
+   "name": "Magnetic Gloves",
+   "glyph": "magnesis",
+   "from": "Unicorn's Cave (the fifth dungeon).",
+   "what": "Attract or repel magnetic blocks and balls — pull yourself across gaps to magnetic anchors, or fling iron balls.",
+   "tip": "Switch polarity (N/S) to pull toward or push away; it solves the trickiest mid-late puzzles."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Rod of Seasons",
+   "glyph": "stasis",
+   "step": "oos_sword_3"
+  },
+  {
+   "name": "Wooden Sword",
+   "glyph": "sword",
+   "step": "oos_sword_1"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Fertile Soil",
+   "from": "Gnarled Root Dungeon",
+   "note": "The first Essence of Nature, won from the Gnarled Root Dungeon (boss Aquamentus).",
+   "step": null
+  },
+  {
+   "name": "Gift of Time",
+   "from": "Snake's Remains",
+   "note": "The second Essence, won from Snake's Remains (boss Dodongo).",
+   "step": null
+  },
+  {
+   "name": "Bright Sun",
+   "from": "Poison Moth's Lair",
+   "note": "The third Essence, won from Poison Moth's Lair (boss Mothula).",
+   "step": null
+  },
+  {
+   "name": "Soothing Rain",
+   "from": "Dancing Dragon Dungeon",
+   "note": "The fourth Essence, won from the Dancing Dragon Dungeon (boss Gohma).",
+   "step": null
+  },
+  {
+   "name": "Nurturing Warmth",
+   "from": "Unicorn's Cave",
+   "note": "The fifth Essence, won from Unicorn's Cave (boss Digdogger).",
+   "step": null
+  },
+  {
+   "name": "Blowing Wind",
+   "from": "Ancient Ruins",
+   "note": "The sixth Essence, won from the Ancient Ruins (boss Manhandla).",
+   "step": null
+  },
+  {
+   "name": "Seed of Life",
+   "from": "Explorer's Crypt",
+   "note": "The seventh Essence, won from the Explorer's Crypt (boss Gleeok).",
+   "step": null
+  },
+  {
+   "name": "Changing Seasons",
+   "from": "Sword & Shield Maze",
+   "note": "The eighth and last Essence, won from the Sword & Shield Maze — completing the Maku Seed.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Rings & Collectibles",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "essences",
+   "name": "The Eight Essences of Nature",
+   "sub": "To wake the Maku Seed",
+   "note": "One Essence waits in each of Holodrum's eight dungeons. Gather all eight and the Maku Tree forms the Maku Seed, your key to Onox's Castle.",
+   "reward": "Maku Seed"
+  },
+  {
+   "id": "rod",
+   "name": "The Rod of Seasons",
+   "sub": "Master the four seasons",
+   "note": "Won from the four Season Spirits in Subrosia, the Rod lets you change the season at stumps — reshaping the land to open every path.",
+   "reward": "Season control"
+  },
+  {
+   "id": "rings",
+   "name": "Magic Rings",
+   "sub": "Sixty-four to collect",
+   "note": "Find ring boxes and Gasha-nut seeds, then have Vasu appraise them. Equip rings for powers — extra damage, defense, new abilities. There are 64 in all (shareable with a linked Oracle of Ages game).",
+   "reward": "Ring powers"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Twelve are hidden across Holodrum — some only reachable in a particular season.",
+   "reward": "More hearts"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "seasons",
+   "name": "Changing the seasons",
+   "items": [
+    "The Rod of Seasons (from Subrosia) changes Holodrum's season when you stand on a stump and swing it. Each season transforms the SAME map: Spring blooms flowers/vines to climb, Summer dries up water and grows vine ladders, Autumn raises mushrooms and clears leaves, Winter freezes water solid and heaps snow into ramps.",
+    "If a screen looks impassable, find the nearest season stump and try all four seasons — one of them opens the way.",
+    "You start only able to set ONE season; you earn the others from the Season Spirits as you progress."
+   ]
+  },
+  {
+   "id": "subrosia",
+   "name": "Subrosia & seeds",
+   "items": [
+    "Portals (glowing holes) drop you into Subrosia, the fiery under-realm — home of the Temple of Seasons, the smithy (sword/shield upgrades), and trading sidequests.",
+    "Magic Seeds power your Slingshot and tools: Ember (fire/torches), Scent (lure & damage), Pegasus (speed), Gale (warp to seed trees), Mystery (random). Refill from the seed trees dotted around Holodrum.",
+    "Gasha Seeds planted in soft soil grow Gasha Nuts that hold rings, rupees, and items."
+   ]
+  },
+  {
+   "id": "rings",
+   "name": "Rings & the linked game",
+   "items": [
+    "Collect ring boxes and have Vasu (in Horon Village) appraise unidentified rings. Equip one at a time for effects — the Power Ring boosts attack, the Armor Ring defense, and dozens more.",
+    "Oracle of Seasons and Oracle of Ages are a linked pair: beat one, then enter its password into the other to play a harder 'linked' quest, share rings, and unlock the TRUE final boss (Twinrova → Ganon).",
+    "A bottled Fairy or a Gasha Nut potion can save you in a tough dungeon."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 12,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container — some only reachable in a particular season."
+  },
+  {
+   "id": "rings",
+   "label": "Magic Rings",
+   "total": 64,
+   "glyph": "gem",
+   "note": "Appraised by Vasu; equip one for a power. 64 in all (shareable with a linked Oracle of Ages)."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Essences of Nature",
+  "regionBanner": "Dungeon",
+  "worldName": "Holodrum"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "oos_onox",
+ "meta": {
+  "console": "Game Boy Color",
+  "consoleShort": "GBC",
+  "consoleRank": 4,
+  "year": 2001,
+  "era": "The Land of Holodrum",
+  "accent": "#e0883a",
+  "accent2": "#3a2410",
+  "cover": "season"
+ }
+};
+const OOA = {
+ "id": "ooa",
+ "label": "Oracle of Ages",
+ "short": "Ages",
+ "REGIONS": [
+  {
+   "id": "ooa_intro",
+   "name": "Into Labrynna",
+   "sub": "Main Quest — Lynna & the Maku Tree",
+   "kind": "region",
+   "tagline": "An oracle possessed, history unmade, and a harp that turns back time.",
+   "champion": null,
+   "sections": [
+    {
+     "id": "ooa_intro_s_nayru",
+     "name": "Nayru & Veran",
+     "sub": "History comes undone",
+     "reward": null,
+     "steps": [
+      {
+       "id": "ooa_nayru_1",
+       "k": "step",
+       "t": "The Triforce carries Link to the land of Labrynna. You meet Impa, searching for a singer — and then Nayru, the Oracle of Ages, whose song calms the very land.",
+       "items": []
+      },
+      {
+       "id": "ooa_nayru_2",
+       "k": "warn",
+       "t": "The Sorceress of Shadows, Veran, possesses Nayru's body and flees into the PAST to rewrite history, withering the present. The Maku Tree of the present begins to die."
+      },
+      {
+       "id": "ooa_nayru_3",
+       "k": "step",
+       "t": "Reach the Maku Tree (you'll travel to the PAST to find her healthy). She tells you to gather the eight Essences of Time from Labrynna's dungeons to restore her power and stop Veran.",
+       "stuck": "Follow the story to a time portal and cross into the past; the Maku Tree there is strong and gives your quest. The present-day tree is too weak to help yet."
+      }
+     ]
+    },
+    {
+     "id": "ooa_intro_s_harp",
+     "name": "A Sword & the Harp",
+     "sub": "The instrument of time",
+     "reward": "Wooden Sword & Harp of Ages",
+     "steps": [
+      {
+       "id": "ooa_harp_1",
+       "k": "reward",
+       "t": "Find your first sword near Lynna — open the chest in the starting cave for the Wooden Sword.",
+       "items": [
+        {
+         "name": "Wooden Sword",
+         "cat": "sword",
+         "note": "Your starting blade. Slash, and hold to charge a Spin Attack. Later upgraded to the Noble Sword and Master Sword."
+        }
+       ],
+       "stuck": "The sword is in a small cave near Lynna Village / Nayru's house area. Go in and open the chest."
+      },
+      {
+       "id": "ooa_harp_2",
+       "k": "reward",
+       "t": "Obtain the Harp of Ages, the instrument that lets you cross between the past and present. You learn the Tune of Echoes, which opens time portals.",
+       "items": [
+        {
+         "name": "Harp of Ages",
+         "cat": "item",
+         "note": "Play its tunes to travel between the PAST and PRESENT. The Tune of Echoes opens portals; you learn the Tune of Currents and Tune of Ages later."
+        }
+       ],
+       "stuck": "The Harp comes from Nayru / the early story. Once you have it and the Tune of Echoes, play it on a glowing time-portal tile to switch eras."
+      }
+     ]
+    },
+    {
+     "id": "ooa_intro_s_first",
+     "name": "The First Essence",
+     "sub": "Off to Spirit's Grave",
+     "reward": "The eight-Essence goal",
+     "steps": [
+      {
+       "id": "ooa_first_1",
+       "k": "tip",
+       "t": "Get used to time travel. A change you make in the PAST shows up in the PRESENT: dam a river long ago and a lake runs dry today; move a block in one era to clear a path in the other. When stuck, flip time and look at the same spot."
+      },
+      {
+       "id": "ooa_first_2",
+       "k": "step",
+       "t": "Head to Spirit's Grave, the first of the eight dungeons, in the graveyard area. Use the Harp to reach its entrance across eras, grabbing seed trees and Gasha spots along the way.",
+       "stuck": "Spirit's Grave is in the Yoll Graveyard. You'll likely cross to the past (or back) at a nearby portal to reach the dungeon door."
+      },
+      {
+       "id": "ooa_first_3",
+       "k": "step",
+       "t": "Your quest is set: clear all eight dungeons, claim the eight Essences of Time, wake the Maku Seed, and confront Veran to free Nayru and Labrynna."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "SHRINES": [],
+ "ARMOR": {
+  "sets": []
+ },
+ "BESTIARY": {
+  "enemies": []
+ },
+ "COOKING": {
+  "rules": [],
+  "effects": [],
+  "recipes": [],
+  "dragons": []
+ },
+ "RECIPES": [],
+ "COOK_RULES": [],
+ "COOK_INGREDIENTS": [],
+ "WORLD": {
+  "upgrades": [],
+  "systems": [],
+  "fairies": []
+ },
+ "ECONOMY": null,
+ "COMPENDIUM": [],
+ "SIDE_QUESTS": [],
+ "TOWERS": [],
+ "GREAT_FAIRIES": [],
+ "REGION_MAPS": {},
+ "MAP_NODES": {},
+ "MAP_BEASTS": [],
+ "KOROKS": null,
+ "RUNES": [
+  {
+   "id": "harp_of_ages",
+   "name": "Harp of Ages",
+   "glyph": "stasis",
+   "from": "Entrusted by Nayru (or recovered early in the quest) — the instrument of time.",
+   "what": "Play its tunes to travel between the PAST and the PRESENT: the Tune of Echoes opens time portals, the Tune of Currents warps you to the present, and the Tune of Ages warps you freely between eras.",
+   "tip": "A change you make in the PAST ripples into the PRESENT — plant or move something long ago to find it grown or shifted now. That's the core of nearly every puzzle."
+  },
+  {
+   "id": "wooden_sword",
+   "name": "Wooden Sword",
+   "glyph": "sword",
+   "from": "Your first blade, found near Lynna Village at the start.",
+   "what": "Basic sword for slashing and a charged Spin Attack. Upgrades to the Noble Sword and Master Sword later.",
+   "tip": "Hold the button to charge the Spin Attack; it hits all around you."
+  },
+  {
+   "id": "power_bracelet",
+   "name": "Power Bracelet",
+   "glyph": "champion",
+   "from": "Spirit's Grave (the first dungeon).",
+   "what": "Lets you lift and throw pots, bushes, and rocks blocking your way.",
+   "tip": "Many blocked overworld rocks become liftable once you have this — across both the past and present."
+  },
+  {
+   "id": "rocs_feather",
+   "name": "Roc's Feather",
+   "glyph": "leaf",
+   "from": "Wing Dungeon (the second dungeon).",
+   "what": "Lets Link jump over pits, spikes, and gaps.",
+   "tip": "Core to most later dungeons; pair with Pegasus Seeds for longer leaps."
+  },
+  {
+   "id": "switch_hook",
+   "name": "Switch Hook",
+   "glyph": "magnesis",
+   "from": "Skull Dungeon (the fourth dungeon).",
+   "what": "Fires a hook that SWAPS Link's place with the object or enemy it hits — trade places with blocks across gaps and across time-locked walls. Upgrades to the Long Hook.",
+   "tip": "Switching places with a block lets you cross a pit you can't jump; switch with an enemy to reposition it onto a switch."
+  },
+  {
+   "id": "seed_shooter",
+   "name": "Seed Shooter",
+   "glyph": "leaf",
+   "from": "Moonlit Grotto (the third dungeon).",
+   "what": "Fires magic seeds in a straight line that BOUNCE off walls — hit far switches and torches around corners.",
+   "tip": "Aim ricochets off walls to reach a switch you can't line up directly — a favorite Ages puzzle."
+  }
+ ],
+ "STATUS_RUNES": [
+  {
+   "name": "Harp of Ages",
+   "glyph": "stasis",
+   "step": "ooa_harp_2"
+  },
+  {
+   "name": "Wooden Sword",
+   "glyph": "sword",
+   "step": "ooa_harp_1"
+  }
+ ],
+ "CHAMPIONS": [
+  {
+   "name": "Eternal Spirit",
+   "from": "Spirit's Grave",
+   "note": "The first Essence of Time, won from Spirit's Grave.",
+   "step": null
+  },
+  {
+   "name": "Ancient Wood",
+   "from": "Wing Dungeon",
+   "note": "The second Essence, won from the Wing Dungeon.",
+   "step": null
+  },
+  {
+   "name": "Echoing Howl",
+   "from": "Moonlit Grotto",
+   "note": "The third Essence, won from the Moonlit Grotto (boss Shadow Hag).",
+   "step": null
+  },
+  {
+   "name": "Burning Flame",
+   "from": "Skull Dungeon",
+   "note": "The fourth Essence, won from the Skull Dungeon (boss Eyesoar).",
+   "step": null
+  },
+  {
+   "name": "Sacred Soil",
+   "from": "Crown Dungeon",
+   "note": "The fifth Essence, won from the Crown Dungeon (boss Smog).",
+   "step": null
+  },
+  {
+   "name": "Lonely Peak",
+   "from": "Mermaid's Cave",
+   "note": "The sixth Essence, won from Mermaid's Cave (boss Octogon).",
+   "step": null
+  },
+  {
+   "name": "Rolling Sea",
+   "from": "Jabu-Jabu's Belly",
+   "note": "The seventh Essence, won from Jabu-Jabu's Belly (boss Plasmarine).",
+   "step": null
+  },
+  {
+   "name": "Falling Star",
+   "from": "Ancient Tomb",
+   "note": "The eighth and last Essence, won from the Ancient Tomb — completing the Maku Seed.",
+   "step": null
+  }
+ ],
+ "CATS": [
+  {
+   "id": "sword",
+   "name": "Swords",
+   "glyph": "sword"
+  },
+  {
+   "id": "shield",
+   "name": "Shields",
+   "glyph": "shield"
+  },
+  {
+   "id": "item",
+   "name": "Items & Tools",
+   "glyph": "bag"
+  },
+  {
+   "id": "key",
+   "name": "Key Items",
+   "glyph": "key"
+  },
+  {
+   "id": "material",
+   "name": "Rings & Collectibles",
+   "glyph": "gem"
+  }
+ ],
+ "ROADMAP": [
+  {
+   "id": "essences",
+   "name": "The Eight Essences of Time",
+   "sub": "To wake the Maku Seed",
+   "note": "One Essence waits in each of Labrynna's eight dungeons. Gather all eight and the Maku Tree forms the Maku Seed, your key to Veran's seat of power.",
+   "reward": "Maku Seed"
+  },
+  {
+   "id": "harp",
+   "name": "The Harp of Ages",
+   "sub": "Past and present",
+   "note": "The Harp lets you cross between the past and the present at time portals. Reshape history — what you do long ago changes the world today.",
+   "reward": "Time travel"
+  },
+  {
+   "id": "rings",
+   "name": "Magic Rings",
+   "sub": "Sixty-four to collect",
+   "note": "Find ring boxes and Gasha nuts, then have Vasu appraise them. Equip rings for powers. There are 64 in all (shareable with a linked Oracle of Seasons game).",
+   "reward": "Ring powers"
+  },
+  {
+   "id": "hearts",
+   "name": "Pieces of Heart",
+   "sub": "Four = one Heart Container",
+   "note": "Twelve are hidden across Labrynna — some only reachable in one era.",
+   "reward": "More hearts"
+  }
+ ],
+ "TIPS": [
+  {
+   "id": "time",
+   "name": "Traveling through time",
+   "items": [
+    "The Harp of Ages moves you between the PAST and the PRESENT at time portals. The Tune of Echoes opens portals; the Tune of Currents and Tune of Ages warp you between eras directly once learned.",
+    "Cause and effect across time is the whole game: block a river in the past and a lake is dry in the present; plant a seed long ago and a tree stands today. When stuck, ask 'what could I change in the OTHER era?'",
+    "Some screens exist only in one era, or are blocked in one and open in the other — flip time and look again."
+   ]
+  },
+  {
+   "id": "seeds",
+   "name": "Seeds, hooks & tools",
+   "items": [
+    "Magic Seeds power the Seed Shooter and tools: Ember (fire), Scent (lure/damage), Pegasus (speed), Gale (warp), Mystery (random). Refill from seed trees.",
+    "The Switch Hook swaps Link's place with a block or enemy — cross gaps and reposition things; it later becomes the Long Hook with longer reach.",
+    "Gasha Seeds planted in soft soil grow Gasha Nuts holding rings, rupees, and items."
+   ]
+  },
+  {
+   "id": "rings",
+   "name": "Rings & the linked game",
+   "items": [
+    "Collect ring boxes and have Vasu (in Lynna) appraise unidentified rings; equip one for effects (Power Ring boosts attack, Armor Ring defense, and dozens more).",
+    "Oracle of Ages and Oracle of Seasons are a linked pair: beat one, then enter its password into the other for a harder 'linked' quest, shared rings, and the TRUE final boss (Twinrova → Ganon).",
+    "Ages leans more on puzzles than combat — take your time reading each room; a bottled Fairy helps in the harder dungeons."
+   ]
+  }
+ ],
+ "COLLECTIBLES": [
+  {
+   "id": "hearts",
+   "label": "Pieces of Heart",
+   "total": 12,
+   "glyph": "heart",
+   "note": "Every 4 make a full Heart Container — some only reachable in one era."
+  },
+  {
+   "id": "rings",
+   "label": "Magic Rings",
+   "total": 64,
+   "glyph": "gem",
+   "note": "Appraised by Vasu; equip one for a power. 64 in all (shareable with a linked Oracle of Seasons)."
+  }
+ ],
+ "terms": {
+  "orbs": "Heart Containers",
+  "orbWord": "hearts",
+  "runesLabel": "Items",
+  "championsLabel": "Essences of Time",
+  "regionBanner": "Dungeon",
+  "worldName": "Labrynna"
+ },
+ "guideSegs": [
+  [
+   "runes",
+   "Items"
+  ],
+  [
+   "tips",
+   "Tips"
+  ],
+  [
+   "settings",
+   "Settings"
+  ]
+ ],
+ "postRegionId": "ooa_veran",
+ "meta": {
+  "console": "Game Boy Color",
+  "consoleShort": "GBC",
+  "consoleRank": 4,
+  "year": 2001,
+  "era": "The Land of Labrynna",
+  "accent": "#4a9fc2",
+  "accent2": "#10303a",
+  "cover": "harp"
+ }
+};
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW, ww: WW, minish: MINISH, oos: OOS, ooa: OOA };
 /* GEN:DATA:END */

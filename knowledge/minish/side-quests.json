@@ -1,0 +1,179 @@
+{
+ "regions": [
+  {
+   "region": "Kinstone Fusions",
+   "quests": [
+    {
+     "name": "Kinstone Fusions (overview)",
+     "giver": "Anyone with a glowing thought bubble",
+     "location": "All over Hyrule",
+     "reward": "Triggers chests, beanstalks, Heart Pieces, rupees, and shells; all 100 = Tingle Trophy",
+     "oneLine": "Match your Kinstone halves with people, animals, and signs across the world to spring open new treasures and paths.",
+     "how": "Whenever a character (or even a sign or animal) shows a glowing thought bubble over their head, talk to them and pick a Kinstone half from your bag whose color and shape matches what they want. A successful fusion plays a short cutscene showing something opening somewhere in the world (a chest, a beanstalk, a hole) — go investigate that spot. There are 100 fusions total (9 of them are required gold-Kinstone story fusions). Collect halves by cutting grass, opening chests, and beating enemies, and revisit areas as you gain new abilities. Don't do them in order — keep fusing and the world keeps unlocking."
+    },
+    {
+     "name": "Beanstalk Heart Pieces (Eastern Hills & Lake Hylia)",
+     "giver": "Forest Minish (tiny)",
+     "location": "Eastern Hills and Lake Hylia",
+     "reward": "A Piece of Heart, plus ~200 Rupees and ~200 Mysterious Shells each",
+     "oneLine": "Certain Forest Minish fusions sprout giant beanstalks you can climb to little treasure platforms in the sky.",
+     "how": "Shrink to Minish size in Eastern Hills and at Lake Hylia and find the tiny Forest Minish hidden in the grass and stumps, then fuse a matching Kinstone with one. A huge beanstalk grows nearby; climb it to a floating platform. Each of these stalks holds a Piece of Heart plus large piles of Rupees and Mysterious Shells, so they are among the most valuable fusions in the game — prioritize them. (Some Minish are only reachable after you can swim or as you gain new tools, so revisit.)"
+    },
+    {
+     "name": "Wind Ruins & Mt. Crenel Beanstalks",
+     "giver": "Forest Minish / Melari (the Minish elder)",
+     "location": "Wind Ruins and Mount Crenel",
+     "reward": "Large Quiver (Wind Ruins); a Piece of Heart (Mt. Crenel)",
+     "oneLine": "More beanstalk fusions reward a bigger arrow capacity and another Heart Piece.",
+     "how": "In the Wind Ruins, fuse a matching Kinstone with the Forest Minish there to grow a beanstalk whose summit holds the Large Quiver, letting you carry far more arrows. On Mount Crenel, fuse with Melari (the Minish elder, in Melari's Mines) to sprout a beanstalk at the northwest of the peak that leads to a Piece of Heart (and some red Rupees). As always, watch the fusion cutscene to see roughly where the stalk appears, then climb it."
+    },
+    {
+     "name": "Wake the Goron Merchant",
+     "giver": "Goron at Lon Lon Ranch",
+     "location": "Southwest corner of Lon Lon Ranch → Hyrule Town Square",
+     "reward": "A Goron Merchant who sells Kinstone halves",
+     "oneLine": "One fusion with a Goron at the ranch brings a traveling Kinstone seller into town so you can buy the halves you're missing.",
+     "how": "Ride the wind vortices to reach the Goron tucked in the southwest corner of Lon Lon Ranch and fuse a matching Kinstone with him. Afterward the Goron Merchant sets up in Hyrule Town Square, selling green Kinstone halves for 50 Rupees, blue for 200, and red for 300 (he restocks after you clear him out). Buying from him is the reliable way to finish stubborn fusions late in the game when you can't find a matching half."
+    },
+    {
+     "name": "The Goron Cave & the Mirror Shield",
+     "giver": "Gorons (diggers)",
+     "location": "Cave near Lon Lon Ranch → Veil Falls",
+     "reward": "Mirror Shield (post-game, via Biggoron)",
+     "oneLine": "A chain of fusions clears a digging cave and, after the game is beaten, wakes Biggoron, who upgrades your shield.",
+     "how": "After the Goron Merchant fusion, fuse with the farmer Eenie (in the Eastern Hills) so the Goron south of Lon Lon Ranch digs open a cave, then fuse with the five Mysterious Walls inside the Mole-Mitt caves scattered across Hyrule (Mount Crenel, Eastern Hills, Minish Woods, Trilby Highlands, Lake Hylia) to summon Gorons that clear the inner barriers. This is a post-game payoff: after Vaati is defeated, a final fusion with the Goron makes Biggoron appear atop Veil Falls. Give him your Small Shield and return in about 20 minutes to receive the Mirror Shield."
+    }
+   ]
+  },
+  {
+   "region": "Figurines & Mysterious Shells",
+   "quests": [
+    {
+     "name": "Complete the Figurine Gallery (all 136)",
+     "giver": "Carlov",
+     "location": "Carlov's Figurine Gallery, Hyrule Town",
+     "reward": "The full 136-figurine collection and the Carlov Medal",
+     "oneLine": "Trade Mysterious Shells at Carlov's machine to collect a figurine of every character and enemy in the game.",
+     "how": "Bring Mysterious Shells to Carlov's gallery and spend them on his figurine machine. As your collection fills you must bet more shells per draw to guarantee a new figurine (two for the next new one, three for the one after, and so on). New figurines only become available as you explore and meet new allies and enemies, so keep playing and come back. There are 130 to win during the game plus 6 more available after you beat it, for 136 total; finishing the set replaces your shell counter with the golden Carlov Medal (and chests that held shells then give Rupees instead)."
+    },
+    {
+     "name": "Farming Mysterious Shells",
+     "location": "Beanstalks, grass, chests, the Wind Tribe",
+     "reward": "Mysterious Shells (the figurine currency)",
+     "oneLine": "Shells are the only currency Carlov accepts, so it helps to know the fastest places to stockpile them.",
+     "how": "The biggest single hauls are the beanstalk fusion platforms (the Eastern Hills and Lake Hylia stalks each drop around 200 shells) and Gregal of the Wind Tribe, who hands over 100 shells when you save him. Beyond that, cut grass, smash pots, and open chests throughout Hyrule, since small shell drops are common. Stockpile a big reserve before a gallery session so you can cover the rising per-draw cost without running dry."
+    },
+    {
+     "name": "Borlov's Chest Minigame",
+     "giver": "Borlov",
+     "location": "Chest Mini-Game Shop, Hyrule Town",
+     "reward": "Rupees (varies)",
+     "oneLine": "Carlov's younger brother Borlov runs a pick-a-chest gamble for a Rupee payout.",
+     "how": "The shop opens after you defeat Mazaal and get the Ocarina of Wind. Pay the 10-Rupee fee and pick one of the chests; you keep whatever Rupees are inside (sometimes more than you paid, sometimes nothing). It's pure luck — and Borlov himself dislikes gambling — so treat it as a fun side stop, not a reliable earner. Both Borlov and Carlov also appear as figurines you can win in the gallery."
+    }
+   ]
+  },
+  {
+   "region": "Town, Trades & Townsfolk",
+   "quests": [
+    {
+     "name": "Fifi and the Free Bottle (Stockwell)",
+     "giver": "Stockwell",
+     "location": "Stockwell's Shop, Hyrule Town → Stockwell's house, Lake Hylia",
+     "reward": "An empty Bottle",
+     "oneLine": "Deliver Stockwell's dog food to his dog Fifi and the shopkeeper lets you keep the Bottle for free.",
+     "how": "When you try to take the Bottle of Dog Food from behind Stockwell's counter, he agrees to let you keep the empty Bottle if you go feed it to his dog, Fifi. Fifi lives in Stockwell's house in northern Lake Hylia, reachable after you get the Spare Key and pass through Talon and Malon's house at Lon Lon Ranch. Pour the dog food into Fifi's dish there to claim the Bottle. (If you shrink to Minish size you can even talk to Fifi, who misses his busy owner.)"
+    },
+    {
+     "name": "The Lost Library Books",
+     "giver": "The librarians (to reach Librari)",
+     "location": "Royal Hyrule Library, Hyrule Town",
+     "reward": "Reach Librari → the Flippers and the way to the Temple of Droplets",
+     "oneLine": "Track down three overdue books so the librarians reshelve them, letting you reach the Minish Librari and earn the Flippers.",
+     "how": "Recover three checked-out books and return them so they go back on the shelf, opening the path to Librari (the Minish who once entered the Temple of Droplets): 'A Hyrulean Bestiary' (from Julietta's house, the blue-roofed place in the southeast of town — a Minish must climb in and knock the book down), 'Legend of the Picori' (from the absent-minded scholar Dr. Left's house in the southwest — shrink down, climb to the rafters, and topple it), and 'A History of Masks' (from Mayor Hagen's house near the bell in central Hyrule Town). Once all three are back, talk to Librari; after his trial he gives you the Flippers and points you toward the Temple of Droplets. This is a required story chain, but it's easy to get stuck on."
+    },
+    {
+     "name": "Anju's Cucco Roundup",
+     "giver": "Anju",
+     "location": "Anju's henhouse, Hyrule Town",
+     "reward": "Mysterious Shells and Rupees, then a Piece of Heart",
+     "oneLine": "Round up escaped Cuccos against the clock over ten increasingly tricky rounds for a Heart Piece.",
+     "how": "Talk to Anju and accept the round-up; each of the ten rounds asks you to gather a set number of Cuccos within a time limit (it ramps from 2 birds up through fast rounds of 6–7). Pick Cuccos up and carry or toss them into the pen, and use roll/dash to cover ground. You earn Rupees and Mysterious Shells along the way, and clearing the tenth round earns a Piece of Heart. The final round needs the Flippers, since one Cucco sits across the river and must be swum to and thrown back."
+    },
+    {
+     "name": "Simon's Simulation",
+     "giver": "Simon",
+     "location": "Green-roofed building, central Hyrule Town",
+     "reward": "Piece of Heart (first clear), then random Rupees/Kinstones/Shells",
+     "oneLine": "Pay to nap into a combat dream and clear the monster room for a Heart Piece.",
+     "how": "Simon opens his green, ghost-topped building in the central plaza after you clear the Fortress of Winds. Pay 10 Rupees to lie down and enter the simulation, then defeat every enemy in the dream room (the lineup changes with your progress in the quest). Clearing it the first time rewards a Piece of Heart; later clears give random Rupees, Kinstones, or Mysterious Shells."
+    },
+    {
+     "name": "The Café Shrink Pot",
+     "location": "Mama's Café, Hyrule Town",
+     "reward": "A shortcut for shrinking to Minish size in town",
+     "oneLine": "Flip the café's big pot to open a Minish portal you can use to shrink down right in the middle of town.",
+     "how": "After you get the Cane of Pacci from the Cave of Flames, go to Mama's Café and use the cane to flip over the large pot inside. Flipping it turns the pot into a Minish portal you can hop into to become Minish-sized whenever you're in town. This makes several town fusions, chimney climbs, and the book-quest steps far quicker to reach."
+    }
+   ]
+  },
+  {
+   "region": "Sword Techniques (Blade Brothers)",
+   "quests": [
+    {
+     "name": "Learn the Tiger Scrolls",
+     "giver": "Swiftblade and the Blade Brothers",
+     "location": "Swiftblade's dojo (Hyrule Town) and dojos scattered across Hyrule",
+     "reward": "Tiger Scrolls — Spin Attack, Dash Attack, Rock Breaker, Down Thrust, Sword Beam, Peril Beam, Roll Attack",
+     "oneLine": "Visit the scattered Blade Brothers as you gain new gear to learn powerful sword techniques.",
+     "how": "Return to Swiftblade's dojo (southwest Hyrule Town) as you gain key items: he teaches the Spin Attack (charge and release), then the Dash Attack (Pegasus Boots), Rock Breaker (White Sword), and Down Thrust (Roc's Cape). The other brothers each live in their own spot: Grayblade (a cave on Mount Crenel) teaches the Roll Attack (swing as a roll ends), Grimblade (a cave by Hyrule Castle Garden) teaches the Sword Beam (swing at full hearts, needs the Lantern), and Waveblade (under a tree at Lake Hylia) teaches the Peril Beam (swing at one heart). Each move arrives as a Tiger Scroll, so collecting them is a tidy checklist."
+    },
+    {
+     "name": "The Great Spin Attack",
+     "giver": "Swiftblade the First",
+     "location": "Swiftblade the First's grave, Castor Wilds",
+     "reward": "Great Spin Attack (chained spin attacks)",
+     "oneLine": "Collect all seven other Tiger Scrolls and the original Swiftblade teaches the ultimate spin.",
+     "how": "Once you've earned the other seven Tiger Scrolls from the Blade Brothers, seek out the spirit of Swiftblade the First at his grave in Castor Wilds. He teaches the Great Spin Attack: perform a Spin Attack, then tap the button repeatedly to chain several spins together. It's the strongest melee move in the game and clears crowds fast."
+    },
+    {
+     "name": "Spin & Gauge Upgrades (optional brothers)",
+     "giver": "Scarblade, Splitblade, Greatblade",
+     "location": "Their hidden dojos (reached via Kinstone fusions)",
+     "reward": "Faster Spin charge; faster gauge fill; longer Great Spin",
+     "oneLine": "Three optional Blade Brothers, reached by Kinstone fusions, refine your spin attacks rather than teaching new ones.",
+     "how": "After Kinstone fusions reveal them, train with Scarblade (in Castor Wilds) to make the Spin Attack charge faster, Splitblade (behind a Veil Falls waterfall) to make your gauge fill faster, and Greatblade to make the Great Spin Attack last longer. All three are optional polish on moves you already know, but they make spin-heavy fights noticeably smoother."
+    }
+   ]
+  },
+  {
+   "region": "Wind Tribe & Tingle Siblings",
+   "quests": [
+    {
+     "name": "Save Gregal of the Wind Tribe",
+     "giver": "Gregal",
+     "location": "Home of the Wind Tribe, the Cloud Tops",
+     "reward": "100 Mysterious Shells, later the Light Arrows",
+     "oneLine": "Gust-Jar the ghost haunting a bedridden Wind Tribe elder — do it in time and he upgrades your arrows.",
+     "how": "In the Wind Tribe's home you'll find Gregal lying in bed with a Ghost circling him. Equip the Gust Jar and suck the ghost off of him; freeing Gregal nets 100 Mysterious Shells on the spot. Return to him just before you enter the Palace of Winds and he upgrades your Arrows into Light Arrows. Important: you must save Gregal BEFORE you first reach the Cloud Tops — if you arrive without freeing him he dies, and the Light Arrows are lost for that file."
+    },
+    {
+     "name": "Reach the Wind Tribe (Cloud Tops)",
+     "giver": "Siroc, Wind Tribe leader",
+     "location": "Cloud Tops above Hyrule",
+     "reward": "Passage to the Palace of Winds (story progress)",
+     "oneLine": "Find your way up to the Wind Tribe's home in the clouds, where Siroc grants passage to the final dungeon.",
+     "how": "Fuse Kinstones with the stranger in the western Hyrule Town house to open a portal in South Hyrule Field, step in, and you're carried up to the Cloud Tops. Speak with Siroc, the Wind Tribe's leader, and she opens the way to the tornado atop the house that whisks you to the Palace of Winds. While you're up here, save Gregal and do the Wind Tribe Kinstone fusions first — this area is easy to leave behind."
+    },
+    {
+     "name": "The Tingle Siblings & the Tingle Trophy",
+     "giver": "Tingle, David Jr., Ankle, and Knuckle",
+     "location": "Scattered around Hyrule",
+     "reward": "Magical Boomerang (all four siblings); Tingle Trophy (all 100 fusions)",
+     "oneLine": "Fuse a Kinstone with each Tingle sibling for the Magical Boomerang, and finish all 100 fusions for the Tingle Trophy.",
+     "how": "Find and fuse a Kinstone with each of the four Tingle siblings (Tingle, David Jr., Ankle, Knuckle) scattered across Hyrule — doing all four makes trees grow in North Hyrule Field that lead to the Magical Boomerang. Separately, once you've completed all 100 Kinstone fusions in the game, Tingle converts your Kinstone Bag into the Tingle Trophy. Be aware that earning the Trophy stops Kinstone halves from dropping in the overworld, so it doubles as a 'you're done fusing' marker."
+    }
+   ]
+  }
+ ]
+}

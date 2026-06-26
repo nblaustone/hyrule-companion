@@ -1,0 +1,22 @@
+{
+ "fairies": [
+  {
+   "name": "Great Mayfly Fairy",
+   "region": "Mt. Crenel",
+   "location": "On an eastern ledge of the Crenel Wall (the big climbing wall on Mt. Crenel, far-right/southeast side). Look for the warning sign about throwing bombs, set a bomb to blow open the wall there, then enter and throw a bomb into her fountain. She asks if it was a golden bomb, a silver bomb, or neither, answer honestly: \"Neither.\" (Lying makes her take all your bombs.)",
+   "cost": "Bomb Bag upgrade, a larger bomb bag that lets Link carry up to 30 bombs."
+  },
+  {
+   "name": "Great Butterfly Fairy",
+   "region": "Minish Woods (her tree sits in the northwest of Minish Woods, reached from the Eastern Hills)",
+   "location": "After getting the Cane of Pacci from the Cave of Flames, go to the far northeast corner of the Eastern Hills and use the cane on the small hole to flip up to the higher ledge, then head west into the Minish Woods to her lone tree. Throw all of your rupees into her fountain and she rewards your generosity.",
+   "cost": "Wallet upgrade, a Big Wallet. (There are three Big Wallets in the game from different sources that raise your rupee cap 99 to 300 to 500 to 999, so the exact cap after this gift depends on which others you already have.)"
+  },
+  {
+   "name": "Great Dragonfly Fairy",
+   "region": "Royal Valley",
+   "location": "Just inside the Royal Valley, go down the stairs and bomb the wall to the right to open a cave, then enter and approach her fountain. She asks five trivia questions, answer all correctly: No, No, Yes, No, No.",
+   "cost": "Quiver upgrade, a larger quiver that holds up to 50 arrows. (The 99-arrow quiver comes later from a Kinstone fusion, not from this fairy.)"
+  }
+ ]
+}
