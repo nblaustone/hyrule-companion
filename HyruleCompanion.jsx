@@ -48563,7 +48563,181 @@ const OOA = {
   "sets": []
  },
  "BESTIARY": {
-  "enemies": []
+  "enemies": [
+   {
+    "name": "Octorok",
+    "tier": "common",
+    "tactic": "A burrowing critter that pops up to spit rocks at you in a straight line, then retreats. Sidestep the rock and close in for a single sword slash, or drop it from range with a seed. Harmless once you respect the spit — just don't stand in its line of fire.",
+    "drops": "Hearts, Rupees"
+   },
+   {
+    "name": "Moblin",
+    "tier": "common",
+    "tactic": "Bulldog-faced grunts that charge and, in groups, hurl spears or arrows. Two or three sword hits each. Use the Spin Attack when a pack closes in, and break line-of-sight on the ranged ones behind cover or by slipping into the other era.",
+    "drops": "Hearts, Rupees, occasional Bombs"
+   },
+   {
+    "name": "Zol / Gel",
+    "tier": "common",
+    "tactic": "Green blobs that hop toward you; a Zol splits into two smaller, faster Gels when struck, so finish the Gels quickly before they multiply your problems. A Spin Attack or a single clean hit on each handles them. Annoying in numbers but never threatening.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Buzz Blob",
+    "tier": "common",
+    "tactic": "An electrified plant-blob — touching it or hitting it with the sword shocks YOU. Either keep your distance and use seeds/ranged tools, or feed it a Mystery Seed, which transforms it into a Cukeman you can then strike safely. Never just walk into one.",
+    "drops": "Hearts, Rupees"
+   },
+   {
+    "name": "Bari / Biri",
+    "tier": "common",
+    "tactic": "Jellyfish that drift and periodically crackle with electricity — don't touch them while they glow. A large Bari splits into two small Biri when hit. Wait for the charge to fade, then slash, or hit them with a ranged seed. Common around the water dungeons.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Stalfos",
+    "tier": "common",
+    "tactic": "Skeleton swordsmen that flit erratically and parry careless attacks. Bait a lunge, then counter, or simply blow them apart with a Bomb. A Power Ring makes short work of them. Don't trade blows toe-to-toe — strike on their recovery.",
+    "drops": "Hearts, Rupees"
+   },
+   {
+    "name": "Beamos",
+    "tier": "common",
+    "tactic": "A stone eye-statue that rotates and fires a laser the instant its eye lands on you. It's invulnerable to the sword — either time your movement to cross behind it while it looks away, or destroy it with a Bomb. Mostly a positioning hazard, not a brawler.",
+    "drops": "None"
+   },
+   {
+    "name": "Like Like",
+    "tier": "common",
+    "tactic": "A tube-like maw that, if it grabs you, can swallow and STEAL your shield or a ring — mash buttons to escape fast, then kill it to recover the item. Hit it several times quickly from the side; don't let it pin you against a wall. Deal with it before it eats your gear.",
+    "drops": "Rupees, your swallowed item back"
+   },
+   {
+    "name": "Spiked Beetle",
+    "tier": "common",
+    "tactic": "An armored beetle that's spike-side-up and immune to your sword head-on. Block its charge with your SHIELD to flip it onto its back (the Switch Hook also works), then slash the soft underside. A neat little shield-bash teaching enemy.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Pols Voice",
+    "tier": "common",
+    "tactic": "A big-eared rabbit-ghost that bounces around and shrugs off sword hits. Its weakness is sound and explosives — a Bomb, or playing your animal companion's flute, makes it explode instantly. Don't waste sword swings; pop it with a Bomb or the flute.",
+    "drops": "Hearts, Rupees"
+   },
+   {
+    "name": "Gibdo",
+    "tier": "common",
+    "tactic": "A shambling mummy that only harms you by touch but soaks up hits. Hit it with an Ember Seed (or fire) to burn off the wrappings — it then turns into a Stalfos you can finish. Keep moving and don't let several corner you.",
+    "drops": "Hearts, Rupees"
+   },
+   {
+    "name": "Wallmaster",
+    "tier": "common",
+    "tactic": "A disembodied hand that drops from the ceiling; if it grabs you it drags you back to the dungeon entrance, undoing your progress. Watch for its shadow on the floor and step away, then strike it as it lands. Annoying more than deadly — mind the shadow.",
+    "drops": "None"
+   },
+   {
+    "name": "Cheep Cheep",
+    "tier": "common",
+    "tactic": "A pudgy fish that swims fixed patterns in the side-scrolling underwater sections. Slash it as it passes, or simply weave around its predictable path. Low threat.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Ropa",
+    "tier": "common",
+    "tactic": "Snake/plant enemies that lie dormant like rope coils, then lunge when you draw near. A quick slash kills them; just don't get surprised by one you mistook for scenery. Filler foes in overworld grass.",
+    "drops": "Hearts"
+   },
+   {
+    "name": "Pumpkin Head",
+    "tier": "boss",
+    "tactic": "Boss of Spirit's Grave (Dungeon 1) — a spectral body topped with a jack-o'-lantern.",
+    "drops": "Heart Container, Eternal Spirit (1st Essence of Time)",
+    "battle": "GEAR: just your sword and the Power Bracelet (found in this dungeon). HOW: Slash the floating body a few times — avoiding the three energy balls it occasionally spits — until the pumpkin drops to the ground. Equip the Power Bracelet, walk up and LIFT the pumpkin; a tiny ghost flies out, exposed and vulnerable. Now hurl the pumpkin at the ghost, or throw it away and rush the ghost with your sword before it can reform. The whole fight is a loop: body → lift pumpkin → hit the ghost → repeat. Keep the pumpkin tossed away from the ghost so it can't re-merge."
+   },
+   {
+    "name": "Head Thwomp",
+    "tier": "boss",
+    "tactic": "Boss of the Wing Dungeon (Dungeon 2) — a giant four-faced head fought in a side-view room.",
+    "drops": "Heart Container, Ancient Wood (2nd Essence of Time)",
+    "battle": "GEAR: Bombs and Roc's Feather. HOW: Head Thwomp is hurt ONLY by a Bomb dropped into the open hole on its TOP. Climb the side ladder, get above it, and toss a Bomb into the opening — the face it's showing when the Bomb lands inside is the face it then acts on. GREEN throws fireballs (retreat to the top-right of the ladder), BLUE shoots a widening ring of orbs (hug the bottom of the ladder against the wall), PURPLE slams down and rains boulders (tuck under one of the small platforms), and RED is the hit you want — it takes damage and drops a recovery heart. Land four red hits and it falls. Patience over the ladder is everything: read the face and dodge accordingly between throws."
+   },
+   {
+    "name": "Shadow Hag",
+    "tier": "boss",
+    "tactic": "Boss of Moonlit Grotto (Dungeon 3) — a witch who hides among shifting shadows.",
+    "drops": "Heart Container, Echoing Howl (3rd Essence of Time)",
+    "battle": "GEAR: the Seed Shooter (loaded with seeds) plus Roc's Feather to hop her fireballs. HOW: She splits into FOUR shadows that slide around — you can't hit the right one while facing her, and touching the real shadow hurts. Wait until the shadows merge back into the witch, who then spits fireballs. The trick: turn your BACK to her and fire the Seed Shooter at the opposite wall — the seed ricochets off the wall and strikes her from behind. Repeat the bounce-shot a few times (jumping her projectiles with the feather) and she's history. The whole fight teaches the Seed Shooter wall-bounce: never face her, always bank the shot."
+   },
+   {
+    "name": "Eyesoar",
+    "tier": "boss",
+    "tactic": "Boss of Skull Dungeon (Dungeon 4) — a floating eyeball ringed by smaller orbiting eyes.",
+    "drops": "Heart Container, Burning Flame (4th Essence of Time)",
+    "battle": "GEAR: the Switch Hook and your sword. HOW: First deal with the small eyeballs orbiting Eyesoar — strike them when they pause/stop circling to clear them out. With the little ones gone, fire the Switch Hook at Eyesoar's core: the hook swaps places with it and STUNS it. Immediately rush over and slash the stunned core as many times as you can before it recovers and re-summons its orbiters. Repeat the cycle — clear orbiters, Switch-Hook the core to stun, sword it — until it pops. Don't bother attacking while the eyes are spinning; clear them first."
+   },
+   {
+    "name": "Smog",
+    "tier": "boss",
+    "tactic": "Boss of Crown Dungeon (Dungeon 5) — a unique PUZZLE boss, a horned gas-cloud that divides into pieces.",
+    "drops": "Heart Container, Sacred Soil (5th Essence of Time)",
+    "battle": "GEAR: the Cane of Somaria (from this dungeon) and your sword. HOW: Each round, blocks appear and Smog splits into two or three pieces that ride around the blocks' edges like Sparks — immune to your weapons in this form. Use the Cane of Somaria to CONJURE an extra block in their path so the pieces are diverted into each other and forced to recombine into the whole Smog. Once it's whole, it slowly floats at you, spitting lightning you can't block — dodge that and quickly hack it with the sword. It re-splits and comes back for several rounds; each round, place a cane-block to force a collision, then sword the reformed Smog. Pure positioning — think of it as a sliding-block puzzle that shocks you."
+   },
+   {
+    "name": "Octogon",
+    "tier": "boss",
+    "tactic": "Boss of Mermaid's Cave (Dungeon 6) — a giant octopus fought across land and water.",
+    "drops": "Heart Container, Bereft Peak (6th Essence of Time)",
+    "battle": "GEAR: the Seed Shooter and your sword, plus the Mermaid Suit you earn in this dungeon. PHASE 1 (land): Stand on the central platform and equip the Seed Shooter. Octogon circles with its shell facing center and only occasionally turns to spit a rock — dodge the rock and fire seeds into its exposed face/back when it turns. PHASE 2 (water): After enough hits it half-submerges. Dive in with the Mermaid Suit, equip your sword, and slash it underwater while swimming clear (it chases and tries to trap you in a bubble). When it floats back up, return to the platform and resume the Seed Shooter routine. Alternate land-shooter and underwater-sword until it's beaten. Keep moving in both phases; never let it pin you."
+   },
+   {
+    "name": "Plasmarine",
+    "tier": "boss",
+    "tactic": "Boss of Jabu-Jabu's Belly (Dungeon 7) — an electric jellyfish in a fully underwater room.",
+    "drops": "Heart Container, Rolling Sea (7th Essence of Time)",
+    "battle": "GEAR: the Long Hook (the upgraded Switch Hook). Your sword is USELESS here — consider equipping a defense ring. HOW: Plasmarine darts to your position and either fires an electric ball or electrifies itself on the spot. It alternates between a RED form and a BLUE form, and the energy ball it shoots is always the same color as its current form. The kill is to hit it with the Long Hook while its ball is in flight: the hook both displaces Plasmarine AND flips its color, so it gets struck by its OWN attack. Example: it shoots a red ball — Long-Hook it so it turns blue and is yanked into the path of that red ball. As its health drops it fires faster, so watch its glow. It's a timing/color-matching duel, not a sword fight."
+   },
+   {
+    "name": "Ramrock",
+    "tier": "boss",
+    "tactic": "Boss of the Ancient Tomb (Dungeon 8, the final Essence dungeon) — a levitating stone golem with swappable arms, fought in FOUR phases.",
+    "drops": "Heart Container, Falling Star (8th and final Essence of Time)",
+    "battle": "GEAR: your sword, Bombs, the Seed Shooter, and the Power Glove (found in this dungeon). PHASE 1 — FISTS: He launches his two hands at you; strike a launched fist with your sword so it flies back into Ramrock's body. A few good hits and he switches arms. PHASE 2 — CRUSHING CLAWS: He chases trying to crush you between two claws. Lay or throw a Bomb directly between the claws so they slam it (and it explodes on him) — the only way to hurt this form. PHASE 3 — SHIELDS/ORBS: He guards his head and fires orbs/eye-lasers while sliding side to side. Use the Seed Shooter to bank a seed off the wall BEHIND him so it bounces onto the back of his head. PHASE 4 — BALL-AND-CHAIN ARMS: He swings two ball-and-chain arms. Grab a hanging arm with the Power Glove, pull it toward the wall, then release to fling it into him. Read which arms he equips and switch gear to match — each phase wants a different tool."
+   },
+   {
+    "name": "Veran, Sorceress of Shadows",
+    "tier": "boss",
+    "tactic": "The final boss — the Sorceress of Shadows who possessed Nayru and Queen Ambi to drain Labrynna's past. The climactic Black Tower battle runs through FIVE stages and several transformations.",
+    "drops": "Victory — the Maku Tree is freed and Labrynna is restored",
+    "battle": "Stock a bottled Fairy and potion first — this is a long fight. STAGE 1 — POSSESSED NAYRU: You can't hit Nayru directly. Dodge Veran's energy balls and fire a MYSTERY SEED at her to force Veran's shadow up out of Nayru's head, then use the Switch Hook to YANK the shadow out — now sword it. STAGE 2 — POSSESSED AMBI: Veran jumps into Queen Ambi; same plan (Mystery Seed → Switch Hook → sword), but she also summons spiders/adds, so clear them while you work. STAGE 3 — FAIRY FORM: She becomes a fairy-creature, summons Dark Links that mirror your movement, and flies around firing energy balls (including a radial spray and a slow orb that briefly turns you into a helpless infant — wait it out). Sword her whenever you get an opening; ignore the mirror-clones. STAGE 4 — THREE MONSTER FORMS: She cycles through TURTLE (jumps and slams to crush you — sword her exposed face when she lands), SPIDER (spits a damaging web — throw a Bomb in front to stun her, then sword), and BEE (flies, summons bee swarms, fires speed-slowing stingers — hit her with the Seed Shooter or sword). Keep a fairy in reserve, match each form's counter, and outlast her. Beat the final form and Veran is destroyed for good."
+   }
+  ],
+  "basics": [
+   {
+    "title": "Sword Slash & the Spin Attack",
+    "body": "Tap the sword button for a quick slash; that handles most common foes in one or two hits. Hold the button until Link flashes, then release to unleash a Spin Attack that strikes every direction at once — perfect when enemies surround you. Upgrade to the L-2 Noble Sword (and later the Master Sword) at the Maku Tree and from secrets, and your damage roughly doubles. When a foe is armored or facing you, look for its exposed back or a moment it drops its guard rather than mashing."
+   },
+   {
+    "title": "Time Travel to Reposition & Avoid",
+    "body": "The Harp of Ages is your defining tool: at a glowing time portal (or with the right harp tune) you slip between the PAST and the PRESENT, and the same patch of Labrynna can be wildly different in each era. In a fight or a tight spot, that means you can duck into the other age to escape a swarm, then return behind your enemies. Many obstacles only exist in one era — a wall, a pit, a block — so changing the past literally reshapes the ground you fight on. Think of time travel as a dodge and a puzzle key, not just a story beat."
+   },
+   {
+    "title": "The Wall-Bouncing Seed Shooter",
+    "body": "The Seed Shooter fires whatever mystic Seed you've loaded (Ember, Scent, Mystery, etc.) in a straight line that RICOCHETS off walls. Aim it at a wall so the seed caroms around a corner or comes back to strike a foe you can't face directly — this is the exact trick the Shadow Hag boss demands. Ember Seeds light things and burn enemies; Scent Seeds lure and damage; Mystery Seeds have random effects and are key against shadow/possessed foes (they're what forces Veran's shadow out). Keep your Seed Satchel stocked and remember each seed type does something different when it lands."
+   },
+   {
+    "title": "The Switch Hook — Swap Places",
+    "body": "The Switch Hook fires a hook that TRADES places with whatever it hits — a block, a pot, or an enemy. Use it to yank yourself across a gap by hooking a far block, to pull a switch-tile under your feet, or to swap a dangerous enemy into a pit or hazard. Upgraded to the Long Hook it reaches farther, and it's the key to bosses like Eyesoar (hook the core to stun it) and the Plasmarine fight. It costs nothing to use, so reach for it constantly as both a traversal tool and a weapon."
+   },
+   {
+    "title": "Equipping a Magic Ring",
+    "body": "Throughout Labrynna you'll find magic Rings; take them to Vasu's shop in Lynna City to appraise unidentified rings for free. Once appraised, store them in your Ring Box and EQUIP one at a time for a passive bonus — the Power Ring boosts attack, the Blue/Armor-style rings cut damage taken, others give niche effects like cheaper shops or extra defense. Before a hard fight, swap to a defense ring (great for the underwater Plasmarine bout where your sword is useless) or a Power Ring to end it faster. Bigger Ring Boxes let you carry more, but only the equipped ring is active."
+   },
+   {
+    "title": "Animal Companion & the Bottled Fairy",
+    "body": "Partway through, you befriend one animal companion — Ricky the kangaroo, Dimitri the Dodongo, or Moosh the bear (which one depends on how you got the flute) — that you summon with its flute to cross terrain, attack, or carry you safely past hazards, a mobile escape hatch in open areas. Just as vital: keep a Fairy bottled. A captured fairy automatically revives you with several hearts the instant you'd otherwise die, turning a fatal hit into a second chance. Stock potions and fairies before any dungeon boss, and don't be shy about retreating to a fairy fountain to refill."
+   }
+  ]
  },
  "COOKING": {
   "rules": [],
@@ -48580,62 +48754,877 @@ const OOA = {
   "fairies": []
  },
  "ECONOMY": null,
- "COMPENDIUM": [],
- "SIDE_QUESTS": [],
+ "COMPENDIUM": [
+  {
+   "name": "Wooden Sword",
+   "cat": "sword",
+   "type": "Sword (L-1)",
+   "effect": "Link's starting blade and your basic melee weapon — swing it, or hold the button to charge a Spin Attack and release for a wider hit that does double damage. It's the level-1 sword, the base of the Wooden → Noble → Master upgrade line.",
+   "where": "Given to you by Impa near the very start, right after Nayru (the Oracle of Ages) is possessed by Veran — in a hidden clearing reached by pushing the triangle-marked rock, before you head west to Lynna Village. (In a Linked Game you already have a sword, so Impa hands you a shield instead.)"
+  },
+  {
+   "name": "Noble Sword",
+   "cat": "sword",
+   "type": "Sword (L-2)",
+   "effect": "The level-2 sword upgrade — hits noticeably harder than the Wooden Sword and fires a sword beam when you're at full health. The strongest sword you can get in a normal, unlinked game.",
+   "where": "The reward at the end of the long trading sequence: trade your way to the Broken Sword from the Old Zora (in a cave on the Coast of No Return), then take it to Patch atop Restoration Wall (just south of Symmetry Village, in the Past) and win his Restoration Ceremony — push all eight Hardhat Beetles into the corner holes. (In a Linked Game it can also come from the Clock Shop Secret.)"
+  },
+  {
+   "name": "Master Sword",
+   "cat": "sword",
+   "type": "Sword (L-3)",
+   "effect": "The legendary level-3 blade — stronger than the Noble Sword and, like it, fires a sword beam at full health. The top upgrade of the standard sword line.",
+   "where": "Linked-Game only (Ages linked with Oracle of Seasons via a password). If you already have the Noble Sword (earned earlier via the Clock Shop Secret) when you bring the Broken Sword to Patch, his Restoration Ceremony produces the Master Sword instead."
+  },
+  {
+   "name": "Biggoron's Sword",
+   "cat": "sword",
+   "type": "Sword (two-handed)",
+   "effect": "A huge sword that swings in a full 180-degree arc (versus the normal 90-degree slash) for the biggest damage in the game — the single most powerful sword, stronger even than the Master Sword. The catch: it's held in both hands, so it takes up BOTH item slots and you can carry no shield while it's equipped. A bonus weapon, not part of the normal progression.",
+   "where": "Linked-Game / password reward at the Goron Shooting Gallery on Rolling Ridge (Past): tell the Goron Elder the correct secret, then score 300 points in the shooting minigame while wielding the sword to keep it. Not available in a single, unlinked playthrough."
+  },
+  {
+   "name": "Wooden Shield",
+   "cat": "shield",
+   "type": "Shield (L-1)",
+   "effect": "Your basic level-1 shield — hold it up to block weak enemy attacks and deflect some projectiles. Won't stop stronger or fiery attacks.",
+   "where": "Bought from the Item Shop in Lynna City (Present) for 30 Rupees. This is the shield most players start protecting themselves with."
+  },
+  {
+   "name": "Iron Shield",
+   "cat": "shield",
+   "type": "Shield (L-2)",
+   "effect": "The level-2 shield upgrade — sturdier than the Wooden Shield, it blocks more and stronger attacks. A worthwhile defensive step up.",
+   "where": "On Crescent Island, after the Tokay steal your gear: the thief hidden in a cavern on the island's south edge (reached by swimming there with the Mermaid Suit) hands back an upgraded Iron Shield instead of your old Wooden one. If a Like Like later eats it, a replacement can be bought from any shop for 50 Rupees."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield (L-3)",
+   "effect": "The level-3 top-tier shield — the best protection in the game, blocking attacks the lesser shields can't.",
+   "where": "Linked-Game only (with Oracle of Seasons): the final upgrade of the shield line, after you've already gotten the Iron Shield. It can't be obtained in a standalone Ages playthrough (a replacement sells for 80 Rupees in shops once unlocked)."
+  },
+  {
+   "name": "Magic Rings",
+   "cat": "item",
+   "type": "Ring system",
+   "effect": "A collectible system of equippable rings, each granting a passive power while worn. You find unappraised rings as drops, dig spots, Gasha-tree harvests and chest rewards, then have Vasu appraise them (the first appraisal is free, 20 Rupees each after) to make them usable; store and equip them via the Ring Box, which holds more as you upgrade it. Many rings carry over between Ages and Seasons in a Linked Game.",
+   "where": "Found throughout Labrynna (enemy/boss drops, hidden digging spots, Gasha-tree harvests, minigames). Take them to Vasu's jewelry shop in Lynna City to identify and equip them; expand your Ring Box to hold more at once."
+  },
+  {
+   "name": "Power Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "A Magic Ring (comes in L-1/L-2/L-3 grades): raises your sword's attack power, but in exchange you take more damage every time you're hit — a glass-cannon trade-off (the L-3 grade is Linked-Game only).",
+   "where": "One of the rings you collect and have Vasu appraise. Equip it from the Ring Box when you want to hit harder and can afford to play more carefully."
+  },
+  {
+   "name": "Armor Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "A Magic Ring (also tiered L-1/L-2/L-3): cuts the damage you take when hit, at the cost of lowering your own sword damage — the defensive opposite of the Power Ring (the L-3 grade is Linked-Game only in Ages).",
+   "where": "Collected as an unappraised ring and identified by Vasu in Lynna City. Good for tough rooms where survival matters more than speed."
+  },
+  {
+   "name": "Like Like Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "A transformation Magic Ring that turns Link into a Like Like — while worn you CAN'T use any of your items, but as a side effect Like Likes won't steal your equipped shield. A novelty/protective ring rather than a combat one.",
+   "where": "One of the many rings you can find and have Vasu appraise; equip it if you specifically want to walk through Like Like-infested areas without losing your shield (just remember items are disabled while it's on)."
+  },
+  {
+   "name": "Harp of Ages",
+   "cat": "item",
+   "type": "Harp",
+   "effect": "Your time-travel instrument. Playing its tunes opens Time Portals and lets you cross between the past and present of Labrynna. You can't progress without it.",
+   "where": "Found in a secret room of Nayru's house, where an imprint of Nayru gives you the Harp and teaches the Tune of Echoes."
+  },
+  {
+   "name": "Tune of Echoes",
+   "cat": "item",
+   "type": "Tune",
+   "effect": "The first Harp song. It awakens the Time Portals scattered across Labrynna so you can warp between past and present at those spots.",
+   "where": "Learned together with the Harp itself, taught by Nayru's imprint in Nayru's house near the start."
+  },
+  {
+   "name": "Tune of Currents",
+   "cat": "item",
+   "type": "Tune",
+   "effect": "Played in the past, it warps you instantly to the present from anywhere, no portal needed (past-to-present only). Also unlocks access to the L-2 Ring Box.",
+   "where": "Given by Tokkey (a tune-and-time researcher) when you play the Tune of Echoes for him, after rescuing Nayru."
+  },
+  {
+   "name": "Tune of Ages",
+   "cat": "item",
+   "type": "Tune",
+   "effect": "The full time-travel song: warps you freely between past and present from anywhere, in either direction. The most powerful Harp tune.",
+   "where": "Taught by Nayru after you defeat Veran's Possessed Nayru in Ambi's Palace and speak with the Maku Tree."
+  },
+  {
+   "name": "Seed Satchel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Holds your Mystical Seeds and lets you use them by hand. Upgraded versions raise how many of each seed you can carry.",
+   "where": "A gift from the Maku Tree in the past after you save it."
+  },
+  {
+   "name": "Ember Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Light torches and burn certain bushes or enemies. Often needed to solve fire-lit puzzles and open dark rooms.",
+   "where": "Grown from Ember Seed trees; the first Mystical Seed type you receive."
+  },
+  {
+   "name": "Scent Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Give off a strong scent that lures or damages enemies; thrown or shot, they also work as a ranged attack.",
+   "where": "Grown from a Scent Seed tree found as you explore Labrynna."
+  },
+  {
+   "name": "Pegasus Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Sprinkle on yourself for a temporary speed/dash boost, letting you cross gaps and outrun hazards.",
+   "where": "Grown from a Pegasus Seed tree in the overworld."
+  },
+  {
+   "name": "Gale Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Create a whirlwind. Used by hand they warp you to any Mystical Tree you've found; shot, they blow weaker enemies away.",
+   "where": "Grown from a Gale Seed tree found during your travels."
+  },
+  {
+   "name": "Mystery Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Have a random effect — they can confuse enemies, reveal hints from owl statues, or trigger odd reactions. Handy for puzzles.",
+   "where": "Grown from a Mystery Seed tree in Labrynna."
+  },
+  {
+   "name": "Seed Shooter",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires Seeds across the room, and the seeds ricochet off walls to reach distant switches and targets. Central to that dungeon's bouncing-seed puzzles.",
+   "where": "Found in Moonlit Grotto, the third dungeon."
+  },
+  {
+   "name": "Power Bracelet",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets you grab and lift heavy objects — pots, blocks, and bushes — to clear paths, expose switches, and find hidden stairs.",
+   "where": "Found in Spirit's Grave, the first dungeon (used to lift the pot guarding the Boss Key)."
+  },
+  {
+   "name": "Roc's Feather",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link jump, hopping over gaps, spikes, and pits. Essential for platforming and dodging.",
+   "where": "Found in Wing Dungeon, the second dungeon."
+  },
+  {
+   "name": "Switch Hook",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a hook that swaps Link's position with whatever it hits — an enemy, a block, or a diamond stone — letting you cross gaps and rearrange puzzles.",
+   "where": "Found in Skull Dungeon, the fourth dungeon."
+  },
+  {
+   "name": "Long Hook",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "The upgraded Switch Hook (Level 2): longer reach and a faster firing rate, so you can swap with far-off targets.",
+   "where": "Found in Jabu-Jabu's Belly, the seventh dungeon, upgrading the Switch Hook."
+  },
+  {
+   "name": "Cane of Somaria",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Conjures a block you can push, carry, or place on switches; the block can also be hit to create more blocks for puzzles.",
+   "where": "Found in Crown Dungeon, the fifth dungeon."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Throw or set them to blow open cracked walls, expose secrets, and damage enemies and bosses. Refilled at shops or from grass/enemies.",
+   "where": "First given by Queen Ambi after you bring her Mystery Seeds; capacity upgradable via Bomb Bag finds."
+  },
+  {
+   "name": "Shovel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Digs up the ground to uncover buried stairs, items, and Rupees, and to clear dirt piles blocking your way.",
+   "where": "Found at the base of Ambi's Tower in Lynna Village in the past."
+  },
+  {
+   "name": "Mermaid Suit",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link dive and swim freely in deep and dark water that Flippers alone can't handle. Needed to explore the sea areas.",
+   "where": "Found in Mermaid's Cave, the sixth dungeon."
+  },
+  {
+   "name": "Zora's Flippers",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Let Link swim across water he could otherwise only wade into. Later superseded underwater by the Mermaid Suit.",
+   "where": "Obtained in Cheval's Tomb beneath his gravestone in Yoll Graveyard."
+  },
+  {
+   "name": "Strange Flute",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Summons one of three animal companions — Ricky (kangaroo), Dimitri (Dodongo), or Moosh (bear) — to ride for travel and combat. Which one you get depends on how you obtain the flute, and you can only get one.",
+   "where": "After Moonlit Grotto (3rd dungeon): Ricky's by scoring 250+ in the Lynna Shooting Gallery; Dimitri's by buying the flute (150 Rupees) at the Lynna City Shop; Moosh's by default if you take neither, found in Fairies' Woods."
+  },
+  {
+   "name": "Ring Box",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Holds the Magic Rings you have equipped at once. The L-1 box carries one ring; L-2 carries three.",
+   "where": "L-1 Ring Box given by Vasu at his Lynna City jewelry shop; L-2 box bought (300 Rupees) at the Lynna City Shop, reachable once you have the Tune of Currents."
+  },
+  {
+   "name": "The Eternal Spirit",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 1st Essence of Time. Collecting all eight nourishes the Maku Tree and is your overall quest goal.",
+   "where": "Clear Spirit's Grave (Dungeon 1) and defeat its boss, Pumpkin Head."
+  },
+  {
+   "name": "The Ancient Wood",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 2nd Essence of Time, one of the eight you must gather to restore the Maku Tree.",
+   "where": "Clear Wing Dungeon (Dungeon 2) and defeat its boss."
+  },
+  {
+   "name": "The Echoing Howl",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 3rd Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Moonlit Grotto (Dungeon 3) and defeat its boss."
+  },
+  {
+   "name": "The Burning Flame",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 4th Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Skull Dungeon (Dungeon 4) and defeat its boss."
+  },
+  {
+   "name": "The Sacred Soil",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 5th Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Crown Dungeon (Dungeon 5) and defeat its boss."
+  },
+  {
+   "name": "The Lonely Peak",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 6th Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Mermaid's Cave (Dungeon 6) and defeat its boss."
+  },
+  {
+   "name": "The Rolling Sea",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 7th Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Jabu-Jabu's Belly (Dungeon 7) and defeat its boss."
+  },
+  {
+   "name": "The Falling Star",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 8th and final Essence of Time. With all eight, the Maku Tree can grant the Maku Seed for the final battle.",
+   "where": "Clear Ancient Tomb (Dungeon 8) and defeat its boss."
+  },
+  {
+   "name": "Small Key",
+   "cat": "key",
+   "type": "Key",
+   "effect": "Opens one locked door inside the dungeon where it's found. Each dungeon has its own keys, used up on locked doors.",
+   "where": "Found in chests, under pots, or by clearing rooms within each dungeon."
+  },
+  {
+   "name": "Boss Key",
+   "cat": "key",
+   "type": "Key",
+   "effect": "Unlocks the boss door of its dungeon. One per dungeon, needed before you can face that dungeon's boss.",
+   "where": "Hidden in a chest deep in each dungeon, usually behind a major puzzle."
+  },
+  {
+   "name": "Maku Seed",
+   "cat": "key",
+   "type": "Key",
+   "effect": "The sacred seed the Maku Tree grants once all eight Essences are gathered. It dispels the dark magic guarding the final foe, opening the path to the end.",
+   "where": "Given by the Maku Tree after you collect all 8 Essences of Time."
+  },
+  {
+   "name": "Magic Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "The ring system: collectible rings that grant passive powers when equipped (more sword damage, defense, special abilities, and more). Found rings must be appraised by Vasu (20 Rupees) before they can be worn, and stored in your Ring Box.",
+   "where": "Found in chests, dug up, dropped by enemies, or grown in Gasha Nuts across Labrynna; appraised at Vasu's jewelry shop in Lynna City."
+  },
+  {
+   "name": "Power Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A notable Magic Ring. Boosts your sword's damage, but you also take more damage while wearing it — a glass-cannon trade-off.",
+   "where": "Found as a Magic Ring during exploration; appraised and equipped via Vasu."
+  },
+  {
+   "name": "Energy Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A notable Magic Ring. Replaces your charged Spin Attack with a Sword Beam (regardless of current health), giving a ranged sword shot.",
+   "where": "Typically found inside a Gasha Nut grown from a Gasha Seed; appraised at Vasu's."
+  },
+  {
+   "name": "Blue Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A notable Magic Ring. Halves the damage Link takes, but also halves his sword power — pure defense at a cost.",
+   "where": "Found as a Magic Ring during the quest; appraised and equipped via Vasu."
+  },
+  {
+   "name": "Like-Like Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A novelty Magic Ring. Transforms Link's sprite into a Like Like — purely cosmetic, with no gameplay benefit.",
+   "where": "Found as a Magic Ring; appraised at Vasu's jewelry shop."
+  },
+  {
+   "name": "Gasha Seed",
+   "cat": "material",
+   "type": "Seed",
+   "effect": "Plant it in soft soil and it grows into a Gasha Tree; harvest the Gasha Nut for rewards like Rupees, rings, hearts, or rare items.",
+   "where": "Found in chests and given as rewards; planted in the special Gasha plots around Labrynna."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Upgrade",
+   "effect": "Collect four Pieces of Heart to gain one full extra Heart Container, raising your maximum health.",
+   "where": "Hidden across Labrynna — in caves, minigame rewards, sidequests, and secret spots in both eras."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Upgrade",
+   "effect": "Permanently adds one full heart to your life meter. Found whole rather than in pieces.",
+   "where": "Awarded for clearing dungeons (defeating bosses) and a few special moments."
+  },
+  {
+   "name": "Rupees",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "Labrynna's money, used to buy items, appraise rings (20 each), and pay for shop goods and minigames. Carry capacity grows with bigger Wallets.",
+   "where": "Found in grass, pots, chests, dug up, dropped by enemies, and won at minigames throughout both eras."
+  }
+ ],
+ "SIDE_QUESTS": [
+  {
+   "region": "The Trading Sequence",
+   "quests": [
+    {
+     "id": "the-long-trade-from-a-poe-clock-to-the-noble-sword",
+     "name": "The Long Trade: from a Poe Clock to the Noble Sword",
+     "giver": "Clock Poe (Yoll Graveyard, near Spirit's Grave)",
+     "location": "All across Labrynna, past and present (starts in Yoll Graveyard)",
+     "reward": "The Noble Sword (Level-2) — a stronger replacement for your Wooden Sword",
+     "oneLine": "Labrynna's 12-step swap chain: hand off one odd item after another until a ghost's broken sword becomes the Noble Sword.",
+     "how": "Each person wants the item the last one gave you, so trade strictly in order — you carry only one trade item at a time. The chain: (1) talk to the Clock Poe in Yoll Graveyard for the POE CLOCK; (2) give it to the Postman at the Lynna Village Post Office for STATIONERY; (3) give that to the 'Hand in the Toilet' in the house just below the post office for the STINK BAG; (4) give it to the Tokay cook on Crescent Island for the TASTY MEAT; (5) give that to the hungry Happy Mask Salesman at the Mask Shop near Lynna City for the DOGGIE MASK; (6) give it to Mamamu Yan (the dog breeder) in Lynna City for the DUMBBELL; (7) give it to Thomas in Symmetry Village (in the PAST) for the CHEESY MUSTACHE; (8) give that to the Comedian in Lynna City for the FUNNY JOKE; (9) tell the joke to the gloomy boy Dekadin in Lynna Village for the TOUCHING BOOK; (10) carry it until Maple flies by (after you defeat about 30 enemies) and crash into her to get the MAGIC OAR; (11) give the oar to Rafton on the South Shore (PAST) for the SEA UKULELE; (12) give it to the Old Zora in his cave for the BROKEN SWORD. Finally take the broken sword to Patch at Restoration Wall (south of Symmetry Village, in the PAST) and clear his block-pushing puzzle to forge the NOBLE SWORD. Fully optional — nothing here is needed to beat the game."
+    }
+   ]
+  },
+  {
+   "region": "Rings & Vasu",
+   "quests": [
+    {
+     "id": "vasu-s-ring-appraisals",
+     "name": "Vasu's Ring Appraisals",
+     "giver": "Vasu",
+     "location": "Vasu Jewelers, Lynna City",
+     "reward": "Equippable Magic Rings (effects from extra power to fun cosmetic transformations)",
+     "oneLine": "Every Magic Ring you find shows up as an unidentified 'secret' until Vasu appraises it — then you can wear it.",
+     "how": "Magic Rings drop all over Labrynna but start out unidentified and unusable. Bring them to Vasu Jewelers in Lynna City and pick Appraise (20 Rupees each) to reveal what a ring does and unlock it for your Ring Box. You can only equip a limited number at once (your Ring Box capacity upgrades over the game), and duplicates can be sold back to Vasu for 30 Rupees. Vasu gives you your first ring and the Ring List early on, and the list lets you track which ring numbers you're still missing."
+    },
+    {
+     "id": "the-magic-ring-collection-64-rings",
+     "name": "The Magic Ring Collection (64 rings)",
+     "location": "Gasha Nuts, Maple, fortune-teller, chests, shops, minigames — everywhere",
+     "reward": "A full ring collection (and the satisfaction of completing it)",
+     "oneLine": "There are 64 collectible Magic Rings shared across the Oracle games; a few are genuinely useful, many are just for fun.",
+     "how": "Rings come from many sources: cracking open Gasha Nuts, bumping into Maple, Ring Fortunes from the fortune-teller, a handful in chests, and shop/minigame prizes. Useful early picks include the Power Ring (more melee damage), Blue Ring (take less damage), and Maple's Ring. Many rings are silly transformations (turn into a Like-Like, an Octorok, etc.) with no combat value — collect them for the set, not for power. The Ring List at Vasu shows exactly which numbers you're missing."
+    },
+    {
+     "id": "chasing-maple",
+     "name": "Chasing Maple",
+     "giver": "Maple (the little witch)",
+     "location": "Random overworld encounters across Labrynna",
+     "reward": "Rings, Gasha Seeds, hearts, and Rupees",
+     "oneLine": "Maple zooms across the screen on her broom; crash into her and grab everything that spills.",
+     "how": "After you defeat about 30 enemies, Maple flies across certain overworld screens. Run into her broom to knock both of you down, then quickly pick up everything that scatters before she does — Rings, Gasha Seeds, hearts, and Rupees. Wearing Maple's Ring halves the kills needed for her to appear (about 15 instead of 30), so equip it if you're farming her. She's also step 10 of the trading sequence — she hands over the Magic Oar."
+    }
+   ]
+  },
+  {
+   "region": "Animal Companions",
+   "quests": [
+    {
+     "id": "choosing-ricky-dimitri-or-moosh",
+     "name": "Choosing Ricky, Dimitri, or Moosh",
+     "location": "Nuun Highlands (locks in after the 3rd dungeon, Moonlit Grotto)",
+     "reward": "A permanent animal partner with a unique traversal ability",
+     "oneLine": "One of three animal friends joins you for the rest of the game — and which one is decided by the flute you're carrying when you reach Nuun Highlands.",
+     "how": "Your partner is locked in when you reach the Nuun Highlands after clearing the third dungeon, Moonlit Grotto. The deciding factor is which Strange Flute you carry in: buy the flute from the Lynna City shop to get DIMITRI (a Dodongo who swims against currents and up waterfalls), score 250 at the Shooting Gallery to earn the flute that gives RICKY (a kangaroo who leaps cliffs and gaps and boxes enemies), or arrive with no flute at all to default to MOOSH (a bear who flies short distances). At Nuun Highlands your partner's ability helps you find the three lazy carpenters needed to extend the bridge. The choice is mostly flavor — each can reach a few optional spots. Whistle with the flute to summon your partner on the overworld."
+    },
+    {
+     "id": "feeding-and-riding-your-companion",
+     "name": "Feeding and riding your companion",
+     "location": "Overworld, anywhere your partner can travel",
+     "reward": "Access to optional ledges, gaps, and shortcuts; some hidden Heart Pieces and rings",
+     "oneLine": "Summon your animal friend with their flute to cross terrain Link can't on foot.",
+     "how": "Once your companion is chosen, use their flute on the overworld map to call them, then mount up. Use Ricky's jumps to clear pits and climb low cliffs, Dimitri's swimming to fight currents and ride waterfalls, or Moosh's hop-glide to float over gaps. Several optional Heart Pieces and ring spots are only reachable while riding, so revisit old areas with your partner after you have them."
+    }
+   ]
+  },
+  {
+   "region": "Heart Pieces & Time-Travel Secrets",
+   "quests": [
+    {
+     "id": "pieces-of-heart-hunt",
+     "name": "Pieces of Heart hunt",
+     "location": "All over Labrynna, past and present",
+     "reward": "Each 4 pieces = one new Heart Container (more life)",
+     "oneLine": "Scattered quarter-hearts that combine into full Heart Containers — several are tucked behind animal abilities or minigames.",
+     "how": "Pieces of Heart hide in chests, minigame prizes, and out-of-the-way corners across both eras; collect four to gain a permanent Heart Container. Some reward minigame skill (the Goron Dance, the Shooting Gallery) or require your animal companion to reach a ledge. Sweep Lynna City and the Maku Tree area as you pass through, and re-check regions after you gain new tools like the Seed Shooter, Switch Hook, and Mermaid Suit."
+    },
+    {
+     "id": "cross-time-heart-pieces-and-chests",
+     "name": "Cross-time Heart Pieces and chests",
+     "location": "Time portals throughout Labrynna",
+     "reward": "Heart Pieces, rings, and Gasha Seeds reachable only by changing the past",
+     "oneLine": "The signature Ages puzzle: alter something in the PAST so a blocked spot opens up in the PRESENT — and a reward appears.",
+     "how": "With the Harp of Ages you warp at time portals between past and present, and changes you make long ago reshape the world today. Many optional rewards depend on this: plant or move something, drain or fill water, or knock down an obstacle in one era to open a path or reveal a chest in the other. When a Heart Piece or chest looks unreachable, find the matching spot in the other time period and ask what you could change there first. The Seed Shooter (which bounces seeds off walls) and Switch Hook also open previously-blocked optional chests on a return visit."
+    }
+   ]
+  },
+  {
+   "region": "Minigames & Gasha Seeds",
+   "quests": [
+    {
+     "id": "gasha-seeds-gasha-trees",
+     "name": "Gasha Seeds & Gasha Trees",
+     "location": "16 patches of Soft Soil across Labrynna",
+     "reward": "Gasha Nuts containing Rings, Rupees, hearts, and occasional rare items",
+     "oneLine": "Plant a teardrop-shaped Gasha Seed in soft soil, kill enemies to make it grow, then crack the nut for loot.",
+     "how": "Find a patch of Soft Soil and plant a Gasha Seed in it. The tree matures as you defeat enemies and roam the world, then bears a Gasha Nut you can slash open. Nut contents range from Rupees and hearts up to Magic Rings, and the quality scales with how active you've been — so wander and battle before harvesting. There are 16 soil patches but far more than 16 seeds available, so keep replanting; this is the best steady source of rings."
+    },
+    {
+     "id": "wild-tokay-meat-feeding-game",
+     "name": "Wild Tokay (meat-feeding game)",
+     "location": "Crescent Island",
+     "reward": "A story item (Scent Seedling) the first time, plus prizes on repeat play",
+     "oneLine": "A required Tokay feeding game: hand a piece of meat to every Tokay that runs past, miss none, and win.",
+     "how": "On Crescent Island the Tokay run you through a feeding game: Tokay dash past on the left and right, and you must give meat to every one as they appear. Skip even one and you fail and start over; feed them all and you win. The first clear ties into the main story, and the game can be replayed for extra prizes."
+    },
+    {
+     "id": "goron-dance-the-shooting-gallery",
+     "name": "Goron Dance & the Shooting Gallery",
+     "location": "Rolling Ridge (Goron Dance) and Lynna City (Shooting Gallery)",
+     "reward": "Heart Pieces, rings, and Rupees for high scores",
+     "oneLine": "Rhythm and aim challenges that pay out collectibles for doing well.",
+     "how": "In the Goron Dance, copy the instructor's left/right steps in rhythm — go too early or late and you miss; a clean run earns prizes including a Heart Piece. The Shooting Gallery rewards accuracy with Rupees and prizes, and scoring 250 there earns the Strange Flute that makes Ricky your animal companion. These are optional and replayable, so come back once you have steadier aim."
+    }
+   ]
+  },
+  {
+   "region": "Linked-Game Secrets",
+   "quests": [
+    {
+     "id": "linked-game-passwords-with-oracle-of-seasons",
+     "name": "Linked game: passwords with Oracle of Seasons",
+     "location": "Password screen at game start (uses a Secret from the other Oracle)",
+     "reward": "Bonus items, extra story, rings, and a Heart Container carried between games",
+     "oneLine": "Beat Oracle of Seasons first, type its Secret into Ages, and play a 'Linked Game' with extra content.",
+     "how": "Finishing Oracle of Seasons gives you a Secret password at the credits. Start a new Ages file, choose to enter a Secret, and type it to begin a LINKED GAME instead of a normal one. Throughout the linked game, NPCs hand you more passwords to carry back to Seasons (and vice versa), unlocking bonus rings, items, and continued story — the two games' plots fully connect only when linked. Keep a pen handy; the codes are long strings of symbols entered exactly."
+    },
+    {
+     "id": "the-true-final-battle-twinrova-ganon",
+     "name": "The true final battle: Twinrova & Ganon",
+     "location": "Room of Rites (only in a Linked Game)",
+     "reward": "The true ending of the Oracle saga + the 'Hero's Secret' password",
+     "oneLine": "Only a linked playthrough opens the real final fight, where the witches Twinrova try to resurrect Ganon.",
+     "how": "In a normal (unlinked) game you beat Veran and the story ends there. In a LINKED game, after Veran the Room of Rites opens: you face the twin sorceresses Koume and Kotake, who merge into Twinrova, and then Ganon himself as the true final boss. Ganon is tough — to damage him you need spin attacks with the Noble Sword, or normal hits with the Master Sword (the Biggoron's Sword won't hurt him). Win and you receive the 'Hero's Secret' password (which can start a fresh Ages game with 4 hearts and the Victory Ring) and the true ending of the Oracle saga."
+    }
+   ]
+  }
+ ],
  "TOWERS": [],
- "GREAT_FAIRIES": [],
+ "GREAT_FAIRIES": [
+  {
+   "name": "Maku Tree (Great Fairy cave + seed restock)",
+   "region": "Lynna City",
+   "location": "Northeast Lynna City (present). The Maku Tree grows as you gather Essences of Time: once it starts growing (after the 1st Essence, Eternal Spirit) it opens a cave holding a Great Fairy, alongside the present-day Ember/seed bushes. It's your central hub all game.",
+   "cost": "The Great Fairy fully heals Link, and the seed bushes in the Maku Tree restock his seeds — the most convenient heal/refill in the game"
+  },
+  {
+   "name": "Nuun Highlands Fairy Fountain",
+   "region": "Nuun Highlands",
+   "location": "Present era. Enter the cave on the north edge of Nuun Highlands (the same screen also has a high-level Gasha planting spot).",
+   "cost": "Free full heal — refills all your hearts"
+  },
+  {
+   "name": "Talus Peaks Fairy Pool",
+   "region": "Talus Peaks",
+   "location": "Present era, southwestern corner. In the PAST, set the water flowing eastward and push the vine bulb to the western side; warp back to the present with the Harp's Tune of Currents (or Tune of Ages), then climb the new vines up to the pool.",
+   "cost": "Free full heal — refills all your hearts"
+  },
+  {
+   "name": "Crescent Island Fairy Fountain",
+   "region": "Crescent Island",
+   "location": "Present era. From the screen where the crabs scuttle about, head east to reach the fairy fountain.",
+   "cost": "Free full heal — refills all your hearts"
+  },
+  {
+   "name": "Vasu Jewelers (Vasu)",
+   "region": "Lynna City",
+   "location": "The jewelry shop in Lynna City (present). Visit early in the game, then return anytime to have Vasu appraise the Seed Rings you find.",
+   "cost": "Grants the L-1 Ring Box (holds 1 ring) free on your first visit, then appraises Seed Rings into usable Magical Rings (first appraisal free; 20 Rupees each thereafter)"
+  },
+  {
+   "name": "Lynna City Shop (hidden 2nd floor)",
+   "region": "Lynna City",
+   "location": "A hidden upper room of the Lynna City shop, reached by using the Harp's Tune of Ages to time-warp from the past up into the present-day second floor.",
+   "cost": "Sells the L-2 Ring Box (holds 3 rings) for 300 Rupees — a permanent ring-storage upgrade"
+  },
+  {
+   "name": "Crescent Island Tokay (shield thief)",
+   "region": "Crescent Island",
+   "location": "Present era. The Tokay steal all your gear when you land; recover items one by one by talking to the Tokay around the island. The one in the cavern on the island's south edge can only be reached by swimming there with the Mermaid Suit.",
+   "cost": "Returns your Wooden Shield upgraded to the Iron Shield (a one-time shield upgrade — the best shield in a non-linked game)"
+  },
+  {
+   "name": "Talus Peaks Bomb-Pond Fairy",
+   "region": "Talus Peaks",
+   "location": "Present era, by the warning sign at the pond in Talus Peaks. Throw a Bomb into the water and a red Fairy rises, materializes a Golden Bomb and a Silver Bomb, and asks which you dropped. Answer honestly — you dropped neither, just a regular Bomb.",
+   "cost": "Rewards your honesty by raising your Bomb capacity by 20 (carry more Bombs). Claiming the Silver (or Gold) Bomb and confirming the lie makes her take all your Bombs."
+  }
+ ],
  "REGION_MAPS": {},
  "MAP_NODES": {},
  "MAP_BEASTS": [],
  "KOROKS": null,
  "RUNES": [
   {
-   "id": "harp_of_ages",
+   "id": "harp-of-ages",
    "name": "Harp of Ages",
    "glyph": "stasis",
-   "from": "Entrusted by Nayru (or recovered early in the quest) — the instrument of time.",
-   "what": "Play its tunes to travel between the PAST and the PRESENT: the Tune of Echoes opens time portals, the Tune of Currents warps you to the present, and the Tune of Ages warps you freely between eras.",
-   "tip": "A change you make in the PAST ripples into the PRESENT — plant or move something long ago to find it grown or shifted now. That's the core of nearly every puzzle."
+   "from": "From an altar in the hidden basement of Nayru's house in Lynna City — push the statue to reveal the stairs down, near the start of the game.",
+   "what": "Your signature tool. Play it at glowing Time Portals to travel between the PRESENT and the distant PAST. Because the two eras are the same land 400 years apart, a change you make in the past reshapes the present — the core of nearly every puzzle.",
+   "tip": "Three different tunes do three different things. You start with only the Tune of Echoes; the other two come later. Equip the Harp to a button to play whichever tune you've selected."
   },
   {
-   "id": "wooden_sword",
+   "id": "tune-of-echoes",
+   "name": "Tune of Echoes",
+   "glyph": "stasis",
+   "from": "You already know it when you pick up the Harp of Ages in Nayru's basement — it's the Harp's first tune.",
+   "what": "The first Harp tune. It awakens (activates) the many dormant Time Portals scattered across Labrynna so you can use them to jump eras.",
+   "tip": "If a time portal looks faded/inactive, stand on it and play this tune to wake it up."
+  },
+  {
+   "id": "tune-of-currents",
+   "name": "Tune of Currents",
+   "glyph": "stasis",
+   "from": "Taught by Tokkey, the tune researcher, in a hidden cave at Talus Peaks in the PAST — play the Tune of Echoes for him and he teaches it.",
+   "what": "The second Harp tune. Play it anywhere to warp instantly from the PAST back to the exact matching spot in the PRESENT — no portal needed.",
+   "tip": "Huge time-saver and required for several puzzles where you must drop something in the past and reappear at that spot in the present."
+  },
+  {
+   "id": "tune-of-ages",
+   "name": "Tune of Ages",
+   "glyph": "stasis",
+   "from": "Taught by Nayru late in the game (after you rescue her from Veran and speak with the Maku Tree).",
+   "what": "The third and final Harp tune. It unlocks the Harp's full power: travel freely between past and present from anywhere, in either direction.",
+   "tip": "Once you have this, you no longer need to hunt for portals — you can swap eras on the spot."
+  },
+  {
+   "id": "wooden-sword",
    "name": "Wooden Sword",
    "glyph": "sword",
-   "from": "Your first blade, found near Lynna Village at the start.",
-   "what": "Basic sword for slashing and a charged Spin Attack. Upgrades to the Noble Sword and Master Sword later.",
-   "tip": "Hold the button to charge the Spin Attack; it hits all around you."
+   "from": "Given by Impa near the start — she entrusts it to you on Zelda's behalf as you set out to find Nayru.",
+   "what": "Your starting blade and main weapon. Tap to slash; hold to charge a Spin Attack that hits all around you.",
+   "tip": "Hold the button until the sword flashes and Link shakes, then release for the Spin Attack — great for crowds."
   },
   {
-   "id": "power_bracelet",
+   "id": "noble-sword",
+   "name": "Noble Sword",
+   "glyph": "sword",
+   "from": "Finish the trading sequence to receive the Broken Sword from the Old Zora on the Sea of No Return (in the PAST), then take it to Patch atop Restoration Wall and beat his minigame — he repairs it into the Noble Sword.",
+   "what": "The second sword. Double the Wooden Sword's power, and it can fire a sword beam when your hearts are full.",
+   "tip": "Keep your hearts topped off to shoot the beam — free ranged damage on every full-health swing."
+  },
+  {
+   "id": "master-sword",
+   "name": "Master Sword",
+   "glyph": "sword",
+   "from": "Linked Game only (Ages linked to a completed Oracle of Seasons, via password): King Zora upgrades your Noble Sword into it. Not obtainable in a standalone Ages playthrough.",
+   "what": "The final, most powerful blade, with a long-range sword beam at full hearts.",
+   "tip": "This is a reward for playing Ages linked to a Seasons file; a first-time solo run tops out at the Noble Sword."
+  },
+  {
+   "id": "biggorons-sword",
+   "name": "Biggoron's Sword",
+   "glyph": "sword",
+   "from": "Linked Game only: score 300+ at the Goron Shooting Gallery in the PAST and the Goron Elder hands it over (a secret unlocked by linking with Oracle of Seasons).",
+   "what": "A massive two-handed sword that hits very hard, but takes up two item slots and blocks your shield while held.",
+   "tip": "Linked-game only. It trades your shield for raw power — swap back to a one-handed sword when you need to block."
+  },
+  {
+   "id": "wooden-shield",
+   "name": "Wooden Shield",
+   "glyph": "shield",
+   "from": "Bought from the Lynna City shop (or given early on).",
+   "what": "Your basic shield. Hold it up to block enemy shots and stop weak charging foes.",
+   "tip": "A shield only blocks what you're facing — keep it pointed at the threat."
+  },
+  {
+   "id": "iron-shield",
+   "name": "Iron Shield",
+   "glyph": "shield",
+   "from": "Shop upgrade — buy the Level-2 shield as the game progresses.",
+   "what": "A sturdier shield that blocks attacks the Wooden Shield can't.",
+   "tip": "Some enemies will eat or break a weaker shield — upgrading keeps you covered."
+  },
+  {
+   "id": "mirror-shield",
+   "name": "Mirror Shield",
+   "glyph": "shield",
+   "from": "The strongest (Level-3) shield — a top-tier shop upgrade.",
+   "what": "The best shield — blocks the most, and its mirrored face can reflect certain magic and beam attacks back at enemies.",
+   "tip": "Useful against beam-throwing enemies; face them and let the shield bounce the shot home."
+  },
+  {
+   "id": "seed-satchel",
+   "name": "Seed Satchel",
+   "glyph": "bag",
+   "from": "Given by the Maku Tree, already filled with your first Ember Seeds; capacity upgrades are found later.",
+   "what": "Holds your magic Seeds and lets you scatter them or use them with seed-powered items. Upgrades raise how many of each seed you can carry.",
+   "tip": "It refills at the seed trees dotted around Labrynna — walk into a tree to top up the matching seed for free."
+  },
+  {
+   "id": "ember-seeds",
+   "name": "Ember Seeds",
+   "glyph": "leaf",
+   "from": "Ember seed trees; you get your first batch with the Seed Satchel from the Maku Tree.",
+   "what": "Fire seeds. Light torches and dark rooms, burn certain bushes/webs, and damage or stun enemies.",
+   "tip": "The all-purpose 'light it / burn it' seed — lighting paired torches opens many doors."
+  },
+  {
+   "id": "scent-seeds",
+   "name": "Scent Seeds",
+   "glyph": "leaf",
+   "from": "Scent seed trees, found as you progress through Labrynna.",
+   "what": "Smelly seeds that attract enemies and also deal solid damage when thrown or shot.",
+   "tip": "Loaded into the Seed Shooter they're a strong attack; on the ground they lure enemies to a spot."
+  },
+  {
+   "id": "pegasus-seeds",
+   "name": "Pegasus Seeds",
+   "glyph": "leaf",
+   "from": "Pegasus seed trees.",
+   "what": "Speed seeds. Use one to dash at high speed for a short time (and they briefly stun enemies you hit).",
+   "tip": "Combine with Roc's Feather for longer running jumps across wide gaps."
+  },
+  {
+   "id": "gale-seeds",
+   "name": "Gale Seeds",
+   "glyph": "leaf",
+   "from": "Gale seed trees.",
+   "what": "Whirlwind seeds. Drop one to warp instantly to any seed tree you've visited; thrown, they blow weaker enemies clean off the screen.",
+   "tip": "Your fast-travel system — use them to zip back to a tree near a dungeon instead of walking."
+  },
+  {
+   "id": "mystery-seeds",
+   "name": "Mystery Seeds",
+   "glyph": "leaf",
+   "from": "Mystery seed trees.",
+   "what": "Random-effect seeds — they may trigger any of the other seeds' effects. They also activate certain owl statues and puzzle triggers.",
+   "tip": "Needed for some statue/puzzle hints; in combat the effect is a gamble, so save them for puzzles."
+  },
+  {
+   "id": "seed-shooter",
+   "name": "Seed Shooter",
+   "glyph": "bow",
+   "from": "Found in the 3rd dungeon, the Moonlit Grotto.",
+   "what": "Fires whichever seed you have loaded — and the shot can travel at angles and ricochet off walls, letting you hit switches and enemies around corners.",
+   "tip": "Aim it diagonally and bank shots off walls to flip far-off switches the puzzle expects you to reach."
+  },
+  {
+   "id": "power-bracelet",
    "name": "Power Bracelet",
    "glyph": "champion",
-   "from": "Spirit's Grave (the first dungeon).",
-   "what": "Lets you lift and throw pots, bushes, and rocks blocking your way.",
-   "tip": "Many blocked overworld rocks become liftable once you have this — across both the past and present."
+   "from": "Found in the 1st dungeon, Spirit's Grave.",
+   "what": "Lets you lift and carry heavy pots, bushes, and certain blocks, then throw them.",
+   "tip": "Stand against an object and hold the button to grab; release to throw it at enemies or onto switches."
   },
   {
-   "id": "rocs_feather",
+   "id": "power-glove",
+   "name": "Power Glove",
+   "glyph": "champion",
+   "from": "An upgrade found in the 8th and final dungeon, the Ancient Tomb.",
+   "what": "Upgrades the Power Bracelet so you can lift even the heaviest objects, like the large black rocks that block paths.",
+   "tip": "Backtrack to those immovable black boulders after the Ancient Tomb — you can finally move them now."
+  },
+  {
+   "id": "rocs-feather",
    "name": "Roc's Feather",
    "glyph": "leaf",
-   "from": "Wing Dungeon (the second dungeon).",
-   "what": "Lets Link jump over pits, spikes, and gaps.",
-   "tip": "Core to most later dungeons; pair with Pegasus Seeds for longer leaps."
+   "from": "Found in the 2nd dungeon, the Wing Dungeon.",
+   "what": "Lets Link jump — over gaps, pits, spikes, and low obstacles.",
+   "tip": "Tap to hop a tile; jump while dashing with Pegasus Seeds to clear wider gaps."
   },
   {
-   "id": "switch_hook",
+   "id": "switch-hook",
    "name": "Switch Hook",
    "glyph": "magnesis",
-   "from": "Skull Dungeon (the fourth dungeon).",
-   "what": "Fires a hook that SWAPS Link's place with the object or enemy it hits — trade places with blocks across gaps and across time-locked walls. Upgrades to the Long Hook.",
-   "tip": "Switching places with a block lets you cross a pit you can't jump; switch with an enemy to reposition it onto a switch."
+   "from": "Found in the 4th dungeon, the Skull Dungeon.",
+   "what": "A hook that, instead of pulling things to you, SWAPS Link's position with whatever it grabs — an enemy, a block, or a pot — letting you cross gaps and rearrange puzzles.",
+   "tip": "Hook a block across a pit to instantly teleport to its side; you can also swap with hookable enemies to reposition mid-fight."
   },
   {
-   "id": "seed_shooter",
-   "name": "Seed Shooter",
+   "id": "long-hook",
+   "name": "Long Hook",
+   "glyph": "magnesis",
+   "from": "An upgrade found in the 7th dungeon, Jabu-Jabu's Belly.",
+   "what": "A longer, faster Switch Hook — same position-swap, but it reaches much farther.",
+   "tip": "It replaces the Switch Hook; once you have it, those just-too-far swaps become possible."
+  },
+  {
+   "id": "cane-of-somaria",
+   "name": "Cane of Somaria",
+   "glyph": "champion",
+   "from": "Found in the 5th dungeon, the Crown Dungeon (and used to beat its boss, Smog).",
+   "what": "Creates a block you can carry, ride, or place on switches; the block can be destroyed with a sword slash.",
+   "tip": "Drop a block on a floor switch to hold it down, then walk free — a classic 'weigh down two switches at once' solver."
+  },
+  {
+   "id": "bombs",
+   "name": "Bombs",
+   "glyph": "bomb",
+   "from": "First obtained early in your adventure; a Bomb Bag upgrade raises capacity later.",
+   "what": "Throwable explosives that blow open cracked walls, destroy obstacles, and damage enemies.",
+   "tip": "Cracked or oddly-plain walls often hide rooms — set a bomb next to them. Restock at shops or by cutting grass."
+  },
+  {
+   "id": "shovel",
+   "name": "Shovel",
+   "glyph": "champion",
+   "from": "From a construction worker at the base of Ambi's Tower in Lynna Village, in the PAST.",
+   "what": "Digs up soft ground to uncover buried stairs, items, and hearts, and clears small mounds of dirt blocking paths.",
+   "tip": "Dig spots that look disturbed or dead-end you — buried staircases and rupees are everywhere."
+  },
+  {
+   "id": "mermaid-suit",
+   "name": "Mermaid Suit",
+   "glyph": "armor",
+   "from": "Found in the 6th dungeon, Mermaid's Cave.",
+   "what": "An upgrade to the Flippers: lets Link swim in deep water AND dive underwater to explore submerged areas — needed to reach the underwater Zora area and Jabu-Jabu's Belly.",
+   "tip": "Press the button while swimming to dive; you can swim freely against currents that used to push you back."
+  },
+  {
+   "id": "zoras-flippers",
+   "name": "Zora's Flippers",
+   "glyph": "armor",
+   "from": "Found in Cheval's Tomb in the Yoll Graveyard, before the Mermaid Suit.",
+   "what": "Let Link swim across deep water that he'd otherwise drown in.",
+   "tip": "This is the first 'water-traversal' item; the Mermaid Suit later upgrades it, adding diving."
+  },
+  {
+   "id": "flute",
+   "name": "Flute",
+   "glyph": "champion",
+   "from": "Your Strange Flute becomes one specific animal's flute based on how you get it: buy it from the Lynna City shop → Dimitri; score 50+ at the Shooting Gallery → Ricky; get no flute and visit Nuun Highlands → Moosh.",
+   "what": "Calls your one animal companion to ride. You only ever get one of the three in a playthrough.",
+   "tip": "Play it in the overworld to summon your partner; you can't switch partners later, so the choice is permanent for that file."
+  },
+  {
+   "id": "ricky",
+   "name": "Ricky",
+   "glyph": "champion",
+   "from": "Your companion if you earned the Strange Flute by scoring 50+ in the Shooting Gallery minigame.",
+   "what": "A boxing kangaroo. Ride him to leap up cliffs and over holes, and punch enemies with his gloves.",
+   "tip": "Ricky's high jumps reach ledges you can't on foot — handy for cliff shortcuts."
+  },
+  {
+   "id": "dimitri",
+   "name": "Dimitri",
+   "glyph": "champion",
+   "from": "Your companion if you bought the Strange Flute from the Lynna City shop (you then find him lost in the Fairies' Woods).",
+   "what": "A friendly Dodongo who swims — including against strong currents — and can eat enemies and cross water safely.",
+   "tip": "Dimitri is the water specialist; he ignores currents that would sweep Link away."
+  },
+  {
+   "id": "moosh",
+   "name": "Moosh",
+   "glyph": "champion",
+   "from": "Your companion if you get no flute first and visit the Nuun Highlands.",
+   "what": "A winged blue bear. Ride him to flap and hover/glide across wide gaps, and ground-pound enemies.",
+   "tip": "Hold the jump to flutter and float over pits too wide to jump normally."
+  },
+  {
+   "id": "gasha-seed",
+   "name": "Gasha Seed",
    "glyph": "leaf",
-   "from": "Moonlit Grotto (the third dungeon).",
-   "what": "Fires magic seeds in a straight line that BOUNCE off walls — hit far switches and torches around corners.",
-   "tip": "Aim ricochets off walls to reach a switch you can't line up directly — a favorite Ages puzzle."
+   "from": "Found in chests, given by NPCs, and earned across the adventure; plant them in soft Gasha-Spot soil.",
+   "what": "Plant one in a Gasha patch, then walk past it many times — it grows into a Gasha Tree that drops a Gasha Nut full of rupees, hearts, rings, or rare items.",
+   "tip": "Plant them early and keep wandering; the nut ripens as you rack up steps and battles nearby."
+  },
+  {
+   "id": "magic-rings",
+   "name": "Magic Rings",
+   "glyph": "gem",
+   "from": "Found all over Labrynna (chests, Gasha Nuts, NPCs, prizes) — but they must be appraised by Vasu before you can use them.",
+   "what": "Equippable passive boosters. Each ring grants a different effect (extra damage, defense, special abilities, fun gimmicks). You equip them via the Ring Box.",
+   "tip": "Take EVERY ring to Vasu to identify it — unappraised rings do nothing and you won't know what they are."
+  },
+  {
+   "id": "ring-box",
+   "name": "Ring Box",
+   "glyph": "bag",
+   "from": "Given by Vasu when you first visit his ring shop; upgraded boxes (holding more rings at once) come later.",
+   "what": "Stores your Magic Rings and sets how many you can have equipped at the same time.",
+   "tip": "A bigger Ring Box lets you stack multiple ring effects — chase the upgrades to wear more at once."
+  },
+  {
+   "id": "vasu-ring-appraisal",
+   "name": "Vasu's Ring Appraisal",
+   "glyph": "gem",
+   "from": "Vasu runs his ring shop in Lynna City; bring him every unidentified ring.",
+   "what": "Vasu reveals what an unappraised ring actually does, after which you can equip it from your Ring Box.",
+   "tip": "This isn't an item you carry — it's the service that makes all your found rings usable. Visit often."
+  },
+  {
+   "id": "bottle",
+   "name": "Bottle",
+   "glyph": "pot",
+   "from": "A few are hidden across Labrynna (from NPCs, trades, and secrets).",
+   "what": "An empty container that holds Magic Potion, fairies, water, or other liquids you collect.",
+   "tip": "Catch a fairy in an empty bottle — it auto-revives you when you fall in battle."
+  },
+  {
+   "id": "magic-potion",
+   "name": "Magic Potion",
+   "glyph": "pot",
+   "from": "Bought from / given by NPCs (including Maple and the potion shop) and stored in a Bottle.",
+   "what": "A healing brew kept in a Bottle. When your hearts hit zero it's used automatically to fully refill them, saving you from a game over.",
+   "tip": "Always travel with a bottled potion before a boss — it's a free second life."
   }
  ],
  "STATUS_RUNES": [
@@ -48828,6 +49817,18 @@ const OOA = {
   [
    "tips",
    "Tips"
+  ],
+  [
+   "fairies",
+   "Fairies"
+  ],
+  [
+   "quests",
+   "Quests"
+  ],
+  [
+   "enemies",
+   "Enemies"
   ],
   [
    "settings",

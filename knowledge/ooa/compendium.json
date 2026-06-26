@@ -1,0 +1,375 @@
+{
+ "items": [
+  {
+   "name": "Wooden Sword",
+   "cat": "sword",
+   "type": "Sword (L-1)",
+   "effect": "Link's starting blade and your basic melee weapon — swing it, or hold the button to charge a Spin Attack and release for a wider hit that does double damage. It's the level-1 sword, the base of the Wooden → Noble → Master upgrade line.",
+   "where": "Given to you by Impa near the very start, right after Nayru (the Oracle of Ages) is possessed by Veran — in a hidden clearing reached by pushing the triangle-marked rock, before you head west to Lynna Village. (In a Linked Game you already have a sword, so Impa hands you a shield instead.)"
+  },
+  {
+   "name": "Noble Sword",
+   "cat": "sword",
+   "type": "Sword (L-2)",
+   "effect": "The level-2 sword upgrade — hits noticeably harder than the Wooden Sword and fires a sword beam when you're at full health. The strongest sword you can get in a normal, unlinked game.",
+   "where": "The reward at the end of the long trading sequence: trade your way to the Broken Sword from the Old Zora (in a cave on the Coast of No Return), then take it to Patch atop Restoration Wall (just south of Symmetry Village, in the Past) and win his Restoration Ceremony — push all eight Hardhat Beetles into the corner holes. (In a Linked Game it can also come from the Clock Shop Secret.)"
+  },
+  {
+   "name": "Master Sword",
+   "cat": "sword",
+   "type": "Sword (L-3)",
+   "effect": "The legendary level-3 blade — stronger than the Noble Sword and, like it, fires a sword beam at full health. The top upgrade of the standard sword line.",
+   "where": "Linked-Game only (Ages linked with Oracle of Seasons via a password). If you already have the Noble Sword (earned earlier via the Clock Shop Secret) when you bring the Broken Sword to Patch, his Restoration Ceremony produces the Master Sword instead."
+  },
+  {
+   "name": "Biggoron's Sword",
+   "cat": "sword",
+   "type": "Sword (two-handed)",
+   "effect": "A huge sword that swings in a full 180-degree arc (versus the normal 90-degree slash) for the biggest damage in the game — the single most powerful sword, stronger even than the Master Sword. The catch: it's held in both hands, so it takes up BOTH item slots and you can carry no shield while it's equipped. A bonus weapon, not part of the normal progression.",
+   "where": "Linked-Game / password reward at the Goron Shooting Gallery on Rolling Ridge (Past): tell the Goron Elder the correct secret, then score 300 points in the shooting minigame while wielding the sword to keep it. Not available in a single, unlinked playthrough."
+  },
+  {
+   "name": "Wooden Shield",
+   "cat": "shield",
+   "type": "Shield (L-1)",
+   "effect": "Your basic level-1 shield — hold it up to block weak enemy attacks and deflect some projectiles. Won't stop stronger or fiery attacks.",
+   "where": "Bought from the Item Shop in Lynna City (Present) for 30 Rupees. This is the shield most players start protecting themselves with."
+  },
+  {
+   "name": "Iron Shield",
+   "cat": "shield",
+   "type": "Shield (L-2)",
+   "effect": "The level-2 shield upgrade — sturdier than the Wooden Shield, it blocks more and stronger attacks. A worthwhile defensive step up.",
+   "where": "On Crescent Island, after the Tokay steal your gear: the thief hidden in a cavern on the island's south edge (reached by swimming there with the Mermaid Suit) hands back an upgraded Iron Shield instead of your old Wooden one. If a Like Like later eats it, a replacement can be bought from any shop for 50 Rupees."
+  },
+  {
+   "name": "Mirror Shield",
+   "cat": "shield",
+   "type": "Shield (L-3)",
+   "effect": "The level-3 top-tier shield — the best protection in the game, blocking attacks the lesser shields can't.",
+   "where": "Linked-Game only (with Oracle of Seasons): the final upgrade of the shield line, after you've already gotten the Iron Shield. It can't be obtained in a standalone Ages playthrough (a replacement sells for 80 Rupees in shops once unlocked)."
+  },
+  {
+   "name": "Magic Rings",
+   "cat": "item",
+   "type": "Ring system",
+   "effect": "A collectible system of equippable rings, each granting a passive power while worn. You find unappraised rings as drops, dig spots, Gasha-tree harvests and chest rewards, then have Vasu appraise them (the first appraisal is free, 20 Rupees each after) to make them usable; store and equip them via the Ring Box, which holds more as you upgrade it. Many rings carry over between Ages and Seasons in a Linked Game.",
+   "where": "Found throughout Labrynna (enemy/boss drops, hidden digging spots, Gasha-tree harvests, minigames). Take them to Vasu's jewelry shop in Lynna City to identify and equip them; expand your Ring Box to hold more at once."
+  },
+  {
+   "name": "Power Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "A Magic Ring (comes in L-1/L-2/L-3 grades): raises your sword's attack power, but in exchange you take more damage every time you're hit — a glass-cannon trade-off (the L-3 grade is Linked-Game only).",
+   "where": "One of the rings you collect and have Vasu appraise. Equip it from the Ring Box when you want to hit harder and can afford to play more carefully."
+  },
+  {
+   "name": "Armor Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "A Magic Ring (also tiered L-1/L-2/L-3): cuts the damage you take when hit, at the cost of lowering your own sword damage — the defensive opposite of the Power Ring (the L-3 grade is Linked-Game only in Ages).",
+   "where": "Collected as an unappraised ring and identified by Vasu in Lynna City. Good for tough rooms where survival matters more than speed."
+  },
+  {
+   "name": "Like Like Ring",
+   "cat": "item",
+   "type": "Ring",
+   "effect": "A transformation Magic Ring that turns Link into a Like Like — while worn you CAN'T use any of your items, but as a side effect Like Likes won't steal your equipped shield. A novelty/protective ring rather than a combat one.",
+   "where": "One of the many rings you can find and have Vasu appraise; equip it if you specifically want to walk through Like Like-infested areas without losing your shield (just remember items are disabled while it's on)."
+  },
+  {
+   "name": "Harp of Ages",
+   "cat": "item",
+   "type": "Harp",
+   "effect": "Your time-travel instrument. Playing its tunes opens Time Portals and lets you cross between the past and present of Labrynna. You can't progress without it.",
+   "where": "Found in a secret room of Nayru's house, where an imprint of Nayru gives you the Harp and teaches the Tune of Echoes."
+  },
+  {
+   "name": "Tune of Echoes",
+   "cat": "item",
+   "type": "Tune",
+   "effect": "The first Harp song. It awakens the Time Portals scattered across Labrynna so you can warp between past and present at those spots.",
+   "where": "Learned together with the Harp itself, taught by Nayru's imprint in Nayru's house near the start."
+  },
+  {
+   "name": "Tune of Currents",
+   "cat": "item",
+   "type": "Tune",
+   "effect": "Played in the past, it warps you instantly to the present from anywhere, no portal needed (past-to-present only). Also unlocks access to the L-2 Ring Box.",
+   "where": "Given by Tokkey (a tune-and-time researcher) when you play the Tune of Echoes for him, after rescuing Nayru."
+  },
+  {
+   "name": "Tune of Ages",
+   "cat": "item",
+   "type": "Tune",
+   "effect": "The full time-travel song: warps you freely between past and present from anywhere, in either direction. The most powerful Harp tune.",
+   "where": "Taught by Nayru after you defeat Veran's Possessed Nayru in Ambi's Palace and speak with the Maku Tree."
+  },
+  {
+   "name": "Seed Satchel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Holds your Mystical Seeds and lets you use them by hand. Upgraded versions raise how many of each seed you can carry.",
+   "where": "A gift from the Maku Tree in the past after you save it."
+  },
+  {
+   "name": "Ember Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Light torches and burn certain bushes or enemies. Often needed to solve fire-lit puzzles and open dark rooms.",
+   "where": "Grown from Ember Seed trees; the first Mystical Seed type you receive."
+  },
+  {
+   "name": "Scent Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Give off a strong scent that lures or damages enemies; thrown or shot, they also work as a ranged attack.",
+   "where": "Grown from a Scent Seed tree found as you explore Labrynna."
+  },
+  {
+   "name": "Pegasus Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Sprinkle on yourself for a temporary speed/dash boost, letting you cross gaps and outrun hazards.",
+   "where": "Grown from a Pegasus Seed tree in the overworld."
+  },
+  {
+   "name": "Gale Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Create a whirlwind. Used by hand they warp you to any Mystical Tree you've found; shot, they blow weaker enemies away.",
+   "where": "Grown from a Gale Seed tree found during your travels."
+  },
+  {
+   "name": "Mystery Seeds",
+   "cat": "item",
+   "type": "Seed",
+   "effect": "Have a random effect — they can confuse enemies, reveal hints from owl statues, or trigger odd reactions. Handy for puzzles.",
+   "where": "Grown from a Mystery Seed tree in Labrynna."
+  },
+  {
+   "name": "Seed Shooter",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires Seeds across the room, and the seeds ricochet off walls to reach distant switches and targets. Central to that dungeon's bouncing-seed puzzles.",
+   "where": "Found in Moonlit Grotto, the third dungeon."
+  },
+  {
+   "name": "Power Bracelet",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets you grab and lift heavy objects — pots, blocks, and bushes — to clear paths, expose switches, and find hidden stairs.",
+   "where": "Found in Spirit's Grave, the first dungeon (used to lift the pot guarding the Boss Key)."
+  },
+  {
+   "name": "Roc's Feather",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link jump, hopping over gaps, spikes, and pits. Essential for platforming and dodging.",
+   "where": "Found in Wing Dungeon, the second dungeon."
+  },
+  {
+   "name": "Switch Hook",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Fires a hook that swaps Link's position with whatever it hits — an enemy, a block, or a diamond stone — letting you cross gaps and rearrange puzzles.",
+   "where": "Found in Skull Dungeon, the fourth dungeon."
+  },
+  {
+   "name": "Long Hook",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "The upgraded Switch Hook (Level 2): longer reach and a faster firing rate, so you can swap with far-off targets.",
+   "where": "Found in Jabu-Jabu's Belly, the seventh dungeon, upgrading the Switch Hook."
+  },
+  {
+   "name": "Cane of Somaria",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Conjures a block you can push, carry, or place on switches; the block can also be hit to create more blocks for puzzles.",
+   "where": "Found in Crown Dungeon, the fifth dungeon."
+  },
+  {
+   "name": "Bombs",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Throw or set them to blow open cracked walls, expose secrets, and damage enemies and bosses. Refilled at shops or from grass/enemies.",
+   "where": "First given by Queen Ambi after you bring her Mystery Seeds; capacity upgradable via Bomb Bag finds."
+  },
+  {
+   "name": "Shovel",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Digs up the ground to uncover buried stairs, items, and Rupees, and to clear dirt piles blocking your way.",
+   "where": "Found at the base of Ambi's Tower in Lynna Village in the past."
+  },
+  {
+   "name": "Mermaid Suit",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Lets Link dive and swim freely in deep and dark water that Flippers alone can't handle. Needed to explore the sea areas.",
+   "where": "Found in Mermaid's Cave, the sixth dungeon."
+  },
+  {
+   "name": "Zora's Flippers",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Let Link swim across water he could otherwise only wade into. Later superseded underwater by the Mermaid Suit.",
+   "where": "Obtained in Cheval's Tomb beneath his gravestone in Yoll Graveyard."
+  },
+  {
+   "name": "Strange Flute",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Summons one of three animal companions — Ricky (kangaroo), Dimitri (Dodongo), or Moosh (bear) — to ride for travel and combat. Which one you get depends on how you obtain the flute, and you can only get one.",
+   "where": "After Moonlit Grotto (3rd dungeon): Ricky's by scoring 250+ in the Lynna Shooting Gallery; Dimitri's by buying the flute (150 Rupees) at the Lynna City Shop; Moosh's by default if you take neither, found in Fairies' Woods."
+  },
+  {
+   "name": "Ring Box",
+   "cat": "item",
+   "type": "Tool",
+   "effect": "Holds the Magic Rings you have equipped at once. The L-1 box carries one ring; L-2 carries three.",
+   "where": "L-1 Ring Box given by Vasu at his Lynna City jewelry shop; L-2 box bought (300 Rupees) at the Lynna City Shop, reachable once you have the Tune of Currents."
+  },
+  {
+   "name": "The Eternal Spirit",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 1st Essence of Time. Collecting all eight nourishes the Maku Tree and is your overall quest goal.",
+   "where": "Clear Spirit's Grave (Dungeon 1) and defeat its boss, Pumpkin Head."
+  },
+  {
+   "name": "The Ancient Wood",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 2nd Essence of Time, one of the eight you must gather to restore the Maku Tree.",
+   "where": "Clear Wing Dungeon (Dungeon 2) and defeat its boss."
+  },
+  {
+   "name": "The Echoing Howl",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 3rd Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Moonlit Grotto (Dungeon 3) and defeat its boss."
+  },
+  {
+   "name": "The Burning Flame",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 4th Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Skull Dungeon (Dungeon 4) and defeat its boss."
+  },
+  {
+   "name": "The Sacred Soil",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 5th Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Crown Dungeon (Dungeon 5) and defeat its boss."
+  },
+  {
+   "name": "The Lonely Peak",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 6th Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Mermaid's Cave (Dungeon 6) and defeat its boss."
+  },
+  {
+   "name": "The Rolling Sea",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 7th Essence of Time, gathered for the Maku Tree.",
+   "where": "Clear Jabu-Jabu's Belly (Dungeon 7) and defeat its boss."
+  },
+  {
+   "name": "The Falling Star",
+   "cat": "key",
+   "type": "Essence",
+   "effect": "The 8th and final Essence of Time. With all eight, the Maku Tree can grant the Maku Seed for the final battle.",
+   "where": "Clear Ancient Tomb (Dungeon 8) and defeat its boss."
+  },
+  {
+   "name": "Small Key",
+   "cat": "key",
+   "type": "Key",
+   "effect": "Opens one locked door inside the dungeon where it's found. Each dungeon has its own keys, used up on locked doors.",
+   "where": "Found in chests, under pots, or by clearing rooms within each dungeon."
+  },
+  {
+   "name": "Boss Key",
+   "cat": "key",
+   "type": "Key",
+   "effect": "Unlocks the boss door of its dungeon. One per dungeon, needed before you can face that dungeon's boss.",
+   "where": "Hidden in a chest deep in each dungeon, usually behind a major puzzle."
+  },
+  {
+   "name": "Maku Seed",
+   "cat": "key",
+   "type": "Key",
+   "effect": "The sacred seed the Maku Tree grants once all eight Essences are gathered. It dispels the dark magic guarding the final foe, opening the path to the end.",
+   "where": "Given by the Maku Tree after you collect all 8 Essences of Time."
+  },
+  {
+   "name": "Magic Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "The ring system: collectible rings that grant passive powers when equipped (more sword damage, defense, special abilities, and more). Found rings must be appraised by Vasu (20 Rupees) before they can be worn, and stored in your Ring Box.",
+   "where": "Found in chests, dug up, dropped by enemies, or grown in Gasha Nuts across Labrynna; appraised at Vasu's jewelry shop in Lynna City."
+  },
+  {
+   "name": "Power Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A notable Magic Ring. Boosts your sword's damage, but you also take more damage while wearing it — a glass-cannon trade-off.",
+   "where": "Found as a Magic Ring during exploration; appraised and equipped via Vasu."
+  },
+  {
+   "name": "Energy Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A notable Magic Ring. Replaces your charged Spin Attack with a Sword Beam (regardless of current health), giving a ranged sword shot.",
+   "where": "Typically found inside a Gasha Nut grown from a Gasha Seed; appraised at Vasu's."
+  },
+  {
+   "name": "Blue Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A notable Magic Ring. Halves the damage Link takes, but also halves his sword power — pure defense at a cost.",
+   "where": "Found as a Magic Ring during the quest; appraised and equipped via Vasu."
+  },
+  {
+   "name": "Like-Like Ring",
+   "cat": "material",
+   "type": "Ring",
+   "effect": "A novelty Magic Ring. Transforms Link's sprite into a Like Like — purely cosmetic, with no gameplay benefit.",
+   "where": "Found as a Magic Ring; appraised at Vasu's jewelry shop."
+  },
+  {
+   "name": "Gasha Seed",
+   "cat": "material",
+   "type": "Seed",
+   "effect": "Plant it in soft soil and it grows into a Gasha Tree; harvest the Gasha Nut for rewards like Rupees, rings, hearts, or rare items.",
+   "where": "Found in chests and given as rewards; planted in the special Gasha plots around Labrynna."
+  },
+  {
+   "name": "Piece of Heart",
+   "cat": "material",
+   "type": "Upgrade",
+   "effect": "Collect four Pieces of Heart to gain one full extra Heart Container, raising your maximum health.",
+   "where": "Hidden across Labrynna — in caves, minigame rewards, sidequests, and secret spots in both eras."
+  },
+  {
+   "name": "Heart Container",
+   "cat": "material",
+   "type": "Upgrade",
+   "effect": "Permanently adds one full heart to your life meter. Found whole rather than in pieces.",
+   "where": "Awarded for clearing dungeons (defeating bosses) and a few special moments."
+  },
+  {
+   "name": "Rupees",
+   "cat": "material",
+   "type": "Currency",
+   "effect": "Labrynna's money, used to buy items, appraise rings (20 each), and pay for shop goods and minigames. Carry capacity grows with bigger Wallets.",
+   "where": "Found in grass, pots, chests, dug up, dropped by enemies, and won at minigames throughout both eras."
+  }
+ ]
+}

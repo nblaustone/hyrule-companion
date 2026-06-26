@@ -1,0 +1,177 @@
+{
+ "basics": [
+  {
+   "title": "Sword Slash & the Spin Attack",
+   "body": "Tap the sword button for a quick slash; that handles most common foes in one or two hits. Hold the button until Link flashes, then release to unleash a Spin Attack that strikes every direction at once — perfect when enemies surround you. Upgrade to the L-2 Noble Sword (and later the Master Sword) at the Maku Tree and from secrets, and your damage roughly doubles. When a foe is armored or facing you, look for its exposed back or a moment it drops its guard rather than mashing."
+  },
+  {
+   "title": "Time Travel to Reposition & Avoid",
+   "body": "The Harp of Ages is your defining tool: at a glowing time portal (or with the right harp tune) you slip between the PAST and the PRESENT, and the same patch of Labrynna can be wildly different in each era. In a fight or a tight spot, that means you can duck into the other age to escape a swarm, then return behind your enemies. Many obstacles only exist in one era — a wall, a pit, a block — so changing the past literally reshapes the ground you fight on. Think of time travel as a dodge and a puzzle key, not just a story beat."
+  },
+  {
+   "title": "The Wall-Bouncing Seed Shooter",
+   "body": "The Seed Shooter fires whatever mystic Seed you've loaded (Ember, Scent, Mystery, etc.) in a straight line that RICOCHETS off walls. Aim it at a wall so the seed caroms around a corner or comes back to strike a foe you can't face directly — this is the exact trick the Shadow Hag boss demands. Ember Seeds light things and burn enemies; Scent Seeds lure and damage; Mystery Seeds have random effects and are key against shadow/possessed foes (they're what forces Veran's shadow out). Keep your Seed Satchel stocked and remember each seed type does something different when it lands."
+  },
+  {
+   "title": "The Switch Hook — Swap Places",
+   "body": "The Switch Hook fires a hook that TRADES places with whatever it hits — a block, a pot, or an enemy. Use it to yank yourself across a gap by hooking a far block, to pull a switch-tile under your feet, or to swap a dangerous enemy into a pit or hazard. Upgraded to the Long Hook it reaches farther, and it's the key to bosses like Eyesoar (hook the core to stun it) and the Plasmarine fight. It costs nothing to use, so reach for it constantly as both a traversal tool and a weapon."
+  },
+  {
+   "title": "Equipping a Magic Ring",
+   "body": "Throughout Labrynna you'll find magic Rings; take them to Vasu's shop in Lynna City to appraise unidentified rings for free. Once appraised, store them in your Ring Box and EQUIP one at a time for a passive bonus — the Power Ring boosts attack, the Blue/Armor-style rings cut damage taken, others give niche effects like cheaper shops or extra defense. Before a hard fight, swap to a defense ring (great for the underwater Plasmarine bout where your sword is useless) or a Power Ring to end it faster. Bigger Ring Boxes let you carry more, but only the equipped ring is active."
+  },
+  {
+   "title": "Animal Companion & the Bottled Fairy",
+   "body": "Partway through, you befriend one animal companion — Ricky the kangaroo, Dimitri the Dodongo, or Moosh the bear (which one depends on how you got the flute) — that you summon with its flute to cross terrain, attack, or carry you safely past hazards, a mobile escape hatch in open areas. Just as vital: keep a Fairy bottled. A captured fairy automatically revives you with several hearts the instant you'd otherwise die, turning a fatal hit into a second chance. Stock potions and fairies before any dungeon boss, and don't be shy about retreating to a fairy fountain to refill."
+  }
+ ],
+ "enemies": [
+  {
+   "name": "Octorok",
+   "tier": "common",
+   "tactic": "A burrowing critter that pops up to spit rocks at you in a straight line, then retreats. Sidestep the rock and close in for a single sword slash, or drop it from range with a seed. Harmless once you respect the spit — just don't stand in its line of fire.",
+   "drops": "Hearts, Rupees"
+  },
+  {
+   "name": "Moblin",
+   "tier": "common",
+   "tactic": "Bulldog-faced grunts that charge and, in groups, hurl spears or arrows. Two or three sword hits each. Use the Spin Attack when a pack closes in, and break line-of-sight on the ranged ones behind cover or by slipping into the other era.",
+   "drops": "Hearts, Rupees, occasional Bombs"
+  },
+  {
+   "name": "Zol / Gel",
+   "tier": "common",
+   "tactic": "Green blobs that hop toward you; a Zol splits into two smaller, faster Gels when struck, so finish the Gels quickly before they multiply your problems. A Spin Attack or a single clean hit on each handles them. Annoying in numbers but never threatening.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Buzz Blob",
+   "tier": "common",
+   "tactic": "An electrified plant-blob — touching it or hitting it with the sword shocks YOU. Either keep your distance and use seeds/ranged tools, or feed it a Mystery Seed, which transforms it into a Cukeman you can then strike safely. Never just walk into one.",
+   "drops": "Hearts, Rupees"
+  },
+  {
+   "name": "Bari / Biri",
+   "tier": "common",
+   "tactic": "Jellyfish that drift and periodically crackle with electricity — don't touch them while they glow. A large Bari splits into two small Biri when hit. Wait for the charge to fade, then slash, or hit them with a ranged seed. Common around the water dungeons.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Stalfos",
+   "tier": "common",
+   "tactic": "Skeleton swordsmen that flit erratically and parry careless attacks. Bait a lunge, then counter, or simply blow them apart with a Bomb. A Power Ring makes short work of them. Don't trade blows toe-to-toe — strike on their recovery.",
+   "drops": "Hearts, Rupees"
+  },
+  {
+   "name": "Beamos",
+   "tier": "common",
+   "tactic": "A stone eye-statue that rotates and fires a laser the instant its eye lands on you. It's invulnerable to the sword — either time your movement to cross behind it while it looks away, or destroy it with a Bomb. Mostly a positioning hazard, not a brawler.",
+   "drops": "None"
+  },
+  {
+   "name": "Like Like",
+   "tier": "common",
+   "tactic": "A tube-like maw that, if it grabs you, can swallow and STEAL your shield or a ring — mash buttons to escape fast, then kill it to recover the item. Hit it several times quickly from the side; don't let it pin you against a wall. Deal with it before it eats your gear.",
+   "drops": "Rupees, your swallowed item back"
+  },
+  {
+   "name": "Spiked Beetle",
+   "tier": "common",
+   "tactic": "An armored beetle that's spike-side-up and immune to your sword head-on. Block its charge with your SHIELD to flip it onto its back (the Switch Hook also works), then slash the soft underside. A neat little shield-bash teaching enemy.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Pols Voice",
+   "tier": "common",
+   "tactic": "A big-eared rabbit-ghost that bounces around and shrugs off sword hits. Its weakness is sound and explosives — a Bomb, or playing your animal companion's flute, makes it explode instantly. Don't waste sword swings; pop it with a Bomb or the flute.",
+   "drops": "Hearts, Rupees"
+  },
+  {
+   "name": "Gibdo",
+   "tier": "common",
+   "tactic": "A shambling mummy that only harms you by touch but soaks up hits. Hit it with an Ember Seed (or fire) to burn off the wrappings — it then turns into a Stalfos you can finish. Keep moving and don't let several corner you.",
+   "drops": "Hearts, Rupees"
+  },
+  {
+   "name": "Wallmaster",
+   "tier": "common",
+   "tactic": "A disembodied hand that drops from the ceiling; if it grabs you it drags you back to the dungeon entrance, undoing your progress. Watch for its shadow on the floor and step away, then strike it as it lands. Annoying more than deadly — mind the shadow.",
+   "drops": "None"
+  },
+  {
+   "name": "Cheep Cheep",
+   "tier": "common",
+   "tactic": "A pudgy fish that swims fixed patterns in the side-scrolling underwater sections. Slash it as it passes, or simply weave around its predictable path. Low threat.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Ropa",
+   "tier": "common",
+   "tactic": "Snake/plant enemies that lie dormant like rope coils, then lunge when you draw near. A quick slash kills them; just don't get surprised by one you mistook for scenery. Filler foes in overworld grass.",
+   "drops": "Hearts"
+  },
+  {
+   "name": "Pumpkin Head",
+   "tier": "boss",
+   "tactic": "Boss of Spirit's Grave (Dungeon 1) — a spectral body topped with a jack-o'-lantern.",
+   "drops": "Heart Container, Eternal Spirit (1st Essence of Time)",
+   "battle": "GEAR: just your sword and the Power Bracelet (found in this dungeon). HOW: Slash the floating body a few times — avoiding the three energy balls it occasionally spits — until the pumpkin drops to the ground. Equip the Power Bracelet, walk up and LIFT the pumpkin; a tiny ghost flies out, exposed and vulnerable. Now hurl the pumpkin at the ghost, or throw it away and rush the ghost with your sword before it can reform. The whole fight is a loop: body → lift pumpkin → hit the ghost → repeat. Keep the pumpkin tossed away from the ghost so it can't re-merge."
+  },
+  {
+   "name": "Head Thwomp",
+   "tier": "boss",
+   "tactic": "Boss of the Wing Dungeon (Dungeon 2) — a giant four-faced head fought in a side-view room.",
+   "drops": "Heart Container, Ancient Wood (2nd Essence of Time)",
+   "battle": "GEAR: Bombs and Roc's Feather. HOW: Head Thwomp is hurt ONLY by a Bomb dropped into the open hole on its TOP. Climb the side ladder, get above it, and toss a Bomb into the opening — the face it's showing when the Bomb lands inside is the face it then acts on. GREEN throws fireballs (retreat to the top-right of the ladder), BLUE shoots a widening ring of orbs (hug the bottom of the ladder against the wall), PURPLE slams down and rains boulders (tuck under one of the small platforms), and RED is the hit you want — it takes damage and drops a recovery heart. Land four red hits and it falls. Patience over the ladder is everything: read the face and dodge accordingly between throws."
+  },
+  {
+   "name": "Shadow Hag",
+   "tier": "boss",
+   "tactic": "Boss of Moonlit Grotto (Dungeon 3) — a witch who hides among shifting shadows.",
+   "drops": "Heart Container, Echoing Howl (3rd Essence of Time)",
+   "battle": "GEAR: the Seed Shooter (loaded with seeds) plus Roc's Feather to hop her fireballs. HOW: She splits into FOUR shadows that slide around — you can't hit the right one while facing her, and touching the real shadow hurts. Wait until the shadows merge back into the witch, who then spits fireballs. The trick: turn your BACK to her and fire the Seed Shooter at the opposite wall — the seed ricochets off the wall and strikes her from behind. Repeat the bounce-shot a few times (jumping her projectiles with the feather) and she's history. The whole fight teaches the Seed Shooter wall-bounce: never face her, always bank the shot."
+  },
+  {
+   "name": "Eyesoar",
+   "tier": "boss",
+   "tactic": "Boss of Skull Dungeon (Dungeon 4) — a floating eyeball ringed by smaller orbiting eyes.",
+   "drops": "Heart Container, Burning Flame (4th Essence of Time)",
+   "battle": "GEAR: the Switch Hook and your sword. HOW: First deal with the small eyeballs orbiting Eyesoar — strike them when they pause/stop circling to clear them out. With the little ones gone, fire the Switch Hook at Eyesoar's core: the hook swaps places with it and STUNS it. Immediately rush over and slash the stunned core as many times as you can before it recovers and re-summons its orbiters. Repeat the cycle — clear orbiters, Switch-Hook the core to stun, sword it — until it pops. Don't bother attacking while the eyes are spinning; clear them first."
+  },
+  {
+   "name": "Smog",
+   "tier": "boss",
+   "tactic": "Boss of Crown Dungeon (Dungeon 5) — a unique PUZZLE boss, a horned gas-cloud that divides into pieces.",
+   "drops": "Heart Container, Sacred Soil (5th Essence of Time)",
+   "battle": "GEAR: the Cane of Somaria (from this dungeon) and your sword. HOW: Each round, blocks appear and Smog splits into two or three pieces that ride around the blocks' edges like Sparks — immune to your weapons in this form. Use the Cane of Somaria to CONJURE an extra block in their path so the pieces are diverted into each other and forced to recombine into the whole Smog. Once it's whole, it slowly floats at you, spitting lightning you can't block — dodge that and quickly hack it with the sword. It re-splits and comes back for several rounds; each round, place a cane-block to force a collision, then sword the reformed Smog. Pure positioning — think of it as a sliding-block puzzle that shocks you."
+  },
+  {
+   "name": "Octogon",
+   "tier": "boss",
+   "tactic": "Boss of Mermaid's Cave (Dungeon 6) — a giant octopus fought across land and water.",
+   "drops": "Heart Container, Bereft Peak (6th Essence of Time)",
+   "battle": "GEAR: the Seed Shooter and your sword, plus the Mermaid Suit you earn in this dungeon. PHASE 1 (land): Stand on the central platform and equip the Seed Shooter. Octogon circles with its shell facing center and only occasionally turns to spit a rock — dodge the rock and fire seeds into its exposed face/back when it turns. PHASE 2 (water): After enough hits it half-submerges. Dive in with the Mermaid Suit, equip your sword, and slash it underwater while swimming clear (it chases and tries to trap you in a bubble). When it floats back up, return to the platform and resume the Seed Shooter routine. Alternate land-shooter and underwater-sword until it's beaten. Keep moving in both phases; never let it pin you."
+  },
+  {
+   "name": "Plasmarine",
+   "tier": "boss",
+   "tactic": "Boss of Jabu-Jabu's Belly (Dungeon 7) — an electric jellyfish in a fully underwater room.",
+   "drops": "Heart Container, Rolling Sea (7th Essence of Time)",
+   "battle": "GEAR: the Long Hook (the upgraded Switch Hook). Your sword is USELESS here — consider equipping a defense ring. HOW: Plasmarine darts to your position and either fires an electric ball or electrifies itself on the spot. It alternates between a RED form and a BLUE form, and the energy ball it shoots is always the same color as its current form. The kill is to hit it with the Long Hook while its ball is in flight: the hook both displaces Plasmarine AND flips its color, so it gets struck by its OWN attack. Example: it shoots a red ball — Long-Hook it so it turns blue and is yanked into the path of that red ball. As its health drops it fires faster, so watch its glow. It's a timing/color-matching duel, not a sword fight."
+  },
+  {
+   "name": "Ramrock",
+   "tier": "boss",
+   "tactic": "Boss of the Ancient Tomb (Dungeon 8, the final Essence dungeon) — a levitating stone golem with swappable arms, fought in FOUR phases.",
+   "drops": "Heart Container, Falling Star (8th and final Essence of Time)",
+   "battle": "GEAR: your sword, Bombs, the Seed Shooter, and the Power Glove (found in this dungeon). PHASE 1 — FISTS: He launches his two hands at you; strike a launched fist with your sword so it flies back into Ramrock's body. A few good hits and he switches arms. PHASE 2 — CRUSHING CLAWS: He chases trying to crush you between two claws. Lay or throw a Bomb directly between the claws so they slam it (and it explodes on him) — the only way to hurt this form. PHASE 3 — SHIELDS/ORBS: He guards his head and fires orbs/eye-lasers while sliding side to side. Use the Seed Shooter to bank a seed off the wall BEHIND him so it bounces onto the back of his head. PHASE 4 — BALL-AND-CHAIN ARMS: He swings two ball-and-chain arms. Grab a hanging arm with the Power Glove, pull it toward the wall, then release to fling it into him. Read which arms he equips and switch gear to match — each phase wants a different tool."
+  },
+  {
+   "name": "Veran, Sorceress of Shadows",
+   "tier": "boss",
+   "tactic": "The final boss — the Sorceress of Shadows who possessed Nayru and Queen Ambi to drain Labrynna's past. The climactic Black Tower battle runs through FIVE stages and several transformations.",
+   "drops": "Victory — the Maku Tree is freed and Labrynna is restored",
+   "battle": "Stock a bottled Fairy and potion first — this is a long fight. STAGE 1 — POSSESSED NAYRU: You can't hit Nayru directly. Dodge Veran's energy balls and fire a MYSTERY SEED at her to force Veran's shadow up out of Nayru's head, then use the Switch Hook to YANK the shadow out — now sword it. STAGE 2 — POSSESSED AMBI: Veran jumps into Queen Ambi; same plan (Mystery Seed → Switch Hook → sword), but she also summons spiders/adds, so clear them while you work. STAGE 3 — FAIRY FORM: She becomes a fairy-creature, summons Dark Links that mirror your movement, and flies around firing energy balls (including a radial spray and a slow orb that briefly turns you into a helpless infant — wait it out). Sword her whenever you get an opening; ignore the mirror-clones. STAGE 4 — THREE MONSTER FORMS: She cycles through TURTLE (jumps and slams to crush you — sword her exposed face when she lands), SPIDER (spits a damaging web — throw a Bomb in front to stun her, then sword), and BEE (flies, summons bee swarms, fires speed-slowing stingers — hit her with the Seed Shooter or sword). Keep a fairy in reserve, match each form's counter, and outlast her. Beat the final form and Veran is destroyed for good."
+  }
+ ]
+}

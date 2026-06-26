@@ -1,0 +1,128 @@
+{
+ "regions": [
+  {
+   "region": "The Trading Sequence",
+   "quests": [
+    {
+     "name": "The Long Trade: from a Poe Clock to the Noble Sword",
+     "giver": "Clock Poe (Yoll Graveyard, near Spirit's Grave)",
+     "location": "All across Labrynna, past and present (starts in Yoll Graveyard)",
+     "reward": "The Noble Sword (Level-2) — a stronger replacement for your Wooden Sword",
+     "oneLine": "Labrynna's 12-step swap chain: hand off one odd item after another until a ghost's broken sword becomes the Noble Sword.",
+     "how": "Each person wants the item the last one gave you, so trade strictly in order — you carry only one trade item at a time. The chain: (1) talk to the Clock Poe in Yoll Graveyard for the POE CLOCK; (2) give it to the Postman at the Lynna Village Post Office for STATIONERY; (3) give that to the 'Hand in the Toilet' in the house just below the post office for the STINK BAG; (4) give it to the Tokay cook on Crescent Island for the TASTY MEAT; (5) give that to the hungry Happy Mask Salesman at the Mask Shop near Lynna City for the DOGGIE MASK; (6) give it to Mamamu Yan (the dog breeder) in Lynna City for the DUMBBELL; (7) give it to Thomas in Symmetry Village (in the PAST) for the CHEESY MUSTACHE; (8) give that to the Comedian in Lynna City for the FUNNY JOKE; (9) tell the joke to the gloomy boy Dekadin in Lynna Village for the TOUCHING BOOK; (10) carry it until Maple flies by (after you defeat about 30 enemies) and crash into her to get the MAGIC OAR; (11) give the oar to Rafton on the South Shore (PAST) for the SEA UKULELE; (12) give it to the Old Zora in his cave for the BROKEN SWORD. Finally take the broken sword to Patch at Restoration Wall (south of Symmetry Village, in the PAST) and clear his block-pushing puzzle to forge the NOBLE SWORD. Fully optional — nothing here is needed to beat the game."
+    }
+   ]
+  },
+  {
+   "region": "Rings & Vasu",
+   "quests": [
+    {
+     "name": "Vasu's Ring Appraisals",
+     "giver": "Vasu",
+     "location": "Vasu Jewelers, Lynna City",
+     "reward": "Equippable Magic Rings (effects from extra power to fun cosmetic transformations)",
+     "oneLine": "Every Magic Ring you find shows up as an unidentified 'secret' until Vasu appraises it — then you can wear it.",
+     "how": "Magic Rings drop all over Labrynna but start out unidentified and unusable. Bring them to Vasu Jewelers in Lynna City and pick Appraise (20 Rupees each) to reveal what a ring does and unlock it for your Ring Box. You can only equip a limited number at once (your Ring Box capacity upgrades over the game), and duplicates can be sold back to Vasu for 30 Rupees. Vasu gives you your first ring and the Ring List early on, and the list lets you track which ring numbers you're still missing."
+    },
+    {
+     "name": "The Magic Ring Collection (64 rings)",
+     "location": "Gasha Nuts, Maple, fortune-teller, chests, shops, minigames — everywhere",
+     "reward": "A full ring collection (and the satisfaction of completing it)",
+     "oneLine": "There are 64 collectible Magic Rings shared across the Oracle games; a few are genuinely useful, many are just for fun.",
+     "how": "Rings come from many sources: cracking open Gasha Nuts, bumping into Maple, Ring Fortunes from the fortune-teller, a handful in chests, and shop/minigame prizes. Useful early picks include the Power Ring (more melee damage), Blue Ring (take less damage), and Maple's Ring. Many rings are silly transformations (turn into a Like-Like, an Octorok, etc.) with no combat value — collect them for the set, not for power. The Ring List at Vasu shows exactly which numbers you're missing."
+    },
+    {
+     "name": "Chasing Maple",
+     "giver": "Maple (the little witch)",
+     "location": "Random overworld encounters across Labrynna",
+     "reward": "Rings, Gasha Seeds, hearts, and Rupees",
+     "oneLine": "Maple zooms across the screen on her broom; crash into her and grab everything that spills.",
+     "how": "After you defeat about 30 enemies, Maple flies across certain overworld screens. Run into her broom to knock both of you down, then quickly pick up everything that scatters before she does — Rings, Gasha Seeds, hearts, and Rupees. Wearing Maple's Ring halves the kills needed for her to appear (about 15 instead of 30), so equip it if you're farming her. She's also step 10 of the trading sequence — she hands over the Magic Oar."
+    }
+   ]
+  },
+  {
+   "region": "Animal Companions",
+   "quests": [
+    {
+     "name": "Choosing Ricky, Dimitri, or Moosh",
+     "location": "Nuun Highlands (locks in after the 3rd dungeon, Moonlit Grotto)",
+     "reward": "A permanent animal partner with a unique traversal ability",
+     "oneLine": "One of three animal friends joins you for the rest of the game — and which one is decided by the flute you're carrying when you reach Nuun Highlands.",
+     "how": "Your partner is locked in when you reach the Nuun Highlands after clearing the third dungeon, Moonlit Grotto. The deciding factor is which Strange Flute you carry in: buy the flute from the Lynna City shop to get DIMITRI (a Dodongo who swims against currents and up waterfalls), score 250 at the Shooting Gallery to earn the flute that gives RICKY (a kangaroo who leaps cliffs and gaps and boxes enemies), or arrive with no flute at all to default to MOOSH (a bear who flies short distances). At Nuun Highlands your partner's ability helps you find the three lazy carpenters needed to extend the bridge. The choice is mostly flavor — each can reach a few optional spots. Whistle with the flute to summon your partner on the overworld."
+    },
+    {
+     "name": "Feeding and riding your companion",
+     "location": "Overworld, anywhere your partner can travel",
+     "reward": "Access to optional ledges, gaps, and shortcuts; some hidden Heart Pieces and rings",
+     "oneLine": "Summon your animal friend with their flute to cross terrain Link can't on foot.",
+     "how": "Once your companion is chosen, use their flute on the overworld map to call them, then mount up. Use Ricky's jumps to clear pits and climb low cliffs, Dimitri's swimming to fight currents and ride waterfalls, or Moosh's hop-glide to float over gaps. Several optional Heart Pieces and ring spots are only reachable while riding, so revisit old areas with your partner after you have them."
+    }
+   ]
+  },
+  {
+   "region": "Heart Pieces & Time-Travel Secrets",
+   "quests": [
+    {
+     "name": "Pieces of Heart hunt",
+     "location": "All over Labrynna, past and present",
+     "reward": "Each 4 pieces = one new Heart Container (more life)",
+     "oneLine": "Scattered quarter-hearts that combine into full Heart Containers — several are tucked behind animal abilities or minigames.",
+     "how": "Pieces of Heart hide in chests, minigame prizes, and out-of-the-way corners across both eras; collect four to gain a permanent Heart Container. Some reward minigame skill (the Goron Dance, the Shooting Gallery) or require your animal companion to reach a ledge. Sweep Lynna City and the Maku Tree area as you pass through, and re-check regions after you gain new tools like the Seed Shooter, Switch Hook, and Mermaid Suit."
+    },
+    {
+     "name": "Cross-time Heart Pieces and chests",
+     "location": "Time portals throughout Labrynna",
+     "reward": "Heart Pieces, rings, and Gasha Seeds reachable only by changing the past",
+     "oneLine": "The signature Ages puzzle: alter something in the PAST so a blocked spot opens up in the PRESENT — and a reward appears.",
+     "how": "With the Harp of Ages you warp at time portals between past and present, and changes you make long ago reshape the world today. Many optional rewards depend on this: plant or move something, drain or fill water, or knock down an obstacle in one era to open a path or reveal a chest in the other. When a Heart Piece or chest looks unreachable, find the matching spot in the other time period and ask what you could change there first. The Seed Shooter (which bounces seeds off walls) and Switch Hook also open previously-blocked optional chests on a return visit."
+    }
+   ]
+  },
+  {
+   "region": "Minigames & Gasha Seeds",
+   "quests": [
+    {
+     "name": "Gasha Seeds & Gasha Trees",
+     "location": "16 patches of Soft Soil across Labrynna",
+     "reward": "Gasha Nuts containing Rings, Rupees, hearts, and occasional rare items",
+     "oneLine": "Plant a teardrop-shaped Gasha Seed in soft soil, kill enemies to make it grow, then crack the nut for loot.",
+     "how": "Find a patch of Soft Soil and plant a Gasha Seed in it. The tree matures as you defeat enemies and roam the world, then bears a Gasha Nut you can slash open. Nut contents range from Rupees and hearts up to Magic Rings, and the quality scales with how active you've been — so wander and battle before harvesting. There are 16 soil patches but far more than 16 seeds available, so keep replanting; this is the best steady source of rings."
+    },
+    {
+     "name": "Wild Tokay (meat-feeding game)",
+     "location": "Crescent Island",
+     "reward": "A story item (Scent Seedling) the first time, plus prizes on repeat play",
+     "oneLine": "A required Tokay feeding game: hand a piece of meat to every Tokay that runs past, miss none, and win.",
+     "how": "On Crescent Island the Tokay run you through a feeding game: Tokay dash past on the left and right, and you must give meat to every one as they appear. Skip even one and you fail and start over; feed them all and you win. The first clear ties into the main story, and the game can be replayed for extra prizes."
+    },
+    {
+     "name": "Goron Dance & the Shooting Gallery",
+     "location": "Rolling Ridge (Goron Dance) and Lynna City (Shooting Gallery)",
+     "reward": "Heart Pieces, rings, and Rupees for high scores",
+     "oneLine": "Rhythm and aim challenges that pay out collectibles for doing well.",
+     "how": "In the Goron Dance, copy the instructor's left/right steps in rhythm — go too early or late and you miss; a clean run earns prizes including a Heart Piece. The Shooting Gallery rewards accuracy with Rupees and prizes, and scoring 250 there earns the Strange Flute that makes Ricky your animal companion. These are optional and replayable, so come back once you have steadier aim."
+    }
+   ]
+  },
+  {
+   "region": "Linked-Game Secrets",
+   "quests": [
+    {
+     "name": "Linked game: passwords with Oracle of Seasons",
+     "location": "Password screen at game start (uses a Secret from the other Oracle)",
+     "reward": "Bonus items, extra story, rings, and a Heart Container carried between games",
+     "oneLine": "Beat Oracle of Seasons first, type its Secret into Ages, and play a 'Linked Game' with extra content.",
+     "how": "Finishing Oracle of Seasons gives you a Secret password at the credits. Start a new Ages file, choose to enter a Secret, and type it to begin a LINKED GAME instead of a normal one. Throughout the linked game, NPCs hand you more passwords to carry back to Seasons (and vice versa), unlocking bonus rings, items, and continued story — the two games' plots fully connect only when linked. Keep a pen handy; the codes are long strings of symbols entered exactly."
+    },
+    {
+     "name": "The true final battle: Twinrova & Ganon",
+     "location": "Room of Rites (only in a Linked Game)",
+     "reward": "The true ending of the Oracle saga + the 'Hero's Secret' password",
+     "oneLine": "Only a linked playthrough opens the real final fight, where the witches Twinrova try to resurrect Ganon.",
+     "how": "In a normal (unlinked) game you beat Veran and the story ends there. In a LINKED game, after Veran the Room of Rites opens: you face the twin sorceresses Koume and Kotake, who merge into Twinrova, and then Ganon himself as the true final boss. Ganon is tough — to damage him you need spin attacks with the Noble Sword, or normal hits with the Master Sword (the Biggoron's Sword won't hurt him). Win and you receive the 'Hero's Secret' password (which can start a fresh Ages game with 4 hearts and the Victory Ring) and the true ending of the Oracle saga."
+    }
+   ]
+  }
+ ]
+}

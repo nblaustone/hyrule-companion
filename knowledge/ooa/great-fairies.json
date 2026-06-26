@@ -1,0 +1,52 @@
+{
+ "fairies": [
+  {
+   "name": "Maku Tree (Great Fairy cave + seed restock)",
+   "region": "Lynna City",
+   "location": "Northeast Lynna City (present). The Maku Tree grows as you gather Essences of Time: once it starts growing (after the 1st Essence, Eternal Spirit) it opens a cave holding a Great Fairy, alongside the present-day Ember/seed bushes. It's your central hub all game.",
+   "cost": "The Great Fairy fully heals Link, and the seed bushes in the Maku Tree restock his seeds — the most convenient heal/refill in the game"
+  },
+  {
+   "name": "Nuun Highlands Fairy Fountain",
+   "region": "Nuun Highlands",
+   "location": "Present era. Enter the cave on the north edge of Nuun Highlands (the same screen also has a high-level Gasha planting spot).",
+   "cost": "Free full heal — refills all your hearts"
+  },
+  {
+   "name": "Talus Peaks Fairy Pool",
+   "region": "Talus Peaks",
+   "location": "Present era, southwestern corner. In the PAST, set the water flowing eastward and push the vine bulb to the western side; warp back to the present with the Harp's Tune of Currents (or Tune of Ages), then climb the new vines up to the pool.",
+   "cost": "Free full heal — refills all your hearts"
+  },
+  {
+   "name": "Crescent Island Fairy Fountain",
+   "region": "Crescent Island",
+   "location": "Present era. From the screen where the crabs scuttle about, head east to reach the fairy fountain.",
+   "cost": "Free full heal — refills all your hearts"
+  },
+  {
+   "name": "Vasu Jewelers (Vasu)",
+   "region": "Lynna City",
+   "location": "The jewelry shop in Lynna City (present). Visit early in the game, then return anytime to have Vasu appraise the Seed Rings you find.",
+   "cost": "Grants the L-1 Ring Box (holds 1 ring) free on your first visit, then appraises Seed Rings into usable Magical Rings (first appraisal free; 20 Rupees each thereafter)"
+  },
+  {
+   "name": "Lynna City Shop (hidden 2nd floor)",
+   "region": "Lynna City",
+   "location": "A hidden upper room of the Lynna City shop, reached by using the Harp's Tune of Ages to time-warp from the past up into the present-day second floor.",
+   "cost": "Sells the L-2 Ring Box (holds 3 rings) for 300 Rupees — a permanent ring-storage upgrade"
+  },
+  {
+   "name": "Crescent Island Tokay (shield thief)",
+   "region": "Crescent Island",
+   "location": "Present era. The Tokay steal all your gear when you land; recover items one by one by talking to the Tokay around the island. The one in the cavern on the island's south edge can only be reached by swimming there with the Mermaid Suit.",
+   "cost": "Returns your Wooden Shield upgraded to the Iron Shield (a one-time shield upgrade — the best shield in a non-linked game)"
+  },
+  {
+   "name": "Talus Peaks Bomb-Pond Fairy",
+   "region": "Talus Peaks",
+   "location": "Present era, by the warning sign at the pond in Talus Peaks. Throw a Bomb into the water and a red Fairy rises, materializes a Golden Bomb and a Silver Bomb, and asks which you dropped. Answer honestly — you dropped neither, just a regular Bomb.",
+   "cost": "Rewards your honesty by raising your Bomb capacity by 20 (carry more Bombs). Claiming the Silver (or Gold) Bomb and confirming the lie makes her take all your Bombs."
+  }
+ ]
+}
