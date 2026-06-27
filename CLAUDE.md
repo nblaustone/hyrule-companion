@@ -621,6 +621,23 @@ layout, `REGION_MAPS` = the per-region coords.
   **NEXT in this arc: the offline AI oracle ("Ask the Slate")** — an on-device LLM (WebLLM/WebGPU) RAG-grounded on
   the app's own JSON, voice in/out, loaded device-local via the [[ADR 0009]] IndexedDB pattern so the published
   artifact stays ~1 MB and asset-clean. (Bigger build; queued, owner greenlit the arc.)
+- **v18.1 — "Ask the Slate" oracle, Phase 1 (DONE; ADR 0012).** A conversational, voice-capable companion you
+  ask in plain language ("how do I beat a Lynel?", "fastest rupees?"). **Phase 1 ships the grounded RETRIEVAL
+  oracle — 100% offline, asset-clean, in the build, no model.** `slateRetrieve()` tokenizes the question and
+  ranks records across the app's OWN verified data (shrines+solutions · enemy battle guides · side-quest hows ·
+  armor · cooking · COMPENDIUM · walkthrough stuck-hints · towers · ECONOMY/Money) → a best answer + related,
+  each deep-linked. **Honesty law is structural: it only retrieves, never generates — no match ⇒ it says so**
+  ("I won't guess"). `SlateOracle` overlay (portaled, safe-area) with **SpeechSynthesis** read-aloud +
+  **SpeechRecognition** voice-in (online-assisted; typing always offline); data-derived suggestion chips
+  guarantee strong first hits. Entry: topbar ✦ (`spark` glyph) + `mic` glyph. **Phase 2 (planned, ADR 0012):**
+  opt-in on-device LLM (WebLLM `@mlc-ai/web-llm@0.2.84` via runtime `import("https://esm.run/...")`, model cached
+  to Cache API/IndexedDB → offline after a one-time download; WebGPU-gated, iOS 26+) that SYNTHESIZES over the
+  Phase-1 retrieval (RAG grounding, cite-or-refuse) — device-local per [[ADR 0009]] so the build stays asset-clean;
+  the dynamic `import()` is a runtime request so the offline check still passes (verify vs build.mjs first).
+  **Topbar gotcha fixed:** adding a 5th control overflowed narrow phones → brand now `min-width:0`/shrinks,
+  `topbar-r` is `flex-shrink:0`, and ≤430px shows the **eye logo only** (hide `.brand>div`) — clean, not a
+  clipped "H.". Verified in-browser (grounded answers, money fix, honest no-match, voice buttons, mobile topbar,
+  0 console errors, offline-clean).
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

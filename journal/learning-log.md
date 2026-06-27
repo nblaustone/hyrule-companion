@@ -5,6 +5,32 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-26 — v18.1: "Ask the Slate" oracle, Phase 1 (grounded retrieval + voice; LLM is Phase 2)
+
+- **User: "yes!! amazing!!"** to kicking off the AI oracle. I split it so the law-abiding, verifiable value
+  ships NOW and the heavy LLM is a clean opt-in layer — the right call given the offline/asset-clean spine.
+- **Ran a 5-agent research workflow FIRST** (independent questions = a justified fan-out, batched, one solo
+  workflow) on WebLLM/WebGPU/models/RAG/voice → confirmed the architecture and wrote ADR 0012. Key facts:
+  WebLLM `@mlc-ai/web-llm@0.2.84` via runtime `import("https://esm.run/...")`, OpenAI-shaped API, weights cache
+  to Cache API/IndexedDB → **fully offline after a one-time download**; WebGPU needed (iOS 26+); ~1B q4f16 model
+  (~0.9GB) for phones; `navigator.storage.persist()` vs iOS eviction; `file://` has no WebGPU. This is exactly
+  the [[ADR 0009]] device-local pattern — published build stays asset-clean, model fetched on-device once.
+- **Phase 1 shipped = the grounded retrieval oracle, 100% offline, no model.** `slateRetrieve()` ranks the
+  app's OWN verified records (reuses the SearchOverlay data plumbing + ECONOMY) and `SlateOracle` presents a
+  best answer + related, with read-aloud (SpeechSynthesis) and voice-in (SpeechRecognition). **The honesty law
+  is STRUCTURAL: it only retrieves, never generates — no match ⇒ it says "I won't guess."** That's the whole
+  reason to lead with retrieval: it can't hallucinate, and it's the RAG grounding the LLM will stand on.
+- **Build the cohesive feature SERIALLY (me), research via WORKFLOW.** Per AGENT_WORKFLOW.md: fan out only for
+  independent like-items (the research questions qualified); the UI/engine is one coherent chunk → serial.
+- **Two real bugs caught in-browser (banked):** (1) I forgot to wire ECONOMY into the oracle → "fastest rupees"
+  returned a *shrine*; added ECONOMY (rupees/farming/tips) + dropped "way" as a stopword → now returns Money.
+  (2) Adding a 5th topbar control overflowed 375px phones (search + % clipped off-screen). Fix: brand
+  `min-width:0` so it shrinks, `topbar-r{flex-shrink:0}`, and **≤430px show the eye logo only** (hide
+  `.brand>div`) — a clipped "H." reads as broken; logo-only reads as intentional/modern. **Lesson: every new
+  topbar control needs a narrow-phone check (preview_resize mobile) — the topbar is a fixed-width budget.**
+- Verified: grounded Lynel answer, money fix, honest no-match (no fabricated card), related hits, voice
+  buttons, mobile topbar clean, desktop title returns, 0 console errors, offline-clean. Two glyphs: spark, mic.
+
 ## 2026-06-26 — v18.0: "The Living Slate" — atmosphere layer (procedural audio · circuit canvas · haptics)
 
 - **User: "make this app out of this world — futuristic, spectacular, sexy."** I pitched a vision (reframe: finish

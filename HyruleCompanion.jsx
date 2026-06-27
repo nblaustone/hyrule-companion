@@ -617,6 +617,8 @@ function Glyph({ name, size = 26 }) {
     case "pin": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M24 6c8 0 13 5 13 13 0 9-13 23-13 23S11 28 11 19C11 11 16 6 24 6Z" /><circle cx="24" cy="19" r="4.5" fill="currentColor" stroke="none" /></svg>);
     case "sound": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M10 19h7l9-7v24l-9-7h-7V19Z" fill="currentColor" stroke="currentColor" /><path d="M31 18c3 3 3 9 0 12M36 13c6 6 6 16 0 22" fill="none" /></svg>);
     case "mute": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M10 19h7l9-7v24l-9-7h-7V19Z" fill="currentColor" stroke="currentColor" /><path d="M33 19l10 10M43 19L33 29" fill="none" /></svg>);
+    case "spark": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2"><path d="M24 6c1.6 9.2 6.8 14.4 16 16-9.2 1.6-14.4 6.8-16 16-1.6-9.2-6.8-14.4-16-16 9.2-1.6 14.4-6.8 16-16Z" fill="currentColor" stroke="currentColor" strokeLinejoin="round" /><path d="M38 30c.6 3.4 2.4 5.2 5.6 5.8-3.2.6-5 2.4-5.6 5.6-.6-3.2-2.4-5-5.6-5.6 3.2-.6 5-2.4 5.6-5.8Z" fill="currentColor" stroke="none" /></svg>);
+    case "mic": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.2"><rect x="19" y="7" width="10" height="20" rx="5" /><path d="M14 23a10 10 0 0 0 20 0M24 33v7M18 40h12" /></svg>);
     default: return null;
   }
 }
@@ -829,6 +831,7 @@ function HyruleGame({ game, setGame, games }) {
   const [userBooks, setUserBooks] = useState([]);    // v12: imported on-device books index (hyrule:books); page blobs live in IndexedDB
   const [bookBusy, setBookBusy] = useState(null);    // v12: import status {name,done,total} | {name,error}
   const [searchOpen, setSearchOpen] = useState(false);
+  const [oracleOpen, setOracleOpen] = useState(false); // v18.1: "Ask the Slate" offline oracle
   const [shelfOpen, setShelfOpen] = useState(false); // game-select shelf overlay (console/era)
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
@@ -880,7 +883,7 @@ function HyruleGame({ game, setGame, games }) {
   // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
   useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
   // freeze the page behind a full-screen overlay so touch-scroll doesn't bleed through to the content under it
-  useEffect(() => { const lock = shelfOpen || searchOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen]);
+  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen]);
   // tab-bar taps start the new tab at the top (and re-tapping the current tab scrolls to top, iOS-style).
   // Programmatic jumps (jumpToStep/focusShrine) use setTab directly so they keep their scroll-into-view.
   const goTab = (t) => { setTab(t); try { window.scrollTo({ top: 0 }); } catch (e) { window.scrollTo(0, 0); } };
@@ -1144,6 +1147,7 @@ function HyruleGame({ game, setGame, games }) {
         <div className="topbar-r">
           {Object.keys(games).length > 1 && <button className="game-switch" onClick={() => setShelfOpen(true)} aria-label="Switch game" style={{ "--ga": G.meta?.accent || "var(--cyan)" }}><span className="game-switch-dot" /><span>{G.short}</span><span className="game-switch-chev">▾</span></button>}
           {resumeTarget && <button className="resume-trigger" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)} aria-label={"Resume — you're here: " + resumeTarget.secName}><Glyph name="pin" size={15} /><span>Resume</span></button>}
+          <button className="ask-trigger" onClick={() => setOracleOpen(true)} aria-label="Ask the Slate"><Glyph name="spark" size={17} /></button>
           <button className={"atmos-trigger" + (atmos.sound ? " atmos-on" : "")} onClick={() => setAtmos((a) => ({ ...a, sound: !a.sound }))} aria-label={atmos.sound ? "Mute the Slate" : "Wake the Slate"} aria-pressed={atmos.sound}><Glyph name={atmos.sound ? "sound" : "mute"} size={18} /></button>
           <button className="search-trigger" onClick={() => { setSearchOpen(true); }} aria-label="Search everything"><Glyph name="search" size={18} /></button>
           <div className="region-chip">{pct}%</div>
@@ -1151,6 +1155,18 @@ function HyruleGame({ game, setGame, games }) {
       </header>
 
       {shelfOpen && <GameShelf games={games} game={game} setGame={setGame} onClose={() => setShelfOpen(false)} />}
+
+      {oracleOpen && (
+        <SlateOracle label={G.label} onClose={() => setOracleOpen(false)}
+          data={{ REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS, COMPENDIUM, ECONOMY }}
+          nav={{
+            step: (rid, sid) => jumpTo(rid, sid),
+            shrine: (rk, sid) => (sid ? focusShrine(rk, sid) : jumpShrineRegion(rk)),
+            guide: (seg) => { setTab("guide"); setGuideSub(seg); },
+            cook: () => setTab("cook"),
+            items: () => setTab("items"),
+          }} />
+      )}
 
       {searchOpen && (
         <SearchOverlay query={gquery} setQuery={setGquery} onClose={() => setSearchOpen(false)}
@@ -2603,6 +2619,114 @@ function PouchView({ inventory, progress, jumpTo, regions, region, cats }) {
   );
 }
 
+/* ============================================================
+   ASK THE SLATE (v18.1) — an offline, grounded oracle. PHASE 1: natural-language
+   retrieval over the app's OWN verified data (shrines · battles · quests · armor ·
+   cooking · items · walkthrough · towers). It answers ONLY from those records —
+   the honesty law: it never invents; if nothing matches it says so. It can speak
+   the answer aloud (SpeechSynthesis) and listen (SpeechRecognition, online-assisted
+   where the platform requires it; typing always works offline). PHASE 2 (opt-in,
+   device-local, see ADR 0011/0012) drops an on-device LLM (WebLLM/WebGPU) on TOP to
+   synthesize across the retrieved records — this retrieval is its RAG grounding. */
+const SLATE_STOP = new Set("a an the to of for in on at it is are be how do does did where what which who whats when can could should would help with get got find beat fight kill defeat make cook need want go best fastest about there here you your my me i way".split(" "));
+function slateTokens(s) { return (s || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").split(/\s+/).filter((w) => w.length > 1 && !SLATE_STOP.has(w)); }
+function slateArmorDetail(a) { let s = "Effect: " + a.bonus + "\nWhere: " + a.where; if (a.tiers && a.tiers.length) s += "\n" + a.tiers.map((t) => "★" + t.star + ": " + t.materials.map((m) => m.qty + "× " + m.item).join(", ") + (t.rupees ? " + " + t.rupees + " rupees" : "")).join("\n"); if (a.farm) s += "\nFarm: " + a.farm; if (a.note) s += "\n" + a.note; return s; }
+const SLATE_GEAR_GLYPH = { weapon: "sword", bow: "bow", shield: "shield", armor: "armor", material: "gem", creature: "leaf", item: "bag", mask: "mask", sword: "sword", song: "stasis", key: "key" };
+const SLATE_LEAD = { Shrine: "Here's how to clear", Enemy: "Here's how to beat", "Side quest": "Here's how to do", Armor: "Here's the rundown on", Cooking: "For that, cook for", Item: "Here's what I know about", Walkthrough: "Here's your next step:", Tower: "Here's where to find" };
+function slateRetrieve(query, data) {
+  const toks = slateTokens(query); if (!toks.length) return [];
+  const { REGIONS = [], SHRINES = [], ARMOR = { sets: [] }, BESTIARY = { enemies: [] }, RECIPES = [], SIDE_QUESTS = [], TOWERS = [], COMPENDIUM = [] } = data || {};
+  const out = [];
+  const add = (o) => { const name = (o.label || "").toLowerCase(); const body = ((o.sub || "") + " " + (o.detail || "")).toLowerCase(); let score = 0, hit = 0; for (const t of toks) { if (name.includes(t)) { score += 3; hit++; } else if (body.includes(t)) { score += 1; hit++; } } if (!hit) return; o.score = score + (hit === toks.length ? 2 : 0) + (o.prio || 0); out.push(o); };
+  SHRINES.forEach((g) => (g.shrines || []).forEach((sh, i) => add({ cat: "Shrine", glyph: "shrine", label: sh.name, sub: g.regionName + " · " + sh.location, detail: sh.solution || sh.oneLine, prio: 2, nav: { kind: "shrine", args: [g.regionKey, "shr_" + g.regionKey + "_" + i] } })));
+  (BESTIARY.enemies || []).forEach((e) => add({ cat: "Enemy", glyph: "skull", label: e.name, sub: e.tactic, detail: e.battle || e.tactic, prio: 2, nav: { kind: "guide", args: ["enemies"] } }));
+  (SIDE_QUESTS || []).forEach((g) => (g.quests || []).forEach((qq) => add({ cat: "Side quest", glyph: "scroll", label: qq.name, sub: (g.region || "") + " · " + qq.oneLine, detail: (qq.how || qq.oneLine) + (qq.reward ? "\nReward: " + qq.reward : ""), prio: 1, nav: { kind: "guide", args: ["quests"] } })));
+  (ARMOR.sets || []).forEach((a) => add({ cat: "Armor", glyph: "armor", label: a.name, sub: a.bonus, detail: slateArmorDetail(a), nav: { kind: "guide", args: ["armor"] } }));
+  (RECIPES || []).forEach((r) => add({ cat: "Cooking", glyph: "pot", label: r.eff, sub: r.does, detail: r.does + (r.key ? "\nIngredients: " + r.key : ""), prio: 1, nav: { kind: "cook" } }));
+  (COMPENDIUM || []).forEach((it) => { const sn = it.cat === "armor" ? "Defense" : it.cat === "shield" ? "Guard" : "Power"; let d = it.effect || ""; if (Number.isFinite(it.power)) d += (d ? "\n" : "") + sn + ": " + it.power + (Number.isFinite(it.durability) ? " · Durability: " + it.durability : ""); if (Number.isFinite(it.sell)) d += (d ? "\n" : "") + "Sells for " + it.sell + " rupees"; if (it.set && it.set !== "standalone") d += "\nSet: " + it.set; if (it.where) d += "\nWhere: " + it.where; add({ cat: "Item", glyph: SLATE_GEAR_GLYPH[it.cat] || "bag", label: it.name, sub: it.type || it.cat, detail: d, nav: { kind: "items" } }); });
+  REGIONS.forEach((reg) => (reg.sections || []).forEach((sec) => (sec.steps || []).forEach((st) => add({ cat: "Walkthrough", glyph: "tower", label: sec.name, sub: st.t, detail: st.stuck || st.t, nav: { kind: "step", args: [reg.id, sec.id] } }))));
+  (TOWERS || []).forEach((t) => add({ cat: "Tower", glyph: "tower", label: t.name, sub: t.region, detail: t.location, nav: { kind: "guide", args: ["towers"] } }));
+  const ECON = (data && data.ECONOMY) || null;
+  if (ECON) {
+    (ECON.rupees || ECON.earners || []).forEach((r) => add({ cat: "Money", glyph: "gem", label: r.method || r.name || r.item, sub: "Earn rupees · money", detail: r.detail || r.how || r.note || "", prio: 2, nav: { kind: "guide", args: ["economy"] } }));
+    (ECON.farming || ECON.farms || []).forEach((f) => add({ cat: "Farming", glyph: "leaf", label: f.item || f.name, sub: "Where to farm · rupees", detail: (f.where || "") + (f.tip ? "\n" + f.tip : ""), prio: 1, nav: { kind: "guide", args: ["economy"] } }));
+    (ECON.tips || []).forEach((t) => add({ cat: "Money tip", glyph: "scroll", label: String(t).split(/[—.:]/)[0].trim().slice(0, 52), sub: "Rupee tip · money", detail: t, nav: { kind: "guide", args: ["economy"] } }));
+  }
+  out.sort((a, b) => b.score - a.score);
+  return out.slice(0, 6);
+}
+
+function SlateOracle({ data, nav, label, onClose }) {
+  const [q, setQ] = useState("");
+  const [asked, setAsked] = useState("");
+  const [viaVoice, setViaVoice] = useState(false);
+  const [listening, setListening] = useState(false);
+  const [speaking, setSpeaking] = useState(false);
+  const recRef = useRef(null);
+  const SR = typeof window !== "undefined" ? (window.SpeechRecognition || window.webkitSpeechRecognition) : null;
+  const canSpeak = typeof window !== "undefined" && "speechSynthesis" in window;
+  const results = useMemo(() => (asked.trim() ? slateRetrieve(asked, data) : null), [asked, data]);
+  const top = results && results[0];
+  const stopSpeak = () => { try { window.speechSynthesis.cancel(); } catch (e) {} setSpeaking(false); };
+  const speak = (text) => { if (!canSpeak || !text) return; try { window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.rate = 1; u.pitch = 0.92; u.onend = () => setSpeaking(false); u.onerror = () => setSpeaking(false); setSpeaking(true); window.speechSynthesis.speak(u); } catch (e) { setSpeaking(false); } };
+  const answerSpeech = (r) => (r ? (SLATE_LEAD[r.cat] || "Here's what I found on") + " " + r.label + ". " + String(r.detail || "").replace(/\s+/g, " ").slice(0, 360) : "");
+  const submit = (text, byVoice) => { const t = (text != null ? text : q).trim(); if (!t) return; stopSpeak(); setViaVoice(!!byVoice); setQ(t); setAsked(t); };
+  useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => { document.removeEventListener("keydown", onKey); stopSpeak(); }; }, []);
+  useEffect(() => { if (asked && viaVoice && top) speak(answerSpeech(top)); }, [asked]);
+  const startVoice = () => { if (!SR) return; try { stopSpeak(); const rec = new SR(); rec.lang = "en-US"; rec.interimResults = false; rec.maxAlternatives = 1; rec.onresult = (e) => { const t = e.results[0][0].transcript; setQ(t); setListening(false); submit(t, true); }; rec.onerror = () => setListening(false); rec.onend = () => setListening(false); recRef.current = rec; setListening(true); rec.start(); } catch (e) { setListening(false); } };
+  const stopVoice = () => { try { recRef.current && recRef.current.stop(); } catch (e) {} setListening(false); };
+  const doNav = (n) => { if (!n) return; if (n.kind === "shrine") nav.shrine(n.args[0], n.args[1]); else if (n.kind === "guide") nav.guide(n.args[0]); else if (n.kind === "cook") nav.cook(); else if (n.kind === "items") nav.items(); else if (n.kind === "step") nav.step(n.args[0], n.args[1]); };
+  const suggestions = useMemo(() => {
+    const s = []; const { REGIONS = [], BESTIARY = { enemies: [] }, SIDE_QUESTS = [], RECIPES = [], COMPENDIUM = [] } = data || {};
+    if (REGIONS.length) s.push("Where do I go next?");
+    const boss = (BESTIARY.enemies || []).find((e) => e.battle); if (boss) s.push("How do I beat the " + boss.name + "?");
+    if (RECIPES && RECIPES.length) s.push("What should I cook for " + (RECIPES[0].eff || "a buff").toLowerCase() + "?");
+    const it = (COMPENDIUM || []).find((x) => /shield|sword|tunic|mail/i.test(x.name)); if (it) s.push("What does the " + it.name + " do?");
+    const qq = SIDE_QUESTS[0] && SIDE_QUESTS[0].quests && SIDE_QUESTS[0].quests[0]; if (qq) s.push(qq.name);
+    return s.slice(0, 5);
+  }, [data]);
+  return portal(
+    <div className="slate-oracle">
+      <div className="oracle-top">
+        <div className="oracle-title"><span className="oracle-eye"><Glyph name="spark" size={20} /></span><div><div className="oracle-kick">Ask the Slate</div><div className="oracle-sub">{label} · offline oracle</div></div></div>
+        <button className="oracle-x" onClick={onClose} aria-label="Close">Close</button>
+      </div>
+      <div className="oracle-body">
+        {!asked ? (
+          <div className="oracle-intro">
+            <p className="oracle-hello">Ask me anything about <b>{label}</b> — a shrine, a boss, where to go next, what to cook, an item. I answer <b>only</b> from this guide's verified records, fully offline — so I won't make anything up.</p>
+            <div className="oracle-chips">{suggestions.map((sg, i) => (<button key={i} className="oracle-chip" onClick={() => submit(sg, false)}>{sg}</button>))}</div>
+            <p className="oracle-foot">Grounded in this guide's own data. An on-device AI that talks back is coming next.</p>
+          </div>
+        ) : (
+          <div className="oracle-thread">
+            <div className="oracle-you"><span>{asked}</span></div>
+            {top ? (<>
+              <div className="oracle-answer">
+                <div className="oracle-ans-head"><span className="oracle-cat"><Glyph name={top.glyph} size={14} /> {top.cat}</span><span className="oracle-name">{top.label}</span></div>
+                {top.sub && <div className="oracle-ans-sub">{top.sub}</div>}
+                <p className="oracle-detail">{top.detail}</p>
+                <div className="oracle-ans-actions">
+                  {canSpeak && (speaking ? <button className="oracle-speak on" onClick={stopSpeak}><Glyph name="sound" size={15} /> Stop</button> : <button className="oracle-speak" onClick={() => speak(answerSpeech(top))}><Glyph name="sound" size={15} /> Speak it</button>)}
+                  {top.nav && <button className="oracle-open" onClick={() => { doNav(top.nav); onClose(); }}>Open the full page ›</button>}
+                </div>
+              </div>
+              {results.length > 1 && (<div className="oracle-related"><div className="oracle-related-h">Related</div>{results.slice(1).map((r, i) => (<button key={i} className="oracle-rel" onClick={() => submit(r.label, false)}><span className="oracle-rel-ic"><Glyph name={r.glyph} size={13} /></span><span className="oracle-rel-txt"><b>{r.label}</b><span>{r.sub}</span></span><span className="chev">›</span></button>))}</div>)}
+            </>) : (
+              <div className="oracle-miss">I couldn't find that in the Slate's records. Try rephrasing, or use the search for a broader look — I only answer from verified data, so I won't guess.</div>
+            )}
+          </div>
+        )}
+      </div>
+      <div className="oracle-input">
+        {SR && <button className={"oracle-mic" + (listening ? " listening" : "")} onClick={listening ? stopVoice : startVoice} aria-label={listening ? "Stop listening" : "Ask by voice"}><Glyph name="mic" size={18} /></button>}
+        <input className="oracle-field" placeholder="Ask the Slate…" value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") submit(); }} />
+        <button className="oracle-send" onClick={() => submit()} aria-label="Ask">Ask</button>
+      </div>
+    </div>
+  );
+}
+
 function SearchOverlay({ query, setQuery, onClose, nav, data }) {
   const { REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS, COMPENDIUM } = data;
   const [open, setOpen] = useState(null); // which result is expanded (answer-first)
@@ -2692,7 +2816,9 @@ function StyleBlock() {
 .app{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--parch);background:radial-gradient(120% 80% at 50% -10%,rgba(95,214,226,0.06),transparent 60%),radial-gradient(90% 70% at 80% 110%,rgba(240,144,42,0.05),transparent 60%),var(--abyss);min-height:100vh;max-width:560px;margin:0 auto;position:relative;padding-bottom:80px;overflow-x:hidden;}
 .app:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0.5;background-image:radial-gradient(rgba(95,214,226,0.05) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(120% 100% at 50% 0%,#000,transparent 75%);}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 11px;background:linear-gradient(180deg,rgba(9,19,23,0.96),rgba(9,19,23,0.82));backdrop-filter:blur(8px);border-bottom:1px solid rgba(95,214,226,0.14);}
-.brand{display:flex;align-items:center;gap:11px;}
+.brand{display:flex;align-items:center;gap:11px;min-width:0;}
+.brand>div{min-width:0;}
+.kicker,.title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .eye{color:var(--orange);filter:drop-shadow(0 0 6px rgba(240,144,42,0.45));animation:breathe 5s ease-in-out infinite;}
 @keyframes breathe{0%,100%{opacity:.78;}50%{opacity:1;filter:drop-shadow(0 0 10px rgba(240,144,42,0.7));}}
 .kicker{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan-dim);}
@@ -3001,7 +3127,7 @@ function StyleBlock() {
 .hmap-beast{fill:var(--cyan-dim);font-family:'Rajdhani',sans-serif;font-size:7px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;}
 .hmap-castle{fill:var(--malice);font-family:'Rajdhani',sans-serif;font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;}
 /* --- v6: topbar search, overlay, backup, notes --- */
-.topbar-r{display:flex;align-items:center;gap:9px;}
+.topbar-r{display:flex;align-items:center;gap:9px;flex-shrink:0;}
 .search-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;}
 .atmos-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;transition:color .25s,box-shadow .25s,border-color .25s;}
 .atmos-trigger:active{transform:scale(.975);}
@@ -3009,6 +3135,50 @@ function StyleBlock() {
 @keyframes atmos-breathe{0%,100%{box-shadow:0 0 8px rgba(95,214,226,0.26),inset 0 0 5px rgba(95,214,226,0.15);}50%{box-shadow:0 0 16px rgba(95,214,226,0.52),inset 0 0 9px rgba(95,214,226,0.3);}}
 .slate-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.9;}
 .set-group{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan-dim);margin:20px 2px 9px;border-top:1px solid rgba(95,214,226,0.12);padding-top:16px;}
+.ask-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.36);color:var(--cyan);cursor:pointer;box-shadow:0 0 9px rgba(95,214,226,0.2);}
+.ask-trigger:active{transform:scale(.95);}
+.slate-oracle{position:fixed;inset:0;z-index:55;background:rgba(7,14,18,0.98);backdrop-filter:blur(8px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
+.oracle-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 12px;border-bottom:1px solid rgba(95,214,226,0.16);}
+.oracle-title{display:flex;align-items:center;gap:10px;}
+.oracle-eye{color:var(--cyan);display:flex;filter:drop-shadow(0 0 5px rgba(95,214,226,0.5));}
+.oracle-kick{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:16px;color:var(--parch);}
+.oracle-sub{font-family:'Rajdhani',sans-serif;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan-dim);}
+.oracle-x{background:none;border:1px solid rgba(255,255,255,0.16);color:var(--parch-dim);border-radius:16px;padding:6px 13px;font-size:12px;cursor:pointer;}
+.oracle-body{flex:1;overflow-y:auto;padding:16px;}
+.oracle-hello{font-size:15px;line-height:1.6;color:var(--parch);margin:6px 2px 16px;}
+.oracle-hello b{color:var(--cyan);font-weight:600;}
+.oracle-chips{display:flex;flex-direction:column;gap:9px;}
+.oracle-chip{text-align:left;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,0.6));border:1px solid rgba(95,214,226,0.2);color:var(--parch);border-radius:12px;padding:12px 14px;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:9px;}
+.oracle-chip:before{content:"›";color:var(--cyan);font-weight:700;}
+.oracle-chip:active{transform:scale(.985);}
+.oracle-foot{font-size:11.5px;color:var(--parch-dim);font-style:italic;margin:16px 2px 0;}
+.oracle-thread{display:flex;flex-direction:column;gap:14px;}
+.oracle-you{display:flex;justify-content:flex-end;}
+.oracle-you span{background:linear-gradient(180deg,var(--orange),#df7d1f);color:#1a0f04;font-weight:600;font-size:14px;padding:10px 14px;border-radius:16px 16px 4px 16px;max-width:85%;}
+.oracle-answer{background:linear-gradient(180deg,rgba(95,214,226,0.08),rgba(15,28,34,0.5));border:1px solid rgba(95,214,226,0.28);border-radius:4px 16px 16px 16px;padding:14px 15px;}
+.oracle-ans-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.oracle-cat{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--abyss);background:var(--cyan);border-radius:10px;padding:3px 8px;}
+.oracle-name{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:16px;color:var(--parch);}
+.oracle-ans-sub{font-size:12px;color:var(--cyan-dim);margin-top:4px;}
+.oracle-detail{font-size:14px;line-height:1.6;color:var(--parch);white-space:pre-line;margin:10px 0 0;}
+.oracle-ans-actions{display:flex;gap:9px;margin-top:13px;flex-wrap:wrap;}
+.oracle-speak,.oracle-open{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;border-radius:14px;padding:8px 13px;cursor:pointer;border:1px solid rgba(95,214,226,0.4);background:rgba(95,214,226,0.08);color:var(--cyan);}
+.oracle-speak.on{background:var(--cyan);color:var(--abyss);}
+.oracle-open{border-color:rgba(255,255,255,0.16);color:var(--parch-dim);background:none;}
+.oracle-related-h{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan-dim);margin:6px 2px 8px;}
+.oracle-rel{width:100%;display:flex;align-items:center;gap:10px;text-align:left;background:rgba(15,28,34,0.5);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:10px 12px;margin-bottom:7px;cursor:pointer;color:var(--parch);}
+.oracle-rel-ic{color:var(--cyan-dim);display:flex;flex-shrink:0;}
+.oracle-rel-txt{display:flex;flex-direction:column;gap:1px;min-width:0;flex:1;}
+.oracle-rel-txt b{font-size:13.5px;font-weight:600;}
+.oracle-rel-txt span{font-size:11.5px;color:var(--parch-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.oracle-rel .chev{color:var(--cyan-dim);}
+.oracle-miss{font-size:14px;line-height:1.6;color:var(--parch-dim);background:rgba(15,28,34,0.5);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px;}
+.oracle-input{display:flex;align-items:center;gap:8px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0));border-top:1px solid rgba(95,214,226,0.16);background:rgba(9,19,23,0.9);}
+.oracle-mic{flex-shrink:0;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(95,214,226,0.3);background:rgba(95,214,226,0.07);color:var(--cyan-dim);cursor:pointer;}
+.oracle-mic.listening{color:#fff;background:var(--malice);border-color:var(--malice);animation:atmos-breathe 1.2s ease-in-out infinite;}
+.oracle-field{flex:1;min-width:0;background:rgba(15,28,34,0.85);border:1px solid rgba(95,214,226,0.25);border-radius:20px;padding:11px 15px;color:var(--parch);font-size:15px;font-family:inherit;outline:none;}
+.oracle-field:focus{border-color:rgba(95,214,226,0.5);}
+.oracle-send{flex-shrink:0;background:var(--cyan);color:var(--abyss);font-weight:700;border:none;border-radius:18px;padding:11px 16px;font-size:14px;cursor:pointer;}
 .search-overlay{position:fixed;inset:0;z-index:50;background:rgba(7,14,18,0.97);backdrop-filter:blur(6px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
 .search-bar{display:flex;gap:8px;padding:14px 16px 10px;border-bottom:1px solid rgba(95,214,226,0.14);}
 .search-bar .search-input{flex:1;}
@@ -3177,6 +3347,7 @@ function StyleBlock() {
 .veil-tap{color:var(--cyan-dim);text-decoration:underline;text-underline-offset:2px;font-weight:700;}
 .veil-inline{font:inherit;color:var(--cyan-dim);background:none;border:none;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;}
 @media (max-width:380px){.resume-trigger span{display:none;}.resume-trigger{padding:6px 8px;}}
+@media (max-width:430px){.topbar{gap:7px;}.topbar-r{gap:6px;}.brand>div{display:none;}.ask-trigger,.atmos-trigger,.search-trigger{width:31px;height:31px;}}
 /* Lore Library (v11) */
 .lore-cont{position:relative;display:block;width:100%;text-align:left;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,.5));border:1px solid rgba(95,214,226,.25);border-radius:14px;padding:14px 15px;margin:0 0 16px;cursor:pointer;overflow:hidden;}
 .lore-cont-bar{position:absolute;top:0;left:0;height:3px;background:var(--cyan);}
