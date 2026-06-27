@@ -2656,12 +2656,74 @@ function slateRetrieve(query, data) {
   return out.slice(0, 6);
 }
 
+/* ============================================================
+   ASK THE SLATE — PHASE 2: the opt-in on-device LLM brain (ADR 0012). When the
+   player enables it, WebLLM is dynamically imported from a CDN and the model
+   weights download ONCE, then cache locally (Cache API/IndexedDB) and run fully
+   offline on WebGPU thereafter. It SYNTHESIZES an answer over the records Phase-1
+   retrieval already found (RAG) — instructed to use ONLY those records and to say
+   it doesn't know otherwise (the honesty law). Everything is guarded: no WebGPU,
+   no network, or a declined download → the oracle silently uses Phase-1 retrieval.
+   The dynamic import() is a RUNTIME request (not a static src/href), so the build's
+   offline check still passes and FIRST load fetches nothing. Singleton outside
+   React so the loaded engine survives the per-game remount. ============================================================ */
+const SLATE_LLM_CDN = "https://esm.run/@mlc-ai/web-llm@0.2.84";
+const SLATE_LLM_PREFER = ["Llama-3.2-1B-Instruct-q4f16_1-MLC", "Qwen2.5-1.5B-Instruct-q4f16_1-MLC", "Qwen2.5-0.5B-Instruct-q4f16_1-MLC", "gemma-2-2b-it-q4f16_1-MLC", "Llama-3.2-1B-Instruct-q4f32_1-MLC"];
+const SlateLLM = (() => {
+  let lib = null, engine = null, status = "idle", modelId = null, prog = { p: 0, text: "" };
+  const listeners = new Set();
+  const supported = () => typeof navigator !== "undefined" && !!navigator.gpu;
+  const emit = () => listeners.forEach((fn) => { try { fn(); } catch (e) {} });
+  const setStatus = (s) => { status = s; emit(); };
+  const pickModel = () => {
+    try {
+      const list = (lib.prebuiltAppConfig && lib.prebuiltAppConfig.model_list) || [];
+      const ids = new Set(list.map((m) => m.model_id));
+      for (const id of SLATE_LLM_PREFER) if (ids.has(id)) return id;
+      const small = list.filter((m) => /instruct|-it-|chat/i.test(m.model_id)).sort((a, b) => (a.vram_required_MB || 9e9) - (b.vram_required_MB || 9e9));
+      return (small[0] || list[0] || {}).model_id || null;
+    } catch (e) { return null; }
+  };
+  return {
+    supported, status: () => status, progress: () => prog, modelId: () => modelId,
+    subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
+    async load() {
+      if (status === "loading" || status === "ready") return;
+      if (!supported()) { setStatus("unsupported"); return; }
+      setStatus("loading");
+      try {
+        if (!lib) lib = await import(SLATE_LLM_CDN);
+        try { if (navigator.storage && navigator.storage.persist) await navigator.storage.persist(); } catch (e) {}
+        modelId = pickModel();
+        if (!modelId) { prog = { p: 0, text: "no compatible model" }; setStatus("error"); return; }
+        engine = await lib.CreateMLCEngine(modelId, { initProgressCallback: (r) => { prog = { p: r.progress || 0, text: r.text || "" }; emit(); } });
+        setStatus("ready");
+      } catch (e) { prog = { p: 0, text: String((e && e.message) || e) }; setStatus("error"); }
+    },
+    async ask(question, records, onToken) {
+      if (status !== "ready" || !engine) throw new Error("not ready");
+      const ctx = (records || []).slice(0, 4).map((r, i) => "[" + (i + 1) + "] " + r.cat + ": " + r.label + " — " + String(r.detail || "").replace(/\s+/g, " ")).join("\n");
+      const messages = [
+        { role: "system", content: "You are the Sheikah Slate, a calm, concise companion for a Legend of Zelda player. Answer the player's question USING ONLY the reference entries below. Do not use any outside knowledge or assumptions. If the entries do not contain the answer, say you don't have that in your records and suggest they rephrase. Keep it to 2-4 practical sentences, beginner-friendly and spoiler-aware, and name the entry/entries you drew from.\n\nReference entries:\n" + ctx },
+        { role: "user", content: question },
+      ];
+      let full = "";
+      const chunks = await engine.chat.completions.create({ messages, temperature: 0.3, stream: true });
+      for await (const ch of chunks) { const d = (ch.choices && ch.choices[0] && ch.choices[0].delta && ch.choices[0].delta.content) || ""; if (d) { full += d; if (onToken) onToken(full); } }
+      return full.trim();
+    },
+  };
+})();
+
 function SlateOracle({ data, nav, label, onClose }) {
   const [q, setQ] = useState("");
   const [asked, setAsked] = useState("");
   const [viaVoice, setViaVoice] = useState(false);
   const [listening, setListening] = useState(false);
   const [speaking, setSpeaking] = useState(false);
+  const [brain, setBrain] = useState(SlateLLM.status());   // idle | loading | ready | unsupported | error
+  const [prog, setProg] = useState(SlateLLM.progress());   // {p:0..1, text}
+  const [llm, setLlm] = useState(null);                    // null | {text, busy, error} — the synthesized answer
   const recRef = useRef(null);
   const SR = typeof window !== "undefined" ? (window.SpeechRecognition || window.webkitSpeechRecognition) : null;
   const canSpeak = typeof window !== "undefined" && "speechSynthesis" in window;
@@ -2670,9 +2732,20 @@ function SlateOracle({ data, nav, label, onClose }) {
   const stopSpeak = () => { try { window.speechSynthesis.cancel(); } catch (e) {} setSpeaking(false); };
   const speak = (text) => { if (!canSpeak || !text) return; try { window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.rate = 1; u.pitch = 0.92; u.onend = () => setSpeaking(false); u.onerror = () => setSpeaking(false); setSpeaking(true); window.speechSynthesis.speak(u); } catch (e) { setSpeaking(false); } };
   const answerSpeech = (r) => (r ? (SLATE_LEAD[r.cat] || "Here's what I found on") + " " + r.label + ". " + String(r.detail || "").replace(/\s+/g, " ").slice(0, 360) : "");
-  const submit = (text, byVoice) => { const t = (text != null ? text : q).trim(); if (!t) return; stopSpeak(); setViaVoice(!!byVoice); setQ(t); setAsked(t); };
+  const submit = (text, byVoice) => {
+    const t = (text != null ? text : q).trim(); if (!t) return; stopSpeak(); setViaVoice(!!byVoice); setQ(t); setAsked(t);
+    const recs = slateRetrieve(t, data);
+    if (SlateLLM.status() === "ready" && recs.length) {
+      setLlm({ text: "", busy: true, error: false });
+      SlateLLM.ask(t, recs, (full) => setLlm({ text: full, busy: true, error: false }))
+        .then((final) => { setLlm({ text: final, busy: false, error: false }); if (byVoice && final) speak(final); })
+        .catch(() => { setLlm({ text: "", busy: false, error: true }); if (byVoice && recs[0]) speak(answerSpeech(recs[0])); });
+    } else { setLlm(null); if (byVoice && recs[0]) speak(answerSpeech(recs[0])); }
+  };
+  const enableBrain = async () => { try { await store.set("hyrule:slatebrain", "1"); } catch (e) {} SlateLLM.load(); };
   useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => { document.removeEventListener("keydown", onKey); stopSpeak(); }; }, []);
-  useEffect(() => { if (asked && viaVoice && top) speak(answerSpeech(top)); }, [asked]);
+  useEffect(() => { const un = SlateLLM.subscribe(() => { setBrain(SlateLLM.status()); setProg(SlateLLM.progress()); }); return un; }, []);
+  useEffect(() => { (async () => { if (!SlateLLM.supported()) { setBrain("unsupported"); return; } let on = null; try { on = await store.get("hyrule:slatebrain"); } catch (e) {} if (on === "1" && SlateLLM.status() === "idle") SlateLLM.load(); })(); }, []);
   const startVoice = () => { if (!SR) return; try { stopSpeak(); const rec = new SR(); rec.lang = "en-US"; rec.interimResults = false; rec.maxAlternatives = 1; rec.onresult = (e) => { const t = e.results[0][0].transcript; setQ(t); setListening(false); submit(t, true); }; rec.onerror = () => setListening(false); rec.onend = () => setListening(false); recRef.current = rec; setListening(true); rec.start(); } catch (e) { setListening(false); } };
   const stopVoice = () => { try { recRef.current && recRef.current.stop(); } catch (e) {} setListening(false); };
   const doNav = (n) => { if (!n) return; if (n.kind === "shrine") nav.shrine(n.args[0], n.args[1]); else if (n.kind === "guide") nav.guide(n.args[0]); else if (n.kind === "cook") nav.cook(); else if (n.kind === "items") nav.items(); else if (n.kind === "step") nav.step(n.args[0], n.args[1]); };
@@ -2692,16 +2765,32 @@ function SlateOracle({ data, nav, label, onClose }) {
         <button className="oracle-x" onClick={onClose} aria-label="Close">Close</button>
       </div>
       <div className="oracle-body">
+        {brain !== "unsupported" ? (
+          <div className={"oracle-brain oracle-brain-" + brain}>
+            {brain === "idle" && <button className="oracle-brain-enable" onClick={enableBrain}><Glyph name="spark" size={16} /><span><b>Enable the AI brain</b><i>one-time ~0.9 GB download, then it works offline</i></span></button>}
+            {brain === "loading" && <div className="oracle-brain-load"><div className="oracle-brain-bar"><span style={{ width: Math.round((prog.p || 0) * 100) + "%" }} /></div><span className="oracle-brain-pct">Downloading the brain… {Math.round((prog.p || 0) * 100)}% · keep this open</span></div>}
+            {brain === "ready" && <div className="oracle-brain-ready"><Glyph name="spark" size={14} /> AI brain on — answers are written for you from the guide</div>}
+            {brain === "error" && <div className="oracle-brain-err"><span>Couldn't load the AI brain (needs WebGPU + the one-time download). Using verified answers.</span><button onClick={enableBrain}>Retry</button></div>}
+          </div>
+        ) : (!asked && <div className="oracle-unsupported">The talking AI brain needs WebGPU (an iPhone on iOS 26+, or Chrome). You'll still get exact, verified answers below — fully offline.</div>)}
         {!asked ? (
           <div className="oracle-intro">
             <p className="oracle-hello">Ask me anything about <b>{label}</b> — a shrine, a boss, where to go next, what to cook, an item. I answer <b>only</b> from this guide's verified records, fully offline — so I won't make anything up.</p>
             <div className="oracle-chips">{suggestions.map((sg, i) => (<button key={i} className="oracle-chip" onClick={() => submit(sg, false)}>{sg}</button>))}</div>
-            <p className="oracle-foot">Grounded in this guide's own data. An on-device AI that talks back is coming next.</p>
+            <p className="oracle-foot">Grounded in this guide's own data — I won't make anything up.</p>
           </div>
         ) : (
           <div className="oracle-thread">
             <div className="oracle-you"><span>{asked}</span></div>
-            {top ? (<>
+            {llm && !llm.error && (
+              <div className="oracle-answer oracle-ai">
+                <div className="oracle-ans-head"><span className="oracle-cat oracle-cat-ai"><Glyph name="spark" size={13} /> Slate AI</span></div>
+                <p className="oracle-detail">{llm.text || "Consulting the records…"}{llm.busy ? <span className="oracle-caret">▍</span> : null}</p>
+                {!llm.busy && canSpeak && llm.text && (<div className="oracle-ans-actions">{speaking ? <button className="oracle-speak on" onClick={stopSpeak}><Glyph name="sound" size={15} /> Stop</button> : <button className="oracle-speak" onClick={() => speak(llm.text)}><Glyph name="sound" size={15} /> Speak it</button>}</div>)}
+                {results && results.length > 0 && (<div className="oracle-related"><div className="oracle-related-h">Sources</div>{results.slice(0, 4).map((r, i) => (<button key={i} className="oracle-rel" onClick={() => { doNav(r.nav); onClose(); }}><span className="oracle-rel-ic"><Glyph name={r.glyph} size={13} /></span><span className="oracle-rel-txt"><b>{r.label}</b><span>{r.cat} · {r.sub}</span></span><span className="chev">›</span></button>))}</div>)}
+              </div>
+            )}
+            {(!llm || llm.error) && (top ? (<>
               <div className="oracle-answer">
                 <div className="oracle-ans-head"><span className="oracle-cat"><Glyph name={top.glyph} size={14} /> {top.cat}</span><span className="oracle-name">{top.label}</span></div>
                 {top.sub && <div className="oracle-ans-sub">{top.sub}</div>}
@@ -2714,7 +2803,7 @@ function SlateOracle({ data, nav, label, onClose }) {
               {results.length > 1 && (<div className="oracle-related"><div className="oracle-related-h">Related</div>{results.slice(1).map((r, i) => (<button key={i} className="oracle-rel" onClick={() => submit(r.label, false)}><span className="oracle-rel-ic"><Glyph name={r.glyph} size={13} /></span><span className="oracle-rel-txt"><b>{r.label}</b><span>{r.sub}</span></span><span className="chev">›</span></button>))}</div>)}
             </>) : (
               <div className="oracle-miss">I couldn't find that in the Slate's records. Try rephrasing, or use the search for a broader look — I only answer from verified data, so I won't guess.</div>
-            )}
+            ))}
           </div>
         )}
       </div>
@@ -3179,6 +3268,22 @@ function StyleBlock() {
 .oracle-field{flex:1;min-width:0;background:rgba(15,28,34,0.85);border:1px solid rgba(95,214,226,0.25);border-radius:20px;padding:11px 15px;color:var(--parch);font-size:15px;font-family:inherit;outline:none;}
 .oracle-field:focus{border-color:rgba(95,214,226,0.5);}
 .oracle-send{flex-shrink:0;background:var(--cyan);color:var(--abyss);font-weight:700;border:none;border-radius:18px;padding:11px 16px;font-size:14px;cursor:pointer;}
+.oracle-brain{margin:0 0 14px;}
+.oracle-brain-enable{width:100%;display:flex;align-items:center;gap:11px;text-align:left;background:linear-gradient(180deg,rgba(95,214,226,0.14),rgba(95,214,226,0.05));border:1px solid rgba(95,214,226,0.4);color:var(--cyan);border-radius:13px;padding:13px 15px;cursor:pointer;}
+.oracle-brain-enable span{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.oracle-brain-enable b{font-size:14.5px;font-weight:600;color:var(--parch);}
+.oracle-brain-enable i{font-size:11.5px;font-style:normal;color:var(--cyan-dim);}
+.oracle-brain-load{display:flex;flex-direction:column;gap:7px;background:rgba(15,28,34,0.6);border:1px solid rgba(95,214,226,0.25);border-radius:12px;padding:12px 14px;}
+.oracle-brain-bar{height:6px;border-radius:4px;background:rgba(95,214,226,0.14);overflow:hidden;}
+.oracle-brain-bar>span{display:block;height:100%;background:var(--cyan);border-radius:4px;transition:width .3s;}
+.oracle-brain-pct{font-size:12px;color:var(--cyan-dim);}
+.oracle-brain-ready{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.22);border-radius:11px;padding:9px 13px;}
+.oracle-brain-err{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--parch-dim);background:rgba(224,80,107,0.08);border:1px solid rgba(224,80,107,0.3);border-radius:11px;padding:10px 13px;}
+.oracle-brain-err button{background:none;border:1px solid rgba(95,214,226,0.4);color:var(--cyan);border-radius:10px;padding:5px 11px;font-size:12px;cursor:pointer;}
+.oracle-unsupported{font-size:13px;line-height:1.55;color:var(--parch-dim);background:rgba(15,28,34,0.5);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:13px;margin-bottom:14px;}
+.oracle-ai{background:linear-gradient(180deg,rgba(169,140,224,0.13),rgba(15,28,34,0.5));border-color:rgba(169,140,224,0.42);}
+.oracle-cat-ai{background:var(--sneak);color:#170f2e;}
+.oracle-caret{color:var(--cyan);}
 .search-overlay{position:fixed;inset:0;z-index:50;background:rgba(7,14,18,0.97);backdrop-filter:blur(6px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
 .search-bar{display:flex;gap:8px;padding:14px 16px 10px;border-bottom:1px solid rgba(95,214,226,0.14);}
 .search-bar .search-input{flex:1;}

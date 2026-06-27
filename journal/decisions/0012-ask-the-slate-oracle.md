@@ -1,6 +1,15 @@
 # ADR 0012 — Ask the Slate: an offline, grounded oracle (retrieval now, on-device LLM next)
 
-**Status:** accepted (v18.1, Phase 1 shipped) · **Date:** 2026-06-26 · **Builds on:** [0009](0009-on-device-bookshelf.md) (device-local heavy assets), [0011](0011-living-slate-atmosphere.md) (the Living Slate arc)
+**Status:** accepted · **Phase 1 shipped v18.1; Phase 2 (LLM) implemented v18.2, pending on-device WebGPU verification** · **Date:** 2026-06-26 · **Builds on:** [0009](0009-on-device-bookshelf.md) (device-local heavy assets), [0011](0011-living-slate-atmosphere.md) (the Living Slate arc)
+
+> **v18.2 update:** Phase 2 is now built — `SlateLLM` singleton dynamically imports WebLLM from `esm.run` on opt-in,
+> picks a small prebuilt model (`Llama-3.2-1B-Instruct-q4f16_1-MLC`, with fallbacks chosen from `prebuiltAppConfig.model_list`
+> so a model-id drift can't brick it), caches weights, and streams a RAG answer grounded on Phase-1's retrieved
+> records. In-browser verified: build offline-clean (the esm.run URL is an inert string the offline check tolerates;
+> ZERO external requests at load — confirmed via the network panel), WebGPU detected → "Enable" button shows,
+> graceful fallback to Phase-1 when the brain is off/unsupported, 0 console errors. **The actual model download +
+> inference must be verified on a real WebGPU device (iOS 26+/Chrome) — not possible in the headless sandbox; the
+> `try/catch` degrades any failure to Phase-1.** Persist flag: `hyrule:slatebrain` ("1" ⇒ auto-load from cache on open).
 
 ## Context
 The "finish building the Sheikah Slate itself" arc's headline feature: a companion you can **talk to** —

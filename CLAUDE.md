@@ -638,6 +638,24 @@ layout, `REGION_MAPS` = the per-region coords.
   `topbar-r` is `flex-shrink:0`, and ≤430px shows the **eye logo only** (hide `.brand>div`) — clean, not a
   clipped "H.". Verified in-browser (grounded answers, money fix, honest no-match, voice buttons, mobile topbar,
   0 console errors, offline-clean).
+- **v18.2 — "Ask the Slate" Phase 2: the opt-in on-device LLM (DONE; ADR 0012, pending on-device verification).**
+  `SlateLLM` = a module-level singleton (outside React, survives remount): on opt-in it dynamically
+  `import(SLATE_LLM_CDN)` (`https://esm.run/@mlc-ai/web-llm@0.2.84`), requests `navigator.storage.persist()`, picks a
+  small prebuilt model (`SLATE_LLM_PREFER` → `Llama-3.2-1B-Instruct-q4f16_1-MLC`; **falls back to whatever's in
+  `lib.prebuiltAppConfig.model_list` so a model-id drift can't brick it**), `CreateMLCEngine(initProgressCallback)`,
+  caches weights (Cache API/IndexedDB) → offline after one download. `ask()` feeds Phase-1's top ~4 retrieved
+  records as context + a **grounding system prompt (use ONLY these entries; say you don't know otherwise; cite
+  them)** → `engine.chat.completions.create({stream:true})` → streams a synthesized answer. The oracle shows a
+  brain bar (Enable → progress% → ready / unsupported / error+Retry), a purple **"Slate AI"** answer card with a
+  **Sources** list (the records), and **degrades to Phase-1 whenever the brain is off/loading/unsupported/errored**
+  (`{(!llm||llm.error) && <Phase1 card>}`). Opt-in persisted `hyrule:slatebrain` (auto-loads from cache next open).
+  **Offline law held:** the dynamic `import()` is NOT a static `src/href`, so the build's offline check passes
+  (esm.run counts as 1 inert string literal); **first load fetches nothing** — confirmed in-browser via the network
+  panel (zero external hosts at load/ask). WebGPU feature-gated (`navigator.gpu`; iOS 26+/Chrome). **esbuild runs
+  in TRANSFORM mode (`--jsx=transform`, no `--bundle`), so `import(variable)` passes through to a runtime import —
+  the load-bearing reason this works in a single-file build.** Verified: enable button (WebGPU present), Phase-1
+  fallback, 0 console errors, offline-clean. **NOT verifiable in the headless sandbox: the real 0.9 GB download +
+  inference — needs a WebGPU device; `try/catch` makes any failure fall back to Phase-1.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
