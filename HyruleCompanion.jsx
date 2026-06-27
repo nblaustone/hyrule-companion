@@ -602,7 +602,11 @@ const SlateMusic = (() => {
   return {
     setTrack(blob) { const a = ensure(); if (!a) return; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} } url = URL.createObjectURL(blob); a.src = url; ready = true; },
     has() { return ready; },
-    play() { const a = ensure(); if (!a || !ready) return; try { const p = a.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {} },
+    play() {
+      const a = ensure(); if (!a || !ready) return;
+      const retry = () => { try { a.play().catch(() => {}); } catch (e) {} document.removeEventListener("pointerdown", retry); document.removeEventListener("touchstart", retry); };
+      try { const p = a.play(); if (p && p.catch) p.catch(() => { document.addEventListener("pointerdown", retry, { once: true }); document.addEventListener("touchstart", retry, { once: true }); }); } catch (e) { document.addEventListener("pointerdown", retry, { once: true }); }
+    },
     pause() { if (el) { try { el.pause(); } catch (e) {} } },
     clear() { this.pause(); ready = false; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} url = null; } if (el) { try { el.removeAttribute("src"); el.load(); } catch (e) {} } },
     volume(v) { const a = ensure(); if (a) a.volume = Math.max(0, Math.min(1, v)); },
@@ -962,7 +966,12 @@ function HyruleGame({ game, setGame, games }) {
   // route the sound toggle: the owner's track loops if imported, otherwise the synthesized hum
   useEffect(() => { if (!loaded) return; if (atmos.sound) { if (customMusic) { SlateMusic.play(); SlateAudio.disable(); } else { SlateAudio.enable(); SlateMusic.pause(); } } else { SlateAudio.disable(); SlateMusic.pause(); } }, [atmos.sound, customMusic, loaded]);
   useEffect(() => { if (atmos.sound && !customMusic) SlateAudio.setScene(tab); }, [tab, atmos.sound, customMusic]);
-  const importMusic = useCallback(async (file) => { if (!file) return; try { await audioDB.put("track", file); SlateMusic.setTrack(file); setCustomMusic(true); if (atmosRef.current && atmosRef.current.sound) { SlateMusic.play(); SlateAudio.disable(); } } catch (e) {} }, []);
+  const importMusic = useCallback(async (file) => {
+    if (!file) throw new Error("No file chosen.");
+    await audioDB.put("track", file);          // device-local; throws if storage refuses it
+    SlateMusic.setTrack(file); setCustomMusic(true);
+    SlateAudio.disable(); setAtmos((a) => ({ ...a, sound: true })); SlateMusic.play(); // turn sound on + start now
+  }, []);
   const removeMusic = useCallback(async () => { try { await audioDB.del("track"); } catch (e) {} SlateMusic.clear(); setCustomMusic(false); if (atmosRef.current && atmosRef.current.sound) SlateAudio.enable(); }, []);
   useEffect(() => { if (loaded) store.set("hyrule:reading", JSON.stringify(reading)); }, [reading, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:bookmarks", JSON.stringify(bookmarks)); }, [bookmarks, loaded]);
@@ -2788,6 +2797,16 @@ function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, customMusic, impor
   const ver = (typeof window !== "undefined" && window.__APP_VERSION__) || "dev";
   const setA = (k) => setAtmos((a) => ({ ...a, [k]: !a[k] }));
   const musicRef = useRef(null);
+  const [musicMsg, setMusicMsg] = useState("");
+  const onMusicPick = async (e) => {
+    const f = e.target.files && e.target.files[0]; e.target.value = "";
+    if (!f) return;
+    const looksAudio = (f.type && /^audio\//.test(f.type)) || /\.(mp3|m4a|aac|ogg|oga|wav|flac|opus|weba)$/i.test(f.name || "");
+    if (!looksAudio) { setMusicMsg("That doesn't look like an audio file — pick an MP3/M4A from Files."); return; }
+    setMusicMsg("Loading “" + f.name + "”…");
+    try { await importMusic(f); setMusicMsg("✓ Loaded — playing now (use the sound button to pause)."); }
+    catch (err) { setMusicMsg("Couldn't load that file. Pick an MP3/M4A saved in Files (audio inside the Music app can't be used)."); }
+  };
   return (
     <>
       <p className="ref-lede">Make the app yours. Everything here is saved on your device — no account, no server.</p>
@@ -2805,11 +2824,12 @@ function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, customMusic, impor
         <button className={"toggle" + (atmos.sound ? " toggle-on" : "")} onClick={() => setA("sound")} role="switch" aria-checked={atmos.sound} aria-label="Ambient sound"><span className="toggle-knob" /></button>
       </div>
       <div className="set-music">
-        <input ref={musicRef} type="file" accept="audio/*" style={{ display: "none" }} onChange={(e) => { importMusic && importMusic(e.target.files && e.target.files[0]); e.target.value = ""; }} />
+        <input ref={musicRef} type="file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.oga,.wav,.flac,.opus" style={{ display: "none" }} onChange={onMusicPick} />
         {customMusic
-          ? <><span className="set-music-on"><Glyph name="sound" size={13} /> Your own track is loaded</span><button className="set-music-btn" onClick={() => musicRef.current && musicRef.current.click()}>Replace</button><button className="set-music-btn set-music-rm" onClick={() => removeMusic && removeMusic()}>Remove (back to hum)</button></>
+          ? <><span className="set-music-on"><Glyph name="sound" size={13} /> Your own track is loaded</span><button className="set-music-btn" onClick={() => musicRef.current && musicRef.current.click()}>Replace</button><button className="set-music-btn set-music-rm" onClick={() => { removeMusic && removeMusic(); setMusicMsg(""); }}>Remove (back to hum)</button></>
           : <button className="set-music-btn" onClick={() => musicRef.current && musicRef.current.click()}><Glyph name="sound" size={13} /> Use my own background music</button>}
-        <p className="set-music-note">Your audio stays on this device — never uploaded, never shared.</p>
+        {musicMsg && <p className="set-music-msg">{musicMsg}</p>}
+        <p className="set-music-note">An MP3 works. It must be a file in <b>Files</b> / iCloud Drive (songs inside the Apple Music app aren't reachable). Stays on this device — never uploaded.</p>
       </div>
       <div className="set-row">
         <div className="set-txt"><div className="set-name">Haptic pulse</div><div className="set-sub">A tiny Sheikah-activation buzz when you check something off (phones with vibration only).</div></div>
@@ -3816,6 +3836,7 @@ function StyleBlock() {
 .set-music-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:7px 12px;cursor:pointer;}
 .set-music-rm{color:var(--malice);border-color:rgba(224,80,107,0.4);}
 .set-music-on{display:inline-flex;align-items:center;gap:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;color:var(--moss);}
+.set-music-msg{flex-basis:100%;font-size:12px;color:var(--cyan-dim);margin:2px 0 0;}
 .set-music-note{flex-basis:100%;font-size:11px;color:var(--parch-dim);margin:2px 0 0;}
 .ask-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.36);color:var(--cyan);cursor:pointer;box-shadow:0 0 9px rgba(95,214,226,0.2);}
 .ask-trigger:active{transform:scale(.95);}
