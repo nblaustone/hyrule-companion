@@ -785,6 +785,29 @@ layout, `REGION_MAPS` = the per-region coords.
     edge, TotK degrades, **0 console errors, offline-clean**. **Lesson: the copyright tension on user-supplied
     assets is always resolved by the ADR 0009 shape — ship no asset, let the owner import their own to device-local
     IndexedDB, overlay our original work on top. Don't fetch/embed it for them.**
+- **v22 — Slate Map multi-point alignment + bring-your-own MUSIC (DONE).** Two owner asks: (1) line our markers up
+  *exactly* on their imported custom map (a fan-made, Nintendo-derivative map — held the line: not embedded/committed,
+  but it's already device-local via v21, so the fix is a better align tool, not redistribution); (2) the synthesized
+  hum is "terrible" — let them import their own background track, same as the map.
+  - **Multi-point alignment:** calibration upgraded from a 2-tap axis-aligned fit to an **N-point least-squares
+    AFFINE** `m=[a,b,c,d,e,f]` (`fitAffine`+`solve3`) that corrects scale, offset AND **rotation/skew** — so markers
+    snap tightly onto a custom map even if it's slightly turned. Align mode now cycles spread reference towers
+    (Great Plateau · Akkala · Gerudo · Hebra · Lanayru · …); the owner taps the ones they can find, **Skip**/**Apply
+    (≥2)**/**Cancel**; ≥3 → full affine, 2 → axis-aligned fallback. SlateMap's `content.m` + `W2C`/`C2W` are now the
+    6-param affine (terrain uses the identity-scale form). Persisted `<game>:mapcal` is now `{m:[6]}`.
+  - **Bring-your-own music:** `audioDB` (new IndexedDB db `hyrule-audio`, store `track`) + `SlateMusic` module
+    singleton (an `Audio` element, `loop`, gesture-started). Settings → Ambient sound gains **Use my own background
+    music / Replace / Remove (back to hum)**. The sound toggle (Settings + topbar) now routes: a custom track loops
+    if imported, else the synthesized `SlateAudio` hum (`SlateAudio.disable()` when music is on; scene-morph only
+    applies to the synth). Track is device-local, never uploaded/committed (ADR 0009). Persists across reloads.
+  - Verified in-browser: 3-point align computed a 6-param affine with non-zero cross-terms (rotation captured);
+    audio imports → "Your own track is loaded" → toggle routes to it → Remove restores the hum; default terrain +
+    all-clickable markers + pin unaffected; **0 console errors, offline-clean.** (Actual audio playout isn't
+    observable headless — autoplay/no-device — but the wiring + try/catch guards are in place; plays on the owner's
+    device on the toggle gesture.)
+  - **Lesson reinforced: every "use my own X" (map image, music, books) resolves to the SAME ADR 0009 shape —
+    device-local IndexedDB + a module singleton/overlay; ship no copyrighted asset, never fetch/embed it for them.
+    And for fitting user-supplied imagery, a least-squares affine from a few reference taps beats a rigid 2-point fit.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

@@ -39,6 +39,7 @@ const CHECKABLE = new Set(["step", "loot", "optional", "reward"]);
    offline build stays ~1MB, and nothing copyrighted is ever published. */
 const BOOKS_DB = "hyrule-books", BOOKS_STORE = "pages";
 const MAP_DB = "hyrule-map", MAP_STORE = "img";
+const AUDIO_DB = "hyrule-audio", AUDIO_STORE = "track";
 const booksDB = {
   _p: null,
   open() {
@@ -101,6 +102,26 @@ const mapDB = {
   async put(key, blob) { const db = await this.open(); return new Promise((res, rej) => { const tx = db.transaction(MAP_STORE, "readwrite"); tx.objectStore(MAP_STORE).put(blob, key); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }); },
   async get(key) { const db = await this.open(); return new Promise((res, rej) => { const rq = db.transaction(MAP_STORE, "readonly").objectStore(MAP_STORE).get(key); rq.onsuccess = () => res(rq.result || null); rq.onerror = () => rej(rq.error); }); },
   async del(key) { const db = await this.open(); return new Promise((res, rej) => { const tx = db.transaction(MAP_STORE, "readwrite"); tx.objectStore(MAP_STORE).delete(key); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }); },
+};
+
+/* v22: the owner's own background-music track, stored DEVICE-LOCAL only (IndexedDB) — never uploaded,
+   never in the repo or the built index.html (ADR 0009). The app ships only the synthesized hum; the
+   user may drop in their own audio file to loop instead. */
+const audioDB = {
+  _p: null,
+  open() {
+    if (this._p) return this._p;
+    this._p = new Promise((res, rej) => {
+      if (typeof indexedDB === "undefined") return rej(new Error("no IndexedDB"));
+      const r = indexedDB.open(AUDIO_DB, 1);
+      r.onupgradeneeded = () => { const db = r.result; if (!db.objectStoreNames.contains(AUDIO_STORE)) db.createObjectStore(AUDIO_STORE); };
+      r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+    });
+    return this._p;
+  },
+  async put(key, blob) { const db = await this.open(); return new Promise((res, rej) => { const tx = db.transaction(AUDIO_STORE, "readwrite"); tx.objectStore(AUDIO_STORE).put(blob, key); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }); },
+  async get(key) { const db = await this.open(); return new Promise((res, rej) => { const rq = db.transaction(AUDIO_STORE, "readonly").objectStore(AUDIO_STORE).get(key); rq.onsuccess = () => res(rq.result || null); rq.onerror = () => rej(rq.error); }); },
+  async del(key) { const db = await this.open(); return new Promise((res, rej) => { const tx = db.transaction(AUDIO_STORE, "readwrite"); tx.objectStore(AUDIO_STORE).delete(key); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }); },
 };
 
 /* read a STORE-ONLY .hbook.zip (ArrayBuffer) → { meta, files:Map(name→Uint8Array) } */
@@ -573,6 +594,21 @@ const SlateAudio = (() => {
   };
 })();
 
+/* v22: plays the owner's OWN imported background track (device-local; never bundled). When a track is
+   set it loops instead of the synthesized hum. Autoplay needs a user gesture — the sound toggle is one. */
+const SlateMusic = (() => {
+  let el = null, url = null, ready = false;
+  const ensure = () => { if (el) return el; try { el = new Audio(); el.loop = true; el.preload = "auto"; el.volume = 0.55; } catch (e) { el = null; } return el; };
+  return {
+    setTrack(blob) { const a = ensure(); if (!a) return; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} } url = URL.createObjectURL(blob); a.src = url; ready = true; },
+    has() { return ready; },
+    play() { const a = ensure(); if (!a || !ready) return; try { const p = a.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {} },
+    pause() { if (el) { try { el.pause(); } catch (e) {} } },
+    clear() { this.pause(); ready = false; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} url = null; } if (el) { try { el.removeAttribute("src"); el.load(); } catch (e) {} } },
+    volume(v) { const a = ensure(); if (a) a.volume = Math.max(0, Math.min(1, v)); },
+  };
+})();
+
 /* The powering-on Sheikah circuit field — a fixed canvas of drifting, linking
    nodes behind the app. JS-side reduced-motion guard: paints ONE static frame
    instead of animating. Only mounted when the Motion toggle is on. */
@@ -863,6 +899,7 @@ function HyruleGame({ game, setGame, games }) {
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
   const [atmos, setAtmos] = useState({ motion: true, sound: false, haptics: true }); // The Living Slate (hyrule:prefs): circuit bg · ambient audio · check haptics
+  const [customMusic, setCustomMusic] = useState(false); // v22: owner imported their own background track (device-local)
   const atmosRef = useRef({ motion: true, sound: false, haptics: true });
   const [flash, setFlash] = useState(null);          // v9: step id whose check is pulsing (joy pass)
   const [stepFlash, setStepFlash] = useState(null);  // v9: step id highlighted after a Resume jump
@@ -920,8 +957,13 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("recipes"), JSON.stringify(recipes)); }, [recipes, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler, atmos })); }, [spoiler, atmos, loaded]);
   // The Living Slate: drive the ambient engine off the sound toggle + tab (scene morph). Default off.
-  useEffect(() => { if (!loaded) return; if (atmos.sound) SlateAudio.enable(); else SlateAudio.disable(); }, [atmos.sound, loaded]);
-  useEffect(() => { if (atmos.sound) SlateAudio.setScene(tab); }, [tab, atmos.sound]);
+  // load the owner's own background track (device-local) once, if present
+  useEffect(() => { let dead = false; (async () => { try { const blob = await audioDB.get("track"); if (!dead && blob) { SlateMusic.setTrack(blob); setCustomMusic(true); } } catch (e) {} })(); return () => { dead = true; }; }, []);
+  // route the sound toggle: the owner's track loops if imported, otherwise the synthesized hum
+  useEffect(() => { if (!loaded) return; if (atmos.sound) { if (customMusic) { SlateMusic.play(); SlateAudio.disable(); } else { SlateAudio.enable(); SlateMusic.pause(); } } else { SlateAudio.disable(); SlateMusic.pause(); } }, [atmos.sound, customMusic, loaded]);
+  useEffect(() => { if (atmos.sound && !customMusic) SlateAudio.setScene(tab); }, [tab, atmos.sound, customMusic]);
+  const importMusic = useCallback(async (file) => { if (!file) return; try { await audioDB.put("track", file); SlateMusic.setTrack(file); setCustomMusic(true); if (atmosRef.current && atmosRef.current.sound) { SlateMusic.play(); SlateAudio.disable(); } } catch (e) {} }, []);
+  const removeMusic = useCallback(async () => { try { await audioDB.del("track"); } catch (e) {} SlateMusic.clear(); setCustomMusic(false); if (atmosRef.current && atmosRef.current.sound) SlateAudio.enable(); }, []);
   useEffect(() => { if (loaded) store.set("hyrule:reading", JSON.stringify(reading)); }, [reading, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:bookmarks", JSON.stringify(bookmarks)); }, [bookmarks, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:readerprefs", JSON.stringify(readerPrefs)); }, [readerPrefs, loaded]);
@@ -1456,7 +1498,7 @@ function HyruleGame({ game, setGame, games }) {
             : guideSub === "koroks" ? <KoroksView data={KOROKS} koroks={koroks} setKoroks={setKoroks} />
             : guideSub === "economy" ? <EconomyView data={ECONOMY} />
             : guideSub === "world" ? <WorldView data={WORLD} />
-            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} atmos={atmos} setAtmos={setAtmos} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
+            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} atmos={atmos} setAtmos={setAtmos} customMusic={customMusic} importMusic={importMusic} removeMusic={removeMusic} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
             : (
               <>
                 <p className="ref-lede">The handful of things that stop the early game from feeling brutal.</p>
@@ -2460,6 +2502,29 @@ function RegionMiniMap({ coords, regionKey, regionShrines, progress, toggleStep,
 }
 
 /* The full-screen, pan/zoom Slate Map. Portaled to body (escapes stacking + safe-area). */
+/* 3×3 linear solve (Cramer) — used to least-squares-fit the affine map calibration from N tapped points. */
+function solve3(M, r) {
+  const det3 = (m) => m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) - m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]) + m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]);
+  const D = det3(M); if (Math.abs(D) < 1e-9) return null;
+  const col = (c) => M.map((row, i) => row.map((v, j) => (j === c ? r[i] : v)));
+  return [det3(col(0)) / D, det3(col(1)) / D, det3(col(2)) / D];
+}
+/* fit an affine m=[a,b,c,d,e,f] from pairs {wx,wz,cx,cy}: ≥3 → full least-squares (rotation/skew); 2 → axis-aligned. */
+function fitAffine(pts) {
+  if (pts.length >= 3) {
+    let Sxx = 0, Sxy = 0, Sx = 0, Syy = 0, Sy = 0; const n = pts.length, Tx = [0, 0, 0], Ty = [0, 0, 0];
+    for (const p of pts) { Sxx += p.wx * p.wx; Sxy += p.wx * p.wz; Sx += p.wx; Syy += p.wz * p.wz; Sy += p.wz; Tx[0] += p.wx * p.cx; Tx[1] += p.wz * p.cx; Tx[2] += p.cx; Ty[0] += p.wx * p.cy; Ty[1] += p.wz * p.cy; Ty[2] += p.cy; }
+    const M = [[Sxx, Sxy, Sx], [Sxy, Syy, Sy], [Sx, Sy, n]];
+    const abc = solve3(M, Tx), def = solve3(M, Ty);
+    if (abc && def) return [abc[0], abc[1], abc[2], def[0], def[1], def[2]];
+  }
+  if (pts.length >= 2) {
+    const p1 = pts[0], p2 = pts[pts.length - 1];
+    const a = (p1.cx - p2.cx) / (p1.wx - p2.wx), c = p1.cx - a * p1.wx, e = (p1.cy - p2.cy) / (p1.wz - p2.wz), f = p1.cy - e * p1.wz;
+    if (isFinite(a) && isFinite(e) && a && e) return [a, 0, c, 0, e, f];
+  }
+  return null;
+}
 function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, mapPin, setMapPin, onOpenShrine, onClose, accent, game, towersData, fairiesData }) {
   const b = coords.bounds, worldW = b.xmax - b.xmin, worldH = b.zmax - b.zmin;
   const terrain = useMemo(() => getTerrain(coords), [coords]);
@@ -2470,11 +2535,13 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   const pinch = useRef(null), tapRef = useRef(null), rafId = useRef(0);
   const [sel, setSel] = useState(null);
   const [placing, setPlacing] = useState(false);
-  const [align, setAlign] = useState(0);       // 0 off · 1 first ref · 2 second ref
+  const [aligning, setAligning] = useState(false); // multi-point alignment in progress
+  const [alignN, setAlignN] = useState(0);          // reference points collected (drives the banner)
+  const [alignStep, setAlignStep] = useState(0);    // which reference tower to prompt next
   const [q, setQ] = useState("");
   const [layers, setLayers] = useState({ shrines: true, towers: true, fairies: true, beasts: true, places: true });
   const [bitmap, setBitmap] = useState(null);  // {src,w,h} of the owner's own imported map image (device-local)
-  const [mapCal, setMapCal] = useState(null);  // {a,b,c,d} world→image-pixel calibration
+  const [mapCal, setMapCal] = useState(null);  // {m:[a,b,c,d,e,f]} world→image-pixel AFFINE calibration
   const [imgErr, setImgErr] = useState("");
 
   const shrMeta = useMemo(() => { const m = {}; (shrines || []).forEach((g) => g.shrines.forEach((sh, i) => { m[sh.name] = { rk: g.regionKey, i, region: g.regionName, obj: sh }; })); return m; }, [shrines]);
@@ -2483,23 +2550,22 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   let sdone = 0, stotal = 0;
   for (const n in coords.shrines) { stotal++; const s = coords.shrines[n]; if (progress[SHR_ID(s.rk, s.i)]) sdone++; }
 
-  // CONTENT = the thing we draw + place markers on: the generated terrain, OR the owner's imported image.
-  // world→content via {a,b,c,d}; for terrain it's just the bounds scale, for an image it's the calibration.
+  // CONTENT = what we draw + place markers on: the generated terrain, OR the owner's imported image.
+  // world→content is a 6-param AFFINE m=[a,b,c,d,e,f] (cx=a·wx+b·wz+c, cy=d·wx+e·wz+f) — handles a custom
+  // map's scale, offset AND rotation/skew. For terrain (or a fresh image) it's the plain bounds scale.
   const content = useMemo(() => {
-    if (bitmap) {
-      const MW = bitmap.w, MH = bitmap.h;
-      const cal = mapCal || { a: MW / worldW, b: -b.xmin * MW / worldW, c: MH / worldH, d: -b.zmin * MH / worldH };
-      return { src: bitmap.src, MW, MH, img: true, ...cal };
-    }
+    const ident = (MW, MH) => [MW / worldW, 0, -b.xmin * MW / worldW, 0, MH / worldH, -b.zmin * MH / worldH];
+    if (bitmap) { const MW = bitmap.w, MH = bitmap.h; return { src: bitmap.src, MW, MH, img: true, m: (mapCal && mapCal.m) || ident(MW, MH) }; }
     const t = terrain, MW = t.canvas.width, MH = t.canvas.height;
-    return { src: t.canvas, MW, MH, img: false, a: MW / worldW, b: -b.xmin * MW / worldW, c: MH / worldH, d: -b.zmin * MH / worldH };
+    return { src: t.canvas, MW, MH, img: false, m: ident(MW, MH) };
   }, [bitmap, mapCal, terrain]);
   const cKey = content.MW + "x" + content.MH + (content.img ? "i" : "t");
   const C = content;
-  const W2C = (wx, wz) => ({ x: C.a * wx + C.b, y: C.c * wz + C.d });          // world → content px
-  const C2W = (cx, cy) => ({ x: (cx - C.b) / C.a, z: (cy - C.d) / C.c });      // content px → world
+  const W2C = (wx, wz) => { const m = C.m; return { x: m[0] * wx + m[1] * wz + m[2], y: m[3] * wx + m[4] * wz + m[5] }; };
+  const C2W = (cx, cy) => { const m = C.m, det = m[0] * m[4] - m[1] * m[3]; if (!det) return { x: 0, z: 0 }; const dx = cx - m[2], dy = cy - m[5]; return { x: (m[4] * dx - m[1] * dy) / det, z: (-m[3] * dx + m[0] * dy) / det }; };
 
-  const alignTowers = useMemo(() => { const f = (n) => (coords.towers || []).find((t) => t.name === n); const a = f("Great Plateau Tower") || (coords.towers || [])[0]; const c = f("Akkala Tower") || (coords.towers || [])[(coords.towers || []).length - 1]; return [a, c].filter(Boolean); }, [coords]);
+  // spread reference towers the owner taps to align an imported map (more = tighter fit)
+  const alignRefs = useMemo(() => { const order = ["Great Plateau Tower", "Akkala Tower", "Gerudo Tower", "Hebra Tower", "Lanayru Tower", "Faron Tower", "Lake Tower", "Eldin Tower"]; const tw = coords.towers || []; const picked = order.map((n) => tw.find((t) => t.name === n)).filter(Boolean); return picked.length >= 3 ? picked : tw.slice(0, Math.min(6, tw.length)); }, [coords]);
 
   const dims = () => { const el = cvRef.current; return { W: (el && el.clientWidth) || 360, H: (el && el.clientHeight) || 640 }; };
   const fitK = () => { const { W, H } = dims(); return Math.min(W / C.MW, H / C.MH) * 0.92; };
@@ -2516,9 +2582,13 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   // ── owner's-own-map image (device-local; never uploaded / committed — ADR 0009) ──
   const loadImg = async (blob) => { try { const bm = await createImageBitmap(blob); return { src: bm, w: bm.width, h: bm.height }; } catch (e) { return await new Promise((res, rej) => { const im = new Image(); im.onload = () => res({ src: im, w: im.naturalWidth, h: im.naturalHeight }); im.onerror = rej; im.src = URL.createObjectURL(blob); }); } };
   useEffect(() => { let dead = false; (async () => { try { const blob = await mapDB.get(game); if (!dead && blob) setBitmap(await loadImg(blob)); const cal = await store.get(game + ":mapcal"); if (!dead && cal) { try { const o = JSON.parse(cal); if (o && typeof o.a === "number") setMapCal(o); } catch (e) {} } } catch (e) {} })(); return () => { dead = true; }; }, []);
-  const importImg = async (file) => { if (!file) return; setImgErr(""); try { await mapDB.put(game, file); setBitmap(await loadImg(file)); setMapCal(null); store.set(game + ":mapcal", "null"); setAlign(1); setSel(null); } catch (e) { setImgErr("Couldn't load that image."); } };
-  const removeImg = async () => { try { await mapDB.del(game); } catch (e) {} setBitmap(null); setMapCal(null); store.set(game + ":mapcal", "null"); };
-  const onAlignTap = (cx, cy) => { const idx = align - 1; alignPts.current[idx] = { x: cx, y: cy }; if (align === 1) { setAlign(2); return; } const w1 = alignTowers[0], w2 = alignTowers[1], p1 = alignPts.current[0], p2 = alignPts.current[1]; const a = (p1.x - p2.x) / (w1.x - w2.x), bb = p1.x - a * w1.x, c = (p1.y - p2.y) / (w1.z - w2.z), d = p1.y - c * w1.z; if (isFinite(a) && isFinite(c) && a && c) { const cal = { a, b: bb, c, d }; setMapCal(cal); store.set(game + ":mapcal", JSON.stringify(cal)); } setAlign(0); };
+  const startAlign = () => { alignPts.current = []; setAlignN(0); setAlignStep(0); setAligning(true); setSel(null); setPlacing(false); };
+  const importImg = async (file) => { if (!file) return; setImgErr(""); try { await mapDB.put(game, file); setBitmap(await loadImg(file)); setMapCal(null); store.set(game + ":mapcal", "null"); startAlign(); } catch (e) { setImgErr("Couldn't load that image."); } };
+  const removeImg = async () => { try { await mapDB.del(game); } catch (e) {} setBitmap(null); setMapCal(null); store.set(game + ":mapcal", "null"); setAligning(false); };
+  const alignCur = () => alignRefs[Math.min(alignStep, alignRefs.length - 1)];
+  const applyAlign = (n) => { const cnt = n != null ? n : alignPts.current.length; if (cnt >= 2) { const m = fitAffine(alignPts.current); if (m) { const cal = { m }; setMapCal(cal); store.set(game + ":mapcal", JSON.stringify(cal)); } } setAligning(false); };
+  const onAlignTap = (cx, cy) => { const ref = alignRefs[alignStep]; if (!ref) { setAligning(false); return; } alignPts.current.push({ wx: ref.x, wz: ref.z, cx, cy }); const n = alignPts.current.length, ns = alignStep + 1; setAlignN(n); setAlignStep(ns); if (ns >= alignRefs.length) applyAlign(n); };
+  const skipAlign = () => { const ns = alignStep + 1; setAlignStep(ns); if (ns >= alignRefs.length) applyAlign(); };
 
   // the render loop — content (one drawImage) + markers (+ labels on the generated terrain only)
   const draw = () => {
@@ -2554,7 +2624,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
     const cv = cvRef.current; if (!cv) return;
     const onWheel = (e) => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.15 : 1 / 1.15); };
     cv.addEventListener("wheel", onWheel, { passive: false });
-    const onKey = (e) => { if (e.key === "Escape") { if (align) setAlign(0); else if (placing) setPlacing(false); else onClose(); } };
+    const onKey = (e) => { if (e.key === "Escape") { if (aligning) setAligning(false); else if (placing) setPlacing(false); else onClose(); } };
     const onResize = () => { clampV(); setView({ ...vref.current }); };
     document.addEventListener("keydown", onKey); window.addEventListener("resize", onResize);
     return () => { cv.removeEventListener("wheel", onWheel); document.removeEventListener("keydown", onKey); window.removeEventListener("resize", onResize); if (rafId.current) cancelAnimationFrame(rafId.current); };
@@ -2578,7 +2648,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   const onUp = (e) => { ptrs.current.delete(e.pointerId); if (ptrs.current.size < 2) pinch.current = null; if (ptrs.current.size === 0 && tapRef.current && !tapRef.current.moved) handleTap(tapRef.current.p); tapRef.current = null; };
   const handleTap = (p) => {
     const v = vref.current, cx = (p.x - v.x) / v.k, cy = (p.y - v.y) / v.k;   // content px
-    if (align) { onAlignTap(cx, cy); return; }
+    if (aligning) { onAlignTap(cx, cy); return; }
     if (placing) { const w = C2W(cx, cy); setMapPin({ x: Math.round(w.x), z: Math.round(w.z) }); setPlacing(false); return; }
     let best = null, bd = Infinity;
     const consider = (m) => { const sc = S(m.wx, m.wz), d = Math.hypot(sc.x - p.x, sc.y - p.y); if (d < bd) { bd = d; best = m; } };
@@ -2624,10 +2694,21 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
         <button className="sm-close" onClick={onClose} aria-label="Close map">✕</button>
       </div>
 
-      {(align > 0 || placing) && (
+      {aligning && (
         <div className="sm-banner">
-          {align > 0 ? <><b>Align your map · {align}/2</b><span>Tap <b>{alignTowers[align - 1] && alignTowers[align - 1].name}</b> on your map image</span></> : <><b>Set your location</b><span>Tap the map where you are</span></>}
-          <button className="sm-banner-x" onClick={() => { setAlign(0); setPlacing(false); }}>Cancel</button>
+          <b>Align your map · {alignN} point{alignN === 1 ? "" : "s"} set</b>
+          <span>On your map, tap <b>{alignCur() && alignCur().name}</b>{alignN >= 2 ? " — or Apply now" : alignN === 1 ? " (one more, please)" : ""}</span>
+          <div className="sm-banner-row">
+            <button className="sm-banner-x" onClick={skipAlign}>Can't find it — skip</button>
+            <button className="sm-banner-go" disabled={alignN < 2} onClick={() => applyAlign()}>Apply ({alignN})</button>
+            <button className="sm-banner-x" onClick={() => setAligning(false)}>Cancel</button>
+          </div>
+        </div>
+      )}
+      {placing && !aligning && (
+        <div className="sm-banner">
+          <b>Set your location</b><span>Tap the map where you are</span>
+          <button className="sm-banner-x" onClick={() => setPlacing(false)}>Cancel</button>
         </div>
       )}
 
@@ -2638,7 +2719,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
 
       <div className="sm-imgctl">
         {!bitmap && <button className="sm-img-btn" onClick={() => fileRef.current && fileRef.current.click()}><Glyph name="map" size={13} /> Use my own map image</button>}
-        {bitmap && <button className="sm-img-btn" onClick={() => { setAlign(1); setSel(null); }}><Glyph name="target" size={13} /> Align</button>}
+        {bitmap && <button className="sm-img-btn" onClick={startAlign}><Glyph name="target" size={13} /> Align</button>}
         {bitmap && <button className="sm-img-btn" onClick={() => fileRef.current && fileRef.current.click()}>Replace</button>}
         {bitmap && <button className="sm-img-btn sm-img-rm" onClick={removeImg}>Remove</button>}
         {imgErr && <span className="sm-img-err">{imgErr}</span>}
@@ -2703,9 +2784,10 @@ function BackupBox({ doExport, doImport }) {
 }
 
 /* ============================================================ SETTINGS ============================================================ */
-function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
+function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, customMusic, importMusic, removeMusic, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
   const ver = (typeof window !== "undefined" && window.__APP_VERSION__) || "dev";
   const setA = (k) => setAtmos((a) => ({ ...a, [k]: !a[k] }));
+  const musicRef = useRef(null);
   return (
     <>
       <p className="ref-lede">Make the app yours. Everything here is saved on your device — no account, no server.</p>
@@ -2719,8 +2801,15 @@ function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, doExport, doImport
         <button className={"toggle" + (atmos.motion ? " toggle-on" : "")} onClick={() => setA("motion")} role="switch" aria-checked={atmos.motion} aria-label="Ancient circuitry"><span className="toggle-knob" /></button>
       </div>
       <div className="set-row">
-        <div className="set-txt"><div className="set-name">Ambient sound</div><div className="set-sub">A calm, generated Sheikah hum that shifts as you move between tabs — no audio files, works offline. Off by default.</div></div>
+        <div className="set-txt"><div className="set-name">Ambient sound</div><div className="set-sub">{customMusic ? "Playing your own track on a loop. The sound toggle (here or in the topbar) turns it on/off." : "A calm, generated Sheikah hum that shifts as you move between tabs. Off by default — or load your own track below."}</div></div>
         <button className={"toggle" + (atmos.sound ? " toggle-on" : "")} onClick={() => setA("sound")} role="switch" aria-checked={atmos.sound} aria-label="Ambient sound"><span className="toggle-knob" /></button>
+      </div>
+      <div className="set-music">
+        <input ref={musicRef} type="file" accept="audio/*" style={{ display: "none" }} onChange={(e) => { importMusic && importMusic(e.target.files && e.target.files[0]); e.target.value = ""; }} />
+        {customMusic
+          ? <><span className="set-music-on"><Glyph name="sound" size={13} /> Your own track is loaded</span><button className="set-music-btn" onClick={() => musicRef.current && musicRef.current.click()}>Replace</button><button className="set-music-btn set-music-rm" onClick={() => removeMusic && removeMusic()}>Remove (back to hum)</button></>
+          : <button className="set-music-btn" onClick={() => musicRef.current && musicRef.current.click()}><Glyph name="sound" size={13} /> Use my own background music</button>}
+        <p className="set-music-note">Your audio stays on this device — never uploaded, never shared.</p>
       </div>
       <div className="set-row">
         <div className="set-txt"><div className="set-name">Haptic pulse</div><div className="set-sub">A tiny Sheikah-activation buzz when you check something off (phones with vibration only).</div></div>
@@ -3723,6 +3812,11 @@ function StyleBlock() {
 @keyframes atmos-breathe{0%,100%{box-shadow:0 0 8px rgba(95,214,226,0.26),inset 0 0 5px rgba(95,214,226,0.15);}50%{box-shadow:0 0 16px rgba(95,214,226,0.52),inset 0 0 9px rgba(95,214,226,0.3);}}
 .slate-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.9;}
 .set-group{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan-dim);margin:20px 2px 9px;border-top:1px solid rgba(95,214,226,0.12);padding-top:16px;}
+.set-music{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:2px 2px 10px;}
+.set-music-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:7px 12px;cursor:pointer;}
+.set-music-rm{color:var(--malice);border-color:rgba(224,80,107,0.4);}
+.set-music-on{display:inline-flex;align-items:center;gap:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;color:var(--moss);}
+.set-music-note{flex-basis:100%;font-size:11px;color:var(--parch-dim);margin:2px 0 0;}
 .ask-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.36);color:var(--cyan);cursor:pointer;box-shadow:0 0 9px rgba(95,214,226,0.2);}
 .ask-trigger:active{transform:scale(.95);}
 .map-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;}
@@ -3938,6 +4032,10 @@ function StyleBlock() {
 .sm-banner b{font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);}
 .sm-banner span{font-size:13px;color:var(--parch);}
 .sm-banner-x{margin-top:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;color:var(--parch-dim);background:transparent;border:1px solid rgba(169,176,172,0.4);border-radius:7px;padding:3px 12px;cursor:pointer;}
+.sm-banner-row{display:flex;gap:6px;align-items:center;margin-top:6px;flex-wrap:wrap;justify-content:center;}
+.sm-banner-row .sm-banner-x{margin-top:0;}
+.sm-banner-go{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;color:var(--abyss);background:var(--gold);border:1px solid var(--gold);border-radius:7px;padding:4px 14px;cursor:pointer;}
+.sm-banner-go:disabled{opacity:.4;cursor:default;}
 .sm-imgctl{position:absolute;top:calc(106px + env(safe-area-inset-top,0px));left:calc(14px + env(safe-area-inset-left,0px));right:calc(14px + env(safe-area-inset-right,0px));display:flex;gap:6px;flex-wrap:wrap;z-index:2;pointer-events:none;}
 .sm-img-btn{pointer-events:auto;display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.3px;text-transform:uppercase;color:var(--cyan);background:rgba(8,16,20,0.85);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:5px 10px;cursor:pointer;}
 .sm-img-rm{color:var(--malice);border-color:rgba(224,80,107,0.4);}
