@@ -5,6 +5,29 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-27 — v18.6: Ask-the-Slate "truth-first" — the tiny model hallucinates even with good sources
+
+- **Owner sent real-device screenshots: the answers were wrong, some dangerously.** "warm clothes → buy at the
+  Ventest Boutique in Hateno" (invented — the sources said Snowquill/Rito), "not die from lightning → use a sturdy
+  shield" (DANGEROUS — metal attracts lightning; sources were irrelevant shrines), "stay warm → buy it at the Shrine
+  to Quomo" (mashed a leaked shrine into a fake shop).
+- **Two root causes:** (a) retrieval gaps — TIPS + BESTIARY.basics weren't even indexed; "die/lightning" matched
+  random shrines; the lightning answer (Rubber armor / Electro elixir) wasn't reachable from the word "lightning".
+  (b) **the 0.5B model ignores its grounding and pulls from its own memory** — shot 3 had the RIGHT sources at #1 and
+  it STILL invented "Ventest Boutique." **No prompt fixes a model that small ignoring records.**
+- **So the fix is STRUCTURAL, not more prompting:** the verified retrieved record is now ALWAYS the headline answer;
+  the AI is demoted to a small labeled "In plain words · AI — may be imperfect; trust the answer above" paraphrase
+  BELOW it; voice reads the VERIFIED answer; the AI is gated to top-score ≥ 4 (no confabulating on weak matches).
+  Plus retrieval fixes: index TIPS + combat basics, stop-word noise (die/survive/avoid/not), widen synonyms
+  (lightning→rubber/electric/thunderstorm/metal, stamina/hearts→spirit orb/goddess statue), shock intent boost,
+  dedupe by cat+label.
+- **Result (verified):** warm clothes→Snowquill (Rito), stay warm→Snowquill, lightning→Rubber Set (safe!),
+  stamina→Spirit Orb→Goddess Statue — all correct headlines.
+- **Lesson banked (the big one): a sub-1B on-device model CANNOT be trusted to stay grounded for facts. Make the
+  retrieved record the answer; the LLM is at most an optional, clearly-labeled rephrase, never the source of truth.
+  For a guide whose #1 law is "don't invent," a generative layer that invents must never be the headline. Word-gaps
+  are bounded by a hand-tuned synonym map; embeddings (transformers.js MiniLM) are the heavy alternative if needed.**
+
 ## 2026-06-27 — v18.5: Ask-the-Slate answer quality — the bug was RETRIEVAL, not the model
 
 - **Owner: Light model loads + runs on iPhone (no crash) — but the answer was wrong.** "Where do I get warm clothes"

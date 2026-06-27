@@ -697,6 +697,23 @@ layout, `REGION_MAPS` = the per-region coords.
   Doublet** + "Stay Warm First" in related — both correct sources now feed the LLM. 0 console errors, offline-clean.
   **Lesson: a grounded LLM is only as good as retrieval; for an offline keyword index, a small hand-tuned synonym map
   is the cheap fix for the player-word↔data-word gap (true semantic search would need an embedding model).**
+- **v18.6 — Ask-the-Slate "truth-first" redesign (the tiny model hallucinated even with good sources).** Real-device
+  screenshots showed the 0.5B Light model **ignoring correct retrieved records and inventing facts** ("warm clothes →
+  buy at the Ventest Boutique in Hateno"; "not die from lightning → use a sturdy shield" — DANGEROUS; "buy it at the
+  Shrine to Quomo"). No prompt-tuning fixes a model that small ignoring its grounding, so the fix is **structural**:
+  **(1) the verified, sourced retrieval record is now ALWAYS the headline answer** (was replaced by the AI) — the AI
+  is demoted to a small, clearly-labeled "In plain words · AI — may be imperfect; trust the answer above" paraphrase
+  BELOW it. **(2) Voice reads the VERIFIED answer**, not the AI. **(3) AI is gated** — only runs when the top
+  retrieval score ≥ 4 (no confabulating on weak matches; on a miss → the honest "couldn't find" card). **(4) Retrieval
+  coverage + word-gap fixes:** indexed **TIPS + BESTIARY.basics** (were invisible); stop-worded noise (die/death/
+  survive/avoid/not); widened `SLATE_SYN` (lightning→rubber/electric/thunderstorm/metal; stamina&hearts→spirit orb/
+  goddess statue/vessel; warm→cold resistance/snowquill); added a shock/lightning intent boost; **dedupe results by
+  cat+label.** Verified in-browser: "warm clothes"→**Snowquill Set** (Rito Village), "stay warm"→Snowquill, "not die
+  from lightning"→**Rubber Set** (electric immunity — safe), "more stamina"→**Spirit Orb→Goddess Statue** — all
+  correct verified headlines now. 0 console errors, offline-clean. **Lesson banked: a sub-1B on-device model can't be
+  trusted to stay grounded for facts — make the retrieved record the answer and treat the LLM as an optional,
+  clearly-labeled rephrase, never the source of truth. Whack-a-mole word-gaps are bounded by a hand-tuned synonym map;
+  true semantic search (embeddings) is the heavier alternative if needed.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

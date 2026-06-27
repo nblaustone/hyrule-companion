@@ -1158,7 +1158,7 @@ function HyruleGame({ game, setGame, games }) {
 
       {oracleOpen && (
         <SlateOracle label={G.label} onClose={() => setOracleOpen(false)}
-          data={{ REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS, COMPENDIUM, ECONOMY }}
+          data={{ REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS, COMPENDIUM, ECONOMY, TIPS }}
           nav={{
             step: (rid, sid) => jumpTo(rid, sid),
             shrine: (rk, sid) => (sid ? focusShrine(rk, sid) : jumpShrineRegion(rk)),
@@ -2628,15 +2628,16 @@ function PouchView({ inventory, progress, jumpTo, regions, region, cats }) {
    where the platform requires it; typing always works offline). PHASE 2 (opt-in,
    device-local, see ADR 0011/0012) drops an on-device LLM (WebLLM/WebGPU) on TOP to
    synthesize across the retrieved records — this retrieval is its RAG grounding. */
-const SLATE_STOP = new Set("a an the to of for in on at it is are be how do does did where what which who whats when can could should would help with get got find beat fight kill defeat make cook need want go best fastest about there here you your my me i way".split(" "));
+const SLATE_STOP = new Set("a an the to of for in on at it is are be how do does did where what which who whats when can could should would help with get got find beat fight kill defeat make cook need want go best fastest about there here you your my me i way die dying death survive avoid stop not dont don't keep".split(" "));
 // bridge common player phrasings → the words the data actually uses (keyword retrieval can't do this on its own)
 const SLATE_SYN = {
   warm: ["cold resistance", "snowquill", "warm doublet", "insulat"], cold: ["cold resistance", "snowquill", "warm doublet", "spicy", "chill"],
   clothes: ["armor", "tunic", "doublet"], clothing: ["armor", "tunic"], wear: ["armor"], outfit: ["armor"], gear: ["armor"],
   hot: ["heat resistance", "fireproof", "flamebreaker", "desert"], heat: ["heat resistance", "fireproof", "flamebreaker"], desert: ["heat resistance", "gerudo"],
-  shock: ["shock resistance", "rubber"], electric: ["shock resistance", "rubber"], lightning: ["shock resistance", "rubber"], thunder: ["shock resistance", "rubber"],
+  shock: ["shock resistance", "rubber", "electric", "thunderstorm", "metal"], electric: ["shock resistance", "rubber", "thunderstorm", "metal"], lightning: ["shock resistance", "rubber", "electric", "thunderstorm", "metal", "conduct"], thunder: ["shock resistance", "rubber", "electric", "thunderstorm"], metal: ["shock resistance", "rubber", "conduct"], storm: ["thunderstorm", "shock resistance", "metal"],
   fireproof: ["flamebreaker", "fire resist"], stealth: ["sneak", "stealth"], sneaky: ["sneak", "stealth"], quiet: ["sneak", "stealth"],
-  health: ["heart container", "hearts"], hearts: ["heart container"], stamina: ["stamina vessel", "endura"], climb: ["climbing"], swim: ["swim", "zora"],
+  health: ["heart container", "spirit orb", "goddess statue"], hearts: ["heart container", "spirit orb", "goddess statue"], heart: ["heart container", "spirit orb", "goddess statue"],
+  stamina: ["stamina vessel", "spirit orb", "goddess statue", "endura"], vessel: ["spirit orb", "goddess statue"], climb: ["climbing"], swim: ["swim", "zora"],
 };
 function slateTokens(s) { return (s || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").split(/\s+/).filter((w) => w.length > 1 && !SLATE_STOP.has(w)); }
 function slateArmorDetail(a) { let s = "Effect: " + a.bonus + "\nWhere: " + a.where; if (a.tiers && a.tiers.length) s += "\n" + a.tiers.map((t) => "★" + t.star + ": " + t.materials.map((m) => m.qty + "× " + m.item).join(", ") + (t.rupees ? " + " + t.rupees + " rupees" : "")).join("\n"); if (a.farm) s += "\nFarm: " + a.farm; if (a.note) s += "\n" + a.note; return s; }
@@ -2644,7 +2645,7 @@ const SLATE_GEAR_GLYPH = { weapon: "sword", bow: "bow", shield: "shield", armor:
 const SLATE_LEAD = { Shrine: "Here's how to clear", Enemy: "Here's how to beat", "Side quest": "Here's how to do", Armor: "Here's the rundown on", Cooking: "For that, cook for", Item: "Here's what I know about", Walkthrough: "Here's your next step:", Tower: "Here's where to find" };
 function slateRetrieve(query, data) {
   const toks = slateTokens(query); if (!toks.length) return [];
-  const { REGIONS = [], SHRINES = [], ARMOR = { sets: [] }, BESTIARY = { enemies: [] }, RECIPES = [], SIDE_QUESTS = [], TOWERS = [], COMPENDIUM = [] } = data || {};
+  const { REGIONS = [], SHRINES = [], ARMOR = { sets: [] }, BESTIARY = { enemies: [] }, RECIPES = [], SIDE_QUESTS = [], TOWERS = [], COMPENDIUM = [], TIPS = [] } = data || {};
   const out = [];
   const expanded = []; for (const t of toks) { const syn = SLATE_SYN[t]; if (syn) for (const s of syn) expanded.push(s); }
   // intent boost: the question's verb/topic words (some are stop-words for matching) still route the category
@@ -2656,6 +2657,7 @@ function slateRetrieve(query, data) {
   if (has(/\b(rupee|rupees|money|earn|earning|sell|sells|selling|cash|coins?|broke|rich)\b/)) { boost.Money = 5; boost.Farming = 3; boost["Money tip"] = 3; }
   if (has(/\b(farm|farming)\b/)) { boost.Farming = 5; boost.Money = 2; }
   if (has(/\b(armor|armour|outfit|defen[cs]e|tunic|set|clothes|clothing|wear|warm|gear)\b/)) boost.Armor = 4;
+  if (has(/\b(shock|lightning|electric|thunder|thunderstorm|storm|metal)\b/)) { boost.Armor = 4; boost.Cooking = Math.max(boost.Cooking || 0, 2); boost.Tip = 4; }
   if (has(/\b(quest|quests|sidequest)\b/)) boost["Side quest"] = 4;
   if (has(/\b(tower|towers|map)\b/)) boost.Tower = 4;
   const add = (o) => {
@@ -2674,14 +2676,19 @@ function slateRetrieve(query, data) {
   (COMPENDIUM || []).forEach((it) => { const sn = it.cat === "armor" ? "Defense" : it.cat === "shield" ? "Guard" : "Power"; let d = it.effect || ""; if (Number.isFinite(it.power)) d += (d ? "\n" : "") + sn + ": " + it.power + (Number.isFinite(it.durability) ? " · Durability: " + it.durability : ""); if (Number.isFinite(it.sell)) d += (d ? "\n" : "") + "Sells for " + it.sell + " rupees"; if (it.set && it.set !== "standalone") d += "\nSet: " + it.set; if (it.where) d += "\nWhere: " + it.where; add({ cat: "Item", glyph: SLATE_GEAR_GLYPH[it.cat] || "bag", label: it.name, sub: it.type || it.cat, detail: d, nav: { kind: "items" } }); });
   REGIONS.forEach((reg) => (reg.sections || []).forEach((sec) => (sec.steps || []).forEach((st) => add({ cat: "Walkthrough", glyph: "tower", label: sec.name, sub: st.t, detail: st.stuck || st.t, nav: { kind: "step", args: [reg.id, sec.id] } }))));
   (TOWERS || []).forEach((t) => add({ cat: "Tower", glyph: "tower", label: t.name, sub: t.region, detail: t.location, nav: { kind: "guide", args: ["towers"] } }));
+  (TIPS || []).forEach((c) => (c.items || []).forEach((it) => add({ cat: "Tip", glyph: "scroll", label: c.name, sub: "Tip", detail: String(it), prio: 1, nav: { kind: "guide", args: ["tips"] } })));
+  ((BESTIARY && BESTIARY.basics) || []).forEach((bz) => add({ cat: "Combat tip", glyph: "skull", label: bz.title, sub: "Combat basics", detail: bz.body, prio: 1, nav: { kind: "guide", args: ["enemies"] } }));
   const ECON = (data && data.ECONOMY) || null;
   if (ECON) {
     (ECON.rupees || ECON.earners || []).forEach((r) => add({ cat: "Money", glyph: "gem", label: r.method || r.name || r.item, sub: "Earn rupees · money", detail: r.detail || r.how || r.note || "", prio: 2, nav: { kind: "guide", args: ["economy"] } }));
     (ECON.farming || ECON.farms || []).forEach((f) => add({ cat: "Farming", glyph: "leaf", label: f.item || f.name, sub: "Where to farm · rupees", detail: (f.where || "") + (f.tip ? "\n" + f.tip : ""), prio: 1, nav: { kind: "guide", args: ["economy"] } }));
     (ECON.tips || []).forEach((t) => add({ cat: "Money tip", glyph: "scroll", label: String(t).split(/[—.:]/)[0].trim().slice(0, 52), sub: "Rupee tip · money", detail: t, nav: { kind: "guide", args: ["economy"] } }));
   }
-  out.sort((a, b) => b.score - a.score);
-  return out.slice(0, 6);
+  const seen = new Map(); // dedupe by cat+label, keep the highest-scoring
+  for (const o of out) { const k = o.cat + "|" + (o.label || "").toLowerCase(); const p = seen.get(k); if (!p || o.score > p.score) seen.set(k, o); }
+  const uniq = [...seen.values()];
+  uniq.sort((a, b) => b.score - a.score);
+  return uniq.slice(0, 6);
 }
 
 /* ============================================================
@@ -2781,12 +2788,14 @@ function SlateOracle({ data, nav, label, onClose }) {
   const submit = (text, byVoice) => {
     const t = (text != null ? text : q).trim(); if (!t) return; stopSpeak(); setViaVoice(!!byVoice); setQ(t); setAsked(t);
     const recs = slateRetrieve(t, data);
-    if (SlateLLM.status() === "ready" && recs.length) {
+    if (byVoice && recs[0]) speak(answerSpeech(recs[0]));   // read the VERIFIED answer aloud — it's the trustworthy one
+    const strong = recs[0] && recs[0].score >= 4;            // only let the AI rephrase when retrieval is confident (no confabulating on weak matches)
+    if (SlateLLM.status() === "ready" && strong) {
       setLlm({ text: "", busy: true, error: false });
       SlateLLM.ask(t, recs, (full) => setLlm({ text: full, busy: true, error: false }))
-        .then((final) => { setLlm({ text: final, busy: false, error: false }); if (byVoice && final) speak(final); })
-        .catch(() => { setLlm({ text: "", busy: false, error: true }); if (byVoice && recs[0]) speak(answerSpeech(recs[0])); });
-    } else { setLlm(null); if (byVoice && recs[0]) speak(answerSpeech(recs[0])); }
+        .then((final) => setLlm({ text: final, busy: false, error: false }))
+        .catch(() => setLlm(null));
+    } else { setLlm(null); }
   };
   const enableBrain = async (t) => { try { await store.set("hyrule:slatebrain", "1"); await store.set("hyrule:slatemodel", t); } catch (e) {} SlateLLM.load(t); };
   const switchModel = async () => { const next = SlateLLM.tier() === "light" ? "balanced" : "light"; try { await store.set("hyrule:slatemodel", next); } catch (e) {} setLlm(null); SlateLLM.reload(next); };
@@ -2839,16 +2848,7 @@ function SlateOracle({ data, nav, label, onClose }) {
         ) : (
           <div className="oracle-thread">
             <div className="oracle-you"><span>{asked}</span></div>
-            {llm && !llm.error && (
-              <div className="oracle-answer oracle-ai">
-                <div className="oracle-ans-head"><span className="oracle-cat oracle-cat-ai"><Glyph name="spark" size={13} /> Slate AI</span></div>
-                <p className="oracle-detail">{llm.text || "Consulting the records…"}{llm.busy ? <span className="oracle-caret">▍</span> : null}</p>
-                {!llm.busy && llm.text && <p className="oracle-ai-note">AI summary — the Sources below are the verified truth; double-check there.</p>}
-                {!llm.busy && canSpeak && llm.text && (<div className="oracle-ans-actions">{speaking ? <button className="oracle-speak on" onClick={stopSpeak}><Glyph name="sound" size={15} /> Stop</button> : <button className="oracle-speak" onClick={() => speak(llm.text)}><Glyph name="sound" size={15} /> Speak it</button>}</div>)}
-                {results && results.length > 0 && (<div className="oracle-related"><div className="oracle-related-h">Sources</div>{results.slice(0, 4).map((r, i) => (<button key={i} className="oracle-rel" onClick={() => { doNav(r.nav); onClose(); }}><span className="oracle-rel-ic"><Glyph name={r.glyph} size={13} /></span><span className="oracle-rel-txt"><b>{r.label}</b><span>{r.cat} · {r.sub}</span></span><span className="chev">›</span></button>))}</div>)}
-              </div>
-            )}
-            {(!llm || llm.error) && (top ? (<>
+            {top ? (<>
               <div className="oracle-answer">
                 <div className="oracle-ans-head"><span className="oracle-cat"><Glyph name={top.glyph} size={14} /> {top.cat}</span><span className="oracle-name">{top.label}</span></div>
                 {top.sub && <div className="oracle-ans-sub">{top.sub}</div>}
@@ -2858,10 +2858,16 @@ function SlateOracle({ data, nav, label, onClose }) {
                   {top.nav && <button className="oracle-open" onClick={() => { doNav(top.nav); onClose(); }}>Open the full page ›</button>}
                 </div>
               </div>
-              {results.length > 1 && (<div className="oracle-related"><div className="oracle-related-h">Related</div>{results.slice(1).map((r, i) => (<button key={i} className="oracle-rel" onClick={() => submit(r.label, false)}><span className="oracle-rel-ic"><Glyph name={r.glyph} size={13} /></span><span className="oracle-rel-txt"><b>{r.label}</b><span>{r.sub}</span></span><span className="chev">›</span></button>))}</div>)}
+              {llm && !llm.error && (
+                <div className="oracle-ai">
+                  <div className="oracle-ai-h"><Glyph name="spark" size={12} /> In plain words <em>· AI — may be imperfect; trust the answer above</em></div>
+                  <p className="oracle-detail">{llm.text || "Thinking…"}{llm.busy ? <span className="oracle-caret">▍</span> : null}</p>
+                </div>
+              )}
+              {results.length > 1 && (<div className="oracle-related"><div className="oracle-related-h">More from the guide</div>{results.slice(1, 5).map((r, i) => (<button key={i} className="oracle-rel" onClick={() => submit(r.label, false)}><span className="oracle-rel-ic"><Glyph name={r.glyph} size={13} /></span><span className="oracle-rel-txt"><b>{r.label}</b><span>{r.cat} · {r.sub}</span></span><span className="chev">›</span></button>))}</div>)}
             </>) : (
               <div className="oracle-miss">I couldn't find that in the Slate's records. Try rephrasing, or use the search for a broader look — I only answer from verified data, so I won't guess.</div>
-            ))}
+            )}
           </div>
         )}
       </div>
@@ -3356,7 +3362,9 @@ function StyleBlock() {
 .oracle-brain-err{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--parch-dim);background:rgba(224,80,107,0.08);border:1px solid rgba(224,80,107,0.3);border-radius:11px;padding:10px 13px;}
 .oracle-brain-err button{background:none;border:1px solid rgba(95,214,226,0.4);color:var(--cyan);border-radius:10px;padding:5px 11px;font-size:12px;cursor:pointer;}
 .oracle-unsupported{font-size:13px;line-height:1.55;color:var(--parch-dim);background:rgba(15,28,34,0.5);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:13px;margin-bottom:14px;}
-.oracle-ai{background:linear-gradient(180deg,rgba(169,140,224,0.13),rgba(15,28,34,0.5));border-color:rgba(169,140,224,0.42);}
+.oracle-ai{background:linear-gradient(180deg,rgba(169,140,224,0.12),rgba(15,28,34,0.45));border:1px solid rgba(169,140,224,0.4);border-radius:14px;padding:12px 14px;}
+.oracle-ai-h{display:flex;align-items:center;gap:6px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--sneak);margin-bottom:7px;}
+.oracle-ai-h em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;font-size:10.5px;color:var(--parch-dim);}
 .oracle-cat-ai{background:var(--sneak);color:#170f2e;}
 .oracle-caret{color:var(--cyan);}
 .search-overlay{position:fixed;inset:0;z-index:50;background:rgba(7,14,18,0.97);backdrop-filter:blur(6px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
