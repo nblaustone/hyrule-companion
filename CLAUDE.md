@@ -132,6 +132,10 @@ it runs fully offline once it's on the device. First load needs no network. The 
   `{progress,koroks,notes,armorTier,recipes,shrinePin,shrineRecents}` (blob **v8**).
   Counters use the functional updater `setKoroks(k=>…)` (stale-closure guard).
   Lore/reader state is top-level `hyrule:reading`/`hyrule:bookmarks`/`hyrule:readerprefs`/`hyrule:loreart`.
+  **App prefs are top-level `hyrule:prefs`** (shared across games): `{spoiler, atmos:{motion,sound,haptics}}` — the
+  v18 "Living Slate" atmosphere toggles ride here (cosmetic; deliberately NOT in the backup blob). The atmosphere
+  engine itself is the module-level `SlateAudio` singleton (synthesized Web-Audio, outside React) + the
+  `SlateBackground` canvas; both degrade to absent if the browser lacks Web-Audio/Canvas/Vibration.
   **v12 Bookshelf:** the small book index is `hyrule:books` (in `store`); the big page **blobs** live in a
   dedicated **IndexedDB** db `hyrule-books` (store `pages`, key `bookId/filename`) — see `booksDB` + `readHbook`
   near the top of the `.jsx`. Books are device-local; never in `store`/backup/repo (ADR 0009).
@@ -599,7 +603,25 @@ layout, `REGION_MAPS` = the per-region coords.
   **everything clean** — 0 dup ids, all trophies/runes wired, all 11 games' side-quest slugs unique, every compendium
   cat has a CompendiumView column. In-browser re-verified TotK (478-item Items tab) + spot-checked LA (Songs/Key-Items
   cats render) + BotW (7 tabs); 0 console errors across game switches.
-- **Biggest remaining build (whole app): NONE.** Every game is at its game-appropriate parity and every dataset is
-  present or correctly N/A. The only OPEN-ENDED extension left is **Lore** — shared/cross-game, currently 7 BotW-era
-  chapters; it could gain era chapters for any of the 11 games, but that needs the writers'-room workflow + the
-  no-AI-slop bar (vet a sample before scaling — owner's standing guidance, [[zelda-lore-no-ai-slop]]).
+- **v18 — "The Living Slate" (atmosphere layer; ADR 0011, STARTED).** With all content at parity, the owner asked
+  to make the app "out of this world — futuristic, spectacular." North star: **stop describing Hyrule; finish
+  building the Sheikah Slate itself** (an in-world device the player holds IRL). **v18.0** ships the first piece, an
+  atmosphere layer that's **100% generated on-device** (so the offline/asset-clean law is untouched — `build.mjs`
+  offline check still passes): (1) **`SlateAudio`** — a module-level singleton (outside React, survives the
+  per-game remount) that boots a Web-Audio `AudioContext` on a user gesture and SYNTHESIZES a calm drone (chord
+  morphs per tab) + pentatonic shimmer + boot arpeggio + check tick from oscillators — NO audio files; default OFF.
+  (2) **`SlateBackground`** — a fixed `<canvas>` circuit field (drifting linked nodes) behind the app (z-index:0,
+  pointer-events:none); JS reduced-motion guard paints a static frame; only mounted when Motion is on. (3)
+  **Haptics** — guarded `navigator.vibrate(12)` on check-on (mobile only). Controls live in Guide→Settings ("The
+  Living Slate": Ancient circuitry · Ambient sound · Haptic pulse) + a topbar speaker toggle; persisted in
+  `hyrule:prefs` (`{spoiler, atmos:{motion,sound,haptics}}`); NOT in the backup blob (cosmetic, not progress). Two
+  new Glyphs (sound/mute). Verified in-browser: circuit renders, toggles flip+persist+share state, motion mounts/
+  unmounts the canvas, 0 console errors, build offline-clean. **Gotcha banked: `position:fixed;inset:0` does NOT
+  stretch a `<canvas>`** (it's a replaced element with intrinsic 300×150) — needs explicit `width/height:100%`.
+  **NEXT in this arc: the offline AI oracle ("Ask the Slate")** — an on-device LLM (WebLLM/WebGPU) RAG-grounded on
+  the app's own JSON, voice in/out, loaded device-local via the [[ADR 0009]] IndexedDB pattern so the published
+  artifact stays ~1 MB and asset-clean. (Bigger build; queued, owner greenlit the arc.)
+- **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
+  **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
+  queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
+  vet a sample before scaling, owner's standing guidance, [[zelda-lore-no-ai-slop]]).

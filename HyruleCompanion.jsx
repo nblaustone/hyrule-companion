@@ -499,6 +499,88 @@ function cookResult(items) {
 const fmtDur = (s) => { if (s == null) return null; const m = Math.floor(s / 60), ss = s % 60; return m + ":" + String(ss).padStart(2, "0"); };
 
 /* ============================================================ GLYPHS ============================================================ */
+/* ============================================================
+   THE LIVING SLATE (atmosphere) — procedural ambient audio + check SFX.
+   100% synthesized from oscillators + envelopes; NO audio files, so the built
+   index.html stays offline + asset-clean. A singleton OUTSIDE React so it
+   survives the per-game remount. Lazily boots an AudioContext on a user gesture
+   (browsers require it) and morphs a calm drone per tab. The sound toggle gates
+   it; default OFF (never surprise the player with audio).
+   ============================================================ */
+const SlateAudio = (() => {
+  let ctx = null, master = null, bed = null, shimTimer = null, on = false, scene = "status";
+  const SCENES = { status: [146.83, 220, 293.66], journey: [164.81, 246.94, 329.63], shrines: [155.56, 233.08, 311.13], items: [174.61, 261.63, 349.23], cook: [196, 293.66, 392], guide: [164.81, 220, 277.18], lore: [130.81, 196, 261.63] };
+  const PENTA = [523.25, 587.33, 698.46, 783.99, 880];
+  const cur = () => SCENES[scene] || SCENES.status;
+  function ensure() {
+    if (ctx) return ctx;
+    try { const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null; ctx = new AC(); master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination); } catch (e) { ctx = null; }
+    return ctx;
+  }
+  function buildBed() {
+    if (!ctx || bed) return;
+    const g = ctx.createGain(); g.gain.value = 1;
+    const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 900; lp.Q.value = 0.6; g.connect(lp); lp.connect(master);
+    const oscs = cur().map((f, i) => { const o = ctx.createOscillator(); o.type = i === 0 ? "sine" : "triangle"; o.frequency.value = f; const og = ctx.createGain(); og.gain.value = i === 0 ? 0.5 : 0.2; o.connect(og); og.connect(g); o.start(); return o; });
+    const lfo = ctx.createOscillator(); lfo.frequency.value = 0.07; const lg = ctx.createGain(); lg.gain.value = 0.16; lfo.connect(lg); lg.connect(g.gain); lfo.start();
+    bed = { oscs };
+  }
+  function ping() {
+    if (!ctx || ctx.state !== "running") return;
+    const t = ctx.currentTime, f = PENTA[(Math.random() * PENTA.length) | 0];
+    const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = f;
+    const g = ctx.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.11, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0008, t + 2.4);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + 2.5);
+  }
+  function loopShim() { clearTimeout(shimTimer); shimTimer = setTimeout(() => { ping(); loopShim(); }, 5000 + Math.random() * 6000); }
+  function fade(to, secs) { if (!ctx || !master) return; const t = ctx.currentTime; master.gain.cancelScheduledValues(t); master.gain.setTargetAtTime(to, t, secs); }
+  return {
+    enable() {
+      if (!ensure()) return;
+      if (ctx.state === "suspended") { ctx.resume(); try { document.addEventListener("pointerdown", () => { if (on && ctx) ctx.resume(); }, { once: true }); } catch (e) {} }
+      buildBed(); on = true; fade(0.09, 0.9); loopShim();
+      const t = ctx.currentTime; [392, 523.25, 659.25].forEach((f, i) => { const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = f; const g = ctx.createGain(); const s = t + i * 0.12; g.gain.setValueAtTime(0, s); g.gain.linearRampToValueAtTime(0.1, s + 0.02); g.gain.exponentialRampToValueAtTime(0.001, s + 0.9); o.connect(g); g.connect(master); o.start(s); o.stop(s + 1); });
+    },
+    disable() { clearTimeout(shimTimer); on = false; fade(0, 0.5); },
+    setScene(s) { scene = SCENES[s] ? s : "status"; if (!ctx || !bed) return; const t = ctx.currentTime; bed.oscs.forEach((o, i) => { o.frequency.cancelScheduledValues(t); o.frequency.setTargetAtTime(cur()[i], t, 1.2); }); },
+    tick() {
+      if (!on || !ctx || ctx.state !== "running") return;
+      const t = ctx.currentTime; const o = ctx.createOscillator(); o.type = "triangle"; o.frequency.setValueAtTime(880, t); o.frequency.exponentialRampToValueAtTime(1320, t + 0.06);
+      const g = ctx.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.13, t + 0.01); g.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
+      o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.25);
+    },
+  };
+})();
+
+/* The powering-on Sheikah circuit field — a fixed canvas of drifting, linking
+   nodes behind the app. JS-side reduced-motion guard: paints ONE static frame
+   instead of animating. Only mounted when the Motion toggle is on. */
+function SlateBackground() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const cv = ref.current; if (!cv) return;
+    const g2 = cv.getContext("2d"); if (!g2) return;
+    const reduce = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const dpr = Math.min(2, (typeof window !== "undefined" && window.devicePixelRatio) || 1);
+    let raf = 0, w = 0, h = 0;
+    const N = 28, nodes = [];
+    const resize = () => { w = cv.clientWidth || window.innerWidth; h = cv.clientHeight || window.innerHeight; cv.width = w * dpr; cv.height = h * dpr; g2.setTransform(dpr, 0, 0, dpr, 0, 0); };
+    const seed = () => { nodes.length = 0; for (let i = 0; i < N; i++) nodes.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.13, vy: (Math.random() - 0.5) * 0.13, r: 0.8 + Math.random() * 1.7, ph: Math.random() * 6.28 }); };
+    const draw = (t, move) => {
+      g2.clearRect(0, 0, w, h);
+      for (let i = 0; i < N; i++) { const a = nodes[i]; for (let j = i + 1; j < N; j++) { const b = nodes[j]; const dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy; if (d2 < 16900) { const al = (1 - Math.sqrt(d2) / 130) * 0.15; g2.strokeStyle = "rgba(95,214,226," + al.toFixed(3) + ")"; g2.lineWidth = 0.6; g2.beginPath(); g2.moveTo(a.x, a.y); g2.lineTo(b.x, b.y); g2.stroke(); } } }
+      for (let i = 0; i < N; i++) { const n = nodes[i]; if (move) { n.x += n.vx; n.y += n.vy; if (n.x < 0 || n.x > w) n.vx *= -1; if (n.y < 0 || n.y > h) n.vy *= -1; } const p = 0.5 + 0.5 * Math.sin(t * 0.0008 + n.ph); g2.fillStyle = "rgba(240,144,42," + (0.03 + p * 0.05).toFixed(3) + ")"; g2.beginPath(); g2.arc(n.x, n.y, n.r * 3.4, 0, 6.2832); g2.fill(); g2.fillStyle = "rgba(95,214,226," + (0.1 + p * 0.22).toFixed(3) + ")"; g2.beginPath(); g2.arc(n.x, n.y, n.r, 0, 6.2832); g2.fill(); }
+    };
+    const loop = (ts) => { draw(ts, true); raf = requestAnimationFrame(loop); };
+    resize(); seed();
+    if (reduce) draw(0, false); else raf = requestAnimationFrame(loop);
+    const onR = () => { resize(); seed(); };
+    window.addEventListener("resize", onR);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", onR); };
+  }, []);
+  return <canvas ref={ref} className="slate-bg" aria-hidden="true" />;
+}
+
 function Glyph({ name, size = 26 }) {
   const s = { width: size, height: size, display: "block" };
   const c = { fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
@@ -533,6 +615,8 @@ function Glyph({ name, size = 26 }) {
     case "search": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><circle cx="20" cy="20" r="11" /><path d="M28 28l11 11" /></svg>);
     case "pencil": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M32 8l8 8-22 22-10 2 2-10L32 8Z" /><path d="M28 12l8 8" /></svg>);
     case "pin": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M24 6c8 0 13 5 13 13 0 9-13 23-13 23S11 28 11 19C11 11 16 6 24 6Z" /><circle cx="24" cy="19" r="4.5" fill="currentColor" stroke="none" /></svg>);
+    case "sound": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M10 19h7l9-7v24l-9-7h-7V19Z" fill="currentColor" stroke="currentColor" /><path d="M31 18c3 3 3 9 0 12M36 13c6 6 6 16 0 22" fill="none" /></svg>);
+    case "mute": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M10 19h7l9-7v24l-9-7h-7V19Z" fill="currentColor" stroke="currentColor" /><path d="M33 19l10 10M43 19L33 29" fill="none" /></svg>);
     default: return null;
   }
 }
@@ -749,6 +833,8 @@ function HyruleGame({ game, setGame, games }) {
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
+  const [atmos, setAtmos] = useState({ motion: true, sound: false, haptics: true }); // The Living Slate (hyrule:prefs): circuit bg · ambient audio · check haptics
+  const atmosRef = useRef({ motion: true, sound: false, haptics: true });
   const [flash, setFlash] = useState(null);          // v9: step id whose check is pulsing (joy pass)
   const [stepFlash, setStepFlash] = useState(null);  // v9: step id highlighted after a Resume jump
   const [shrinePin, setShrinePin] = useState(null);     // v12.3: "I'm here" current-shrine id (botw:shrinepin)
@@ -773,7 +859,7 @@ function HyruleGame({ game, setGame, games }) {
       try { if (kk != null) setKoroks(parseInt(kk, 10) || 0); } catch (e) {}
       try { if (nt) setNotes(JSON.parse(nt)); } catch (e) {}
       try { if (at) setArmorTier(JSON.parse(at)); } catch (e) {}
-      try { if (pr) { const o = JSON.parse(pr); if (o && typeof o.spoiler === "boolean") setSpoiler(o.spoiler); } } catch (e) {}
+      try { if (pr) { const o = JSON.parse(pr); if (o && typeof o.spoiler === "boolean") setSpoiler(o.spoiler); if (o && o.atmos && typeof o.atmos === "object") setAtmos((d) => ({ ...d, ...o.atmos })); } } catch (e) {}
       try { if (rc) { const a = JSON.parse(rc); if (Array.isArray(a)) setRecipes(a); } } catch (e) {}
       try { if (rd) { const o = JSON.parse(rd); if (o && typeof o === "object") setReading(o); } } catch (e) {}
       try { if (bm) { const o = JSON.parse(bm); if (o && typeof o === "object") setBookmarks(o); } } catch (e) {}
@@ -801,7 +887,10 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("notes"), JSON.stringify(notes)); }, [notes, loaded]);
   useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
   useEffect(() => { if (loaded) store.set(K("recipes"), JSON.stringify(recipes)); }, [recipes, loaded]);
-  useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler })); }, [spoiler, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler, atmos })); }, [spoiler, atmos, loaded]);
+  // The Living Slate: drive the ambient engine off the sound toggle + tab (scene morph). Default off.
+  useEffect(() => { if (!loaded) return; if (atmos.sound) SlateAudio.enable(); else SlateAudio.disable(); }, [atmos.sound, loaded]);
+  useEffect(() => { if (atmos.sound) SlateAudio.setScene(tab); }, [tab, atmos.sound]);
   useEffect(() => { if (loaded) store.set("hyrule:reading", JSON.stringify(reading)); }, [reading, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:bookmarks", JSON.stringify(bookmarks)); }, [bookmarks, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:readerprefs", JSON.stringify(readerPrefs)); }, [readerPrefs, loaded]);
@@ -857,10 +946,16 @@ function HyruleGame({ game, setGame, games }) {
   }, []);
 
   progressRef.current = progress;
+  atmosRef.current = atmos;
   const toggleStep = useCallback((id) => {
     const turningOn = !progressRef.current[id];
     setProgress((p) => { const n = { ...p }; if (n[id]) delete n[id]; else n[id] = true; return n; });
-    if (turningOn) { setFlash(id); clearTimeout(flashTimer.current); flashTimer.current = setTimeout(() => setFlash(null), 650); } // v9: pulse only on check-on, never on load
+    if (turningOn) {
+      setFlash(id); clearTimeout(flashTimer.current); flashTimer.current = setTimeout(() => setFlash(null), 650); // v9: pulse only on check-on, never on load
+      const a = atmosRef.current; // The Living Slate: tactile + audible confirmation (gated, guarded)
+      if (a.haptics && typeof navigator !== "undefined" && navigator.vibrate) { try { navigator.vibrate(12); } catch (e) {} }
+      if (a.sound) SlateAudio.tick();
+    }
   }, []);
   const reveal = useCallback((id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; }), []); // v9: progressive spoiler reveal
   const toggleSection = useCallback((id) => setOpenSections((o) => ({ ...o, [id]: !o[id] })), []);
@@ -1040,6 +1135,7 @@ function HyruleGame({ game, setGame, games }) {
   return (
     <div className="app">
       <StyleBlock />
+      {atmos.motion && <SlateBackground />}
       <header className="topbar">
         <div className="brand">
           <span className="eye" aria-hidden><Glyph name="eye" size={30} /></span>
@@ -1048,6 +1144,7 @@ function HyruleGame({ game, setGame, games }) {
         <div className="topbar-r">
           {Object.keys(games).length > 1 && <button className="game-switch" onClick={() => setShelfOpen(true)} aria-label="Switch game" style={{ "--ga": G.meta?.accent || "var(--cyan)" }}><span className="game-switch-dot" /><span>{G.short}</span><span className="game-switch-chev">▾</span></button>}
           {resumeTarget && <button className="resume-trigger" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)} aria-label={"Resume — you're here: " + resumeTarget.secName}><Glyph name="pin" size={15} /><span>Resume</span></button>}
+          <button className={"atmos-trigger" + (atmos.sound ? " atmos-on" : "")} onClick={() => setAtmos((a) => ({ ...a, sound: !a.sound }))} aria-label={atmos.sound ? "Mute the Slate" : "Wake the Slate"} aria-pressed={atmos.sound}><Glyph name={atmos.sound ? "sound" : "mute"} size={18} /></button>
           <button className="search-trigger" onClick={() => { setSearchOpen(true); }} aria-label="Search everything"><Glyph name="search" size={18} /></button>
           <div className="region-chip">{pct}%</div>
         </div>
@@ -1301,7 +1398,7 @@ function HyruleGame({ game, setGame, games }) {
             : guideSub === "koroks" ? <KoroksView data={KOROKS} koroks={koroks} setKoroks={setKoroks} />
             : guideSub === "economy" ? <EconomyView data={ECONOMY} />
             : guideSub === "world" ? <WorldView data={WORLD} />
-            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
+            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} atmos={atmos} setAtmos={setAtmos} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
             : (
               <>
                 <p className="ref-lede">The handful of things that stop the early game from feeling brutal.</p>
@@ -2155,14 +2252,28 @@ function BackupBox({ doExport, doImport }) {
 }
 
 /* ============================================================ SETTINGS ============================================================ */
-function SettingsView({ spoiler, setSpoiler, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
+function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
   const ver = (typeof window !== "undefined" && window.__APP_VERSION__) || "dev";
+  const setA = (k) => setAtmos((a) => ({ ...a, [k]: !a[k] }));
   return (
     <>
       <p className="ref-lede">Make the app yours. Everything here is saved on your device — no account, no server.</p>
       <div className="set-row">
         <div className="set-txt"><div className="set-name">Spoiler-free mode</div><div className="set-sub">Hide shrine solutions, plus the rewards and champions of regions you haven't reached yet — explore first, tap to reveal whenever you want.</div></div>
         <button className={"toggle" + (spoiler ? " toggle-on" : "")} onClick={() => setSpoiler(!spoiler)} role="switch" aria-checked={spoiler} aria-label="Spoiler-free mode"><span className="toggle-knob" /></button>
+      </div>
+      <div className="set-group">The Living Slate</div>
+      <div className="set-row">
+        <div className="set-txt"><div className="set-name">Ancient circuitry</div><div className="set-sub">A faint Sheikah-tech field drifting behind the Slate. Honors your device's reduced-motion setting automatically.</div></div>
+        <button className={"toggle" + (atmos.motion ? " toggle-on" : "")} onClick={() => setA("motion")} role="switch" aria-checked={atmos.motion} aria-label="Ancient circuitry"><span className="toggle-knob" /></button>
+      </div>
+      <div className="set-row">
+        <div className="set-txt"><div className="set-name">Ambient sound</div><div className="set-sub">A calm, generated Sheikah hum that shifts as you move between tabs — no audio files, works offline. Off by default.</div></div>
+        <button className={"toggle" + (atmos.sound ? " toggle-on" : "")} onClick={() => setA("sound")} role="switch" aria-checked={atmos.sound} aria-label="Ambient sound"><span className="toggle-knob" /></button>
+      </div>
+      <div className="set-row">
+        <div className="set-txt"><div className="set-name">Haptic pulse</div><div className="set-sub">A tiny Sheikah-activation buzz when you check something off (phones with vibration only).</div></div>
+        <button className={"toggle" + (atmos.haptics ? " toggle-on" : "")} onClick={() => setA("haptics")} role="switch" aria-checked={atmos.haptics} aria-label="Haptic pulse"><span className="toggle-knob" /></button>
       </div>
       <div className="set-row">
         <div className="set-txt"><div className="set-name">Version & updates</div><div className="set-sub">You're on build <b style={{ color: "var(--cyan-dim)" }}>{ver}</b>. Updates arrive automatically when you reopen the app online; if a “new version” banner appears, tap Update.</div></div>
@@ -2892,6 +3003,12 @@ function StyleBlock() {
 /* --- v6: topbar search, overlay, backup, notes --- */
 .topbar-r{display:flex;align-items:center;gap:9px;}
 .search-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;}
+.atmos-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;transition:color .25s,box-shadow .25s,border-color .25s;}
+.atmos-trigger:active{transform:scale(.975);}
+.atmos-trigger.atmos-on{color:var(--cyan);border-color:rgba(95,214,226,0.55);box-shadow:0 0 11px rgba(95,214,226,0.38),inset 0 0 6px rgba(95,214,226,0.2);animation:atmos-breathe 3.2s ease-in-out infinite;}
+@keyframes atmos-breathe{0%,100%{box-shadow:0 0 8px rgba(95,214,226,0.26),inset 0 0 5px rgba(95,214,226,0.15);}50%{box-shadow:0 0 16px rgba(95,214,226,0.52),inset 0 0 9px rgba(95,214,226,0.3);}}
+.slate-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.9;}
+.set-group{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan-dim);margin:20px 2px 9px;border-top:1px solid rgba(95,214,226,0.12);padding-top:16px;}
 .search-overlay{position:fixed;inset:0;z-index:50;background:rgba(7,14,18,0.97);backdrop-filter:blur(6px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
 .search-bar{display:flex;gap:8px;padding:14px 16px 10px;border-bottom:1px solid rgba(95,214,226,0.14);}
 .search-bar .search-input{flex:1;}

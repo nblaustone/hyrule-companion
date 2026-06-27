@@ -5,6 +5,31 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-26 — v18.0: "The Living Slate" — atmosphere layer (procedural audio · circuit canvas · haptics)
+
+- **User: "make this app out of this world — futuristic, spectacular, sexy."** I pitched a vision (reframe: finish
+  building the *Sheikah Slate itself*) + a vision-board widget; owner: "yes love it do it!!" Picked the
+  highest-feel / lowest-risk first step: an atmosphere layer. ADR 0011.
+- **Everything is generated on-device → the offline/asset-clean law is untouched** (`build.mjs` offline check still
+  passes). No new files. `SlateAudio` = a module-level singleton (OUTSIDE React so it survives the per-game
+  `key={game}` remount) that boots a Web-Audio `AudioContext` on a user gesture and SYNTHESIZES a drone (chord
+  morphs per tab) + pentatonic shimmer + boot arpeggio + check tick from oscillators. `SlateBackground` = a fixed
+  `<canvas>` circuit field behind the app. Haptics = guarded `navigator.vibrate`.
+- **Defaults are conservative** (don't change the feel until opted in): motion on but **reduced-motion-respecting**
+  (JS guard paints a static frame, since `*{animation:none}` only kills CSS, not rAF), **sound OFF** (never surprise
+  with audio; also Web-Audio needs a gesture anyway), haptics on (mobile-only no-op elsewhere). Controls in
+  Guide→Settings + a topbar speaker toggle; persisted in `hyrule:prefs`; NOT in the backup blob (cosmetic).
+- **Bug caught in-browser (banked):** `position:fixed;inset:0` does NOT stretch a `<canvas>` — it's a replaced
+  element with intrinsic 300×150, so insets are over-constrained and ignored. Needs explicit `width/height:100%`.
+  The headless preview also reported `innerWidth:0` post-reload (eval-context quirk) — the **screenshot was ground
+  truth** (circuit clearly drifting behind content). Lesson reinforced: trust the screenshot over eval geometry.
+- **Verified:** circuit renders, topbar+Settings toggles share state & persist, motion mounts/unmounts the canvas,
+  0 console errors, offline-clean. This is hand-authored cohesive UI/engine work → done as a **serial cascade by
+  me, NOT a workflow** (AGENT_WORKFLOW.md: fan out only for independent like-items; this isn't that).
+- **NEXT in the arc (owner greenlit):** the offline AI oracle "Ask the Slate" — on-device LLM (WebLLM/WebGPU)
+  RAG'd on our own JSON, voice in/out, device-local via the ADR-0009 IndexedDB pattern (published artifact stays
+  ~1 MB). Bigger build; will get its own ADR + a proof-of-concept spike first.
+
 ## 2026-06-26 — v17.13: TotK Items compendium (478) + app-wide gap audit → zero content gaps left
 
 - **User: "then do it! and add whatever else is missing… assess, plan, intervene and reevaluate."** So I ran the
