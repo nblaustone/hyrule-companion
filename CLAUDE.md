@@ -666,6 +666,21 @@ layout, `REGION_MAPS` = the per-region coords.
   cold-region *shrine* instead of the Spicy recipe (the intent word "cook" is a stop-word for token-matching but
   still routes the category). Verified in-browser: chooser renders, cook→Cooking, beat→Enemy, rupees→Money, Phase-1
   fallback, mobile layout, 0 console errors, offline-clean.
+- **v18.4 — Ask-the-Slate STABILITY pass (from real-device testing on iPhone).** The owner tested on an installed
+  iOS PWA: the **Balanced 1B model crashed the Safari tab (OOM)**, and because the oracle **auto-loaded on every
+  open**, it became a **crash loop** (open AI → auto-load too-big model → tab dies → back to Status); the **mic
+  hard-froze the screen** (iOS home-screen-app SpeechRecognition + main-thread inference). Fixes: **(1) inference now
+  runs in a Web Worker** — `boot()` builds a blob module-worker (`new webllm.WebWorkerMLCEngineHandler()`) +
+  `CreateWebWorkerMLCEngine`, with a try/catch fallback to main-thread `CreateMLCEngine`; keeps the UI responsive.
+  **(2) NO auto-load** — removed the on-open `SlateLLM.load()`; the player taps to start each session (kills the
+  crash loop). **(3) Default to Light, recommended-first; Balanced marked "can be heavy on phones."** **(4) Recovery:
+  `SlateLLM.forget()` (unload engine + terminate worker → idle) wired to a "Turn off" button on the ready/error
+  bars; error copy now says "may have run out of memory — try Light."** **(5) cache-load label** ("Loading from your
+  device…" when `prog.text` mentions cache, vs "Downloading…"). **(6) mic hidden in iOS installed PWA**
+  (`navigator.standalone === true` → `canMic=false`; typing always works) + a 10s safety auto-stop timeout.
+  `reload()` also terminates the old worker. Verified in-browser: prior-opt-in no longer auto-loads (idle + chooser),
+  Light-first chooser, Phase-1 fallback, 0 console errors, offline-clean. **Still owner-on-device to confirm: that
+  the Light model now loads + runs in the worker without OOM.** New persisted value `hyrule:slatebrain` can be "0".
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

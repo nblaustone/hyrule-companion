@@ -2684,7 +2684,7 @@ const SLATE_LLM_TIERS = {
   light: { label: "Light", size: "~0.4 GB", note: "faster", prefer: ["Qwen2.5-0.5B-Instruct-q4f16_1-MLC", "SmolLM2-360M-Instruct-q4f16_1-MLC", "Qwen3-0.6B-q4f16_1-MLC", "SmolLM2-135M-Instruct-q4f16_1-MLC", "TinyLlama-1.1B-Chat-v1.0-q4f16_1-MLC"] },
 };
 const SlateLLM = (() => {
-  let lib = null, engine = null, status = "idle", modelId = null, tier = "balanced", prog = { p: 0, text: "" };
+  let lib = null, engine = null, worker = null, status = "idle", modelId = null, tier = "balanced", prog = { p: 0, text: "" };
   const listeners = new Set();
   const supported = () => typeof navigator !== "undefined" && !!navigator.gpu;
   const emit = () => listeners.forEach((fn) => { try { fn(); } catch (e) {} });
@@ -2708,7 +2708,15 @@ const SlateLLM = (() => {
       const t = SLATE_LLM_TIERS[tier] || SLATE_LLM_TIERS.balanced;
       modelId = pickModel(t.prefer, tier === "light");
       if (!modelId) { prog = { p: 0, text: "no compatible model" }; setStatus("error"); return; }
-      engine = await lib.CreateMLCEngine(modelId, { initProgressCallback: (r) => { prog = { p: r.progress || 0, text: r.text || "" }; emit(); } });
+      const cb = (r) => { prog = { p: r.progress || 0, text: r.text || "" }; emit(); };
+      try { // run inference in a Web Worker so generation never freezes the UI (the model is heavy on phones)
+        const code = 'import * as webllm from "' + SLATE_LLM_CDN + '"; const h = new webllm.WebWorkerMLCEngineHandler(); self.onmessage = (m) => h.onmessage(m);';
+        worker = new Worker(URL.createObjectURL(new Blob([code], { type: "text/javascript" })), { type: "module" });
+        engine = await lib.CreateWebWorkerMLCEngine(worker, modelId, { initProgressCallback: cb });
+      } catch (werr) { // some browsers block module/blob workers → fall back to the (UI-blocking) main-thread engine
+        try { if (worker) worker.terminate(); } catch (e) {} worker = null;
+        engine = await lib.CreateMLCEngine(modelId, { initProgressCallback: cb });
+      }
       setStatus("ready");
     } catch (e) { prog = { p: 0, text: String((e && e.message) || e) }; setStatus("error"); }
   }
@@ -2716,7 +2724,8 @@ const SlateLLM = (() => {
     supported, status: () => status, progress: () => prog, modelId: () => modelId, tier: () => tier,
     subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     async load(t) { if (t) tier = t; if (status === "loading" || status === "ready") return; if (!supported()) { setStatus("unsupported"); return; } await boot(); },
-    async reload(t) { if (status === "loading") return; if (!supported()) { setStatus("unsupported"); return; } if (t) tier = t; try { if (engine && engine.unload) await engine.unload(); } catch (e) {} engine = null; modelId = null; prog = { p: 0, text: "" }; await boot(); },
+    async reload(t) { if (status === "loading") return; if (!supported()) { setStatus("unsupported"); return; } if (t) tier = t; try { if (engine && engine.unload) await engine.unload(); } catch (e) {} try { if (worker) worker.terminate(); } catch (e) {} engine = null; worker = null; modelId = null; prog = { p: 0, text: "" }; await boot(); },
+    async forget() { try { if (engine && engine.unload) await engine.unload(); } catch (e) {} try { if (worker) worker.terminate(); } catch (e) {} engine = null; worker = null; modelId = null; prog = { p: 0, text: "" }; status = "idle"; emit(); },
     async ask(question, records, onToken) {
       if (status !== "ready" || !engine) throw new Error("not ready");
       const ctx = (records || []).slice(0, 4).map((r, i) => "[" + (i + 1) + "] " + r.cat + ": " + r.label + " — " + String(r.detail || "").replace(/\s+/g, " ")).join("\n");
@@ -2742,7 +2751,10 @@ function SlateOracle({ data, nav, label, onClose }) {
   const [prog, setProg] = useState(SlateLLM.progress());   // {p:0..1, text}
   const [llm, setLlm] = useState(null);                    // null | {text, busy, error} — the synthesized answer
   const recRef = useRef(null);
+  const voiceTimer = useRef(null);
   const SR = typeof window !== "undefined" ? (window.SpeechRecognition || window.webkitSpeechRecognition) : null;
+  const iosStandalone = typeof navigator !== "undefined" && navigator.standalone === true; // installed iOS PWA
+  const canMic = !!SR && !iosStandalone; // iOS home-screen-app speech recognition hangs the UI → hide it there (typing always works)
   const canSpeak = typeof window !== "undefined" && "speechSynthesis" in window;
   const results = useMemo(() => (asked.trim() ? slateRetrieve(asked, data) : null), [asked, data]);
   const top = results && results[0];
@@ -2761,11 +2773,12 @@ function SlateOracle({ data, nav, label, onClose }) {
   };
   const enableBrain = async (t) => { try { await store.set("hyrule:slatebrain", "1"); await store.set("hyrule:slatemodel", t); } catch (e) {} SlateLLM.load(t); };
   const switchModel = async () => { const next = SlateLLM.tier() === "light" ? "balanced" : "light"; try { await store.set("hyrule:slatemodel", next); } catch (e) {} setLlm(null); SlateLLM.reload(next); };
+  const turnOff = async () => { try { await store.set("hyrule:slatebrain", "0"); } catch (e) {} setLlm(null); SlateLLM.forget(); };
   useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => { document.removeEventListener("keydown", onKey); stopSpeak(); }; }, []);
   useEffect(() => { const un = SlateLLM.subscribe(() => { setBrain(SlateLLM.status()); setProg(SlateLLM.progress()); }); return un; }, []);
-  useEffect(() => { (async () => { if (!SlateLLM.supported()) { setBrain("unsupported"); return; } let on = null, mt = null; try { on = await store.get("hyrule:slatebrain"); mt = await store.get("hyrule:slatemodel"); } catch (e) {} if (on === "1" && SlateLLM.status() === "idle") SlateLLM.load(mt || "balanced"); })(); }, []);
-  const startVoice = () => { if (!SR) return; try { stopSpeak(); const rec = new SR(); rec.lang = "en-US"; rec.interimResults = false; rec.maxAlternatives = 1; rec.onresult = (e) => { const t = e.results[0][0].transcript; setQ(t); setListening(false); submit(t, true); }; rec.onerror = () => setListening(false); rec.onend = () => setListening(false); recRef.current = rec; setListening(true); rec.start(); } catch (e) { setListening(false); } };
-  const stopVoice = () => { try { recRef.current && recRef.current.stop(); } catch (e) {} setListening(false); };
+  useEffect(() => { if (!SlateLLM.supported()) setBrain("unsupported"); }, []); // NO auto-load: the player taps to start (avoids any crash-loop if a model is too heavy for the device)
+  const startVoice = () => { if (!canMic) return; try { stopSpeak(); const rec = new SR(); rec.lang = "en-US"; rec.interimResults = false; rec.maxAlternatives = 1; const done = () => { clearTimeout(voiceTimer.current); setListening(false); }; rec.onresult = (e) => { const t = e.results[0][0].transcript; setQ(t); done(); submit(t, true); }; rec.onerror = done; rec.onend = done; recRef.current = rec; setListening(true); clearTimeout(voiceTimer.current); voiceTimer.current = setTimeout(() => { try { rec.stop(); } catch (e) {} setListening(false); }, 10000); rec.start(); } catch (e) { setListening(false); } };
+  const stopVoice = () => { try { recRef.current && recRef.current.stop(); } catch (e) {} clearTimeout(voiceTimer.current); setListening(false); };
   const doNav = (n) => { if (!n) return; if (n.kind === "shrine") nav.shrine(n.args[0], n.args[1]); else if (n.kind === "guide") nav.guide(n.args[0]); else if (n.kind === "cook") nav.cook(); else if (n.kind === "items") nav.items(); else if (n.kind === "step") nav.step(n.args[0], n.args[1]); };
   const suggestions = useMemo(() => {
     const s = []; const { REGIONS = [], BESTIARY = { enemies: [] }, SIDE_QUESTS = [], RECIPES = [], COMPENDIUM = [] } = data || {};
@@ -2787,16 +2800,16 @@ function SlateOracle({ data, nav, label, onClose }) {
           <div className={"oracle-brain oracle-brain-" + brain}>
             {brain === "idle" && (
               <div className="oracle-brain-choose">
-                <div className="oracle-brain-q"><Glyph name="spark" size={15} /> Enable the AI brain <i>one-time download, then offline</i></div>
+                <div className="oracle-brain-q"><Glyph name="spark" size={15} /> Start the AI brain <i>downloads once, then offline</i></div>
                 <div className="oracle-brain-opts">
-                  <button className="oracle-brain-opt" onClick={() => enableBrain("balanced")}><b>Balanced</b><span>~0.9 GB · sharper</span></button>
-                  <button className="oracle-brain-opt" onClick={() => enableBrain("light")}><b>Light</b><span>~0.4 GB · faster</span></button>
+                  <button className="oracle-brain-opt oracle-brain-rec" onClick={() => enableBrain("light")}><b>Light <em>· recommended</em></b><span>~0.4 GB · fast, best for phones</span></button>
+                  <button className="oracle-brain-opt" onClick={() => enableBrain("balanced")}><b>Balanced</b><span>~0.9 GB · sharper · can be heavy on phones</span></button>
                 </div>
               </div>
             )}
-            {brain === "loading" && <div className="oracle-brain-load"><div className="oracle-brain-bar"><span style={{ width: Math.round((prog.p || 0) * 100) + "%" }} /></div><span className="oracle-brain-pct">Downloading the {SlateLLM.tier() === "light" ? "Light" : "Balanced"} brain… {Math.round((prog.p || 0) * 100)}% · keep this open</span></div>}
-            {brain === "ready" && <div className="oracle-brain-ready"><span><Glyph name="spark" size={14} /> AI brain on · {SlateLLM.tier() === "light" ? "Light" : "Balanced"}</span><button className="oracle-brain-switch" onClick={switchModel}>Switch to {SlateLLM.tier() === "light" ? "Balanced" : "Light"}</button></div>}
-            {brain === "error" && <div className="oracle-brain-err"><span>Couldn't load the AI brain (needs WebGPU + the one-time download). Using verified answers.</span><button onClick={enableBrain}>Retry</button></div>}
+            {brain === "loading" && <div className="oracle-brain-load"><div className="oracle-brain-bar"><span style={{ width: Math.round((prog.p || 0) * 100) + "%" }} /></div><span className="oracle-brain-pct">{/cache|loading model/i.test(prog.text || "") ? "Loading the " + (SlateLLM.tier() === "light" ? "Light" : "Balanced") + " brain from your device…" : "Downloading the " + (SlateLLM.tier() === "light" ? "Light" : "Balanced") + " brain…"} {Math.round((prog.p || 0) * 100)}% · keep this open</span></div>}
+            {brain === "ready" && <div className="oracle-brain-ready"><span><Glyph name="spark" size={14} /> AI brain on · {SlateLLM.tier() === "light" ? "Light" : "Balanced"}</span><span className="oracle-brain-actions"><button className="oracle-brain-switch" onClick={switchModel}>Switch to {SlateLLM.tier() === "light" ? "Balanced" : "Light"}</button><button className="oracle-brain-off" onClick={turnOff}>Turn off</button></span></div>}
+            {brain === "error" && <div className="oracle-brain-err"><span>Couldn't run the AI brain on this device — it may have run out of memory. Try the Light model, or keep using the verified answers below.</span><span className="oracle-brain-actions"><button onClick={() => enableBrain("light")}>Try Light</button><button className="oracle-brain-off" onClick={turnOff}>Turn off</button></span></div>}
           </div>
         ) : (!asked && <div className="oracle-unsupported">The talking AI brain needs WebGPU (an iPhone on iOS 26+, or Chrome). You'll still get exact, verified answers below — fully offline.</div>)}
         {!asked ? (
@@ -2834,7 +2847,7 @@ function SlateOracle({ data, nav, label, onClose }) {
         )}
       </div>
       <div className="oracle-input">
-        {SR && <button className={"oracle-mic" + (listening ? " listening" : "")} onClick={listening ? stopVoice : startVoice} aria-label={listening ? "Stop listening" : "Ask by voice"}><Glyph name="mic" size={18} /></button>}
+        {canMic && <button className={"oracle-mic" + (listening ? " listening" : "")} onClick={listening ? stopVoice : startVoice} aria-label={listening ? "Stop listening" : "Ask by voice"}><Glyph name="mic" size={18} /></button>}
         <input className="oracle-field" placeholder="Ask the Slate…" value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") submit(); }} />
         <button className="oracle-send" onClick={() => submit()} aria-label="Ask">Ask</button>
       </div>
@@ -3314,6 +3327,11 @@ function StyleBlock() {
 .oracle-brain-ready{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.22);border-radius:11px;padding:9px 13px;}
 .oracle-brain-ready>span{display:flex;align-items:center;gap:8px;}
 .oracle-brain-switch{flex-shrink:0;background:none;border:1px solid rgba(95,214,226,0.35);color:var(--cyan);border-radius:10px;padding:5px 10px;font-size:11.5px;cursor:pointer;}
+.oracle-brain-rec{border-color:rgba(95,214,226,0.55);background:rgba(95,214,226,0.1);}
+.oracle-brain-opt b em{font-style:normal;font-weight:600;font-size:10px;color:var(--cyan);letter-spacing:.3px;}
+.oracle-brain-ready{flex-wrap:wrap;}
+.oracle-brain-actions{display:flex;gap:7px;align-items:center;flex-shrink:0;}
+.oracle-brain-off{background:none;border:1px solid rgba(255,255,255,0.18);color:var(--parch-dim);border-radius:10px;padding:5px 10px;font-size:11.5px;cursor:pointer;}
 .oracle-brain-err{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--parch-dim);background:rgba(224,80,107,0.08);border:1px solid rgba(224,80,107,0.3);border-radius:11px;padding:10px 13px;}
 .oracle-brain-err button{background:none;border:1px solid rgba(95,214,226,0.4);color:var(--cyan);border-radius:10px;padding:5px 11px;font-size:12px;cursor:pointer;}
 .oracle-unsupported{font-size:13px;line-height:1.55;color:var(--parch-dim);background:rgba(15,28,34,0.5);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:13px;margin-bottom:14px;}

@@ -5,6 +5,31 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-27 — v18.4: Ask-the-Slate STABILITY pass (real-device iPhone testing exposed crash-loop + freeze)
+
+- **Owner tested on an installed iOS PWA and it broke hard:** Balanced (1B, ~0.9GB) **crashed the Safari tab (OOM)**;
+  because I auto-loaded the model on every oracle open, it became a **crash loop** (open → auto-load → tab dies →
+  Status → repeat). The **mic hard-froze the screen** (force-quit needed). Loading-from-cache was mislabeled
+  "Downloading" so it looked like it re-downloaded each time.
+- **Root causes + fixes:**
+  1. **OOM from a too-big model on iOS.** iOS Safari caps per-tab memory; a 1B model + KV cache blows it. Fix:
+     **default to Light (0.5B, recommended-first); mark Balanced "can be heavy on phones."** A JS try/catch can't
+     catch a tab OOM crash — the only defense is not loading a model too big, so the model choice IS the safety.
+  2. **Auto-load = crash loop.** Removed the on-open `SlateLLM.load()` entirely — **the player taps to start each
+     session.** Convenience lost, safety gained. (A feature that can crash the tab must never auto-run on open.)
+  3. **Main-thread inference froze the UI.** Moved inference to a **Web Worker** (blob module-worker +
+     `CreateWebWorkerMLCEngine`, fallback to main-thread). Generation no longer blocks touch.
+  4. **No escape from a bad state.** Added `SlateLLM.forget()` (unload + terminate worker → idle) + a "Turn off"
+     button on ready/error bars; error copy guides to Light.
+  5. **iOS installed-PWA SpeechRecognition hangs.** Hide the mic when `navigator.standalone === true` (typing always
+     works); added a 10s auto-stop timeout where it IS shown.
+  6. Cache-load now labeled "Loading from your device…" (reads `prog.text` for "cache").
+- **Lesson banked: ship device-capability features (WebGPU/large-download/speech) behind opt-in, default to the
+  SMALLEST viable option, never auto-run them on open, give a one-tap recovery, and treat a real-device report as
+  the real test — the sandbox has WebGPU but won't reproduce iOS memory limits or standalone-PWA speech bugs.**
+- Verified in-browser: prior-opt-in no longer auto-loads (stays idle + chooser), Light-first, Phase-1 fallback,
+  0 console errors, offline-clean. The Light-in-worker load/run is the owner's next on-device check.
+
 ## 2026-06-27 — v18.3: Ask-the-Slate polish — model-size chooser + intent-aware retrieval
 
 - **User: "yes do that please"** (a lighter/faster model option). Added **two tiers** (`SLATE_LLM_TIERS`):
