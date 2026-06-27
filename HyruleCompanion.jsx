@@ -38,6 +38,7 @@ const CHECKABLE = new Set(["step", "loot", "optional", "reward"]);
    zero-dependency parser — no decompression library is shipped, the
    offline build stays ~1MB, and nothing copyrighted is ever published. */
 const BOOKS_DB = "hyrule-books", BOOKS_STORE = "pages";
+const MAP_DB = "hyrule-map", MAP_STORE = "img";
 const booksDB = {
   _p: null,
   open() {
@@ -80,6 +81,26 @@ const booksDB = {
       tx.oncomplete = res; tx.onerror = () => rej(tx.error);
     });
   },
+};
+
+/* v21: the OWNER's own map image, stored DEVICE-LOCAL only (IndexedDB) — never uploaded, never in
+   the repo or the built index.html (ADR 0009, same as the Bookshelf). The app ships no Nintendo art;
+   the user may drop in their own copy and the Slate Map overlays the accurate, clickable markers on it. */
+const mapDB = {
+  _p: null,
+  open() {
+    if (this._p) return this._p;
+    this._p = new Promise((res, rej) => {
+      if (typeof indexedDB === "undefined") return rej(new Error("no IndexedDB"));
+      const r = indexedDB.open(MAP_DB, 1);
+      r.onupgradeneeded = () => { const db = r.result; if (!db.objectStoreNames.contains(MAP_STORE)) db.createObjectStore(MAP_STORE); };
+      r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+    });
+    return this._p;
+  },
+  async put(key, blob) { const db = await this.open(); return new Promise((res, rej) => { const tx = db.transaction(MAP_STORE, "readwrite"); tx.objectStore(MAP_STORE).put(blob, key); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }); },
+  async get(key) { const db = await this.open(); return new Promise((res, rej) => { const rq = db.transaction(MAP_STORE, "readonly").objectStore(MAP_STORE).get(key); rq.onsuccess = () => res(rq.result || null); rq.onerror = () => rej(rq.error); }); },
+  async del(key) { const db = await this.open(); return new Promise((res, rej) => { const tx = db.transaction(MAP_STORE, "readwrite"); tx.objectStore(MAP_STORE).delete(key); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }); },
 };
 
 /* read a STORE-ONLY .hbook.zip (ArrayBuffer) → { meta, files:Map(name→Uint8Array) } */
@@ -1169,6 +1190,7 @@ function HyruleGame({ game, setGame, games }) {
       {mapOpen && MAP_COORDS && MAP_COORDS.shrines && (
         <SlateMap coords={MAP_COORDS} shrines={SHRINES} progress={progress} toggleStep={toggleStep}
           spoiler={spoiler} focusRegion={mapFocus} mapPin={mapPin} setMapPin={setMapPin} accent={G.meta?.accent}
+          game={game} towersData={TOWERS} fairiesData={GREAT_FAIRIES}
           onOpenShrine={(rk, id) => { setMapOpen(false); focusShrine(rk, id); }}
           onClose={() => setMapOpen(false)} />
       )}
@@ -2438,38 +2460,67 @@ function RegionMiniMap({ coords, regionKey, regionShrines, progress, toggleStep,
 }
 
 /* The full-screen, pan/zoom Slate Map. Portaled to body (escapes stacking + safe-area). */
-function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, mapPin, setMapPin, onOpenShrine, onClose, accent }) {
+function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, mapPin, setMapPin, onOpenShrine, onClose, accent, game, towersData, fairiesData }) {
   const b = coords.bounds, worldW = b.xmax - b.xmin, worldH = b.zmax - b.zmin;
   const terrain = useMemo(() => getTerrain(coords), [coords]);
-  const cvRef = useRef(null);
-  const vref = useRef({ k: 0, x: 0, y: 0 });   // k = screen px per world unit
+  const cvRef = useRef(null), fileRef = useRef(null), alignPts = useRef([]);
+  const vref = useRef({ k: 0, x: 0, y: 0 });   // k = screen px per CONTENT px
   const [view, setView] = useState({ k: 0, x: 0, y: 0 });
   const ptrs = useRef(new Map());
-  const pinch = useRef(null);
-  const tapRef = useRef(null);
-  const rafId = useRef(0);
+  const pinch = useRef(null), tapRef = useRef(null), rafId = useRef(0);
   const [sel, setSel] = useState(null);
   const [placing, setPlacing] = useState(false);
+  const [align, setAlign] = useState(0);       // 0 off · 1 first ref · 2 second ref
   const [q, setQ] = useState("");
   const [layers, setLayers] = useState({ shrines: true, towers: true, fairies: true, beasts: true, places: true });
+  const [bitmap, setBitmap] = useState(null);  // {src,w,h} of the owner's own imported map image (device-local)
+  const [mapCal, setMapCal] = useState(null);  // {a,b,c,d} world→image-pixel calibration
+  const [imgErr, setImgErr] = useState("");
 
   const shrMeta = useMemo(() => { const m = {}; (shrines || []).forEach((g) => g.shrines.forEach((sh, i) => { m[sh.name] = { rk: g.regionKey, i, region: g.regionName, obj: sh }; })); return m; }, [shrines]);
+  const towerInfo = useMemo(() => { const m = {}; ((towersData) || []).forEach((t) => { m[t.name] = t; }); return m; }, [towersData]);
+  const fairyInfo = useMemo(() => { const m = {}; ((fairiesData) || []).forEach((f) => { m[f.name] = f; }); return m; }, [fairiesData]);
   let sdone = 0, stotal = 0;
   for (const n in coords.shrines) { stotal++; const s = coords.shrines[n]; if (progress[SHR_ID(s.rk, s.i)]) sdone++; }
 
+  // CONTENT = the thing we draw + place markers on: the generated terrain, OR the owner's imported image.
+  // world→content via {a,b,c,d}; for terrain it's just the bounds scale, for an image it's the calibration.
+  const content = useMemo(() => {
+    if (bitmap) {
+      const MW = bitmap.w, MH = bitmap.h;
+      const cal = mapCal || { a: MW / worldW, b: -b.xmin * MW / worldW, c: MH / worldH, d: -b.zmin * MH / worldH };
+      return { src: bitmap.src, MW, MH, img: true, ...cal };
+    }
+    const t = terrain, MW = t.canvas.width, MH = t.canvas.height;
+    return { src: t.canvas, MW, MH, img: false, a: MW / worldW, b: -b.xmin * MW / worldW, c: MH / worldH, d: -b.zmin * MH / worldH };
+  }, [bitmap, mapCal, terrain]);
+  const cKey = content.MW + "x" + content.MH + (content.img ? "i" : "t");
+  const C = content;
+  const W2C = (wx, wz) => ({ x: C.a * wx + C.b, y: C.c * wz + C.d });          // world → content px
+  const C2W = (cx, cy) => ({ x: (cx - C.b) / C.a, z: (cy - C.d) / C.c });      // content px → world
+
+  const alignTowers = useMemo(() => { const f = (n) => (coords.towers || []).find((t) => t.name === n); const a = f("Great Plateau Tower") || (coords.towers || [])[0]; const c = f("Akkala Tower") || (coords.towers || [])[(coords.towers || []).length - 1]; return [a, c].filter(Boolean); }, [coords]);
+
   const dims = () => { const el = cvRef.current; return { W: (el && el.clientWidth) || 360, H: (el && el.clientHeight) || 640 }; };
-  const fitK = () => { const { W, H } = dims(); return Math.min(W / worldW, H / worldH) * 0.92; };
-  const clampV = () => { const v = vref.current, { W, H } = dims(); const kMin = fitK() * 0.7, kMax = fitK() * 16; v.k = Math.max(kMin, Math.min(kMax, v.k)); const mW = worldW * v.k, mH = worldH * v.k; v.x = mW <= W ? (W - mW) / 2 : Math.max(W - mW, Math.min(0, v.x)); v.y = mH <= H ? (H - mH) / 2 : Math.max(H - mH, Math.min(0, v.y)); };
+  const fitK = () => { const { W, H } = dims(); return Math.min(W / C.MW, H / C.MH) * 0.92; };
+  const clampV = () => { const v = vref.current, { W, H } = dims(); const kMin = fitK() * 0.6, kMax = fitK() * 18; v.k = Math.max(kMin, Math.min(kMax, v.k)); const mW = C.MW * v.k, mH = C.MH * v.k, P = Math.min(W, H) * 0.5; v.x = mW <= W ? (W - mW) / 2 : Math.max(W - mW - P, Math.min(P, v.x)); v.y = mH <= H ? (H - mH) / 2 : Math.max(H - mH - P, Math.min(P, v.y)); };
   const commit = () => { if (rafId.current) return; rafId.current = requestAnimationFrame(() => { rafId.current = 0; setView({ ...vref.current }); }); };
-  const W2S = (wx, wz) => ({ x: (wx - b.xmin) * vref.current.k + vref.current.x, y: (wz - b.zmin) * vref.current.k + vref.current.y });
-  const setFit = () => { const k = fitK(), { W, H } = dims(); vref.current = { k, x: (W - worldW * k) / 2, y: (H - worldH * k) / 2 }; clampV(); setView({ ...vref.current }); };
-  const fitBoxW = (x0, z0, x1, z1, pad = 1.5) => { const { W, H } = dims(); const bw = Math.max(x1 - x0, 200) * pad, bh = Math.max(z1 - z0, 200) * pad; const kMin = fitK() * 0.7, kMax = fitK() * 16; const k = Math.max(kMin, Math.min(kMax, Math.min(W / bw, H / bh))); const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2; vref.current = { k, x: W / 2 - (cx - b.xmin) * k, y: H / 2 - (cz - b.zmin) * k }; clampV(); setView({ ...vref.current }); };
+  const S = (wx, wz) => { const c = W2C(wx, wz); return { x: c.x * vref.current.k + vref.current.x, y: c.y * vref.current.k + vref.current.y }; };
+  const setFit = () => { const k = fitK(), { W, H } = dims(); vref.current = { k, x: (W - C.MW * k) / 2, y: (H - C.MH * k) / 2 }; clampV(); setView({ ...vref.current }); };
+  const fitBoxW = (x0, z0, x1, z1, pad = 1.5) => { const { W, H } = dims(); const c0 = W2C(x0, z0), c1 = W2C(x1, z1); const bw = Math.max(Math.abs(c1.x - c0.x), 50) * pad, bh = Math.max(Math.abs(c1.y - c0.y), 50) * pad; const kMin = fitK() * 0.6, kMax = fitK() * 18; const k = Math.max(kMin, Math.min(kMax, Math.min(W / bw, H / bh))); const mx = (c0.x + c1.x) / 2, my = (c0.y + c1.y) / 2; vref.current = { k, x: W / 2 - mx * k, y: H / 2 - my * k }; clampV(); setView({ ...vref.current }); };
   const fitRegion = (rk) => { const r = coords.regions[rk]; if (r) fitBoxW(r.x0, r.z0, r.x1, r.z1, 1.8); };
-  const zoomAt = (cx, cy, f) => { const v = vref.current; if (!v.k) return; const kMin = fitK() * 0.7, kMax = fitK() * 16; const k2 = Math.max(kMin, Math.min(kMax, v.k * f)); const wx = (cx - v.x) / v.k, wz = (cy - v.y) / v.k; v.k = k2; v.x = cx - wx * k2; v.y = cy - wz * k2; clampV(); commit(); };
-  const flyTo = (name) => { const s = coords.shrines[name]; if (!s) return; fitBoxW(s.x - 750, s.z - 750, s.x + 750, s.z + 750, 1.1); setSel({ name, s, ...shrMeta[name] }); setQ(""); };
+  const zoomAt = (cx, cy, f) => { const v = vref.current; if (!v.k) return; const kMin = fitK() * 0.6, kMax = fitK() * 18; const k2 = Math.max(kMin, Math.min(kMax, v.k * f)); const px = (cx - v.x) / v.k, py = (cy - v.y) / v.k; v.k = k2; v.x = cx - px * k2; v.y = cy - py * k2; clampV(); commit(); };
+  const flyTo = (name) => { const s = coords.shrines[name]; if (!s) return; fitBoxW(s.x - 750, s.z - 750, s.x + 750, s.z + 750, 1.1); setSel({ type: "shrine", name, wx: s.x, wz: s.z, ...shrMeta[name] }); setQ(""); };
   const locate = () => { if (!mapPin) return; fitBoxW(mapPin.x - 850, mapPin.z - 850, mapPin.x + 850, mapPin.z + 850, 1.1); };
 
-  // the render loop — terrain (one drawImage) + markers + readable labels, all in screen px
+  // ── owner's-own-map image (device-local; never uploaded / committed — ADR 0009) ──
+  const loadImg = async (blob) => { try { const bm = await createImageBitmap(blob); return { src: bm, w: bm.width, h: bm.height }; } catch (e) { return await new Promise((res, rej) => { const im = new Image(); im.onload = () => res({ src: im, w: im.naturalWidth, h: im.naturalHeight }); im.onerror = rej; im.src = URL.createObjectURL(blob); }); } };
+  useEffect(() => { let dead = false; (async () => { try { const blob = await mapDB.get(game); if (!dead && blob) setBitmap(await loadImg(blob)); const cal = await store.get(game + ":mapcal"); if (!dead && cal) { try { const o = JSON.parse(cal); if (o && typeof o.a === "number") setMapCal(o); } catch (e) {} } } catch (e) {} })(); return () => { dead = true; }; }, []);
+  const importImg = async (file) => { if (!file) return; setImgErr(""); try { await mapDB.put(game, file); setBitmap(await loadImg(file)); setMapCal(null); store.set(game + ":mapcal", "null"); setAlign(1); setSel(null); } catch (e) { setImgErr("Couldn't load that image."); } };
+  const removeImg = async () => { try { await mapDB.del(game); } catch (e) {} setBitmap(null); setMapCal(null); store.set(game + ":mapcal", "null"); };
+  const onAlignTap = (cx, cy) => { const idx = align - 1; alignPts.current[idx] = { x: cx, y: cy }; if (align === 1) { setAlign(2); return; } const w1 = alignTowers[0], w2 = alignTowers[1], p1 = alignPts.current[0], p2 = alignPts.current[1]; const a = (p1.x - p2.x) / (w1.x - w2.x), bb = p1.x - a * w1.x, c = (p1.y - p2.y) / (w1.z - w2.z), d = p1.y - c * w1.z; if (isFinite(a) && isFinite(c) && a && c) { const cal = { a, b: bb, c, d }; setMapCal(cal); store.set(game + ":mapcal", JSON.stringify(cal)); } setAlign(0); };
+
+  // the render loop — content (one drawImage) + markers (+ labels on the generated terrain only)
   const draw = () => {
     const cv = cvRef.current; if (!cv) return;
     const W = cv.clientWidth, H = cv.clientHeight; if (!W || !H) return;
@@ -2480,42 +2531,34 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
     ctx.fillStyle = "#0a2230"; ctx.fillRect(0, 0, W, H);
     if (!v.k) return;
     ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
-    ctx.drawImage(terrain.canvas, 0, 0, terrain.canvas.width, terrain.canvas.height, v.x, v.y, worldW * v.k, worldH * v.k);
-    const X = (wx) => (wx - b.xmin) * v.k + v.x, Y = (wz) => (wz - b.zmin) * v.k + v.y;
+    try { ctx.drawImage(C.src, 0, 0, C.MW, C.MH, v.x, v.y, C.MW * v.k, C.MH * v.k); } catch (e) {}
+    const X = (wx) => (C.a * wx + C.b) * v.k + v.x, Y = (wz) => (C.c * wz + C.d) * v.k + v.y;
     const vis = (x, y, m = 44) => x >= -m && x <= W + m && y >= -m && y <= H + m;
-    const fk = fitK();
+    const fk = fitK(), showLabels = !C.img;   // an imported map already has its own labels — don't double up
     ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
     const lab = (txt, x, y, font, fill) => { ctx.font = font; ctx.lineWidth = 3; ctx.strokeStyle = "rgba(8,16,14,0.62)"; ctx.strokeText(txt, x, y); ctx.fillStyle = fill; ctx.fillText(txt, x, y); };
-    // region names (hide once you're zoomed into a region)
-    if (v.k < fk * 3) for (const rk in coords.regions) { const r = coords.regions[rk], x = X(r.cx), y = Y(r.cz); if (vis(x, y)) lab(r.name.toUpperCase(), x, y, "700 14px Rajdhani, sans-serif", "rgba(238,232,216,0.72)"); }
-    // stables
-    if (layers.places) for (const p of (coords.stables || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 4, 0, 7); ctx.fillStyle = "#9bc08a"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (v.k >= fk * 3) lab(p.name, x, y - 9, "600 10px Rajdhani, sans-serif", "#cfe0c0"); }
-    // towns
-    if (layers.places) for (const p of (coords.towns || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.save(); ctx.translate(x, y); ctx.rotate(Math.PI / 4); ctx.fillStyle = "#f2c14e"; ctx.fillRect(-5, -5, 10, 10); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.strokeRect(-5, -5, 10, 10); ctx.restore(); if (v.k >= fk * 1.25) lab(p.name, x, y - 11, "700 11px Rajdhani, sans-serif", "#f6cf6a"); }
-    // fairies
-    if (layers.fairies) for (const p of (coords.fairies || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.fillStyle = "#ff6f8b"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (v.k >= fk * 1.25) lab(p.name, x, y - 10, "700 11px Rajdhani, sans-serif", "#ffa6b6"); }
-    // towers
-    if (layers.towers) for (const p of (coords.towers || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.moveTo(x, y - 9); ctx.lineTo(x + 7, y + 6); ctx.lineTo(x - 7, y + 6); ctx.closePath(); ctx.fillStyle = "#c3ebf0"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (v.k >= fk * 1.25) lab(p.name.replace(/ Tower$/, ""), x, y + 16, "700 11px Rajdhani, sans-serif", "#d2eef2"); }
-    // beasts
-    if (layers.beasts) for (const p of (coords.beasts || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.lineWidth = 2; ctx.strokeStyle = "#5fd6e2"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fillStyle = "#5fd6e2"; ctx.fill(); lab(p.short || p.name, x, y - 15, "700 11px Rajdhani, sans-serif", "#a6e9f0"); }
-    // shrines (names appear once zoomed into a region)
-    if (layers.shrines) { const showNames = v.k >= fk * 3.6; for (const name in coords.shrines) { const s = coords.shrines[name], x = X(s.x), y = Y(s.z); if (!vis(x, y)) continue; const dn = !!progress[SHR_ID(s.rk, s.i)], isSel = sel && sel.name === name; if (dn) { ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.fillStyle = "rgba(95,214,226,0.18)"; ctx.fill(); } ctx.beginPath(); ctx.arc(x, y, isSel ? 7 : 5, 0, 7); ctx.fillStyle = dn ? "#5fd6e2" : "#f4992f"; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = dn ? "#cdeff3" : "#b46a18"; ctx.stroke(); if (isSel) { ctx.beginPath(); ctx.arc(x, y, 12, 0, 7); ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke(); } if (showNames) lab(name.replace(/ Shrine$/, ""), x, y - 11, "600 10px Rajdhani, sans-serif", "rgba(236,229,213,0.95)"); } }
-    // "I'm here" pin
+    if (showLabels && v.k < fk * 3) for (const rk in coords.regions) { const r = coords.regions[rk], x = X(r.cx), y = Y(r.cz); if (vis(x, y)) lab(r.name.toUpperCase(), x, y, "700 14px Rajdhani, sans-serif", "rgba(238,232,216,0.72)"); }
+    if (layers.places) for (const p of (coords.stables || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 4, 0, 7); ctx.fillStyle = "#9bc08a"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 3) lab(p.name, x, y - 9, "600 10px Rajdhani, sans-serif", "#cfe0c0"); }
+    if (layers.places) for (const p of (coords.towns || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.save(); ctx.translate(x, y); ctx.rotate(Math.PI / 4); ctx.fillStyle = "#f2c14e"; ctx.fillRect(-5, -5, 10, 10); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.strokeRect(-5, -5, 10, 10); ctx.restore(); if (showLabels && v.k >= fk * 1.25) lab(p.name, x, y - 11, "700 11px Rajdhani, sans-serif", "#f6cf6a"); }
+    if (layers.fairies) for (const p of (coords.fairies || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.fillStyle = "#ff6f8b"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 1.25) lab(p.name, x, y - 10, "700 11px Rajdhani, sans-serif", "#ffa6b6"); }
+    if (layers.towers) for (const p of (coords.towers || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.moveTo(x, y - 9); ctx.lineTo(x + 7, y + 6); ctx.lineTo(x - 7, y + 6); ctx.closePath(); ctx.fillStyle = "#c3ebf0"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 1.25) lab(p.name.replace(/ Tower$/, ""), x, y + 16, "700 11px Rajdhani, sans-serif", "#d2eef2"); }
+    if (layers.beasts) for (const p of (coords.beasts || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.lineWidth = 2; ctx.strokeStyle = "#5fd6e2"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fillStyle = "#5fd6e2"; ctx.fill(); if (showLabels) lab(p.short || p.name, x, y - 15, "700 11px Rajdhani, sans-serif", "#a6e9f0"); }
+    if (layers.shrines) { const showNames = showLabels && v.k >= fk * 3.6; for (const name in coords.shrines) { const s = coords.shrines[name], x = X(s.x), y = Y(s.z); if (!vis(x, y)) continue; const dn = !!progress[SHR_ID(s.rk, s.i)], isSel = sel && sel.name === name; if (dn) { ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.fillStyle = "rgba(95,214,226,0.18)"; ctx.fill(); } ctx.beginPath(); ctx.arc(x, y, isSel ? 7 : 5, 0, 7); ctx.fillStyle = dn ? "#5fd6e2" : "#f4992f"; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = dn ? "#cdeff3" : "#b46a18"; ctx.stroke(); if (isSel) { ctx.beginPath(); ctx.arc(x, y, 12, 0, 7); ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke(); } if (showNames) lab(name.replace(/ Shrine$/, ""), x, y - 11, "600 10px Rajdhani, sans-serif", "rgba(236,229,213,0.95)"); } }
     if (mapPin) { const x = X(mapPin.x), y = Y(mapPin.z); ctx.beginPath(); ctx.arc(x, y, 15, 0, 7); ctx.fillStyle = "rgba(242,193,78,0.22)"; ctx.fill(); ctx.beginPath(); ctx.moveTo(x, y); ctx.bezierCurveTo(x - 11, y - 17, x - 9, y - 31, x, y - 31); ctx.bezierCurveTo(x + 9, y - 31, x + 11, y - 17, x, y); ctx.closePath(); ctx.fillStyle = "#f2c14e"; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = "#0a2230"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y - 20, 4, 0, 7); ctx.fillStyle = "#0a2230"; ctx.fill(); lab("You're here", x, y - 40, "700 11px Rajdhani, sans-serif", "#f7d98a"); }
   };
 
-  // initial fit (after layout) + redraw on every view/layer/selection/pin/progress change
-  useEffect(() => { const id = requestAnimationFrame(() => { if (focusRegion && coords.regions[focusRegion]) fitRegion(focusRegion); else setFit(); }); return () => cancelAnimationFrame(id); }, []);
+  // (re)fit whenever the content changes (terrain ↔ imported image, or a new image size) + redraw each render
+  useEffect(() => { const id = requestAnimationFrame(() => { if (focusRegion && coords.regions[focusRegion] && !C.img) fitRegion(focusRegion); else setFit(); }); return () => cancelAnimationFrame(id); }, [cKey]);
   useEffect(() => { draw(); });
   useEffect(() => {
     const cv = cvRef.current; if (!cv) return;
     const onWheel = (e) => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.15 : 1 / 1.15); };
     cv.addEventListener("wheel", onWheel, { passive: false });
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    const onKey = (e) => { if (e.key === "Escape") { if (align) setAlign(0); else if (placing) setPlacing(false); else onClose(); } };
     const onResize = () => { clampV(); setView({ ...vref.current }); };
     document.addEventListener("keydown", onKey); window.addEventListener("resize", onResize);
     return () => { cv.removeEventListener("wheel", onWheel); document.removeEventListener("keydown", onKey); window.removeEventListener("resize", onResize); if (rafId.current) cancelAnimationFrame(rafId.current); };
-  }, []);
+  });
 
   const rel = (e) => { const r = cvRef.current.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
   const onDown = (e) => { cvRef.current.setPointerCapture && cvRef.current.setPointerCapture(e.pointerId); const p = rel(e); ptrs.current.set(e.pointerId, p); if (ptrs.current.size === 1) tapRef.current = { x: e.clientX, y: e.clientY, p, moved: false }; else { tapRef.current = null; pinch.current = null; } };
@@ -2524,7 +2567,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
     const p = rel(e), prev = ptrs.current.get(e.pointerId); ptrs.current.set(e.pointerId, p);
     if (ptrs.current.size === 1) {
       vref.current.x += p.x - prev.x; vref.current.y += p.y - prev.y; clampV(); commit();
-      if (tapRef.current && Math.hypot(e.clientX - tapRef.current.x, e.clientY - tapRef.current.y) > 8) tapRef.current.moved = true;
+      if (tapRef.current && Math.hypot(e.clientX - tapRef.current.x, e.clientY - tapRef.current.y) > 12) tapRef.current.moved = true;
     } else if (ptrs.current.size >= 2) {
       const a = [...ptrs.current.values()], A = a[0], B = a[1];
       const dist = Math.hypot(A.x - B.x, A.y - B.y), mid = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 };
@@ -2534,29 +2577,71 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   };
   const onUp = (e) => { ptrs.current.delete(e.pointerId); if (ptrs.current.size < 2) pinch.current = null; if (ptrs.current.size === 0 && tapRef.current && !tapRef.current.moved) handleTap(tapRef.current.p); tapRef.current = null; };
   const handleTap = (p) => {
-    const v = vref.current;
-    if (placing) { setMapPin({ x: Math.round((p.x - v.x) / v.k + b.xmin), z: Math.round((p.y - v.y) / v.k + b.zmin) }); setPlacing(false); return; }
+    const v = vref.current, cx = (p.x - v.x) / v.k, cy = (p.y - v.y) / v.k;   // content px
+    if (align) { onAlignTap(cx, cy); return; }
+    if (placing) { const w = C2W(cx, cy); setMapPin({ x: Math.round(w.x), z: Math.round(w.z) }); setPlacing(false); return; }
     let best = null, bd = Infinity;
-    if (layers.shrines) for (const name in coords.shrines) { const s = coords.shrines[name], sc = W2S(s.x, s.z), d = Math.hypot(sc.x - p.x, sc.y - p.y); if (d < bd) { bd = d; best = name; } }
-    if (best && bd < 16) setSel({ name: best, s: coords.shrines[best], ...shrMeta[best] }); else setSel(null);
+    const consider = (m) => { const sc = S(m.wx, m.wz), d = Math.hypot(sc.x - p.x, sc.y - p.y); if (d < bd) { bd = d; best = m; } };
+    if (layers.shrines) for (const name in coords.shrines) { const s = coords.shrines[name]; consider({ type: "shrine", name, wx: s.x, wz: s.z, ...shrMeta[name] }); }
+    if (layers.towers) for (const t of (coords.towers || [])) consider({ type: "tower", name: t.name, wx: t.x, wz: t.z });
+    if (layers.fairies) for (const f of (coords.fairies || [])) consider({ type: "fairy", name: f.name, wx: f.x, wz: f.z });
+    if (layers.beasts) for (const bb of (coords.beasts || [])) consider({ type: "beast", name: bb.name, wx: bb.x, wz: bb.z });
+    if (layers.places) { for (const t of (coords.towns || [])) consider({ type: "town", name: t.name, wx: t.x, wz: t.z }); for (const s of (coords.stables || [])) consider({ type: "stable", name: s.name, wx: s.x, wz: s.z }); }
+    if (best && bd < 22) setSel(best); else setSel(null);
   };
 
   const hits = q.trim() ? Object.keys(coords.shrines).filter((n) => n.toLowerCase().includes(q.trim().toLowerCase())).slice(0, 8) : [];
-  const selId = sel ? SHR_ID(sel.rk, sel.i) : null;
+  const selId = sel && sel.type === "shrine" ? SHR_ID(sel.rk, sel.i) : null;
   const selDone = selId ? !!progress[selId] : false;
+  const isHere = sel && mapPin && Math.abs(mapPin.x - sel.wx) < 6 && Math.abs(mapPin.z - sel.wz) < 6;
+  const TYPE_LABEL = { tower: "Sheikah Tower", fairy: "Great Fairy", beast: "Divine Beast", town: "Town / Village", stable: "Stable" };
+  const cardSub = () => {
+    if (sel.type === "shrine") return sel.region + (sel.obj && sel.obj.location ? " · " + sel.obj.location : "");
+    if (sel.type === "tower") { const t = towerInfo[sel.name]; return "Sheikah Tower" + (t && t.region ? " · " + t.region : ""); }
+    if (sel.type === "fairy") { const f = fairyInfo[sel.name]; return "Great Fairy" + (f && f.region ? " · " + f.region : ""); }
+    return TYPE_LABEL[sel.type] || "";
+  };
+  const cardBody = () => {
+    if (sel.type === "shrine") return (<>
+      {sel.obj && sel.obj.oneLine && <p className="sm-card-one">{sel.obj.oneLine}</p>}
+      {sel.obj && sel.obj.solution && !spoiler && <StuckReveal text={sel.obj.solution} label="Stuck? Tap for the exact solution" />}
+      {spoiler && sel.obj && sel.obj.solution && <p className="sm-card-spoil">Solution hidden — turn off Spoiler-free mode in Settings to reveal.</p>}
+    </>);
+    if (sel.type === "tower") { const t = towerInfo[sel.name]; return (<>{t && t.location && <p className="sm-card-one">{t.location}</p>}{t && t.climbTip && <StuckReveal text={t.climbTip} label="Climbing tip" openLabel="Hide tip" />}</>); }
+    if (sel.type === "fairy") { const f = fairyInfo[sel.name]; return (<>{f && f.location && <p className="sm-card-one">{f.location}</p>}{f && f.cost && <p className="sm-card-spoil">{f.cost}</p>}</>); }
+    if (sel.type === "beast") return <p className="sm-card-one">A Divine Beast — freeing it is a main-quest goal that grants a Champion's ability. Follow the Journey tab to tackle it.</p>;
+    if (sel.type === "town") return <p className="sm-card-one">A village — shops, an inn, cooking pots, and side quests. A good place to stock up and fast-travel back to.</p>;
+    return <p className="sm-card-one">A stable — register and summon horses, rest to pass time, and pick up side quests.</p>;
+  };
 
   return portal(
     <div className="slatemap" style={{ "--acc": accent || "var(--cyan)" }}>
       <canvas ref={cvRef} className="slatemap-cv" style={{ touchAction: "none" }} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp} />
+      <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={(e) => { importImg(e.target.files && e.target.files[0]); e.target.value = ""; }} />
 
       <div className="sm-top">
-        <div className="sm-title"><Glyph name="map" size={16} /><div><div className="sm-title-t">Map of Hyrule</div><div className="sm-title-s">{sdone}/{stotal} shrines · {placing ? "tap the map to drop your marker" : "drag to pan · pinch / scroll to zoom"}</div></div></div>
+        <div className="sm-title"><Glyph name="map" size={16} /><div><div className="sm-title-t">Map of Hyrule</div><div className="sm-title-s">{sdone}/{stotal} shrines · tap any marker for details</div></div></div>
         <button className="sm-close" onClick={onClose} aria-label="Close map">✕</button>
       </div>
+
+      {(align > 0 || placing) && (
+        <div className="sm-banner">
+          {align > 0 ? <><b>Align your map · {align}/2</b><span>Tap <b>{alignTowers[align - 1] && alignTowers[align - 1].name}</b> on your map image</span></> : <><b>Set your location</b><span>Tap the map where you are</span></>}
+          <button className="sm-banner-x" onClick={() => { setAlign(0); setPlacing(false); }}>Cancel</button>
+        </div>
+      )}
 
       <div className="sm-search">
         <input className="sm-search-in" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a shrine…" aria-label="Find a shrine on the map" />
         {hits.length > 0 && <div className="sm-hits">{hits.map((n) => <button key={n} className="sm-hit" onClick={() => flyTo(n)}>{progress[SHR_ID(coords.shrines[n].rk, coords.shrines[n].i)] ? "✓ " : ""}{n}<span className="sm-hit-r">{shrMeta[n] ? shrMeta[n].region : ""}</span></button>)}</div>}
+      </div>
+
+      <div className="sm-imgctl">
+        {!bitmap && <button className="sm-img-btn" onClick={() => fileRef.current && fileRef.current.click()}><Glyph name="map" size={13} /> Use my own map image</button>}
+        {bitmap && <button className="sm-img-btn" onClick={() => { setAlign(1); setSel(null); }}><Glyph name="target" size={13} /> Align</button>}
+        {bitmap && <button className="sm-img-btn" onClick={() => fileRef.current && fileRef.current.click()}>Replace</button>}
+        {bitmap && <button className="sm-img-btn sm-img-rm" onClick={removeImg}>Remove</button>}
+        {imgErr && <span className="sm-img-err">{imgErr}</span>}
       </div>
 
       <div className="sm-layers">
@@ -2566,7 +2651,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
       </div>
 
       <div className="sm-ctrls">
-        <button className={"sm-ctrl sm-ctrl-pin" + (placing ? " sm-ctrl-active" : "")} onClick={() => setPlacing((p) => !p)} aria-label="Drop my location"><Glyph name="pin" size={18} /></button>
+        <button className={"sm-ctrl sm-ctrl-pin" + (placing ? " sm-ctrl-active" : "")} onClick={() => { setPlacing((p) => !p); setAlign(0); }} aria-label="Set my location"><Glyph name="pin" size={18} /></button>
         {mapPin && <button className="sm-ctrl" onClick={locate} aria-label="Center on my location"><Glyph name="target" size={18} /></button>}
         {mapPin && <button className="sm-ctrl sm-ctrl-x" onClick={() => setMapPin(null)} aria-label="Clear my location">✕</button>}
         <div className="sm-zoomgrp">
@@ -2580,14 +2665,13 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
         <div className="sm-card">
           <button className="sm-card-x" onClick={() => setSel(null)} aria-label="Close">✕</button>
           <div className="sm-card-h">{sel.name}</div>
-          <div className="sm-card-sub">{sel.region}{sel.obj && sel.obj.location ? " · " + sel.obj.location : ""}</div>
+          <div className="sm-card-sub">{cardSub()}</div>
           <div className="sm-card-row">
-            <button className={"sm-done" + (selDone ? " sm-done-on" : "")} onClick={() => toggleStep(selId)}>{selDone ? "✓ Cleared" : "Mark cleared"}</button>
-            {onOpenShrine && <button className="sm-open" onClick={() => onOpenShrine(sel.rk, selId)}>Open in list ›</button>}
+            {sel.type === "shrine" && <button className={"sm-done" + (selDone ? " sm-done-on" : "")} onClick={() => toggleStep(selId)}>{selDone ? "✓ Cleared" : "Mark cleared"}</button>}
+            <button className={"sm-here" + (isHere ? " sm-here-on" : "")} onClick={() => setMapPin(isHere ? null : { x: Math.round(sel.wx), z: Math.round(sel.wz) })}><Glyph name="pin" size={12} /> {isHere ? "You're here" : "I'm here"}</button>
+            {sel.type === "shrine" && onOpenShrine && <button className="sm-open" onClick={() => onOpenShrine(sel.rk, selId)}>Open in list ›</button>}
           </div>
-          {sel.obj && sel.obj.oneLine && <p className="sm-card-one">{sel.obj.oneLine}</p>}
-          {sel.obj && sel.obj.solution && !spoiler && <StuckReveal text={sel.obj.solution} label="Stuck? Tap for the exact solution" />}
-          {spoiler && sel.obj && sel.obj.solution && <p className="sm-card-spoil">Solution hidden — turn off Spoiler-free mode in Settings to reveal.</p>}
+          {cardBody()}
         </div>
       )}
     </div>
@@ -3848,6 +3932,16 @@ function StyleBlock() {
 .sm-open{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:7px 13px;cursor:pointer;}
 .sm-card-one{font-size:13px;color:var(--parch);line-height:1.5;margin:8px 0 0;}
 .sm-card-spoil{font-size:12px;color:var(--parch-dim);font-style:italic;margin:8px 0 0;}
+.sm-here{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--gold);background:rgba(242,193,78,0.1);border:1px solid rgba(242,193,78,0.42);border-radius:8px;padding:7px 12px;cursor:pointer;}
+.sm-here-on{color:var(--abyss);background:var(--gold);border-color:var(--gold);}
+.sm-banner{position:absolute;top:calc(58px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:2px;background:rgba(9,18,23,0.96);border:1px solid var(--gold);border-radius:12px;padding:9px 16px;box-shadow:0 4px 18px rgba(0,0,0,0.4);text-align:center;max-width:88%;}
+.sm-banner b{font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);}
+.sm-banner span{font-size:13px;color:var(--parch);}
+.sm-banner-x{margin-top:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;color:var(--parch-dim);background:transparent;border:1px solid rgba(169,176,172,0.4);border-radius:7px;padding:3px 12px;cursor:pointer;}
+.sm-imgctl{position:absolute;top:calc(106px + env(safe-area-inset-top,0px));left:calc(14px + env(safe-area-inset-left,0px));right:calc(14px + env(safe-area-inset-right,0px));display:flex;gap:6px;flex-wrap:wrap;z-index:2;pointer-events:none;}
+.sm-img-btn{pointer-events:auto;display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.3px;text-transform:uppercase;color:var(--cyan);background:rgba(8,16,20,0.85);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:5px 10px;cursor:pointer;}
+.sm-img-rm{color:var(--malice);border-color:rgba(224,80,107,0.4);}
+.sm-img-err{pointer-events:auto;align-self:center;font-size:11px;color:var(--malice);}
 .shrine-num{display:inline-block;min-width:15px;height:15px;line-height:15px;text-align:center;border-radius:5px;background:rgba(95,214,226,0.12);color:var(--cyan-dim);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;margin-right:7px;vertical-align:1px;}
 .checked .shrine-num{background:rgba(255,255,255,0.05);color:var(--ink-line);}
 /* --- v8: settings, spoiler toggle --- */

@@ -762,6 +762,29 @@ layout, `REGION_MAPS` = the per-region coords.
   real terrain map use Canvas, not SVG dots — biome fills + value-noise hill-shade read as a world. (2) inside an
   SVG `<g scale(k)>`, `fontSize*(1/k)` is constant in VIEWBOX units = tiny on screen; size labels in real screen px
   (canvas) or `screenPx/(base*k)`. (3) the offscreen-terrain + one-drawImage pattern keeps a rich map at 60fps.**
+- **v21 — Slate Map: bring-your-own real map + everything clickable + fixes (BotW; DONE).** Owner (frustrated)
+  wanted the ACTUAL game map ("look exactly the same"), every point clickable like shrines, and flagged two bugs
+  (couldn't pan to the bottom edge when zoomed; the "I'm here" pin wasn't placing). The copyright line held but the
+  resolution is the **[[ADR 0009]] pattern** (already used for the Bookshelf): the published build ships ZERO
+  Nintendo art, but the owner can **import their OWN map image** into device-local IndexedDB (`mapDB`, new db
+  `hyrule-map`, keyed per game) — never uploaded, never in the repo/build — and the Slate Map overlays the accurate,
+  clickable markers on it. (We do NOT download/embed the image ourselves; the user provides the file.)
+  - **Content-space refactor:** SlateMap now renders a unified "content" (the generated terrain OR the imported
+    image) via `{a,b,c,d,MW,MH,src}`; `W2C`/`C2W` map world↔content px. Imported images get a **2-tap calibration**
+    ("Align" → tap Great Plateau Tower, then Akkala Tower → solves a/b/c/d, persisted `<game>:mapcal`) so markers
+    land exactly on the user's map. Controls: Use-my-own / Align / Replace / Remove. Image labels are suppressed in
+    image mode (the map already has them); markers stay as the clickable layer.
+  - **Everything clickable:** `handleTap` now hit-tests ALL layers (shrines · towers · fairies · beasts · towns ·
+    stables) → a type-aware card. Towers/fairies enriched from TOWERS/GREAT_FAIRIES (location + climb tip / cost).
+    Every card has an **"I'm here"** button that drops the pin exactly on that marker (the reliable fix for "the GPS
+    wasn't working" — placing-mode tap also works, now with a clear banner + a looser 12px tap tolerance).
+  - **Bug fixes:** pan **clamp got overscroll padding** (`P = min(W,H)*0.5`) so the bottom edge clears the bottom
+    chrome (chips/controls) — was hard-clamped at the screen edge; **zoom-out floor lowered to `fitK*0.6`**.
+  - Verified in-browser: tower/fairy/etc cards open, "I'm here" sets the pin on the marker, a synthetic image
+    imports + aligns + renders as the base with markers overlaid + Remove restores terrain, pan reaches the south
+    edge, TotK degrades, **0 console errors, offline-clean**. **Lesson: the copyright tension on user-supplied
+    assets is always resolved by the ADR 0009 shape — ship no asset, let the owner import their own to device-local
+    IndexedDB, overlay our original work on top. Don't fetch/embed it for them.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
