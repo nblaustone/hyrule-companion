@@ -2637,7 +2637,18 @@ function slateRetrieve(query, data) {
   const toks = slateTokens(query); if (!toks.length) return [];
   const { REGIONS = [], SHRINES = [], ARMOR = { sets: [] }, BESTIARY = { enemies: [] }, RECIPES = [], SIDE_QUESTS = [], TOWERS = [], COMPENDIUM = [] } = data || {};
   const out = [];
-  const add = (o) => { const name = (o.label || "").toLowerCase(); const body = ((o.sub || "") + " " + (o.detail || "")).toLowerCase(); let score = 0, hit = 0; for (const t of toks) { if (name.includes(t)) { score += 3; hit++; } else if (body.includes(t)) { score += 1; hit++; } } if (!hit) return; o.score = score + (hit === toks.length ? 2 : 0) + (o.prio || 0); out.push(o); };
+  // intent boost: the question's verb/topic words (some are stop-words for matching) still route the category
+  const ql = " " + String(query).toLowerCase() + " ";
+  const has = (re) => re.test(ql);
+  const boost = {};
+  if (has(/\b(cook|cooking|recipe|recipes|meal|dish|elixir|eat|cold|heat|spicy|chilly|stamina)\b/)) boost.Cooking = 5;
+  if (has(/\b(beat|defeat|kill|fight|win|boss|attack|enemy)\b/)) boost.Enemy = 5;
+  if (has(/\b(rupee|rupees|money|earn|earning|sell|sells|selling|cash|coins?|broke|rich)\b/)) { boost.Money = 5; boost.Farming = 3; boost["Money tip"] = 3; }
+  if (has(/\b(farm|farming)\b/)) { boost.Farming = 5; boost.Money = 2; }
+  if (has(/\b(armor|armour|outfit|defen[cs]e|tunic|set)\b/)) boost.Armor = 4;
+  if (has(/\b(quest|quests|sidequest)\b/)) boost["Side quest"] = 4;
+  if (has(/\b(tower|towers|map)\b/)) boost.Tower = 4;
+  const add = (o) => { const name = (o.label || "").toLowerCase(); const body = ((o.sub || "") + " " + (o.detail || "")).toLowerCase(); let score = 0, hit = 0; for (const t of toks) { if (name.includes(t)) { score += 3; hit++; } else if (body.includes(t)) { score += 1; hit++; } } if (!hit) return; o.score = score + (hit === toks.length ? 2 : 0) + (o.prio || 0) + (boost[o.cat] || 0); out.push(o); };
   SHRINES.forEach((g) => (g.shrines || []).forEach((sh, i) => add({ cat: "Shrine", glyph: "shrine", label: sh.name, sub: g.regionName + " · " + sh.location, detail: sh.solution || sh.oneLine, prio: 2, nav: { kind: "shrine", args: [g.regionKey, "shr_" + g.regionKey + "_" + i] } })));
   (BESTIARY.enemies || []).forEach((e) => add({ cat: "Enemy", glyph: "skull", label: e.name, sub: e.tactic, detail: e.battle || e.tactic, prio: 2, nav: { kind: "guide", args: ["enemies"] } }));
   (SIDE_QUESTS || []).forEach((g) => (g.quests || []).forEach((qq) => add({ cat: "Side quest", glyph: "scroll", label: qq.name, sub: (g.region || "") + " · " + qq.oneLine, detail: (qq.how || qq.oneLine) + (qq.reward ? "\nReward: " + qq.reward : ""), prio: 1, nav: { kind: "guide", args: ["quests"] } })));
@@ -2668,38 +2679,44 @@ function slateRetrieve(query, data) {
    offline check still passes and FIRST load fetches nothing. Singleton outside
    React so the loaded engine survives the per-game remount. ============================================================ */
 const SLATE_LLM_CDN = "https://esm.run/@mlc-ai/web-llm@0.2.84";
-const SLATE_LLM_PREFER = ["Llama-3.2-1B-Instruct-q4f16_1-MLC", "Qwen2.5-1.5B-Instruct-q4f16_1-MLC", "Qwen2.5-0.5B-Instruct-q4f16_1-MLC", "gemma-2-2b-it-q4f16_1-MLC", "Llama-3.2-1B-Instruct-q4f32_1-MLC"];
+const SLATE_LLM_TIERS = {
+  balanced: { label: "Balanced", size: "~0.9 GB", note: "sharper", prefer: ["Llama-3.2-1B-Instruct-q4f16_1-MLC", "Qwen2.5-1.5B-Instruct-q4f16_1-MLC", "gemma-2-2b-it-q4f16_1-MLC", "Llama-3.2-1B-Instruct-q4f32_1-MLC"] },
+  light: { label: "Light", size: "~0.4 GB", note: "faster", prefer: ["Qwen2.5-0.5B-Instruct-q4f16_1-MLC", "SmolLM2-360M-Instruct-q4f16_1-MLC", "Qwen3-0.6B-q4f16_1-MLC", "SmolLM2-135M-Instruct-q4f16_1-MLC", "TinyLlama-1.1B-Chat-v1.0-q4f16_1-MLC"] },
+};
 const SlateLLM = (() => {
-  let lib = null, engine = null, status = "idle", modelId = null, prog = { p: 0, text: "" };
+  let lib = null, engine = null, status = "idle", modelId = null, tier = "balanced", prog = { p: 0, text: "" };
   const listeners = new Set();
   const supported = () => typeof navigator !== "undefined" && !!navigator.gpu;
   const emit = () => listeners.forEach((fn) => { try { fn(); } catch (e) {} });
   const setStatus = (s) => { status = s; emit(); };
-  const pickModel = () => {
+  const pickModel = (prefer, light) => {
     try {
       const list = (lib.prebuiltAppConfig && lib.prebuiltAppConfig.model_list) || [];
       const ids = new Set(list.map((m) => m.model_id));
-      for (const id of SLATE_LLM_PREFER) if (ids.has(id)) return id;
-      const small = list.filter((m) => /instruct|-it-|chat/i.test(m.model_id)).sort((a, b) => (a.vram_required_MB || 9e9) - (b.vram_required_MB || 9e9));
-      return (small[0] || list[0] || {}).model_id || null;
+      for (const id of prefer) if (ids.has(id)) return id;
+      const instruct = list.filter((m) => /instruct|-it-|chat/i.test(m.model_id)).sort((a, b) => (a.vram_required_MB || 9e9) - (b.vram_required_MB || 9e9));
+      if (light) return (instruct[0] || list[0] || {}).model_id || null;            // smallest
+      const mid = instruct.find((m) => (m.vram_required_MB || 0) >= 800);            // ~1B+ if available
+      return (mid || instruct[instruct.length - 1] || instruct[0] || list[0] || {}).model_id || null;
     } catch (e) { return null; }
   };
+  async function boot() {
+    setStatus("loading");
+    try {
+      if (!lib) lib = await import(SLATE_LLM_CDN);
+      try { if (navigator.storage && navigator.storage.persist) await navigator.storage.persist(); } catch (e) {}
+      const t = SLATE_LLM_TIERS[tier] || SLATE_LLM_TIERS.balanced;
+      modelId = pickModel(t.prefer, tier === "light");
+      if (!modelId) { prog = { p: 0, text: "no compatible model" }; setStatus("error"); return; }
+      engine = await lib.CreateMLCEngine(modelId, { initProgressCallback: (r) => { prog = { p: r.progress || 0, text: r.text || "" }; emit(); } });
+      setStatus("ready");
+    } catch (e) { prog = { p: 0, text: String((e && e.message) || e) }; setStatus("error"); }
+  }
   return {
-    supported, status: () => status, progress: () => prog, modelId: () => modelId,
+    supported, status: () => status, progress: () => prog, modelId: () => modelId, tier: () => tier,
     subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
-    async load() {
-      if (status === "loading" || status === "ready") return;
-      if (!supported()) { setStatus("unsupported"); return; }
-      setStatus("loading");
-      try {
-        if (!lib) lib = await import(SLATE_LLM_CDN);
-        try { if (navigator.storage && navigator.storage.persist) await navigator.storage.persist(); } catch (e) {}
-        modelId = pickModel();
-        if (!modelId) { prog = { p: 0, text: "no compatible model" }; setStatus("error"); return; }
-        engine = await lib.CreateMLCEngine(modelId, { initProgressCallback: (r) => { prog = { p: r.progress || 0, text: r.text || "" }; emit(); } });
-        setStatus("ready");
-      } catch (e) { prog = { p: 0, text: String((e && e.message) || e) }; setStatus("error"); }
-    },
+    async load(t) { if (t) tier = t; if (status === "loading" || status === "ready") return; if (!supported()) { setStatus("unsupported"); return; } await boot(); },
+    async reload(t) { if (status === "loading") return; if (!supported()) { setStatus("unsupported"); return; } if (t) tier = t; try { if (engine && engine.unload) await engine.unload(); } catch (e) {} engine = null; modelId = null; prog = { p: 0, text: "" }; await boot(); },
     async ask(question, records, onToken) {
       if (status !== "ready" || !engine) throw new Error("not ready");
       const ctx = (records || []).slice(0, 4).map((r, i) => "[" + (i + 1) + "] " + r.cat + ": " + r.label + " — " + String(r.detail || "").replace(/\s+/g, " ")).join("\n");
@@ -2742,10 +2759,11 @@ function SlateOracle({ data, nav, label, onClose }) {
         .catch(() => { setLlm({ text: "", busy: false, error: true }); if (byVoice && recs[0]) speak(answerSpeech(recs[0])); });
     } else { setLlm(null); if (byVoice && recs[0]) speak(answerSpeech(recs[0])); }
   };
-  const enableBrain = async () => { try { await store.set("hyrule:slatebrain", "1"); } catch (e) {} SlateLLM.load(); };
+  const enableBrain = async (t) => { try { await store.set("hyrule:slatebrain", "1"); await store.set("hyrule:slatemodel", t); } catch (e) {} SlateLLM.load(t); };
+  const switchModel = async () => { const next = SlateLLM.tier() === "light" ? "balanced" : "light"; try { await store.set("hyrule:slatemodel", next); } catch (e) {} setLlm(null); SlateLLM.reload(next); };
   useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => { document.removeEventListener("keydown", onKey); stopSpeak(); }; }, []);
   useEffect(() => { const un = SlateLLM.subscribe(() => { setBrain(SlateLLM.status()); setProg(SlateLLM.progress()); }); return un; }, []);
-  useEffect(() => { (async () => { if (!SlateLLM.supported()) { setBrain("unsupported"); return; } let on = null; try { on = await store.get("hyrule:slatebrain"); } catch (e) {} if (on === "1" && SlateLLM.status() === "idle") SlateLLM.load(); })(); }, []);
+  useEffect(() => { (async () => { if (!SlateLLM.supported()) { setBrain("unsupported"); return; } let on = null, mt = null; try { on = await store.get("hyrule:slatebrain"); mt = await store.get("hyrule:slatemodel"); } catch (e) {} if (on === "1" && SlateLLM.status() === "idle") SlateLLM.load(mt || "balanced"); })(); }, []);
   const startVoice = () => { if (!SR) return; try { stopSpeak(); const rec = new SR(); rec.lang = "en-US"; rec.interimResults = false; rec.maxAlternatives = 1; rec.onresult = (e) => { const t = e.results[0][0].transcript; setQ(t); setListening(false); submit(t, true); }; rec.onerror = () => setListening(false); rec.onend = () => setListening(false); recRef.current = rec; setListening(true); rec.start(); } catch (e) { setListening(false); } };
   const stopVoice = () => { try { recRef.current && recRef.current.stop(); } catch (e) {} setListening(false); };
   const doNav = (n) => { if (!n) return; if (n.kind === "shrine") nav.shrine(n.args[0], n.args[1]); else if (n.kind === "guide") nav.guide(n.args[0]); else if (n.kind === "cook") nav.cook(); else if (n.kind === "items") nav.items(); else if (n.kind === "step") nav.step(n.args[0], n.args[1]); };
@@ -2767,9 +2785,17 @@ function SlateOracle({ data, nav, label, onClose }) {
       <div className="oracle-body">
         {brain !== "unsupported" ? (
           <div className={"oracle-brain oracle-brain-" + brain}>
-            {brain === "idle" && <button className="oracle-brain-enable" onClick={enableBrain}><Glyph name="spark" size={16} /><span><b>Enable the AI brain</b><i>one-time ~0.9 GB download, then it works offline</i></span></button>}
-            {brain === "loading" && <div className="oracle-brain-load"><div className="oracle-brain-bar"><span style={{ width: Math.round((prog.p || 0) * 100) + "%" }} /></div><span className="oracle-brain-pct">Downloading the brain… {Math.round((prog.p || 0) * 100)}% · keep this open</span></div>}
-            {brain === "ready" && <div className="oracle-brain-ready"><Glyph name="spark" size={14} /> AI brain on — answers are written for you from the guide</div>}
+            {brain === "idle" && (
+              <div className="oracle-brain-choose">
+                <div className="oracle-brain-q"><Glyph name="spark" size={15} /> Enable the AI brain <i>one-time download, then offline</i></div>
+                <div className="oracle-brain-opts">
+                  <button className="oracle-brain-opt" onClick={() => enableBrain("balanced")}><b>Balanced</b><span>~0.9 GB · sharper</span></button>
+                  <button className="oracle-brain-opt" onClick={() => enableBrain("light")}><b>Light</b><span>~0.4 GB · faster</span></button>
+                </div>
+              </div>
+            )}
+            {brain === "loading" && <div className="oracle-brain-load"><div className="oracle-brain-bar"><span style={{ width: Math.round((prog.p || 0) * 100) + "%" }} /></div><span className="oracle-brain-pct">Downloading the {SlateLLM.tier() === "light" ? "Light" : "Balanced"} brain… {Math.round((prog.p || 0) * 100)}% · keep this open</span></div>}
+            {brain === "ready" && <div className="oracle-brain-ready"><span><Glyph name="spark" size={14} /> AI brain on · {SlateLLM.tier() === "light" ? "Light" : "Balanced"}</span><button className="oracle-brain-switch" onClick={switchModel}>Switch to {SlateLLM.tier() === "light" ? "Balanced" : "Light"}</button></div>}
             {brain === "error" && <div className="oracle-brain-err"><span>Couldn't load the AI brain (needs WebGPU + the one-time download). Using verified answers.</span><button onClick={enableBrain}>Retry</button></div>}
           </div>
         ) : (!asked && <div className="oracle-unsupported">The talking AI brain needs WebGPU (an iPhone on iOS 26+, or Chrome). You'll still get exact, verified answers below — fully offline.</div>)}
@@ -3277,7 +3303,17 @@ function StyleBlock() {
 .oracle-brain-bar{height:6px;border-radius:4px;background:rgba(95,214,226,0.14);overflow:hidden;}
 .oracle-brain-bar>span{display:block;height:100%;background:var(--cyan);border-radius:4px;transition:width .3s;}
 .oracle-brain-pct{font-size:12px;color:var(--cyan-dim);}
-.oracle-brain-ready{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.22);border-radius:11px;padding:9px 13px;}
+.oracle-brain-choose{background:linear-gradient(180deg,rgba(95,214,226,0.13),rgba(95,214,226,0.04));border:1px solid rgba(95,214,226,0.4);border-radius:13px;padding:13px 14px;}
+.oracle-brain-q{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--parch);margin-bottom:11px;}
+.oracle-brain-q i{font-style:normal;font-weight:400;font-size:11px;color:var(--cyan-dim);margin-left:auto;}
+.oracle-brain-opts{display:flex;gap:9px;}
+.oracle-brain-opt{flex:1;display:flex;flex-direction:column;gap:2px;align-items:flex-start;background:rgba(15,28,34,0.7);border:1px solid rgba(95,214,226,0.32);border-radius:11px;padding:10px 12px;cursor:pointer;}
+.oracle-brain-opt b{font-size:14px;color:var(--parch);font-weight:600;}
+.oracle-brain-opt span{font-size:11px;color:var(--cyan-dim);}
+.oracle-brain-opt:active{transform:scale(.98);}
+.oracle-brain-ready{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.22);border-radius:11px;padding:9px 13px;}
+.oracle-brain-ready>span{display:flex;align-items:center;gap:8px;}
+.oracle-brain-switch{flex-shrink:0;background:none;border:1px solid rgba(95,214,226,0.35);color:var(--cyan);border-radius:10px;padding:5px 10px;font-size:11.5px;cursor:pointer;}
 .oracle-brain-err{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--parch-dim);background:rgba(224,80,107,0.08);border:1px solid rgba(224,80,107,0.3);border-radius:11px;padding:10px 13px;}
 .oracle-brain-err button{background:none;border:1px solid rgba(95,214,226,0.4);color:var(--cyan);border-radius:10px;padding:5px 11px;font-size:12px;cursor:pointer;}
 .oracle-unsupported{font-size:13px;line-height:1.55;color:var(--parch-dim);background:rgba(15,28,34,0.5);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:13px;margin-bottom:14px;}

@@ -656,6 +656,16 @@ layout, `REGION_MAPS` = the per-region coords.
   the load-bearing reason this works in a single-file build.** Verified: enable button (WebGPU present), Phase-1
   fallback, 0 console errors, offline-clean. **NOT verifiable in the headless sandbox: the real 0.9 GB download +
   inference — needs a WebGPU device; `try/catch` makes any failure fall back to Phase-1.**
+- **v18.3 — Ask-the-Slate polish: model-size chooser + intent-aware retrieval.** (1) **Two model tiers** via
+  `SLATE_LLM_TIERS` — **Balanced** (~0.9 GB, Llama-3.2-1B) and **Light** (~0.4 GB, prefers Qwen2.5-0.5B / SmolLM2-360M,
+  smallest-instruct fallback). The idle brain bar offers BOTH as a chooser; `enableBrain(tier)` persists
+  `hyrule:slatemodel`; a "Switch to Light/Balanced" link on the ready bar calls `SlateLLM.reload(tier)`
+  (`engine.unload()` → re-`boot()`); auto-load reads the saved tier. (2) **Intent boost in `slateRetrieve`:** the raw
+  question is scanned for verb/topic words (cook/recipe/cold · beat/defeat · rupee/earn/sell · farm · armor · quest ·
+  tower) and the matching category gets a score bonus — fixes "what should I cook for cold resistance" returning a
+  cold-region *shrine* instead of the Spicy recipe (the intent word "cook" is a stop-word for token-matching but
+  still routes the category). Verified in-browser: chooser renders, cook→Cooking, beat→Enemy, rupees→Money, Phase-1
+  fallback, mobile layout, 0 console errors, offline-clean.
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

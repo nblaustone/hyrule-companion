@@ -5,6 +5,20 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-27 — v18.3: Ask-the-Slate polish — model-size chooser + intent-aware retrieval
+
+- **User: "yes do that please"** (a lighter/faster model option). Added **two tiers** (`SLATE_LLM_TIERS`):
+  Balanced (~0.9 GB Llama-3.2-1B) and Light (~0.4 GB, Qwen2.5-0.5B / SmolLM2-360M). Idle brain bar = a two-button
+  chooser; persists `hyrule:slatemodel`; "Switch" on the ready bar calls `SlateLLM.reload(tier)` (`engine.unload()`
+  then re-boot). Extracted the load body into an internal `boot()` so `load()` and `reload()` share it.
+- **Relevance fix banked: an intent verb can be a stop-word for *matching* yet still must route the *category*.**
+  "what should I cook for cold resistance" returned a cold-region SHRINE (it mentions "cold", shrines have prio:2)
+  because "cook" was stop-worded away. Fix: scan the RAW query for intent words (cook/beat/rupee/farm/armor/quest/
+  tower…) and add a per-category score boost in `slateRetrieve`. Now cook→Cooking, beat→Enemy, rupees→Money.
+- Verified in-browser: chooser renders both tiers, all three intents route right, Phase-1 fallback intact, mobile
+  layout clean, 0 console errors, offline-clean. (Still: the real model download/inference is the owner's on-device
+  test — sandbox has WebGPU but downloading 0.9 GB to "verify" would be wrong.)
+
 ## 2026-06-27 — v18.2: "Ask the Slate" Phase 2 — the opt-in on-device LLM (WebLLM/WebGPU)
 
 - **User: "let's do the llm… explain it more for me."** So I built Phase 2 AND led with a plain-English
