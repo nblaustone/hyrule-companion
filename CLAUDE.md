@@ -808,6 +808,18 @@ layout, `REGION_MAPS` = the per-region coords.
   - **Lesson reinforced: every "use my own X" (map image, music, books) resolves to the SAME ADR 0009 shape —
     device-local IndexedDB + a module singleton/overlay; ship no copyrighted asset, never fetch/embed it for them.
     And for fitting user-supplied imagery, a least-squares affine from a few reference taps beats a rigid 2-point fit.**
+- **v23 — the Jukebox: multiple custom songs (DONE).** Extended the v22 single custom track into a playlist. `audioDB`
+  now stores many blobs (keyed by generated track id); the index `[{id,name}]` rides in `hyrule:music` + current id in
+  `hyrule:musiccur` (the old single `"track"` key auto-migrates into the list). `SlateMusic` gained `setLoop` (loop when
+  one track, else `setOnEnded`→auto-advance) and the play-on-next-gesture retry from v22.1. Settings → Ambient sound is
+  now a **Jukebox**: add many MP3/M4A files (`multiple`), each a row (play indicator · name · remove), tap to play,
+  Prev/Next, auto-advance at track end; the sound toggle still routes jukebox(if any) vs the synth hum. Importing the
+  FIRST song auto-plays; later adds don't interrupt what's playing. Device-local (ADR 0009). Verified in-browser
+  (add 2 → select/next/remove all correct, 0 errors, offline-clean). **The honest YouTube-walkthrough idea (play the
+  clip of a shrine from a long playthrough video) is QUEUED, not built — the only legitimate path is the official
+  YouTube IFrame embed deep-linked to a timestamp (NOT ripping/redistributing), which is online-only + opt-in (like the
+  AI oracle), and needs a shrine→timestamp map the owner supplies (capture-current-time while watching, or the video's
+  chapter list). Awaiting owner's go + how they want to populate timestamps.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

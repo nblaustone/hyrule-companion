@@ -597,10 +597,12 @@ const SlateAudio = (() => {
 /* v22: plays the owner's OWN imported background track (device-local; never bundled). When a track is
    set it loops instead of the synthesized hum. Autoplay needs a user gesture — the sound toggle is one. */
 const SlateMusic = (() => {
-  let el = null, url = null, ready = false;
-  const ensure = () => { if (el) return el; try { el = new Audio(); el.loop = true; el.preload = "auto"; el.volume = 0.55; } catch (e) { el = null; } return el; };
+  let el = null, url = null, ready = false, onEnd = null;
+  const ensure = () => { if (el) return el; try { el = new Audio(); el.loop = false; el.preload = "auto"; el.volume = 0.55; el.addEventListener("ended", () => { if (onEnd) onEnd(); }); } catch (e) { el = null; } return el; };
   return {
     setTrack(blob) { const a = ensure(); if (!a) return; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} } url = URL.createObjectURL(blob); a.src = url; ready = true; },
+    setLoop(b) { const a = ensure(); if (a) a.loop = !!b; },
+    setOnEnded(cb) { onEnd = cb; },
     has() { return ready; },
     play() {
       const a = ensure(); if (!a || !ready) return;
@@ -903,7 +905,10 @@ function HyruleGame({ game, setGame, games }) {
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
   const [atmos, setAtmos] = useState({ motion: true, sound: false, haptics: true }); // The Living Slate (hyrule:prefs): circuit bg · ambient audio · check haptics
-  const [customMusic, setCustomMusic] = useState(false); // v22: owner imported their own background track (device-local)
+  const [tracks, setTracks] = useState([]);          // v23 jukebox: [{id,name}] — blobs in audioDB (device-local)
+  const [curTrack, setCurTrack] = useState(null);    // id of the selected/playing track
+  const tracksRef = useRef([]); tracksRef.current = tracks;
+  const curRef = useRef(null); curRef.current = curTrack;
   const atmosRef = useRef({ motion: true, sound: false, haptics: true });
   const [flash, setFlash] = useState(null);          // v9: step id whose check is pulsing (joy pass)
   const [stepFlash, setStepFlash] = useState(null);  // v9: step id highlighted after a Resume jump
@@ -960,19 +965,39 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("armortier"), JSON.stringify(armorTier)); }, [armorTier, loaded]);
   useEffect(() => { if (loaded) store.set(K("recipes"), JSON.stringify(recipes)); }, [recipes, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:prefs", JSON.stringify({ spoiler, atmos })); }, [spoiler, atmos, loaded]);
-  // The Living Slate: drive the ambient engine off the sound toggle + tab (scene morph). Default off.
-  // load the owner's own background track (device-local) once, if present
-  useEffect(() => { let dead = false; (async () => { try { const blob = await audioDB.get("track"); if (!dead && blob) { SlateMusic.setTrack(blob); setCustomMusic(true); } } catch (e) {} })(); return () => { dead = true; }; }, []);
-  // route the sound toggle: the owner's track loops if imported, otherwise the synthesized hum
-  useEffect(() => { if (!loaded) return; if (atmos.sound) { if (customMusic) { SlateMusic.play(); SlateAudio.disable(); } else { SlateAudio.enable(); SlateMusic.pause(); } } else { SlateAudio.disable(); SlateMusic.pause(); } }, [atmos.sound, customMusic, loaded]);
-  useEffect(() => { if (atmos.sound && !customMusic) SlateAudio.setScene(tab); }, [tab, atmos.sound, customMusic]);
+  // The Living Slate jukebox (v23): load the owner's saved playlist (device-local) once; migrate the v22 single track.
+  useEffect(() => { let dead = false; (async () => {
+    try {
+      let list = []; const raw = await store.get("hyrule:music"); if (raw) { try { const a = JSON.parse(raw); if (Array.isArray(a)) list = a; } catch (e) {} }
+      if (!list.length) { try { const old = await audioDB.get("track"); if (old) list = [{ id: "track", name: "My track" }]; } catch (e) {} } // migrate v22
+      const cur = (await store.get("hyrule:musiccur")) || (list[0] && list[0].id) || null;
+      if (cur) { try { const blob = await audioDB.get(cur); if (blob && !dead) { SlateMusic.setTrack(blob); SlateMusic.setLoop(list.length <= 1); } } catch (e) {} }
+      if (dead) return; setTracks(list); setCurTrack(cur);
+    } catch (e) {}
+  })(); return () => { dead = true; }; }, []);
+  useEffect(() => { if (loaded) store.set("hyrule:music", JSON.stringify(tracks)); }, [tracks, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:musiccur", curTrack || ""); }, [curTrack, loaded]);
+  // route the sound toggle: a chosen track plays if the jukebox has any, otherwise the synthesized hum
+  useEffect(() => { if (!loaded) return; if (atmos.sound) { if (tracks.length) { SlateMusic.play(); SlateAudio.disable(); } else { SlateAudio.enable(); SlateMusic.pause(); } } else { SlateAudio.disable(); SlateMusic.pause(); } }, [atmos.sound, tracks.length, loaded]);
+  useEffect(() => { if (atmos.sound && !tracks.length) SlateAudio.setScene(tab); }, [tab, atmos.sound, tracks.length]);
+  const selectTrack = useCallback(async (id) => {
+    try { const blob = await audioDB.get(id); if (!blob) return; SlateMusic.setTrack(blob); SlateMusic.setLoop(tracksRef.current.length <= 1); } catch (e) { return; }
+    setCurTrack(id); SlateAudio.disable(); setAtmos((a) => ({ ...a, sound: true })); SlateMusic.play();
+  }, []);
+  const playNext = useCallback((dir = 1) => { const t = tracksRef.current; if (!t.length) return; const i = Math.max(0, t.findIndex((x) => x.id === curRef.current)); const n = t[(((i + dir) % t.length) + t.length) % t.length]; if (n) selectTrack(n.id); }, [selectTrack]);
+  useEffect(() => { SlateMusic.setOnEnded(() => { if (tracksRef.current.length > 1) playNext(1); }); }, [playNext]);
   const importMusic = useCallback(async (file) => {
     if (!file) throw new Error("No file chosen.");
-    await audioDB.put("track", file);          // device-local; throws if storage refuses it
-    SlateMusic.setTrack(file); setCustomMusic(true);
-    SlateAudio.disable(); setAtmos((a) => ({ ...a, sound: true })); SlateMusic.play(); // turn sound on + start now
-  }, []);
-  const removeMusic = useCallback(async () => { try { await audioDB.del("track"); } catch (e) {} SlateMusic.clear(); setCustomMusic(false); if (atmosRef.current && atmosRef.current.sound) SlateAudio.enable(); }, []);
+    const id = "trk_" + (file.name || "song").replace(/[^a-z0-9]+/gi, "").slice(0, 14) + "_" + Math.floor((typeof performance !== "undefined" ? performance.now() : 0) % 1e6) + "_" + tracksRef.current.length;
+    await audioDB.put(id, file);                 // device-local; throws if storage refuses it
+    const wasEmpty = tracksRef.current.length === 0;
+    setTracks((t) => [...t.filter((x) => x.id !== id), { id, name: (file.name || "Track").replace(/\.[^.]+$/, "") }]);
+    if (wasEmpty) await selectTrack(id);         // first song auto-plays; later adds don't interrupt
+  }, [selectTrack]);
+  const removeTrack = useCallback(async (id) => {
+    try { await audioDB.del(id); } catch (e) {}
+    setTracks((t) => { const left = t.filter((x) => x.id !== id); if (curRef.current === id) { if (left.length) setTimeout(() => selectTrack(left[0].id), 0); else { SlateMusic.clear(); setCurTrack(null); if (atmosRef.current && atmosRef.current.sound) SlateAudio.enable(); } } return left; });
+  }, [selectTrack]);
   useEffect(() => { if (loaded) store.set("hyrule:reading", JSON.stringify(reading)); }, [reading, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:bookmarks", JSON.stringify(bookmarks)); }, [bookmarks, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:readerprefs", JSON.stringify(readerPrefs)); }, [readerPrefs, loaded]);
@@ -1507,7 +1532,7 @@ function HyruleGame({ game, setGame, games }) {
             : guideSub === "koroks" ? <KoroksView data={KOROKS} koroks={koroks} setKoroks={setKoroks} />
             : guideSub === "economy" ? <EconomyView data={ECONOMY} />
             : guideSub === "world" ? <WorldView data={WORLD} />
-            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} atmos={atmos} setAtmos={setAtmos} customMusic={customMusic} importMusic={importMusic} removeMusic={removeMusic} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
+            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} atmos={atmos} setAtmos={setAtmos} tracks={tracks} curTrack={curTrack} importMusic={importMusic} removeTrack={removeTrack} selectTrack={selectTrack} playNext={playNext} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
             : (
               <>
                 <p className="ref-lede">The handful of things that stop the early game from feeling brutal.</p>
@@ -2793,19 +2818,19 @@ function BackupBox({ doExport, doImport }) {
 }
 
 /* ============================================================ SETTINGS ============================================================ */
-function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, customMusic, importMusic, removeMusic, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
+function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, tracks, curTrack, importMusic, removeTrack, selectTrack, playNext, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
   const ver = (typeof window !== "undefined" && window.__APP_VERSION__) || "dev";
   const setA = (k) => setAtmos((a) => ({ ...a, [k]: !a[k] }));
   const musicRef = useRef(null);
   const [musicMsg, setMusicMsg] = useState("");
   const onMusicPick = async (e) => {
-    const f = e.target.files && e.target.files[0]; e.target.value = "";
-    if (!f) return;
-    const looksAudio = (f.type && /^audio\//.test(f.type)) || /\.(mp3|m4a|aac|ogg|oga|wav|flac|opus|weba)$/i.test(f.name || "");
-    if (!looksAudio) { setMusicMsg("That doesn't look like an audio file — pick an MP3/M4A from Files."); return; }
-    setMusicMsg("Loading “" + f.name + "”…");
-    try { await importMusic(f); setMusicMsg("✓ Loaded — playing now (use the sound button to pause)."); }
-    catch (err) { setMusicMsg("Couldn't load that file. Pick an MP3/M4A saved in Files (audio inside the Music app can't be used)."); }
+    const files = Array.from(e.target.files || []); e.target.value = "";
+    if (!files.length) return;
+    const audio = files.filter((f) => (f.type && /^audio\//.test(f.type)) || /\.(mp3|m4a|aac|ogg|oga|wav|flac|opus|weba)$/i.test(f.name || ""));
+    if (!audio.length) { setMusicMsg("That doesn't look like audio — pick MP3/M4A files from Files."); return; }
+    setMusicMsg("Loading " + audio.length + " song" + (audio.length > 1 ? "s" : "") + "…");
+    try { for (const f of audio) await importMusic(f); setMusicMsg("✓ Added to your jukebox — tap a song to play it."); }
+    catch (err) { setMusicMsg("Couldn't load that file. Use an MP3/M4A saved in Files (songs inside the Apple Music app can't be used)."); }
   };
   return (
     <>
@@ -2820,16 +2845,25 @@ function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, customMusic, impor
         <button className={"toggle" + (atmos.motion ? " toggle-on" : "")} onClick={() => setA("motion")} role="switch" aria-checked={atmos.motion} aria-label="Ancient circuitry"><span className="toggle-knob" /></button>
       </div>
       <div className="set-row">
-        <div className="set-txt"><div className="set-name">Ambient sound</div><div className="set-sub">{customMusic ? "Playing your own track on a loop. The sound toggle (here or in the topbar) turns it on/off." : "A calm, generated Sheikah hum that shifts as you move between tabs. Off by default — or load your own track below."}</div></div>
+        <div className="set-txt"><div className="set-name">Ambient sound</div><div className="set-sub">{tracks.length ? "Your jukebox plays in the background. The sound button (here or in the topbar) turns it on/off." : "A calm, generated Sheikah hum that shifts as you move between tabs. Off by default — or load your own songs below."}</div></div>
         <button className={"toggle" + (atmos.sound ? " toggle-on" : "")} onClick={() => setA("sound")} role="switch" aria-checked={atmos.sound} aria-label="Ambient sound"><span className="toggle-knob" /></button>
       </div>
       <div className="set-music">
-        <input ref={musicRef} type="file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.oga,.wav,.flac,.opus" style={{ display: "none" }} onChange={onMusicPick} />
-        {customMusic
-          ? <><span className="set-music-on"><Glyph name="sound" size={13} /> Your own track is loaded</span><button className="set-music-btn" onClick={() => musicRef.current && musicRef.current.click()}>Replace</button><button className="set-music-btn set-music-rm" onClick={() => { removeMusic && removeMusic(); setMusicMsg(""); }}>Remove (back to hum)</button></>
-          : <button className="set-music-btn" onClick={() => musicRef.current && musicRef.current.click()}><Glyph name="sound" size={13} /> Use my own background music</button>}
+        <div className="set-name" style={{ marginBottom: 2 }}>Jukebox</div>
+        <input ref={musicRef} type="file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.oga,.wav,.flac,.opus" multiple style={{ display: "none" }} onChange={onMusicPick} />
+        {tracks.length > 0 && <div className="jukebox">
+          {tracks.map((t) => { const on = t.id === curTrack; return (
+            <div key={t.id} className={"juke-row" + (on ? " juke-on" : "")}>
+              <button className="juke-play" onClick={() => selectTrack(t.id)} aria-label={on ? "Now playing" : "Play"}><Glyph name={on && atmos.sound ? "sound" : "spark"} size={14} /></button>
+              <span className="juke-name" onClick={() => selectTrack(t.id)}>{t.name}</span>
+              <button className="juke-x" onClick={() => removeTrack(t.id)} aria-label="Remove song">✕</button>
+            </div>
+          ); })}
+          {tracks.length > 1 && <div className="juke-controls"><button className="set-music-btn" onClick={() => playNext(-1)}>‹ Prev</button><button className="set-music-btn" onClick={() => playNext(1)}>Next ›</button></div>}
+        </div>}
+        <button className="set-music-btn" onClick={() => musicRef.current && musicRef.current.click()}><Glyph name="sound" size={13} /> {tracks.length ? "Add another song" : "Use my own background music"}</button>
         {musicMsg && <p className="set-music-msg">{musicMsg}</p>}
-        <p className="set-music-note">An MP3 works. It must be a file in <b>Files</b> / iCloud Drive (songs inside the Apple Music app aren't reachable). Stays on this device — never uploaded.</p>
+        <p className="set-music-note">Add as many MP3/M4A files as you like (from <b>Files</b> / iCloud Drive — songs inside the Apple Music app aren't reachable) and tap one to play. Several songs auto-advance. Stays on this device — never uploaded.</p>
       </div>
       <div className="set-row">
         <div className="set-txt"><div className="set-name">Haptic pulse</div><div className="set-sub">A tiny Sheikah-activation buzz when you check something off (phones with vibration only).</div></div>
@@ -3837,6 +3871,15 @@ function StyleBlock() {
 .set-music-rm{color:var(--malice);border-color:rgba(224,80,107,0.4);}
 .set-music-on{display:inline-flex;align-items:center;gap:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;color:var(--moss);}
 .set-music-msg{flex-basis:100%;font-size:12px;color:var(--cyan-dim);margin:2px 0 0;}
+.jukebox{flex-basis:100%;display:flex;flex-direction:column;gap:5px;margin:2px 0 4px;}
+.juke-row{display:flex;align-items:center;gap:9px;background:rgba(95,214,226,0.05);border:1px solid rgba(95,214,226,0.16);border-radius:9px;padding:7px 9px;}
+.juke-on{background:rgba(95,214,226,0.12);border-color:rgba(95,214,226,0.45);}
+.juke-play{flex-shrink:0;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.3);color:var(--cyan);cursor:pointer;}
+.juke-on .juke-play{background:var(--cyan);color:var(--abyss);border-color:var(--cyan);}
+.juke-name{flex:1;min-width:0;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;color:var(--parch);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;}
+.juke-on .juke-name{color:var(--cyan);}
+.juke-x{flex-shrink:0;width:26px;height:26px;border-radius:6px;background:transparent;border:1px solid rgba(224,80,107,0.35);color:var(--malice);font-size:12px;cursor:pointer;}
+.juke-controls{display:flex;gap:6px;margin-top:2px;}
 .set-music-note{flex-basis:100%;font-size:11px;color:var(--parch-dim);margin:2px 0 0;}
 .ask-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.36);color:var(--cyan);cursor:pointer;box-shadow:0 0 9px rgba(95,214,226,0.2);}
 .ask-trigger:active{transform:scale(.95);}
