@@ -24,6 +24,7 @@ const data = {
   KOROKS: noNotes(K("koroks.json")),
   WORLD: noNotes(K("world.json")),
   REGION_MAPS: K("region-maps.json"),
+  MAP_COORDS: K("map-coords.json"),
   COOK_INGREDIENTS: K("cooking-ingredients.json"),
   ECONOMY: K("economy.json"),
   COMPENDIUM: K("compendium.json"),
@@ -109,7 +110,7 @@ for (const id of ["albw", "ww", "minish", "oos", "ooa"]) {
 // the BotW game bundle references the module-global consts (defined above) by name
 const BOTW_GAME =
   `const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:${JSON.stringify(META.botw)}, ` +
-  `REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, ` +
+  `REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_COORDS, MAP_NODES, MAP_BEASTS, ` +
   `RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, ` +
   `terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, ` +
   `guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], ` +

@@ -619,6 +619,8 @@ function Glyph({ name, size = 26 }) {
     case "mute": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M10 19h7l9-7v24l-9-7h-7V19Z" fill="currentColor" stroke="currentColor" /><path d="M33 19l10 10M43 19L33 29" fill="none" /></svg>);
     case "spark": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2"><path d="M24 6c1.6 9.2 6.8 14.4 16 16-9.2 1.6-14.4 6.8-16 16-1.6-9.2-6.8-14.4-16-16 9.2-1.6 14.4-6.8 16-16Z" fill="currentColor" stroke="currentColor" strokeLinejoin="round" /><path d="M38 30c.6 3.4 2.4 5.2 5.6 5.8-3.2.6-5 2.4-5.6 5.6-.6-3.2-2.4-5-5.6-5.6 3.2-.6 5-2.4 5.6-5.8Z" fill="currentColor" stroke="none" /></svg>);
     case "mic": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.2"><rect x="19" y="7" width="10" height="20" rx="5" /><path d="M14 23a10 10 0 0 0 20 0M24 33v7M18 40h12" /></svg>);
+    case "map": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.2"><path d="M18 8 8 12v28l10-4 12 4 10-4V8l-10 4-12-4Z" fill="none" strokeLinejoin="round" /><path d="M18 8v28M30 12v28" /></svg>);
+    case "target": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.2"><circle cx="24" cy="24" r="13" /><circle cx="24" cy="24" r="4" fill="currentColor" stroke="none" /><path d="M24 4v7M24 37v7M4 24h7M37 24h7" /></svg>);
     default: return null;
   }
 }
@@ -806,7 +808,7 @@ function GameShelf({ games, game, setGame, onClose }) {
    storage loads cleanly. G shadows the data globals with the active game's data (ADR 0005). */
 function HyruleGame({ game, setGame, games }) {
   const G = games[game];
-  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, COLLECTIBLES, terms, guideSegs, postRegionId } = G;
+  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_COORDS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, COLLECTIBLES, terms, guideSegs, postRegionId } = G;
   const K = (s) => game + ":" + s; // storage key namespace per game (botw:* preserves existing data)
   // a game without shrines (OoT) or without a cooking system (OoT) hides those tabs entirely (no empty tabs)
   const hasShrines = (SHRINES || []).length > 0;
@@ -833,6 +835,9 @@ function HyruleGame({ game, setGame, games }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [oracleOpen, setOracleOpen] = useState(false); // v18.1: "Ask the Slate" offline oracle
   const [shelfOpen, setShelfOpen] = useState(false); // game-select shelf overlay (console/era)
+  const [mapOpen, setMapOpen] = useState(false);     // v19: full-screen Slate Map overlay
+  const [mapFocus, setMapFocus] = useState(null);    // v19: regionKey to open the map zoomed to (or null)
+  const [mapPin, setMapPin] = useState(null);        // v19: spatial "I'm here" world coord {x,z} (<game>:mappin)
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
@@ -851,10 +856,10 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl] = await Promise.all([
+      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl, mp] = await Promise.all([
         store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
         store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"), store.get("hyrule:books"),
-        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")),
+        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")), store.get(K("mappin")),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -872,6 +877,7 @@ function HyruleGame({ game, setGame, games }) {
       try { if (spin) setShrinePin(JSON.parse(spin)); } catch (e) {}
       try { if (srec) { const a = JSON.parse(srec); if (Array.isArray(a)) setShrineRecents(a); } } catch (e) {}
       try { if (cl) { const o = JSON.parse(cl); if (o && typeof o === "object") setCollect(o); } } catch (e) {}
+      try { if (mp) { const o = JSON.parse(mp); if (o && typeof o.x === "number") setMapPin(o); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -883,7 +889,8 @@ function HyruleGame({ game, setGame, games }) {
   // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
   useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
   // freeze the page behind a full-screen overlay so touch-scroll doesn't bleed through to the content under it
-  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen]);
+  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen || mapOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen, mapOpen]);
+  const openMap = useCallback((rk) => { setMapFocus(rk || null); setMapOpen(true); }, []);
   // tab-bar taps start the new tab at the top (and re-tapping the current tab scrolls to top, iOS-style).
   // Programmatic jumps (jumpToStep/focusShrine) use setTab directly so they keep their scroll-into-view.
   const goTab = (t) => { setTab(t); try { window.scrollTo({ top: 0 }); } catch (e) { window.scrollTo(0, 0); } };
@@ -901,6 +908,7 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set("hyrule:books", JSON.stringify(userBooks)); }, [userBooks, loaded]);
   useEffect(() => { if (loaded) store.set(K("shrinepin"), JSON.stringify(shrinePin)); }, [shrinePin, loaded]);
   useEffect(() => { if (loaded) store.set(K("shrinerecents"), JSON.stringify(shrineRecents)); }, [shrineRecents, loaded]);
+  useEffect(() => { if (loaded) store.set(K("mappin"), JSON.stringify(mapPin)); }, [mapPin, loaded]);
 
   // v12.11: one-time migration of side-quest progress from positional keys (sq_<ri>_<qi>) to stable slug ids
   // (sq_<id>). BotW only; no-ops until the data actually carries ids (so it won't "consume" the flag early).
@@ -967,7 +975,7 @@ function HyruleGame({ game, setGame, games }) {
   const resetAll = useCallback(() => { setProgress({}); setKoroks(0); setCollect({}); setNotes({}); setArmorTier({}); setRecipes([]); setConfirmReset(false); }, []);
   // export/import the whole save as a portable code (offline backup, ADR 0002)
   const exportSave = useCallback(() => {
-    const blob = { v: 9, progress, koroks, collect, notes, armorTier, recipes, shrinePin, shrineRecents };
+    const blob = { v: 10, progress, koroks, collect, notes, armorTier, recipes, shrinePin, shrineRecents, mapPin };
     try { return btoa(unescape(encodeURIComponent(JSON.stringify(blob)))); } catch (e) { return JSON.stringify(blob); }
   }, [progress, koroks, collect, notes, armorTier, recipes, shrinePin, shrineRecents]);
   const importSave = useCallback((code) => {
@@ -983,6 +991,7 @@ function HyruleGame({ game, setGame, games }) {
         if (Array.isArray(b.recipes)) setRecipes(b.recipes);
         if (typeof b.shrinePin === "string" || b.shrinePin === null) setShrinePin(b.shrinePin);
         if (Array.isArray(b.shrineRecents)) setShrineRecents(b.shrineRecents);
+        if (b.mapPin && typeof b.mapPin.x === "number") setMapPin(b.mapPin);
         return true;
       }
     } catch (e) {}
@@ -1147,6 +1156,7 @@ function HyruleGame({ game, setGame, games }) {
         <div className="topbar-r">
           {Object.keys(games).length > 1 && <button className="game-switch" onClick={() => setShelfOpen(true)} aria-label="Switch game" style={{ "--ga": G.meta?.accent || "var(--cyan)" }}><span className="game-switch-dot" /><span>{G.short}</span><span className="game-switch-chev">▾</span></button>}
           {resumeTarget && <button className="resume-trigger" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)} aria-label={"Resume — you're here: " + resumeTarget.secName}><Glyph name="pin" size={15} /><span>Resume</span></button>}
+          {MAP_COORDS && MAP_COORDS.shrines && <button className="map-trigger" onClick={() => openMap(null)} aria-label="Map of Hyrule"><Glyph name="map" size={18} /></button>}
           <button className="ask-trigger" onClick={() => setOracleOpen(true)} aria-label="Ask the Slate"><Glyph name="spark" size={17} /></button>
           <button className={"atmos-trigger" + (atmos.sound ? " atmos-on" : "")} onClick={() => setAtmos((a) => ({ ...a, sound: !a.sound }))} aria-label={atmos.sound ? "Mute the Slate" : "Wake the Slate"} aria-pressed={atmos.sound}><Glyph name={atmos.sound ? "sound" : "mute"} size={18} /></button>
           <button className="search-trigger" onClick={() => { setSearchOpen(true); }} aria-label="Search everything"><Glyph name="search" size={18} /></button>
@@ -1155,6 +1165,13 @@ function HyruleGame({ game, setGame, games }) {
       </header>
 
       {shelfOpen && <GameShelf games={games} game={game} setGame={setGame} onClose={() => setShelfOpen(false)} />}
+
+      {mapOpen && MAP_COORDS && MAP_COORDS.shrines && (
+        <SlateMap coords={MAP_COORDS} shrines={SHRINES} progress={progress} toggleStep={toggleStep}
+          spoiler={spoiler} focusRegion={mapFocus} mapPin={mapPin} setMapPin={setMapPin} accent={G.meta?.accent}
+          onOpenShrine={(rk, id) => { setMapOpen(false); focusShrine(rk, id); }}
+          onClose={() => setMapOpen(false)} />
+      )}
 
       {oracleOpen && (
         <SlateOracle label={G.label} onClose={() => setOracleOpen(false)}
@@ -1206,7 +1223,10 @@ function HyruleGame({ game, setGame, games }) {
               ))}
             </div>}
 
-            {Object.keys(MAP_NODES || {}).length > 0 && <div className="panel">
+            {MAP_COORDS && MAP_COORDS.shrines ? <div className="panel">
+              <div className="panel-h">Map of Hyrule</div>
+              <MapPreview coords={MAP_COORDS} shrines={SHRINES} progress={progress} onOpen={() => openMap(null)} />
+            </div> : Object.keys(MAP_NODES || {}).length > 0 && <div className="panel">
               <div className="panel-h">Map of Hyrule</div>
               <HyruleMap shrines={SHRINES} nodes={MAP_NODES} beasts={MAP_BEASTS} progress={progress} onJump={jumpShrineRegion} />
             </div>}
@@ -1381,7 +1401,7 @@ function HyruleGame({ game, setGame, games }) {
             <div className="footer-space" />
           </>
         ) : tab === "shrines" ? (
-          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} flash={flash} shrinePin={shrinePin} pinShrine={pinShrine} clearPin={() => setShrinePin(null)} shrineRecents={shrineRecents} focusShrine={focusShrine} shrineFlash={shrineFlash} focusShrineQuest={focusShrineQuest} />
+          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} mapCoords={MAP_COORDS} openMap={openMap} flash={flash} shrinePin={shrinePin} pinShrine={pinShrine} clearPin={() => setShrinePin(null)} shrineRecents={shrineRecents} focusShrine={focusShrine} shrineFlash={shrineFlash} focusShrineQuest={focusShrineQuest} />
         ) : tab === "items" ? (
           (COMPENDIUM && COMPENDIUM.length) ? <CompendiumView data={COMPENDIUM} />
             : <PouchView inventory={inventory} progress={progress} jumpTo={jumpTo} regions={REGIONS} region={region} cats={CATS} />
@@ -1784,7 +1804,7 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
 }
 
 /* ============================================================ SHRINES TAB ============================================================ */
-function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps, flash, shrinePin, pinShrine, clearPin, shrineRecents, focusShrine, shrineFlash, focusShrineQuest }) {
+function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps, mapCoords, openMap, flash, shrinePin, pinShrine, clearPin, shrineRecents, focusShrine, shrineFlash, focusShrineQuest }) {
   const [revealed, setRevealed] = useState(() => new Set());
   const reveal = (id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; });
   const q = query.trim().toLowerCase();
@@ -1857,7 +1877,9 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
             </button>
             {open && (
               <>
-              {!q && regionMaps && regionMaps[g.regionKey] && <RegionMap map={regionMaps[g.regionKey]} shrines={groups.find((x) => x.regionKey === g.regionKey).shrines} regionKey={g.regionKey} progress={progress} toggleStep={toggleStep} />}
+              {!q && mapCoords && mapCoords.regions && mapCoords.regions[g.regionKey]
+                ? <RegionMiniMap coords={mapCoords} regionKey={g.regionKey} regionShrines={groups.find((x) => x.regionKey === g.regionKey).shrines} progress={progress} toggleStep={toggleStep} onOpenBig={() => openMap(g.regionKey)} />
+                : !q && regionMaps && regionMaps[g.regionKey] && <RegionMap map={regionMaps[g.regionKey]} shrines={groups.find((x) => x.regionKey === g.regionKey).shrines} regionKey={g.regionKey} progress={progress} toggleStep={toggleStep} />}
               <ul className="steps">
                 {g.shrines.map(({ sh, i }) => {
                   const id = "shr_" + g.regionKey + "_" + i; const checked = !!progress[id];
@@ -2239,6 +2261,319 @@ function RegionMap({ map, shrines, regionKey, progress, toggleStep }) {
         })}
       </svg>
       <p className="map-cap">Tap a dot to mark a shrine · numbers match the list · <span style={{ color: "var(--cyan)" }}>cyan</span> = cleared</p>
+    </div>
+  );
+}
+
+/* ============================================================ SLATE MAP (v19) ============================================================ */
+/* One coherent, geographically-ACCURATE map of Hyrule driven by knowledge/map-coords.json —
+   datamined in-game world coords [X,Z] (X east+, Z south+). Everything (full-screen SlateMap,
+   the Status preview, the per-region mini) maps world→screen through the same mapDims() frame, so
+   the dots line up with the Switch. Original art only (ADR 0003): a holographic Sheikah scan
+   (computed coastline + region auras + grid), never a Nintendo asset. */
+function mapDims(coords) {
+  const b = coords.bounds, xs = b.xmax - b.xmin, zs = b.zmax - b.zmin;
+  const W = 1000, H = Math.round(1000 * zs / xs);
+  return {
+    W, H, b,
+    sx: (x) => ((x - b.xmin) / xs) * W, sy: (z) => ((z - b.zmin) / zs) * H,
+    wx: (px) => b.xmin + (px / W) * xs, wz: (py) => b.zmin + (py / H) * zs,
+  };
+}
+/* Andrew's monotone-chain convex hull (points {x,y}) → the silhouette the coastline wraps. */
+function convexHull(pts) {
+  const p = pts.slice().sort((a, b) => a.x - b.x || a.y - b.y);
+  if (p.length < 3) return p;
+  const cr = (o, a, b) => (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+  const lo = []; for (const q of p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); }
+  const up = []; for (let i = p.length - 1; i >= 0; i--) { const q = p[i]; while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
+  lo.pop(); up.pop(); return lo.concat(up);
+}
+/* Closed Catmull-Rom → cubic-bézier path (a smooth, organic coastline through the hull). */
+function smoothClosed(p) {
+  const n = p.length; if (n < 3) return "";
+  let d = `M ${p[0].x.toFixed(1)} ${p[0].y.toFixed(1)} `;
+  for (let i = 0; i < n; i++) {
+    const p0 = p[(i - 1 + n) % n], p1 = p[i], p2 = p[(i + 1) % n], p3 = p[(i + 2) % n];
+    const c1x = p1.x + (p2.x - p0.x) / 6, c1y = p1.y + (p2.y - p0.y) / 6;
+    const c2x = p2.x - (p3.x - p1.x) / 6, c2y = p2.y - (p3.y - p1.y) / 6;
+    d += `C ${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${p2.x.toFixed(1)} ${p2.y.toFixed(1)} `;
+  }
+  return d + "Z";
+}
+/* The glowing coastline silhouette (expanded hull of all anchored points). */
+function landmassPath(coords, D) {
+  const pts = [];
+  for (const n in coords.shrines) { const s = coords.shrines[n]; pts.push({ x: D.sx(s.x), y: D.sy(s.z) }); }
+  (coords.towers || []).forEach((t) => pts.push({ x: D.sx(t.x), y: D.sy(t.z) }));
+  (coords.fairies || []).forEach((t) => pts.push({ x: D.sx(t.x), y: D.sy(t.z) }));
+  (coords.beasts || []).forEach((t) => pts.push({ x: D.sx(t.x), y: D.sy(t.z) }));
+  let h = convexHull(pts);
+  const cx = h.reduce((a, b) => a + b.x, 0) / h.length, cy = h.reduce((a, b) => a + b.y, 0) / h.length;
+  h = h.map((q) => ({ x: cx + (q.x - cx) * 1.1, y: cy + (q.y - cy) * 1.1 }));
+  return smoothClosed(h);
+}
+const SHR_ID = (rk, i) => "shr_" + rk + "_" + i;
+
+/* Shared base layer (terrain) — pure SVG, no interactivity. Used by every map surface so the
+   preview, the mini, and the full map are visibly the same Hyrule. */
+function MapTerrain({ coords, D, land, labels }) {
+  return (
+    <>
+      <path d={land} className="sm-land-glow" />
+      <path d={land} className="sm-land" />
+      {Object.entries(coords.regions).map(([rk, r]) => {
+        const rx = Math.max((D.sx(r.x1) - D.sx(r.x0)) / 2 * 1.18, 36), ry = Math.max((D.sy(r.z1) - D.sy(r.z0)) / 2 * 1.18, 36);
+        return <ellipse key={rk} cx={D.sx(r.cx)} cy={D.sy(r.cz)} rx={rx} ry={ry} className="sm-zone" />;
+      })}
+      {/* iconic terrain anchors — original glyphs */}
+      {coords.regions.eldin && <g className="sm-terr">{(() => { const x = D.sx(coords.regions.eldin.cx), y = D.sy(coords.regions.eldin.cz); return <path d={`M ${x - 26} ${y + 16} L ${x} ${y - 26} L ${x + 26} ${y + 16} Z`} className="sm-volcano" />; })()}</g>}
+      {coords.regions.lake && (() => { const x = D.sx(coords.regions.lake.cx), y = D.sy(coords.regions.lake.cz); return <circle cx={x} cy={y} r="30" className="sm-lake" />; })()}
+      {coords.castle && (() => { const x = D.sx(coords.castle.x), y = D.sy(coords.castle.z); return <path d={`M ${x} ${y - 17} L ${x + 13} ${y} L ${x} ${y + 17} L ${x - 13} ${y} Z`} className="sm-castle" />; })()}
+      {labels && Object.entries(coords.regions).map(([rk, r]) => (
+        <text key={"rl" + rk} x={D.sx(r.cx)} y={D.sy(r.cz)} className="sm-region-l">{r.name}</text>
+      ))}
+    </>
+  );
+}
+
+/* Tiny non-interactive Status preview — the accurate map at a glance, tap to open the full one. */
+function MapPreview({ coords, shrines, progress, onOpen }) {
+  const D = useMemo(() => mapDims(coords), [coords]);
+  const land = useMemo(() => landmassPath(coords, D), [coords, D]);
+  let done = 0, total = 0;
+  (shrines || []).forEach((g) => g.shrines.forEach((_, i) => { total++; if (progress[SHR_ID(g.regionKey, i)]) done++; }));
+  return (
+    <button className="mappv" onClick={onOpen} aria-label="Open the full map of Hyrule">
+      <svg viewBox={`0 0 ${D.W} ${D.H}`} className="mappv-svg" preserveAspectRatio="xMidYMid meet" aria-hidden>
+        <MapTerrain coords={coords} D={D} land={land} labels={false} />
+        {Object.entries(coords.shrines).map(([name, s]) => {
+          const dn = !!progress[SHR_ID(s.rk, s.i)];
+          return <circle key={name} cx={D.sx(s.x)} cy={D.sy(s.z)} r="7" className={dn ? "mappv-d-done" : "mappv-d"} />;
+        })}
+        {(coords.towers || []).map((t) => <path key={t.name} d={`M ${D.sx(t.x)} ${D.sy(t.z) - 11} L ${D.sx(t.x) + 8} ${D.sy(t.z) + 6} L ${D.sx(t.x) - 8} ${D.sy(t.z) + 6} Z`} className="mappv-tw" />)}
+      </svg>
+      <span className="mappv-cta"><Glyph name="map" size={15} /> Open the full map · {done}/{total} shrines</span>
+    </button>
+  );
+}
+
+/* Accurate per-region mini (Shrines tab) — same coords, framed + zoomed to one region, numbered to
+   match the list, tappable. Replaces the old eyeballed RegionMap wherever map-coords exist. */
+function RegionMiniMap({ coords, regionKey, regionShrines, progress, toggleStep, onOpenBig }) {
+  const D = useMemo(() => mapDims(coords), [coords]);
+  const r = coords.regions[regionKey]; if (!r) return null;
+  // local frame: this region's bbox + padding, in base-coord space
+  const pad = 90;
+  const x0 = D.sx(r.x0) - pad, y0 = D.sy(r.z0) - pad, x1 = D.sx(r.x1) + pad, y1 = D.sy(r.z1) + pad;
+  const w = Math.max(x1 - x0, 80), h = Math.max(y1 - y0, 80);
+  const tw = (coords.towers || []).filter((t) => D.sx(t.x) >= x0 && D.sx(t.x) <= x1 && D.sy(t.z) >= y0 && D.sy(t.z) <= y1);
+  const fr = (coords.fairies || []).filter((t) => D.sx(t.x) >= x0 && D.sx(t.x) <= x1 && D.sy(t.z) >= y0 && D.sy(t.z) <= y1);
+  return (
+    <div className="rmap-wrap">
+      <svg viewBox={`${x0.toFixed(1)} ${y0.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`} className="rmini" role="img" aria-label={"Map of " + r.name + " shrines"}>
+        <rect x={x0} y={y0} width={w} height={h} className="rmini-bg" />
+        {tw.map((t) => <path key={t.name} d={`M ${D.sx(t.x)} ${D.sy(t.z) - 14} L ${D.sx(t.x) + 10} ${D.sy(t.z) + 8} L ${D.sx(t.x) - 10} ${D.sy(t.z) + 8} Z`} className="rmini-tw" />)}
+        {fr.map((t) => <circle key={t.name} cx={D.sx(t.x)} cy={D.sy(t.z)} r="9" className="rmini-fr" />)}
+        {regionShrines.map((sh, i) => {
+          const s = coords.shrines[sh.name]; if (!s) return null;
+          const id = SHR_ID(regionKey, i), dn = !!progress[id];
+          return (
+            <g key={id} onClick={() => toggleStep(id)} style={{ cursor: "pointer" }}>
+              <circle cx={D.sx(s.x)} cy={D.sy(s.z)} r="16" className={dn ? "rmini-d-done" : "rmini-d"} />
+              <text x={D.sx(s.x)} y={D.sy(s.z)} className={"rmini-n" + (dn ? " rmini-n-done" : "")}>{i + 1}</text>
+            </g>
+          );
+        })}
+      </svg>
+      <div className="rmini-bar">
+        <p className="map-cap">Tap a dot to mark it · numbers match the list · <span style={{ color: "var(--cyan)" }}>cyan</span> = cleared</p>
+        <button className="rmini-open" onClick={onOpenBig}><Glyph name="map" size={13} /> Open the full map here</button>
+      </div>
+    </div>
+  );
+}
+
+/* The full-screen, pan/zoom Slate Map. Portaled to body (escapes stacking + safe-area). */
+function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, mapPin, setMapPin, onOpenShrine, onClose, accent }) {
+  const D = useMemo(() => mapDims(coords), [coords]);
+  const land = useMemo(() => landmassPath(coords, D), [coords, D]);
+  const svgRef = useRef(null);
+  const vref = useRef({ x: 0, y: 0, k: 1 });
+  const [view, setView] = useState({ x: 0, y: 0, k: 1 });
+  const ptrs = useRef(new Map());
+  const pinch = useRef(null);
+  const tapRef = useRef(null);
+  const rafId = useRef(0);
+  const [sel, setSel] = useState(null);      // selected shrine {name,s,rk,i}
+  const [placing, setPlacing] = useState(false);
+  const [q, setQ] = useState("");
+  const [layers, setLayers] = useState({ shrines: true, towers: true, fairies: true, beasts: true, places: true });
+
+  const shrMeta = useMemo(() => { const m = {}; (shrines || []).forEach((g) => g.shrines.forEach((sh, i) => { m[sh.name] = { rk: g.regionKey, i, region: g.regionName, obj: sh }; })); return m; }, [shrines]);
+  let sdone = 0, stotal = 0;
+  for (const n in coords.shrines) { stotal++; const s = coords.shrines[n]; if (progress[SHR_ID(s.rk, s.i)]) sdone++; }
+
+  const commit = () => { if (rafId.current) return; rafId.current = requestAnimationFrame(() => { rafId.current = 0; setView({ ...vref.current }); }); };
+  const clamp = () => { const v = vref.current; v.k = Math.max(1, Math.min(14, v.k)); const mX = D.W * 0.4, mY = D.H * 0.4; v.x = Math.min(D.W - mX, Math.max(mX - D.W * v.k, v.x)); v.y = Math.min(D.H - mY, Math.max(mY - D.H * v.k, v.y)); };
+  const toVB = (cx, cy) => { const s = svgRef.current; if (!s || !s.getScreenCTM()) return { x: 0, y: 0 }; const pt = s.createSVGPoint(); pt.x = cx; pt.y = cy; const p = pt.matrixTransform(s.getScreenCTM().inverse()); return { x: p.x, y: p.y }; };
+  const zoomVB = (p, f) => { const v = vref.current; const k2 = Math.max(1, Math.min(14, v.k * f)); const r = k2 / v.k; v.x = p.x - (p.x - v.x) * r; v.y = p.y - (p.y - v.y) * r; v.k = k2; clamp(); commit(); };
+  const fitBox = (bx0, by0, bx1, by1, pad = 1.4) => { const bw = Math.max(bx1 - bx0, 40) * pad, bh = Math.max(by1 - by0, 40) * pad; const k = Math.max(1, Math.min(14, Math.min(D.W / bw, D.H / bh))); const cx = (bx0 + bx1) / 2, cy = (by0 + by1) / 2; vref.current = { k, x: D.W / 2 - cx * k, y: D.H / 2 - cy * k }; clamp(); setView({ ...vref.current }); };
+  const fitAll = () => { vref.current = { x: 0, y: 0, k: 1 }; setView({ x: 0, y: 0, k: 1 }); };
+  const fitRegion = (rk) => { const r = coords.regions[rk]; if (r) fitBox(D.sx(r.x0), D.sy(r.z0), D.sx(r.x1), D.sy(r.z1), 1.7); };
+  const flyTo = (name) => { const s = coords.shrines[name]; if (!s) return; const px = D.sx(s.x), py = D.sy(s.z); fitBox(px - 70, py - 70, px + 70, py + 70, 1.1); setSel({ name, s, ...shrMeta[name] }); setQ(""); };
+  const locate = () => { if (!mapPin) return; const px = D.sx(mapPin.x), py = D.sy(mapPin.z); fitBox(px - 80, py - 80, px + 80, py + 80, 1.1); };
+
+  // once: focus a region if asked, else fit the whole map
+  useEffect(() => { if (focusRegion && coords.regions[focusRegion]) fitRegion(focusRegion); else fitAll(); /* eslint-disable-next-line */ }, []);
+  // native wheel (passive:false so we can preventDefault page-zoom) + esc-to-close + raf cleanup
+  useEffect(() => {
+    const el = svgRef.current; if (!el) return;
+    const onWheel = (e) => { e.preventDefault(); zoomVB(toVB(e.clientX, e.clientY), e.deltaY < 0 ? 1.18 : 1 / 1.18); };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    return () => { el.removeEventListener("wheel", onWheel); document.removeEventListener("keydown", onKey); if (rafId.current) cancelAnimationFrame(rafId.current); };
+  }, []);
+
+  const onDown = (e) => { e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId); const v = toVB(e.clientX, e.clientY); ptrs.current.set(e.pointerId, v); if (ptrs.current.size === 1) tapRef.current = { x: e.clientX, y: e.clientY, vb: v, moved: false }; else { tapRef.current = null; pinch.current = null; } };
+  const onMove = (e) => {
+    if (!ptrs.current.has(e.pointerId)) return;
+    const v = toVB(e.clientX, e.clientY), prev = ptrs.current.get(e.pointerId); ptrs.current.set(e.pointerId, v);
+    if (ptrs.current.size === 1) {
+      vref.current.x += v.x - prev.x; vref.current.y += v.y - prev.y; clamp(); commit();
+      if (tapRef.current && Math.hypot(e.clientX - tapRef.current.x, e.clientY - tapRef.current.y) > 9) tapRef.current.moved = true;
+    } else if (ptrs.current.size >= 2) {
+      const a = [...ptrs.current.values()]; const A = a[0], B = a[1];
+      const dist = Math.hypot(A.x - B.x, A.y - B.y), mid = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 };
+      if (pinch.current) { zoomVB(pinch.current.mid, dist / pinch.current.dist); vref.current.x += mid.x - pinch.current.mid.x; vref.current.y += mid.y - pinch.current.mid.y; clamp(); commit(); }
+      pinch.current = { dist, mid };
+    }
+  };
+  const onUp = (e) => {
+    ptrs.current.delete(e.pointerId); if (ptrs.current.size < 2) pinch.current = null;
+    if (ptrs.current.size === 0 && tapRef.current && !tapRef.current.moved) handleTap(tapRef.current.vb);
+    tapRef.current = null;
+  };
+  const handleTap = (vb) => {
+    const v = vref.current, c = { x: (vb.x - v.x) / v.k, y: (vb.y - v.y) / v.k };
+    if (placing) { setMapPin({ x: Math.round(D.wx(c.x)), z: Math.round(D.wz(c.y)) }); setPlacing(false); return; }
+    let best = null, bd = Infinity;
+    if (layers.shrines) for (const name in coords.shrines) { const s = coords.shrines[name]; const d = Math.hypot(D.sx(s.x) - c.x, D.sy(s.z) - c.y); if (d < bd) { bd = d; best = name; } }
+    if (best && bd < 18) setSel({ name: best, s: coords.shrines[best], ...shrMeta[best] }); else setSel(null);
+  };
+
+  const iv = 1 / view.k;                       // inverse zoom → markers stay constant on screen
+  const tier = view.k < 1.6 ? 0 : view.k < 3.2 ? 1 : 2;
+  const hits = q.trim() ? Object.keys(coords.shrines).filter((n) => n.toLowerCase().includes(q.trim().toLowerCase())).slice(0, 8) : [];
+  const selId = sel ? SHR_ID(sel.rk, sel.i) : null;
+  const selDone = selId ? !!progress[selId] : false;
+
+  return portal(
+    <div className="slatemap" style={{ "--acc": accent || "var(--cyan)" }}>
+      <svg ref={svgRef} className="slatemap-svg" viewBox={`0 0 ${D.W} ${D.H}`} preserveAspectRatio="xMidYMid meet"
+        style={{ touchAction: "none" }} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
+        <rect x="0" y="0" width={D.W} height={D.H} className="sm-bg" />
+        <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
+          <MapTerrain coords={coords} D={D} land={land} labels={tier < 2} />
+          {/* beasts (always labeled — few) */}
+          {layers.beasts && (coords.beasts || []).map((b) => (
+            <g key={b.name}>
+              <circle cx={D.sx(b.x)} cy={D.sy(b.z)} r={13 * iv} className="sm-beast" />
+              <circle cx={D.sx(b.x)} cy={D.sy(b.z)} r={4 * iv} className="sm-beast-dot" />
+              <text x={D.sx(b.x)} y={D.sy(b.z) - 18 * iv} className="sm-beast-l" style={{ fontSize: 13 * iv }}>{b.short || b.name}</text>
+            </g>
+          ))}
+          {/* towers */}
+          {layers.towers && (coords.towers || []).map((t) => (
+            <g key={t.name}>
+              <path d={`M ${D.sx(t.x)} ${D.sy(t.z) - 13 * iv} L ${D.sx(t.x) + 9 * iv} ${D.sy(t.z) + 7 * iv} L ${D.sx(t.x) - 9 * iv} ${D.sy(t.z) + 7 * iv} Z`} className="sm-tower" />
+              {tier >= 1 && <text x={D.sx(t.x)} y={D.sy(t.z) + 20 * iv} className="sm-tower-l" style={{ fontSize: 11 * iv }}>{t.name.replace(/ Tower$/, "")}</text>}
+            </g>
+          ))}
+          {/* great fairies */}
+          {layers.fairies && (coords.fairies || []).map((f) => (
+            <g key={f.name}>
+              <circle cx={D.sx(f.x)} cy={D.sy(f.z)} r={7 * iv} className="sm-fairy" />
+              {tier >= 1 && <text x={D.sx(f.x)} y={D.sy(f.z) - 11 * iv} className="sm-fairy-l" style={{ fontSize: 11 * iv }}>{f.name}</text>}
+            </g>
+          ))}
+          {/* towns & stables */}
+          {layers.places && (coords.towns || []).map((p) => (
+            <g key={"t" + p.name}>
+              <rect x={D.sx(p.x) - 6 * iv} y={D.sy(p.z) - 6 * iv} width={12 * iv} height={12 * iv} rx={2 * iv} className="sm-town" transform={`rotate(45 ${D.sx(p.x)} ${D.sy(p.z)})`} />
+              {tier >= 1 && <text x={D.sx(p.x)} y={D.sy(p.z) - 11 * iv} className="sm-town-l" style={{ fontSize: 11 * iv }}>{p.name}</text>}
+            </g>
+          ))}
+          {layers.places && (coords.stables || []).map((p) => (
+            <g key={"s" + p.name}>
+              <circle cx={D.sx(p.x)} cy={D.sy(p.z)} r={5 * iv} className="sm-stable" />
+              {tier >= 2 && <text x={D.sx(p.x)} y={D.sy(p.z) - 9 * iv} className="sm-stable-l" style={{ fontSize: 10 * iv }}>{p.name}</text>}
+            </g>
+          ))}
+          {/* shrines */}
+          {layers.shrines && Object.entries(coords.shrines).map(([name, s]) => {
+            const dn = !!progress[SHR_ID(s.rk, s.i)], isSel = sel && sel.name === name;
+            return (
+              <g key={name}>
+                {dn && <circle cx={D.sx(s.x)} cy={D.sy(s.z)} r={11 * iv} className="sm-shr-halo" />}
+                <circle cx={D.sx(s.x)} cy={D.sy(s.z)} r={(isSel ? 9 : 6.5) * iv} className={dn ? "sm-shr-done" : "sm-shr"} strokeWidth={1.6 * iv} />
+                {isSel && <circle cx={D.sx(s.x)} cy={D.sy(s.z)} r={14 * iv} className="sm-shr-ring" strokeWidth={1.8 * iv} />}
+              </g>
+            );
+          })}
+          {/* "I'm here" spatial pin */}
+          {mapPin && (
+            <g className="sm-pin">
+              <circle cx={D.sx(mapPin.x)} cy={D.sy(mapPin.z)} r={16 * iv} className="sm-pin-pulse" />
+              <path d={`M ${D.sx(mapPin.x)} ${D.sy(mapPin.z) - 24 * iv} C ${D.sx(mapPin.x) + 14 * iv} ${D.sy(mapPin.z) - 24 * iv} ${D.sx(mapPin.x) + 13 * iv} ${D.sy(mapPin.z) - 6 * iv} ${D.sx(mapPin.x)} ${D.sy(mapPin.z)} C ${D.sx(mapPin.x) - 13 * iv} ${D.sy(mapPin.z) - 6 * iv} ${D.sx(mapPin.x) - 14 * iv} ${D.sy(mapPin.z) - 24 * iv} ${D.sx(mapPin.x)} ${D.sy(mapPin.z) - 24 * iv} Z`} className="sm-pin-body" />
+              <circle cx={D.sx(mapPin.x)} cy={D.sy(mapPin.z) - 15 * iv} r={5 * iv} className="sm-pin-dot" />
+            </g>
+          )}
+        </g>
+      </svg>
+
+      <div className="sm-top">
+        <div className="sm-title"><Glyph name="map" size={16} /><div><div className="sm-title-t">Map of Hyrule</div><div className="sm-title-s">{sdone}/{stotal} shrines · {placing ? "tap the map to drop your marker" : "drag to pan · pinch / scroll to zoom"}</div></div></div>
+        <button className="sm-close" onClick={onClose} aria-label="Close map">✕</button>
+      </div>
+
+      <div className="sm-search">
+        <input className="sm-search-in" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a shrine…" aria-label="Find a shrine on the map" />
+        {hits.length > 0 && <div className="sm-hits">{hits.map((n) => <button key={n} className="sm-hit" onClick={() => flyTo(n)}>{progress[SHR_ID(coords.shrines[n].rk, coords.shrines[n].i)] ? "✓ " : ""}{n}<span className="sm-hit-r">{shrMeta[n] ? shrMeta[n].region : ""}</span></button>)}</div>}
+      </div>
+
+      <div className="sm-layers">
+        {[["shrines", "Shrines"], ["towers", "Towers"], ["fairies", "Fairies"], coords.towns && coords.towns.length ? ["places", "Towns"] : null, ["beasts", "Beasts"]].filter(Boolean).map(([k, l]) => (
+          <button key={k} className={"sm-chip" + (layers[k] ? " sm-chip-on" : "")} onClick={() => setLayers((s) => ({ ...s, [k]: !s[k] }))}>{l}</button>
+        ))}
+      </div>
+
+      <div className="sm-ctrls">
+        <button className={"sm-ctrl sm-ctrl-pin" + (placing ? " sm-ctrl-active" : "")} onClick={() => setPlacing((p) => !p)} aria-label="Drop my location"><Glyph name="pin" size={18} /></button>
+        {mapPin && <button className="sm-ctrl" onClick={locate} aria-label="Center on my location"><Glyph name="target" size={18} /></button>}
+        {mapPin && <button className="sm-ctrl sm-ctrl-x" onClick={() => setMapPin(null)} aria-label="Clear my location">✕</button>}
+        <div className="sm-zoomgrp">
+          <button className="sm-ctrl" onClick={() => zoomVB({ x: D.W / 2, y: D.H / 2 }, 1.4)} aria-label="Zoom in">+</button>
+          <button className="sm-ctrl" onClick={() => zoomVB({ x: D.W / 2, y: D.H / 2 }, 1 / 1.4)} aria-label="Zoom out">−</button>
+          <button className="sm-ctrl sm-ctrl-fit" onClick={fitAll} aria-label="Fit whole map"><Glyph name="map" size={15} /></button>
+        </div>
+      </div>
+
+      {sel && (
+        <div className="sm-card">
+          <button className="sm-card-x" onClick={() => setSel(null)} aria-label="Close">✕</button>
+          <div className="sm-card-h">{sel.name}</div>
+          <div className="sm-card-sub">{sel.region}{sel.obj && sel.obj.location ? " · " + sel.obj.location : ""}</div>
+          <div className="sm-card-row">
+            <button className={"sm-done" + (selDone ? " sm-done-on" : "")} onClick={() => toggleStep(selId)}>{selDone ? "✓ Cleared" : "Mark cleared"}</button>
+            {onOpenShrine && <button className="sm-open" onClick={() => onOpenShrine(sel.rk, selId)}>Open in list ›</button>}
+          </div>
+          {sel.obj && sel.obj.oneLine && <p className="sm-card-one">{sel.obj.oneLine}</p>}
+          {sel.obj && sel.obj.solution && !spoiler && <StuckReveal text={sel.obj.solution} label="Stuck? Tap for the exact solution" />}
+          {spoiler && sel.obj && sel.obj.solution && <p className="sm-card-spoil">Solution hidden — turn off Spoiler-free mode in Settings to reveal.</p>}
+        </div>
+      )}
     </div>
   );
 }
@@ -3290,6 +3625,8 @@ function StyleBlock() {
 .set-group{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan-dim);margin:20px 2px 9px;border-top:1px solid rgba(95,214,226,0.12);padding-top:16px;}
 .ask-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.36);color:var(--cyan);cursor:pointer;box-shadow:0 0 9px rgba(95,214,226,0.2);}
 .ask-trigger:active{transform:scale(.95);}
+.map-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;}
+.map-trigger:active{transform:scale(.95);}
 .slate-oracle{position:fixed;inset:0;z-index:55;background:rgba(7,14,18,0.98);backdrop-filter:blur(8px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
 .oracle-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 12px;border-bottom:1px solid rgba(95,214,226,0.16);}
 .oracle-title{display:flex;align-items:center;gap:10px;}
@@ -3406,6 +3743,92 @@ function StyleBlock() {
 .rmap-fr{fill:var(--heart);font-family:'Rajdhani',sans-serif;font-size:2.5px;font-weight:700;}
 .rmap-sn{fill:var(--orange);font-family:'Rajdhani',sans-serif;font-size:3.4px;font-weight:700;}
 .rmap-sn-done{fill:var(--abyss);}
+
+/* ===== Slate Map (v19) — shared terrain ===== */
+.sm-land{fill:rgba(95,214,226,0.045);stroke:var(--acc,#5fd6e2);stroke-width:2.4;opacity:.55;}
+.sm-land-glow{fill:none;stroke:var(--acc,#5fd6e2);stroke-width:7;opacity:.22;filter:blur(5px);}
+.sm-zone{fill:rgba(95,214,226,0.035);stroke:none;}
+.sm-region-l{fill:var(--parch-dim);opacity:.5;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:23px;letter-spacing:1.5px;text-transform:uppercase;text-anchor:middle;dominant-baseline:middle;pointer-events:none;}
+.sm-volcano{fill:rgba(224,80,107,0.12);stroke:var(--malice);stroke-width:1.5;opacity:.5;}
+.sm-lake{fill:rgba(95,214,226,0.1);stroke:var(--cyan-dim);stroke-width:1.4;opacity:.45;}
+.sm-castle{fill:rgba(224,80,107,0.18);stroke:var(--malice);stroke-width:1.6;opacity:.85;}
+
+/* ===== Status preview ===== */
+.mappv{display:block;width:100%;border:0;padding:0;background:transparent;cursor:pointer;border-radius:12px;overflow:hidden;}
+.mappv-svg{width:100%;height:auto;display:block;background:radial-gradient(circle at 50% 42%,#0b1c22,#071014 72%);border-radius:12px;border:1px solid rgba(95,214,226,0.14);}
+.mappv-d{fill:rgba(240,144,42,0.45);}
+.mappv-d-done{fill:var(--cyan);}
+.mappv-tw{fill:var(--cyan-dim);opacity:.8;}
+.mappv-cta{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--cyan);}
+
+/* ===== per-region mini ===== */
+.rmini{width:100%;height:auto;display:block;background:radial-gradient(circle at 50% 45%,#0b1c22,#071014 75%);border-radius:10px;border:1px solid rgba(95,214,226,0.14);}
+.rmini-bg{fill:transparent;}
+.rmini-tw{fill:var(--cyan-dim);opacity:.85;}
+.rmini-fr{fill:var(--heart);opacity:.85;}
+.rmini-d{fill:rgba(240,144,42,0.16);stroke:var(--orange);stroke-width:2;}
+.rmini-d-done{fill:var(--cyan);stroke:var(--cyan);stroke-width:2;}
+.rmini-n{fill:var(--orange);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;text-anchor:middle;dominant-baseline:central;}
+.rmini-n-done{fill:var(--abyss);}
+.rmini-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:4px 2px 0;}
+.rmini-open{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:5px 10px;cursor:pointer;}
+
+/* ===== full-screen Slate Map ===== */
+.slatemap{position:fixed;inset:0;z-index:60;background:radial-gradient(circle at 50% 38%,#0a1a20,#050c10 72%);overflow:hidden;-webkit-user-select:none;user-select:none;}
+.slatemap-svg{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;}
+.slatemap-svg:active{cursor:grabbing;}
+.sm-bg{fill:rgba(95,214,226,0.012);}
+.sm-beast{fill:none;stroke:var(--cyan);stroke-width:1.4;opacity:.55;}
+.sm-beast-dot{fill:var(--cyan);opacity:.8;}
+.sm-beast-l{fill:var(--cyan);opacity:.85;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.4px;text-transform:uppercase;text-anchor:middle;pointer-events:none;}
+.sm-tower{fill:var(--cyan-dim);stroke:var(--abyss);stroke-width:.5;}
+.sm-tower-l{fill:var(--cyan-dim);font-family:'Rajdhani',sans-serif;font-weight:600;text-anchor:middle;pointer-events:none;}
+.sm-fairy{fill:var(--heart);opacity:.9;}
+.sm-fairy-l{fill:var(--heart);font-family:'Rajdhani',sans-serif;font-weight:600;text-anchor:middle;pointer-events:none;}
+.sm-town{fill:var(--gold);opacity:.92;}
+.sm-town-l{fill:var(--gold);font-family:'Rajdhani',sans-serif;font-weight:600;text-anchor:middle;pointer-events:none;}
+.sm-stable{fill:var(--moss);opacity:.9;}
+.sm-stable-l{fill:var(--moss);font-family:'Rajdhani',sans-serif;font-weight:600;text-anchor:middle;pointer-events:none;}
+.sm-shr{fill:rgba(240,144,42,0.22);stroke:var(--orange);}
+.sm-shr-done{fill:var(--cyan);stroke:var(--cyan);}
+.sm-shr-halo{fill:var(--cyan);opacity:.16;}
+.sm-shr-ring{fill:none;stroke:var(--parch);opacity:.9;}
+.sm-pin-pulse{fill:var(--gold);opacity:.22;animation:sm-pulse 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+@keyframes sm-pulse{0%,100%{opacity:.1;}50%{opacity:.32;}}
+.sm-pin-body{fill:var(--gold);stroke:var(--abyss);stroke-width:1;}
+.sm-pin-dot{fill:var(--abyss);}
+.sm-top{position:absolute;top:0;left:0;right:0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) calc(14px + env(safe-area-inset-right,0px)) 12px calc(14px + env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(6,13,17,0.92),rgba(6,13,17,0));pointer-events:none;}
+.sm-title{display:flex;align-items:center;gap:9px;color:var(--cyan);pointer-events:none;}
+.sm-title-t{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:16px;letter-spacing:.5px;color:var(--parch);}
+.sm-title-s{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--parch-dim);letter-spacing:.3px;}
+.sm-close{pointer-events:auto;width:34px;height:34px;flex-shrink:0;border-radius:50%;background:rgba(10,22,28,0.8);border:1px solid rgba(95,214,226,0.3);color:var(--cyan);font-size:15px;cursor:pointer;}
+.sm-search{position:absolute;top:calc(58px + env(safe-area-inset-top,0px));left:calc(14px + env(safe-area-inset-left,0px));right:calc(14px + env(safe-area-inset-right,0px));max-width:340px;}
+.sm-search-in{width:100%;box-sizing:border-box;font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--parch);background:rgba(8,16,20,0.92);border:1px solid rgba(95,214,226,0.28);border-radius:9px;padding:8px 12px;outline:none;}
+.sm-hits{margin-top:5px;background:rgba(8,16,20,0.97);border:1px solid rgba(95,214,226,0.22);border-radius:9px;overflow:hidden;}
+.sm-hit{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;text-align:left;font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--parch);background:transparent;border:0;border-bottom:1px solid rgba(95,214,226,0.08);padding:8px 11px;cursor:pointer;}
+.sm-hit:active{background:rgba(95,214,226,0.08);}
+.sm-hit-r{color:var(--parch-dim);font-size:11px;}
+.sm-layers{position:absolute;left:0;right:0;bottom:calc(86px + env(safe-area-inset-bottom,0px));display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0 12px;pointer-events:none;}
+.sm-chip{pointer-events:auto;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--parch-dim);background:rgba(8,16,20,0.82);border:1px solid rgba(95,214,226,0.18);border-radius:20px;padding:5px 11px;cursor:pointer;}
+.sm-chip-on{color:var(--abyss);background:var(--cyan);border-color:var(--cyan);}
+.sm-ctrls{position:absolute;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;align-items:center;}
+.sm-ctrl{width:42px;height:42px;border-radius:11px;background:rgba(10,22,28,0.9);border:1px solid rgba(95,214,226,0.28);color:var(--cyan);font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.sm-ctrl:active{transform:scale(.94);}
+.sm-ctrl-pin{color:var(--gold);border-color:rgba(242,193,78,0.4);}
+.sm-ctrl-active{background:var(--gold);color:var(--abyss);box-shadow:0 0 12px rgba(242,193,78,0.5);}
+.sm-ctrl-x{color:var(--malice);font-size:14px;width:34px;height:34px;}
+.sm-zoomgrp{display:flex;flex-direction:column;gap:1px;border-radius:11px;overflow:hidden;margin-top:4px;}
+.sm-zoomgrp .sm-ctrl{border-radius:0;}
+.sm-card{position:absolute;left:calc(12px + env(safe-area-inset-left,0px));right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:520px;margin:0 auto;background:rgba(9,18,23,0.97);border:1px solid rgba(95,214,226,0.3);border-radius:14px;padding:14px 15px 15px;box-shadow:0 -4px 24px rgba(0,0,0,0.45);animation:stepsIn .2s ease;}
+.sm-card-x{position:absolute;top:9px;right:11px;background:transparent;border:0;color:var(--parch-dim);font-size:15px;cursor:pointer;}
+.sm-card-h{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:17px;color:var(--cyan);padding-right:22px;}
+.sm-card-sub{font-size:12px;color:var(--parch-dim);margin-top:2px;line-height:1.4;}
+.sm-card-row{display:flex;gap:8px;margin:10px 0 2px;}
+.sm-done{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--orange);background:rgba(240,144,42,0.1);border:1px solid rgba(240,144,42,0.4);border-radius:8px;padding:7px 13px;cursor:pointer;}
+.sm-done-on{color:var(--abyss);background:var(--cyan);border-color:var(--cyan);}
+.sm-open{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:7px 13px;cursor:pointer;}
+.sm-card-one{font-size:13px;color:var(--parch);line-height:1.5;margin:8px 0 0;}
+.sm-card-spoil{font-size:12px;color:var(--parch-dim);font-style:italic;margin:8px 0 0;}
 .shrine-num{display:inline-block;min-width:15px;height:15px;line-height:15px;text-align:center;border-radius:5px;background:rgba(95,214,226,0.12);color:var(--cyan-dim);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;margin-right:7px;vertical-align:1px;}
 .checked .shrine-num{background:rgba(255,255,255,0.05);color:var(--ink-line);}
 /* --- v8: settings, spoiler toggle --- */
@@ -3535,7 +3958,7 @@ function StyleBlock() {
 .veil-tap{color:var(--cyan-dim);text-decoration:underline;text-underline-offset:2px;font-weight:700;}
 .veil-inline{font:inherit;color:var(--cyan-dim);background:none;border:none;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;}
 @media (max-width:380px){.resume-trigger span{display:none;}.resume-trigger{padding:6px 8px;}}
-@media (max-width:430px){.topbar{gap:7px;}.topbar-r{gap:6px;}.brand>div{display:none;}.ask-trigger,.atmos-trigger,.search-trigger{width:31px;height:31px;}}
+@media (max-width:430px){.topbar{gap:7px;}.topbar-r{gap:6px;}.brand>div{display:none;}.ask-trigger,.atmos-trigger,.search-trigger,.map-trigger{width:31px;height:31px;}}
 /* Lore Library (v11) */
 .lore-cont{position:relative;display:block;width:100%;text-align:left;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,.5));border:1px solid rgba(95,214,226,.25);border-radius:14px;padding:14px 15px;margin:0 0 16px;cursor:pointer;overflow:hidden;}
 .lore-cont-bar{position:absolute;top:0;left:0;height:3px;background:var(--cyan);}
@@ -8483,6 +8906,1020 @@ const REGION_MAPS = {
     "y": 88
    }
   ]
+ }
+};
+const MAP_COORDS = {
+ "_provenance": "Datamined in-game world coordinates [X,Z] (X=east+, Z=south+). Shrines+Towers from AceZephyr/botw-route-map data.js; Great Fairies (Npc_DressFairy), Divine Beasts (Remains*), Castle (Grudge_HyruleCastle) from the objmap actor dump. Coordinates are game facts (no Nintendo art). Towns/stables added separately (verified).",
+ "bounds": {
+  "xmin": -5120.9,
+  "xmax": 4987.5,
+  "zmin": -4053,
+  "zmax": 4091
+ },
+ "shrines": {
+  "Dila Maag Shrine": {
+   "x": -1795,
+   "z": 3465.4,
+   "rk": "wasteland",
+   "i": 9
+  },
+  "Bosh Kala Shrine": {
+   "x": 87,
+   "z": 1658.7,
+   "rk": "dueling-peaks",
+   "i": 1
+  },
+  "Ja Baij Shrine": {
+   "x": -446.7,
+   "z": 1990.2,
+   "rk": "great_plateau",
+   "i": 1
+  },
+  "Owa Daim Shrine": {
+   "x": -925,
+   "z": 2321.2,
+   "rk": "great_plateau",
+   "i": 2
+  },
+  "Keh Namut Shrine": {
+   "x": -1436.3,
+   "z": 1991,
+   "rk": "great_plateau",
+   "i": 3
+  },
+  "Oman Au Shrine": {
+   "x": -673.2,
+   "z": 1513,
+   "rk": "great_plateau",
+   "i": 0
+  },
+  "Ha Dahamar Shrine": {
+   "x": 1662.4,
+   "z": 1921.6,
+   "rk": "dueling-peaks",
+   "i": 0
+  },
+  "Hila Rao Shrine": {
+   "x": 854.7,
+   "z": 838.1,
+   "rk": "dueling-peaks",
+   "i": 8
+  },
+  "Shee Venath Shrine": {
+   "x": 1244.1,
+   "z": 1850.3,
+   "rk": "dueling-peaks",
+   "i": 7
+  },
+  "Shee Vaneer Shrine": {
+   "x": 1265.3,
+   "z": 1938.7,
+   "rk": "dueling-peaks",
+   "i": 6
+  },
+  "Ree Dahee Shrine": {
+   "x": 1271.9,
+   "z": 1843.7,
+   "rk": "dueling-peaks",
+   "i": 2
+  },
+  "Ta'loh Naeg Shrine": {
+   "x": 1841.9,
+   "z": 890.4,
+   "rk": "dueling-peaks",
+   "i": 4
+  },
+  "Lakna Rokee Shrine": {
+   "x": 2040.5,
+   "z": 972.2,
+   "rk": "dueling-peaks",
+   "i": 5
+  },
+  "Toto Sah Shrine": {
+   "x": 1845.7,
+   "z": 2474.1,
+   "rk": "dueling-peaks",
+   "i": 3
+  },
+  "Myahm Agana Shrine": {
+   "x": 3388.4,
+   "z": 2215.8,
+   "rk": "hateno",
+   "i": 0
+  },
+  "Mezza Lo Shrine": {
+   "x": 2621.6,
+   "z": 378.2,
+   "rk": "hateno",
+   "i": 4
+  },
+  "Tahno O'ah Shrine": {
+   "x": 4181.8,
+   "z": 1686.7,
+   "rk": "hateno",
+   "i": 1
+  },
+  "Chaas Qeta Shrine": {
+   "x": 4012.2,
+   "z": 2990.5,
+   "rk": "hateno",
+   "i": 5
+  },
+  "Jitan Sa'mi Shrine": {
+   "x": 3882.1,
+   "z": 1314.9,
+   "rk": "hateno",
+   "i": 2
+  },
+  "Dow Na'eh Shrine": {
+   "x": 2697.7,
+   "z": 1333.5,
+   "rk": "hateno",
+   "i": 6
+  },
+  "Kam Urog Shrine": {
+   "x": 2501,
+   "z": 1494.8,
+   "rk": "hateno",
+   "i": 3
+  },
+  "Ne'ez Yohma Shrine": {
+   "x": 3323.6,
+   "z": -518.8,
+   "rk": "lanayru",
+   "i": 4
+  },
+  "Rucco Maag Shrine": {
+   "x": 3333.5,
+   "z": 401.5,
+   "rk": "lanayru",
+   "i": 6
+  },
+  "Soh Kofi Shrine": {
+   "x": 2238.4,
+   "z": -293,
+   "rk": "lanayru",
+   "i": 3
+  },
+  "Kah Mael Shrine": {
+   "x": 4709.2,
+   "z": -1310.3,
+   "rk": "lanayru",
+   "i": 7
+  },
+  "Kaya Wan Shrine": {
+   "x": 824.2,
+   "z": 187.8,
+   "rk": "lanayru",
+   "i": 0
+  },
+  "Sheh Rata Shrine": {
+   "x": 1510.5,
+   "z": -377,
+   "rk": "lanayru",
+   "i": 2
+  },
+  "Daka Tuss Shrine": {
+   "x": 1601,
+   "z": 462.2,
+   "rk": "lanayru",
+   "i": 1
+  },
+  "Shai Yota Shrine": {
+   "x": 4245.6,
+   "z": 253,
+   "rk": "lanayru",
+   "i": 8
+  },
+  "Dagah Keek Shrine": {
+   "x": 3149.7,
+   "z": -416.8,
+   "rk": "lanayru",
+   "i": 5
+  },
+  "Korsh O'hu Shrine": {
+   "x": -2688.6,
+   "z": 2811.2,
+   "rk": "wasteland",
+   "i": 7
+  },
+  "Daqo Chisay Shrine": {
+   "x": -3817,
+   "z": 2819.9,
+   "rk": "wasteland",
+   "i": 0
+  },
+  "Rota Ooh Shrine": {
+   "x": -1563.2,
+   "z": 1310.1,
+   "rk": "central_hyrule",
+   "i": 1
+  },
+  "Qukah Nata Shrine": {
+   "x": 2007,
+   "z": 3285,
+   "rk": "faron",
+   "i": 4
+  },
+  "Muwo Jeem Shrine": {
+   "x": 3658.1,
+   "z": 3308.3,
+   "rk": "faron",
+   "i": 3
+  },
+  "Kaam Ya'tak Shrine": {
+   "x": -967.8,
+   "z": 715.9,
+   "rk": "central_hyrule",
+   "i": 0
+  },
+  "Toh Yahsa Shrine": {
+   "x": -2269.1,
+   "z": -900.1,
+   "rk": "ridgeland",
+   "i": 5
+  },
+  "Zalta Wa Shrine": {
+   "x": -1432.3,
+   "z": -594.2,
+   "rk": "ridgeland",
+   "i": 2
+  },
+  "Monya Toma Shrine": {
+   "x": -1488.6,
+   "z": -1473,
+   "rk": "woodland",
+   "i": 2
+  },
+  "Ka'o Makagh Shrine": {
+   "x": 523.3,
+   "z": 3526.3,
+   "rk": "lake",
+   "i": 0
+  },
+  "Zuna Kai Shrine": {
+   "x": 3324.5,
+   "z": -3420.4,
+   "rk": "akkala",
+   "i": 4
+  },
+  "Dah Kaso Shrine": {
+   "x": -1695.3,
+   "z": 1700.1,
+   "rk": "central_hyrule",
+   "i": 5
+  },
+  "Shae Loya Shrine": {
+   "x": -2930.9,
+   "z": -432,
+   "rk": "ridgeland",
+   "i": 6
+  },
+  "Tena Ko'sah Shrine": {
+   "x": -3465.5,
+   "z": -448,
+   "rk": "tabantha",
+   "i": 2
+  },
+  "Korgu Chideh Shrine": {
+   "x": 4737.5,
+   "z": 3772.1,
+   "rk": "faron",
+   "i": 6
+  },
+  "Dah Hesho Shrine": {
+   "x": 3899.5,
+   "z": -1302.8,
+   "rk": "akkala",
+   "i": 0
+  },
+  "Ritaag Zumo Shrine": {
+   "x": 4524.6,
+   "z": -2127.5,
+   "rk": "akkala",
+   "i": 5
+  },
+  "Katosa Aug Shrine": {
+   "x": 4295.8,
+   "z": -2730.3,
+   "rk": "akkala",
+   "i": 2
+  },
+  "Tu Ka'loh Shrine": {
+   "x": 4655,
+   "z": -3710,
+   "rk": "akkala",
+   "i": 6
+  },
+  "Tutsuwa Nima Shrine": {
+   "x": 3777.8,
+   "z": -2704.9,
+   "rk": "akkala",
+   "i": 7
+  },
+  "Ze Kasho Shrine": {
+   "x": 3027.3,
+   "z": -1667.8,
+   "rk": "akkala",
+   "i": 1
+  },
+  "Mo'a Keet Shrine": {
+   "x": 2723.5,
+   "z": -1166.1,
+   "rk": "eldin",
+   "i": 0
+  },
+  "Qaza Tokki Shrine": {
+   "x": -820.5,
+   "z": -3535,
+   "rk": "hebra",
+   "i": 3
+  },
+  "Sha Gehma Shrine": {
+   "x": -1673.2,
+   "z": -3758.4,
+   "rk": "hebra",
+   "i": 6
+  },
+  "Kema Kosassa Shrine": {
+   "x": -4658.5,
+   "z": 904.8,
+   "rk": "gerudo",
+   "i": 3
+  },
+  "Akh Va'quot Shrine": {
+   "x": -3656.1,
+   "z": -1756.7,
+   "rk": "tabantha",
+   "i": 0
+  },
+  "Daqa Koh Shrine": {
+   "x": 2065.9,
+   "z": -2328.4,
+   "rk": "eldin",
+   "i": 2
+  },
+  "Shae Mo'sah Shrine": {
+   "x": 1757.2,
+   "z": -2562.5,
+   "rk": "eldin",
+   "i": 4
+  },
+  "Ketoh Wawai Shrine": {
+   "x": 283.4,
+   "z": -3119.6,
+   "rk": "woodland",
+   "i": 6
+  },
+  "Kay Noh Shrine": {
+   "x": -2811,
+   "z": 2300.1,
+   "rk": "wasteland",
+   "i": 1
+  },
+  "Dako Tah Shrine": {
+   "x": -3317.8,
+   "z": 2162.5,
+   "rk": "wasteland",
+   "i": 6
+  },
+  "Gee Ha'rah Shrine": {
+   "x": -2379.8,
+   "z": -2254.6,
+   "rk": "hebra",
+   "i": 12
+  },
+  "Wahgo Katta Shrine": {
+   "x": 344.9,
+   "z": 1007,
+   "rk": "central_hyrule",
+   "i": 2
+  },
+  "To Quomo Shrine": {
+   "x": -4023.1,
+   "z": -3711.6,
+   "rk": "hebra",
+   "i": 5
+  },
+  "Sasa Kai Shrine": {
+   "x": -3559.8,
+   "z": 1953,
+   "rk": "gerudo",
+   "i": 0
+  },
+  "Hia Miu Shrine": {
+   "x": -4446.8,
+   "z": -3803,
+   "rk": "hebra",
+   "i": 0
+  },
+  "Namika Ozz Shrine": {
+   "x": 761.3,
+   "z": -821.3,
+   "rk": "central_hyrule",
+   "i": 6
+  },
+  "Kuhn Sidajj Shrine": {
+   "x": 17.7,
+   "z": -1944.4,
+   "rk": "woodland",
+   "i": 5
+  },
+  "Keo Ruug Shrine": {
+   "x": 470.7,
+   "z": -2168.8,
+   "rk": "woodland",
+   "i": 0
+  },
+  "Daag Chokah Shrine": {
+   "x": -26.4,
+   "z": -2458.6,
+   "rk": "woodland",
+   "i": 3
+  },
+  "Maag Halan Shrine": {
+   "x": 837.1,
+   "z": -2419.7,
+   "rk": "woodland",
+   "i": 4
+  },
+  "Mirro Shaz Shrine": {
+   "x": 1232,
+   "z": -1212.7,
+   "rk": "woodland",
+   "i": 1
+  },
+  "Qua Raym Shrine": {
+   "x": 1820.7,
+   "z": -1517,
+   "rk": "eldin",
+   "i": 3
+  },
+  "Shora Hah Shrine": {
+   "x": 1535.4,
+   "z": -3118,
+   "rk": "eldin",
+   "i": 5
+  },
+  "Saas Ko'sah Shrine": {
+   "x": -147.4,
+   "z": -1159.3,
+   "rk": "central_hyrule",
+   "i": 4
+  },
+  "Katah Chuki Shrine": {
+   "x": -636.4,
+   "z": -345.1,
+   "rk": "central_hyrule",
+   "i": 3
+  },
+  "Noya Neha Shrine": {
+   "x": -951.2,
+   "z": -623.8,
+   "rk": "central_hyrule",
+   "i": 7
+  },
+  "Shai Utoh Shrine": {
+   "x": 1586.7,
+   "z": 3614.9,
+   "rk": "faron",
+   "i": 0
+  },
+  "Shoda Sah Shrine": {
+   "x": 1790.5,
+   "z": 2991.9,
+   "rk": "faron",
+   "i": 1
+  },
+  "Pumaag Nitae Shrine": {
+   "x": 559.5,
+   "z": 2990.2,
+   "rk": "lake",
+   "i": 1
+  },
+  "Shoqa Tatone Shrine": {
+   "x": 94,
+   "z": 3841,
+   "rk": "lake",
+   "i": 5
+  },
+  "Ya Naga Shrine": {
+   "x": -328.2,
+   "z": 2600.3,
+   "rk": "lake",
+   "i": 3
+  },
+  "Shae Katha Shrine": {
+   "x": 870.3,
+   "z": 2328.5,
+   "rk": "lake",
+   "i": 4
+  },
+  "Ishto Soh Shrine": {
+   "x": -984.8,
+   "z": 3565,
+   "rk": "lake",
+   "i": 2
+  },
+  "Suma Sahma Shrine": {
+   "x": -1418.2,
+   "z": 3448.3,
+   "rk": "wasteland",
+   "i": 10
+  },
+  "Rona Kachta Shrine": {
+   "x": -1088.2,
+   "z": -2661.5,
+   "rk": "woodland",
+   "i": 7
+  },
+  "Sah Dahaj Shrine": {
+   "x": 2665.2,
+   "z": -1580.7,
+   "rk": "eldin",
+   "i": 1
+  },
+  "Gorae Torr Shrine": {
+   "x": 2662,
+   "z": -3456.5,
+   "rk": "eldin",
+   "i": 7
+  },
+  "Ke'nai Shakah Shrine": {
+   "x": 4194.5,
+   "z": -856.9,
+   "rk": "akkala",
+   "i": 3
+  },
+  "Kah Yah Shrine": {
+   "x": 3436.9,
+   "z": 3316.3,
+   "rk": "faron",
+   "i": 5
+  },
+  "Yah Rin Shrine": {
+   "x": 2833.4,
+   "z": 3311,
+   "rk": "faron",
+   "i": 2
+  },
+  "Tawa Jinn Shrine": {
+   "x": 2637.5,
+   "z": 2834.4,
+   "rk": "faron",
+   "i": 7
+  },
+  "Misae Suma Shrine": {
+   "x": -2970.3,
+   "z": 3781.5,
+   "rk": "wasteland",
+   "i": 4
+  },
+  "Raqa Zunzo Shrine": {
+   "x": -3810.5,
+   "z": 3127.2,
+   "rk": "wasteland",
+   "i": 5
+  },
+  "Joloo Nah Shrine": {
+   "x": -2004,
+   "z": 1674.3,
+   "rk": "gerudo",
+   "i": 1
+  },
+  "Kuh Takkar Shrine": {
+   "x": -3083,
+   "z": 1221,
+   "rk": "gerudo",
+   "i": 4
+  },
+  "Sho Dantu Shrine": {
+   "x": -3911.3,
+   "z": 1653.8,
+   "rk": "gerudo",
+   "i": 5
+  },
+  "Kema Zoos Shrine": {
+   "x": -4673.5,
+   "z": 1967.8,
+   "rk": "wasteland",
+   "i": 8
+  },
+  "Tho Kayu Shrine": {
+   "x": -4799.1,
+   "z": 2800.2,
+   "rk": "wasteland",
+   "i": 11
+  },
+  "Hawa Koth Shrine": {
+   "x": -4847,
+   "z": 3772.6,
+   "rk": "wasteland",
+   "i": 3
+  },
+  "Mogg Latan Shrine": {
+   "x": -2297.4,
+   "z": 460.7,
+   "rk": "ridgeland",
+   "i": 1
+  },
+  "Sheem Dagoze Shrine": {
+   "x": -1893.3,
+   "z": 91.5,
+   "rk": "ridgeland",
+   "i": 4
+  },
+  "Mijah Rokee Shrine": {
+   "x": -2743.3,
+   "z": 226.4,
+   "rk": "ridgeland",
+   "i": 3
+  },
+  "Keeha Yoog Shrine": {
+   "x": -3853.4,
+   "z": 716.7,
+   "rk": "gerudo",
+   "i": 2
+  },
+  "Kah Okeo Shrine": {
+   "x": -4120.4,
+   "z": -414.4,
+   "rk": "tabantha",
+   "i": 3
+  },
+  "Maag No'rah Shrine": {
+   "x": -1939.9,
+   "z": -1458.2,
+   "rk": "ridgeland",
+   "i": 0
+  },
+  "Dunba Taag Shrine": {
+   "x": -2832.5,
+   "z": -1578,
+   "rk": "hebra",
+   "i": 11
+  },
+  "Bareeda Naag Shrine": {
+   "x": -3609.2,
+   "z": -1515.4,
+   "rk": "tabantha",
+   "i": 5
+  },
+  "Voo Lota Shrine": {
+   "x": -4016.2,
+   "z": -1721.9,
+   "rk": "tabantha",
+   "i": 4
+  },
+  "Sha Warvo Shrine": {
+   "x": -3823.1,
+   "z": -2206.4,
+   "rk": "tabantha",
+   "i": 1
+  },
+  "Maka Rah Shrine": {
+   "x": -4057.8,
+   "z": -2508.4,
+   "rk": "hebra",
+   "i": 9
+  },
+  "Mozo Shenno Shrine": {
+   "x": -3627.7,
+   "z": -3038.2,
+   "rk": "hebra",
+   "i": 2
+  },
+  "Shada Naw Shrine": {
+   "x": -2998.6,
+   "z": -3221.6,
+   "rk": "hebra",
+   "i": 7
+  },
+  "Goma Asaagh Shrine": {
+   "x": -2792.3,
+   "z": -2882.3,
+   "rk": "hebra",
+   "i": 1
+  },
+  "Rok Uwog Shrine": {
+   "x": -2378,
+   "z": -3224.7,
+   "rk": "hebra",
+   "i": 8
+  },
+  "Lanno Kooh Shrine": {
+   "x": -2636.4,
+   "z": -2060.4,
+   "rk": "hebra",
+   "i": 4
+  },
+  "Rin Oyaa Shrine": {
+   "x": -1721.4,
+   "z": -2554.5,
+   "rk": "hebra",
+   "i": 10
+  },
+  "Jee Noh Shrine": {
+   "x": -1792.8,
+   "z": 2423.4,
+   "rk": "wasteland",
+   "i": 2
+  },
+  "Tah Muhl Shrine": {
+   "x": 2300.7,
+   "z": -941.3,
+   "rk": "eldin",
+   "i": 8
+  },
+  "Kayra Mah Shrine": {
+   "x": 2076.8,
+   "z": -2039.8,
+   "rk": "eldin",
+   "i": 6
+  }
+ },
+ "towers": [
+  {
+   "name": "Akkala Tower",
+   "x": 3308,
+   "z": -1500.1
+  },
+  {
+   "name": "Central Tower",
+   "x": -788.6,
+   "z": 442
+  },
+  {
+   "name": "Dueling Peaks Tower",
+   "x": 1016.8,
+   "z": 1714.1
+  },
+  {
+   "name": "Eldin Tower",
+   "x": 2174.2,
+   "z": -1556.8
+  },
+  {
+   "name": "Faron Tower",
+   "x": 1331.2,
+   "z": 3273.7
+  },
+  {
+   "name": "Gerudo Tower",
+   "x": -3666,
+   "z": 1828.6
+  },
+  {
+   "name": "Great Plateau Tower",
+   "x": -560,
+   "z": 1694.9
+  },
+  {
+   "name": "Hateno Tower",
+   "x": 2735.5,
+   "z": 2133.5
+  },
+  {
+   "name": "Hebra Tower",
+   "x": -2173,
+   "z": -2034
+  },
+  {
+   "name": "Lake Tower",
+   "x": -31.8,
+   "z": 2961.6
+  },
+  {
+   "name": "Lanayru Tower",
+   "x": 2258,
+   "z": -109
+  },
+  {
+   "name": "Ridgeland Tower",
+   "x": -1755.3,
+   "z": -774.3
+  },
+  {
+   "name": "Tabantha Tower",
+   "x": -3613.7,
+   "z": -990.2
+  },
+  {
+   "name": "Wasteland Tower",
+   "x": -2306.8,
+   "z": 2437.3
+  },
+  {
+   "name": "Woodland Tower",
+   "x": 883.9,
+   "z": -1605.7
+  }
+ ],
+ "fairies": [
+  {
+   "name": "Cotera",
+   "x": 1976,
+   "z": 846
+  },
+  {
+   "name": "Kaysa",
+   "x": -3538.7,
+   "z": -746.1
+  },
+  {
+   "name": "Mija",
+   "x": 4110.8,
+   "z": -1377.6
+  },
+  {
+   "name": "Tera",
+   "x": -4870.9,
+   "z": 3825.8
+  }
+ ],
+ "beasts": [
+  {
+   "name": "Vah Ruta",
+   "short": "Ruta",
+   "x": 3662.4,
+   "z": -175.4
+  },
+  {
+   "name": "Vah Rudania",
+   "short": "Rudania",
+   "x": 2566,
+   "z": -2369
+  },
+  {
+   "name": "Vah Medoh",
+   "short": "Medoh",
+   "x": -3879.8,
+   "z": -1807.2
+  },
+  {
+   "name": "Vah Naboris",
+   "short": "Naboris",
+   "x": -2980.3,
+   "z": 3257.1
+  }
+ ],
+ "castle": {
+  "x": -268,
+  "z": -951.5
+ },
+ "towns": [],
+ "stables": [],
+ "regions": {
+  "great_plateau": {
+   "name": "Great Plateau",
+   "cx": -870.3,
+   "cz": 1953.9,
+   "x0": -1436.3,
+   "z0": 1513,
+   "x1": -446.7,
+   "z1": 2321.2,
+   "n": 4
+  },
+  "dueling-peaks": {
+   "name": "Dueling Peaks",
+   "cx": 1345.9,
+   "cz": 1598.6,
+   "x0": 87,
+   "z0": 838.1,
+   "x1": 2040.5,
+   "z1": 2474.1,
+   "n": 9
+  },
+  "hateno": {
+   "name": "Hateno",
+   "cx": 3326.4,
+   "cz": 1630.6,
+   "x0": 2501,
+   "z0": 378.2,
+   "x1": 4181.8,
+   "z1": 2990.5,
+   "n": 7
+  },
+  "lanayru": {
+   "name": "Lanayru",
+   "cx": 2770.6,
+   "cz": -179,
+   "x0": 824.2,
+   "z0": -1310.3,
+   "x1": 4709.2,
+   "z1": 462.2,
+   "n": 9
+  },
+  "lake": {
+   "name": "Lake Hylia",
+   "cx": 122.3,
+   "cz": 3141.9,
+   "x0": -984.8,
+   "z0": 2328.5,
+   "x1": 870.3,
+   "z1": 3841,
+   "n": 6
+  },
+  "faron": {
+   "name": "Faron",
+   "cx": 2836,
+   "cz": 3304.2,
+   "x0": 1586.7,
+   "z0": 2834.4,
+   "x1": 4737.5,
+   "z1": 3772.1,
+   "n": 8
+  },
+  "central_hyrule": {
+   "name": "Central Hyrule",
+   "cx": -606.9,
+   "cz": 222.9,
+   "x0": -1695.3,
+   "z0": -1159.3,
+   "x1": 761.3,
+   "z1": 1700.1,
+   "n": 8
+  },
+  "ridgeland": {
+   "name": "Hyrule Ridge",
+   "cx": -2215.2,
+   "cz": -372.3,
+   "x0": -2930.9,
+   "z0": -1458.2,
+   "x1": -1432.3,
+   "z1": 460.7,
+   "n": 7
+  },
+  "tabantha": {
+   "name": "Tabantha",
+   "cx": -3781.7,
+   "cz": -1343.8,
+   "x0": -4120.4,
+   "z0": -2206.4,
+   "x1": -3465.5,
+   "z1": -414.4,
+   "n": 6
+  },
+  "hebra": {
+   "name": "Hebra",
+   "cx": -2799.1,
+   "cz": -2933.1,
+   "x0": -4446.8,
+   "z0": -3803,
+   "x1": -820.5,
+   "z1": -1578,
+   "n": 13
+  },
+  "woodland": {
+   "name": "Great Hyrule Forest",
+   "cx": 29.7,
+   "cz": -2182.3,
+   "x0": -1488.6,
+   "z0": -3119.6,
+   "x1": 1232,
+   "z1": -1212.7,
+   "n": 8
+  },
+  "eldin": {
+   "name": "Eldin",
+   "cx": 2178.6,
+   "cz": -2078.9,
+   "x0": 1535.4,
+   "z0": -3456.5,
+   "x1": 2723.5,
+   "z1": -941.3,
+   "n": 9
+  },
+  "akkala": {
+   "name": "Akkala",
+   "cx": 3962.4,
+   "cz": -2315.1,
+   "x0": 3027.3,
+   "z0": -3710,
+   "x1": 4655,
+   "z1": -856.9,
+   "n": 8
+  },
+  "gerudo": {
+   "name": "Gerudo Highlands",
+   "cx": -3511.7,
+   "cz": 1353.9,
+   "x0": -4658.5,
+   "z0": 716.7,
+   "x1": -2004,
+   "z1": 1953,
+   "n": 6
+  },
+  "wasteland": {
+   "name": "Gerudo Desert",
+   "cx": -3228.4,
+   "cz": 2906.7,
+   "x0": -4847,
+   "z0": 1967.8,
+   "x1": -1418.2,
+   "z1": 3781.5,
+   "n": 12
+  }
  }
 };
 const COOK_INGREDIENTS = [
@@ -54709,5 +56146,5 @@ const OOA = {
   "cover": "harp"
  }
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW, ww: WW, minish: MINISH, oos: OOS, ooa: OOA };
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_COORDS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW, ww: WW, minish: MINISH, oos: OOS, ooa: OOA };
 /* GEN:DATA:END */

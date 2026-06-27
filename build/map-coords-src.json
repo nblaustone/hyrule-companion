@@ -1,0 +1,736 @@
+{
+ "_provenance": "Datamined in-game world coordinates [X,Z] (X=east+, Z=south+). Shrines+Towers from AceZephyr/botw-route-map data.js; Great Fairies (Npc_DressFairy), Divine Beasts (Remains*), Castle (Grudge_HyruleCastle) from the objmap actor dump. Coordinates are game facts (no Nintendo art). Towns/stables added separately (verified).",
+ "shrines": [
+  {
+   "name": "Dila Maag Shrine",
+   "x": -1795,
+   "z": 3465.4
+  },
+  {
+   "name": "Bosh Kala Shrine",
+   "x": 87,
+   "z": 1658.7
+  },
+  {
+   "name": "Ja Baij Shrine",
+   "x": -446.7,
+   "z": 1990.2
+  },
+  {
+   "name": "Owa Daim Shrine",
+   "x": -925,
+   "z": 2321.2
+  },
+  {
+   "name": "Keh Namut Shrine",
+   "x": -1436.3,
+   "z": 1991
+  },
+  {
+   "name": "Oman Au Shrine",
+   "x": -673.2,
+   "z": 1513
+  },
+  {
+   "name": "Ha Dahamar Shrine",
+   "x": 1662.4,
+   "z": 1921.6
+  },
+  {
+   "name": "Hila Rao Shrine",
+   "x": 854.7,
+   "z": 838.1
+  },
+  {
+   "name": "Shee Venath Shrine",
+   "x": 1244.1,
+   "z": 1850.3
+  },
+  {
+   "name": "Shee Vaneer Shrine",
+   "x": 1265.3,
+   "z": 1938.7
+  },
+  {
+   "name": "Ree Dahee Shrine",
+   "x": 1271.9,
+   "z": 1843.7
+  },
+  {
+   "name": "Ta'loh Naeg Shrine",
+   "x": 1841.9,
+   "z": 890.4
+  },
+  {
+   "name": "Lakna Rokee Shrine",
+   "x": 2040.5,
+   "z": 972.2
+  },
+  {
+   "name": "Toto Sah Shrine",
+   "x": 1845.7,
+   "z": 2474.1
+  },
+  {
+   "name": "Myahm Agana Shrine",
+   "x": 3388.4,
+   "z": 2215.8
+  },
+  {
+   "name": "Mezza Lo Shrine",
+   "x": 2621.6,
+   "z": 378.2
+  },
+  {
+   "name": "Tahno O'ah Shrine",
+   "x": 4181.8,
+   "z": 1686.7
+  },
+  {
+   "name": "Chaas Qeta Shrine",
+   "x": 4012.2,
+   "z": 2990.5
+  },
+  {
+   "name": "Jitan Sa'mi Shrine",
+   "x": 3882.1,
+   "z": 1314.9
+  },
+  {
+   "name": "Dow Na'eh Shrine",
+   "x": 2697.7,
+   "z": 1333.5
+  },
+  {
+   "name": "Kam Urog Shrine",
+   "x": 2501,
+   "z": 1494.8
+  },
+  {
+   "name": "Ne'ez Yohma Shrine",
+   "x": 3323.6,
+   "z": -518.8
+  },
+  {
+   "name": "Rucco Maag Shrine",
+   "x": 3333.5,
+   "z": 401.5
+  },
+  {
+   "name": "Soh Kofi Shrine",
+   "x": 2238.4,
+   "z": -293
+  },
+  {
+   "name": "Kah Mael Shrine",
+   "x": 4709.2,
+   "z": -1310.3
+  },
+  {
+   "name": "Kaya Wan Shrine",
+   "x": 824.2,
+   "z": 187.8
+  },
+  {
+   "name": "Sheh Rata Shrine",
+   "x": 1510.5,
+   "z": -377
+  },
+  {
+   "name": "Daka Tuss Shrine",
+   "x": 1601,
+   "z": 462.2
+  },
+  {
+   "name": "Shai Yota Shrine",
+   "x": 4245.6,
+   "z": 253
+  },
+  {
+   "name": "Dagah Keek Shrine",
+   "x": 3149.7,
+   "z": -416.8
+  },
+  {
+   "name": "Korsh O'hu Shrine",
+   "x": -2688.6,
+   "z": 2811.2
+  },
+  {
+   "name": "Daqo Chisay Shrine",
+   "x": -3817,
+   "z": 2819.9
+  },
+  {
+   "name": "Rota Ooh Shrine",
+   "x": -1563.2,
+   "z": 1310.1
+  },
+  {
+   "name": "Qukah Nata Shrine",
+   "x": 2007,
+   "z": 3285
+  },
+  {
+   "name": "Muwo Jeem Shrine",
+   "x": 3658.1,
+   "z": 3308.3
+  },
+  {
+   "name": "Kaam Ya'tak Shrine",
+   "x": -967.8,
+   "z": 715.9
+  },
+  {
+   "name": "Toh Yahsa Shrine",
+   "x": -2269.1,
+   "z": -900.1
+  },
+  {
+   "name": "Zalta Wa Shrine",
+   "x": -1432.3,
+   "z": -594.2
+  },
+  {
+   "name": "Monya Toma Shrine",
+   "x": -1488.6,
+   "z": -1473
+  },
+  {
+   "name": "Ka'o Makagh Shrine",
+   "x": 523.3,
+   "z": 3526.3
+  },
+  {
+   "name": "Zuna Kai Shrine",
+   "x": 3324.5,
+   "z": -3420.4
+  },
+  {
+   "name": "Dah Kaso Shrine",
+   "x": -1695.3,
+   "z": 1700.1
+  },
+  {
+   "name": "Shae Loya Shrine",
+   "x": -2930.9,
+   "z": -432
+  },
+  {
+   "name": "Tena Ko'sah Shrine",
+   "x": -3465.5,
+   "z": -448
+  },
+  {
+   "name": "Korgu Chideh Shrine",
+   "x": 4737.5,
+   "z": 3772.1
+  },
+  {
+   "name": "Dah Hesho Shrine",
+   "x": 3899.5,
+   "z": -1302.8
+  },
+  {
+   "name": "Ritaag Zumo Shrine",
+   "x": 4524.6,
+   "z": -2127.5
+  },
+  {
+   "name": "Katosa Aug Shrine",
+   "x": 4295.8,
+   "z": -2730.3
+  },
+  {
+   "name": "Tu Ka'loh Shrine",
+   "x": 4655,
+   "z": -3710
+  },
+  {
+   "name": "Tutsuwa Nima Shrine",
+   "x": 3777.8,
+   "z": -2704.9
+  },
+  {
+   "name": "Ze Kasho Shrine",
+   "x": 3027.3,
+   "z": -1667.8
+  },
+  {
+   "name": "Mo'a Keet Shrine",
+   "x": 2723.5,
+   "z": -1166.1
+  },
+  {
+   "name": "Qaza Tokki Shrine",
+   "x": -820.5,
+   "z": -3535
+  },
+  {
+   "name": "Sha Gehma Shrine",
+   "x": -1673.2,
+   "z": -3758.4
+  },
+  {
+   "name": "Kema Kosassa Shrine",
+   "x": -4658.5,
+   "z": 904.8
+  },
+  {
+   "name": "Akh Va'quot Shrine",
+   "x": -3656.1,
+   "z": -1756.7
+  },
+  {
+   "name": "Daqa Koh Shrine",
+   "x": 2065.9,
+   "z": -2328.4
+  },
+  {
+   "name": "Shae Mo'sah Shrine",
+   "x": 1757.2,
+   "z": -2562.5
+  },
+  {
+   "name": "Ketoh Wawai Shrine",
+   "x": 283.4,
+   "z": -3119.6
+  },
+  {
+   "name": "Kay Noh Shrine",
+   "x": -2811,
+   "z": 2300.1
+  },
+  {
+   "name": "Dako Tah Shrine",
+   "x": -3317.8,
+   "z": 2162.5
+  },
+  {
+   "name": "Gee Ha'rah Shrine",
+   "x": -2379.8,
+   "z": -2254.6
+  },
+  {
+   "name": "Wahgo Katta Shrine",
+   "x": 344.9,
+   "z": 1007
+  },
+  {
+   "name": "To Quomo Shrine",
+   "x": -4023.1,
+   "z": -3711.6
+  },
+  {
+   "name": "Sasa Kai Shrine",
+   "x": -3559.8,
+   "z": 1953
+  },
+  {
+   "name": "Hia Miu Shrine",
+   "x": -4446.8,
+   "z": -3803
+  },
+  {
+   "name": "Namika Ozz Shrine",
+   "x": 761.3,
+   "z": -821.3
+  },
+  {
+   "name": "Kuhn Sidajj Shrine",
+   "x": 17.7,
+   "z": -1944.4
+  },
+  {
+   "name": "Keo Ruug Shrine",
+   "x": 470.7,
+   "z": -2168.8
+  },
+  {
+   "name": "Daag Chokah Shrine",
+   "x": -26.4,
+   "z": -2458.6
+  },
+  {
+   "name": "Maag Halan Shrine",
+   "x": 837.1,
+   "z": -2419.7
+  },
+  {
+   "name": "Mirro Shaz Shrine",
+   "x": 1232,
+   "z": -1212.7
+  },
+  {
+   "name": "Qua Raym Shrine",
+   "x": 1820.7,
+   "z": -1517
+  },
+  {
+   "name": "Shora Hah Shrine",
+   "x": 1535.4,
+   "z": -3118
+  },
+  {
+   "name": "Saas Ko'sah Shrine",
+   "x": -147.4,
+   "z": -1159.3
+  },
+  {
+   "name": "Katah Chuki Shrine",
+   "x": -636.4,
+   "z": -345.1
+  },
+  {
+   "name": "Noya Neha Shrine",
+   "x": -951.2,
+   "z": -623.8
+  },
+  {
+   "name": "Shai Utoh Shrine",
+   "x": 1586.7,
+   "z": 3614.9
+  },
+  {
+   "name": "Shoda Sah Shrine",
+   "x": 1790.5,
+   "z": 2991.9
+  },
+  {
+   "name": "Pumaag Nitae Shrine",
+   "x": 559.5,
+   "z": 2990.2
+  },
+  {
+   "name": "Shoqa Tatone Shrine",
+   "x": 94,
+   "z": 3841
+  },
+  {
+   "name": "Ya Naga Shrine",
+   "x": -328.2,
+   "z": 2600.3
+  },
+  {
+   "name": "Shae Katha Shrine",
+   "x": 870.3,
+   "z": 2328.5
+  },
+  {
+   "name": "Ishto Soh Shrine",
+   "x": -984.8,
+   "z": 3565
+  },
+  {
+   "name": "Suma Sahma Shrine",
+   "x": -1418.2,
+   "z": 3448.3
+  },
+  {
+   "name": "Rona Kachta Shrine",
+   "x": -1088.2,
+   "z": -2661.5
+  },
+  {
+   "name": "Sah Dahaj Shrine",
+   "x": 2665.2,
+   "z": -1580.7
+  },
+  {
+   "name": "Gorae Torr Shrine",
+   "x": 2662,
+   "z": -3456.5
+  },
+  {
+   "name": "Ke'nai Shakah Shrine",
+   "x": 4194.5,
+   "z": -856.9
+  },
+  {
+   "name": "Kah Yah Shrine",
+   "x": 3436.9,
+   "z": 3316.3
+  },
+  {
+   "name": "Yah Rin Shrine",
+   "x": 2833.4,
+   "z": 3311
+  },
+  {
+   "name": "Tawa Jinn Shrine",
+   "x": 2637.5,
+   "z": 2834.4
+  },
+  {
+   "name": "Misae Suma Shrine",
+   "x": -2970.3,
+   "z": 3781.5
+  },
+  {
+   "name": "Raqa Zunzo Shrine",
+   "x": -3810.5,
+   "z": 3127.2
+  },
+  {
+   "name": "Joloo Nah Shrine",
+   "x": -2004,
+   "z": 1674.3
+  },
+  {
+   "name": "Kuh Takkar Shrine",
+   "x": -3083,
+   "z": 1221
+  },
+  {
+   "name": "Sho Dantu Shrine",
+   "x": -3911.3,
+   "z": 1653.8
+  },
+  {
+   "name": "Kema Zoos Shrine",
+   "x": -4673.5,
+   "z": 1967.8
+  },
+  {
+   "name": "Tho Kayu Shrine",
+   "x": -4799.1,
+   "z": 2800.2
+  },
+  {
+   "name": "Hawa Koth Shrine",
+   "x": -4847,
+   "z": 3772.6
+  },
+  {
+   "name": "Mogg Latan Shrine",
+   "x": -2297.4,
+   "z": 460.7
+  },
+  {
+   "name": "Sheem Dagoze Shrine",
+   "x": -1893.3,
+   "z": 91.5
+  },
+  {
+   "name": "Mijah Rokee Shrine",
+   "x": -2743.3,
+   "z": 226.4
+  },
+  {
+   "name": "Keeha Yoog Shrine",
+   "x": -3853.4,
+   "z": 716.7
+  },
+  {
+   "name": "Kah Okeo Shrine",
+   "x": -4120.4,
+   "z": -414.4
+  },
+  {
+   "name": "Maag No'rah Shrine",
+   "x": -1939.9,
+   "z": -1458.2
+  },
+  {
+   "name": "Dunba Taag Shrine",
+   "x": -2832.5,
+   "z": -1578
+  },
+  {
+   "name": "Bareeda Naag Shrine",
+   "x": -3609.2,
+   "z": -1515.4
+  },
+  {
+   "name": "Voo Lota Shrine",
+   "x": -4016.2,
+   "z": -1721.9
+  },
+  {
+   "name": "Sha Warvo Shrine",
+   "x": -3823.1,
+   "z": -2206.4
+  },
+  {
+   "name": "Maka Rah Shrine",
+   "x": -4057.8,
+   "z": -2508.4
+  },
+  {
+   "name": "Mozo Shenno Shrine",
+   "x": -3627.7,
+   "z": -3038.2
+  },
+  {
+   "name": "Shada Naw Shrine",
+   "x": -2998.6,
+   "z": -3221.6
+  },
+  {
+   "name": "Goma Asaagh Shrine",
+   "x": -2792.3,
+   "z": -2882.3
+  },
+  {
+   "name": "Rok Uwog Shrine",
+   "x": -2378,
+   "z": -3224.7
+  },
+  {
+   "name": "Lanno Kooh Shrine",
+   "x": -2636.4,
+   "z": -2060.4
+  },
+  {
+   "name": "Rin Oyaa Shrine",
+   "x": -1721.4,
+   "z": -2554.5
+  },
+  {
+   "name": "Jee Noh Shrine",
+   "x": -1792.8,
+   "z": 2423.4
+  },
+  {
+   "name": "Tah Muhl Shrine",
+   "x": 2300.7,
+   "z": -941.3
+  },
+  {
+   "name": "Kayra Mah Shrine",
+   "x": 2076.8,
+   "z": -2039.8
+  }
+ ],
+ "towers": [
+  {
+   "name": "Akkala Tower",
+   "x": 3308,
+   "z": -1500.1
+  },
+  {
+   "name": "Central Tower",
+   "x": -788.6,
+   "z": 442
+  },
+  {
+   "name": "Dueling Peaks Tower",
+   "x": 1016.8,
+   "z": 1714.1
+  },
+  {
+   "name": "Eldin Tower",
+   "x": 2174.2,
+   "z": -1556.8
+  },
+  {
+   "name": "Faron Tower",
+   "x": 1331.2,
+   "z": 3273.7
+  },
+  {
+   "name": "Gerudo Tower",
+   "x": -3666,
+   "z": 1828.6
+  },
+  {
+   "name": "Great Plateau Tower",
+   "x": -560,
+   "z": 1694.9
+  },
+  {
+   "name": "Hateno Tower",
+   "x": 2735.5,
+   "z": 2133.5
+  },
+  {
+   "name": "Hebra Tower",
+   "x": -2173,
+   "z": -2034
+  },
+  {
+   "name": "Lake Tower",
+   "x": -31.8,
+   "z": 2961.6
+  },
+  {
+   "name": "Lanayru Tower",
+   "x": 2258,
+   "z": -109
+  },
+  {
+   "name": "Ridgeland Tower",
+   "x": -1755.3,
+   "z": -774.3
+  },
+  {
+   "name": "Tabantha Tower",
+   "x": -3613.7,
+   "z": -990.2
+  },
+  {
+   "name": "Wasteland Tower",
+   "x": -2306.8,
+   "z": 2437.3
+  },
+  {
+   "name": "Woodland Tower",
+   "x": 883.9,
+   "z": -1605.7
+  }
+ ],
+ "fairies": [
+  {
+   "name": "Cotera",
+   "x": 1976,
+   "z": 846
+  },
+  {
+   "name": "Kaysa",
+   "x": -3538.7,
+   "z": -746.1
+  },
+  {
+   "name": "Mija",
+   "x": 4110.8,
+   "z": -1377.6
+  },
+  {
+   "name": "Tera",
+   "x": -4870.9,
+   "z": 3825.8
+  }
+ ],
+ "beasts": [
+  {
+   "name": "Vah Ruta",
+   "short": "Ruta",
+   "x": 3662.4,
+   "z": -175.4
+  },
+  {
+   "name": "Vah Rudania",
+   "short": "Rudania",
+   "x": 2566,
+   "z": -2369
+  },
+  {
+   "name": "Vah Medoh",
+   "short": "Medoh",
+   "x": -3879.8,
+   "z": -1807.2
+  },
+  {
+   "name": "Vah Naboris",
+   "short": "Naboris",
+   "x": -2980.3,
+   "z": 3257.1
+  }
+ ],
+ "castle": {
+  "x": -268,
+  "z": -951.5
+ },
+ "towns": [],
+ "stables": []
+}
