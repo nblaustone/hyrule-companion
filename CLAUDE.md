@@ -744,6 +744,24 @@ layout, `REGION_MAPS` = the per-region coords.
   - Verified in-browser (regions/beasts/fairies/castle/towns all correctly placed, fly-to+card+solution+cleared-sync+
     pin-drop work, TotK degrades, **0 console errors, offline-clean**). **NEXT (queued): replicate to TotK** — same
     pipeline, needs TotK's datamined shrine/tower coords (152 shrines) into `knowledge/totk/map-coords.json`.
+- **v20 — Slate Map gets REAL terrain (BotW; DONE).** Owner feedback on v19: accuracy was there but it still
+  "looked the same" — glowing dots + lines, no relief; zoomed-in labels were tiny/unreadable; couldn't zoom out far
+  enough (edges jammed to the phone sides). He shared a reference of the actual hand-painted BotW map for the *look*
+  (can't embed it — Nintendo art; ADR 0003). Rebuilt the renderer **SVG → Canvas** and added an ORIGINAL,
+  on-device-generated **terrain engine** (`buildTerrain`, cached): biome colour wash per region (snow Hebra/Tabantha,
+  sand Gerudo, volcanic Eldin + a Death-Mountain glow, autumn Akkala, jungle Faron, grass central, etc.), procedural
+  **hill-shading** (value-noise fbm + a NW light, low-res→upscaled soft-light = "hills"), forest dapple, Lake Hylia,
+  coast glow + coastline — rendered ONCE to an offscreen canvas, then one `drawImage` into the live map at any
+  pan/zoom (rich AND fast; ~2400px offscreen). Markers/labels draw on the same canvas in **screen px**, so: **labels
+  are a constant readable size at every zoom** (the v19 bug was inverse-scaling to ~5px), haloed for contrast on any
+  biome, and **shrine NAMES appear once you zoom into a region** (like the reference). Transform is now screen-space
+  (`k` = px/world-unit); **zoom-out floor is `fitK*0.7`** so the whole map sits with margin on all sides (was clamped
+  at fit-to-width). MapPreview (Status) is a matching terrain canvas; RegionMiniMap stays SVG. Kept all v19 interactivity
+  (pan/pinch/wheel, tap-shrine→card+solution, search fly-to, layer chips, spatial pin) — re-verified on canvas
+  (tap/card/mark-cleared/pin-drop/persist, TotK degrades, **0 console errors, offline-clean**). **Lessons: (1) for a
+  real terrain map use Canvas, not SVG dots — biome fills + value-noise hill-shade read as a world. (2) inside an
+  SVG `<g scale(k)>`, `fontSize*(1/k)` is constant in VIEWBOX units = tiny on screen; size labels in real screen px
+  (canvas) or `screenPx/(base*k)`. (3) the offscreen-terrain + one-drawImage pattern keeps a rich map at 60fps.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

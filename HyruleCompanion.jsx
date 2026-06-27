@@ -2315,44 +2315,87 @@ function landmassPath(coords, D) {
 }
 const SHR_ID = (rk, i) => "shr_" + rk + "_" + i;
 
-/* Shared base layer (terrain) — pure SVG, no interactivity. Used by every map surface so the
-   preview, the mini, and the full map are visibly the same Hyrule. */
-function MapTerrain({ coords, D, land, labels }) {
-  return (
-    <>
-      <path d={land} className="sm-land-glow" />
-      <path d={land} className="sm-land" />
-      {Object.entries(coords.regions).map(([rk, r]) => {
-        const rx = Math.max((D.sx(r.x1) - D.sx(r.x0)) / 2 * 1.18, 36), ry = Math.max((D.sy(r.z1) - D.sy(r.z0)) / 2 * 1.18, 36);
-        return <ellipse key={rk} cx={D.sx(r.cx)} cy={D.sy(r.cz)} rx={rx} ry={ry} className="sm-zone" />;
-      })}
-      {/* iconic terrain anchors — original glyphs */}
-      {coords.regions.eldin && <g className="sm-terr">{(() => { const x = D.sx(coords.regions.eldin.cx), y = D.sy(coords.regions.eldin.cz); return <path d={`M ${x - 26} ${y + 16} L ${x} ${y - 26} L ${x + 26} ${y + 16} Z`} className="sm-volcano" />; })()}</g>}
-      {coords.regions.lake && (() => { const x = D.sx(coords.regions.lake.cx), y = D.sy(coords.regions.lake.cz); return <circle cx={x} cy={y} r="30" className="sm-lake" />; })()}
-      {coords.castle && (() => { const x = D.sx(coords.castle.x), y = D.sy(coords.castle.z); return <path d={`M ${x} ${y - 17} L ${x + 13} ${y} L ${x} ${y + 17} L ${x - 13} ${y} Z`} className="sm-castle" />; })()}
-      {labels && Object.entries(coords.regions).map(([rk, r]) => (
-        <text key={"rl" + rk} x={D.sx(r.cx)} y={D.sy(r.cz)} className="sm-region-l">{r.name}</text>
-      ))}
-    </>
-  );
+/* ===== Terrain engine (v20) — an ORIGINAL, on-device-generated relief map of Hyrule: biome colour,
+   procedural hill-shading (value-noise + a NW light), water, forests, snow caps, the Death Mountain
+   glow. NO Nintendo art (ADR 0003); 100% generated, offline. Rendered ONCE to an offscreen canvas,
+   then drawn (a single drawImage) into the live map at any pan/zoom — so terrain is rich AND fast. */
+const BIOME = {
+  hebra: [216, 228, 238], tabantha: [206, 218, 224],               // snow
+  gerudo: [201, 178, 120], wasteland: [216, 192, 130],             // sand / desert
+  eldin: [150, 88, 62], akkala: [162, 100, 60],                    // volcanic / autumn
+  lanayru: [118, 168, 150], faron: [76, 120, 60], woodland: [86, 122, 66], // wet / jungle / forest
+  central_hyrule: [126, 148, 80], ridgeland: [130, 150, 92], great_plateau: [124, 146, 80],
+  "dueling-peaks": [132, 152, 86], hateno: [126, 150, 82], lake: [118, 158, 120],
+};
+function _h2(ix, iy) { let h = (Math.imul(ix, 374761393) + Math.imul(iy, 668265263)) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967295; }
+function _vn(x, y) { const ix = Math.floor(x), iy = Math.floor(y), fx = x - ix, fy = y - iy; const a = _h2(ix, iy), b = _h2(ix + 1, iy), c = _h2(ix, iy + 1), d = _h2(ix + 1, iy + 1); const ux = fx * fx * (3 - 2 * fx), uy = fy * fy * (3 - 2 * fy); return a * (1 - ux) * (1 - uy) + b * ux * (1 - uy) + c * (1 - ux) * uy + d * ux * uy; }
+function _fbm(x, y) { let v = 0, a = 0.5, f = 1; for (let i = 0; i < 5; i++) { v += a * _vn(x * f, y * f); f *= 2; a *= 0.5; } return v; }
+function landHullWorld(coords) {
+  const pts = [];
+  for (const n in coords.shrines) { const s = coords.shrines[n]; pts.push({ x: s.x, y: s.z }); }
+  (coords.towers || []).forEach((t) => pts.push({ x: t.x, y: t.z }));
+  (coords.fairies || []).forEach((t) => pts.push({ x: t.x, y: t.z }));
+  (coords.beasts || []).forEach((t) => pts.push({ x: t.x, y: t.z }));
+  let h = convexHull(pts);
+  const cx = h.reduce((a, b) => a + b.x, 0) / h.length, cy = h.reduce((a, b) => a + b.y, 0) / h.length;
+  return h.map((p) => ({ x: cx + (p.x - cx) * 1.13, y: cy + (p.y - cy) * 1.13 }));
+}
+function _pathSmooth(ctx, p) { const n = p.length; ctx.moveTo(p[0].x, p[0].y); for (let i = 0; i < n; i++) { const p0 = p[(i - 1 + n) % n], p1 = p[i], p2 = p[(i + 1) % n], p3 = p[(i + 2) % n]; ctx.bezierCurveTo(p1.x + (p2.x - p0.x) / 6, p1.y + (p2.y - p0.y) / 6, p2.x - (p3.x - p1.x) / 6, p2.y - (p3.y - p1.y) / 6, p2.x, p2.y); } ctx.closePath(); }
+const _terrainCache = new Map();
+function getTerrain(coords) { if (_terrainCache.has(coords)) return _terrainCache.get(coords); const t = buildTerrain(coords); _terrainCache.set(coords, t); return t; }
+function buildTerrain(coords) {
+  const b = coords.bounds, wW = b.xmax - b.xmin, wH = b.zmax - b.zmin;
+  const OSW = 2400, OSH = Math.round(OSW * wH / wW);
+  const cv = document.createElement("canvas"); cv.width = OSW; cv.height = OSH; const ctx = cv.getContext("2d");
+  const X = (wx) => (wx - b.xmin) / wW * OSW, Y = (wz) => (wz - b.zmin) / wH * OSH;
+  // sea
+  const sea = ctx.createLinearGradient(0, 0, 0, OSH); sea.addColorStop(0, "#11384a"); sea.addColorStop(1, "#0a2230"); ctx.fillStyle = sea; ctx.fillRect(0, 0, OSW, OSH);
+  const hull = landHullWorld(coords).map((p) => ({ x: X(p.x), y: Y(p.y) }));
+  // coast glow + land silhouette
+  ctx.save(); ctx.beginPath(); _pathSmooth(ctx, hull);
+  ctx.shadowColor = "rgba(70,150,170,0.6)"; ctx.shadowBlur = 38; ctx.fillStyle = "#5c7048"; ctx.fill(); ctx.shadowBlur = 0;
+  ctx.clip();
+  ctx.fillStyle = "#6e8a4a"; ctx.fillRect(0, 0, OSW, OSH);
+  // biome wash
+  for (const rk in coords.regions) { const r = coords.regions[rk], col = BIOME[rk]; if (!col) continue; const cx = X(r.cx), cy = Y(r.cz); const rad = Math.max((X(r.x1) - X(r.x0)) / 2, (Y(r.z1) - Y(r.z0)) / 2, OSW * 0.05) * 1.45; const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad); g.addColorStop(0, `rgba(${col[0]},${col[1]},${col[2]},0.92)`); g.addColorStop(0.65, `rgba(${col[0]},${col[1]},${col[2]},0.55)`); g.addColorStop(1, `rgba(${col[0]},${col[1]},${col[2]},0)`); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, rad, 0, 7); ctx.fill(); }
+  // hill-shade (low-res value-noise relief, upscaled, soft-light) → "hills"
+  const LW = 440, LH = Math.round(LW * OSH / OSW); const tmp = document.createElement("canvas"); tmp.width = LW; tmp.height = LH; const tc = tmp.getContext("2d"); const im = tc.createImageData(LW, LH), dd = im.data;
+  const lx = -0.6, ly = -0.6, lz = 0.52, ll = Math.hypot(lx, ly, lz), fr = 0.05;
+  for (let j = 0; j < LH; j++) for (let i = 0; i < LW; i++) { const hc = _fbm(i * fr, j * fr), hX = _fbm((i + 1) * fr, j * fr), hY = _fbm(i * fr, (j + 1) * fr); const sx = (hX - hc) * 10, sy = (hY - hc) * 10; const nl = Math.hypot(sx, sy, 1); let dot = (-sx * lx - sy * ly + lz) / (nl * ll); dot = Math.max(0, Math.min(1, dot)); const v = (40 + dot * 210) | 0; const o = (j * LW + i) * 4; dd[o] = v; dd[o + 1] = v; dd[o + 2] = v; dd[o + 3] = 165; }
+  tc.putImageData(im, 0, 0); ctx.globalCompositeOperation = "soft-light"; ctx.imageSmoothingEnabled = true; ctx.drawImage(tmp, 0, 0, OSW, OSH); ctx.globalCompositeOperation = "source-over";
+  // forest dapple
+  for (const rk of ["woodland", "faron", "lake", "great_plateau"]) { const r = coords.regions[rk]; if (!r) continue; const cx = X(r.cx), cy = Y(r.cz), rr = Math.max((X(r.x1) - X(r.x0)), (Y(r.z1) - Y(r.z0))) / 2; ctx.fillStyle = "rgba(38,66,38,0.5)"; for (let n = 0; n < 130; n++) { const ang = _h2(n, rk.length) * 7, dist = Math.sqrt(_h2(n * 3, 7)) * rr; const px = cx + Math.cos(ang) * dist, py = cy + Math.sin(ang) * dist * 0.85, sz = 3 + _h2(n, 9) * 6; ctx.beginPath(); ctx.arc(px, py, sz, 0, 7); ctx.fill(); } }
+  // Death Mountain glow
+  if (coords.regions.eldin) { const r = coords.regions.eldin, cx = X(r.cx), cy = Y(r.cz), rad = OSW * 0.055; const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad); g.addColorStop(0, "rgba(170,46,30,0.85)"); g.addColorStop(0.55, "rgba(120,52,40,0.4)"); g.addColorStop(1, "rgba(120,52,40,0)"); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, rad, 0, 7); ctx.fill(); }
+  // Lake Hylia
+  if (coords.regions.lake) { const r = coords.regions.lake, cx = X(r.cx), cy = Y(r.cz); ctx.fillStyle = "rgba(36,92,124,0.78)"; ctx.beginPath(); ctx.ellipse(cx, cy + OSH * 0.012, OSW * 0.035, OSW * 0.028, 0, 0, 7); ctx.fill(); }
+  ctx.restore();
+  // coastline
+  ctx.beginPath(); _pathSmooth(ctx, hull); ctx.strokeStyle = "rgba(228,214,176,0.45)"; ctx.lineWidth = OSW * 0.0035; ctx.stroke();
+  return { canvas: cv, b, wW, wH };
 }
 
-/* Tiny non-interactive Status preview — the accurate map at a glance, tap to open the full one. */
+/* Tiny non-interactive Status preview — the real terrain map at a glance, tap to open the full one. */
 function MapPreview({ coords, shrines, progress, onOpen }) {
-  const D = useMemo(() => mapDims(coords), [coords]);
-  const land = useMemo(() => landmassPath(coords, D), [coords, D]);
+  const ref = useRef(null);
   let done = 0, total = 0;
   (shrines || []).forEach((g) => g.shrines.forEach((_, i) => { total++; if (progress[SHR_ID(g.regionKey, i)]) done++; }));
+  useEffect(() => {
+    const cv = ref.current; if (!cv) return;
+    const t = getTerrain(coords), b = coords.bounds, wW = b.xmax - b.xmin, wH = b.zmax - b.zmin;
+    const cssW = cv.clientWidth || 340, cssH = Math.round(cssW * wH / wW), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(cssW * dpr); cv.height = Math.round(cssH * dpr); cv.style.height = cssH + "px";
+    const ctx = cv.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = "#0a2230"; ctx.fillRect(0, 0, cssW, cssH);
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(t.canvas, 0, 0, t.canvas.width, t.canvas.height, 0, 0, cssW, cssH);
+    const s = cssW / wW, X = (wx) => (wx - b.xmin) * s, Y = (wz) => (wz - b.zmin) * s;
+    (coords.towers || []).forEach((tw) => { const x = X(tw.x), y = Y(tw.z); ctx.beginPath(); ctx.moveTo(x, y - 5); ctx.lineTo(x + 4, y + 3); ctx.lineTo(x - 4, y + 3); ctx.closePath(); ctx.fillStyle = "#bfe9ef"; ctx.fill(); });
+    for (const name in coords.shrines) { const sh = coords.shrines[name], dn = !!progress[SHR_ID(sh.rk, sh.i)]; ctx.beginPath(); ctx.arc(X(sh.x), Y(sh.z), 2.7, 0, 7); ctx.fillStyle = dn ? "#5fd6e2" : "#f4992f"; ctx.fill(); }
+  }, [coords, progress, shrines]);
   return (
     <button className="mappv" onClick={onOpen} aria-label="Open the full map of Hyrule">
-      <svg viewBox={`0 0 ${D.W} ${D.H}`} className="mappv-svg" preserveAspectRatio="xMidYMid meet" aria-hidden>
-        <MapTerrain coords={coords} D={D} land={land} labels={false} />
-        {Object.entries(coords.shrines).map(([name, s]) => {
-          const dn = !!progress[SHR_ID(s.rk, s.i)];
-          return <circle key={name} cx={D.sx(s.x)} cy={D.sy(s.z)} r="7" className={dn ? "mappv-d-done" : "mappv-d"} />;
-        })}
-        {(coords.towers || []).map((t) => <path key={t.name} d={`M ${D.sx(t.x)} ${D.sy(t.z) - 11} L ${D.sx(t.x) + 8} ${D.sy(t.z) + 6} L ${D.sx(t.x) - 8} ${D.sy(t.z) + 6} Z`} className="mappv-tw" />)}
-      </svg>
+      <canvas ref={ref} className="mappv-cv" />
       <span className="mappv-cta"><Glyph name="map" size={15} /> Open the full map · {done}/{total} shrines</span>
     </button>
   );
@@ -2396,16 +2439,16 @@ function RegionMiniMap({ coords, regionKey, regionShrines, progress, toggleStep,
 
 /* The full-screen, pan/zoom Slate Map. Portaled to body (escapes stacking + safe-area). */
 function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, mapPin, setMapPin, onOpenShrine, onClose, accent }) {
-  const D = useMemo(() => mapDims(coords), [coords]);
-  const land = useMemo(() => landmassPath(coords, D), [coords, D]);
-  const svgRef = useRef(null);
-  const vref = useRef({ x: 0, y: 0, k: 1 });
-  const [view, setView] = useState({ x: 0, y: 0, k: 1 });
+  const b = coords.bounds, worldW = b.xmax - b.xmin, worldH = b.zmax - b.zmin;
+  const terrain = useMemo(() => getTerrain(coords), [coords]);
+  const cvRef = useRef(null);
+  const vref = useRef({ k: 0, x: 0, y: 0 });   // k = screen px per world unit
+  const [view, setView] = useState({ k: 0, x: 0, y: 0 });
   const ptrs = useRef(new Map());
   const pinch = useRef(null);
   const tapRef = useRef(null);
   const rafId = useRef(0);
-  const [sel, setSel] = useState(null);      // selected shrine {name,s,rk,i}
+  const [sel, setSel] = useState(null);
   const [placing, setPlacing] = useState(false);
   const [q, setQ] = useState("");
   const [layers, setLayers] = useState({ shrines: true, towers: true, fairies: true, beasts: true, places: true });
@@ -2414,124 +2457,97 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   let sdone = 0, stotal = 0;
   for (const n in coords.shrines) { stotal++; const s = coords.shrines[n]; if (progress[SHR_ID(s.rk, s.i)]) sdone++; }
 
+  const dims = () => { const el = cvRef.current; return { W: (el && el.clientWidth) || 360, H: (el && el.clientHeight) || 640 }; };
+  const fitK = () => { const { W, H } = dims(); return Math.min(W / worldW, H / worldH) * 0.92; };
+  const clampV = () => { const v = vref.current, { W, H } = dims(); const kMin = fitK() * 0.7, kMax = fitK() * 16; v.k = Math.max(kMin, Math.min(kMax, v.k)); const mW = worldW * v.k, mH = worldH * v.k; v.x = mW <= W ? (W - mW) / 2 : Math.max(W - mW, Math.min(0, v.x)); v.y = mH <= H ? (H - mH) / 2 : Math.max(H - mH, Math.min(0, v.y)); };
   const commit = () => { if (rafId.current) return; rafId.current = requestAnimationFrame(() => { rafId.current = 0; setView({ ...vref.current }); }); };
-  const clamp = () => { const v = vref.current; v.k = Math.max(1, Math.min(14, v.k)); const mX = D.W * 0.4, mY = D.H * 0.4; v.x = Math.min(D.W - mX, Math.max(mX - D.W * v.k, v.x)); v.y = Math.min(D.H - mY, Math.max(mY - D.H * v.k, v.y)); };
-  const toVB = (cx, cy) => { const s = svgRef.current; if (!s || !s.getScreenCTM()) return { x: 0, y: 0 }; const pt = s.createSVGPoint(); pt.x = cx; pt.y = cy; const p = pt.matrixTransform(s.getScreenCTM().inverse()); return { x: p.x, y: p.y }; };
-  const zoomVB = (p, f) => { const v = vref.current; const k2 = Math.max(1, Math.min(14, v.k * f)); const r = k2 / v.k; v.x = p.x - (p.x - v.x) * r; v.y = p.y - (p.y - v.y) * r; v.k = k2; clamp(); commit(); };
-  const fitBox = (bx0, by0, bx1, by1, pad = 1.4) => { const bw = Math.max(bx1 - bx0, 40) * pad, bh = Math.max(by1 - by0, 40) * pad; const k = Math.max(1, Math.min(14, Math.min(D.W / bw, D.H / bh))); const cx = (bx0 + bx1) / 2, cy = (by0 + by1) / 2; vref.current = { k, x: D.W / 2 - cx * k, y: D.H / 2 - cy * k }; clamp(); setView({ ...vref.current }); };
-  const fitAll = () => { vref.current = { x: 0, y: 0, k: 1 }; setView({ x: 0, y: 0, k: 1 }); };
-  const fitRegion = (rk) => { const r = coords.regions[rk]; if (r) fitBox(D.sx(r.x0), D.sy(r.z0), D.sx(r.x1), D.sy(r.z1), 1.7); };
-  const flyTo = (name) => { const s = coords.shrines[name]; if (!s) return; const px = D.sx(s.x), py = D.sy(s.z); fitBox(px - 70, py - 70, px + 70, py + 70, 1.1); setSel({ name, s, ...shrMeta[name] }); setQ(""); };
-  const locate = () => { if (!mapPin) return; const px = D.sx(mapPin.x), py = D.sy(mapPin.z); fitBox(px - 80, py - 80, px + 80, py + 80, 1.1); };
+  const W2S = (wx, wz) => ({ x: (wx - b.xmin) * vref.current.k + vref.current.x, y: (wz - b.zmin) * vref.current.k + vref.current.y });
+  const setFit = () => { const k = fitK(), { W, H } = dims(); vref.current = { k, x: (W - worldW * k) / 2, y: (H - worldH * k) / 2 }; clampV(); setView({ ...vref.current }); };
+  const fitBoxW = (x0, z0, x1, z1, pad = 1.5) => { const { W, H } = dims(); const bw = Math.max(x1 - x0, 200) * pad, bh = Math.max(z1 - z0, 200) * pad; const kMin = fitK() * 0.7, kMax = fitK() * 16; const k = Math.max(kMin, Math.min(kMax, Math.min(W / bw, H / bh))); const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2; vref.current = { k, x: W / 2 - (cx - b.xmin) * k, y: H / 2 - (cz - b.zmin) * k }; clampV(); setView({ ...vref.current }); };
+  const fitRegion = (rk) => { const r = coords.regions[rk]; if (r) fitBoxW(r.x0, r.z0, r.x1, r.z1, 1.8); };
+  const zoomAt = (cx, cy, f) => { const v = vref.current; if (!v.k) return; const kMin = fitK() * 0.7, kMax = fitK() * 16; const k2 = Math.max(kMin, Math.min(kMax, v.k * f)); const wx = (cx - v.x) / v.k, wz = (cy - v.y) / v.k; v.k = k2; v.x = cx - wx * k2; v.y = cy - wz * k2; clampV(); commit(); };
+  const flyTo = (name) => { const s = coords.shrines[name]; if (!s) return; fitBoxW(s.x - 750, s.z - 750, s.x + 750, s.z + 750, 1.1); setSel({ name, s, ...shrMeta[name] }); setQ(""); };
+  const locate = () => { if (!mapPin) return; fitBoxW(mapPin.x - 850, mapPin.z - 850, mapPin.x + 850, mapPin.z + 850, 1.1); };
 
-  // once: focus a region if asked, else fit the whole map
-  useEffect(() => { if (focusRegion && coords.regions[focusRegion]) fitRegion(focusRegion); else fitAll(); /* eslint-disable-next-line */ }, []);
-  // native wheel (passive:false so we can preventDefault page-zoom) + esc-to-close + raf cleanup
+  // the render loop — terrain (one drawImage) + markers + readable labels, all in screen px
+  const draw = () => {
+    const cv = cvRef.current; if (!cv) return;
+    const W = cv.clientWidth, H = cv.clientHeight; if (!W || !H) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)) { cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+    const ctx = cv.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const v = vref.current;
+    ctx.fillStyle = "#0a2230"; ctx.fillRect(0, 0, W, H);
+    if (!v.k) return;
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(terrain.canvas, 0, 0, terrain.canvas.width, terrain.canvas.height, v.x, v.y, worldW * v.k, worldH * v.k);
+    const X = (wx) => (wx - b.xmin) * v.k + v.x, Y = (wz) => (wz - b.zmin) * v.k + v.y;
+    const vis = (x, y, m = 44) => x >= -m && x <= W + m && y >= -m && y <= H + m;
+    const fk = fitK();
+    ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
+    const lab = (txt, x, y, font, fill) => { ctx.font = font; ctx.lineWidth = 3; ctx.strokeStyle = "rgba(8,16,14,0.62)"; ctx.strokeText(txt, x, y); ctx.fillStyle = fill; ctx.fillText(txt, x, y); };
+    // region names (hide once you're zoomed into a region)
+    if (v.k < fk * 3) for (const rk in coords.regions) { const r = coords.regions[rk], x = X(r.cx), y = Y(r.cz); if (vis(x, y)) lab(r.name.toUpperCase(), x, y, "700 14px Rajdhani, sans-serif", "rgba(238,232,216,0.72)"); }
+    // stables
+    if (layers.places) for (const p of (coords.stables || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 4, 0, 7); ctx.fillStyle = "#9bc08a"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (v.k >= fk * 3) lab(p.name, x, y - 9, "600 10px Rajdhani, sans-serif", "#cfe0c0"); }
+    // towns
+    if (layers.places) for (const p of (coords.towns || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.save(); ctx.translate(x, y); ctx.rotate(Math.PI / 4); ctx.fillStyle = "#f2c14e"; ctx.fillRect(-5, -5, 10, 10); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.strokeRect(-5, -5, 10, 10); ctx.restore(); if (v.k >= fk * 1.25) lab(p.name, x, y - 11, "700 11px Rajdhani, sans-serif", "#f6cf6a"); }
+    // fairies
+    if (layers.fairies) for (const p of (coords.fairies || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.fillStyle = "#ff6f8b"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (v.k >= fk * 1.25) lab(p.name, x, y - 10, "700 11px Rajdhani, sans-serif", "#ffa6b6"); }
+    // towers
+    if (layers.towers) for (const p of (coords.towers || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.moveTo(x, y - 9); ctx.lineTo(x + 7, y + 6); ctx.lineTo(x - 7, y + 6); ctx.closePath(); ctx.fillStyle = "#c3ebf0"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (v.k >= fk * 1.25) lab(p.name.replace(/ Tower$/, ""), x, y + 16, "700 11px Rajdhani, sans-serif", "#d2eef2"); }
+    // beasts
+    if (layers.beasts) for (const p of (coords.beasts || [])) { const x = X(p.x), y = Y(p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.lineWidth = 2; ctx.strokeStyle = "#5fd6e2"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fillStyle = "#5fd6e2"; ctx.fill(); lab(p.short || p.name, x, y - 15, "700 11px Rajdhani, sans-serif", "#a6e9f0"); }
+    // shrines (names appear once zoomed into a region)
+    if (layers.shrines) { const showNames = v.k >= fk * 3.6; for (const name in coords.shrines) { const s = coords.shrines[name], x = X(s.x), y = Y(s.z); if (!vis(x, y)) continue; const dn = !!progress[SHR_ID(s.rk, s.i)], isSel = sel && sel.name === name; if (dn) { ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.fillStyle = "rgba(95,214,226,0.18)"; ctx.fill(); } ctx.beginPath(); ctx.arc(x, y, isSel ? 7 : 5, 0, 7); ctx.fillStyle = dn ? "#5fd6e2" : "#f4992f"; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = dn ? "#cdeff3" : "#b46a18"; ctx.stroke(); if (isSel) { ctx.beginPath(); ctx.arc(x, y, 12, 0, 7); ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke(); } if (showNames) lab(name.replace(/ Shrine$/, ""), x, y - 11, "600 10px Rajdhani, sans-serif", "rgba(236,229,213,0.95)"); } }
+    // "I'm here" pin
+    if (mapPin) { const x = X(mapPin.x), y = Y(mapPin.z); ctx.beginPath(); ctx.arc(x, y, 15, 0, 7); ctx.fillStyle = "rgba(242,193,78,0.22)"; ctx.fill(); ctx.beginPath(); ctx.moveTo(x, y); ctx.bezierCurveTo(x - 11, y - 17, x - 9, y - 31, x, y - 31); ctx.bezierCurveTo(x + 9, y - 31, x + 11, y - 17, x, y); ctx.closePath(); ctx.fillStyle = "#f2c14e"; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = "#0a2230"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y - 20, 4, 0, 7); ctx.fillStyle = "#0a2230"; ctx.fill(); lab("You're here", x, y - 40, "700 11px Rajdhani, sans-serif", "#f7d98a"); }
+  };
+
+  // initial fit (after layout) + redraw on every view/layer/selection/pin/progress change
+  useEffect(() => { const id = requestAnimationFrame(() => { if (focusRegion && coords.regions[focusRegion]) fitRegion(focusRegion); else setFit(); }); return () => cancelAnimationFrame(id); }, []);
+  useEffect(() => { draw(); });
   useEffect(() => {
-    const el = svgRef.current; if (!el) return;
-    const onWheel = (e) => { e.preventDefault(); zoomVB(toVB(e.clientX, e.clientY), e.deltaY < 0 ? 1.18 : 1 / 1.18); };
-    el.addEventListener("wheel", onWheel, { passive: false });
+    const cv = cvRef.current; if (!cv) return;
+    const onWheel = (e) => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.15 : 1 / 1.15); };
+    cv.addEventListener("wheel", onWheel, { passive: false });
     const onKey = (e) => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", onKey);
-    return () => { el.removeEventListener("wheel", onWheel); document.removeEventListener("keydown", onKey); if (rafId.current) cancelAnimationFrame(rafId.current); };
+    const onResize = () => { clampV(); setView({ ...vref.current }); };
+    document.addEventListener("keydown", onKey); window.addEventListener("resize", onResize);
+    return () => { cv.removeEventListener("wheel", onWheel); document.removeEventListener("keydown", onKey); window.removeEventListener("resize", onResize); if (rafId.current) cancelAnimationFrame(rafId.current); };
   }, []);
 
-  const onDown = (e) => { e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId); const v = toVB(e.clientX, e.clientY); ptrs.current.set(e.pointerId, v); if (ptrs.current.size === 1) tapRef.current = { x: e.clientX, y: e.clientY, vb: v, moved: false }; else { tapRef.current = null; pinch.current = null; } };
+  const rel = (e) => { const r = cvRef.current.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+  const onDown = (e) => { cvRef.current.setPointerCapture && cvRef.current.setPointerCapture(e.pointerId); const p = rel(e); ptrs.current.set(e.pointerId, p); if (ptrs.current.size === 1) tapRef.current = { x: e.clientX, y: e.clientY, p, moved: false }; else { tapRef.current = null; pinch.current = null; } };
   const onMove = (e) => {
     if (!ptrs.current.has(e.pointerId)) return;
-    const v = toVB(e.clientX, e.clientY), prev = ptrs.current.get(e.pointerId); ptrs.current.set(e.pointerId, v);
+    const p = rel(e), prev = ptrs.current.get(e.pointerId); ptrs.current.set(e.pointerId, p);
     if (ptrs.current.size === 1) {
-      vref.current.x += v.x - prev.x; vref.current.y += v.y - prev.y; clamp(); commit();
-      if (tapRef.current && Math.hypot(e.clientX - tapRef.current.x, e.clientY - tapRef.current.y) > 9) tapRef.current.moved = true;
+      vref.current.x += p.x - prev.x; vref.current.y += p.y - prev.y; clampV(); commit();
+      if (tapRef.current && Math.hypot(e.clientX - tapRef.current.x, e.clientY - tapRef.current.y) > 8) tapRef.current.moved = true;
     } else if (ptrs.current.size >= 2) {
-      const a = [...ptrs.current.values()]; const A = a[0], B = a[1];
+      const a = [...ptrs.current.values()], A = a[0], B = a[1];
       const dist = Math.hypot(A.x - B.x, A.y - B.y), mid = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 };
-      if (pinch.current) { zoomVB(pinch.current.mid, dist / pinch.current.dist); vref.current.x += mid.x - pinch.current.mid.x; vref.current.y += mid.y - pinch.current.mid.y; clamp(); commit(); }
+      if (pinch.current) { zoomAt(pinch.current.mid.x, pinch.current.mid.y, dist / pinch.current.dist); vref.current.x += mid.x - pinch.current.mid.x; vref.current.y += mid.y - pinch.current.mid.y; clampV(); commit(); }
       pinch.current = { dist, mid };
     }
   };
-  const onUp = (e) => {
-    ptrs.current.delete(e.pointerId); if (ptrs.current.size < 2) pinch.current = null;
-    if (ptrs.current.size === 0 && tapRef.current && !tapRef.current.moved) handleTap(tapRef.current.vb);
-    tapRef.current = null;
-  };
-  const handleTap = (vb) => {
-    const v = vref.current, c = { x: (vb.x - v.x) / v.k, y: (vb.y - v.y) / v.k };
-    if (placing) { setMapPin({ x: Math.round(D.wx(c.x)), z: Math.round(D.wz(c.y)) }); setPlacing(false); return; }
+  const onUp = (e) => { ptrs.current.delete(e.pointerId); if (ptrs.current.size < 2) pinch.current = null; if (ptrs.current.size === 0 && tapRef.current && !tapRef.current.moved) handleTap(tapRef.current.p); tapRef.current = null; };
+  const handleTap = (p) => {
+    const v = vref.current;
+    if (placing) { setMapPin({ x: Math.round((p.x - v.x) / v.k + b.xmin), z: Math.round((p.y - v.y) / v.k + b.zmin) }); setPlacing(false); return; }
     let best = null, bd = Infinity;
-    if (layers.shrines) for (const name in coords.shrines) { const s = coords.shrines[name]; const d = Math.hypot(D.sx(s.x) - c.x, D.sy(s.z) - c.y); if (d < bd) { bd = d; best = name; } }
-    if (best && bd < 18) setSel({ name: best, s: coords.shrines[best], ...shrMeta[best] }); else setSel(null);
+    if (layers.shrines) for (const name in coords.shrines) { const s = coords.shrines[name], sc = W2S(s.x, s.z), d = Math.hypot(sc.x - p.x, sc.y - p.y); if (d < bd) { bd = d; best = name; } }
+    if (best && bd < 16) setSel({ name: best, s: coords.shrines[best], ...shrMeta[best] }); else setSel(null);
   };
 
-  const iv = 1 / view.k;                       // inverse zoom → markers stay constant on screen
-  const tier = view.k < 1.6 ? 0 : view.k < 3.2 ? 1 : 2;
   const hits = q.trim() ? Object.keys(coords.shrines).filter((n) => n.toLowerCase().includes(q.trim().toLowerCase())).slice(0, 8) : [];
   const selId = sel ? SHR_ID(sel.rk, sel.i) : null;
   const selDone = selId ? !!progress[selId] : false;
 
   return portal(
     <div className="slatemap" style={{ "--acc": accent || "var(--cyan)" }}>
-      <svg ref={svgRef} className="slatemap-svg" viewBox={`0 0 ${D.W} ${D.H}`} preserveAspectRatio="xMidYMid meet"
-        style={{ touchAction: "none" }} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
-        <rect x="0" y="0" width={D.W} height={D.H} className="sm-bg" />
-        <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
-          <MapTerrain coords={coords} D={D} land={land} labels={tier < 2} />
-          {/* beasts (always labeled — few) */}
-          {layers.beasts && (coords.beasts || []).map((b) => (
-            <g key={b.name}>
-              <circle cx={D.sx(b.x)} cy={D.sy(b.z)} r={13 * iv} className="sm-beast" />
-              <circle cx={D.sx(b.x)} cy={D.sy(b.z)} r={4 * iv} className="sm-beast-dot" />
-              <text x={D.sx(b.x)} y={D.sy(b.z) - 18 * iv} className="sm-beast-l" style={{ fontSize: 13 * iv }}>{b.short || b.name}</text>
-            </g>
-          ))}
-          {/* towers */}
-          {layers.towers && (coords.towers || []).map((t) => (
-            <g key={t.name}>
-              <path d={`M ${D.sx(t.x)} ${D.sy(t.z) - 13 * iv} L ${D.sx(t.x) + 9 * iv} ${D.sy(t.z) + 7 * iv} L ${D.sx(t.x) - 9 * iv} ${D.sy(t.z) + 7 * iv} Z`} className="sm-tower" />
-              {tier >= 1 && <text x={D.sx(t.x)} y={D.sy(t.z) + 20 * iv} className="sm-tower-l" style={{ fontSize: 11 * iv }}>{t.name.replace(/ Tower$/, "")}</text>}
-            </g>
-          ))}
-          {/* great fairies */}
-          {layers.fairies && (coords.fairies || []).map((f) => (
-            <g key={f.name}>
-              <circle cx={D.sx(f.x)} cy={D.sy(f.z)} r={7 * iv} className="sm-fairy" />
-              {tier >= 1 && <text x={D.sx(f.x)} y={D.sy(f.z) - 11 * iv} className="sm-fairy-l" style={{ fontSize: 11 * iv }}>{f.name}</text>}
-            </g>
-          ))}
-          {/* towns & stables */}
-          {layers.places && (coords.towns || []).map((p) => (
-            <g key={"t" + p.name}>
-              <rect x={D.sx(p.x) - 6 * iv} y={D.sy(p.z) - 6 * iv} width={12 * iv} height={12 * iv} rx={2 * iv} className="sm-town" transform={`rotate(45 ${D.sx(p.x)} ${D.sy(p.z)})`} />
-              {tier >= 1 && <text x={D.sx(p.x)} y={D.sy(p.z) - 11 * iv} className="sm-town-l" style={{ fontSize: 11 * iv }}>{p.name}</text>}
-            </g>
-          ))}
-          {layers.places && (coords.stables || []).map((p) => (
-            <g key={"s" + p.name}>
-              <circle cx={D.sx(p.x)} cy={D.sy(p.z)} r={5 * iv} className="sm-stable" />
-              {tier >= 2 && <text x={D.sx(p.x)} y={D.sy(p.z) - 9 * iv} className="sm-stable-l" style={{ fontSize: 10 * iv }}>{p.name}</text>}
-            </g>
-          ))}
-          {/* shrines */}
-          {layers.shrines && Object.entries(coords.shrines).map(([name, s]) => {
-            const dn = !!progress[SHR_ID(s.rk, s.i)], isSel = sel && sel.name === name;
-            return (
-              <g key={name}>
-                {dn && <circle cx={D.sx(s.x)} cy={D.sy(s.z)} r={11 * iv} className="sm-shr-halo" />}
-                <circle cx={D.sx(s.x)} cy={D.sy(s.z)} r={(isSel ? 9 : 6.5) * iv} className={dn ? "sm-shr-done" : "sm-shr"} strokeWidth={1.6 * iv} />
-                {isSel && <circle cx={D.sx(s.x)} cy={D.sy(s.z)} r={14 * iv} className="sm-shr-ring" strokeWidth={1.8 * iv} />}
-              </g>
-            );
-          })}
-          {/* "I'm here" spatial pin */}
-          {mapPin && (
-            <g className="sm-pin">
-              <circle cx={D.sx(mapPin.x)} cy={D.sy(mapPin.z)} r={16 * iv} className="sm-pin-pulse" />
-              <path d={`M ${D.sx(mapPin.x)} ${D.sy(mapPin.z) - 24 * iv} C ${D.sx(mapPin.x) + 14 * iv} ${D.sy(mapPin.z) - 24 * iv} ${D.sx(mapPin.x) + 13 * iv} ${D.sy(mapPin.z) - 6 * iv} ${D.sx(mapPin.x)} ${D.sy(mapPin.z)} C ${D.sx(mapPin.x) - 13 * iv} ${D.sy(mapPin.z) - 6 * iv} ${D.sx(mapPin.x) - 14 * iv} ${D.sy(mapPin.z) - 24 * iv} ${D.sx(mapPin.x)} ${D.sy(mapPin.z) - 24 * iv} Z`} className="sm-pin-body" />
-              <circle cx={D.sx(mapPin.x)} cy={D.sy(mapPin.z) - 15 * iv} r={5 * iv} className="sm-pin-dot" />
-            </g>
-          )}
-        </g>
-      </svg>
+      <canvas ref={cvRef} className="slatemap-cv" style={{ touchAction: "none" }} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp} />
 
       <div className="sm-top">
         <div className="sm-title"><Glyph name="map" size={16} /><div><div className="sm-title-t">Map of Hyrule</div><div className="sm-title-s">{sdone}/{stotal} shrines · {placing ? "tap the map to drop your marker" : "drag to pan · pinch / scroll to zoom"}</div></div></div>
@@ -2554,9 +2570,9 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
         {mapPin && <button className="sm-ctrl" onClick={locate} aria-label="Center on my location"><Glyph name="target" size={18} /></button>}
         {mapPin && <button className="sm-ctrl sm-ctrl-x" onClick={() => setMapPin(null)} aria-label="Clear my location">✕</button>}
         <div className="sm-zoomgrp">
-          <button className="sm-ctrl" onClick={() => zoomVB({ x: D.W / 2, y: D.H / 2 }, 1.4)} aria-label="Zoom in">+</button>
-          <button className="sm-ctrl" onClick={() => zoomVB({ x: D.W / 2, y: D.H / 2 }, 1 / 1.4)} aria-label="Zoom out">−</button>
-          <button className="sm-ctrl sm-ctrl-fit" onClick={fitAll} aria-label="Fit whole map"><Glyph name="map" size={15} /></button>
+          <button className="sm-ctrl" onClick={() => { const { W, H } = dims(); zoomAt(W / 2, H / 2, 1.5); }} aria-label="Zoom in">+</button>
+          <button className="sm-ctrl" onClick={() => { const { W, H } = dims(); zoomAt(W / 2, H / 2, 1 / 1.5); }} aria-label="Zoom out">−</button>
+          <button className="sm-ctrl sm-ctrl-fit" onClick={setFit} aria-label="Fit whole map"><Glyph name="map" size={15} /></button>
         </div>
       </div>
 
@@ -3777,6 +3793,9 @@ function StyleBlock() {
 .slatemap{position:fixed;inset:0;z-index:60;background:radial-gradient(circle at 50% 38%,#0a1a20,#050c10 72%);overflow:hidden;-webkit-user-select:none;user-select:none;}
 .slatemap-svg{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;}
 .slatemap-svg:active{cursor:grabbing;}
+.slatemap-cv{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none;}
+.slatemap-cv:active{cursor:grabbing;}
+.mappv-cv{width:100%;display:block;border-radius:12px;border:1px solid rgba(95,214,226,0.16);background:#0a2230;}
 .sm-bg{fill:rgba(95,214,226,0.012);}
 .sm-beast{fill:none;stroke:var(--cyan);stroke-width:1.4;opacity:.55;}
 .sm-beast-dot{fill:var(--cyan);opacity:.8;}
