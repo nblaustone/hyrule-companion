@@ -8909,7 +8909,7 @@ const REGION_MAPS = {
  }
 };
 const MAP_COORDS = {
- "_provenance": "Datamined in-game world coordinates [X,Z] (X=east+, Z=south+). Shrines+Towers from AceZephyr/botw-route-map data.js; Great Fairies (Npc_DressFairy), Divine Beasts (Remains*), Castle (Grudge_HyruleCastle) from the objmap actor dump. Coordinates are game facts (no Nintendo art). Towns/stables added separately (verified).",
+ "_provenance": "Datamined in-game world coordinates [X,Z] (X=east+, Z=south+). Shrines+Towers from AceZephyr/botw-route-map data.js; Great Fairies (Npc_DressFairy), Divine Beasts (Remains*), Castle (Grudge_HyruleCastle) from the objmap actor dump. Coordinates are game facts (no Nintendo art). Towns/stables added separately (verified). Towns anchored on their in-town shrine (datamined coord). Stables = TwnObj_StableHostel_A_01 datamined coords, named by region+nearest-tower.",
  "bounds": {
   "xmin": -5120.9,
   "xmax": 4987.5,
@@ -9767,8 +9767,120 @@ const MAP_COORDS = {
   "x": -268,
   "z": -951.5
  },
- "towns": [],
- "stables": [],
+ "towns": [
+  {
+   "name": "Kakariko Village",
+   "x": 1841.9,
+   "z": 890.4
+  },
+  {
+   "name": "Hateno Village",
+   "x": 3388.4,
+   "z": 2215.8
+  },
+  {
+   "name": "Rito Village",
+   "x": -3656.1,
+   "z": -1756.7
+  },
+  {
+   "name": "Goron City",
+   "x": 1757.2,
+   "z": -2562.5
+  },
+  {
+   "name": "Zora's Domain",
+   "x": 3323.6,
+   "z": -518.8
+  },
+  {
+   "name": "Gerudo Town",
+   "x": -3817,
+   "z": 2819.9
+  },
+  {
+   "name": "Korok Forest",
+   "x": 470.7,
+   "z": -2168.8
+  }
+ ],
+ "stables": [
+  {
+   "name": "East Akkala Stable",
+   "x": 4228,
+   "z": -2749
+  },
+  {
+   "name": "Snowfield Stable",
+   "x": -1655,
+   "z": -2572
+  },
+  {
+   "name": "Serenne Stable",
+   "x": -1559,
+   "z": -1799
+  },
+  {
+   "name": "Tabantha Bridge Stable",
+   "x": -3256,
+   "z": -1758
+  },
+  {
+   "name": "South Akkala Stable",
+   "x": 3150,
+   "z": -1693
+  },
+  {
+   "name": "Foothill Stable",
+   "x": 2613,
+   "z": -1144
+  },
+  {
+   "name": "Woodland Stable",
+   "x": 1066,
+   "z": -1142
+  },
+  {
+   "name": "Rito Stable",
+   "x": -2932,
+   "z": -548
+  },
+  {
+   "name": "Wetland Stable",
+   "x": 888,
+   "z": 174
+  },
+  {
+   "name": "Riverside Stable",
+   "x": 339,
+   "z": 1095
+  },
+  {
+   "name": "Outskirt Stable",
+   "x": -1449,
+   "z": 1269
+  },
+  {
+   "name": "Dueling Peaks Stable",
+   "x": 1761,
+   "z": 1926
+  },
+  {
+   "name": "Gerudo Canyon Stable",
+   "x": -2804,
+   "z": 2226
+  },
+  {
+   "name": "Highland Stable",
+   "x": 530,
+   "z": 3451
+  },
+  {
+   "name": "Lakeside Stable",
+   "x": 1552,
+   "z": 3538
+  }
+ ],
  "regions": {
   "great_plateau": {
    "name": "Great Plateau",

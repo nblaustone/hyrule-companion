@@ -714,6 +714,36 @@ layout, `REGION_MAPS` = the per-region coords.
   trusted to stay grounded for facts — make the retrieved record the answer and treat the LLM as an optional,
   clearly-labeled rephrase, never the source of truth. Whack-a-mole word-gaps are bounded by a hand-tuned synonym map;
   true semantic search (embeddings) is the heavier alternative if needed.**
+- **v19 — "The Slate Map": a real, accurate, datamined map of Hyrule (BotW; DONE).** The owner's complaint was
+  blunt and correct: the maps "still aren't good enough" — inaccurate and ugly. Root cause was **structural, not
+  cosmetic**: every coordinate in the app was *eyeballed* — `MAP_NODES` region circles hand-placed, and the per-region
+  `region-maps.json` shrine dots agent-guessed on **disconnected 0–100 grids** — so nothing lined up with the in-game
+  map and it read as 15 unrelated diagrams. Fixed BOTH axes:
+  - **Accuracy = real datamined coords.** New `knowledge/map-coords.json` (built by `build/gen-map-coords.mjs` from
+    the committed slim `build/map-coords-src.json`) holds true in-game world coords **[X,Z]** (X east+, Z south+) for
+    **120 shrines + 15 towers** (extracted from AceZephyr/botw-route-map `data.js` — datamined; shrine names matched
+    **1:1 to shrines.json, 0 mismatches**), **4 Great Fairies** (`Npc_DressFairy_*`), **4 Divine Beasts** (`Remains*`),
+    **Hyrule Castle** (`Grudge_HyruleCastle`) — all from the objmap actor dump. **+7 towns** anchored on their in-town
+    datamined shrine, **+15 stables** (`TwnObj_StableHostel_A_01` coords, named by region+nearest-tower). Coordinates
+    are GAME FACTS (no Nintendo art → ADR 0003 intact). One coherent frame + per-region centroids/bounds drive
+    everything. Validation gate: all 120 shrines fall nearest their own curated region centroid. **Key lesson: the
+    accuracy fix was DATA, not art — datamined coords exist and are the right source; an LLM coordinate-research
+    workflow would have hallucinated numbers (we nearly built one). Mine the data, don't ask a model for it.**
+  - **Graphics + usefulness = a real map.** New `SlateMap` (full-screen portaled overlay): an original **holographic
+    Sheikah scan** — computed convex-hull coastline (glow), soft region zones + labels, terrain anchors
+    (volcano/lake/castle) — with **pan + pinch/scroll zoom** (rAF-committed `view` state; markers inverse-scaled to
+    stay constant on screen; manual tap hit-test so drag/tap never conflict), **search fly-to**, **layer toggles**,
+    **tap-a-shrine → card** (mark cleared + spoiler-gated solution via `StuckReveal` + open-in-list), and the beloved
+    **"I'm here" pin made SPATIAL** — drop it anywhere, recenter button (`<game>:mappin`, backup blob **v9→v10**).
+    `MapPreview` (Status) + `RegionMiniMap` (Shrines, numbered to the list) reuse the same `mapDims()` frame and
+    **replace the old eyeballed `HyruleMap`/`RegionMap` for BotW**. Topbar **map button**; Glyphs `map`/`target`.
+  - **Degrades cleanly (TotK = canary):** `MAP_COORDS` is now in the **`const {…}=G` destructure** (the bug I shipped
+    then caught: without it, the component fell back to the module-level BotW `MAP_COORDS` global and TotK wrongly got
+    a map). Games without coords hide the button + fall back to the old overview map. **Rule reinforced: a BotW-only
+    dataset MUST be destructured from G so it shadows per-game — a bare module global leaks into every game.**
+  - Verified in-browser (regions/beasts/fairies/castle/towns all correctly placed, fly-to+card+solution+cleared-sync+
+    pin-drop work, TotK degrades, **0 console errors, offline-clean**). **NEXT (queued): replicate to TotK** — same
+    pipeline, needs TotK's datamined shrine/tower coords (152 shrines) into `knowledge/totk/map-coords.json`.
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
