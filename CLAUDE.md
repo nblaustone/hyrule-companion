@@ -681,6 +681,22 @@ layout, `REGION_MAPS` = the per-region coords.
   `reload()` also terminates the old worker. Verified in-browser: prior-opt-in no longer auto-loads (idle + chooser),
   Light-first chooser, Phase-1 fallback, 0 console errors, offline-clean. **Still owner-on-device to confirm: that
   the Light model now loads + runs in the worker without OOM.** New persisted value `hyrule:slatebrain` can be "0".
+- **v18.5 — Ask-the-Slate answer-quality fix (Light works on iPhone; the answer was wrong).** Owner confirmed the
+  **Light model loads + runs (no crash)** but an answer was wrong + overstated: "where do I get warm clothes" → "the
+  ONLY place is a shrine" (false — Snowquill is bought in Rito Village; Warm Doublet is free on the Plateau). Root
+  cause was **retrieval, not the model**: a vocabulary gap — the player says "warm clothes," the data says "cold
+  resistance / Snowquill / armor," so keyword retrieval only matched a cold-region shrine and fed THAT to the LLM.
+  Fixes: **(1) `SLATE_SYN` synonym expansion** in `slateRetrieve` — query words expand to the data's vocabulary
+  (warm→cold resistance/snowquill/warm doublet; clothes→armor/tunic/doublet; hot→heat resistance/fireproof;
+  shock→rubber; etc.), matched at a lower weight so concept queries surface the right records. **(2) Armor intent
+  boost widened** (clothes/clothing/wear/warm/gear). **(3) hardened LLM grounding prompt** — answer ONLY from the
+  records, give MULTIPLE options when present, and **NEVER say "the only / always / never" unless a record says so**;
+  temp 0.3→0.2. **(4)** an "AI summary — the Sources below are the verified truth" note under AI answers, and
+  **(5) Balanced hidden in the installed iPhone app** (`navigator.standalone`) since it reliably OOMs there (note
+  shown). Verified in-browser: "where do I get warm clothes" now tops **Snowquill Set** (Rito Village) with **Warm
+  Doublet** + "Stay Warm First" in related — both correct sources now feed the LLM. 0 console errors, offline-clean.
+  **Lesson: a grounded LLM is only as good as retrieval; for an offline keyword index, a small hand-tuned synonym map
+  is the cheap fix for the player-word↔data-word gap (true semantic search would need an embedding model).**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

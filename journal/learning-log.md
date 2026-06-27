@@ -5,6 +5,26 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-06-27 — v18.5: Ask-the-Slate answer quality — the bug was RETRIEVAL, not the model
+
+- **Owner: Light model loads + runs on iPhone (no crash) — but the answer was wrong.** "Where do I get warm clothes"
+  → "the ONLY place is a shrine." False: Snowquill is bought in Rito Village; Warm Doublet is free on the Plateau.
+- **Root cause = a vocabulary gap in retrieval, NOT the LLM.** Player says "warm clothes"; the data says "cold
+  resistance / Snowquill / armor." Keyword retrieval matched only a cold-region shrine (it contained "warm") and fed
+  that single record to the LLM, which then overstated it. The verified data HAD the right answer — retrieval just
+  never surfaced it. **A grounded LLM is exactly as good as what retrieval feeds it.**
+- **Fixes:** (1) `SLATE_SYN` synonym map expands query words → data words (warm→cold resistance/snowquill/doublet,
+  clothes→armor/tunic, hot→heat resistance/fireproof, shock→rubber, health→heart container…), matched at lower
+  weight so an item that only matches via synonym still gets retrieved. (2) widened Armor intent boost
+  (clothes/wear/warm/gear). (3) hardened the grounding prompt: answer ONLY from records, OFFER MULTIPLE options,
+  **never say "the only/always/never" unless a record says so** (temp 0.2). (4) "AI summary — Sources are the truth"
+  note. (5) hid Balanced in the installed iPhone app (reliable OOM there).
+- **Tuning note:** first pass added "set" as a clothes-synonym → every "X Set" matched (Hylian/Gerudo noise). Dropped
+  it → now "warm clothes" tops Snowquill Set with Warm Doublet + "Stay Warm First" in related (both correct sources).
+- **Lesson banked: for an offline keyword index, a small hand-tuned synonym map is the cheap, effective bridge for
+  the player-word ↔ data-word gap. True semantic search (embeddings, e.g. transformers.js MiniLM) is the heavier
+  alternative if the gap proves broad — but synonyms cover the common concept queries (resistances, hearts, stamina).**
+
 ## 2026-06-27 — v18.4: Ask-the-Slate STABILITY pass (real-device iPhone testing exposed crash-loop + freeze)
 
 - **Owner tested on an installed iOS PWA and it broke hard:** Balanced (1B, ~0.9GB) **crashed the Safari tab (OOM)**;

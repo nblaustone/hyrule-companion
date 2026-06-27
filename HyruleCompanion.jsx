@@ -2629,6 +2629,15 @@ function PouchView({ inventory, progress, jumpTo, regions, region, cats }) {
    device-local, see ADR 0011/0012) drops an on-device LLM (WebLLM/WebGPU) on TOP to
    synthesize across the retrieved records — this retrieval is its RAG grounding. */
 const SLATE_STOP = new Set("a an the to of for in on at it is are be how do does did where what which who whats when can could should would help with get got find beat fight kill defeat make cook need want go best fastest about there here you your my me i way".split(" "));
+// bridge common player phrasings → the words the data actually uses (keyword retrieval can't do this on its own)
+const SLATE_SYN = {
+  warm: ["cold resistance", "snowquill", "warm doublet", "insulat"], cold: ["cold resistance", "snowquill", "warm doublet", "spicy", "chill"],
+  clothes: ["armor", "tunic", "doublet"], clothing: ["armor", "tunic"], wear: ["armor"], outfit: ["armor"], gear: ["armor"],
+  hot: ["heat resistance", "fireproof", "flamebreaker", "desert"], heat: ["heat resistance", "fireproof", "flamebreaker"], desert: ["heat resistance", "gerudo"],
+  shock: ["shock resistance", "rubber"], electric: ["shock resistance", "rubber"], lightning: ["shock resistance", "rubber"], thunder: ["shock resistance", "rubber"],
+  fireproof: ["flamebreaker", "fire resist"], stealth: ["sneak", "stealth"], sneaky: ["sneak", "stealth"], quiet: ["sneak", "stealth"],
+  health: ["heart container", "hearts"], hearts: ["heart container"], stamina: ["stamina vessel", "endura"], climb: ["climbing"], swim: ["swim", "zora"],
+};
 function slateTokens(s) { return (s || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").split(/\s+/).filter((w) => w.length > 1 && !SLATE_STOP.has(w)); }
 function slateArmorDetail(a) { let s = "Effect: " + a.bonus + "\nWhere: " + a.where; if (a.tiers && a.tiers.length) s += "\n" + a.tiers.map((t) => "★" + t.star + ": " + t.materials.map((m) => m.qty + "× " + m.item).join(", ") + (t.rupees ? " + " + t.rupees + " rupees" : "")).join("\n"); if (a.farm) s += "\nFarm: " + a.farm; if (a.note) s += "\n" + a.note; return s; }
 const SLATE_GEAR_GLYPH = { weapon: "sword", bow: "bow", shield: "shield", armor: "armor", material: "gem", creature: "leaf", item: "bag", mask: "mask", sword: "sword", song: "stasis", key: "key" };
@@ -2637,18 +2646,26 @@ function slateRetrieve(query, data) {
   const toks = slateTokens(query); if (!toks.length) return [];
   const { REGIONS = [], SHRINES = [], ARMOR = { sets: [] }, BESTIARY = { enemies: [] }, RECIPES = [], SIDE_QUESTS = [], TOWERS = [], COMPENDIUM = [] } = data || {};
   const out = [];
+  const expanded = []; for (const t of toks) { const syn = SLATE_SYN[t]; if (syn) for (const s of syn) expanded.push(s); }
   // intent boost: the question's verb/topic words (some are stop-words for matching) still route the category
   const ql = " " + String(query).toLowerCase() + " ";
   const has = (re) => re.test(ql);
   const boost = {};
-  if (has(/\b(cook|cooking|recipe|recipes|meal|dish|elixir|eat|cold|heat|spicy|chilly|stamina)\b/)) boost.Cooking = 5;
+  if (has(/\b(cook|cooking|recipe|recipes|meal|dish|elixir|eat|spicy|chilly)\b/)) boost.Cooking = 5;
   if (has(/\b(beat|defeat|kill|fight|win|boss|attack|enemy)\b/)) boost.Enemy = 5;
   if (has(/\b(rupee|rupees|money|earn|earning|sell|sells|selling|cash|coins?|broke|rich)\b/)) { boost.Money = 5; boost.Farming = 3; boost["Money tip"] = 3; }
   if (has(/\b(farm|farming)\b/)) { boost.Farming = 5; boost.Money = 2; }
-  if (has(/\b(armor|armour|outfit|defen[cs]e|tunic|set)\b/)) boost.Armor = 4;
+  if (has(/\b(armor|armour|outfit|defen[cs]e|tunic|set|clothes|clothing|wear|warm|gear)\b/)) boost.Armor = 4;
   if (has(/\b(quest|quests|sidequest)\b/)) boost["Side quest"] = 4;
   if (has(/\b(tower|towers|map)\b/)) boost.Tower = 4;
-  const add = (o) => { const name = (o.label || "").toLowerCase(); const body = ((o.sub || "") + " " + (o.detail || "")).toLowerCase(); let score = 0, hit = 0; for (const t of toks) { if (name.includes(t)) { score += 3; hit++; } else if (body.includes(t)) { score += 1; hit++; } } if (!hit) return; o.score = score + (hit === toks.length ? 2 : 0) + (o.prio || 0) + (boost[o.cat] || 0); out.push(o); };
+  const add = (o) => {
+    const name = (o.label || "").toLowerCase(); const body = ((o.sub || "") + " " + (o.detail || "")).toLowerCase();
+    let score = 0, hit = 0, syn = 0;
+    for (const t of toks) { if (name.includes(t)) { score += 3; hit++; } else if (body.includes(t)) { score += 1; hit++; } }
+    for (const e of expanded) { if (name.includes(e)) { score += 2; syn++; } else if (body.includes(e)) { score += 1; syn++; } }
+    if (!hit && !syn) return;
+    o.score = score + (hit === toks.length ? 2 : 0) + (o.prio || 0) + (boost[o.cat] || 0); out.push(o);
+  };
   SHRINES.forEach((g) => (g.shrines || []).forEach((sh, i) => add({ cat: "Shrine", glyph: "shrine", label: sh.name, sub: g.regionName + " · " + sh.location, detail: sh.solution || sh.oneLine, prio: 2, nav: { kind: "shrine", args: [g.regionKey, "shr_" + g.regionKey + "_" + i] } })));
   (BESTIARY.enemies || []).forEach((e) => add({ cat: "Enemy", glyph: "skull", label: e.name, sub: e.tactic, detail: e.battle || e.tactic, prio: 2, nav: { kind: "guide", args: ["enemies"] } }));
   (SIDE_QUESTS || []).forEach((g) => (g.quests || []).forEach((qq) => add({ cat: "Side quest", glyph: "scroll", label: qq.name, sub: (g.region || "") + " · " + qq.oneLine, detail: (qq.how || qq.oneLine) + (qq.reward ? "\nReward: " + qq.reward : ""), prio: 1, nav: { kind: "guide", args: ["quests"] } })));
@@ -2730,11 +2747,11 @@ const SlateLLM = (() => {
       if (status !== "ready" || !engine) throw new Error("not ready");
       const ctx = (records || []).slice(0, 4).map((r, i) => "[" + (i + 1) + "] " + r.cat + ": " + r.label + " — " + String(r.detail || "").replace(/\s+/g, " ")).join("\n");
       const messages = [
-        { role: "system", content: "You are the Sheikah Slate, a calm, concise companion for a Legend of Zelda player. Answer the player's question USING ONLY the reference entries below. Do not use any outside knowledge or assumptions. If the entries do not contain the answer, say you don't have that in your records and suggest they rephrase. Keep it to 2-4 practical sentences, beginner-friendly and spoiler-aware, and name the entry/entries you drew from.\n\nReference entries:\n" + ctx },
+        { role: "system", content: "You are the Sheikah Slate, a calm, concise companion for a Legend of Zelda player. Answer ONLY from the reference entries below — never add facts, item names, or locations that aren't written in them. If more than one entry is relevant, mention more than one option. NEVER say something is 'the only' way or place, and never use 'always' or 'never', unless an entry explicitly says so — this game usually has multiple options and these entries may be incomplete. If the entries don't fully answer the question, say what they DO cover and tell the player to check the sources listed below. Keep it to 2-4 short, practical, spoiler-aware sentences.\n\nReference entries:\n" + ctx },
         { role: "user", content: question },
       ];
       let full = "";
-      const chunks = await engine.chat.completions.create({ messages, temperature: 0.3, stream: true });
+      const chunks = await engine.chat.completions.create({ messages, temperature: 0.2, stream: true });
       for await (const ch of chunks) { const d = (ch.choices && ch.choices[0] && ch.choices[0].delta && ch.choices[0].delta.content) || ""; if (d) { full += d; if (onToken) onToken(full); } }
       return full.trim();
     },
@@ -2803,8 +2820,9 @@ function SlateOracle({ data, nav, label, onClose }) {
                 <div className="oracle-brain-q"><Glyph name="spark" size={15} /> Start the AI brain <i>downloads once, then offline</i></div>
                 <div className="oracle-brain-opts">
                   <button className="oracle-brain-opt oracle-brain-rec" onClick={() => enableBrain("light")}><b>Light <em>· recommended</em></b><span>~0.4 GB · fast, best for phones</span></button>
-                  <button className="oracle-brain-opt" onClick={() => enableBrain("balanced")}><b>Balanced</b><span>~0.9 GB · sharper · can be heavy on phones</span></button>
+                  {!iosStandalone && <button className="oracle-brain-opt" onClick={() => enableBrain("balanced")}><b>Balanced</b><span>~0.9 GB · sharper · for desktops</span></button>}
                 </div>
+                {iosStandalone && <div className="oracle-brain-note">The bigger “Balanced” model needs more memory than an installed iPhone app allows, so it's hidden here.</div>}
               </div>
             )}
             {brain === "loading" && <div className="oracle-brain-load"><div className="oracle-brain-bar"><span style={{ width: Math.round((prog.p || 0) * 100) + "%" }} /></div><span className="oracle-brain-pct">{/cache|loading model/i.test(prog.text || "") ? "Loading the " + (SlateLLM.tier() === "light" ? "Light" : "Balanced") + " brain from your device…" : "Downloading the " + (SlateLLM.tier() === "light" ? "Light" : "Balanced") + " brain…"} {Math.round((prog.p || 0) * 100)}% · keep this open</span></div>}
@@ -2825,6 +2843,7 @@ function SlateOracle({ data, nav, label, onClose }) {
               <div className="oracle-answer oracle-ai">
                 <div className="oracle-ans-head"><span className="oracle-cat oracle-cat-ai"><Glyph name="spark" size={13} /> Slate AI</span></div>
                 <p className="oracle-detail">{llm.text || "Consulting the records…"}{llm.busy ? <span className="oracle-caret">▍</span> : null}</p>
+                {!llm.busy && llm.text && <p className="oracle-ai-note">AI summary — the Sources below are the verified truth; double-check there.</p>}
                 {!llm.busy && canSpeak && llm.text && (<div className="oracle-ans-actions">{speaking ? <button className="oracle-speak on" onClick={stopSpeak}><Glyph name="sound" size={15} /> Stop</button> : <button className="oracle-speak" onClick={() => speak(llm.text)}><Glyph name="sound" size={15} /> Speak it</button>}</div>)}
                 {results && results.length > 0 && (<div className="oracle-related"><div className="oracle-related-h">Sources</div>{results.slice(0, 4).map((r, i) => (<button key={i} className="oracle-rel" onClick={() => { doNav(r.nav); onClose(); }}><span className="oracle-rel-ic"><Glyph name={r.glyph} size={13} /></span><span className="oracle-rel-txt"><b>{r.label}</b><span>{r.cat} · {r.sub}</span></span><span className="chev">›</span></button>))}</div>)}
               </div>
@@ -3332,6 +3351,8 @@ function StyleBlock() {
 .oracle-brain-ready{flex-wrap:wrap;}
 .oracle-brain-actions{display:flex;gap:7px;align-items:center;flex-shrink:0;}
 .oracle-brain-off{background:none;border:1px solid rgba(255,255,255,0.18);color:var(--parch-dim);border-radius:10px;padding:5px 10px;font-size:11.5px;cursor:pointer;}
+.oracle-brain-note{font-size:11.5px;line-height:1.5;color:var(--parch-dim);margin-top:10px;}
+.oracle-ai-note{font-size:11px;color:var(--cyan-dim);font-style:italic;margin:8px 0 0;}
 .oracle-brain-err{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--parch-dim);background:rgba(224,80,107,0.08);border:1px solid rgba(224,80,107,0.3);border-radius:11px;padding:10px 13px;}
 .oracle-brain-err button{background:none;border:1px solid rgba(95,214,226,0.4);color:var(--cyan);border-radius:10px;padding:5px 11px;font-size:12px;cursor:pointer;}
 .oracle-unsupported{font-size:13px;line-height:1.55;color:var(--parch-dim);background:rgba(15,28,34,0.5);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:13px;margin-bottom:14px;}
