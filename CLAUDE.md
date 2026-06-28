@@ -856,6 +856,16 @@ layout, `REGION_MAPS` = the per-region coords.
   console errors. **Lesson: when you change a coordinate model, grep EVERY consumer — hit-test and draw used two
   different copies of the transform; only one got migrated, and an in-browser MARKER screenshot (not just a tap test)
   is the check that would've caught it at v22.**
+- **v25.2 — FIX: walkthrough video "sign in to confirm you're not a bot" / nowhere to log in.** On the owner's
+  installed iOS PWA, YouTube's embed threw its anti-bot sign-in gate (common for embeds with no YouTube session),
+  and there's no way to complete sign-in inside the iframe. It's a YouTube-side block, not ours. Fixes in
+  `VideoOverlay`: (1) embed switched from `youtube-nocookie.com` → regular `youtube.com/embed` (+`playsinline=1`) —
+  the nocookie domain trips the gate more often; (2) a **prominent primary "▶ Open in the YouTube app" button**
+  (a runtime `href` `…/watch?v=…&t=Ns` → opens the YouTube app at the exact moment; runtime href so the offline
+  check still passes) so there's always a working path; (3) a note telling the user to use it if the embed asks
+  to sign in. Verified in-browser (button href = `&t=1053s` for Oman Au, embed loaded, offline-clean). **Lesson:
+  embedded YouTube can't be relied on in an installed PWA (anti-bot gate, no session) — always provide a prominent
+  native "open in app" deep-link as the real path; the embed is a best-effort bonus.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

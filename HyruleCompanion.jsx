@@ -2814,22 +2814,22 @@ function VideoOverlay({ videoId, start, title, credit, onClose }) {
   const online = typeof navigator === "undefined" || navigator.onLine !== false;
   useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
   const t = Math.max(0, start | 0);
-  const src = "https://www.youtube-nocookie.com/embed/" + videoId + "?start=" + t + "&autoplay=1&rel=0&modestbranding=1";
+  // regular youtube.com (the nocookie domain trips YouTube's "confirm you're not a bot" gate more often) + playsinline for iOS
+  const src = "https://www.youtube.com/embed/" + videoId + "?start=" + t + "&autoplay=1&rel=0&modestbranding=1&playsinline=1";
+  const watchUrl = "https://www.youtube.com/watch?v=" + videoId + "&t=" + t + "s"; // opens the YouTube app at the moment (runtime href → offline check safe)
   return portal(
     <div className="vid-overlay">
       <div className="vid-top">
-        <div className="vid-title"><Glyph name="spark" size={15} /><div><div className="vid-title-t">{title}</div><div className="vid-title-s">Walkthrough clip · plays from YouTube</div></div></div>
+        <div className="vid-title"><Glyph name="spark" size={15} /><div><div className="vid-title-t">{title}</div><div className="vid-title-s">Walkthrough · jumps to this moment</div></div></div>
         <button className="sm-close" onClick={onClose} aria-label="Close video">✕</button>
       </div>
+      <a className="vid-open" href={watchUrl} target="_blank" rel="noopener noreferrer">▶ Open in the YouTube app</a>
       <div className="vid-stage">
         {online
           ? <div className="vid-frame"><iframe src={src} title={title || "Walkthrough"} allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen frameBorder="0" /></div>
           : <div className="vid-offline"><p>You're offline — the walkthrough streams from YouTube, so this one needs internet. Everything else in the app still works offline.</p></div>}
       </div>
-      <div className="vid-foot">
-        <p className="vid-credit">{credit ? "Walkthrough by " + credit + ". " : ""}Streams from YouTube at this shrine's moment — nothing is downloaded.</p>
-        <button className="vid-yt" onClick={() => { try { window.open("https://www.youtube.com/watch?v=" + videoId + "&t=" + t + "s", "_blank", "noopener"); } catch (e) {} }}>Open in YouTube ↗</button>
-      </div>
+      <p className="vid-credit">If the player asks you to <b>“sign in to confirm you’re not a bot”</b> or won’t start, tap <b>Open in the YouTube app</b> above — YouTube sometimes blocks embedded playback. {credit ? "Walkthrough by " + credit + ". " : ""}Streams from YouTube; nothing is downloaded.</p>
     </div>
   );
 }
@@ -4170,9 +4170,9 @@ function StyleBlock() {
 .vid-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;border:1px solid rgba(95,214,226,0.2);}
 .vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .vid-offline{font-size:14px;color:var(--parch-dim);text-align:center;padding:24px;line-height:1.6;}
-.vid-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));}
-.vid-credit{font-size:11px;color:var(--parch-dim);margin:0;flex:1;min-width:160px;line-height:1.5;}
-.vid-yt{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:7px 13px;cursor:pointer;}
+.vid-open{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 calc(14px + env(safe-area-inset-right,0px)) 8px calc(14px + env(safe-area-inset-left,0px));padding:13px 16px;border-radius:11px;background:var(--malice);color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(224,80,107,0.4);}
+.vid-open:active{transform:scale(.985);}
+.vid-credit{font-size:11.5px;color:var(--parch-dim);margin:0;line-height:1.55;padding:8px calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));}
 /* Journey video-chapter index */
 .vidchap{margin:0 0 12px;border:1px solid rgba(224,80,107,0.28);border-radius:12px;background:rgba(224,80,107,0.05);overflow:hidden;}
 .vidchap-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:transparent;border:0;padding:11px 13px;cursor:pointer;}
