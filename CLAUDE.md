@@ -866,6 +866,21 @@ layout, `REGION_MAPS` = the per-region coords.
   to sign in. Verified in-browser (button href = `&t=1053s` for Oman Au, embed loaded, offline-clean). **Lesson:
   embedded YouTube can't be relied on in an installed PWA (anti-bot gate, no session) — always provide a prominent
   native "open in app" deep-link as the real path; the embed is a best-effort bonus.**
+- **v26 — walkthrough video: strongest embed + video in the Journey.** Owner (emphatic) needs embedded playback to
+  work in-app, and video accessible throughout the walkthrough, not just on the map. (1) **`VideoOverlay` rebuilt on
+  the official YouTube IFrame Player API** (`loadYouTubeAPI()` injects `iframe_api` at runtime → offline check still
+  passes): sets the correct `origin`/`enablejsapi` (fixes many "video unavailable" embeds), **drops forced autoplay**
+  (iOS blocks it and it caused the "almost played then unavailable" flash — the user taps play = the gesture iOS
+  needs), and listens for `onError` → shows a clear fallback. Prominent **"Open in the YouTube app"** `<a>` (runtime
+  href). (2) **Per-section "▶ Watch this part" in the Journey tab** — `videoClipForText()` matches each section's
+  name+steps to the most-specific video-guide entry (chapter/tower/beast/village/shrine) and shows a watch row inside
+  the expanded section (conservative: only on a confident name match, so no wrong buttons). Verified in-browser: IFrame
+  API player renders the BeardBear video at start=1053 (Oman Au) with full origin params, per-section Watch appears on
+  "Oman Au Shrine", 0 console errors, offline-clean. **HONEST LIMIT (told the owner): YouTube decides server-side
+  whether an embed may play; inside an INSTALLED iOS PWA (standalone, no session, anti-bot) it can still refuse —
+  the IFrame API is the best web-native shot, but the guaranteed paths are (a) open the page in a normal Safari tab
+  (has the YouTube session → embeds play) or (b) the app hand-off. A truly guaranteed in-app embed would require a
+  NATIVE app (out of scope for this single-file offline PWA). Never rip/re-host (illegal + 44h impractical).**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

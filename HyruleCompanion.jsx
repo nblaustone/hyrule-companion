@@ -1458,6 +1458,7 @@ function HyruleGame({ game, setGame, games }) {
 
             {filterSections.map((sec) => {
               const stat = sectionStats[sec.id]; const open = q ? true : !!openSections[sec.id];
+              const secClip = VIDEO_GUIDE ? videoClipForText(VIDEO_GUIDE, sec.name + " " + sec.steps.map((s) => s.t).join(" ")) : null;
               return (
                 <section id={"sec-" + sec.id} key={sec.id} className={"card" + (stat?.complete ? " card-done" : "")}>
                   <button className="card-head" onClick={() => !q && toggleSection(sec.id)}>
@@ -1468,6 +1469,8 @@ function HyruleGame({ game, setGame, games }) {
                     ? <button className="reward-banner reward-veil" onClick={() => reveal("rwd_" + sec.id)}><Glyph name="eye" size={14} /> Grants: <span className="veil-tap">tap to reveal</span></button>
                     : <div className="reward-banner"><Glyph name="eye" size={14} /> Grants: {sec.reward}</div>)}
                   {open && (
+                    <>
+                    {secClip && <button className="sec-watch" onClick={() => openVideo(secClip.t, sec.name)}><span>▶ Watch this part of the walkthrough</span><span className="sec-watch-sub">on YouTube</span></button>}
                     <ul className="steps">
                       {sec.steps.map((step) => {
                         const checkable = CHECKABLE.has(step.k); const meta = KIND_META[step.k] || KIND_META.step; const checked = !!progress[step.id];
@@ -1488,6 +1491,7 @@ function HyruleGame({ game, setGame, games }) {
                         );
                       })}
                     </ul>
+                    </>
                   )}
                 </section>
               );
@@ -2805,18 +2809,52 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   );
 }
 
-/* ============================================================ WALKTHROUGH VIDEO (v24) ============================================================ */
-/* Opens the OFFICIAL YouTube player (youtube-nocookie embed) jumped to a shrine's moment in a public
-   walkthrough. Nothing is downloaded or re-hosted — it streams from YouTube, so the creator keeps the
-   view/credit. Online-only + opt-in (you tap "Watch"); the rest of the app stays offline. The iframe
-   src is built at runtime (a JS string), so build.mjs's offline check still passes. Portaled to body. */
+/* ============================================================ WALKTHROUGH VIDEO (v24–v26) ============================================================ */
+/* Plays a public walkthrough jumped to a shrine/section's moment via the OFFICIAL YouTube IFrame Player
+   API — nothing downloaded/re-hosted (creator keeps the view). Online + opt-in; the rest of the app stays
+   offline (the API script is injected at RUNTIME, so build.mjs's offline check still passes). The API sets
+   the correct origin (fixes many "video unavailable" embeds) and reports errors so we can fall back cleanly.
+   NOTE: YouTube can still refuse embedded playback inside an INSTALLED iOS app (no session/anti-bot) — then
+   we surface the "Open in the YouTube app" hand-off + a tip to open the page in Safari. */
+const YT_API_SRC = "https://www.youtube.com/iframe_api";
+let _ytPromise = null;
+function loadYouTubeAPI() {
+  if (typeof window === "undefined") return Promise.reject(new Error("no window"));
+  if (window.YT && window.YT.Player) return Promise.resolve(window.YT);
+  if (_ytPromise) return _ytPromise;
+  _ytPromise = new Promise((res, rej) => {
+    const prev = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => { if (prev) { try { prev(); } catch (e) {} } res(window.YT); };
+    const s = document.createElement("script"); s.src = YT_API_SRC; s.async = true;
+    s.onerror = () => rej(new Error("yt-api-failed"));
+    document.head.appendChild(s);
+    setTimeout(() => { if (window.YT && window.YT.Player) res(window.YT); else rej(new Error("yt-api-timeout")); }, 7000);
+  });
+  return _ytPromise;
+}
 function VideoOverlay({ videoId, start, title, credit, onClose }) {
   const online = typeof navigator === "undefined" || navigator.onLine !== false;
-  useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
+  const standalone = typeof navigator !== "undefined" && navigator.standalone === true; // installed iOS PWA
+  const holderRef = useRef(null), playerRef = useRef(null);
+  const [status, setStatus] = useState(online ? "loading" : "offline"); // loading · ready · error · offline
   const t = Math.max(0, start | 0);
-  // regular youtube.com (the nocookie domain trips YouTube's "confirm you're not a bot" gate more often) + playsinline for iOS
-  const src = "https://www.youtube.com/embed/" + videoId + "?start=" + t + "&autoplay=1&rel=0&modestbranding=1&playsinline=1";
-  const watchUrl = "https://www.youtube.com/watch?v=" + videoId + "&t=" + t + "s"; // opens the YouTube app at the moment (runtime href → offline check safe)
+  const watchUrl = "https://www.youtube.com/watch?v=" + videoId + "&t=" + t + "s"; // runtime href → offline check safe
+  useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
+  useEffect(() => {
+    if (!online) return; let dead = false;
+    loadYouTubeAPI().then((YT) => {
+      if (dead || !holderRef.current || !YT || !YT.Player) { if (!dead) setStatus("error"); return; }
+      try {
+        playerRef.current = new YT.Player(holderRef.current, {
+          width: "100%", height: "100%", videoId,
+          playerVars: { start: t, playsinline: 1, rel: 0, modestbranding: 1, origin: (typeof location !== "undefined" ? location.origin : "") },
+          events: { onReady: () => { if (!dead) setStatus("ready"); }, onError: () => { if (!dead) setStatus("error"); } },
+        });
+      } catch (e) { if (!dead) setStatus("error"); }
+    }).catch(() => { if (!dead) setStatus("error"); });
+    return () => { dead = true; try { playerRef.current && playerRef.current.destroy && playerRef.current.destroy(); } catch (e) {} };
+  }, []);
+  const showFrame = status === "loading" || status === "ready";
   return portal(
     <div className="vid-overlay">
       <div className="vid-top">
@@ -2825,13 +2863,29 @@ function VideoOverlay({ videoId, start, title, credit, onClose }) {
       </div>
       <a className="vid-open" href={watchUrl} target="_blank" rel="noopener noreferrer">▶ Open in the YouTube app</a>
       <div className="vid-stage">
-        {online
-          ? <div className="vid-frame"><iframe src={src} title={title || "Walkthrough"} allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen frameBorder="0" /></div>
-          : <div className="vid-offline"><p>You're offline — the walkthrough streams from YouTube, so this one needs internet. Everything else in the app still works offline.</p></div>}
+        <div className="vid-frame" style={{ display: showFrame ? "block" : "none" }}><div ref={holderRef} /></div>
+        {status === "offline" && <div className="vid-offline"><p>You're offline — the walkthrough streams from YouTube, so this one needs internet. Everything else in the app still works offline.</p></div>}
+        {status === "error" && <div className="vid-offline"><p>YouTube is blocking embedded playback here{standalone ? " — common inside an installed app" : ""}. Tap <b>Open in the YouTube app</b> above; it jumps right to this moment.{standalone ? " Tip: open this page in Safari (instead of the home-screen icon) and video usually plays inside the app." : ""}</p></div>}
       </div>
-      <p className="vid-credit">If the player asks you to <b>“sign in to confirm you’re not a bot”</b> or won’t start, tap <b>Open in the YouTube app</b> above — YouTube sometimes blocks embedded playback. {credit ? "Walkthrough by " + credit + ". " : ""}Streams from YouTube; nothing is downloaded.</p>
+      <p className="vid-credit">If the player asks you to <b>“sign in to confirm you’re not a bot”</b>, that's YouTube blocking the embed — use <b>Open in the YouTube app</b>. {credit ? "Walkthrough by " + credit + ". " : ""}Streams from YouTube; nothing is downloaded.</p>
     </div>
   );
+}
+
+/* Best walkthrough-video moment for a chunk of walkthrough text — scans the video guide for the most
+   specific named entry (chapter/tower/beast/village/shrine) that appears in the text. Used to put a
+   "▶ Watch this part" on Journey sections. Returns {t,label} or null (no match → no button). */
+function videoClipForText(guide, text) {
+  if (!guide || !text) return null;
+  const hay = String(text).toLowerCase();
+  let best = null;
+  const consider = (name, t) => { if (!name) return; const n = name.toLowerCase(); if (n.length >= 4 && hay.indexOf(n) !== -1 && (!best || n.length > best.len)) best = { t, label: name, len: n.length }; };
+  for (const c of (guide.chapters || [])) consider(c.label, c.t);
+  for (const k in (guide.towers || {})) consider(k, guide.towers[k]);
+  for (const k in (guide.beasts || {})) { consider(k, guide.beasts[k]); consider(k.replace(/^Vah\s+/i, ""), guide.beasts[k]); }
+  for (const k in (guide.places || {})) consider(k, guide.places[k]);
+  for (const k in (guide.shrines || {})) consider(k, guide.shrines[k]);
+  return best ? { t: best.t, label: best.label } : null;
 }
 
 /* Journey-tab index of the whole walkthrough video — every section from the timecode list,
@@ -4173,6 +4227,9 @@ function StyleBlock() {
 .vid-open{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 calc(14px + env(safe-area-inset-right,0px)) 8px calc(14px + env(safe-area-inset-left,0px));padding:13px 16px;border-radius:11px;background:var(--malice);color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(224,80,107,0.4);}
 .vid-open:active{transform:scale(.985);}
 .vid-credit{font-size:11.5px;color:var(--parch-dim);margin:0;line-height:1.55;padding:8px calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));}
+.sec-watch{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:0 0 8px;padding:9px 12px;border-radius:9px;background:rgba(224,80,107,0.1);border:1px solid rgba(224,80,107,0.4);color:var(--malice);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.4px;text-transform:uppercase;cursor:pointer;}
+.sec-watch:active{transform:scale(.99);}
+.sec-watch-sub{font-weight:600;font-size:10px;opacity:.7;}
 /* Journey video-chapter index */
 .vidchap{margin:0 0 12px;border:1px solid rgba(224,80,107,0.28);border-radius:12px;background:rgba(224,80,107,0.05);overflow:hidden;}
 .vidchap-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:transparent;border:0;padding:11px 13px;cursor:pointer;}
