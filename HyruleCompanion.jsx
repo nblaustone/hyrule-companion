@@ -1450,6 +1450,7 @@ function HyruleGame({ game, setGame, games }) {
                 </button>); })}
             </div>
 
+            {!q && VIDEO_GUIDE && VIDEO_GUIDE.chapters && VIDEO_GUIDE.chapters.length > 0 && <VideoChapters guide={VIDEO_GUIDE} onWatch={openVideo} />}
             {currentRegion.kind === "beast" && (<div className="beast-banner"><Glyph name="beast" size={18} /> {terms.regionBanner} · {currentRegion.champion ? (regionVeiled && !revealed.has("champ_" + currentRegion.id) ? <button className="veil-inline" onClick={() => reveal("champ_" + currentRegion.id)}>grants ••• tap to reveal</button> : <>grants <b>{currentRegion.champion}</b></>) : "free a sage"}</div>)}
             {region === "plateau" && !q && <PlateauMap statusOf={statusOf} onJump={(secId) => jumpTo("plateau", secId)} />}
             {!q && <p className="lede">{currentRegion.tagline}</p>}
@@ -2706,6 +2707,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   const selId = sel && sel.type === "shrine" ? SHR_ID(sel.rk, sel.i) : null;
   const selDone = selId ? !!progress[selId] : false;
   const isHere = sel && mapPin && Math.abs(mapPin.x - sel.wx) < 6 && Math.abs(mapPin.z - sel.wz) < 6;
+  const vidClip = sel && videoGuide ? ({ shrine: videoGuide.shrines, tower: videoGuide.towers, beast: videoGuide.beasts, town: videoGuide.places }[sel.type] || {})[sel.name] : null;
   const TYPE_LABEL = { tower: "Sheikah Tower", fairy: "Great Fairy", beast: "Divine Beast", town: "Town / Village", stable: "Stable" };
   const cardSub = () => {
     if (sel.type === "shrine") return sel.region + (sel.obj && sel.obj.location ? " · " + sel.obj.location : "");
@@ -2793,7 +2795,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
             {sel.type === "shrine" && <button className={"sm-done" + (selDone ? " sm-done-on" : "")} onClick={() => toggleStep(selId)}>{selDone ? "✓ Cleared" : "Mark cleared"}</button>}
             <button className={"sm-here" + (isHere ? " sm-here-on" : "")} onClick={() => setMapPin(isHere ? null : { x: Math.round(sel.wx), z: Math.round(sel.wz) })}><Glyph name="pin" size={12} /> {isHere ? "You're here" : "I'm here"}</button>
             {sel.type === "shrine" && onOpenShrine && <button className="sm-open" onClick={() => onOpenShrine(sel.rk, selId)}>Open in list ›</button>}
-            {sel.type === "shrine" && onWatch && videoGuide && videoGuide.shrines && videoGuide.shrines[sel.name] != null && <button className="sm-watch" onClick={() => onWatch(videoGuide.shrines[sel.name], sel.name)}>▶ Watch</button>}
+            {onWatch && vidClip != null && <button className="sm-watch" onClick={() => onWatch(vidClip, sel.name)}>▶ Watch</button>}
           </div>
           {cardBody()}
         </div>
@@ -2827,6 +2829,31 @@ function VideoOverlay({ videoId, start, title, credit, onClose }) {
         <p className="vid-credit">{credit ? "Walkthrough by " + credit + ". " : ""}Streams from YouTube at this shrine's moment — nothing is downloaded.</p>
         <button className="vid-yt" onClick={() => { try { window.open("https://www.youtube.com/watch?v=" + videoId + "&t=" + t + "s", "_blank", "noopener"); } catch (e) {} }}>Open in YouTube ↗</button>
       </div>
+    </div>
+  );
+}
+
+/* Journey-tab index of the whole walkthrough video — every section from the timecode list,
+   grouped, each a tap that opens the player at that moment (online + opt-in, via VideoOverlay). */
+function VideoChapters({ guide, onWatch }) {
+  const [open, setOpen] = useState(false);
+  const fmt = (s) => { const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(ss).padStart(2, "0"); };
+  const GROUPS = [["tower", "Sheikah Towers"], ["beast", "Divine Beasts & abilities"], ["trial", "Trial of the Sword"], ["boss", "Hyrule Castle & Ganon"], ["village", "Villages & Tarrey Town"], ["farming", "Dragon farming"], ["event", "Other moments"]];
+  return (
+    <div className="vidchap">
+      <button className="vidchap-head" onClick={() => setOpen(!open)} aria-expanded={open}>
+        <span className="vidchap-head-t">▶ Video walkthrough — jump to any section</span>
+        <span className="vidchap-chev">{open ? "▾" : "▸"}</span>
+      </button>
+      {open && <div className="vidchap-body">
+        <p className="vidchap-note">Streams from YouTube · walkthrough by {guide.author}. Shrines have their own ▶ Watch on the Shrines tab.</p>
+        {GROUPS.map(([cat, title]) => { const items = (guide.chapters || []).filter((c) => c.cat === cat); if (!items.length) return null; return (
+          <div key={cat} className="vidchap-grp">
+            <div className="vidchap-grp-h">{title}</div>
+            {items.map((c, i) => <button key={cat + i} className="vidchap-row" onClick={() => onWatch(c.t, c.label)}><span className="vidchap-t">{fmt(c.t)}</span><span className="vidchap-l">{c.label}</span><span className="vidchap-play">▶</span></button>)}
+          </div>
+        ); })}
+      </div>}
     </div>
   );
 }
@@ -4145,6 +4172,20 @@ function StyleBlock() {
 .vid-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));}
 .vid-credit{font-size:11px;color:var(--parch-dim);margin:0;flex:1;min-width:160px;line-height:1.5;}
 .vid-yt{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:7px 13px;cursor:pointer;}
+/* Journey video-chapter index */
+.vidchap{margin:0 0 12px;border:1px solid rgba(224,80,107,0.28);border-radius:12px;background:rgba(224,80,107,0.05);overflow:hidden;}
+.vidchap-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:transparent;border:0;padding:11px 13px;cursor:pointer;}
+.vidchap-head-t{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.4px;text-transform:uppercase;color:var(--malice);}
+.vidchap-chev{color:var(--malice);font-size:12px;}
+.vidchap-body{padding:0 11px 11px;}
+.vidchap-note{font-size:11px;color:var(--parch-dim);margin:0 0 8px;line-height:1.45;}
+.vidchap-grp{margin-bottom:8px;}
+.vidchap-grp-h{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--cyan-dim);margin:6px 0 4px;}
+.vidchap-row{width:100%;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:7px 10px;margin-bottom:4px;cursor:pointer;}
+.vidchap-row:active{background:rgba(224,80,107,0.1);}
+.vidchap-t{flex-shrink:0;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;color:var(--cyan-dim);min-width:54px;}
+.vidchap-l{flex:1;min-width:0;font-size:13px;color:var(--parch);text-align:left;}
+.vidchap-play{flex-shrink:0;color:var(--malice);font-size:12px;}
 .sm-banner{position:absolute;top:calc(58px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:2px;background:rgba(9,18,23,0.96);border:1px solid var(--gold);border-radius:12px;padding:9px 16px;box-shadow:0 4px 18px rgba(0,0,0,0.4);text-align:center;max-width:88%;}
 .sm-banner b{font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);}
 .sm-banner span{font-size:13px;color:var(--parch);}
@@ -10488,7 +10529,341 @@ const VIDEO_GUIDE = {
   "Qaza Tokki Shrine": 153090,
   "Rin Oyaa Shrine": 153609,
   "Rona Kachta Shrine": 154587
- }
+ },
+ "towers": {
+  "Great Plateau Tower": 657,
+  "Hateno Tower": 12154,
+  "Lanayru Tower": 25290,
+  "Gerudo Tower": 32371,
+  "Wasteland Tower": 33476,
+  "Akkala Tower": 41924,
+  "Eldin Tower": 45212,
+  "Woodland Tower": 59788,
+  "Hebra Tower": 84431,
+  "Lake Tower": 111001,
+  "Central Tower": 116231,
+  "Dueling Peaks Tower": 117675,
+  "Faron Tower": 120957,
+  "Ridgeland Tower": 130934,
+  "Tabantha Tower": 134613
+ },
+ "beasts": {
+  "Vah Medoh": 17563,
+  "Vah Naboris": 30063,
+  "Vah Ruta": 39773,
+  "Vah Rudania": 57978
+ },
+ "places": {
+  "Kakariko Village": 8074,
+  "Hateno Village": 10040
+ },
+ "chapters": [
+  {
+   "t": 657,
+   "label": "Great Plateau Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 3912,
+   "label": "Paraglider",
+   "cat": "event"
+  },
+  {
+   "t": 8074,
+   "label": "Kakariko Village 1",
+   "cat": "village"
+  },
+  {
+   "t": 10040,
+   "label": "Hateno Village 1",
+   "cat": "village"
+  },
+  {
+   "t": 12154,
+   "label": "Hateno Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 12844,
+   "label": "Farosh Farming",
+   "cat": "farming"
+  },
+  {
+   "t": 17366,
+   "label": "Attack on Medoh",
+   "cat": "beast"
+  },
+  {
+   "t": 17563,
+   "label": "Enter Medoh",
+   "cat": "beast"
+  },
+  {
+   "t": 18386,
+   "label": "Revali's Gale",
+   "cat": "beast"
+  },
+  {
+   "t": 20924,
+   "label": "Kakariko Village 2",
+   "cat": "village"
+  },
+  {
+   "t": 25290,
+   "label": "Lanayru Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 28710,
+   "label": "Yiga Clan Hideout",
+   "cat": "event"
+  },
+  {
+   "t": 29838,
+   "label": "Attack on Naboris",
+   "cat": "beast"
+  },
+  {
+   "t": 30063,
+   "label": "Enter Naboris",
+   "cat": "beast"
+  },
+  {
+   "t": 31035,
+   "label": "Urbosa's Fury",
+   "cat": "beast"
+  },
+  {
+   "t": 32371,
+   "label": "Gerudo Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 33476,
+   "label": "Wasteland Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 39555,
+   "label": "Attack on Ruta",
+   "cat": "beast"
+  },
+  {
+   "t": 39773,
+   "label": "Enter Ruta",
+   "cat": "beast"
+  },
+  {
+   "t": 40713,
+   "label": "Mipha's Grace",
+   "cat": "beast"
+  },
+  {
+   "t": 41924,
+   "label": "Akkala Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 43049,
+   "label": "Tarrey Town 1",
+   "cat": "village"
+  },
+  {
+   "t": 45212,
+   "label": "Eldin Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 49063,
+   "label": "Dinraal Farming",
+   "cat": "farming"
+  },
+  {
+   "t": 56077,
+   "label": "Tarrey Town 2",
+   "cat": "village"
+  },
+  {
+   "t": 57458,
+   "label": "Attack on Rudania",
+   "cat": "beast"
+  },
+  {
+   "t": 57978,
+   "label": "Enter Rudania",
+   "cat": "beast"
+  },
+  {
+   "t": 59016,
+   "label": "Daruk's Protection",
+   "cat": "beast"
+  },
+  {
+   "t": 59788,
+   "label": "Woodland Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 63846,
+   "label": "Trial of the Sword - Beginner Trials",
+   "cat": "trial"
+  },
+  {
+   "t": 65525,
+   "label": "Trial of the Sword - Middle Trials",
+   "cat": "trial"
+  },
+  {
+   "t": 67131,
+   "label": "Trial of the Sword - Final Trials",
+   "cat": "trial"
+  },
+  {
+   "t": 75220,
+   "label": "Daruk's Protection+",
+   "cat": "beast"
+  },
+  {
+   "t": 82618,
+   "label": "Urbosa's Fury+",
+   "cat": "beast"
+  },
+  {
+   "t": 83336,
+   "label": "Tarrey Town 3",
+   "cat": "village"
+  },
+  {
+   "t": 84431,
+   "label": "Hebra Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 88050,
+   "label": "Revali's Gale+",
+   "cat": "beast"
+  },
+  {
+   "t": 92626,
+   "label": "Mipha's Grace+",
+   "cat": "beast"
+  },
+  {
+   "t": 93253,
+   "label": "Final Trial - Monk Maz Koshia",
+   "cat": "trial"
+  },
+  {
+   "t": 95360,
+   "label": "Castle 1",
+   "cat": "boss"
+  },
+  {
+   "t": 96062,
+   "label": "Calamity Ganon 1",
+   "cat": "boss"
+  },
+  {
+   "t": 96874,
+   "label": "Castle 2",
+   "cat": "boss"
+  },
+  {
+   "t": 111001,
+   "label": "Lake Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 112662,
+   "label": "Horse Obstacle Course",
+   "cat": "event"
+  },
+  {
+   "t": 114129,
+   "label": "Horse Archery Course",
+   "cat": "event"
+  },
+  {
+   "t": 116231,
+   "label": "Central Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 117675,
+   "label": "Dueling Peaks Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 120957,
+   "label": "Faron Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 125229,
+   "label": "Letter Quest",
+   "cat": "event"
+  },
+  {
+   "t": 130934,
+   "label": "Ridgeland Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 134613,
+   "label": "Tabantha Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 141125,
+   "label": "Tarrey Town 4",
+   "cat": "village"
+  },
+  {
+   "t": 142605,
+   "label": "Tarrey Town 5",
+   "cat": "village"
+  },
+  {
+   "t": 147820,
+   "label": "Naydra Farming",
+   "cat": "farming"
+  },
+  {
+   "t": 154956,
+   "label": "Armor Upgrades",
+   "cat": "event"
+  },
+  {
+   "t": 155469,
+   "label": "Kilton Medals",
+   "cat": "event"
+  },
+  {
+   "t": 155796,
+   "label": "Tarrey Town 6",
+   "cat": "village"
+  },
+  {
+   "t": 156188,
+   "label": "Hestu's Gift",
+   "cat": "event"
+  },
+  {
+   "t": 156951,
+   "label": "Champion's Picture",
+   "cat": "event"
+  },
+  {
+   "t": 157032,
+   "label": "Kass' Final Song",
+   "cat": "event"
+  },
+  {
+   "t": 157405,
+   "label": "Calamity Ganon 2",
+   "cat": "boss"
+  }
+ ]
 };
 const COOK_INGREDIENTS = [
  {

@@ -835,6 +835,17 @@ layout, `REGION_MAPS` = the per-region coords.
   Verified in-browser: the real video frame loaded at the right moment, TotK shows 0 Watch buttons, 0 console errors,
   offline-clean. **Lesson: "use this video" = embed the official player deep-linked to a timestamp (store facts/times,
   not the video); NEVER rip/host clips. Same online-only-opt-in shape as the AI oracle keeps the offline build valid.**
+- **v25 — walkthrough video EVERYWHERE (BotW; DONE).** Owner: "add all the watch buttons from the timecode list."
+  Re-parsed the FULL BeardBear timecode list into categories in `knowledge/video-guide.json`: `shrines{name:sec}`
+  (120) · `towers{name:sec}` (15) · `beasts{name:sec}` (4, from the "Enter <Beast>" rows) · `places{name:sec}`
+  (Kakariko + Hateno villages) · `chapters[{t,label,cat}]` (61 milestones: towers/beasts+abilities/Trial of the
+  Sword/Castle+Ganon/villages+Tarrey Town/dragon farming/other). Watch wiring: the SlateMap shrine card's ▶ Watch
+  generalized to **any marker** (`vidClip` lookup by `sel.type` → shrines/towers/beasts/places) so tower & Divine
+  Beast cards get it too; and a new **`VideoChapters`** collapsible index at the top of the Journey tab lists all 61
+  sections grouped, each opening `VideoOverlay` at its time. Verified: chapter index renders 61 rows/7 groups (Attack
+  on Medoh → start=17366 = 4:49:26), Central Tower map card shows Watch, TotK degrades (no panel/buttons), 0 console
+  errors, offline-clean. **Test gotcha banked: the preview was on TotK (persisted `hyrule:game`) so the BotW-only
+  panel correctly didn't show — always confirm the ACTIVE game before concluding a feature "doesn't render."**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

@@ -124,5 +124,339 @@
   "Qaza Tokki Shrine": 153090,
   "Rin Oyaa Shrine": 153609,
   "Rona Kachta Shrine": 154587
- }
+ },
+ "towers": {
+  "Great Plateau Tower": 657,
+  "Hateno Tower": 12154,
+  "Lanayru Tower": 25290,
+  "Gerudo Tower": 32371,
+  "Wasteland Tower": 33476,
+  "Akkala Tower": 41924,
+  "Eldin Tower": 45212,
+  "Woodland Tower": 59788,
+  "Hebra Tower": 84431,
+  "Lake Tower": 111001,
+  "Central Tower": 116231,
+  "Dueling Peaks Tower": 117675,
+  "Faron Tower": 120957,
+  "Ridgeland Tower": 130934,
+  "Tabantha Tower": 134613
+ },
+ "beasts": {
+  "Vah Medoh": 17563,
+  "Vah Naboris": 30063,
+  "Vah Ruta": 39773,
+  "Vah Rudania": 57978
+ },
+ "places": {
+  "Kakariko Village": 8074,
+  "Hateno Village": 10040
+ },
+ "chapters": [
+  {
+   "t": 657,
+   "label": "Great Plateau Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 3912,
+   "label": "Paraglider",
+   "cat": "event"
+  },
+  {
+   "t": 8074,
+   "label": "Kakariko Village 1",
+   "cat": "village"
+  },
+  {
+   "t": 10040,
+   "label": "Hateno Village 1",
+   "cat": "village"
+  },
+  {
+   "t": 12154,
+   "label": "Hateno Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 12844,
+   "label": "Farosh Farming",
+   "cat": "farming"
+  },
+  {
+   "t": 17366,
+   "label": "Attack on Medoh",
+   "cat": "beast"
+  },
+  {
+   "t": 17563,
+   "label": "Enter Medoh",
+   "cat": "beast"
+  },
+  {
+   "t": 18386,
+   "label": "Revali's Gale",
+   "cat": "beast"
+  },
+  {
+   "t": 20924,
+   "label": "Kakariko Village 2",
+   "cat": "village"
+  },
+  {
+   "t": 25290,
+   "label": "Lanayru Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 28710,
+   "label": "Yiga Clan Hideout",
+   "cat": "event"
+  },
+  {
+   "t": 29838,
+   "label": "Attack on Naboris",
+   "cat": "beast"
+  },
+  {
+   "t": 30063,
+   "label": "Enter Naboris",
+   "cat": "beast"
+  },
+  {
+   "t": 31035,
+   "label": "Urbosa's Fury",
+   "cat": "beast"
+  },
+  {
+   "t": 32371,
+   "label": "Gerudo Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 33476,
+   "label": "Wasteland Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 39555,
+   "label": "Attack on Ruta",
+   "cat": "beast"
+  },
+  {
+   "t": 39773,
+   "label": "Enter Ruta",
+   "cat": "beast"
+  },
+  {
+   "t": 40713,
+   "label": "Mipha's Grace",
+   "cat": "beast"
+  },
+  {
+   "t": 41924,
+   "label": "Akkala Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 43049,
+   "label": "Tarrey Town 1",
+   "cat": "village"
+  },
+  {
+   "t": 45212,
+   "label": "Eldin Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 49063,
+   "label": "Dinraal Farming",
+   "cat": "farming"
+  },
+  {
+   "t": 56077,
+   "label": "Tarrey Town 2",
+   "cat": "village"
+  },
+  {
+   "t": 57458,
+   "label": "Attack on Rudania",
+   "cat": "beast"
+  },
+  {
+   "t": 57978,
+   "label": "Enter Rudania",
+   "cat": "beast"
+  },
+  {
+   "t": 59016,
+   "label": "Daruk's Protection",
+   "cat": "beast"
+  },
+  {
+   "t": 59788,
+   "label": "Woodland Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 63846,
+   "label": "Trial of the Sword - Beginner Trials",
+   "cat": "trial"
+  },
+  {
+   "t": 65525,
+   "label": "Trial of the Sword - Middle Trials",
+   "cat": "trial"
+  },
+  {
+   "t": 67131,
+   "label": "Trial of the Sword - Final Trials",
+   "cat": "trial"
+  },
+  {
+   "t": 75220,
+   "label": "Daruk's Protection+",
+   "cat": "beast"
+  },
+  {
+   "t": 82618,
+   "label": "Urbosa's Fury+",
+   "cat": "beast"
+  },
+  {
+   "t": 83336,
+   "label": "Tarrey Town 3",
+   "cat": "village"
+  },
+  {
+   "t": 84431,
+   "label": "Hebra Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 88050,
+   "label": "Revali's Gale+",
+   "cat": "beast"
+  },
+  {
+   "t": 92626,
+   "label": "Mipha's Grace+",
+   "cat": "beast"
+  },
+  {
+   "t": 93253,
+   "label": "Final Trial - Monk Maz Koshia",
+   "cat": "trial"
+  },
+  {
+   "t": 95360,
+   "label": "Castle 1",
+   "cat": "boss"
+  },
+  {
+   "t": 96062,
+   "label": "Calamity Ganon 1",
+   "cat": "boss"
+  },
+  {
+   "t": 96874,
+   "label": "Castle 2",
+   "cat": "boss"
+  },
+  {
+   "t": 111001,
+   "label": "Lake Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 112662,
+   "label": "Horse Obstacle Course",
+   "cat": "event"
+  },
+  {
+   "t": 114129,
+   "label": "Horse Archery Course",
+   "cat": "event"
+  },
+  {
+   "t": 116231,
+   "label": "Central Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 117675,
+   "label": "Dueling Peaks Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 120957,
+   "label": "Faron Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 125229,
+   "label": "Letter Quest",
+   "cat": "event"
+  },
+  {
+   "t": 130934,
+   "label": "Ridgeland Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 134613,
+   "label": "Tabantha Tower",
+   "cat": "tower"
+  },
+  {
+   "t": 141125,
+   "label": "Tarrey Town 4",
+   "cat": "village"
+  },
+  {
+   "t": 142605,
+   "label": "Tarrey Town 5",
+   "cat": "village"
+  },
+  {
+   "t": 147820,
+   "label": "Naydra Farming",
+   "cat": "farming"
+  },
+  {
+   "t": 154956,
+   "label": "Armor Upgrades",
+   "cat": "event"
+  },
+  {
+   "t": 155469,
+   "label": "Kilton Medals",
+   "cat": "event"
+  },
+  {
+   "t": 155796,
+   "label": "Tarrey Town 6",
+   "cat": "village"
+  },
+  {
+   "t": 156188,
+   "label": "Hestu's Gift",
+   "cat": "event"
+  },
+  {
+   "t": 156951,
+   "label": "Champion's Picture",
+   "cat": "event"
+  },
+  {
+   "t": 157032,
+   "label": "Kass' Final Song",
+   "cat": "event"
+  },
+  {
+   "t": 157405,
+   "label": "Calamity Ganon 2",
+   "cat": "boss"
+  }
+ ]
 }
