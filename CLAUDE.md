@@ -846,6 +846,16 @@ layout, `REGION_MAPS` = the per-region coords.
   on Medoh → start=17366 = 4:49:26), Central Tower map card shows Watch, TotK degrades (no panel/buttons), 0 console
   errors, offline-clean. **Test gotcha banked: the preview was on TotK (persisted `hyrule:game`) so the BotW-only
   panel correctly didn't show — always confirm the ACTIVE game before concluding a feature "doesn't render."**
+- **v25.1 — FIX: map markers invisible (regression since v22).** Owner: after aligning a custom map, shrines/towers
+  "you can click but nothing's glowing." Root cause: v22 switched the SlateMap calibration to a 6-param affine
+  (`content.m`) and updated `W2C`/`C2W` + the tap hit-test (`S()`), **but the canvas `draw()` loop still computed
+  marker positions from the removed `C.a/C.b/C.c/C.d`** → every marker drew at `NaN` (invisible) on BOTH terrain and
+  imported maps. The hit-test used the correct affine, which is exactly why taps still worked but nothing rendered.
+  Fix: `draw()`'s `X`/`Y` now use the affine `m` and take `(wx,wz)` (so cross-terms/rotation apply); every call site
+  passes both coords. Verified in-browser: all markers render again on terrain AND on an imported+aligned image, 0
+  console errors. **Lesson: when you change a coordinate model, grep EVERY consumer — hit-test and draw used two
+  different copies of the transform; only one got migrated, and an in-browser MARKER screenshot (not just a tap test)
+  is the check that would've caught it at v22.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
