@@ -820,6 +820,21 @@ layout, `REGION_MAPS` = the per-region coords.
   YouTube IFrame embed deep-linked to a timestamp (NOT ripping/redistributing), which is online-only + opt-in (like the
   AI oracle), and needs a shrine→timestamp map the owner supplies (capture-current-time while watching, or the video's
   chapter list). Awaiting owner's go + how they want to populate timestamps.**
+- **v24 — per-shrine walkthrough VIDEO (BotW; DONE).** Owner found a 44-hour BotW 100% walkthrough (BeardBear,
+  route by 31JSON, video `0b0TNce_9tc`) with a per-shrine timecode list and wanted each shrine to "play that section."
+  Built the legitimate way: store only the **timestamps** (facts — a table of seconds) and open the **official
+  YouTube player** (`youtube-nocookie` embed at `?start=`) — nothing downloaded or re-hosted, creator keeps the
+  view/credit. `build/` matched the pasted timecodes to shrines.json names (**120/120 matched, 0 missing**; the 16
+  unmatched lines are DLC Champions'-Ballad EX shrines, correctly skipped) → `knowledge/video-guide.json`
+  `{videoId, author, shrines:{name:seconds}}` → inline-data `VIDEO_GUIDE` in the BotW bundle. A **▶ Watch** button
+  on each shrine row (Shrines tab) + the SlateMap shrine card opens `VideoOverlay` (portaled): the embed jumps to that
+  shrine's moment (verified Oman Au → `start=1053` = 17:33), with a credit line + "Open in YouTube" + an offline
+  guard. **Online-only + opt-in** (tapping Watch is the only network reach; the rest stays offline) and the iframe
+  `src` is built at runtime so `build.mjs`'s offline check still passes (youtube URLs are inert string literals,
+  never a static `src="…"`). Degrades cleanly: games without `VIDEO_GUIDE` (TotK, etc.) show no Watch button.
+  Verified in-browser: the real video frame loaded at the right moment, TotK shows 0 Watch buttons, 0 console errors,
+  offline-clean. **Lesson: "use this video" = embed the official player deep-linked to a timestamp (store facts/times,
+  not the video); NEVER rip/host clips. Same online-only-opt-in shape as the AI oracle keeps the offline build valid.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

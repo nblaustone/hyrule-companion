@@ -871,7 +871,7 @@ function GameShelf({ games, game, setGame, onClose }) {
    storage loads cleanly. G shadows the data globals with the active game's data (ADR 0005). */
 function HyruleGame({ game, setGame, games }) {
   const G = games[game];
-  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_COORDS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, COLLECTIBLES, terms, guideSegs, postRegionId } = G;
+  const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_COORDS, VIDEO_GUIDE, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, COLLECTIBLES, terms, guideSegs, postRegionId } = G;
   const K = (s) => game + ":" + s; // storage key namespace per game (botw:* preserves existing data)
   // a game without shrines (OoT) or without a cooking system (OoT) hides those tabs entirely (no empty tabs)
   const hasShrines = (SHRINES || []).length > 0;
@@ -901,6 +901,8 @@ function HyruleGame({ game, setGame, games }) {
   const [mapOpen, setMapOpen] = useState(false);     // v19: full-screen Slate Map overlay
   const [mapFocus, setMapFocus] = useState(null);    // v19: regionKey to open the map zoomed to (or null)
   const [mapPin, setMapPin] = useState(null);        // v19: spatial "I'm here" world coord {x,z} (<game>:mappin)
+  const [videoClip, setVideoClip] = useState(null);  // v24: {start,title} for the walkthrough-video overlay (online, opt-in)
+  const openVideo = useCallback((start, title) => setVideoClip({ start, title }), []);
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
@@ -956,7 +958,7 @@ function HyruleGame({ game, setGame, games }) {
   // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
   useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
   // freeze the page behind a full-screen overlay so touch-scroll doesn't bleed through to the content under it
-  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen || mapOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen, mapOpen]);
+  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen || mapOpen || videoClip; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen, mapOpen, videoClip]);
   const openMap = useCallback((rk) => { setMapFocus(rk || null); setMapOpen(true); }, []);
   // tab-bar taps start the new tab at the top (and re-tapping the current tab scrolls to top, iOS-style).
   // Programmatic jumps (jumpToStep/focusShrine) use setTab directly so they keep their scroll-into-view.
@@ -1266,9 +1268,14 @@ function HyruleGame({ game, setGame, games }) {
       {mapOpen && MAP_COORDS && MAP_COORDS.shrines && (
         <SlateMap coords={MAP_COORDS} shrines={SHRINES} progress={progress} toggleStep={toggleStep}
           spoiler={spoiler} focusRegion={mapFocus} mapPin={mapPin} setMapPin={setMapPin} accent={G.meta?.accent}
-          game={game} towersData={TOWERS} fairiesData={GREAT_FAIRIES}
+          game={game} towersData={TOWERS} fairiesData={GREAT_FAIRIES} videoGuide={VIDEO_GUIDE} onWatch={openVideo}
           onOpenShrine={(rk, id) => { setMapOpen(false); focusShrine(rk, id); }}
           onClose={() => setMapOpen(false)} />
+      )}
+
+      {videoClip && VIDEO_GUIDE && (
+        <VideoOverlay videoId={VIDEO_GUIDE.videoId} start={videoClip.start} title={videoClip.title}
+          credit={VIDEO_GUIDE.author} onClose={() => setVideoClip(null)} />
       )}
 
       {oracleOpen && (
@@ -1499,7 +1506,7 @@ function HyruleGame({ game, setGame, games }) {
             <div className="footer-space" />
           </>
         ) : tab === "shrines" ? (
-          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} mapCoords={MAP_COORDS} openMap={openMap} flash={flash} shrinePin={shrinePin} pinShrine={pinShrine} clearPin={() => setShrinePin(null)} shrineRecents={shrineRecents} focusShrine={focusShrine} shrineFlash={shrineFlash} focusShrineQuest={focusShrineQuest} />
+          <ShrinesView groups={SHRINES} progress={progress} toggleStep={toggleStep} openSections={openSections} toggleSection={toggleSection} query={query} setQuery={setQuery} stats={shrineStats} notes={notes} setNote={setNote} noteOpen={noteOpen} setNoteOpen={setNoteOpen} spoiler={spoiler} regionMaps={REGION_MAPS} mapCoords={MAP_COORDS} openMap={openMap} videoGuide={VIDEO_GUIDE} onWatch={openVideo} flash={flash} shrinePin={shrinePin} pinShrine={pinShrine} clearPin={() => setShrinePin(null)} shrineRecents={shrineRecents} focusShrine={focusShrine} shrineFlash={shrineFlash} focusShrineQuest={focusShrineQuest} />
         ) : tab === "items" ? (
           (COMPENDIUM && COMPENDIUM.length) ? <CompendiumView data={COMPENDIUM} />
             : <PouchView inventory={inventory} progress={progress} jumpTo={jumpTo} regions={REGIONS} region={region} cats={CATS} />
@@ -1902,7 +1909,7 @@ function LoreReader({ chapter, prefs, setPrefs, reading, setReading, bookmarked,
 }
 
 /* ============================================================ SHRINES TAB ============================================================ */
-function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps, mapCoords, openMap, flash, shrinePin, pinShrine, clearPin, shrineRecents, focusShrine, shrineFlash, focusShrineQuest }) {
+function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection, query, setQuery, stats, notes, setNote, noteOpen, setNoteOpen, spoiler, regionMaps, mapCoords, openMap, videoGuide, onWatch, flash, shrinePin, pinShrine, clearPin, shrineRecents, focusShrine, shrineFlash, focusShrineQuest }) {
   const [revealed, setRevealed] = useState(() => new Set());
   const reveal = (id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; });
   const q = query.trim().toLowerCase();
@@ -1989,6 +1996,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                         <div className="shrine-row-top">
                           <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
                           <button className={"shrine-pinbtn" + (shrinePin === id ? " shrine-pinbtn-on" : "")} onClick={() => (shrinePin === id ? clearPin() : pinShrine(id))} aria-label={shrinePin === id ? "Unpin" : "Pin as the shrine you're in"}><Glyph name="pin" size={11} /> {shrinePin === id ? "pinned" : "I'm here"}</button>
+                          {onWatch && videoGuide && videoGuide.shrines && videoGuide.shrines[sh.name] != null && <button className="shrine-watch" onClick={() => onWatch(videoGuide.shrines[sh.name], sh.name)} aria-label={"Watch " + sh.name + " in the walkthrough"}>▶ Watch</button>}
                         </div>
                         <span className="step-text"><span className="shrine-num">{i + 1}</span><b className="shrine-name">{sh.name}</b>{spoiler && !revealed.has(id) ? <button className="spoiler-hint" onClick={() => reveal(id)}>— tap to reveal hint</button> : <> — {sh.oneLine}</>}</span>
                         <span className="shrine-loc"><Glyph name="tower" size={11} /> {sh.location}{sh.shrineQuest ? <button className="shrine-q shrine-q-link" onClick={() => focusShrineQuest && focusShrineQuest(sh.shrineQuest)}>· Quest: {sh.shrineQuest} ›</button> : null}</span>
@@ -2559,7 +2567,7 @@ function fitAffine(pts) {
   }
   return null;
 }
-function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, mapPin, setMapPin, onOpenShrine, onClose, accent, game, towersData, fairiesData }) {
+function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, mapPin, setMapPin, onOpenShrine, onClose, accent, game, towersData, fairiesData, videoGuide, onWatch }) {
   const b = coords.bounds, worldW = b.xmax - b.xmin, worldH = b.zmax - b.zmin;
   const terrain = useMemo(() => getTerrain(coords), [coords]);
   const cvRef = useRef(null), fileRef = useRef(null), alignPts = useRef([]);
@@ -2785,10 +2793,40 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
             {sel.type === "shrine" && <button className={"sm-done" + (selDone ? " sm-done-on" : "")} onClick={() => toggleStep(selId)}>{selDone ? "✓ Cleared" : "Mark cleared"}</button>}
             <button className={"sm-here" + (isHere ? " sm-here-on" : "")} onClick={() => setMapPin(isHere ? null : { x: Math.round(sel.wx), z: Math.round(sel.wz) })}><Glyph name="pin" size={12} /> {isHere ? "You're here" : "I'm here"}</button>
             {sel.type === "shrine" && onOpenShrine && <button className="sm-open" onClick={() => onOpenShrine(sel.rk, selId)}>Open in list ›</button>}
+            {sel.type === "shrine" && onWatch && videoGuide && videoGuide.shrines && videoGuide.shrines[sel.name] != null && <button className="sm-watch" onClick={() => onWatch(videoGuide.shrines[sel.name], sel.name)}>▶ Watch</button>}
           </div>
           {cardBody()}
         </div>
       )}
+    </div>
+  );
+}
+
+/* ============================================================ WALKTHROUGH VIDEO (v24) ============================================================ */
+/* Opens the OFFICIAL YouTube player (youtube-nocookie embed) jumped to a shrine's moment in a public
+   walkthrough. Nothing is downloaded or re-hosted — it streams from YouTube, so the creator keeps the
+   view/credit. Online-only + opt-in (you tap "Watch"); the rest of the app stays offline. The iframe
+   src is built at runtime (a JS string), so build.mjs's offline check still passes. Portaled to body. */
+function VideoOverlay({ videoId, start, title, credit, onClose }) {
+  const online = typeof navigator === "undefined" || navigator.onLine !== false;
+  useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
+  const t = Math.max(0, start | 0);
+  const src = "https://www.youtube-nocookie.com/embed/" + videoId + "?start=" + t + "&autoplay=1&rel=0&modestbranding=1";
+  return portal(
+    <div className="vid-overlay">
+      <div className="vid-top">
+        <div className="vid-title"><Glyph name="spark" size={15} /><div><div className="vid-title-t">{title}</div><div className="vid-title-s">Walkthrough clip · plays from YouTube</div></div></div>
+        <button className="sm-close" onClick={onClose} aria-label="Close video">✕</button>
+      </div>
+      <div className="vid-stage">
+        {online
+          ? <div className="vid-frame"><iframe src={src} title={title || "Walkthrough"} allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen frameBorder="0" /></div>
+          : <div className="vid-offline"><p>You're offline — the walkthrough streams from YouTube, so this one needs internet. Everything else in the app still works offline.</p></div>}
+      </div>
+      <div className="vid-foot">
+        <p className="vid-credit">{credit ? "Walkthrough by " + credit + ". " : ""}Streams from YouTube at this shrine's moment — nothing is downloaded.</p>
+        <button className="vid-yt" onClick={() => { try { window.open("https://www.youtube.com/watch?v=" + videoId + "&t=" + t + "s", "_blank", "noopener"); } catch (e) {} }}>Open in YouTube ↗</button>
+      </div>
     </div>
   );
 }
@@ -4092,6 +4130,21 @@ function StyleBlock() {
 .sm-card-spoil{font-size:12px;color:var(--parch-dim);font-style:italic;margin:8px 0 0;}
 .sm-here{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--gold);background:rgba(242,193,78,0.1);border:1px solid rgba(242,193,78,0.42);border-radius:8px;padding:7px 12px;cursor:pointer;}
 .sm-here-on{color:var(--abyss);background:var(--gold);border-color:var(--gold);}
+.sm-watch{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--malice);background:rgba(224,80,107,0.1);border:1px solid rgba(224,80,107,0.45);border-radius:8px;padding:7px 12px;cursor:pointer;}
+.shrine-watch{display:inline-flex;align-items:center;gap:4px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;color:var(--malice);background:rgba(224,80,107,0.08);border:1px solid rgba(224,80,107,0.4);border-radius:7px;padding:3px 9px;cursor:pointer;margin-left:6px;}
+/* walkthrough video overlay */
+.vid-overlay{position:fixed;inset:0;z-index:62;background:rgba(5,10,13,0.97);backdrop-filter:blur(6px);display:flex;flex-direction:column;max-width:760px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
+.vid-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:12px calc(14px + env(safe-area-inset-right,0px)) 10px calc(14px + env(safe-area-inset-left,0px));}
+.vid-title{display:flex;align-items:center;gap:9px;color:var(--cyan);}
+.vid-title-t{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:16px;color:var(--parch);}
+.vid-title-s{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--parch-dim);}
+.vid-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:0 10px;}
+.vid-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;border:1px solid rgba(95,214,226,0.2);}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vid-offline{font-size:14px;color:var(--parch-dim);text-align:center;padding:24px;line-height:1.6;}
+.vid-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));}
+.vid-credit{font-size:11px;color:var(--parch-dim);margin:0;flex:1;min-width:160px;line-height:1.5;}
+.vid-yt{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:7px 13px;cursor:pointer;}
 .sm-banner{position:absolute;top:calc(58px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:2px;background:rgba(9,18,23,0.96);border:1px solid var(--gold);border-radius:12px;padding:9px 16px;box-shadow:0 4px 18px rgba(0,0,0,0.4);text-align:center;max-width:88%;}
 .sm-banner b{font-family:'Rajdhani',sans-serif;font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);}
 .sm-banner span{font-size:13px;color:var(--parch);}
@@ -10307,6 +10360,134 @@ const MAP_COORDS = {
    "z1": 3781.5,
    "n": 12
   }
+ }
+};
+const VIDEO_GUIDE = {
+ "videoId": "0b0TNce_9tc",
+ "title": "BotW Full Game 100% Walkthrough",
+ "author": "BeardBear (route by 31JSON)",
+ "url": "https://www.youtube.com/watch?v=0b0TNce_9tc",
+ "shrines": {
+  "Oman Au Shrine": 1053,
+  "Keh Namut Shrine": 2327,
+  "Owa Daim Shrine": 2701,
+  "Ja Baij Shrine": 3108,
+  "Rota Ooh Shrine": 4530,
+  "Mogg Latan Shrine": 5192,
+  "Zalta Wa Shrine": 6194,
+  "Katah Chuki Shrine": 6401,
+  "Wahgo Katta Shrine": 7511,
+  "Kaya Wan Shrine": 7706,
+  "Ta'loh Naeg Shrine": 9097,
+  "Myahm Agana Shrine": 10062,
+  "Chaas Qeta Shrine": 11311,
+  "Dah Kaso Shrine": 14968,
+  "Shae Loya Shrine": 15716,
+  "Akh Va'quot Shrine": 18472,
+  "Sha Warvo Shrine": 19144,
+  "Bosh Kala Shrine": 20233,
+  "Ha Dahamar Shrine": 21848,
+  "Shee Vaneer Shrine": 22450,
+  "Shee Venath Shrine": 22580,
+  "Ree Dahee Shrine": 22685,
+  "Daka Tuss Shrine": 24422,
+  "Sheh Rata Shrine": 25870,
+  "Kuh Takkar Shrine": 26703,
+  "Sho Dantu Shrine": 27213,
+  "Daqo Chisay Shrine": 27710,
+  "Sasa Kai Shrine": 32458,
+  "Dako Tah Shrine": 32760,
+  "Tahno O'ah Shrine": 34392,
+  "Jitan Sa'mi Shrine": 35355,
+  "Dow Na'eh Shrine": 36868,
+  "Mezza Lo Shrine": 37702,
+  "Ne'ez Yohma Shrine": 38863,
+  "Ze Kasho Shrine": 42117,
+  "Dah Hesho Shrine": 43862,
+  "Sah Dahaj Shrine": 44616,
+  "Shae Mo'sah Shrine": 46731,
+  "Shora Hah Shrine": 47206,
+  "Ketoh Wawai Shrine": 48289,
+  "Gorae Torr Shrine": 50816,
+  "Zuna Kai Shrine": 52047,
+  "Tu Ka'loh Shrine": 53189,
+  "Katosa Aug Shrine": 54414,
+  "Tutsuwa Nima Shrine": 55439,
+  "Daqa Koh Shrine": 57196,
+  "Keo Ruug Shrine": 60256,
+  "Kuhn Sidajj Shrine": 60382,
+  "Daag Chokah Shrine": 60664,
+  "Maag Halan Shrine": 61761,
+  "Kayra Mah Shrine": 73707,
+  "Qua Raym Shrine": 74894,
+  "Dila Maag Shrine": 76793,
+  "Suma Sahma Shrine": 77269,
+  "Misae Suma Shrine": 78505,
+  "Kema Kosassa Shrine": 79881,
+  "Keeha Yoog Shrine": 80717,
+  "Kema Zoos Shrine": 82545,
+  "Bareeda Naag Shrine": 83735,
+  "Voo Lota Shrine": 86039,
+  "Shada Naw Shrine": 87179,
+  "Goma Asaagh Shrine": 87562,
+  "Ke'nai Shakah Shrine": 90336,
+  "Kah Mael Shrine": 90915,
+  "Dagah Keek Shrine": 92210,
+  "Saas Ko'sah Shrine": 97188,
+  "Sheem Dagoze Shrine": 99604,
+  "Mijah Rokee Shrine": 99984,
+  "Kaam Ya'tak Shrine": 101434,
+  "Joloo Nah Shrine": 103097,
+  "Tho Kayu Shrine": 104175,
+  "Hawa Koth Shrine": 104490,
+  "Raqa Zunzo Shrine": 105541,
+  "Korsh O'hu Shrine": 107016,
+  "Kay Noh Shrine": 107378,
+  "Jee Noh Shrine": 108650,
+  "Ya Naga Shrine": 109769,
+  "Pumaag Nitae Shrine": 111473,
+  "Ka'o Makagh Shrine": 112489,
+  "Shoqa Tatone Shrine": 113618,
+  "Ishto Soh Shrine": 114935,
+  "Hila Rao Shrine": 118215,
+  "Shae Katha Shrine": 119501,
+  "Shai Utoh Shrine": 121231,
+  "Shoda Sah Shrine": 122495,
+  "Qukah Nata Shrine": 122893,
+  "Kah Yah Shrine": 123903,
+  "Yah Rin Shrine": 124728,
+  "Mirro Shaz Shrine": 126862,
+  "Namika Ozz Shrine": 127333,
+  "Noya Neha Shrine": 128865,
+  "Monya Toma Shrine": 130240,
+  "Maag No'rah Shrine": 130364,
+  "Toh Yahsa Shrine": 131054,
+  "Kah Okeo Shrine": 133976,
+  "Tena Ko'sah Shrine": 134981,
+  "Hia Miu Shrine": 135740,
+  "To Quomo Shrine": 136428,
+  "Gee Ha'rah Shrine": 137216,
+  "Lanno Kooh Shrine": 137515,
+  "Dunba Taag Shrine": 137935,
+  "Mozo Shenno Shrine": 139619,
+  "Maka Rah Shrine": 140909,
+  "Soh Kofi Shrine": 141716,
+  "Tah Muhl Shrine": 141971,
+  "Mo'a Keet Shrine": 142150,
+  "Ritaag Zumo Shrine": 142865,
+  "Tawa Jinn Shrine": 143257,
+  "Muwo Jeem Shrine": 144009,
+  "Korgu Chideh Shrine": 145069,
+  "Lakna Rokee Shrine": 146670,
+  "Toto Sah Shrine": 148769,
+  "Kam Urog Shrine": 149472,
+  "Shai Yota Shrine": 151468,
+  "Rucco Maag Shrine": 152107,
+  "Rok Uwog Shrine": 152650,
+  "Sha Gehma Shrine": 152932,
+  "Qaza Tokki Shrine": 153090,
+  "Rin Oyaa Shrine": 153609,
+  "Rona Kachta Shrine": 154587
  }
 };
 const COOK_INGREDIENTS = [
@@ -56533,5 +56714,5 @@ const OOA = {
   "cover": "harp"
  }
 };
-const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_COORDS, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW, ww: WW, minish: MINISH, oos: OOS, ooa: OOA };
+const GAMES = { botw: { id:"botw", label:"Breath of the Wild", short:"BotW", meta:{"console":"Nintendo Switch","consoleShort":"Switch","consoleRank":0,"year":2017,"era":"Era of the Wilds","accent":"#5fd6e2","accent2":"#16323a","cover":"slate"}, REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_COORDS, VIDEO_GUIDE, MAP_NODES, MAP_BEASTS,RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, terms:{orbs:"Spirit Orbs",orbWord:"orbs",runesLabel:"Runes Unlocked",championsLabel:"Champion Abilities",regionBanner:"Divine Beast"}, guideSegs:[["runes","Runes"],["tips","Tips"],["armor","Armor"],["fairies","Fairies"],["towers","Towers"],["quests","Quests"],["enemies","Enemies"],["koroks","Koroks"],["economy","Money"],["world","World"],["settings","Settings"]], postRegionId:"destroy_ganon" }, totk: TOTK, oot: OOT, mm: MM, alttp: ALTTP, la: LA, albw: ALBW, ww: WW, minish: MINISH, oos: OOS, ooa: OOA };
 /* GEN:DATA:END */
