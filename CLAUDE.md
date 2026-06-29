@@ -929,6 +929,37 @@ layout, `REGION_MAPS` = the per-region coords.
     state X is restored asynchronously, gate X's persist on X's own load-done flag, or the empty initial value races
     in and clobbers storage.** Verified in-browser: bar declutter + no overflow, ⋯ menu opens/navigates/backdrop-
     dismisses, sound→player, **playlist now survives reload (3/3 retained)**, 0 console errors, offline-clean.
+- **v26.1–v27.4 — the "connect the pieces" arc (DONE).** With all content at parity, the owner asked to bug/polish
+  the walkthrough video and then **fuse the moving pieces into a moment-of-need experience**. Shipped in four:
+  - **v26.1 — video bug/polish.** `VideoOverlay` now shows the exact moment it jumps to ("jumps to 26:29:20") via a
+    shared hoisted `fmtClock` (overlay + chapter index) — a wrong timestamp is now visible at a glance. `videoClipForText`
+    (Journey "Watch this part") prefers a match on the section's **own title** before scanning step text, so a button
+    can't jump to something buried mid-section. **Known data point (NOT fixed — couldn't verify a source):** the
+    Castle/Ganon chapter block looks internally suspicious (Castle 1 26:29:20 · Ganon 1 26:41:02 · Castle 2 26:54:34 ·
+    Ganon 2 43:43:25); the raw BeardBear timecode paste was never saved, YT description isn't fetchable, the chapter API
+    is down → honesty law: flagged for the owner, the v27.2 "Fix this spot" lets it self-heal from real use.
+  - **v27.2 — smarter video.** **Self-healing "Fix this spot":** a button in the player reads the YouTube IFrame
+    player's `getCurrentTime()` and saves a device-local, per-game override (`{title:seconds}` in `<game>:vidfix`,
+    loaded in the main Promise.all + its own persist effect); every future open of that clip jumps to the corrected
+    moment (Reset restores the default). Resolution is by **clip title** at the VideoOverlay render. Also: the player
+    now shows the **written steps** (Journey sections) or the spoiler-gated **shrine solution** (shrine rows + map cards)
+    under the video — threaded via `openVideo(start,title,context)` where context = `{kind:'section',steps}` or
+    `{kind:'shrine',solution}`. Tower-match fix in `videoClipForText` (drop a leading word so "Raise the **Plateau Tower**"
+    → Great Plateau Tower 10:57, not the Paraglider).
+  - **v27.3 — Slate Map becomes a guide.** A **"Guide me"** toggle (`guide` state in SlateMap): dims cleared shrines,
+    glows the remaining, gold-labels + draws **dashed route lines** from the "I'm here" pin to the **6 nearest unexplored
+    shrines** (closest = target ring), plus a tappable fly-to **"Nearest unexplored" strip** (pin-relative, or map-centre
+    with a prompt to drop a pin). Nearest = Euclidean over `MAP_COORDS.shrines` (verified exact vs datamined coords).
+    **Fixed a latent bug:** the map's pin-control button called an **undefined `setAlign()`** → ReferenceError on every
+    tap; now `setAligning(false)`. BotW-only (degrades on games without datamined map-coords).
+  - **v27.4 — the cockpit.** A **"Right now — one tap to what you need"** panel on Status, under the Resume hero, with
+    up to three tiles: **Watch this part** (the walkthrough clip for the section you're resuming, via `videoClipForText`
+    on `resumeTarget` + its steps as context), **Nearest shrine** (closest unexplored to the pin/centre → `openMap(rk)`),
+    **Ask the Slate**. Pure logic over `resumeTarget`/`MAP_COORDS`/`VIDEO_GUIDE`/`mapPin`; each tile conditional →
+    **degrades to just "Ask the Slate" on TotK/OoT/etc** (the canary held). All four verified in-browser (override
+    resolves + persists, Fix saves, section steps + shrine solution render, tower section → 10:57, Guide routes + gold
+    labels + strip, nearest math exact, cockpit tiles route correctly, TotK degrades), **0 console errors, offline-clean.**
+    **The owner declined "Your story" (play journal/timeline) — picked cockpit + smarter-video + map-as-guide.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
