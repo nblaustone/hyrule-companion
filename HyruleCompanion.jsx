@@ -1059,8 +1059,11 @@ function HyruleGame({ game, setGame, games }) {
   const [mapOpen, setMapOpen] = useState(false);     // v19: full-screen Slate Map overlay
   const [mapFocus, setMapFocus] = useState(null);    // v19: regionKey to open the map zoomed to (or null)
   const [mapPin, setMapPin] = useState(null);        // v19: spatial "I'm here" world coord {x,z} (<game>:mappin)
-  const [videoClip, setVideoClip] = useState(null);  // v24: {start,title} for the walkthrough-video overlay (online, opt-in)
-  const openVideo = useCallback((start, title) => setVideoClip({ start, title }), []);
+  const [videoClip, setVideoClip] = useState(null);  // v24: {start,title,context} for the walkthrough-video overlay (online, opt-in)
+  const openVideo = useCallback((start, title, context) => setVideoClip({ start, title, context: context || null }), []);
+  const [vidFix, setVidFix] = useState({});           // v27.2: device-local per-game timestamp overrides {title:seconds} — self-healing "Fix this spot"
+  const saveVidFix = useCallback((title, secs) => { if (!title || typeof secs !== "number" || isNaN(secs)) return; setVidFix((m) => ({ ...m, [title]: Math.max(0, Math.round(secs)) })); }, []);
+  const clearVidFix = useCallback((title) => { if (!title) return; setVidFix((m) => { if (!(title in m)) return m; const n = { ...m }; delete n[title]; return n; }); }, []);
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
@@ -1093,10 +1096,10 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl, mp] = await Promise.all([
+      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl, mp, vfx] = await Promise.all([
         store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
         store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"), store.get("hyrule:books"),
-        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")), store.get(K("mappin")),
+        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")), store.get(K("mappin")), store.get(K("vidfix")),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -1115,6 +1118,7 @@ function HyruleGame({ game, setGame, games }) {
       try { if (srec) { const a = JSON.parse(srec); if (Array.isArray(a)) setShrineRecents(a); } } catch (e) {}
       try { if (cl) { const o = JSON.parse(cl); if (o && typeof o === "object") setCollect(o); } } catch (e) {}
       try { if (mp) { const o = JSON.parse(mp); if (o && typeof o.x === "number") setMapPin(o); } } catch (e) {}
+      try { if (vfx) { const o = JSON.parse(vfx); if (o && typeof o === "object") setVidFix(o); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -1123,6 +1127,7 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("ui"), JSON.stringify({ tab, region, openSections, guideSub })); }, [tab, region, openSections, guideSub, loaded]);
   useEffect(() => { if (loaded) store.set(K("koroks"), String(koroks)); }, [koroks, loaded]);
   useEffect(() => { if (loaded) store.set(K("collect"), JSON.stringify(collect)); }, [collect, loaded]);
+  useEffect(() => { if (loaded) store.set(K("vidfix"), JSON.stringify(vidFix)); }, [vidFix, loaded]);
   // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
   useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
   // freeze the page behind a full-screen overlay so touch-scroll doesn't bleed through to the content under it
@@ -1498,8 +1503,13 @@ function HyruleGame({ game, setGame, games }) {
       )}
 
       {videoClip && VIDEO_GUIDE && (
-        <VideoOverlay videoId={VIDEO_GUIDE.videoId} start={videoClip.start} title={videoClip.title}
-          credit={VIDEO_GUIDE.author} onClose={() => setVideoClip(null)} />
+        <VideoOverlay videoId={VIDEO_GUIDE.videoId}
+          start={typeof vidFix[videoClip.title] === "number" ? vidFix[videoClip.title] : videoClip.start}
+          title={videoClip.title} context={videoClip.context} credit={VIDEO_GUIDE.author}
+          customized={typeof vidFix[videoClip.title] === "number"}
+          onFix={(secs) => saveVidFix(videoClip.title, secs)}
+          onResetFix={() => clearVidFix(videoClip.title)}
+          onClose={() => setVideoClip(null)} />
       )}
 
       {oracleOpen && (
@@ -1713,7 +1723,7 @@ function HyruleGame({ game, setGame, games }) {
                     : <div className="reward-banner"><Glyph name="eye" size={14} /> Grants: {sec.reward}</div>)}
                   {open && (
                     <>
-                    {secClip && <button className="sec-watch" onClick={() => openVideo(secClip.t, sec.name)}><span>▶ Watch this part of the walkthrough</span><span className="sec-watch-sub">on YouTube</span></button>}
+                    {secClip && <button className="sec-watch" onClick={() => openVideo(secClip.t, sec.name, { kind: "section", steps: sec.steps.map((s) => ({ t: s.t, k: s.k })) })}><span>▶ Watch this part of the walkthrough</span><span className="sec-watch-sub">on YouTube</span></button>}
                     <ul className="steps">
                       {sec.steps.map((step) => {
                         const checkable = CHECKABLE.has(step.k); const meta = KIND_META[step.k] || KIND_META.step; const checked = !!progress[step.id];
@@ -2249,7 +2259,7 @@ function ShrinesView({ groups, progress, toggleStep, openSections, toggleSection
                         <div className="shrine-row-top">
                           <span className="tag" style={{ color: meta.color, borderColor: meta.color }}>{meta.label}</span>
                           <button className={"shrine-pinbtn" + (shrinePin === id ? " shrine-pinbtn-on" : "")} onClick={() => (shrinePin === id ? clearPin() : pinShrine(id))} aria-label={shrinePin === id ? "Unpin" : "Pin as the shrine you're in"}><Glyph name="pin" size={11} /> {shrinePin === id ? "pinned" : "I'm here"}</button>
-                          {onWatch && videoGuide && videoGuide.shrines && videoGuide.shrines[sh.name] != null && <button className="shrine-watch" onClick={() => onWatch(videoGuide.shrines[sh.name], sh.name)} aria-label={"Watch " + sh.name + " in the walkthrough"}>▶ Watch</button>}
+                          {onWatch && videoGuide && videoGuide.shrines && videoGuide.shrines[sh.name] != null && <button className="shrine-watch" onClick={() => onWatch(videoGuide.shrines[sh.name], sh.name, !spoiler && sh.solution ? { kind: "shrine", solution: sh.solution } : null)} aria-label={"Watch " + sh.name + " in the walkthrough"}>▶ Watch</button>}
                         </div>
                         <span className="step-text"><span className="shrine-num">{i + 1}</span><b className="shrine-name">{sh.name}</b>{spoiler && !revealed.has(id) ? <button className="spoiler-hint" onClick={() => reveal(id)}>— tap to reveal hint</button> : <> — {sh.oneLine}</>}</span>
                         <span className="shrine-loc"><Glyph name="tower" size={11} /> {sh.location}{sh.shrineQuest ? <button className="shrine-q shrine-q-link" onClick={() => focusShrineQuest && focusShrineQuest(sh.shrineQuest)}>· Quest: {sh.shrineQuest} ›</button> : null}</span>
@@ -3048,7 +3058,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
             {sel.type === "shrine" && <button className={"sm-done" + (selDone ? " sm-done-on" : "")} onClick={() => toggleStep(selId)}>{selDone ? "✓ Cleared" : "Mark cleared"}</button>}
             <button className={"sm-here" + (isHere ? " sm-here-on" : "")} onClick={() => setMapPin(isHere ? null : { x: Math.round(sel.wx), z: Math.round(sel.wz) })}><Glyph name="pin" size={12} /> {isHere ? "You're here" : "I'm here"}</button>
             {sel.type === "shrine" && onOpenShrine && <button className="sm-open" onClick={() => onOpenShrine(sel.rk, selId)}>Open in list ›</button>}
-            {onWatch && vidClip != null && <button className="sm-watch" onClick={() => onWatch(vidClip, sel.name)}>▶ Watch</button>}
+            {onWatch && vidClip != null && <button className="sm-watch" onClick={() => onWatch(vidClip, sel.name, sel.type === "shrine" && !spoiler && sel.obj && sel.obj.solution ? { kind: "shrine", solution: sel.obj.solution } : null)}>▶ Watch</button>}
           </div>
           {cardBody()}
         </div>
@@ -3082,11 +3092,13 @@ function loadYouTubeAPI() {
 }
 /* HH:MM:SS (or M:SS) for a second-count — shared by the video overlay + the chapter index. */
 function fmtClock(s) { s = Math.max(0, s | 0); const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(ss).padStart(2, "0"); }
-function VideoOverlay({ videoId, start, title, credit, onClose }) {
+function VideoOverlay({ videoId, start, title, context, credit, customized, onFix, onResetFix, onClose }) {
   const online = typeof navigator === "undefined" || navigator.onLine !== false;
   const standalone = typeof navigator !== "undefined" && navigator.standalone === true; // installed iOS PWA
   const holderRef = useRef(null), playerRef = useRef(null);
   const [status, setStatus] = useState(online ? "loading" : "offline"); // loading · ready · error · offline
+  const [fixMsg, setFixMsg] = useState("");
+  const [showCtx, setShowCtx] = useState(false);
   const t = Math.max(0, start | 0);
   const watchUrl = "https://www.youtube.com/watch?v=" + videoId + "&t=" + t + "s"; // runtime href → offline check safe
   useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
@@ -3105,10 +3117,21 @@ function VideoOverlay({ videoId, start, title, credit, onClose }) {
     return () => { dead = true; try { playerRef.current && playerRef.current.destroy && playerRef.current.destroy(); } catch (e) {} };
   }, []);
   const showFrame = status === "loading" || status === "ready";
+  // v27.2 self-healing: snap this clip's saved start to wherever the player is now (device-local, per game)
+  const fixHere = () => {
+    try {
+      const p = playerRef.current; const cur = p && p.getCurrentTime ? p.getCurrentTime() : null;
+      if (cur == null || isNaN(cur) || cur < 1) { setFixMsg("Press play and scrub to the right moment first, then tap this."); return; }
+      onFix && onFix(cur); setFixMsg("Saved ✓ — this part now opens at " + fmtClock(cur) + ".");
+    } catch (e) { setFixMsg("Couldn't read the player — scrub the video, then try again."); }
+  };
+  const ctxSteps = context && context.kind === "section" && Array.isArray(context.steps) ? context.steps.filter((s) => s && s.t) : null;
+  const ctxSolution = context && context.kind === "shrine" && context.solution ? context.solution : null;
+  const hasCtx = (ctxSteps && ctxSteps.length) || ctxSolution;
   return portal(
     <div className="vid-overlay">
       <div className="vid-top">
-        <div className="vid-title"><Glyph name="spark" size={15} /><div><div className="vid-title-t">{title}</div><div className="vid-title-s">Walkthrough · jumps to {fmtClock(t)}</div></div></div>
+        <div className="vid-title"><Glyph name="spark" size={15} /><div><div className="vid-title-t">{title}</div><div className="vid-title-s">Walkthrough · jumps to {fmtClock(t)}{customized ? " · your spot ✓" : ""}</div></div></div>
         <button className="sm-close" onClick={onClose} aria-label="Close video">✕</button>
       </div>
       <a className="vid-open" href={watchUrl} target="_blank" rel="noopener noreferrer">▶ Open in the YouTube app</a>
@@ -3117,6 +3140,21 @@ function VideoOverlay({ videoId, start, title, credit, onClose }) {
         {status === "offline" && <div className="vid-offline"><p>You're offline — the walkthrough streams from YouTube, so this one needs internet. Everything else in the app still works offline.</p></div>}
         {status === "error" && <div className="vid-offline"><p>YouTube is blocking embedded playback here{standalone ? " — common inside an installed app" : ""}. Tap <b>Open in the YouTube app</b> above; it jumps right to this moment.{standalone ? " Tip: open this page in Safari (instead of the home-screen icon) and video usually plays inside the app." : ""}</p></div>}
       </div>
+      {onFix && status === "ready" && (
+        <div className="vid-fix">
+          <button className="vid-fix-btn" onClick={fixHere}><Glyph name="target" size={13} /> {customized ? "Update this spot to where you are now" : "Wrong spot? Set it to where the video is now"}</button>
+          {customized && onResetFix && <button className="vid-fix-reset" onClick={() => { onResetFix(); setFixMsg("Reset to the walkthrough's original time."); }}>Reset</button>}
+        </div>
+      )}
+      {fixMsg && <p className="vid-fix-msg">{fixMsg}</p>}
+      {hasCtx && (
+        <div className="vid-context">
+          <button className="vid-ctx-head" onClick={() => setShowCtx((v) => !v)} aria-expanded={showCtx}>{showCtx ? "▾" : "▸"} {ctxSolution ? "How to solve this shrine" : "The written steps for this part"}</button>
+          {showCtx && (ctxSolution
+            ? <p className="vid-ctx-sol">{ctxSolution}</p>
+            : <ul className="vid-ctx-steps">{ctxSteps.map((s, i) => <li key={i} className={"vctx k-" + (s.k || "step")}>{s.t}</li>)}</ul>)}
+        </div>
+      )}
       <p className="vid-credit">If the player asks you to <b>“sign in to confirm you’re not a bot”</b>, that's YouTube blocking the embed — use <b>Open in the YouTube app</b>. {credit ? "Walkthrough by " + credit + ". " : ""}Streams from YouTube; nothing is downloaded.</p>
     </div>
   );
@@ -3131,7 +3169,7 @@ function videoClipForText(guide, text) {
   let best = null;
   const consider = (name, t) => { if (!name) return; const n = name.toLowerCase(); if (n.length >= 4 && hay.indexOf(n) !== -1 && (!best || n.length > best.len)) best = { t, label: name, len: n.length }; };
   for (const c of (guide.chapters || [])) consider(c.label, c.t);
-  for (const k in (guide.towers || {})) consider(k, guide.towers[k]);
+  for (const k in (guide.towers || {})) { consider(k, guide.towers[k]); const w = k.split(/\s+/); if (w.length > 2) consider(w.slice(1).join(" "), guide.towers[k]); } // "Great Plateau Tower" → also "Plateau Tower"
   for (const k in (guide.beasts || {})) { consider(k, guide.beasts[k]); consider(k.replace(/^Vah\s+/i, ""), guide.beasts[k]); }
   for (const k in (guide.places || {})) consider(k, guide.places[k]);
   for (const k in (guide.shrines || {})) consider(k, guide.shrines[k]);
@@ -4549,6 +4587,18 @@ function StyleBlock() {
 .vid-offline{font-size:14px;color:var(--parch-dim);text-align:center;padding:24px;line-height:1.6;}
 .vid-open{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 calc(14px + env(safe-area-inset-right,0px)) 8px calc(14px + env(safe-area-inset-left,0px));padding:13px 16px;border-radius:11px;background:var(--malice);color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(224,80,107,0.4);}
 .vid-open:active{transform:scale(.985);}
+.vid-stage{min-height:0;}
+.vid-fix{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;padding:8px calc(14px + env(safe-area-inset-right,0px)) 2px calc(14px + env(safe-area-inset-left,0px));}
+.vid-fix-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:9px;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.32);color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer;}
+.vid-fix-btn:active{transform:scale(.98);}
+.vid-fix-reset{padding:9px 11px;border-radius:9px;background:transparent;border:1px solid rgba(214,180,140,0.3);color:var(--parch-dim);font-family:'Rajdhani',sans-serif;font-size:12px;cursor:pointer;}
+.vid-fix-msg{font-size:12px;color:var(--cyan);text-align:center;margin:0;padding:2px 16px;}
+.vid-context{margin:6px calc(14px + env(safe-area-inset-right,0px)) 0 calc(14px + env(safe-area-inset-left,0px));border-top:1px solid rgba(95,214,226,0.14);}
+.vid-ctx-head{width:100%;text-align:left;background:transparent;border:0;color:var(--parch);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;padding:9px 2px;cursor:pointer;}
+.vid-ctx-sol{font-size:13px;color:var(--parch-dim);line-height:1.55;margin:0 0 8px;max-height:24vh;overflow-y:auto;}
+.vid-ctx-steps{list-style:none;margin:0 0 8px;padding:0;max-height:24vh;overflow-y:auto;}
+.vid-ctx-steps li{font-size:12.5px;color:var(--parch-dim);line-height:1.5;padding:5px 0 5px 12px;border-left:2px solid rgba(95,214,226,0.25);margin-bottom:5px;}
+.vid-ctx-steps li.k-warn{border-left-color:var(--malice);}
 .vid-credit{font-size:11.5px;color:var(--parch-dim);margin:0;line-height:1.55;padding:8px calc(14px + env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) calc(14px + env(safe-area-inset-left,0px));}
 .sec-watch{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:0 0 8px;padding:9px 12px;border-radius:9px;background:rgba(224,80,107,0.1);border:1px solid rgba(224,80,107,0.4);color:var(--malice);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.4px;text-transform:uppercase;cursor:pointer;}
 .sec-watch:active{transform:scale(.99);}
