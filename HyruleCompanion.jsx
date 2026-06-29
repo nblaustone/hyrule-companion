@@ -3336,9 +3336,40 @@ function VideoChapters({ guide, onWatch }) {
 /* "Your story so far" — reflects the player's own run back to them: a narrative woven from REAL progress
    counts (never invented events — honesty law), the chapters of the main quest, recent deeds (timestamped
    going forward via <game>:done), and a cross-game dashboard. Portaled full-screen overlay, like the map. */
+/* v28.2 "The Thinking Slate": weave a richer, milestone-reactive SAGA from REAL progress counts only
+   (deterministic — never invented; honesty law). Game-aware (worldName / championsLabel) and arc-staged by
+   overall %. The Slate reads it aloud via SpeechSynthesis. */
+function listAnd(arr) { if (!arr || !arr.length) return ""; if (arr.length === 1) return arr[0]; if (arr.length === 2) return arr[0] + " and " + arr[1]; return arr.slice(0, -1).join(", ") + ", and " + arr[arr.length - 1]; }
+function composeSaga({ pct, worldName, champions, championsLabel, progress, shrineStats, extraStats, koroks, maxSeeds }) {
+  const w = worldName || "Hyrule";
+  const freedNames = (champions || []).filter((c) => c.step && progress[c.step]).map((c) => c.from || c.name);
+  const champTot = (champions || []).length;
+  const paras = [];
+  if (pct === 0) paras.push(`The Slate has only just woken in your hands. Your legend through ${w} is still a blank page — but every legend begins exactly here.`);
+  else if (pct < 25) paras.push(`Your road through ${w} has truly begun. The land has already felt your passing — ${pct}% of the long journey lies behind you.`);
+  else if (pct < 60) paras.push(`You have become a name spoken across ${w}. ${pct}% of the road is walked, and the path ahead bends toward the Calamity.`);
+  else if (pct < 100) paras.push(`The end draws near. ${pct}% of ${w} has yielded to you, and little now stands between you and the dark at its heart.`);
+  else paras.push(`It is finished. ${w} stands whole again — every road walked, every trial met. Your legend is complete.`);
+  if (champTot) {
+    if (freedNames.length === 0) paras.push(`The ${championsLabel || "great trials"} still stand untaken against you.`);
+    else if (freedNames.length === champTot) paras.push(`Every one has been freed — ${listAnd(freedNames)} answer to you now, their powers yours to command.`);
+    else paras.push(`${listAnd(freedNames)} ${freedNames.length === 1 ? "has" : "have"} been freed; ${champTot - freedNames.length} more ${champTot - freedNames.length === 1 ? "remains" : "remain"}.`);
+  }
+  if (shrineStats.total) { const orbs = Math.floor(shrineStats.done / 4); paras.push(shrineStats.done === 0 ? `Not a single shrine has yet given up its secret.` : `${shrineStats.done} of ${shrineStats.total} shrines have given up their secrets` + (orbs > 0 ? `, and ${orbs} ${orbs === 1 ? "vessel" : "vessels"} of heart or stamina now strengthen you.` : `.`)); }
+  const extras = [];
+  if (extraStats.memTotal && extraStats.mem > 0) extras.push(`${extraStats.mem} ${extraStats.mem === 1 ? "memory" : "memories"} of the world that was, recovered`);
+  if (extraStats.gfTotal && extraStats.gf > 0) extras.push(`${extraStats.gf} Great ${extraStats.gf === 1 ? "Fairy" : "Fairies"} awakened`);
+  if (maxSeeds && koroks > 0) extras.push(`${koroks} Korok ${koroks === 1 ? "seed" : "seeds"} gathered`);
+  if (extraStats.sqTotal && extraStats.sq > 0) extras.push(`${extraStats.sq} side ${extraStats.sq === 1 ? "tale" : "tales"} told`);
+  if (extras.length) paras.push(`And along the way: ${listAnd(extras)}.`);
+  return paras;
+}
 function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStats, extraStats, koroks, maxSeeds, champions, championsLabel, worldName, progress, doneAt, stepLabel, onClose, onPickGame }) {
   const [cross, setCross] = useState(null);
+  const [speaking, setSpeaking] = useState(false);
+  const canSpeak = typeof window !== "undefined" && "speechSynthesis" in window;
   useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
+  useEffect(() => () => { try { if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) {} }, []); // stop narration on close
   useEffect(() => { let dead = false; (async () => {
     const out = [];
     for (const id of Object.keys(games)) {
@@ -3351,15 +3382,9 @@ function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStat
     if (!dead) setCross(out);
   })(); return () => { dead = true; }; }, []);
 
-  const champDone = (champions || []).filter((c) => c.step && progress[c.step]).length, champTot = (champions || []).length;
-  const story = [];
-  story.push(`You have walked ${pct}% of the road through ${worldName || "Hyrule"}.`);
-  if (champTot) story.push(champDone === 0 ? `None of the ${champTot} ${championsLabel || "great trials"} are yours yet.` : champDone === champTot ? `All ${champTot} ${championsLabel || "great trials"} have been earned.` : `${champDone} of ${champTot} ${championsLabel || "great trials"} earned.`);
-  if (shrineStats.total) { const orbs = Math.floor(shrineStats.done / 4); story.push(`${shrineStats.done} of ${shrineStats.total} shrines lie conquered` + (orbs > 0 ? `, traded into ${orbs} ${orbs === 1 ? "vessel" : "vessels"} of heart or stamina.` : ".")); }
-  if (extraStats.memTotal) story.push(extraStats.mem === 0 ? `The memories of the world that was still sleep.` : `${extraStats.mem} of ${extraStats.memTotal} memories of the world that was are yours again.`);
-  if (extraStats.gfTotal) story.push(`${extraStats.gf} of ${extraStats.gfTotal} Great Fairies have woken to your call.`);
-  if (maxSeeds && koroks > 0) story.push(`${koroks} Korok seeds gathered from the wilds.`);
-  if (extraStats.sqTotal) story.push(`${extraStats.sq} of ${extraStats.sqTotal} side stories carried to their end.`);
+  const saga = composeSaga({ pct, worldName, champions, championsLabel, progress, shrineStats, extraStats, koroks, maxSeeds });
+  const speak = () => { if (!canSpeak) return; try { window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(saga.join(" ")); u.rate = 0.95; u.onend = () => setSpeaking(false); u.onerror = () => setSpeaking(false); setSpeaking(true); window.speechSynthesis.speak(u); } catch (e) { setSpeaking(false); } };
+  const stopSpeak = () => { try { window.speechSynthesis.cancel(); } catch (e) {} setSpeaking(false); };
 
   const recent = Object.keys(doneAt || {}).map((id) => ({ id, at: doneAt[id], label: stepLabel(id) })).filter((r) => r.label && r.at).sort((a, b) => b.at - a.at).slice(0, 8);
   const ago = (ms) => { const s = Math.floor((Date.now() - ms) / 1000); if (s < 60) return "just now"; const m = Math.floor(s / 60); if (m < 60) return m + "m ago"; const h = Math.floor(m / 60); if (h < 24) return h + "h ago"; const d = Math.floor(h / 24); return d + (d === 1 ? " day ago" : " days ago"); };
@@ -3373,8 +3398,11 @@ function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStat
       </div>
       <div className="chron-body">
         <div className="chron-card chron-story">
-          <div className="chron-h">Your story so far</div>
-          {story.map((s, i) => <p key={i} className="chron-line">{s}</p>)}
+          <div className="chron-saga-head">
+            <div className="chron-h">Your saga</div>
+            {canSpeak && <button className={"chron-speak" + (speaking ? " chron-speak-on" : "")} onClick={speaking ? stopSpeak : speak} aria-label={speaking ? "Stop narration" : "Read your saga aloud"}>{speaking ? "■ Stop" : "🔊 Read aloud"}</button>}
+          </div>
+          {saga.map((s, i) => <p key={i} className="chron-line">{s}</p>)}
         </div>
 
         {chapters.length > 0 && <div className="chron-card">
@@ -4218,6 +4246,11 @@ function StyleBlock() {
 .chron-story{background:linear-gradient(160deg,rgba(95,214,226,0.09),rgba(10,22,28,0.5));}
 .chron-line{font-family:'Rajdhani',sans-serif;font-size:15.5px;line-height:1.55;color:var(--parch);margin:0 0 7px;}
 .chron-line:last-child{margin-bottom:0;}
+.chron-saga-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.chron-saga-head .chron-h{margin-bottom:0;}
+.chron-speak{flex:0 0 auto;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.4px;color:var(--cyan);background:rgba(95,214,226,0.12);border:1px solid rgba(95,214,226,0.4);border-radius:9px;padding:6px 11px;cursor:pointer;}
+.chron-speak-on{color:var(--abyss);background:var(--cyan);border-color:var(--cyan);}
+.chron-speak:active{transform:scale(.97);}
 .chron-chap{display:flex;align-items:center;gap:10px;padding:6px 0;}
 .chron-chap-n{flex:0 0 38%;font-size:13px;color:var(--parch-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .chron-chap-done .chron-chap-n{color:var(--cyan);}
