@@ -1398,6 +1398,22 @@ function HyruleGame({ game, setGame, games }) {
   }, [progress]);
   const resumeIdx = useMemo(() => resumeTarget ? REGIONS.findIndex((r) => r.id === resumeTarget.regionId) : REGIONS.length, [resumeTarget]);
 
+  // v27.4 cockpit: the nearest still-unexplored shrine to the "I'm here" pin (or map centre), + the walkthrough
+  // video moment for the section you're resuming — so Status can offer Watch / Nearest in one tap.
+  const cockpitNearest = useMemo(() => {
+    if (!MAP_COORDS || !MAP_COORDS.shrines) return null;
+    const bb = MAP_COORDS.bounds, ox = mapPin ? mapPin.x : (bb.xmin + bb.xmax) / 2, oz = mapPin ? mapPin.z : (bb.zmin + bb.zmax) / 2;
+    let best = null, bd = Infinity;
+    for (const nm in MAP_COORDS.shrines) { const s = MAP_COORDS.shrines[nm]; if (progress[SHR_ID(s.rk, s.i)]) continue; const d = Math.hypot(s.x - ox, s.z - oz); if (d < bd) { bd = d; const g = SHRINES.find((x) => x.regionKey === s.rk); best = { name: nm, rk: s.rk, region: g ? g.regionName : "" }; } }
+    return best;
+  }, [MAP_COORDS, progress, mapPin, SHRINES]);
+  const cockpitClip = useMemo(() => {
+    if (!VIDEO_GUIDE || !resumeTarget) return null;
+    const reg = REGIONS.find((r) => r.id === resumeTarget.regionId), sec = reg && reg.sections.find((s) => s.id === resumeTarget.secId);
+    const clip = videoClipForText(VIDEO_GUIDE, resumeTarget.secName) || (sec ? videoClipForText(VIDEO_GUIDE, resumeTarget.secName + " " + sec.steps.map((s) => s.t).join(" ")) : null);
+    return clip ? { t: clip.t, sec } : null;
+  }, [VIDEO_GUIDE, resumeTarget, REGIONS]);
+
   // v12.9: "What's next?" coach — a short, prioritized list of the best things to do given your progress.
   // Pure logic over existing state; deliberately capped so it informs without overwhelming. Each card jumps.
   const nextUp = useMemo(() => {
@@ -1567,6 +1583,15 @@ function HyruleGame({ game, setGame, games }) {
                 <div className="hero-line"><span className="hero-num">{done}</span><span className="hero-num-l">/ {total} steps done</span></div>
                 <div className="hero-line"><span className="hero-num">{inventory.invDone}</span><span className="hero-num-l">/ {inventory.invTotal} items found</span></div>
                 {resumeTarget ? (<button className="hero-cont" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)}><span className="hero-cont-k"><Glyph name="pin" size={13} /> Resume — you're here</span><span className="hero-cont-s">{resumeTarget.secName}</span></button>) : (<div className="hero-done">All chapters complete — onward!</div>)}
+              </div>
+            </div>
+
+            <div className="panel cockpit">
+              <div className="panel-h"><Glyph name="spark" size={14} /> Right now — one tap to what you need</div>
+              <div className="cockpit-grid">
+                {cockpitClip && <button className="ck-tile ck-watch" onClick={() => openVideo(cockpitClip.t, resumeTarget.secName, cockpitClip.sec ? { kind: "section", steps: cockpitClip.sec.steps.map((s) => ({ t: s.t, k: s.k })) } : null)}><span className="ck-ic"><Glyph name="play" size={19} /></span><span className="ck-t">Watch this part</span><span className="ck-s">{resumeTarget.secName}</span></button>}
+                {cockpitNearest && <button className="ck-tile ck-near" onClick={() => openMap(cockpitNearest.rk)}><span className="ck-ic"><Glyph name="target" size={19} /></span><span className="ck-t">Nearest shrine</span><span className="ck-s">{cockpitNearest.name.replace(/ Shrine$/, "")} · {cockpitNearest.region}</span></button>}
+                <button className="ck-tile ck-ask" onClick={() => setOracleOpen(true)}><span className="ck-ic"><Glyph name="spark" size={19} /></span><span className="ck-t">Ask the Slate</span><span className="ck-s">Stuck? Ask in plain words</span></button>
               </div>
             </div>
 
@@ -4022,6 +4047,18 @@ function StyleBlock() {
 .hero-num{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:21px;color:var(--parch);}
 .hero-num-l{font-size:12.5px;color:var(--parch-dim);}
 .hero-cont{width:100%;text-align:left;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;color:var(--orange);background:rgba(240,144,42,0.08);border:1px solid rgba(240,144,42,0.3);border-radius:10px;padding:9px 12px;cursor:pointer;margin-top:2px;}
+.cockpit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:4px;}
+.ck-tile{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:12px 13px;border-radius:12px;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);cursor:pointer;min-width:0;}
+.ck-tile:active{transform:scale(.985);}
+.ck-ic{color:var(--cyan);margin-bottom:2px;}
+.ck-t{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;color:var(--parch);}
+.ck-s{font-size:11.5px;color:var(--parch-dim);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.ck-watch{background:rgba(224,80,107,0.08);border-color:rgba(224,80,107,0.3);}
+.ck-watch .ck-ic{color:var(--malice);}
+.ck-near{background:rgba(242,193,78,0.08);border-color:rgba(242,193,78,0.3);}
+.ck-near .ck-ic{color:var(--gold);}
+.ck-ask{background:rgba(150,120,230,0.1);border-color:rgba(150,120,230,0.35);}
+.ck-ask .ck-ic{color:#b49cf0;}
 .hero-done{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:10px;padding:9px 12px;}
 .panel{border:1px solid rgba(255,255,255,0.07);border-radius:16px;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,0.5));padding:14px 15px;margin-bottom:13px;}
 .panel-h{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:11px;}
