@@ -1585,13 +1585,14 @@ function HyruleGame({ game, setGame, games }) {
               <div className="hero-side">
                 <div className="hero-line"><span className="hero-num">{done}</span><span className="hero-num-l">/ {total} steps done</span></div>
                 <div className="hero-line"><span className="hero-num">{inventory.invDone}</span><span className="hero-num-l">/ {inventory.invTotal} items found</span></div>
-                {resumeTarget ? (<button className="hero-cont" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)}><span className="hero-cont-k"><Glyph name="pin" size={13} /> Resume — you're here</span><span className="hero-cont-s">{resumeTarget.secName}</span></button>) : (<div className="hero-done">All chapters complete — onward!</div>)}
+                {!resumeTarget && <div className="hero-done">All chapters complete — onward!</div>}
               </div>
             </div>
 
             <div className="panel cockpit">
               <div className="panel-h"><Glyph name="spark" size={14} /> Right now — one tap to what you need</div>
               <div className="cockpit-grid">
+                {resumeTarget && <button className="ck-tile ck-resume" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)}><span className="ck-ic"><Glyph name="pin" size={19} /></span><span className="ck-t">Continue your adventure</span><span className="ck-s">{resumeTarget.secName}</span></button>}
                 {cockpitClip && <button className="ck-tile ck-watch" onClick={() => openVideo(cockpitClip.t, resumeTarget.secName, cockpitClip.sec ? { kind: "section", steps: cockpitClip.sec.steps.map((s) => ({ t: s.t, k: s.k })) } : null)}><span className="ck-ic"><Glyph name="play" size={19} /></span><span className="ck-t">Watch this part</span><span className="ck-s">{resumeTarget.secName}</span></button>}
                 {cockpitNearest && (mapPin
                   ? <button className="ck-tile ck-near" onClick={() => openMap(cockpitNearest.rk, { shrine: cockpitNearest.name, guide: true })}><span className="ck-ic"><Glyph name="target" size={19} /></span><span className="ck-t">Nearest shrine</span><span className="ck-s">{cockpitNearest.name.replace(/ Shrine$/, "")} · {cockpitNearest.region}</span></button>
@@ -4053,6 +4054,9 @@ function StyleBlock() {
 .hero-num-l{font-size:12.5px;color:var(--parch-dim);}
 .hero-cont{width:100%;text-align:left;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;color:var(--orange);background:rgba(240,144,42,0.08);border:1px solid rgba(240,144,42,0.3);border-radius:10px;padding:9px 12px;cursor:pointer;margin-top:2px;}
 .cockpit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:4px;}
+.ck-resume{grid-column:1/-1;background:rgba(95,214,226,0.13);border-color:rgba(95,214,226,0.45);}
+.ck-resume .ck-ic{color:var(--cyan);}
+.ck-resume .ck-t{font-size:15px;}
 .ck-tile{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:12px 13px;border-radius:12px;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);cursor:pointer;min-width:0;}
 .ck-tile:active{transform:scale(.985);}
 .ck-ic{color:var(--cyan);margin-bottom:2px;}
