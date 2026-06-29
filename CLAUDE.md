@@ -960,6 +960,29 @@ layout, `REGION_MAPS` = the per-region coords.
     resolves + persists, Fix saves, section steps + shrine solution render, tower section → 10:57, Guide routes + gold
     labels + strip, nearest math exact, cockpit tiles route correctly, TotK degrades), **0 console errors, offline-clean.**
     **The owner declined "Your story" (play journal/timeline) — picked cockpit + smarter-video + map-as-guide.**
+  - **v27.5 — adversarial audit of the arc + 6 fixes (DONE).** Ran a 5-dimension review **Workflow** (logic ·
+    state · edge · ux · regress) over the v26.1–v27.4 diff, each finding adversarially verified by a skeptic that
+    re-read the real code (12 agents, ~1.2M tokens → 6 confirmed, 1 correctly REJECTED). Fixes: (1) the cockpit
+    **"Nearest shrine" tile was dangerously mislabeled with no pin** — it measured from the map CENTRE and named a
+    central shrine (Katah Chuki, Guardian-ringed, by the Castle) to a Plateau beginner; now no-pin → an honest
+    **"Find shrines near you · Drop your I'm here pin"** tile that opens the map in Guide mode (3 of 6 findings were
+    this cluster). (2) the tile only zoomed to the region → now `openMap(rk,{shrine,guide})` + new SlateMap
+    **`focusShrine`/`initialGuide`** props **fly to the shrine (card selected) with Guide routes on** (also the
+    planned integration polish). (3) VideoOverlay frame could overflow on short viewports w/ context expanded →
+    `.vid-stage{overflow:hidden}` + `.vid-frame{max-height:100%}` + a `max-height:640px` context cap. (4) **Reset
+    now re-seeks** the live player to the original time + honest message (was misleading). The rejected finding
+    (title-keyed `vidFix` collision) was verified non-reachable: no same-title pair on real data has a differing
+    timestamp. **Also a static sweep for the [[setAlign-class]] bug (handler calls to undefined setters) across the
+    WHOLE file → NONE remaining; all React hooks are in the build-head destructure.**
+  - **v27.6 — cockpit = command center (DONE).** Resume — the #1 "right now" action — was only in the hero + topbar;
+    now it **leads the cockpit as a full-width primary tile** ("Continue your adventure · <section>"), above
+    Watch/Nearest/Ask. The hero is reduced to pure progress stats (% ring + steps + items); cross-tab Resume still
+    lives in the always-visible topbar pin. The Resume tile generalizes to every game with a walkthrough. Verified
+    in-browser BotW (full cockpit), TotK (Ask only), OoT (Resume + Ask) — clean degradation, 0 console errors,
+    offline-clean. **Audit lesson banked: a review Workflow that feeds agents the focused `git show <my-commits>`
+    diff + has each finding ADVERSARIALLY re-verified against the live code keeps false-positives near zero (caught
+    the dangerous no-pin mislabel; correctly killed the speculative collision). The whole 4-finding cluster pointed
+    at ONE component — dedupe by root cause before fixing.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
