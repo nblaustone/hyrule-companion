@@ -1458,7 +1458,7 @@ function HyruleGame({ game, setGame, games }) {
 
             {filterSections.map((sec) => {
               const stat = sectionStats[sec.id]; const open = q ? true : !!openSections[sec.id];
-              const secClip = VIDEO_GUIDE ? videoClipForText(VIDEO_GUIDE, sec.name + " " + sec.steps.map((s) => s.t).join(" ")) : null;
+              const secClip = VIDEO_GUIDE ? (videoClipForText(VIDEO_GUIDE, sec.name) || videoClipForText(VIDEO_GUIDE, sec.name + " " + sec.steps.map((s) => s.t).join(" "))) : null;
               return (
                 <section id={"sec-" + sec.id} key={sec.id} className={"card" + (stat?.complete ? " card-done" : "")}>
                   <button className="card-head" onClick={() => !q && toggleSection(sec.id)}>
@@ -2832,6 +2832,8 @@ function loadYouTubeAPI() {
   });
   return _ytPromise;
 }
+/* HH:MM:SS (or M:SS) for a second-count — shared by the video overlay + the chapter index. */
+function fmtClock(s) { s = Math.max(0, s | 0); const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(ss).padStart(2, "0"); }
 function VideoOverlay({ videoId, start, title, credit, onClose }) {
   const online = typeof navigator === "undefined" || navigator.onLine !== false;
   const standalone = typeof navigator !== "undefined" && navigator.standalone === true; // installed iOS PWA
@@ -2858,7 +2860,7 @@ function VideoOverlay({ videoId, start, title, credit, onClose }) {
   return portal(
     <div className="vid-overlay">
       <div className="vid-top">
-        <div className="vid-title"><Glyph name="spark" size={15} /><div><div className="vid-title-t">{title}</div><div className="vid-title-s">Walkthrough · jumps to this moment</div></div></div>
+        <div className="vid-title"><Glyph name="spark" size={15} /><div><div className="vid-title-t">{title}</div><div className="vid-title-s">Walkthrough · jumps to {fmtClock(t)}</div></div></div>
         <button className="sm-close" onClick={onClose} aria-label="Close video">✕</button>
       </div>
       <a className="vid-open" href={watchUrl} target="_blank" rel="noopener noreferrer">▶ Open in the YouTube app</a>
@@ -2892,7 +2894,7 @@ function videoClipForText(guide, text) {
    grouped, each a tap that opens the player at that moment (online + opt-in, via VideoOverlay). */
 function VideoChapters({ guide, onWatch }) {
   const [open, setOpen] = useState(false);
-  const fmt = (s) => { const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(ss).padStart(2, "0"); };
+  const fmt = fmtClock;
   const GROUPS = [["tower", "Sheikah Towers"], ["beast", "Divine Beasts & abilities"], ["trial", "Trial of the Sword"], ["boss", "Hyrule Castle & Ganon"], ["village", "Villages & Tarrey Town"], ["farming", "Dragon farming"], ["event", "Other moments"]];
   return (
     <div className="vidchap">
