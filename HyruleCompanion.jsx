@@ -1066,6 +1066,7 @@ function HyruleGame({ game, setGame, games }) {
   const [videoClip, setVideoClip] = useState(null);  // v24: {start,title,context} for the walkthrough-video overlay (online, opt-in)
   const openVideo = useCallback((start, title, context) => setVideoClip({ start, title, context: context || null }), []);
   const [vidFix, setVidFix] = useState({});           // v27.2: device-local per-game timestamp overrides {title:seconds} — self-healing "Fix this spot"
+  const [vidPos, setVidPos] = useState(null);         // v28.1: last watched position {videoId, t} — "Continue where you left off"
   const saveVidFix = useCallback((title, secs) => { if (!title || typeof secs !== "number" || isNaN(secs)) return; setVidFix((m) => ({ ...m, [title]: Math.max(0, Math.round(secs)) })); }, []);
   const clearVidFix = useCallback((title) => { if (!title) return; setVidFix((m) => { if (!(title in m)) return m; const n = { ...m }; delete n[title]; return n; }); }, []);
   const [gquery, setGquery] = useState("");          // global-search query
@@ -1100,10 +1101,10 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl, mp, vfx, da] = await Promise.all([
+      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl, mp, vfx, da, vp] = await Promise.all([
         store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
         store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"), store.get("hyrule:books"),
-        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")), store.get(K("mappin")), store.get(K("vidfix")), store.get(K("done")),
+        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")), store.get(K("mappin")), store.get(K("vidfix")), store.get(K("done")), store.get(K("vidpos")),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -1124,6 +1125,7 @@ function HyruleGame({ game, setGame, games }) {
       try { if (mp) { const o = JSON.parse(mp); if (o && typeof o.x === "number") setMapPin(o); } } catch (e) {}
       try { if (vfx) { const o = JSON.parse(vfx); if (o && typeof o === "object") setVidFix(o); } } catch (e) {}
       try { if (da) { const o = JSON.parse(da); if (o && typeof o === "object") setDoneAt(o); } } catch (e) {}
+      try { if (vp) { const o = JSON.parse(vp); if (o && typeof o.t === "number") setVidPos(o); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -1134,6 +1136,7 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("collect"), JSON.stringify(collect)); }, [collect, loaded]);
   useEffect(() => { if (loaded) store.set(K("vidfix"), JSON.stringify(vidFix)); }, [vidFix, loaded]);
   useEffect(() => { if (loaded) store.set(K("done"), JSON.stringify(doneAt)); }, [doneAt, loaded]);
+  useEffect(() => { if (loaded) store.set(K("vidpos"), JSON.stringify(vidPos)); }, [vidPos, loaded]);
   // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
   useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
   // freeze the page behind a full-screen overlay so touch-scroll doesn't bleed through to the content under it
@@ -1428,6 +1431,12 @@ function HyruleGame({ game, setGame, games }) {
     const clip = videoClipForText(VIDEO_GUIDE, resumeTarget.secName) || (sec ? videoClipForText(VIDEO_GUIDE, resumeTarget.secName + " " + sec.steps.map((s) => s.t).join(" ")) : null);
     return clip ? { t: clip.t, sec } : null;
   }, [VIDEO_GUIDE, resumeTarget, REGIONS]);
+  // v28.1: Divine Beasts not yet freed (main-quest-aware map routing) — beast freed === its Champion grant-step done
+  const beastTodo = useMemo(() => {
+    if (!MAP_COORDS || !MAP_COORDS.beasts) return [];
+    const freed = new Set((CHAMPIONS || []).filter((c) => c.step && progress[c.step]).map((c) => c.from));
+    return MAP_COORDS.beasts.filter((b) => !freed.has(b.name));
+  }, [MAP_COORDS, CHAMPIONS, progress]);
 
   // v12.9: "What's next?" coach — a short, prioritized list of the best things to do given your progress.
   // Pure logic over existing state; deliberately capped so it informs without overwhelming. Each card jumps.
@@ -1527,7 +1536,7 @@ function HyruleGame({ game, setGame, games }) {
 
       {mapOpen && MAP_COORDS && MAP_COORDS.shrines && (
         <SlateMap coords={MAP_COORDS} shrines={SHRINES} progress={progress} toggleStep={toggleStep}
-          spoiler={spoiler} focusRegion={mapFocus} focusShrine={mapFocusShrine} initialGuide={mapGuideInit} mapPin={mapPin} setMapPin={setMapPin} accent={G.meta?.accent}
+          spoiler={spoiler} focusRegion={mapFocus} focusShrine={mapFocusShrine} initialGuide={mapGuideInit} beastTodo={beastTodo} mapPin={mapPin} setMapPin={setMapPin} accent={G.meta?.accent}
           game={game} towersData={TOWERS} fairiesData={GREAT_FAIRIES} videoGuide={VIDEO_GUIDE} onWatch={openVideo}
           onOpenShrine={(rk, id) => { setMapOpen(false); focusShrine(rk, id); }}
           onClose={() => setMapOpen(false)} />
@@ -1541,6 +1550,8 @@ function HyruleGame({ game, setGame, games }) {
           customized={typeof vidFix[videoClip.title] === "number"}
           onFix={(secs) => saveVidFix(videoClip.title, secs)}
           onResetFix={() => clearVidFix(videoClip.title)}
+          lastPos={vidPos && vidPos.videoId === VIDEO_GUIDE.videoId ? vidPos.t : null}
+          onPos={(secs) => setVidPos({ videoId: VIDEO_GUIDE.videoId, t: secs })}
           onClose={() => setVideoClip(null)} />
       )}
 
@@ -2888,7 +2899,7 @@ function fitAffine(pts) {
   }
   return null;
 }
-function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, focusShrine, initialGuide, mapPin, setMapPin, onOpenShrine, onClose, accent, game, towersData, fairiesData, videoGuide, onWatch }) {
+function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, focusShrine, initialGuide, beastTodo, mapPin, setMapPin, onOpenShrine, onClose, accent, game, towersData, fairiesData, videoGuide, onWatch }) {
   const b = coords.bounds, worldW = b.xmax - b.xmin, worldH = b.zmax - b.zmin;
   const terrain = useMemo(() => getTerrain(coords), [coords]);
   const cvRef = useRef(null), fileRef = useRef(null), alignPts = useRef([]);
@@ -2918,6 +2929,14 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
     for (const name in coords.shrines) { const s = coords.shrines[name]; if (!progress[SHR_ID(s.rk, s.i)]) list.push({ name, x: s.x, z: s.z, rk: s.rk, i: s.i, d: Math.hypot(s.x - ox, s.z - oz) }); }
     list.sort((p, q2) => p.d - q2.d); return list.slice(0, 6);
   }, [coords, progress, mapPin]);
+  // v28.1: the nearest Divine Beast still to free (main-quest-aware guidance)
+  const nearBeast = useMemo(() => {
+    if (!beastTodo || !beastTodo.length) return null;
+    const ox = mapPin ? mapPin.x : (b.xmin + b.xmax) / 2, oz = mapPin ? mapPin.z : (b.zmin + b.zmax) / 2;
+    let best = null, bd = Infinity;
+    for (const bb of beastTodo) { const d = Math.hypot(bb.x - ox, bb.z - oz); if (d < bd) { bd = d; best = bb; } }
+    return best;
+  }, [beastTodo, mapPin]);
   let sdone = 0, stotal = 0;
   for (const n in coords.shrines) { stotal++; const s = coords.shrines[n]; if (progress[SHR_ID(s.rk, s.i)]) sdone++; }
 
@@ -2948,6 +2967,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   const fitRegion = (rk) => { const r = coords.regions[rk]; if (r) fitBoxW(r.x0, r.z0, r.x1, r.z1, 1.8); };
   const zoomAt = (cx, cy, f) => { const v = vref.current; if (!v.k) return; const kMin = fitK() * 0.6, kMax = fitK() * 18; const k2 = Math.max(kMin, Math.min(kMax, v.k * f)); const px = (cx - v.x) / v.k, py = (cy - v.y) / v.k; v.k = k2; v.x = cx - px * k2; v.y = cy - py * k2; clampV(); commit(); };
   const flyTo = (name) => { const s = coords.shrines[name]; if (!s) return; fitBoxW(s.x - 750, s.z - 750, s.x + 750, s.z + 750, 1.1); setSel({ type: "shrine", name, wx: s.x, wz: s.z, ...shrMeta[name] }); setQ(""); };
+  const flyToBeast = (bb) => { if (!bb) return; fitBoxW(bb.x - 1300, bb.z - 1300, bb.x + 1300, bb.z + 1300, 1.1); setSel({ type: "beast", name: bb.name, wx: bb.x, wz: bb.z }); };
   const locate = () => { if (!mapPin) return; fitBoxW(mapPin.x - 850, mapPin.z - 850, mapPin.x + 850, mapPin.z + 850, 1.1); };
 
   // ── owner's-own-map image (device-local; never uploaded / committed — ADR 0009) ──
@@ -2986,12 +3006,17 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
       nearest.forEach((n, idx) => { const nx = X(n.x, n.z), ny = Y(n.x, n.z); ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(nx, ny); ctx.strokeStyle = idx === 0 ? "rgba(242,193,78,0.85)" : "rgba(244,153,47,0.36)"; ctx.lineWidth = idx === 0 ? 2.4 : 1.3; ctx.stroke(); });
       ctx.restore();
     }
+    // v28.1 guide: a brighter route to the nearest Divine Beast still to free (the main quest)
+    if (guide && mapPin && nearBeast) {
+      const px = X(mapPin.x, mapPin.z), py = Y(mapPin.x, mapPin.z), bx = X(nearBeast.x, nearBeast.z), by = Y(nearBeast.x, nearBeast.z);
+      ctx.save(); ctx.setLineDash([9, 5]); ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(bx, by); ctx.strokeStyle = "rgba(95,214,226,0.9)"; ctx.lineWidth = 3; ctx.stroke(); ctx.restore();
+    }
     if (showLabels && v.k < fk * 3) for (const rk in coords.regions) { const r = coords.regions[rk], x = X(r.cx, r.cz), y = Y(r.cx, r.cz); if (vis(x, y)) lab(r.name.toUpperCase(), x, y, "700 14px Rajdhani, sans-serif", "rgba(238,232,216,0.72)"); }
     if (layers.places) for (const p of (coords.stables || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 4, 0, 7); ctx.fillStyle = "#9bc08a"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 3) lab(p.name, x, y - 9, "600 10px Rajdhani, sans-serif", "#cfe0c0"); }
     if (layers.places) for (const p of (coords.towns || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.save(); ctx.translate(x, y); ctx.rotate(Math.PI / 4); ctx.fillStyle = "#f2c14e"; ctx.fillRect(-5, -5, 10, 10); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.strokeRect(-5, -5, 10, 10); ctx.restore(); if (showLabels && v.k >= fk * 1.25) lab(p.name, x, y - 11, "700 11px Rajdhani, sans-serif", "#f6cf6a"); }
     if (layers.fairies) for (const p of (coords.fairies || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.fillStyle = "#ff6f8b"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 1.25) lab(p.name, x, y - 10, "700 11px Rajdhani, sans-serif", "#ffa6b6"); }
     if (layers.towers) for (const p of (coords.towers || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.moveTo(x, y - 9); ctx.lineTo(x + 7, y + 6); ctx.lineTo(x - 7, y + 6); ctx.closePath(); ctx.fillStyle = "#c3ebf0"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 1.25) lab(p.name.replace(/ Tower$/, ""), x, y + 16, "700 11px Rajdhani, sans-serif", "#d2eef2"); }
-    if (layers.beasts) for (const p of (coords.beasts || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.lineWidth = 2; ctx.strokeStyle = "#5fd6e2"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fillStyle = "#5fd6e2"; ctx.fill(); if (showLabels) lab(p.short || p.name, x, y - 15, "700 11px Rajdhani, sans-serif", "#a6e9f0"); }
+    if (layers.beasts) { const bset = guide && beastTodo ? new Set(beastTodo.map((x) => x.name)) : null; for (const p of (coords.beasts || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; if (bset && bset.has(p.name)) { ctx.beginPath(); ctx.arc(x, y, 15, 0, 7); ctx.setLineDash([3, 3]); ctx.strokeStyle = "rgba(95,214,226,0.55)"; ctx.lineWidth = 2; ctx.stroke(); ctx.setLineDash([]); } ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.lineWidth = 2; ctx.strokeStyle = "#5fd6e2"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fillStyle = "#5fd6e2"; ctx.fill(); if (showLabels || (bset && bset.has(p.name))) lab(p.short || p.name, x, y - 15, "700 11px Rajdhani, sans-serif", "#a6e9f0"); } }
     if (layers.shrines) {
       const showNames = showLabels && v.k >= fk * 3.6;
       const nset = guide ? new Set(nearest.map((n) => n.name)) : null, n0 = guide && nearest.length ? nearest[0].name : null;
@@ -3125,9 +3150,10 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
         <div className="sm-guide">
           <div className="sm-guide-h">{mapPin ? "Nearest unexplored — tap to fly there" : "Drop your “I’m here” pin (📍) for routes · nearest shrines"}</div>
           <div className="sm-guide-row">
+            {nearBeast && <button className="sm-guide-chip sm-guide-chip-beast" onClick={() => flyToBeast(nearBeast)}><span className="sm-guide-nm">▸ Free {nearBeast.short || nearBeast.name}</span><span className="sm-guide-rg">Divine Beast · main quest</span></button>}
             {nearest.length === 0
-              ? <span className="sm-guide-empty">✓ Every shrine cleared — nothing left to find!</span>
-              : nearest.map((n, idx) => <button key={n.name} className={"sm-guide-chip" + (idx === 0 ? " sm-guide-chip-0" : "")} onClick={() => flyTo(n.name)}><span className="sm-guide-nm">{idx === 0 ? "▸ " : ""}{n.name.replace(/ Shrine$/, "")}</span><span className="sm-guide-rg">{shrMeta[n.name] ? shrMeta[n.name].region : ""}</span></button>)}
+              ? (!nearBeast && <span className="sm-guide-empty">✓ Every shrine cleared — nothing left to find!</span>)
+              : nearest.map((n, idx) => <button key={n.name} className={"sm-guide-chip" + (idx === 0 && !nearBeast ? " sm-guide-chip-0" : "")} onClick={() => flyTo(n.name)}><span className="sm-guide-nm">{idx === 0 && !nearBeast ? "▸ " : ""}{n.name.replace(/ Shrine$/, "")}</span><span className="sm-guide-rg">{shrMeta[n.name] ? shrMeta[n.name].region : ""}</span></button>)}
           </div>
         </div>
       )}
@@ -3193,10 +3219,11 @@ function loadYouTubeAPI() {
 }
 /* HH:MM:SS (or M:SS) for a second-count — shared by the video overlay + the chapter index. */
 function fmtClock(s) { s = Math.max(0, s | 0); const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(ss).padStart(2, "0"); }
-function VideoOverlay({ videoId, start, origStart, title, context, credit, customized, onFix, onResetFix, onClose }) {
+function VideoOverlay({ videoId, start, origStart, title, context, credit, customized, onFix, onResetFix, lastPos, onPos, onClose }) {
   const online = typeof navigator === "undefined" || navigator.onLine !== false;
   const standalone = typeof navigator !== "undefined" && navigator.standalone === true; // installed iOS PWA
   const holderRef = useRef(null), playerRef = useRef(null);
+  const onPosRef = useRef(onPos); onPosRef.current = onPos; // v28.1: capture last watched position on close
   const [status, setStatus] = useState(online ? "loading" : "offline"); // loading · ready · error · offline
   const [fixMsg, setFixMsg] = useState("");
   const [showCtx, setShowCtx] = useState(false);
@@ -3215,7 +3242,7 @@ function VideoOverlay({ videoId, start, origStart, title, context, credit, custo
         });
       } catch (e) { if (!dead) setStatus("error"); }
     }).catch(() => { if (!dead) setStatus("error"); });
-    return () => { dead = true; try { playerRef.current && playerRef.current.destroy && playerRef.current.destroy(); } catch (e) {} };
+    return () => { dead = true; try { const p = playerRef.current; if (p && p.getCurrentTime) { const cur = p.getCurrentTime(); if (cur > 5 && Math.abs(cur - t) > 30 && onPosRef.current) onPosRef.current(Math.floor(cur)); } } catch (e) {} try { playerRef.current && playerRef.current.destroy && playerRef.current.destroy(); } catch (e) {} };
   }, []);
   const showFrame = status === "loading" || status === "ready";
   // v27.2 self-healing: snap this clip's saved start to wherever the player is now (device-local, per game)
@@ -3241,6 +3268,9 @@ function VideoOverlay({ videoId, start, origStart, title, context, credit, custo
         {status === "offline" && <div className="vid-offline"><p>You're offline — the walkthrough streams from YouTube, so this one needs internet. Everything else in the app still works offline.</p></div>}
         {status === "error" && <div className="vid-offline"><p>YouTube is blocking embedded playback here{standalone ? " — common inside an installed app" : ""}. Tap <b>Open in the YouTube app</b> above; it jumps right to this moment.{standalone ? " Tip: open this page in Safari (instead of the home-screen icon) and video usually plays inside the app." : ""}</p></div>}
       </div>
+      {onPos && status === "ready" && lastPos != null && Math.abs(lastPos - t) > 90 && (
+        <button className="vid-resume" onClick={() => { try { const p = playerRef.current; if (p && p.seekTo) { p.seekTo(Math.max(0, lastPos | 0), true); p.playVideo && p.playVideo(); } } catch (e) {} }}><Glyph name="play" size={13} /> Continue where you left off · {fmtClock(lastPos)}</button>
+      )}
       {onFix && status === "ready" && (
         <div className="vid-fix">
           <button className="vid-fix-btn" onClick={fixHere}><Glyph name="target" size={13} /> {customized ? "Update this spot to where you are now" : "Wrong spot? Set it to where the video is now"}</button>
@@ -4793,6 +4823,8 @@ function StyleBlock() {
 .sm-guide-row::-webkit-scrollbar{display:none;}
 .sm-guide-chip{flex:0 0 auto;pointer-events:auto;font-family:'Rajdhani',sans-serif;background:rgba(8,16,20,0.92);border:1px solid rgba(244,153,47,0.4);border-radius:14px;padding:5px 11px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;line-height:1.2;}
 .sm-guide-chip-0{border-color:var(--gold);background:rgba(242,193,78,0.16);}
+.sm-guide-chip-beast{border-color:var(--cyan);background:rgba(95,214,226,0.16);}
+.sm-guide-chip-beast .sm-guide-nm{color:var(--cyan);}
 .sm-guide-nm{font-weight:600;font-size:12px;color:var(--parch);white-space:nowrap;}
 .sm-guide-rg{font-size:9px;color:var(--parch-dim);text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;}
 .sm-guide-empty{font-size:12.5px;color:var(--cyan);background:rgba(8,16,20,0.85);padding:6px 12px;border-radius:10px;}
@@ -4833,6 +4865,8 @@ function StyleBlock() {
 .vid-stage{min-height:0;overflow:hidden;}
 .vid-frame{max-height:100%;}
 @media (max-height:640px){.vid-ctx-steps,.vid-ctx-sol{max-height:16vh;}}
+.vid-resume{display:flex;align-items:center;justify-content:center;gap:7px;margin:10px calc(14px + env(safe-area-inset-right,0px)) 0 calc(14px + env(safe-area-inset-left,0px));padding:11px 14px;border-radius:11px;background:rgba(95,214,226,0.13);border:1px solid rgba(95,214,226,0.42);color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.3px;cursor:pointer;}
+.vid-resume:active{transform:scale(.985);}
 .vid-fix{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;padding:8px calc(14px + env(safe-area-inset-right,0px)) 2px calc(14px + env(safe-area-inset-left,0px));}
 .vid-fix-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:9px;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.32);color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer;}
 .vid-fix-btn:active{transform:scale(.98);}
