@@ -1035,6 +1035,7 @@ function HyruleGame({ game, setGame, games }) {
   const hasCook = (RECIPES && RECIPES.length > 0) || (COOK_INGREDIENTS && COOK_INGREDIENTS.length > 0);
   const [loaded, setLoaded] = useState(false);
   const [progress, setProgress] = useState({});
+  const [doneAt, setDoneAt] = useState({});          // v28 Chronicle: {stepId: epochMs} — when each step was completed (forward-looking timeline; <game>:done)
   const [tab, setTab] = useState("status");
   const [region, setRegion] = useState(() => REGIONS[0].id);
   const [guideSub, setGuideSub] = useState("runes");
@@ -1054,6 +1055,7 @@ function HyruleGame({ game, setGame, games }) {
   const [bookBusy, setBookBusy] = useState(null);    // v12: import status {name,done,total} | {name,error}
   const [searchOpen, setSearchOpen] = useState(false);
   const [oracleOpen, setOracleOpen] = useState(false); // v18.1: "Ask the Slate" offline oracle
+  const [chronicleOpen, setChronicleOpen] = useState(false); // v28: "Your Chronicle" — story-so-far overlay
   const [menuOpen, setMenuOpen] = useState(false);     // v27.1: topbar "⋯" tools menu (Map · Ask the Slate)
   const [shelfOpen, setShelfOpen] = useState(false); // game-select shelf overlay (console/era)
   const [mapOpen, setMapOpen] = useState(false);     // v19: full-screen Slate Map overlay
@@ -1098,10 +1100,10 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl, mp, vfx] = await Promise.all([
+      const [p, ui, kk, nt, at, pr, rc, rd, bm, rp, la, bk, spin, srec, cl, mp, vfx, da] = await Promise.all([
         store.get(K("progress")), store.get(K("ui")), store.get(K("koroks")), store.get(K("notes")), store.get(K("armortier")), store.get("hyrule:prefs"), store.get(K("recipes")),
         store.get("hyrule:reading"), store.get("hyrule:bookmarks"), store.get("hyrule:readerprefs"), store.get("hyrule:loreart"), store.get("hyrule:books"),
-        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")), store.get(K("mappin")), store.get(K("vidfix")),
+        store.get(K("shrinepin")), store.get(K("shrinerecents")), store.get(K("collect")), store.get(K("mappin")), store.get(K("vidfix")), store.get(K("done")),
       ]);
       if (cancelled) return;
       try { if (p) setProgress(JSON.parse(p)); } catch (e) {}
@@ -1121,6 +1123,7 @@ function HyruleGame({ game, setGame, games }) {
       try { if (cl) { const o = JSON.parse(cl); if (o && typeof o === "object") setCollect(o); } } catch (e) {}
       try { if (mp) { const o = JSON.parse(mp); if (o && typeof o.x === "number") setMapPin(o); } } catch (e) {}
       try { if (vfx) { const o = JSON.parse(vfx); if (o && typeof o === "object") setVidFix(o); } } catch (e) {}
+      try { if (da) { const o = JSON.parse(da); if (o && typeof o === "object") setDoneAt(o); } } catch (e) {}
       setLoaded(true);
     })();
     return () => { cancelled = true; };
@@ -1130,10 +1133,11 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (loaded) store.set(K("koroks"), String(koroks)); }, [koroks, loaded]);
   useEffect(() => { if (loaded) store.set(K("collect"), JSON.stringify(collect)); }, [collect, loaded]);
   useEffect(() => { if (loaded) store.set(K("vidfix"), JSON.stringify(vidFix)); }, [vidFix, loaded]);
+  useEffect(() => { if (loaded) store.set(K("done"), JSON.stringify(doneAt)); }, [doneAt, loaded]);
   // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
   useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
   // freeze the page behind a full-screen overlay so touch-scroll doesn't bleed through to the content under it
-  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen || mapOpen || videoClip || playerOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen, mapOpen, videoClip, playerOpen]);
+  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen || mapOpen || videoClip || playerOpen || chronicleOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen, mapOpen, videoClip, playerOpen, chronicleOpen]);
   // v27: measure the real tab-bar height (varies with safe-area) so the mini-player docks flush above it
   const tabbarRef = useRef(null);
   useEffect(() => {
@@ -1291,6 +1295,7 @@ function HyruleGame({ game, setGame, games }) {
   const toggleStep = useCallback((id) => {
     const turningOn = !progressRef.current[id];
     setProgress((p) => { const n = { ...p }; if (n[id]) delete n[id]; else n[id] = true; return n; });
+    setDoneAt((m) => { const n = { ...m }; if (turningOn) n[id] = Date.now(); else delete n[id]; return n; }); // v28: stamp when (for the Chronicle timeline)
     if (turningOn) {
       setFlash(id); clearTimeout(flashTimer.current); flashTimer.current = setTimeout(() => setFlash(null), 650); // v9: pulse only on check-on, never on load
       const a = atmosRef.current; // The Living Slate: tactile + audible confirmation (gated, guarded)
@@ -1298,6 +1303,14 @@ function HyruleGame({ game, setGame, games }) {
       if (a.sound) SlateAudio.tick();
     }
   }, []);
+  // v28 Chronicle: a human label for a completed step id (shrines/fairies/armor/walkthrough) — null for ones we don't name
+  const stepLabel = useCallback((id) => {
+    let m = id.match(/^shr_(.+)_(\d+)$/); if (m) { const g = SHRINES.find((x) => x.regionKey === m[1]); const sh = g && g.shrines[+m[2]]; return sh ? sh.name : null; }
+    m = id.match(/^gf_(\d+)$/); if (m) { const f = GREAT_FAIRIES[+m[1]]; return f ? f.name + " awakened" : null; }
+    m = id.match(/^arm_(\d+)$/); if (m) { const a = ARMOR.sets[+m[1]]; return a ? a.name + " (armor)" : null; }
+    for (const reg of REGIONS) for (const sec of reg.sections) for (const st of sec.steps) if (st.id === id) return st.t && st.t.length > 64 ? st.t.slice(0, 61) + "…" : (st.t || null);
+    return null;
+  }, [REGIONS, SHRINES, GREAT_FAIRIES, ARMOR]);
   const reveal = useCallback((id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; }), []); // v9: progressive spoiler reveal
   const toggleSection = useCallback((id) => setOpenSections((o) => ({ ...o, [id]: !o[id] })), []);
   const setNote = useCallback((id, text) => setNotes((m) => { const n = { ...m }; if (text && text.trim()) n[id] = text; else delete n[id]; return n; }), []);
@@ -1543,6 +1556,13 @@ function HyruleGame({ game, setGame, games }) {
           }} />
       )}
 
+      {chronicleOpen && (
+        <Chronicle games={games} gameId={game} label={G.label} pct={pct} regionStats={regionStats} regions={REGIONS}
+          shrineStats={shrineStats} extraStats={extraStats} koroks={koroks} maxSeeds={(KOROKS && KOROKS.maxSeeds) || 0}
+          champions={CHAMPIONS} championsLabel={terms.championsLabel} worldName={terms.worldName}
+          progress={progress} doneAt={doneAt} stepLabel={stepLabel} onClose={() => setChronicleOpen(false)} onPickGame={setGame} />
+      )}
+
       {searchOpen && (
         <SearchOverlay query={gquery} setQuery={setGquery} onClose={() => setSearchOpen(false)}
           data={{ REGIONS, SHRINES, ARMOR, BESTIARY, RECIPES, SIDE_QUESTS, TOWERS, COMPENDIUM }}
@@ -1561,6 +1581,7 @@ function HyruleGame({ game, setGame, games }) {
             <div className="topmenu" onClick={(e) => e.stopPropagation()}>
               {MAP_COORDS && MAP_COORDS.shrines && <button className="topmenu-item" onClick={() => { setMenuOpen(false); openMap(null); }}><Glyph name="map" size={18} /><span>Map of Hyrule</span></button>}
               <button className="topmenu-item" onClick={() => { setMenuOpen(false); setOracleOpen(true); }}><Glyph name="spark" size={17} /><span>Ask the Slate</span></button>
+              <button className="topmenu-item" onClick={() => { setMenuOpen(false); setChronicleOpen(true); }}><Glyph name="champion" size={17} /><span>Your Chronicle</span></button>
             </div>
           </div>
         </div>
@@ -1600,6 +1621,12 @@ function HyruleGame({ game, setGame, games }) {
                 <button className="ck-tile ck-ask" onClick={() => setOracleOpen(true)}><span className="ck-ic"><Glyph name="spark" size={19} /></span><span className="ck-t">Ask the Slate</span><span className="ck-s">Stuck? Ask in plain words</span></button>
               </div>
             </div>
+
+            <button className="panel chron-entry" onClick={() => setChronicleOpen(true)}>
+              <span className="chron-entry-ic"><Glyph name="champion" size={18} /></span>
+              <span className="chron-entry-txt"><span className="chron-entry-t">Your Chronicle</span><span className="chron-entry-s">Your story so far — {pct}% of the legend told</span></span>
+              <span className="chron-entry-chev">›</span>
+            </button>
 
             {nextUp.length > 0 && <div className="panel nextup">
               <div className="panel-h"><Glyph name="champion" size={14} /> What to do next</div>
@@ -3275,6 +3302,82 @@ function VideoChapters({ guide, onWatch }) {
   );
 }
 
+/* ============================================================ THE CHRONICLE (v28) ============================================================ */
+/* "Your story so far" — reflects the player's own run back to them: a narrative woven from REAL progress
+   counts (never invented events — honesty law), the chapters of the main quest, recent deeds (timestamped
+   going forward via <game>:done), and a cross-game dashboard. Portaled full-screen overlay, like the map. */
+function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStats, extraStats, koroks, maxSeeds, champions, championsLabel, worldName, progress, doneAt, stepLabel, onClose, onPickGame }) {
+  const [cross, setCross] = useState(null);
+  useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
+  useEffect(() => { let dead = false; (async () => {
+    const out = [];
+    for (const id of Object.keys(games)) {
+      let p = {}; try { const raw = await store.get(id + ":progress"); if (raw) p = JSON.parse(raw); } catch (e) {}
+      let t = 0, d = 0;
+      for (const reg of games[id].REGIONS || []) for (const sec of reg.sections || []) for (const st of sec.steps || []) if (CHECKABLE.has(st.k)) { t++; if (p[st.id]) d++; }
+      out.push({ id, label: games[id].label, meta: games[id].meta || {}, t, d, pct: t ? Math.round(d / t * 100) : 0, started: d > 0 });
+    }
+    out.sort((a, b) => b.pct - a.pct);
+    if (!dead) setCross(out);
+  })(); return () => { dead = true; }; }, []);
+
+  const champDone = (champions || []).filter((c) => c.step && progress[c.step]).length, champTot = (champions || []).length;
+  const story = [];
+  story.push(`You have walked ${pct}% of the road through ${worldName || "Hyrule"}.`);
+  if (champTot) story.push(champDone === 0 ? `None of the ${champTot} ${championsLabel || "great trials"} are yours yet.` : champDone === champTot ? `All ${champTot} ${championsLabel || "great trials"} have been earned.` : `${champDone} of ${champTot} ${championsLabel || "great trials"} earned.`);
+  if (shrineStats.total) { const orbs = Math.floor(shrineStats.done / 4); story.push(`${shrineStats.done} of ${shrineStats.total} shrines lie conquered` + (orbs > 0 ? `, traded into ${orbs} ${orbs === 1 ? "vessel" : "vessels"} of heart or stamina.` : ".")); }
+  if (extraStats.memTotal) story.push(extraStats.mem === 0 ? `The memories of the world that was still sleep.` : `${extraStats.mem} of ${extraStats.memTotal} memories of the world that was are yours again.`);
+  if (extraStats.gfTotal) story.push(`${extraStats.gf} of ${extraStats.gfTotal} Great Fairies have woken to your call.`);
+  if (maxSeeds && koroks > 0) story.push(`${koroks} Korok seeds gathered from the wilds.`);
+  if (extraStats.sqTotal) story.push(`${extraStats.sq} of ${extraStats.sqTotal} side stories carried to their end.`);
+
+  const recent = Object.keys(doneAt || {}).map((id) => ({ id, at: doneAt[id], label: stepLabel(id) })).filter((r) => r.label && r.at).sort((a, b) => b.at - a.at).slice(0, 8);
+  const ago = (ms) => { const s = Math.floor((Date.now() - ms) / 1000); if (s < 60) return "just now"; const m = Math.floor(s / 60); if (m < 60) return m + "m ago"; const h = Math.floor(m / 60); if (h < 24) return h + "h ago"; const d = Math.floor(h / 24); return d + (d === 1 ? " day ago" : " days ago"); };
+  const chapters = (regions || []).map((r) => ({ name: r.name, ...(regionStats[r.id] || { done: 0, total: 0, complete: false }) })).filter((c) => c.total > 0);
+
+  return portal(
+    <div className="chron">
+      <div className="chron-top">
+        <div className="chron-title"><Glyph name="champion" size={16} /><div><div className="chron-title-t">Your Chronicle</div><div className="chron-title-s">{label} · {pct}% complete</div></div></div>
+        <button className="sm-close" onClick={onClose} aria-label="Close">✕</button>
+      </div>
+      <div className="chron-body">
+        <div className="chron-card chron-story">
+          <div className="chron-h">Your story so far</div>
+          {story.map((s, i) => <p key={i} className="chron-line">{s}</p>)}
+        </div>
+
+        {chapters.length > 0 && <div className="chron-card">
+          <div className="chron-h">The chapters of your journey</div>
+          {chapters.map((c, i) => <div key={i} className={"chron-chap" + (c.complete ? " chron-chap-done" : "")}>
+            <span className="chron-chap-n">{c.complete ? "✓ " : ""}{c.name}</span>
+            <span className="chron-chap-bar"><span style={{ width: (c.total ? c.done / c.total * 100 : 0) + "%" }} /></span>
+            <span className="chron-chap-c">{c.done}/{c.total}</span>
+          </div>)}
+        </div>}
+
+        {recent.length > 0 && <div className="chron-card">
+          <div className="chron-h">Recent deeds</div>
+          {recent.map((r, i) => <div key={i} className="chron-deed"><span className="chron-deed-l">{r.label}</span><span className="chron-deed-t">{ago(r.at)}</span></div>)}
+        </div>}
+
+        {cross && cross.length > 1 && <div className="chron-card">
+          <div className="chron-h">Across the ages</div>
+          <p className="chron-sub">Your legend spans {cross.filter((g) => g.started).length} of {cross.length} games in the series.</p>
+          <div className="chron-games">
+            {cross.map((g) => <button key={g.id} className={"chron-game" + (g.id === gameId ? " chron-game-on" : "")} onClick={() => { if (g.id !== gameId) onPickGame(g.id); onClose(); }}>
+              <span className="chron-game-cov"><GameCover kind={g.meta.cover} accent={g.meta.accent || "#5fd6e2"} /></span>
+              <span className="chron-game-mid"><span className="chron-game-n">{g.label}</span><span className="chron-game-c">{(g.meta.consoleShort || g.meta.console || "")}{g.meta.year ? " · " + g.meta.year : ""}</span><span className="chron-game-bar"><span style={{ width: g.pct + "%", background: g.meta.accent || "var(--cyan)" }} /></span></span>
+              <span className="chron-game-p">{g.pct}%</span>
+            </button>)}
+          </div>
+        </div>}
+        <p className="chron-foot">Woven only from what you've actually done — no embellishment. Keep playing; your story grows.</p>
+      </div>
+    </div>
+  );
+}
+
 /* ============================================================ BACKUP / RESTORE ============================================================ */
 function BackupBox({ doExport, doImport }) {
   const [open, setOpen] = useState(false);
@@ -4068,6 +4171,46 @@ function StyleBlock() {
 .ck-near .ck-ic{color:var(--gold);}
 .ck-ask{background:rgba(150,120,230,0.1);border-color:rgba(150,120,230,0.35);}
 .ck-ask .ck-ic{color:#b49cf0;}
+.chron-entry{display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;}
+.chron-entry-ic{color:var(--gold);flex-shrink:0;}
+.chron-entry-txt{flex:1;min-width:0;display:flex;flex-direction:column;}
+.chron-entry-t{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;color:var(--parch);}
+.chron-entry-s{font-size:12px;color:var(--parch-dim);}
+.chron-entry-chev{color:var(--parch-dim);font-size:18px;flex-shrink:0;}
+.chron{position:fixed;inset:0;z-index:62;background:rgba(5,10,13,0.98);backdrop-filter:blur(6px);display:flex;flex-direction:column;max-width:680px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
+.chron-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:14px calc(16px + env(safe-area-inset-right,0px)) 12px calc(16px + env(safe-area-inset-left,0px));border-bottom:1px solid rgba(95,214,226,0.14);}
+.chron-title{display:flex;align-items:center;gap:10px;color:var(--cyan);}
+.chron-title-t{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:18px;color:var(--parch);}
+.chron-title-s{font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--parch-dim);}
+.chron-body{flex:1;overflow-y:auto;padding:14px calc(16px + env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) calc(16px + env(safe-area-inset-left,0px));-webkit-overflow-scrolling:touch;}
+.chron-card{background:rgba(10,22,28,0.6);border:1px solid rgba(95,214,226,0.16);border-radius:14px;padding:14px 15px;margin-bottom:12px;}
+.chron-h{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;}
+.chron-story{background:linear-gradient(160deg,rgba(95,214,226,0.09),rgba(10,22,28,0.5));}
+.chron-line{font-family:'Rajdhani',sans-serif;font-size:15.5px;line-height:1.55;color:var(--parch);margin:0 0 7px;}
+.chron-line:last-child{margin-bottom:0;}
+.chron-chap{display:flex;align-items:center;gap:10px;padding:6px 0;}
+.chron-chap-n{flex:0 0 38%;font-size:13px;color:var(--parch-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.chron-chap-done .chron-chap-n{color:var(--cyan);}
+.chron-chap-bar{flex:1;height:6px;background:rgba(255,255,255,0.07);border-radius:4px;overflow:hidden;}
+.chron-chap-bar>span{display:block;height:100%;background:var(--cyan);border-radius:4px;}
+.chron-chap-c{flex:0 0 auto;font-size:11px;color:var(--parch-dim);min-width:36px;text-align:right;}
+.chron-deed{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.chron-deed:last-child{border-bottom:0;}
+.chron-deed-l{font-size:13px;color:var(--parch);}
+.chron-deed-t{font-size:11px;color:var(--parch-dim);white-space:nowrap;}
+.chron-sub{font-size:12.5px;color:var(--parch-dim);margin:0 0 10px;}
+.chron-foot{font-size:11.5px;color:var(--parch-dim);font-style:italic;text-align:center;margin:2px 0 0;}
+.chron-games{display:flex;flex-direction:column;gap:8px;}
+.chron-game{display:flex;align-items:center;gap:11px;background:rgba(8,16,20,0.6);border:1px solid rgba(95,214,226,0.14);border-radius:11px;padding:9px 11px;cursor:pointer;text-align:left;width:100%;}
+.chron-game-on{border-color:var(--cyan);background:rgba(95,214,226,0.1);}
+.chron-game-cov{flex:0 0 auto;width:40px;height:40px;display:flex;}
+.chron-game-cov svg{width:40px;height:40px;}
+.chron-game-mid{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;}
+.chron-game-n{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;color:var(--parch);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.chron-game-c{font-size:10.5px;color:var(--parch-dim);text-transform:uppercase;letter-spacing:.4px;}
+.chron-game-bar{height:5px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden;}
+.chron-game-bar>span{display:block;height:100%;border-radius:3px;}
+.chron-game-p{flex:0 0 auto;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;color:var(--cyan);}
 .hero-done{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:10px;padding:9px 12px;}
 .panel{border:1px solid rgba(255,255,255,0.07);border-radius:16px;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,0.5));padding:14px 15px;margin-bottom:13px;}
 .panel-h{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan-dim);margin-bottom:11px;}
