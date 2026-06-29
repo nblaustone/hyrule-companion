@@ -1058,6 +1058,8 @@ function HyruleGame({ game, setGame, games }) {
   const [shelfOpen, setShelfOpen] = useState(false); // game-select shelf overlay (console/era)
   const [mapOpen, setMapOpen] = useState(false);     // v19: full-screen Slate Map overlay
   const [mapFocus, setMapFocus] = useState(null);    // v19: regionKey to open the map zoomed to (or null)
+  const [mapFocusShrine, setMapFocusShrine] = useState(null); // v27.5: open the map flown-to + selecting a specific shrine
+  const [mapGuideInit, setMapGuideInit] = useState(false);    // v27.5: open the map with "Guide me" already on
   const [mapPin, setMapPin] = useState(null);        // v19: spatial "I'm here" world coord {x,z} (<game>:mappin)
   const [videoClip, setVideoClip] = useState(null);  // v24: {start,title,context} for the walkthrough-video overlay (online, opt-in)
   const openVideo = useCallback((start, title, context) => setVideoClip({ start, title, context: context || null }), []);
@@ -1140,7 +1142,7 @@ function HyruleGame({ game, setGame, games }) {
     window.addEventListener("resize", measure);
     return () => { clearTimeout(t); window.removeEventListener("resize", measure); };
   }, [tab, hasShrines, hasCook, loaded]);
-  const openMap = useCallback((rk) => { setMapFocus(rk || null); setMapOpen(true); }, []);
+  const openMap = useCallback((rk, opts) => { setMapFocus(rk || null); setMapFocusShrine((opts && opts.shrine) || null); setMapGuideInit(!!(opts && opts.guide)); setMapOpen(true); }, []);
   // tab-bar taps start the new tab at the top (and re-tapping the current tab scrolls to top, iOS-style).
   // Programmatic jumps (jumpToStep/focusShrine) use setTab directly so they keep their scroll-into-view.
   const goTab = (t) => { setTab(t); try { window.scrollTo({ top: 0 }); } catch (e) { window.scrollTo(0, 0); } };
@@ -1512,7 +1514,7 @@ function HyruleGame({ game, setGame, games }) {
 
       {mapOpen && MAP_COORDS && MAP_COORDS.shrines && (
         <SlateMap coords={MAP_COORDS} shrines={SHRINES} progress={progress} toggleStep={toggleStep}
-          spoiler={spoiler} focusRegion={mapFocus} mapPin={mapPin} setMapPin={setMapPin} accent={G.meta?.accent}
+          spoiler={spoiler} focusRegion={mapFocus} focusShrine={mapFocusShrine} initialGuide={mapGuideInit} mapPin={mapPin} setMapPin={setMapPin} accent={G.meta?.accent}
           game={game} towersData={TOWERS} fairiesData={GREAT_FAIRIES} videoGuide={VIDEO_GUIDE} onWatch={openVideo}
           onOpenShrine={(rk, id) => { setMapOpen(false); focusShrine(rk, id); }}
           onClose={() => setMapOpen(false)} />
@@ -1521,6 +1523,7 @@ function HyruleGame({ game, setGame, games }) {
       {videoClip && VIDEO_GUIDE && (
         <VideoOverlay videoId={VIDEO_GUIDE.videoId}
           start={typeof vidFix[videoClip.title] === "number" ? vidFix[videoClip.title] : videoClip.start}
+          origStart={videoClip.start}
           title={videoClip.title} context={videoClip.context} credit={VIDEO_GUIDE.author}
           customized={typeof vidFix[videoClip.title] === "number"}
           onFix={(secs) => saveVidFix(videoClip.title, secs)}
@@ -1590,7 +1593,9 @@ function HyruleGame({ game, setGame, games }) {
               <div className="panel-h"><Glyph name="spark" size={14} /> Right now — one tap to what you need</div>
               <div className="cockpit-grid">
                 {cockpitClip && <button className="ck-tile ck-watch" onClick={() => openVideo(cockpitClip.t, resumeTarget.secName, cockpitClip.sec ? { kind: "section", steps: cockpitClip.sec.steps.map((s) => ({ t: s.t, k: s.k })) } : null)}><span className="ck-ic"><Glyph name="play" size={19} /></span><span className="ck-t">Watch this part</span><span className="ck-s">{resumeTarget.secName}</span></button>}
-                {cockpitNearest && <button className="ck-tile ck-near" onClick={() => openMap(cockpitNearest.rk)}><span className="ck-ic"><Glyph name="target" size={19} /></span><span className="ck-t">Nearest shrine</span><span className="ck-s">{cockpitNearest.name.replace(/ Shrine$/, "")} · {cockpitNearest.region}</span></button>}
+                {cockpitNearest && (mapPin
+                  ? <button className="ck-tile ck-near" onClick={() => openMap(cockpitNearest.rk, { shrine: cockpitNearest.name, guide: true })}><span className="ck-ic"><Glyph name="target" size={19} /></span><span className="ck-t">Nearest shrine</span><span className="ck-s">{cockpitNearest.name.replace(/ Shrine$/, "")} · {cockpitNearest.region}</span></button>
+                  : <button className="ck-tile ck-near" onClick={() => openMap(null, { guide: true })}><span className="ck-ic"><Glyph name="pin" size={19} /></span><span className="ck-t">Find shrines near you</span><span className="ck-s">Drop your “I’m here” pin on the map</span></button>)}
                 <button className="ck-tile ck-ask" onClick={() => setOracleOpen(true)}><span className="ck-ic"><Glyph name="spark" size={19} /></span><span className="ck-t">Ask the Slate</span><span className="ck-s">Stuck? Ask in plain words</span></button>
               </div>
             </div>
@@ -2855,7 +2860,7 @@ function fitAffine(pts) {
   }
   return null;
 }
-function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, mapPin, setMapPin, onOpenShrine, onClose, accent, game, towersData, fairiesData, videoGuide, onWatch }) {
+function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion, focusShrine, initialGuide, mapPin, setMapPin, onOpenShrine, onClose, accent, game, towersData, fairiesData, videoGuide, onWatch }) {
   const b = coords.bounds, worldW = b.xmax - b.xmin, worldH = b.zmax - b.zmin;
   const terrain = useMemo(() => getTerrain(coords), [coords]);
   const cvRef = useRef(null), fileRef = useRef(null), alignPts = useRef([]);
@@ -2873,7 +2878,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   const [bitmap, setBitmap] = useState(null);  // {src,w,h} of the owner's own imported map image (device-local)
   const [mapCal, setMapCal] = useState(null);  // {m:[a,b,c,d,e,f]} world→image-pixel AFFINE calibration
   const [imgErr, setImgErr] = useState("");
-  const [guide, setGuide] = useState(false);   // v27.3 "Guide me": dim cleared · glow remaining · route lines to the nearest unexplored shrines
+  const [guide, setGuide] = useState(!!initialGuide);   // v27.3 "Guide me": dim cleared · glow remaining · route lines to the nearest unexplored shrines (v27.5: can open pre-enabled)
 
   const shrMeta = useMemo(() => { const m = {}; (shrines || []).forEach((g) => g.shrines.forEach((sh, i) => { m[sh.name] = { rk: g.regionKey, i, region: g.regionName, obj: sh }; })); return m; }, [shrines]);
   const towerInfo = useMemo(() => { const m = {}; ((towersData) || []).forEach((t) => { m[t.name] = t; }); return m; }, [towersData]);
@@ -2980,7 +2985,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   };
 
   // (re)fit whenever the content changes (terrain ↔ imported image, or a new image size) + redraw each render
-  useEffect(() => { const id = requestAnimationFrame(() => { if (focusRegion && coords.regions[focusRegion] && !C.img) fitRegion(focusRegion); else setFit(); }); return () => cancelAnimationFrame(id); }, [cKey]);
+  useEffect(() => { const id = requestAnimationFrame(() => { if (focusShrine && coords.shrines[focusShrine]) flyTo(focusShrine); else if (focusRegion && coords.regions[focusRegion] && !C.img) fitRegion(focusRegion); else setFit(); }); return () => cancelAnimationFrame(id); }, [cKey]);
   useEffect(() => { draw(); });
   useEffect(() => {
     const cv = cvRef.current; if (!cv) return;
@@ -3160,7 +3165,7 @@ function loadYouTubeAPI() {
 }
 /* HH:MM:SS (or M:SS) for a second-count — shared by the video overlay + the chapter index. */
 function fmtClock(s) { s = Math.max(0, s | 0); const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(ss).padStart(2, "0"); }
-function VideoOverlay({ videoId, start, title, context, credit, customized, onFix, onResetFix, onClose }) {
+function VideoOverlay({ videoId, start, origStart, title, context, credit, customized, onFix, onResetFix, onClose }) {
   const online = typeof navigator === "undefined" || navigator.onLine !== false;
   const standalone = typeof navigator !== "undefined" && navigator.standalone === true; // installed iOS PWA
   const holderRef = useRef(null), playerRef = useRef(null);
@@ -3211,7 +3216,7 @@ function VideoOverlay({ videoId, start, title, context, credit, customized, onFi
       {onFix && status === "ready" && (
         <div className="vid-fix">
           <button className="vid-fix-btn" onClick={fixHere}><Glyph name="target" size={13} /> {customized ? "Update this spot to where you are now" : "Wrong spot? Set it to where the video is now"}</button>
-          {customized && onResetFix && <button className="vid-fix-reset" onClick={() => { onResetFix(); setFixMsg("Reset to the walkthrough's original time."); }}>Reset</button>}
+          {customized && onResetFix && <button className="vid-fix-reset" onClick={() => { onResetFix(); try { const p = playerRef.current; if (p && p.seekTo) p.seekTo(Math.max(0, (origStart != null ? origStart : start) | 0), true); } catch (e) {} setFixMsg("Reset to the walkthrough's time — " + fmtClock(origStart != null ? origStart : start) + "."); }}>Reset</button>}
         </div>
       )}
       {fixMsg && <p className="vid-fix-msg">{fixMsg}</p>}
@@ -4678,7 +4683,9 @@ function StyleBlock() {
 .vid-offline{font-size:14px;color:var(--parch-dim);text-align:center;padding:24px;line-height:1.6;}
 .vid-open{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 calc(14px + env(safe-area-inset-right,0px)) 8px calc(14px + env(safe-area-inset-left,0px));padding:13px 16px;border-radius:11px;background:var(--malice);color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(224,80,107,0.4);}
 .vid-open:active{transform:scale(.985);}
-.vid-stage{min-height:0;}
+.vid-stage{min-height:0;overflow:hidden;}
+.vid-frame{max-height:100%;}
+@media (max-height:640px){.vid-ctx-steps,.vid-ctx-sol{max-height:16vh;}}
 .vid-fix{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;padding:8px calc(14px + env(safe-area-inset-right,0px)) 2px calc(14px + env(safe-area-inset-left,0px));}
 .vid-fix-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:9px;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.32);color:var(--cyan);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer;}
 .vid-fix-btn:active{transform:scale(.98);}
