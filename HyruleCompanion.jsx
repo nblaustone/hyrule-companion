@@ -2848,10 +2848,18 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
   const [bitmap, setBitmap] = useState(null);  // {src,w,h} of the owner's own imported map image (device-local)
   const [mapCal, setMapCal] = useState(null);  // {m:[a,b,c,d,e,f]} world→image-pixel AFFINE calibration
   const [imgErr, setImgErr] = useState("");
+  const [guide, setGuide] = useState(false);   // v27.3 "Guide me": dim cleared · glow remaining · route lines to the nearest unexplored shrines
 
   const shrMeta = useMemo(() => { const m = {}; (shrines || []).forEach((g) => g.shrines.forEach((sh, i) => { m[sh.name] = { rk: g.regionKey, i, region: g.regionName, obj: sh }; })); return m; }, [shrines]);
   const towerInfo = useMemo(() => { const m = {}; ((towersData) || []).forEach((t) => { m[t.name] = t; }); return m; }, [towersData]);
   const fairyInfo = useMemo(() => { const m = {}; ((fairiesData) || []).forEach((f) => { m[f.name] = f; }); return m; }, [fairiesData]);
+  // v27.3: the nearest still-unexplored shrines to the "I'm here" pin (or the map's centre if no pin yet)
+  const nearest = useMemo(() => {
+    const ox = mapPin ? mapPin.x : (b.xmin + b.xmax) / 2, oz = mapPin ? mapPin.z : (b.zmin + b.zmax) / 2;
+    const list = [];
+    for (const name in coords.shrines) { const s = coords.shrines[name]; if (!progress[SHR_ID(s.rk, s.i)]) list.push({ name, x: s.x, z: s.z, rk: s.rk, i: s.i, d: Math.hypot(s.x - ox, s.z - oz) }); }
+    list.sort((p, q2) => p.d - q2.d); return list.slice(0, 6);
+  }, [coords, progress, mapPin]);
   let sdone = 0, stotal = 0;
   for (const n in coords.shrines) { stotal++; const s = coords.shrines[n]; if (progress[SHR_ID(s.rk, s.i)]) sdone++; }
 
@@ -2913,13 +2921,36 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
     const fk = fitK(), showLabels = !C.img;   // an imported map already has its own labels — don't double up
     ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
     const lab = (txt, x, y, font, fill) => { ctx.font = font; ctx.lineWidth = 3; ctx.strokeStyle = "rgba(8,16,14,0.62)"; ctx.strokeText(txt, x, y); ctx.fillStyle = fill; ctx.fillText(txt, x, y); };
+    // v27.3 guide: dashed route lines from the pin to the nearest unexplored shrines (drawn under the markers)
+    if (guide && mapPin && nearest.length) {
+      const px = X(mapPin.x, mapPin.z), py = Y(mapPin.x, mapPin.z);
+      ctx.save(); ctx.setLineDash([5, 6]);
+      nearest.forEach((n, idx) => { const nx = X(n.x, n.z), ny = Y(n.x, n.z); ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(nx, ny); ctx.strokeStyle = idx === 0 ? "rgba(242,193,78,0.85)" : "rgba(244,153,47,0.36)"; ctx.lineWidth = idx === 0 ? 2.4 : 1.3; ctx.stroke(); });
+      ctx.restore();
+    }
     if (showLabels && v.k < fk * 3) for (const rk in coords.regions) { const r = coords.regions[rk], x = X(r.cx, r.cz), y = Y(r.cx, r.cz); if (vis(x, y)) lab(r.name.toUpperCase(), x, y, "700 14px Rajdhani, sans-serif", "rgba(238,232,216,0.72)"); }
     if (layers.places) for (const p of (coords.stables || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 4, 0, 7); ctx.fillStyle = "#9bc08a"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 3) lab(p.name, x, y - 9, "600 10px Rajdhani, sans-serif", "#cfe0c0"); }
     if (layers.places) for (const p of (coords.towns || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.save(); ctx.translate(x, y); ctx.rotate(Math.PI / 4); ctx.fillStyle = "#f2c14e"; ctx.fillRect(-5, -5, 10, 10); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.strokeRect(-5, -5, 10, 10); ctx.restore(); if (showLabels && v.k >= fk * 1.25) lab(p.name, x, y - 11, "700 11px Rajdhani, sans-serif", "#f6cf6a"); }
     if (layers.fairies) for (const p of (coords.fairies || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.fillStyle = "#ff6f8b"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 1.25) lab(p.name, x, y - 10, "700 11px Rajdhani, sans-serif", "#ffa6b6"); }
     if (layers.towers) for (const p of (coords.towers || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.moveTo(x, y - 9); ctx.lineTo(x + 7, y + 6); ctx.lineTo(x - 7, y + 6); ctx.closePath(); ctx.fillStyle = "#c3ebf0"; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = "#0a2230"; ctx.stroke(); if (showLabels && v.k >= fk * 1.25) lab(p.name.replace(/ Tower$/, ""), x, y + 16, "700 11px Rajdhani, sans-serif", "#d2eef2"); }
     if (layers.beasts) for (const p of (coords.beasts || [])) { const x = X(p.x, p.z), y = Y(p.x, p.z); if (!vis(x, y)) continue; ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.lineWidth = 2; ctx.strokeStyle = "#5fd6e2"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, 3, 0, 7); ctx.fillStyle = "#5fd6e2"; ctx.fill(); if (showLabels) lab(p.short || p.name, x, y - 15, "700 11px Rajdhani, sans-serif", "#a6e9f0"); }
-    if (layers.shrines) { const showNames = showLabels && v.k >= fk * 3.6; for (const name in coords.shrines) { const s = coords.shrines[name], x = X(s.x, s.z), y = Y(s.x, s.z); if (!vis(x, y)) continue; const dn = !!progress[SHR_ID(s.rk, s.i)], isSel = sel && sel.name === name; if (dn) { ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.fillStyle = "rgba(95,214,226,0.18)"; ctx.fill(); } ctx.beginPath(); ctx.arc(x, y, isSel ? 7 : 5, 0, 7); ctx.fillStyle = dn ? "#5fd6e2" : "#f4992f"; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = dn ? "#cdeff3" : "#b46a18"; ctx.stroke(); if (isSel) { ctx.beginPath(); ctx.arc(x, y, 12, 0, 7); ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke(); } if (showNames) lab(name.replace(/ Shrine$/, ""), x, y - 11, "600 10px Rajdhani, sans-serif", "rgba(236,229,213,0.95)"); } }
+    if (layers.shrines) {
+      const showNames = showLabels && v.k >= fk * 3.6;
+      const nset = guide ? new Set(nearest.map((n) => n.name)) : null, n0 = guide && nearest.length ? nearest[0].name : null;
+      for (const name in coords.shrines) {
+        const s = coords.shrines[name], x = X(s.x, s.z), y = Y(s.x, s.z); if (!vis(x, y)) continue;
+        const dn = !!progress[SHR_ID(s.rk, s.i)], isSel = sel && sel.name === name;
+        ctx.save();
+        if (guide && dn && !isSel) ctx.globalAlpha = 0.32;                         // recede cleared shrines in guide mode
+        if (guide && !dn) { const isN = nset.has(name); ctx.beginPath(); ctx.arc(x, y, isN ? 12 : 8, 0, 7); ctx.fillStyle = isN ? "rgba(244,153,47,0.3)" : "rgba(244,153,47,0.13)"; ctx.fill(); }  // glow remaining
+        if (dn) { ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.fillStyle = "rgba(95,214,226,0.18)"; ctx.fill(); }
+        ctx.beginPath(); ctx.arc(x, y, isSel ? 7 : 5, 0, 7); ctx.fillStyle = dn ? "#5fd6e2" : "#f4992f"; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = dn ? "#cdeff3" : "#b46a18"; ctx.stroke();
+        if (isSel) { ctx.beginPath(); ctx.arc(x, y, 12, 0, 7); ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.stroke(); }
+        if (name === n0) { ctx.beginPath(); ctx.arc(x, y, 14, 0, 7); ctx.setLineDash([3, 3]); ctx.strokeStyle = "rgba(242,193,78,0.95)"; ctx.lineWidth = 2; ctx.stroke(); ctx.setLineDash([]); }
+        ctx.restore();
+        if (showNames || (guide && nset.has(name))) lab(name.replace(/ Shrine$/, ""), x, y - 12, "600 10px Rajdhani, sans-serif", guide && nset.has(name) ? "#f7d98a" : "rgba(236,229,213,0.95)");
+      }
+    }
     if (mapPin) { const x = X(mapPin.x, mapPin.z), y = Y(mapPin.x, mapPin.z); ctx.beginPath(); ctx.arc(x, y, 15, 0, 7); ctx.fillStyle = "rgba(242,193,78,0.22)"; ctx.fill(); ctx.beginPath(); ctx.moveTo(x, y); ctx.bezierCurveTo(x - 11, y - 17, x - 9, y - 31, x, y - 31); ctx.bezierCurveTo(x + 9, y - 31, x + 11, y - 17, x, y); ctx.closePath(); ctx.fillStyle = "#f2c14e"; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = "#0a2230"; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y - 20, 4, 0, 7); ctx.fillStyle = "#0a2230"; ctx.fill(); lab("You're here", x, y - 40, "700 11px Rajdhani, sans-serif", "#f7d98a"); }
   };
 
@@ -3032,14 +3063,26 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
         {imgErr && <span className="sm-img-err">{imgErr}</span>}
       </div>
 
+      {guide && !sel && (
+        <div className="sm-guide">
+          <div className="sm-guide-h">{mapPin ? "Nearest unexplored — tap to fly there" : "Drop your “I’m here” pin (📍) for routes · nearest shrines"}</div>
+          <div className="sm-guide-row">
+            {nearest.length === 0
+              ? <span className="sm-guide-empty">✓ Every shrine cleared — nothing left to find!</span>
+              : nearest.map((n, idx) => <button key={n.name} className={"sm-guide-chip" + (idx === 0 ? " sm-guide-chip-0" : "")} onClick={() => flyTo(n.name)}><span className="sm-guide-nm">{idx === 0 ? "▸ " : ""}{n.name.replace(/ Shrine$/, "")}</span><span className="sm-guide-rg">{shrMeta[n.name] ? shrMeta[n.name].region : ""}</span></button>)}
+          </div>
+        </div>
+      )}
+
       <div className="sm-layers">
         {[["shrines", "Shrines"], ["towers", "Towers"], ["fairies", "Fairies"], coords.towns && coords.towns.length ? ["places", "Towns"] : null, ["beasts", "Beasts"]].filter(Boolean).map(([k, l]) => (
           <button key={k} className={"sm-chip" + (layers[k] ? " sm-chip-on" : "")} onClick={() => setLayers((s) => ({ ...s, [k]: !s[k] }))}>{l}</button>
         ))}
+        <button className={"sm-chip sm-chip-guide" + (guide ? " sm-chip-on" : "")} onClick={() => setGuide((g) => !g)}><Glyph name="target" size={11} /> Guide me</button>
       </div>
 
       <div className="sm-ctrls">
-        <button className={"sm-ctrl sm-ctrl-pin" + (placing ? " sm-ctrl-active" : "")} onClick={() => { setPlacing((p) => !p); setAlign(0); }} aria-label="Set my location"><Glyph name="pin" size={18} /></button>
+        <button className={"sm-ctrl sm-ctrl-pin" + (placing ? " sm-ctrl-active" : "")} onClick={() => { setPlacing((p) => !p); setAligning(false); }} aria-label="Set my location"><Glyph name="pin" size={18} /></button>
         {mapPin && <button className="sm-ctrl" onClick={locate} aria-label="Center on my location"><Glyph name="target" size={18} /></button>}
         {mapPin && <button className="sm-ctrl sm-ctrl-x" onClick={() => setMapPin(null)} aria-label="Clear my location">✕</button>}
         <div className="sm-zoomgrp">
@@ -4553,6 +4596,17 @@ function StyleBlock() {
 .sm-layers{position:absolute;left:0;right:0;bottom:calc(86px + env(safe-area-inset-bottom,0px));display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0 12px;pointer-events:none;}
 .sm-chip{pointer-events:auto;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--parch-dim);background:rgba(8,16,20,0.82);border:1px solid rgba(95,214,226,0.18);border-radius:20px;padding:5px 11px;cursor:pointer;}
 .sm-chip-on{color:var(--abyss);background:var(--cyan);border-color:var(--cyan);}
+.sm-chip-guide{display:inline-flex;align-items:center;gap:4px;color:var(--gold);border-color:rgba(242,193,78,0.4);}
+.sm-chip-guide.sm-chip-on{color:var(--abyss);background:var(--gold);border-color:var(--gold);}
+.sm-guide{position:absolute;left:0;right:0;bottom:calc(122px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:5px;padding:0 12px;pointer-events:none;}
+.sm-guide-h{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;color:var(--gold);background:rgba(8,16,20,0.85);padding:3px 11px;border-radius:10px;}
+.sm-guide-row{display:flex;gap:6px;overflow-x:auto;max-width:100%;padding:2px 4px 4px;pointer-events:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.sm-guide-row::-webkit-scrollbar{display:none;}
+.sm-guide-chip{flex:0 0 auto;pointer-events:auto;font-family:'Rajdhani',sans-serif;background:rgba(8,16,20,0.92);border:1px solid rgba(244,153,47,0.4);border-radius:14px;padding:5px 11px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;line-height:1.2;}
+.sm-guide-chip-0{border-color:var(--gold);background:rgba(242,193,78,0.16);}
+.sm-guide-nm{font-weight:600;font-size:12px;color:var(--parch);white-space:nowrap;}
+.sm-guide-rg{font-size:9px;color:var(--parch-dim);text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;}
+.sm-guide-empty{font-size:12.5px;color:var(--cyan);background:rgba(8,16,20,0.85);padding:6px 12px;border-radius:10px;}
 .sm-ctrls{position:absolute;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;align-items:center;}
 .sm-ctrl{width:42px;height:42px;border-radius:11px;background:rgba(10,22,28,0.9);border:1px solid rgba(95,214,226,0.28);color:var(--cyan);font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .sm-ctrl:active{transform:scale(.94);}
