@@ -881,6 +881,37 @@ layout, `REGION_MAPS` = the per-region coords.
   the IFrame API is the best web-native shot, but the guaranteed paths are (a) open the page in a normal Safari tab
   (has the YouTube session → embeds play) or (b) the app hand-off. A truly guaranteed in-app embed would require a
   NATIVE app (out of scope for this single-file offline PWA). Never rip/re-host (illegal + 44h impractical).**
+- **v27 — the Sheikah Jukebox: a real, persistent, iPod-style music player (DONE).** The owner wanted "a working
+  iPod" — an audio controller that **stays open while you use the app**, switch songs, hold tons of music. Used the
+  `~/Desktop/preg` "Last-Minute Lectures" player as the skeleton (its pattern: a provider holds the player at app
+  root → a mini-bar rides above the tab bar, hidden when the full player is open → tap-to-expand full screen →
+  auto-advance queue). preg is native `expo-audio`; **translated the PATTERN to this web app's HTML5 `Audio`** (the
+  existing `SlateMusic` singleton + `audioDB`), so nothing copyrighted ships and the offline build stays clean.
+  - **Engine:** extended `SlateMusic` (still a module singleton outside React, survives the per-game remount) with
+    `playing()/time()/dur()/seek()/seekFrac()/skip()/toggle()` + `setOnState`/`setOnTime` event hooks → mirrored into
+    React state (`mPlaying/mTime/mDur`). Looping is now managed in a `handleEnded` (shuffle/repeat-aware), **not** the
+    native `el.loop`. Added `loadedId()` so the mount-time load effect SKIPS re-`setTrack` when the singleton already
+    holds the current track → **music keeps playing across a game switch** (verified: position advanced 1.23%→2.11%
+    across a BotW→TotK remount, not reset).
+  - **UI:** `TrackArt` (an original Sheikah-eye emblem deterministically **hue-tinted by the song name** — every track
+    gets its own "album art" with no imported image; slow-spins while playing). `MiniPlayer` = the persistent bar
+    docked above the tab bar (art · title · play-state · prev/play/next · live progress strip; tap → full player).
+    `FullPlayer` = portaled overlay (z-56): big cover, **draggable scrubber** (pointer events, time/-remaining),
+    shuffle · prev · play/pause · next · repeat(off→all→one, with a "1" glyph) · ±15s · volume · and the full **queue**
+    (tap to play, ✕ remove, **＋ Add songs** = many MP3/M4A → device-local `audioDB`). Entry points (NO new topbar
+    button — v18.1 overflow lesson): the always-present mini-bar + an "Open the music player" button in Settings.
+  - **Wiring:** new persisted key `hyrule:musicprefs` ({shuffle,repeat,vol}); default `repeat:"all"` preserves the
+    v23 "background music keeps going" feel. The tab-bar height is measured into `--tabbar-h` so the mini-bar docks
+    flush (no overlap) and `.app.has-mini` pads the body so content clears it. New Glyphs: play/pause/prev/next/
+    shuffle/repeat/repeat1/chevdown/note/plus. The v23 Settings jukebox + the `atmos.sound` ↔ synth-hum routing are
+    untouched (the player drives the same `tracks/curTrack` state). Reused the existing hoisted `fmtClock` (don't
+    re-declare it — a `const fmtClock` collides with the function at the Video overlay and fails the esbuild parse).
+  - Verified in-browser (seeded synthetic WAVs): mini-bar persists on every tab, full player renders, real playback
+    (progress advances, art spins), queue switch, scrubber seek to 75%, shuffle/repeat cycle, volume persists,
+    remove-current advances, Settings entry opens it, cross-game playback continues, responsive at 375px (topbar no
+    overflow), **0 console errors, build offline-clean.** **Lesson: the preg player is native (expo-audio) — port the
+    ARCHITECTURE (root-held singleton + mini-bar + tap-to-expand + auto-advance), not the API; the web equivalent is
+    one detached `new Audio()` element (so it's NOT in the DOM — verify state via the UI/React, not `querySelector('audio')`).**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

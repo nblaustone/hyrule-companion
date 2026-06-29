@@ -596,21 +596,49 @@ const SlateAudio = (() => {
 
 /* v22: plays the owner's OWN imported background track (device-local; never bundled). When a track is
    set it loops instead of the synthesized hum. Autoplay needs a user gesture — the sound toggle is one. */
+/* v27: extended into a full player engine — current time / duration / seek / skip and play-state +
+   timeupdate hooks — so the persistent mini-player and the full-screen "Sheikah Jukebox" can drive it.
+   Still a singleton OUTSIDE React (survives the per-game remount) and still 100% device-local. */
 const SlateMusic = (() => {
-  let el = null, url = null, ready = false, onEnd = null;
-  const ensure = () => { if (el) return el; try { el = new Audio(); el.loop = false; el.preload = "auto"; el.volume = 0.55; el.addEventListener("ended", () => { if (onEnd) onEnd(); }); } catch (e) { el = null; } return el; };
+  let el = null, url = null, ready = false, onEnd = null, onState = null, onTime = null, loadedId = null;
+  const fire = (cb) => { try { if (cb) cb(); } catch (e) {} };
+  const ensure = () => {
+    if (el) return el;
+    try {
+      el = new Audio(); el.loop = false; el.preload = "auto"; el.volume = 0.55;
+      el.addEventListener("ended", () => fire(onEnd));
+      el.addEventListener("timeupdate", () => fire(onTime));
+      el.addEventListener("durationchange", () => fire(onTime));
+      el.addEventListener("loadedmetadata", () => { fire(onTime); fire(onState); });
+      el.addEventListener("play", () => fire(onState));
+      el.addEventListener("playing", () => fire(onState));
+      el.addEventListener("pause", () => fire(onState));
+      el.addEventListener("error", () => fire(onState));
+    } catch (e) { el = null; }
+    return el;
+  };
   return {
-    setTrack(blob) { const a = ensure(); if (!a) return; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} } url = URL.createObjectURL(blob); a.src = url; ready = true; },
+    setTrack(blob, id) { const a = ensure(); if (!a) return; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} } url = URL.createObjectURL(blob); a.src = url; ready = true; loadedId = id != null ? id : null; },
+    loadedId() { return loadedId; },
     setLoop(b) { const a = ensure(); if (a) a.loop = !!b; },
     setOnEnded(cb) { onEnd = cb; },
+    setOnState(cb) { onState = cb; },
+    setOnTime(cb) { onTime = cb; },
     has() { return ready; },
+    playing() { return !!(el && ready && !el.paused && !el.ended); },
+    time() { return el ? (el.currentTime || 0) : 0; },
+    dur() { return el && isFinite(el.duration) ? el.duration : 0; },
+    seek(sec) { const a = ensure(); if (!a) return; try { a.currentTime = Math.max(0, sec); } catch (e) {} fire(onTime); },
+    seekFrac(f) { const a = ensure(); if (!a) return; const d = a.duration; if (d && isFinite(d)) { try { a.currentTime = Math.max(0, Math.min(1, f)) * d; } catch (e) {} fire(onTime); } },
+    skip(delta) { const a = ensure(); if (!a) return; const d = a.duration || 0; let t = (a.currentTime || 0) + delta; if (t < 0) t = 0; if (d && t > d) t = d; try { a.currentTime = t; } catch (e) {} fire(onTime); },
     play() {
       const a = ensure(); if (!a || !ready) return;
       const retry = () => { try { a.play().catch(() => {}); } catch (e) {} document.removeEventListener("pointerdown", retry); document.removeEventListener("touchstart", retry); };
       try { const p = a.play(); if (p && p.catch) p.catch(() => { document.addEventListener("pointerdown", retry, { once: true }); document.addEventListener("touchstart", retry, { once: true }); }); } catch (e) { document.addEventListener("pointerdown", retry, { once: true }); }
     },
     pause() { if (el) { try { el.pause(); } catch (e) {} } },
-    clear() { this.pause(); ready = false; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} url = null; } if (el) { try { el.removeAttribute("src"); el.load(); } catch (e) {} } },
+    toggle() { if (this.playing()) this.pause(); else this.play(); },
+    clear() { this.pause(); ready = false; loadedId = null; if (url) { try { URL.revokeObjectURL(url); } catch (e) {} url = null; } if (el) { try { el.removeAttribute("src"); el.load(); } catch (e) {} } fire(onState); },
     volume(v) { const a = ensure(); if (a) a.volume = Math.max(0, Math.min(1, v)); },
   };
 })();
@@ -684,6 +712,16 @@ function Glyph({ name, size = 26 }) {
     case "mic": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.2"><rect x="19" y="7" width="10" height="20" rx="5" /><path d="M14 23a10 10 0 0 0 20 0M24 33v7M18 40h12" /></svg>);
     case "map": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.2"><path d="M18 8 8 12v28l10-4 12 4 10-4V8l-10 4-12-4Z" fill="none" strokeLinejoin="round" /><path d="M18 8v28M30 12v28" /></svg>);
     case "target": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.2"><circle cx="24" cy="24" r="13" /><circle cx="24" cy="24" r="4" fill="currentColor" stroke="none" /><path d="M24 4v7M24 37v7M4 24h7M37 24h7" /></svg>);
+    case "play": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M16 10l22 14-22 14V10Z" fill="currentColor" stroke="currentColor" strokeLinejoin="round" /></svg>);
+    case "pause": return (<svg viewBox="0 0 48 48" style={s} {...c}><rect x="13" y="10" width="8" height="28" rx="2" fill="currentColor" stroke="none" /><rect x="27" y="10" width="8" height="28" rx="2" fill="currentColor" stroke="none" /></svg>);
+    case "prev": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M40 12L20 24l20 12V12Z" fill="currentColor" stroke="currentColor" strokeLinejoin="round" /><rect x="9" y="11" width="5" height="26" rx="2" fill="currentColor" stroke="none" /></svg>);
+    case "next": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M8 12l20 12L8 36V12Z" fill="currentColor" stroke="currentColor" strokeLinejoin="round" /><rect x="34" y="11" width="5" height="26" rx="2" fill="currentColor" stroke="none" /></svg>);
+    case "shuffle": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M6 15h7c4 0 6 3 9 9s5 9 9 9h5" /><path d="M6 33h7c4 0 6-3 9-9" /><path d="M33 8l6 7-6 7M33 26l6 7-6 7" /></svg>);
+    case "repeat": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M13 17h21a5 5 0 0 1 5 5v1" /><path d="M35 31H14a5 5 0 0 1-5-5v-1" /><path d="M18 11l-6 6 6 6M30 37l6-6-6-6" /></svg>);
+    case "repeat1": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.4"><path d="M13 17h21a5 5 0 0 1 5 5v1" /><path d="M35 31H14a5 5 0 0 1-5-5v-1" /><path d="M18 11l-6 6 6 6M30 37l6-6-6-6" /><text x="24" y="29" textAnchor="middle" fontSize="14" fontWeight="700" fill="currentColor" stroke="none" fontFamily="Rajdhani,sans-serif">1</text></svg>);
+    case "chevdown": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.6"><path d="M12 18l12 12 12-12" /></svg>);
+    case "note": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M20 34V12l18-4v22" /><circle cx="15" cy="34" r="5" fill="currentColor" stroke="currentColor" /><circle cx="33" cy="30" r="5" fill="currentColor" stroke="currentColor" /></svg>);
+    case "plus": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.6"><path d="M24 12v24M12 24h24" /></svg>);
     default: return null;
   }
 }
@@ -869,6 +907,124 @@ function GameShelf({ games, game, setGame, onClose }) {
 
 /* The per-game app. Remounted (key={game}) by the wrapper on a game switch, so each game's
    storage loads cleanly. G shadows the data globals with the active game's data (ADR 0005). */
+/* ============================================================ THE SHEIKAH JUKEBOX (v27) ============================================================ */
+/* A persistent, iPod-style music player layered over the v22–v23 device-local jukebox. The audio engine is
+   the SlateMusic singleton (above); these are the chrome: original generated cover art (no Nintendo assets),
+   a mini "now playing" bar that rides above the tab bar on every screen, and a full-screen player overlay. */
+const hueOf = (str) => { let h = 0; const s = String(str || ""); for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h % 360; };
+/* fmtClock (m:ss / h:mm:ss) is defined as a hoisted function below — reused here. */
+
+/* An original Sheikah-eye emblem, deterministically tinted by the song name — so every track gets its own
+   "album art" without shipping or importing any copyrighted image. Slowly spins while the track plays. */
+function TrackArt({ name, size = 56, spinning }) {
+  const hue = hueOf(name);
+  const a = "hsl(" + hue + " 64% 56%)", b = "hsl(" + ((hue + 38) % 360) + " 70% 44%)";
+  return (
+    <div className={"track-art" + (spinning ? " track-art-spin" : "")} style={{ width: size, height: size }} aria-hidden="true">
+      <svg viewBox="0 0 100 100" width={size} height={size}>
+        <circle cx="50" cy="50" r="49" fill={a} />
+        <circle cx="50" cy="35" r="34" fill="rgba(255,255,255,0.12)" />
+        <circle cx="50" cy="50" r="47" fill="none" stroke={b} strokeWidth="3" />
+        <g fill="none" stroke="rgba(8,15,20,0.62)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M50 17c6 12 20 14 20 28 0 12-9 22-20 22S30 57 30 45c0-14 14-16 20-28Z" />
+          <circle cx="50" cy="49" r="7" fill="rgba(8,15,20,0.7)" stroke="none" />
+          <path d="M50 71l-3 8M50 71l3 8M41 68l-4 7M59 68l4 7" />
+        </g>
+        <circle cx="50" cy="50" r="13" fill="rgba(8,15,20,0.14)" />
+      </svg>
+    </div>
+  );
+}
+
+/* The persistent "now playing" bar — docked just above the tab bar on every tab once a song is loaded. */
+function MiniPlayer({ track, playing, time, dur, canStep, onToggle, onPrev, onNext, onOpen }) {
+  const frac = dur > 0 ? Math.max(0, Math.min(1, time / dur)) : 0;
+  return (
+    <div className="mini-dock">
+      <div className="mini-bar">
+        <button className="mini-open" onClick={onOpen} aria-label="Open the music player">
+          <TrackArt name={track.name} size={42} spinning={playing} />
+          <span className="mini-mid">
+            <span className="mini-name">{track.name}</span>
+            <span className="mini-sub">{playing ? "Now playing" : "Paused"} · tap to open</span>
+          </span>
+        </button>
+        <div className="mini-btns">
+          {canStep && <button className="mini-b" onClick={onPrev} aria-label="Previous song"><Glyph name="prev" size={17} /></button>}
+          <button className="mini-b mini-pp" onClick={onToggle} aria-label={playing ? "Pause" : "Play"}><Glyph name={playing ? "pause" : "play"} size={18} /></button>
+          {canStep && <button className="mini-b" onClick={onNext} aria-label="Next song"><Glyph name="next" size={17} /></button>}
+        </div>
+        <div className="mini-prog"><span style={{ width: (frac * 100).toFixed(2) + "%" }} /></div>
+      </div>
+    </div>
+  );
+}
+
+/* The full-screen "iPod" — big cover, draggable scrubber, transport, shuffle/repeat, volume, and the queue. */
+function FullPlayer({ tracks, curTrack, track, playing, time, dur, vol, shuffle, repeat, onClose, onToggle, onPrev, onNext, onSeekFrac, onSkip, onVol, onShuffle, onRepeat, onSelect, onRemove, onAdd }) {
+  const fileRef = useRef(null);
+  const barRef = useRef(null);
+  const [drag, setDrag] = useState(null); // fraction shown while dragging the scrubber
+  const liveFrac = dur > 0 ? Math.max(0, Math.min(1, time / dur)) : 0;
+  const frac = drag != null ? drag : liveFrac;
+  const fracFromX = (clientX) => { const el = barRef.current; if (!el) return 0; const r = el.getBoundingClientRect(); return Math.max(0, Math.min(1, (clientX - r.left) / (r.width || 1))); };
+  const onDown = (e) => { if (!track) return; const f = fracFromX(e.clientX); setDrag(f); try { e.currentTarget.setPointerCapture(e.pointerId); } catch (er) {} };
+  const onMove = (e) => { if (drag == null) return; setDrag(fracFromX(e.clientX)); };
+  const onUp = (e) => { if (drag == null) return; const f = fracFromX(e.clientX); onSeekFrac(f); setDrag(null); };
+  const shownTime = drag != null ? drag * dur : time;
+  const idx = tracks.findIndex((t) => t.id === curTrack);
+  const onPick = async (e) => { const files = Array.from(e.target.files || []); e.target.value = ""; if (files.length) await onAdd(files); };
+  return portal(
+    <div className="slate-player">
+      <div className="player-top">
+        <button className="player-x" onClick={onClose} aria-label="Close player"><Glyph name="chevdown" size={22} /></button>
+        <div className="player-top-t"><div className="player-top-k">Sheikah Jukebox</div><div className="player-top-s">{tracks.length} song{tracks.length === 1 ? "" : "s"} · on this device</div></div>
+        <span className="player-top-sp" aria-hidden="true" />
+      </div>
+      <div className="player-scroll">
+        <div className="player-stage"><TrackArt name={track ? track.name : "Sheikah Jukebox"} size={236} spinning={playing} /></div>
+        <div className="player-meta">
+          <div className="player-title">{track ? track.name : "Your jukebox is empty"}</div>
+          <div className="player-sub">{track ? ("From your jukebox" + (tracks.length > 1 ? " · " + (idx + 1) + " of " + tracks.length : "")) : "Add a song to begin"}</div>
+        </div>
+        <div className="player-scrub">
+          <div className="player-bar" ref={barRef} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
+            <div className="player-bar-fill" style={{ width: (frac * 100).toFixed(2) + "%" }} />
+            <div className="player-bar-thumb" style={{ left: (frac * 100).toFixed(2) + "%" }} />
+          </div>
+          <div className="player-times"><span>{fmtClock(shownTime)}</span><span>{dur > 0 ? "-" + fmtClock(Math.max(0, dur - shownTime)) : "--:--"}</span></div>
+        </div>
+        <div className="player-transport">
+          <button className={"player-tbtn" + (shuffle ? " on" : "")} onClick={onShuffle} aria-label="Shuffle" aria-pressed={shuffle}><Glyph name="shuffle" size={20} /></button>
+          <button className="player-tbtn" onClick={onPrev} aria-label="Previous song"><Glyph name="prev" size={24} /></button>
+          <button className="player-play" onClick={onToggle} aria-label={playing ? "Pause" : "Play"}><Glyph name={playing ? "pause" : "play"} size={30} /></button>
+          <button className="player-tbtn" onClick={onNext} aria-label="Next song"><Glyph name="next" size={24} /></button>
+          <button className={"player-tbtn" + (repeat !== "off" ? " on" : "")} onClick={onRepeat} aria-label={"Repeat: " + repeat} aria-pressed={repeat !== "off"}><Glyph name={repeat === "one" ? "repeat1" : "repeat"} size={20} /></button>
+        </div>
+        <div className="player-skip">
+          <button onClick={() => onSkip(-15)} aria-label="Back 15 seconds">« 15s</button>
+          <div className="player-vol"><Glyph name={vol <= 0 ? "mute" : "sound"} size={16} /><input type="range" min="0" max="1" step="0.01" value={vol} onChange={(e) => onVol(parseFloat(e.target.value))} aria-label="Volume" /></div>
+          <button onClick={() => onSkip(15)} aria-label="Forward 15 seconds">15s »</button>
+        </div>
+        <div className="player-queue">
+          <div className="player-queue-h"><span>Up next</span><button className="player-add" onClick={() => fileRef.current && fileRef.current.click()}><Glyph name="plus" size={14} /> Add songs</button></div>
+          <input ref={fileRef} type="file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.oga,.wav,.flac,.opus,.weba" multiple style={{ display: "none" }} onChange={onPick} />
+          {tracks.map((t, i) => { const on = t.id === curTrack; return (
+            <div key={t.id} className={"pq-row" + (on ? " pq-on" : "")}>
+              <button className="pq-main" onClick={() => (on ? onToggle() : onSelect(t.id))}>
+                <span className="pq-ic">{on ? <Glyph name={playing ? "pause" : "play"} size={15} /> : <span className="pq-num">{i + 1}</span>}</span>
+                <span className="pq-name">{t.name}</span>
+              </button>
+              <button className="pq-x" onClick={() => onRemove(t.id)} aria-label="Remove song">✕</button>
+            </div>
+          ); })}
+          {!tracks.length && <div className="player-empty">No songs yet. Tap <b>Add songs</b> to load MP3/M4A files from <b>Files</b> / iCloud Drive (songs inside the Apple Music app can't be reached). They stay on this device — never uploaded.</div>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function HyruleGame({ game, setGame, games }) {
   const G = games[game];
   const { REGIONS, SHRINES, ARMOR, BESTIARY, COOKING, KOROKS, WORLD, ECONOMY, COMPENDIUM, SIDE_QUESTS, TOWERS, GREAT_FAIRIES, REGION_MAPS, MAP_COORDS, VIDEO_GUIDE, MAP_NODES, MAP_BEASTS, RUNES, TIPS, COOK_RULES, RECIPES, COOK_INGREDIENTS, CATS, ROADMAP, STATUS_RUNES, CHAMPIONS, COLLECTIBLES, terms, guideSegs, postRegionId } = G;
@@ -912,6 +1068,15 @@ function HyruleGame({ game, setGame, games }) {
   const tracksRef = useRef([]); tracksRef.current = tracks;
   const curRef = useRef(null); curRef.current = curTrack;
   const atmosRef = useRef({ motion: true, sound: false, haptics: true });
+  const [playerOpen, setPlayerOpen] = useState(false); // v27: full-screen Sheikah Jukebox overlay
+  const [shuffle, setShuffle] = useState(false);
+  const [repeat, setRepeat] = useState("all");        // off | all | one — default loops the playlist (background music)
+  const [mPlaying, setMPlaying] = useState(false);    // live transport state (from SlateMusic events)
+  const [mTime, setMTime] = useState(0);
+  const [mDur, setMDur] = useState(0);
+  const [mVol, setMVol] = useState(0.55);
+  const shuffleRef = useRef(false); shuffleRef.current = shuffle;
+  const repeatRef = useRef("all"); repeatRef.current = repeat;
   const [flash, setFlash] = useState(null);          // v9: step id whose check is pulsing (joy pass)
   const [stepFlash, setStepFlash] = useState(null);  // v9: step id highlighted after a Resume jump
   const [shrinePin, setShrinePin] = useState(null);     // v12.3: "I'm here" current-shrine id (botw:shrinepin)
@@ -958,7 +1123,15 @@ function HyruleGame({ game, setGame, games }) {
   // never leave the active tab on a surface this game hides (e.g. OoT has no Shrines/Cook)
   useEffect(() => { if ((tab === "shrines" && !hasShrines) || (tab === "cook" && !hasCook)) setTab("status"); }, [tab, hasShrines, hasCook]);
   // freeze the page behind a full-screen overlay so touch-scroll doesn't bleed through to the content under it
-  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen || mapOpen || videoClip; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen, mapOpen, videoClip]);
+  useEffect(() => { const lock = shelfOpen || searchOpen || oracleOpen || mapOpen || videoClip || playerOpen; document.body.style.overflow = lock ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [shelfOpen, searchOpen, oracleOpen, mapOpen, videoClip, playerOpen]);
+  // v27: measure the real tab-bar height (varies with safe-area) so the mini-player docks flush above it
+  const tabbarRef = useRef(null);
+  useEffect(() => {
+    const measure = () => { const el = tabbarRef.current; if (el) document.documentElement.style.setProperty("--tabbar-h", el.offsetHeight + "px"); };
+    measure(); const t = setTimeout(measure, 350);
+    window.addEventListener("resize", measure);
+    return () => { clearTimeout(t); window.removeEventListener("resize", measure); };
+  }, [tab, hasShrines, hasCook, loaded]);
   const openMap = useCallback((rk) => { setMapFocus(rk || null); setMapOpen(true); }, []);
   // tab-bar taps start the new tab at the top (and re-tapping the current tab scrolls to top, iOS-style).
   // Programmatic jumps (jumpToStep/focusShrine) use setTab directly so they keep their scroll-into-view.
@@ -972,22 +1145,65 @@ function HyruleGame({ game, setGame, games }) {
     try {
       let list = []; const raw = await store.get("hyrule:music"); if (raw) { try { const a = JSON.parse(raw); if (Array.isArray(a)) list = a; } catch (e) {} }
       if (!list.length) { try { const old = await audioDB.get("track"); if (old) list = [{ id: "track", name: "My track" }]; } catch (e) {} } // migrate v22
+      try { const mp2 = await store.get("hyrule:musicprefs"); if (mp2) { const o = JSON.parse(mp2); if (o && typeof o === "object" && !dead) { if (typeof o.shuffle === "boolean") setShuffle(o.shuffle); if (o.repeat === "off" || o.repeat === "all" || o.repeat === "one") setRepeat(o.repeat); if (typeof o.vol === "number") { setMVol(o.vol); SlateMusic.volume(o.vol); } } } } catch (e) {}
       const cur = (await store.get("hyrule:musiccur")) || (list[0] && list[0].id) || null;
-      if (cur) { try { const blob = await audioDB.get(cur); if (blob && !dead) { SlateMusic.setTrack(blob); SlateMusic.setLoop(list.length <= 1); } } catch (e) {} }
+      // only (re)load the blob if the singleton isn't already on this track — so music keeps playing across a game remount
+      if (cur && SlateMusic.loadedId() !== cur) { try { const blob = await audioDB.get(cur); if (blob && !dead) { SlateMusic.setTrack(blob, cur); SlateMusic.setLoop(false); } } catch (e) {} } // looping handled in handleEnded, not native loop
       if (dead) return; setTracks(list); setCurTrack(cur);
     } catch (e) {}
   })(); return () => { dead = true; }; }, []);
   useEffect(() => { if (loaded) store.set("hyrule:music", JSON.stringify(tracks)); }, [tracks, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:musiccur", curTrack || ""); }, [curTrack, loaded]);
+  useEffect(() => { if (loaded) store.set("hyrule:musicprefs", JSON.stringify({ shuffle, repeat, vol: mVol })); }, [shuffle, repeat, mVol, loaded]);
+  // mirror the live audio element into React state so the mini-player + full player stay in sync
+  useEffect(() => {
+    const syncState = () => setMPlaying(SlateMusic.playing());
+    const syncTime = () => { setMTime(SlateMusic.time()); setMDur(SlateMusic.dur()); };
+    SlateMusic.setOnState(() => { syncState(); syncTime(); });
+    SlateMusic.setOnTime(syncTime);
+    syncState(); syncTime();
+    return () => { SlateMusic.setOnState(null); SlateMusic.setOnTime(null); };
+  }, []);
   // route the sound toggle: a chosen track plays if the jukebox has any, otherwise the synthesized hum
   useEffect(() => { if (!loaded) return; if (atmos.sound) { if (tracks.length) { SlateMusic.play(); SlateAudio.disable(); } else { SlateAudio.enable(); SlateMusic.pause(); } } else { SlateAudio.disable(); SlateMusic.pause(); } }, [atmos.sound, tracks.length, loaded]);
   useEffect(() => { if (atmos.sound && !tracks.length) SlateAudio.setScene(tab); }, [tab, atmos.sound, tracks.length]);
   const selectTrack = useCallback(async (id) => {
-    try { const blob = await audioDB.get(id); if (!blob) return; SlateMusic.setTrack(blob); SlateMusic.setLoop(tracksRef.current.length <= 1); } catch (e) { return; }
-    setCurTrack(id); SlateAudio.disable(); setAtmos((a) => ({ ...a, sound: true })); SlateMusic.play();
+    try { const blob = await audioDB.get(id); if (!blob) return; SlateMusic.setTrack(blob, id); SlateMusic.setLoop(false); } catch (e) { return; }
+    setCurTrack(id); SlateAudio.disable(); setAtmos((a) => (a.sound ? a : { ...a, sound: true })); SlateMusic.play();
   }, []);
-  const playNext = useCallback((dir = 1) => { const t = tracksRef.current; if (!t.length) return; const i = Math.max(0, t.findIndex((x) => x.id === curRef.current)); const n = t[(((i + dir) % t.length) + t.length) % t.length]; if (n) selectTrack(n.id); }, [selectTrack]);
-  useEffect(() => { SlateMusic.setOnEnded(() => { if (tracksRef.current.length > 1) playNext(1); }); }, [playNext]);
+  // move through the queue: honor shuffle; on a manual step always wrap, on auto-advance stop at the end unless repeat:all
+  const advance = useCallback((dir, auto) => {
+    const t = tracksRef.current; if (!t.length) return;
+    if (shuffleRef.current && t.length > 1) {
+      const others = t.filter((x) => x.id !== curRef.current);
+      const n = others[Math.floor(Math.random() * others.length)] || t[0];
+      if (n) selectTrack(n.id); return;
+    }
+    const i = Math.max(0, t.findIndex((x) => x.id === curRef.current));
+    let ni = i + dir;
+    if (ni >= t.length) { if (auto && repeatRef.current !== "all") { SlateMusic.pause(); setAtmos((a) => (a.sound ? { ...a, sound: false } : a)); return; } ni = 0; }
+    if (ni < 0) ni = t.length - 1;
+    const n = t[ni]; if (n) selectTrack(n.id);
+  }, [selectTrack]);
+  const handleEnded = useCallback(() => {
+    if (repeatRef.current === "one") { SlateMusic.seek(0); SlateMusic.play(); return; }
+    const t = tracksRef.current;
+    if (t.length <= 1) { if (repeatRef.current === "all") { SlateMusic.seek(0); SlateMusic.play(); } else { SlateMusic.pause(); setAtmos((a) => (a.sound ? { ...a, sound: false } : a)); } return; }
+    advance(1, true);
+  }, [advance]);
+  useEffect(() => { SlateMusic.setOnEnded(handleEnded); }, [handleEnded]);
+  const playNext = useCallback((dir = 1) => advance(dir, false), [advance]);
+  const togglePlay = useCallback(() => {
+    if (!curRef.current) return;
+    if (SlateMusic.playing()) { SlateMusic.pause(); setAtmos((a) => (a.sound ? { ...a, sound: false } : a)); }
+    else { const d = SlateMusic.dur(); if (d && SlateMusic.time() >= d - 0.3) SlateMusic.seek(0); SlateAudio.disable(); setAtmos((a) => (a.sound ? a : { ...a, sound: true })); SlateMusic.play(); }
+  }, []);
+  const seekFrac = useCallback((f) => { SlateMusic.seekFrac(f); setMTime(SlateMusic.time()); }, []);
+  const skipMusic = useCallback((d) => { SlateMusic.skip(d); setMTime(SlateMusic.time()); }, []);
+  const setVolume = useCallback((v) => { SlateMusic.volume(v); setMVol(v); }, []);
+  const toggleShuffle = useCallback(() => setShuffle((s) => !s), []);
+  const cycleRepeat = useCallback(() => setRepeat((r) => (r === "off" ? "all" : r === "all" ? "one" : "off")), []);
+  const curTrackObj = useMemo(() => tracks.find((t) => t.id === curTrack) || null, [tracks, curTrack]);
   const importMusic = useCallback(async (file) => {
     if (!file) throw new Error("No file chosen.");
     const id = "trk_" + (file.name || "song").replace(/[^a-z0-9]+/gi, "").slice(0, 14) + "_" + Math.floor((typeof performance !== "undefined" ? performance.now() : 0) % 1e6) + "_" + tracksRef.current.length;
@@ -1000,6 +1216,10 @@ function HyruleGame({ game, setGame, games }) {
     try { await audioDB.del(id); } catch (e) {}
     setTracks((t) => { const left = t.filter((x) => x.id !== id); if (curRef.current === id) { if (left.length) setTimeout(() => selectTrack(left[0].id), 0); else { SlateMusic.clear(); setCurTrack(null); if (atmosRef.current && atmosRef.current.sound) SlateAudio.enable(); } } return left; });
   }, [selectTrack]);
+  const addMusicFiles = useCallback(async (files) => {  // v27: full-player "Add songs" — load many at once into the device-local jukebox
+    const audio = Array.from(files).filter((f) => (f.type && /^audio\//.test(f.type)) || /\.(mp3|m4a|aac|ogg|oga|wav|flac|opus|weba)$/i.test(f.name || ""));
+    for (const f of audio) { try { await importMusic(f); } catch (e) {} }
+  }, [importMusic]);
   useEffect(() => { if (loaded) store.set("hyrule:reading", JSON.stringify(reading)); }, [reading, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:bookmarks", JSON.stringify(bookmarks)); }, [bookmarks, loaded]);
   useEffect(() => { if (loaded) store.set("hyrule:readerprefs", JSON.stringify(readerPrefs)); }, [readerPrefs, loaded]);
@@ -1243,8 +1463,9 @@ function HyruleGame({ game, setGame, games }) {
   // v9: this region sits ahead of where you are on the path → veil its rewards/bosses (spoiler mode, not while searching)
   const regionVeiled = useMemo(() => spoiler && !q && REGIONS.findIndex((r) => r.id === currentRegion.id) > resumeIdx, [spoiler, q, currentRegion, resumeIdx]);
 
+  const showMini = loaded && tracks.length > 0 && !playerOpen;
   return (
-    <div className="app">
+    <div className={"app" + (showMini ? " has-mini" : "")}>
       <StyleBlock />
       {atmos.motion && <SlateBackground />}
       <header className="topbar">
@@ -1300,6 +1521,14 @@ function HyruleGame({ game, setGame, games }) {
             cook: () => setTab("cook"),
             items: () => setTab("items"),
           }} />
+      )}
+
+      {playerOpen && (
+        <FullPlayer tracks={tracks} curTrack={curTrack} track={curTrackObj}
+          playing={mPlaying} time={mTime} dur={mDur} vol={mVol} shuffle={shuffle} repeat={repeat}
+          onClose={() => setPlayerOpen(false)} onToggle={togglePlay} onPrev={() => playNext(-1)} onNext={() => playNext(1)}
+          onSeekFrac={seekFrac} onSkip={skipMusic} onVol={setVolume} onShuffle={toggleShuffle} onRepeat={cycleRepeat}
+          onSelect={selectTrack} onRemove={removeTrack} onAdd={addMusicFiles} />
       )}
 
       <main className="body" key={tab}>
@@ -1544,7 +1773,7 @@ function HyruleGame({ game, setGame, games }) {
             : guideSub === "koroks" ? <KoroksView data={KOROKS} koroks={koroks} setKoroks={setKoroks} />
             : guideSub === "economy" ? <EconomyView data={ECONOMY} />
             : guideSub === "world" ? <WorldView data={WORLD} />
-            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} atmos={atmos} setAtmos={setAtmos} tracks={tracks} curTrack={curTrack} importMusic={importMusic} removeTrack={removeTrack} selectTrack={selectTrack} playNext={playNext} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
+            : guideSub === "settings" ? <SettingsView spoiler={spoiler} setSpoiler={setSpoiler} atmos={atmos} setAtmos={setAtmos} tracks={tracks} curTrack={curTrack} importMusic={importMusic} removeTrack={removeTrack} selectTrack={selectTrack} playNext={playNext} openPlayer={() => setPlayerOpen(true)} doExport={exportSave} doImport={importSave} confirmReset={confirmReset} setConfirmReset={setConfirmReset} doReset={resetAll} />
             : (
               <>
                 <p className="ref-lede">The handful of things that stop the early game from feeling brutal.</p>
@@ -1556,7 +1785,12 @@ function HyruleGame({ game, setGame, games }) {
         )}
       </main>
 
-      <nav className="tabbar">
+      {showMini && curTrackObj && (
+        <MiniPlayer track={curTrackObj} playing={mPlaying} time={mTime} dur={mDur} canStep={tracks.length > 1}
+          onToggle={togglePlay} onPrev={() => playNext(-1)} onNext={() => playNext(1)} onOpen={() => setPlayerOpen(true)} />
+      )}
+
+      <nav className="tabbar" ref={tabbarRef}>
         <TabBtn active={tab === "status"} onClick={() => goTab("status")} glyph="eye" label="Status" />
         <TabBtn active={tab === "journey"} onClick={() => goTab("journey")} glyph="tower" label="Journey" />
         {hasShrines && <TabBtn active={tab === "shrines"} onClick={() => goTab("shrines")} glyph="shrine" label="Shrines" />}
@@ -2940,7 +3174,7 @@ function BackupBox({ doExport, doImport }) {
 }
 
 /* ============================================================ SETTINGS ============================================================ */
-function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, tracks, curTrack, importMusic, removeTrack, selectTrack, playNext, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
+function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, tracks, curTrack, importMusic, removeTrack, selectTrack, playNext, openPlayer, doExport, doImport, confirmReset, setConfirmReset, doReset }) {
   const ver = (typeof window !== "undefined" && window.__APP_VERSION__) || "dev";
   const setA = (k) => setAtmos((a) => ({ ...a, [k]: !a[k] }));
   const musicRef = useRef(null);
@@ -2972,6 +3206,7 @@ function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, tracks, curTrack, 
       </div>
       <div className="set-music">
         <div className="set-name" style={{ marginBottom: 2 }}>Jukebox</div>
+        <button className="set-music-btn set-music-open" onClick={openPlayer}><Glyph name="note" size={14} /> Open the music player</button>
         <input ref={musicRef} type="file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.oga,.wav,.flac,.opus" multiple style={{ display: "none" }} onChange={onMusicPick} />
         {tracks.length > 0 && <div className="jukebox">
           {tracks.map((t) => { const on = t.id === curTrack; return (
@@ -4003,6 +4238,69 @@ function StyleBlock() {
 .juke-x{flex-shrink:0;width:26px;height:26px;border-radius:6px;background:transparent;border:1px solid rgba(224,80,107,0.35);color:var(--malice);font-size:12px;cursor:pointer;}
 .juke-controls{display:flex;gap:6px;margin-top:2px;}
 .set-music-note{flex-basis:100%;font-size:11px;color:var(--parch-dim);margin:2px 0 0;}
+.set-music-open{flex-basis:100%;justify-content:center;background:rgba(95,214,226,0.14);border-color:rgba(95,214,226,0.5);color:var(--cyan);}
+/* ===== v27 · the Sheikah Jukebox: generated cover art · persistent mini-player · full iPod-style player ===== */
+.app.has-mini{padding-bottom:calc(var(--tabbar-h,64px) + 78px);}
+.track-art{position:relative;border-radius:50%;overflow:hidden;flex-shrink:0;box-shadow:0 2px 10px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(255,255,255,0.08);}
+.track-art svg{display:block;width:100%;height:100%;}
+.track-art-spin svg{animation:art-spin 11s linear infinite;}
+@keyframes art-spin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+.mini-dock{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tabbar-h,64px) + 6px);width:100%;max-width:560px;z-index:26;padding:0 8px;pointer-events:none;}
+.mini-bar{pointer-events:auto;position:relative;display:flex;align-items:center;gap:10px;background:linear-gradient(180deg,rgba(16,30,37,0.97),rgba(11,21,26,0.98));border:1px solid rgba(95,214,226,0.28);border-radius:15px;padding:7px 9px;box-shadow:0 6px 22px rgba(0,0,0,0.5),0 0 14px rgba(95,214,226,0.08);overflow:hidden;backdrop-filter:blur(10px);}
+.mini-open{flex:1;min-width:0;display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;text-align:left;padding:0;}
+.mini-mid{display:flex;flex-direction:column;gap:1px;min-width:0;}
+.mini-name{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;color:var(--parch);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mini-sub{font-size:10.5px;letter-spacing:.4px;color:var(--cyan-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mini-btns{display:flex;align-items:center;gap:1px;flex-shrink:0;}
+.mini-b{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:none;border:none;color:var(--parch);cursor:pointer;}
+.mini-b:active{transform:scale(.9);}
+.mini-pp{background:var(--cyan);color:var(--abyss);box-shadow:0 0 10px rgba(95,214,226,0.4);}
+.mini-prog{position:absolute;left:0;right:0;bottom:0;height:2.5px;background:rgba(255,255,255,0.08);}
+.mini-prog span{display:block;height:100%;background:var(--cyan);box-shadow:0 0 6px rgba(95,214,226,0.6);transition:width .25s linear;}
+.slate-player{position:fixed;inset:0;z-index:56;background:radial-gradient(120% 80% at 50% -10%,rgba(95,214,226,0.1),transparent 55%),rgba(6,12,16,0.99);backdrop-filter:blur(10px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);animation:fadeIn .2s ease;}
+.player-top{display:flex;align-items:center;gap:10px;padding:12px 14px 10px;}
+.player-x{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--parch);cursor:pointer;flex-shrink:0;}
+.player-top-sp{width:38px;flex-shrink:0;}
+.player-top-t{flex:1;text-align:center;min-width:0;}
+.player-top-k{font-family:'Cinzel',Georgia,serif;font-weight:600;font-size:15px;color:var(--parch);}
+.player-top-s{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan-dim);}
+.player-scroll{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:6px 20px calc(24px + env(safe-area-inset-bottom,0px));}
+.player-stage{display:flex;justify-content:center;padding:12px 0 18px;}
+.player-stage .track-art{box-shadow:0 14px 50px rgba(0,0,0,0.55),0 0 40px rgba(95,214,226,0.12),inset 0 0 0 1px rgba(255,255,255,0.08);}
+.player-meta{text-align:center;margin-bottom:16px;}
+.player-title{font-family:'Cinzel',Georgia,serif;font-weight:700;font-size:21px;line-height:1.25;color:var(--parch);word-break:break-word;}
+.player-sub{font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--cyan-dim);margin-top:5px;}
+.player-scrub{margin-bottom:6px;}
+.player-bar{position:relative;height:24px;display:flex;align-items:center;cursor:pointer;touch-action:none;}
+.player-bar:before{content:"";position:absolute;left:0;right:0;height:5px;border-radius:3px;background:rgba(255,255,255,0.12);}
+.player-bar-fill{position:absolute;left:0;height:5px;border-radius:3px;background:linear-gradient(90deg,var(--cyan),#9be8f0);box-shadow:0 0 8px rgba(95,214,226,0.5);}
+.player-bar-thumb{position:absolute;top:50%;width:15px;height:15px;border-radius:50%;background:#eafcff;box-shadow:0 0 8px rgba(95,214,226,0.85);transform:translate(-50%,-50%);}
+.player-times{display:flex;justify-content:space-between;font-family:'Rajdhani',sans-serif;font-size:11.5px;color:var(--parch-dim);font-variant-numeric:tabular-nums;}
+.player-transport{display:flex;align-items:center;justify-content:center;gap:13px;margin:14px 0 6px;}
+.player-tbtn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:none;border:none;color:var(--parch);cursor:pointer;}
+.player-tbtn.on{color:var(--cyan);}
+.player-tbtn:active{transform:scale(.9);}
+.player-play{width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--cyan),#34b6c6);color:var(--abyss);border:none;cursor:pointer;box-shadow:0 6px 20px rgba(95,214,226,0.4),inset 0 1px 2px rgba(255,255,255,0.4);}
+.player-play:active{transform:scale(.95);}
+.player-skip{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 18px;}
+.player-skip>button{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.6px;color:var(--cyan-dim);background:rgba(95,214,226,0.07);border:1px solid rgba(95,214,226,0.2);border-radius:18px;padding:7px 14px;cursor:pointer;flex-shrink:0;}
+.player-vol{flex:1;display:flex;align-items:center;gap:9px;color:var(--cyan-dim);max-width:230px;}
+.player-vol input[type=range]{flex:1;accent-color:var(--cyan);height:4px;cursor:pointer;}
+.player-queue{border-top:1px solid rgba(95,214,226,0.14);padding-top:14px;}
+.player-queue-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.player-queue-h>span{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan-dim);}
+.player-add{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.4px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:16px;padding:6px 12px;cursor:pointer;}
+.pq-row{display:flex;align-items:center;gap:8px;border-radius:11px;padding:2px;margin-bottom:2px;}
+.pq-row.pq-on{background:rgba(95,214,226,0.1);}
+.pq-main{flex:1;min-width:0;display:flex;align-items:center;gap:11px;background:none;border:none;cursor:pointer;text-align:left;padding:8px 6px;color:var(--parch);}
+.pq-ic{width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--cyan);}
+.pq-num{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;color:var(--parch-dim);}
+.pq-name{flex:1;min-width:0;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pq-on .pq-name{color:var(--cyan);}
+.pq-x{flex-shrink:0;width:30px;height:30px;border-radius:7px;background:none;border:1px solid rgba(224,80,107,0.3);color:var(--malice);font-size:13px;cursor:pointer;}
+.player-empty{font-size:13.5px;line-height:1.6;color:var(--parch-dim);background:rgba(15,28,34,0.5);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;}
+.player-empty b{color:var(--cyan);}
+@media (max-width:380px){.player-transport{gap:8px;}.player-tbtn{width:44px;height:44px;}.player-play{width:66px;height:66px;}}
 .ask-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.1);border:1px solid rgba(95,214,226,0.36);color:var(--cyan);cursor:pointer;box-shadow:0 0 9px rgba(95,214,226,0.2);}
 .ask-trigger:active{transform:scale(.95);}
 .map-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;}
