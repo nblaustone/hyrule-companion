@@ -983,6 +983,33 @@ layout, `REGION_MAPS` = the per-region coords.
     diff + has each finding ADVERSARIALLY re-verified against the live code keeps false-positives near zero (caught
     the dangerous no-pin mislabel; correctly killed the speculative collision). The whole 4-finding cluster pointed
     at ONE component — dedupe by root cause before fixing.**
+- **v28 — "Your Story" + the Thinking Slate (DONE).** The owner picked three compounding directions; built as A→B→C.
+  - **v28.0 — The Chronicle (Phase A).** A new full-screen portaled overlay reflecting the player's run back to
+    them, woven ONLY from real progress counts (honesty law). Cards: **story-so-far** narrative (game-aware via
+    `terms.worldName`/`championsLabel`; each line guarded so a game lacking a dataset omits it), **chapters**
+    (every main-quest region + bar), **recent deeds** (a real timeline — completions are now timestamped going
+    forward in a new `<game>:done` map stamped in `toggleStep`; newest-first + relative time; `stepLabel` maps
+    ids→names for shrines/fairies/armor/walkthrough), and **across the ages** (cross-game dashboard reading each
+    `<id>:progress` like GameShelf, original `GameCover` emblems, tap to switch). Entry: a Status card + ⋯-menu
+    item. Device-local (NOT in the backup blob, like vidfix/mapcal).
+  - **v28.1 — deepen video + map (Phase B).** (1) **Continue watching:** the video remembers your last position
+    per game (`<game>:vidpos {videoId,t}`, captured on close from the YT player's `getCurrentTime` ONLY when you
+    advanced >30s past the jump point — a glance doesn't count); any clip offers **"▶ Continue where you left off ·
+    H:MM:SS"** (when the saved spot is >90s from this clip's start) → seeks+plays. (2) **Main-quest-aware map:**
+    "Guide me" now surfaces the **nearest Divine Beast still to free** (beast freed === its Champion grant-step
+    done, via a `beastTodo` memo from `CHAMPIONS.from`+progress) — a bright cyan route from the pin, a dashed
+    emphasis ring on un-freed beasts, and a lead strip chip "▸ Free <beast>" that flies to the beast card.
+  - **v28.2 — The Thinking Slate (Phase C).** The Chronicle's headline became a **generative SAGA** — a richer,
+    arc-staged (blank page→truly begun→a name across the land→the end draws near→it is finished), milestone-reactive
+    narration assembled DETERMINISTICALLY from real counts (`composeSaga`; names the freed beasts via `listAnd`;
+    weaves shrines→vessels + memories/fairies/koroks/quests). **🔊 Read aloud** uses **SpeechSynthesis** so the
+    device speaks your legend (guarded; cancels on close). Honest realization of the "generative Chronicle": a
+    sub-1B model can't be trusted to stay grounded ([[v18.6 lesson]]), so the saga is templated from facts — an
+    opt-in LLM could later REPHRASE it, never source it. Verified BotW + MM (game-aware: "through Termina", "The
+    Remains still stand untaken"), 0 console errors, offline-clean across all three.
+  - **Honest limit banked:** Read-aloud needs the device's TTS voices (none in the headless sandbox → it no-ops
+    cleanly there; speaks on a real device). The on-device LLM rephrase of the saga is deferred (WebGPU-gated; the
+    owner's phone OOM'd the 1B model in v18.4 — keep generative text deterministic-by-default).
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
