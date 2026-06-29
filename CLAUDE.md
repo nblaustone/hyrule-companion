@@ -912,6 +912,23 @@ layout, `REGION_MAPS` = the per-region coords.
     overflow), **0 console errors, build offline-clean.** **Lesson: the preg player is native (expo-audio) — port the
     ARCHITECTURE (root-held singleton + mini-bar + tap-to-expand + auto-advance), not the API; the web equivalent is
     one detached `new Audio()` element (so it's NOT in the DOM — verify state via the UI/React, not `querySelector('audio')`).**
+- **v27.1 — top-bar declutter + sound→player + a latent data-loss fix (DONE).** Owner: the top bar got crowded
+  (up to 7 things) and wanted the player easy to reach. Picked via AskUserQuestion: **(1) tapping the top-bar sound
+  button now OPENS the full player** (icon still reflects playback; play/pause + mute live on the mini-bar and inside
+  the player; the synth-hum toggle stays in Settings). **(2) Map + Ask the Slate moved into a "⋯" tools menu**
+  (`menuOpen`, a portaled popover right-anchored under the bar with a transparent click-catch backdrop; new `more`
+  glyph). The bar is now **game-switch · Resume · music · search · ⋯ · %** — no overflow at 375px (the ≤430px media
+  rule updated to size `.atmos-trigger/.search-trigger/.more-trigger`). Deliberately **no new top-bar button** (the
+  v18.1 overflow lesson) — the music entry reused the existing sound button's slot.
+  - **Also fixed a real, latent DATA-LOSS race (predates v27):** the music-persist effects gated on `loaded` (set by
+    the MAIN load effect), but the saved playlist is restored by a SEPARATE async effect — so when the main effect
+    won the race, the persist effect wrote `[]` over `hyrule:music` before it was read back, **wiping the playlist**
+    on some loads. Fixed with a dedicated `musicLoaded` gate (set true only after the playlist read-back) on all
+    three music-persist effects. Caught it because a verify reload showed `hyrule:music` had become `[]`. **Lesson:
+    a persist effect must not be gated on a DIFFERENT subsystem's "loaded" flag than the one that hydrates it — if
+    state X is restored asynchronously, gate X's persist on X's own load-done flag, or the empty initial value races
+    in and clobbers storage.** Verified in-browser: bar declutter + no overflow, ⋯ menu opens/navigates/backdrop-
+    dismisses, sound→player, **playlist now survives reload (3/3 retained)**, 0 console errors, offline-clean.
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

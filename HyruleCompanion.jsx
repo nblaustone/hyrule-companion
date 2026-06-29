@@ -722,6 +722,7 @@ function Glyph({ name, size = 26 }) {
     case "chevdown": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.6"><path d="M12 18l12 12 12-12" /></svg>);
     case "note": return (<svg viewBox="0 0 48 48" style={s} {...c}><path d="M20 34V12l18-4v22" /><circle cx="15" cy="34" r="5" fill="currentColor" stroke="currentColor" /><circle cx="33" cy="30" r="5" fill="currentColor" stroke="currentColor" /></svg>);
     case "plus": return (<svg viewBox="0 0 48 48" style={s} {...c} strokeWidth="2.6"><path d="M24 12v24M12 24h24" /></svg>);
+    case "more": return (<svg viewBox="0 0 48 48" style={s} {...c}><circle cx="12" cy="24" r="3.4" fill="currentColor" stroke="none" /><circle cx="24" cy="24" r="3.4" fill="currentColor" stroke="none" /><circle cx="36" cy="24" r="3.4" fill="currentColor" stroke="none" /></svg>);
     default: return null;
   }
 }
@@ -1053,6 +1054,7 @@ function HyruleGame({ game, setGame, games }) {
   const [bookBusy, setBookBusy] = useState(null);    // v12: import status {name,done,total} | {name,error}
   const [searchOpen, setSearchOpen] = useState(false);
   const [oracleOpen, setOracleOpen] = useState(false); // v18.1: "Ask the Slate" offline oracle
+  const [menuOpen, setMenuOpen] = useState(false);     // v27.1: topbar "⋯" tools menu (Map · Ask the Slate)
   const [shelfOpen, setShelfOpen] = useState(false); // game-select shelf overlay (console/era)
   const [mapOpen, setMapOpen] = useState(false);     // v19: full-screen Slate Map overlay
   const [mapFocus, setMapFocus] = useState(null);    // v19: regionKey to open the map zoomed to (or null)
@@ -1075,6 +1077,7 @@ function HyruleGame({ game, setGame, games }) {
   const [mTime, setMTime] = useState(0);
   const [mDur, setMDur] = useState(0);
   const [mVol, setMVol] = useState(0.55);
+  const [musicLoaded, setMusicLoaded] = useState(false); // gate the music-persist effects until the saved playlist is read back (else we overwrite it with [])
   const shuffleRef = useRef(false); shuffleRef.current = shuffle;
   const repeatRef = useRef("all"); repeatRef.current = repeat;
   const [flash, setFlash] = useState(null);          // v9: step id whose check is pulsing (joy pass)
@@ -1151,10 +1154,11 @@ function HyruleGame({ game, setGame, games }) {
       if (cur && SlateMusic.loadedId() !== cur) { try { const blob = await audioDB.get(cur); if (blob && !dead) { SlateMusic.setTrack(blob, cur); SlateMusic.setLoop(false); } } catch (e) {} } // looping handled in handleEnded, not native loop
       if (dead) return; setTracks(list); setCurTrack(cur);
     } catch (e) {}
+    if (!dead) setMusicLoaded(true); // only now is it safe to start persisting the playlist
   })(); return () => { dead = true; }; }, []);
-  useEffect(() => { if (loaded) store.set("hyrule:music", JSON.stringify(tracks)); }, [tracks, loaded]);
-  useEffect(() => { if (loaded) store.set("hyrule:musiccur", curTrack || ""); }, [curTrack, loaded]);
-  useEffect(() => { if (loaded) store.set("hyrule:musicprefs", JSON.stringify({ shuffle, repeat, vol: mVol })); }, [shuffle, repeat, mVol, loaded]);
+  useEffect(() => { if (musicLoaded) store.set("hyrule:music", JSON.stringify(tracks)); }, [tracks, musicLoaded]);
+  useEffect(() => { if (musicLoaded) store.set("hyrule:musiccur", curTrack || ""); }, [curTrack, musicLoaded]);
+  useEffect(() => { if (musicLoaded) store.set("hyrule:musicprefs", JSON.stringify({ shuffle, repeat, vol: mVol })); }, [shuffle, repeat, mVol, musicLoaded]);
   // mirror the live audio element into React state so the mini-player + full player stay in sync
   useEffect(() => {
     const syncState = () => setMPlaying(SlateMusic.playing());
@@ -1476,10 +1480,9 @@ function HyruleGame({ game, setGame, games }) {
         <div className="topbar-r">
           {Object.keys(games).length > 1 && <button className="game-switch" onClick={() => setShelfOpen(true)} aria-label="Switch game" style={{ "--ga": G.meta?.accent || "var(--cyan)" }}><span className="game-switch-dot" /><span>{G.short}</span><span className="game-switch-chev">▾</span></button>}
           {resumeTarget && <button className="resume-trigger" onClick={() => jumpToStep(resumeTarget.regionId, resumeTarget.secId, resumeTarget.stepId)} aria-label={"Resume — you're here: " + resumeTarget.secName}><Glyph name="pin" size={15} /><span>Resume</span></button>}
-          {MAP_COORDS && MAP_COORDS.shrines && <button className="map-trigger" onClick={() => openMap(null)} aria-label="Map of Hyrule"><Glyph name="map" size={18} /></button>}
-          <button className="ask-trigger" onClick={() => setOracleOpen(true)} aria-label="Ask the Slate"><Glyph name="spark" size={17} /></button>
-          <button className={"atmos-trigger" + (atmos.sound ? " atmos-on" : "")} onClick={() => setAtmos((a) => ({ ...a, sound: !a.sound }))} aria-label={atmos.sound ? "Mute the Slate" : "Wake the Slate"} aria-pressed={atmos.sound}><Glyph name={atmos.sound ? "sound" : "mute"} size={18} /></button>
+          <button className={"atmos-trigger" + ((tracks.length ? mPlaying : atmos.sound) ? " atmos-on" : "")} onClick={() => setPlayerOpen(true)} aria-label="Open music player"><Glyph name={(tracks.length ? mPlaying : atmos.sound) ? "sound" : "mute"} size={18} /></button>
           <button className="search-trigger" onClick={() => { setSearchOpen(true); }} aria-label="Search everything"><Glyph name="search" size={18} /></button>
+          <button className={"more-trigger" + (menuOpen ? " more-on" : "")} onClick={() => setMenuOpen(true)} aria-label="More tools" aria-haspopup="true" aria-expanded={menuOpen}><Glyph name="more" size={18} /></button>
           <div className="region-chip">{pct}%</div>
         </div>
       </header>
@@ -1521,6 +1524,17 @@ function HyruleGame({ game, setGame, games }) {
             cook: () => setTab("cook"),
             items: () => setTab("items"),
           }} />
+      )}
+
+      {menuOpen && portal(
+        <div className="topmenu-back" onClick={() => setMenuOpen(false)}>
+          <div className="topmenu-wrap">
+            <div className="topmenu" onClick={(e) => e.stopPropagation()}>
+              {MAP_COORDS && MAP_COORDS.shrines && <button className="topmenu-item" onClick={() => { setMenuOpen(false); openMap(null); }}><Glyph name="map" size={18} /><span>Map of Hyrule</span></button>}
+              <button className="topmenu-item" onClick={() => { setMenuOpen(false); setOracleOpen(true); }}><Glyph name="spark" size={17} /><span>Ask the Slate</span></button>
+            </div>
+          </div>
+        </div>
       )}
 
       {playerOpen && (
@@ -4305,6 +4319,15 @@ function StyleBlock() {
 .ask-trigger:active{transform:scale(.95);}
 .map-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;}
 .map-trigger:active{transform:scale(.95);}
+.more-trigger{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(95,214,226,0.06);border:1px solid rgba(95,214,226,0.22);color:var(--cyan-dim);cursor:pointer;transition:color .2s,border-color .2s;}
+.more-trigger:active{transform:scale(.95);}
+.more-trigger.more-on{color:var(--cyan);border-color:rgba(95,214,226,0.5);}
+.topmenu-back{position:fixed;inset:0;z-index:42;background:transparent;}
+.topmenu-wrap{position:fixed;top:calc(env(safe-area-inset-top,0px) + 54px);left:50%;transform:translateX(-50%);width:100%;max-width:560px;z-index:43;display:flex;justify-content:flex-end;padding:0 14px;pointer-events:none;}
+.topmenu{pointer-events:auto;min-width:192px;background:linear-gradient(180deg,rgba(16,30,37,0.99),rgba(11,21,26,0.99));border:1px solid rgba(95,214,226,0.28);border-radius:14px;padding:6px;box-shadow:0 12px 32px rgba(0,0,0,0.55),0 0 14px rgba(95,214,226,0.07);animation:stepsIn .16s ease;}
+.topmenu-item{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;color:var(--parch);cursor:pointer;text-align:left;padding:11px 12px;border-radius:10px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14.5px;}
+.topmenu-item:active{background:rgba(95,214,226,0.12);}
+.topmenu-item>svg{color:var(--cyan-dim);flex-shrink:0;}
 .slate-oracle{position:fixed;inset:0;z-index:55;background:rgba(7,14,18,0.98);backdrop-filter:blur(8px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);}
 .oracle-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 12px;border-bottom:1px solid rgba(95,214,226,0.16);}
 .oracle-title{display:flex;align-items:center;gap:10px;}
@@ -4685,7 +4708,7 @@ function StyleBlock() {
 .veil-tap{color:var(--cyan-dim);text-decoration:underline;text-underline-offset:2px;font-weight:700;}
 .veil-inline{font:inherit;color:var(--cyan-dim);background:none;border:none;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;}
 @media (max-width:380px){.resume-trigger span{display:none;}.resume-trigger{padding:6px 8px;}}
-@media (max-width:430px){.topbar{gap:7px;}.topbar-r{gap:6px;}.brand>div{display:none;}.ask-trigger,.atmos-trigger,.search-trigger,.map-trigger{width:31px;height:31px;}}
+@media (max-width:430px){.topbar{gap:7px;}.topbar-r{gap:6px;}.brand>div{display:none;}.atmos-trigger,.search-trigger,.more-trigger{width:31px;height:31px;}}
 /* Lore Library (v11) */
 .lore-cont{position:relative;display:block;width:100%;text-align:left;background:linear-gradient(180deg,var(--panel),rgba(15,28,34,.5));border:1px solid rgba(95,214,226,.25);border-radius:14px;padding:14px 15px;margin:0 0 16px;cursor:pointer;overflow:hidden;}
 .lore-cont-bar{position:absolute;top:0;left:0;height:3px;background:var(--cyan);}
