@@ -3368,8 +3368,13 @@ function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStat
   const [cross, setCross] = useState(null);
   const [speaking, setSpeaking] = useState(false);
   const canSpeak = typeof window !== "undefined" && "speechSynthesis" in window;
+  const [brain, setBrain] = useState(SlateLLM.status());   // v28.3 opt-in AI retelling: idle | loading | ready | unsupported | error
+  const [bprog, setBprog] = useState(SlateLLM.progress());
+  const [retell, setRetell] = useState(null);              // { text, busy, error }
   useEffect(() => { const onKey = (e) => { if (e.key === "Escape") onClose(); }; document.addEventListener("keydown", onKey); return () => document.removeEventListener("keydown", onKey); }, []);
   useEffect(() => () => { try { if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) {} }, []); // stop narration on close
+  useEffect(() => { const un = SlateLLM.subscribe(() => { setBrain(SlateLLM.status()); setBprog(SlateLLM.progress()); }); return un; }, []);
+  const enableAI = async () => { try { await store.set("hyrule:slatebrain", "1"); await store.set("hyrule:slatemodel", "light"); } catch (e) {} SlateLLM.load("light"); };
   useEffect(() => { let dead = false; (async () => {
     const out = [];
     for (const id of Object.keys(games)) {
@@ -3385,6 +3390,12 @@ function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStat
   const saga = composeSaga({ pct, worldName, champions, championsLabel, progress, shrineStats, extraStats, koroks, maxSeeds });
   const speak = () => { if (!canSpeak) return; try { window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(saga.join(" ")); u.rate = 0.95; u.onend = () => setSpeaking(false); u.onerror = () => setSpeaking(false); setSpeaking(true); window.speechSynthesis.speak(u); } catch (e) { setSpeaking(false); } };
   const stopSpeak = () => { try { window.speechSynthesis.cancel(); } catch (e) {} setSpeaking(false); };
+  const doRetell = async () => {
+    if (SlateLLM.status() !== "ready") return;
+    setRetell({ text: "", busy: true, error: false });
+    try { const out = await SlateLLM.rephrase(saga.join(" "), (full) => setRetell({ text: full, busy: true, error: false })); setRetell({ text: out, busy: false, error: false }); }
+    catch (e) { setRetell({ text: "", busy: false, error: true }); }
+  };
 
   const recent = Object.keys(doneAt || {}).map((id) => ({ id, at: doneAt[id], label: stepLabel(id) })).filter((r) => r.label && r.at).sort((a, b) => b.at - a.at).slice(0, 8);
   const ago = (ms) => { const s = Math.floor((Date.now() - ms) / 1000); if (s < 60) return "just now"; const m = Math.floor(s / 60); if (m < 60) return m + "m ago"; const h = Math.floor(m / 60); if (h < 24) return h + "h ago"; const d = Math.floor(h / 24); return d + (d === 1 ? " day ago" : " days ago"); };
@@ -3404,6 +3415,22 @@ function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStat
           </div>
           {saga.map((s, i) => <p key={i} className="chron-line">{s}</p>)}
         </div>
+
+        {SlateLLM.supported() && brain !== "unsupported" && (
+          <div className="chron-card chron-ai">
+            <div className="chron-h">In the Slate's words <span className="chron-ai-tag">AI retelling · grounded in the facts above</span></div>
+            {brain === "idle" && <button className="chron-ai-btn" onClick={enableAI}>✦ Let the Slate retell your saga<span>One-time on-device download · then works offline. Same facts, finer prose — never embellished.</span></button>}
+            {brain === "loading" && <div className="chron-ai-load"><div className="chron-ai-bar"><span style={{ width: Math.round((bprog.p || 0) * 100) + "%" }} /></div><span>{/cache|loading model/i.test(bprog.text || "") ? "Waking the Slate's mind from your device…" : "Downloading the Slate's mind…"} {Math.round((bprog.p || 0) * 100)}% · keep this open</span></div>}
+            {brain === "error" && <div className="chron-ai-err">The AI couldn't run on this device — your saga above is always the record.</div>}
+            {brain === "ready" && (retell
+              ? <>
+                  <p className="chron-ai-text">{retell.text || (retell.busy ? "…" : "")}</p>
+                  {retell.error && <div className="chron-ai-err">Couldn't generate just now — the saga above is the record.</div>}
+                  {!retell.busy && <button className="chron-ai-again" onClick={doRetell}>↻ Retell again</button>}
+                </>
+              : <button className="chron-ai-btn" onClick={doRetell}>✦ Retell my saga in finer words</button>)}
+          </div>
+        )}
 
         {chapters.length > 0 && <div className="chron-card">
           <div className="chron-h">The chapters of your journey</div>
@@ -3972,6 +3999,18 @@ const SlateLLM = (() => {
     async load(t) { if (t) tier = t; if (status === "loading" || status === "ready") return; if (!supported()) { setStatus("unsupported"); return; } await boot(); },
     async reload(t) { if (status === "loading") return; if (!supported()) { setStatus("unsupported"); return; } if (t) tier = t; try { if (engine && engine.unload) await engine.unload(); } catch (e) {} try { if (worker) worker.terminate(); } catch (e) {} engine = null; worker = null; modelId = null; prog = { p: 0, text: "" }; await boot(); },
     async forget() { try { if (engine && engine.unload) await engine.unload(); } catch (e) {} try { if (worker) worker.terminate(); } catch (e) {} engine = null; worker = null; modelId = null; prog = { p: 0, text: "" }; status = "idle"; emit(); },
+    // v28.3: re-word an ALREADY-TRUE saga into finer prose. Hard-locked to a grounded chronicler register —
+    // keep every fact/number/name, invent nothing, and NO fantasy-narrator cheese. The deterministic saga
+    // remains the source of truth; this is a clearly-labeled retelling.
+    async rephrase(text, onToken) {
+      if (status !== "ready" || !engine) throw new Error("not ready");
+      const sys = "You are a careful chronicler. You will be given a factual summary of a player's progress in The Legend of Zelda. Rewrite it as a few sentences of clear, well-written, dignified prose.\n\nABSOLUTE RULES:\n- Use ONLY the facts in the summary. Do not add, remove, or change any event, place, name, or number. Every number and proper noun must appear exactly as given. Invent nothing: describe no scenes, battles, or feelings that are not stated.\n- Register: grounded and literate, like a historian's record or a fine status report. Understated and precise. Never flowery, never melodramatic.\n- FORBIDDEN: hero or pep-talk address ('brave hero', 'young one', 'your destiny', 'adventurer'); exclamation marks; rhetorical questions; motivational endings; fantasy-narrator cliches ('embark on a journey', 'against all odds', 'the fate of the world', 'verdant wilds'); and addressing the reader by a name.\n- Length: the same or shorter than the input. Output ONLY the rewritten prose, with no preamble, quotes, headings, or notes.\n\nBad (never write like this): \"Brave hero, your epic journey across the verdant wilds has only just begun, and adventure awaits!\"\nGood (write like this): \"The record stands at about half complete. Two of the four Divine Beasts have been freed; the others still hold out.\"";
+      const messages = [{ role: "system", content: sys }, { role: "user", content: String(text || "") }];
+      let full = "";
+      const chunks = await engine.chat.completions.create({ messages, temperature: 0.35, stream: true });
+      for await (const ch of chunks) { const d = (ch.choices && ch.choices[0] && ch.choices[0].delta && ch.choices[0].delta.content) || ""; if (d) { full += d; if (onToken) onToken(full); } }
+      return full.trim();
+    },
     async ask(question, records, onToken) {
       if (status !== "ready" || !engine) throw new Error("not ready");
       const ctx = (records || []).slice(0, 4).map((r, i) => "[" + (i + 1) + "] " + r.cat + ": " + r.label + " — " + String(r.detail || "").replace(/\s+/g, " ")).join("\n");
@@ -4251,6 +4290,17 @@ function StyleBlock() {
 .chron-speak{flex:0 0 auto;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.4px;color:var(--cyan);background:rgba(95,214,226,0.12);border:1px solid rgba(95,214,226,0.4);border-radius:9px;padding:6px 11px;cursor:pointer;}
 .chron-speak-on{color:var(--abyss);background:var(--cyan);border-color:var(--cyan);}
 .chron-speak:active{transform:scale(.97);}
+.chron-ai{background:linear-gradient(160deg,rgba(150,120,230,0.1),rgba(10,22,28,0.5));border-color:rgba(150,120,230,0.3);}
+.chron-ai-tag{font-size:9.5px;font-weight:600;color:var(--parch-dim);letter-spacing:.3px;text-transform:none;margin-left:6px;}
+.chron-ai-btn{display:flex;flex-direction:column;gap:3px;width:100%;text-align:left;background:rgba(150,120,230,0.12);border:1px solid rgba(150,120,230,0.4);border-radius:11px;padding:11px 13px;cursor:pointer;color:#cdbbf5;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;}
+.chron-ai-btn span{font-weight:500;font-size:11.5px;color:var(--parch-dim);}
+.chron-ai-btn:active{transform:scale(.99);}
+.chron-ai-load{font-size:12.5px;color:var(--parch-dim);}
+.chron-ai-bar{height:6px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;margin-bottom:6px;}
+.chron-ai-bar>span{display:block;height:100%;background:#b49cf0;border-radius:4px;}
+.chron-ai-text{font-family:'Rajdhani',sans-serif;font-size:15px;line-height:1.55;color:var(--parch);margin:0;white-space:pre-wrap;}
+.chron-ai-again{margin-top:9px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;color:#cdbbf5;background:rgba(150,120,230,0.12);border:1px solid rgba(150,120,230,0.35);border-radius:8px;padding:6px 11px;cursor:pointer;}
+.chron-ai-err{font-size:12px;color:var(--parch-dim);font-style:italic;margin-top:6px;}
 .chron-chap{display:flex;align-items:center;gap:10px;padding:6px 0;}
 .chron-chap-n{flex:0 0 38%;font-size:13px;color:var(--parch-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .chron-chap-done .chron-chap-n{color:var(--cyan);}
