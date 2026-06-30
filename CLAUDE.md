@@ -1010,6 +1010,20 @@ layout, `REGION_MAPS` = the per-region coords.
   - **Honest limit banked:** Read-aloud needs the device's TTS voices (none in the headless sandbox → it no-ops
     cleanly there; speaks on a real device). The on-device LLM rephrase of the saga is deferred (WebGPU-gated; the
     owner's phone OOM'd the 1B model in v18.4 — keep generative text deterministic-by-default).
+  - **v28.3 — opt-in AI saga retelling (DONE; the deferred LLM-rephrase, now built).** Reuses the existing
+    `SlateLLM` brain for one NARROW, low-risk job: re-wording the already-true deterministic saga into finer
+    prose. New `SlateLLM.rephrase(text, onToken)` with a hard-locked system prompt — use ONLY the given facts
+    (keep every number/proper-noun, invent nothing), a grounded historian/status-report register, and an explicit
+    FORBIDDEN list (hero/pep-talk address, "!", rhetorical questions, motivational endings, fantasy-narrator
+    cliches like "embark on a journey"/"verdant wilds", addressing by name) + inline bad/good examples; temp 0.35.
+    **The owner's explicit ask: beautifully written but NOT goofy/cheesy — data-driven, dignified ("not 'you've
+    sailed through the jungle young Zelda'").** The deterministic saga stays the headline + source of truth; the
+    AI version sits below in a clearly-labeled purple "In the Slate's words · AI retelling · grounded in the facts
+    above" card with a "↻ Retell again" reroll. Opt-in, off by default, Light model, WebGPU-gated (card hidden if
+    unsupported), one-time on-device download then offline; errors fall back to the deterministic saga. Honesty law
+    held: rephrasing existing true text is far lower-risk than answering ([[v18.6]]), but a sub-1B model can still
+    slip, so the verified saga is always shown. Verified in-browser (card renders/labeled, saga intact, 0 errors,
+    offline-clean); the real download + output quality is owner-device-only (like read-aloud).
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
