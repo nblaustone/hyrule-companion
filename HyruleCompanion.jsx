@@ -1311,25 +1311,26 @@ function HyruleGame({ game, setGame, games }) {
     let m = id.match(/^shr_(.+)_(\d+)$/); if (m) { const g = SHRINES.find((x) => x.regionKey === m[1]); const sh = g && g.shrines[+m[2]]; return sh ? sh.name : null; }
     m = id.match(/^gf_(\d+)$/); if (m) { const f = GREAT_FAIRIES[+m[1]]; return f ? f.name + " awakened" : null; }
     m = id.match(/^arm_(\d+)$/); if (m) { const a = ARMOR.sets[+m[1]]; return a ? a.name + " (armor)" : null; }
+    m = id.match(/^sq_(.+)$/); if (m) { for (const g of SIDE_QUESTS) for (const qq of g.quests) if (qq.id === m[1]) return qq.name + " (side quest)"; return null; }
     for (const reg of REGIONS) for (const sec of reg.sections) for (const st of sec.steps) if (st.id === id) return st.t && st.t.length > 64 ? st.t.slice(0, 61) + "…" : (st.t || null);
     return null;
-  }, [REGIONS, SHRINES, GREAT_FAIRIES, ARMOR]);
+  }, [REGIONS, SHRINES, GREAT_FAIRIES, ARMOR, SIDE_QUESTS]);
   const reveal = useCallback((id) => setRevealed((s) => { const n = new Set(s); n.add(id); return n; }), []); // v9: progressive spoiler reveal
   const toggleSection = useCallback((id) => setOpenSections((o) => ({ ...o, [id]: !o[id] })), []);
   const setNote = useCallback((id, text) => setNotes((m) => { const n = { ...m }; if (text && text.trim()) n[id] = text; else delete n[id]; return n; }), []);
   const setTier = useCallback((i, t) => setArmorTier((m) => ({ ...m, [i]: Math.max(0, Math.min(4, t)) })), []);
-  const resetAll = useCallback(() => { setProgress({}); setKoroks(0); setCollect({}); setNotes({}); setArmorTier({}); setRecipes([]); setConfirmReset(false); }, []);
+  const resetAll = useCallback(() => { setProgress({}); setDoneAt({}); setKoroks(0); setCollect({}); setNotes({}); setArmorTier({}); setRecipes([]); setConfirmReset(false); }, []); // doneAt too — a reset must not leave Chronicle "deeds" for unchecked steps
   // export/import the whole save as a portable code (offline backup, ADR 0002)
   const exportSave = useCallback(() => {
     const blob = { v: 10, progress, koroks, collect, notes, armorTier, recipes, shrinePin, shrineRecents, mapPin };
     try { return btoa(unescape(encodeURIComponent(JSON.stringify(blob)))); } catch (e) { return JSON.stringify(blob); }
-  }, [progress, koroks, collect, notes, armorTier, recipes, shrinePin, shrineRecents]);
+  }, [progress, koroks, collect, notes, armorTier, recipes, shrinePin, shrineRecents, mapPin]);
   const importSave = useCallback((code) => {
     try {
       const raw = code.trim().startsWith("{") ? code : decodeURIComponent(escape(atob(code.trim())));
       const b = JSON.parse(raw);
       if (b && typeof b === "object") {
-        if (b.progress && typeof b.progress === "object") setProgress(b.progress);
+        if (b.progress && typeof b.progress === "object") { setProgress(b.progress); setDoneAt((m) => { const n = {}; for (const k in m) if (b.progress[k]) n[k] = m[k]; return n; }); } // keep deed stamps only for steps still done after the restore
         if (Number.isFinite(b.koroks)) setKoroks(b.koroks);
         if (b.collect && typeof b.collect === "object") setCollect(b.collect);
         if (b.notes && typeof b.notes === "object") setNotes(b.notes);
@@ -1383,7 +1384,7 @@ function HyruleGame({ game, setGame, games }) {
   const extraStats = useMemo(() => {
     let mem = 0, memTotal = 0, sq = 0, sqTotal = 0, gf = 0, arm = 0;
     for (const reg of REGIONS) for (const sec of reg.sections) for (const st of sec.steps) if (st.id.indexOf("m_l") === 0) { memTotal++; if (progress[st.id]) mem++; }
-    SIDE_QUESTS.forEach((g, ri) => g.quests.forEach((_, qi) => { sqTotal++; if (progress["sq_" + ri + "_" + qi]) sq++; }));
+    SIDE_QUESTS.forEach((g, ri) => g.quests.forEach((qq, qi) => { sqTotal++; if (progress[sqKey(qq, ri, qi)]) sq++; })); // stable slug ids (v12.11) — same key QuestsView writes
     GREAT_FAIRIES.forEach((_, i) => { if (progress["gf_" + i]) gf++; });
     ARMOR.sets.forEach((_, i) => { if (progress["arm_" + i]) arm++; });
     return { mem, memTotal, sq, sqTotal, gf, gfTotal: GREAT_FAIRIES.length, arm, armTotal: ARMOR.sets.length };
@@ -1455,7 +1456,7 @@ function HyruleGame({ game, setGame, games }) {
     const prio = { beginner: 0, mid: 1, late: 2 };
     const chase = ARMOR.sets.map((s, i) => ({ s, i })).filter(({ s, i }) => !progress["arm_" + i] && prio[s.priority] !== undefined).sort((a, b) => prio[a.s.priority] - prio[b.s.priority])[0];
     if (chase) cards.push({ key: "arm", glyph: "armor", color: "var(--gold)", title: "Armor worth chasing: " + chase.s.name, detail: (chase.s.bonus || "").split(".")[0], go: () => { setTab("guide"); setGuideSub("armor"); } });
-    if (KOROKS && koroks < 441) cards.push({ key: "kor", glyph: "leaf", color: "var(--moss)", title: "Bigger pouches from Hestu", detail: koroks + " Korok seeds — trade them to expand weapon/bow/shield slots", go: () => { setTab("guide"); setGuideSub("koroks"); } });
+    if (KOROKS && koroks < (KOROKS.maxSeeds || 441)) cards.push({ key: "kor", glyph: "leaf", color: "var(--moss)", title: "Bigger pouches from Hestu", detail: koroks + " Korok seeds — trade them to expand weapon/bow/shield slots", go: () => { setTab("guide"); setGuideSub("koroks"); } });
     return cards.slice(0, 4);
   }, [shrinePin, upgrades, shrineStats, extraStats, resumeIdx, koroks, progress, SHRINES, ARMOR, KOROKS]);
 
@@ -1569,7 +1570,7 @@ function HyruleGame({ game, setGame, games }) {
 
       {chronicleOpen && (
         <Chronicle games={games} gameId={game} label={G.label} pct={pct} regionStats={regionStats} regions={REGIONS}
-          shrineStats={shrineStats} extraStats={extraStats} koroks={koroks} maxSeeds={(KOROKS && KOROKS.maxSeeds) || 0}
+          shrineStats={shrineStats} extraStats={extraStats} koroks={koroks} maxSeeds={(KOROKS && (KOROKS.maxSeeds || 441)) || 0}
           champions={CHAMPIONS} championsLabel={terms.championsLabel} worldName={terms.worldName}
           progress={progress} doneAt={doneAt} stepLabel={stepLabel} onClose={() => setChronicleOpen(false)} onPickGame={setGame} />
       )}
@@ -2972,7 +2973,7 @@ function SlateMap({ coords, shrines, progress, toggleStep, spoiler, focusRegion,
 
   // ── owner's-own-map image (device-local; never uploaded / committed — ADR 0009) ──
   const loadImg = async (blob) => { try { const bm = await createImageBitmap(blob); return { src: bm, w: bm.width, h: bm.height }; } catch (e) { return await new Promise((res, rej) => { const im = new Image(); im.onload = () => res({ src: im, w: im.naturalWidth, h: im.naturalHeight }); im.onerror = rej; im.src = URL.createObjectURL(blob); }); } };
-  useEffect(() => { let dead = false; (async () => { try { const blob = await mapDB.get(game); if (!dead && blob) setBitmap(await loadImg(blob)); const cal = await store.get(game + ":mapcal"); if (!dead && cal) { try { const o = JSON.parse(cal); if (o && typeof o.a === "number") setMapCal(o); } catch (e) {} } } catch (e) {} })(); return () => { dead = true; }; }, []);
+  useEffect(() => { let dead = false; (async () => { try { const blob = await mapDB.get(game); if (!dead && blob) setBitmap(await loadImg(blob)); const cal = await store.get(game + ":mapcal"); if (!dead && cal) { try { const o = JSON.parse(cal); if (o && Array.isArray(o.m) && o.m.length === 6 && o.m.every((n) => typeof n === "number")) setMapCal(o); } catch (e) {} } } catch (e) {} })(); return () => { dead = true; }; }, []);
   const startAlign = () => { alignPts.current = []; setAlignN(0); setAlignStep(0); setAligning(true); setSel(null); setPlacing(false); };
   const importImg = async (file) => { if (!file) return; setImgErr(""); try { await mapDB.put(game, file); setBitmap(await loadImg(file)); setMapCal(null); store.set(game + ":mapcal", "null"); startAlign(); } catch (e) { setImgErr("Couldn't load that image."); } };
   const removeImg = async () => { try { await mapDB.del(game); } catch (e) {} setBitmap(null); setMapCal(null); store.set(game + ":mapcal", "null"); setAligning(false); };
@@ -3301,7 +3302,16 @@ function videoClipForText(guide, text) {
   const consider = (name, t) => { if (!name) return; const n = name.toLowerCase(); if (n.length >= 4 && hay.indexOf(n) !== -1 && (!best || n.length > best.len)) best = { t, label: name, len: n.length }; };
   for (const c of (guide.chapters || [])) consider(c.label, c.t);
   for (const k in (guide.towers || {})) { consider(k, guide.towers[k]); const w = k.split(/\s+/); if (w.length > 2) consider(w.slice(1).join(" "), guide.towers[k]); } // "Great Plateau Tower" → also "Plateau Tower"
-  for (const k in (guide.beasts || {})) { consider(k, guide.beasts[k]); consider(k.replace(/^Vah\s+/i, ""), guide.beasts[k]); }
+  for (const k in (guide.beasts || {})) {
+    // "Calm/Ground/Attack …" sections are the PRE-boarding fight — jump to the "Attack on X" chapter, not the
+    // "Enter X" boarding time ~3-4 min later (which skips the fight and spoils the interior). "Inside Vah X"
+    // sections keep the Enter time.
+    const short = k.replace(/^Vah\s+/i, "");
+    const atk = (guide.chapters || []).find((c) => c.label.toLowerCase() === "attack on " + short.toLowerCase());
+    const pre = atk && !/\binside\b/.test(hay) && /\b(calm|ground|attack|assault|board)\b/.test(hay);
+    const t = pre ? atk.t : guide.beasts[k];
+    consider(k, t); consider(short, t);
+  }
   for (const k in (guide.places || {})) consider(k, guide.places[k]);
   for (const k in (guide.shrines || {})) consider(k, guide.shrines[k]);
   return best ? { t: best.t, label: best.label } : null;
@@ -3340,20 +3350,27 @@ function VideoChapters({ guide, onWatch }) {
    (deterministic — never invented; honesty law). Game-aware (worldName / championsLabel) and arc-staged by
    overall %. The Slate reads it aloud via SpeechSynthesis. */
 function listAnd(arr) { if (!arr || !arr.length) return ""; if (arr.length === 1) return arr[0]; if (arr.length === 2) return arr[0] + " and " + arr[1]; return arr.slice(0, -1).join(", ") + ", and " + arr[arr.length - 1]; }
-function composeSaga({ pct, worldName, champions, championsLabel, progress, shrineStats, extraStats, koroks, maxSeeds }) {
+function composeSaga({ pct, worldName, champions, championsLabel, progress, shrineStats, extraStats, koroks, maxSeeds, beastNames }) {
   const w = worldName || "Hyrule";
-  const freedNames = (champions || []).filter((c) => c.step && progress[c.step]).map((c) => c.from || c.name);
+  // beastNames: only BotW's CHAMPIONS.from is the freed ENTITY (the Divine Beast); everywhere else `from` is the
+  // acquisition location — the trophy's own name is the right subject ("Kokiri's Emerald", not "Inside the Great Deku Tree").
+  const freedNames = (champions || []).filter((c) => c.step && progress[c.step]).map((c) => (beastNames ? c.from : c.name) || c.name);
   const champTot = (champions || []).length;
+  const verb = beastNames ? "freed" : "claimed";
+  const anyDeeds = (shrineStats && shrineStats.done > 0) || extraStats.mem > 0 || extraStats.gf > 0 || extraStats.sq > 0 || koroks > 0 || freedNames.length > 0;
   const paras = [];
-  if (pct === 0) paras.push(`The Slate has only just woken in your hands. Your legend through ${w} is still a blank page — but every legend begins exactly here.`);
+  if (pct === 0 && !anyDeeds) paras.push(`The Slate has only just woken in your hands. Your legend through ${w} is still a blank page — but every legend begins exactly here.`);
+  else if (pct === 0) paras.push(`The main road through ${w} still waits untraveled — yet the land already bears the marks of your passing.`);
   else if (pct < 25) paras.push(`Your road through ${w} has truly begun. The land has already felt your passing — ${pct}% of the long journey lies behind you.`);
   else if (pct < 60) paras.push(`You have become a name spoken across ${w}. ${pct}% of the road is walked, and the path ahead bends toward the Calamity.`);
   else if (pct < 100) paras.push(`The end draws near. ${pct}% of ${w} has yielded to you, and little now stands between you and the dark at its heart.`);
   else paras.push(`It is finished. ${w} stands whole again — every road walked, every trial met. Your legend is complete.`);
   if (champTot) {
     if (freedNames.length === 0) paras.push(`The ${championsLabel || "great trials"} still stand untaken against you.`);
-    else if (freedNames.length === champTot) paras.push(`Every one has been freed — ${listAnd(freedNames)} answer to you now, their powers yours to command.`);
-    else paras.push(`${listAnd(freedNames)} ${freedNames.length === 1 ? "has" : "have"} been freed; ${champTot - freedNames.length} more ${champTot - freedNames.length === 1 ? "remains" : "remain"}.`);
+    else if (freedNames.length === champTot) paras.push(beastNames
+      ? `Every one has been freed — ${listAnd(freedNames)} answer to you now, their powers yours to command.`
+      : `Every one has been claimed — ${listAnd(freedNames)} — their power is yours now.`);
+    else paras.push(`${listAnd(freedNames)} ${freedNames.length === 1 ? "has" : "have"} been ${verb}; ${champTot - freedNames.length} more ${champTot - freedNames.length === 1 ? "remains" : "remain"}.`);
   }
   if (shrineStats.total) { const orbs = Math.floor(shrineStats.done / 4); paras.push(shrineStats.done === 0 ? `Not a single shrine has yet given up its secret.` : `${shrineStats.done} of ${shrineStats.total} shrines have given up their secrets` + (orbs > 0 ? `, and ${orbs} ${orbs === 1 ? "vessel" : "vessels"} of heart or stamina now strengthen you.` : `.`)); }
   const extras = [];
@@ -3387,7 +3404,7 @@ function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStat
     if (!dead) setCross(out);
   })(); return () => { dead = true; }; }, []);
 
-  const saga = composeSaga({ pct, worldName, champions, championsLabel, progress, shrineStats, extraStats, koroks, maxSeeds });
+  const saga = composeSaga({ pct, worldName, champions, championsLabel, progress, shrineStats, extraStats, koroks, maxSeeds, beastNames: gameId === "botw" });
   const speak = () => { if (!canSpeak) return; try { window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(saga.join(" ")); u.rate = 0.95; u.onend = () => setSpeaking(false); u.onerror = () => setSpeaking(false); setSpeaking(true); window.speechSynthesis.speak(u); } catch (e) { setSpeaking(false); } };
   const stopSpeak = () => { try { window.speechSynthesis.cancel(); } catch (e) {} setSpeaking(false); };
   const doRetell = async () => {
@@ -3421,7 +3438,7 @@ function Chronicle({ games, gameId, label, pct, regionStats, regions, shrineStat
             <div className="chron-h">In the Slate's words <span className="chron-ai-tag">AI retelling · grounded in the facts above</span></div>
             {brain === "idle" && <button className="chron-ai-btn" onClick={enableAI}>✦ Let the Slate retell your saga<span>One-time on-device download · then works offline. Same facts, finer prose — never embellished.</span></button>}
             {brain === "loading" && <div className="chron-ai-load"><div className="chron-ai-bar"><span style={{ width: Math.round((bprog.p || 0) * 100) + "%" }} /></div><span>{/cache|loading model/i.test(bprog.text || "") ? "Waking the Slate's mind from your device…" : "Downloading the Slate's mind…"} {Math.round((bprog.p || 0) * 100)}% · keep this open</span></div>}
-            {brain === "error" && <div className="chron-ai-err">The AI couldn't run on this device — your saga above is always the record.</div>}
+            {brain === "error" && <div className="chron-ai-err">The Slate's mind couldn't load — it may have lost connection or run low on memory. Your saga above is always the record. <button className="chron-ai-again" onClick={enableAI}>↻ Try again</button></div>}
             {brain === "ready" && (retell
               ? <>
                   <p className="chron-ai-text">{retell.text || (retell.busy ? "…" : "")}</p>

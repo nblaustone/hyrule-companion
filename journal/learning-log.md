@@ -5,6 +5,63 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-07-01 — v28.4: Fable-5 onboarding audit — 11 fixes, two of them silent since they shipped
+
+- **Dispatch (per AGENT_WORKFLOW.md):** serial main-loop deep-read of the ~5,400-line code region + cheap static
+  greps; ONE batched Explore agent over the older/audited views+CSS (~125k tok, found nothing new — good sign);
+  ONE solo adversarial Workflow over the un-audited v27.6–v28.3 diffs + my fixes (3 finder lenses → dedupe →
+  1 skeptic per finding; 7 agents, ~0.9M tok). **7 raw → 4 deduped → 4/4 confirmed, 0 rejected** — the v27.5
+  recipe (focused diff + refute-by-default verifiers who re-simulate against real data) held at zero false
+  positives. All three finders independently converged on the same top bug — convergence is signal.
+- **The two long-lived silent bugs were both UN-MIGRATED CONSUMERS — the v25.1 class again:**
+  (1) v12.11 moved side quests to slug keys but `extraStats` still counted positional keys → the Status meter
+  (and later the saga) read 0 forever for post-migration checks. (2) v22 changed the map calibration to
+  `{m:[6]}` but the loader still validated the v21 `{a,b,c,d}` shape → every saved alignment silently failed to
+  restore; the owner's align work evaporated on every map close. **Law, now twice-earned: when a key scheme or
+  data shape changes, grep EVERY consumer the same hour — and the greps are nearly free; both were findable with
+  one-line searches.** (A migration checklist beats memory: writer, reader, counter, backup, reset.)
+- **Verify the data-ful branch, not the empty branch.** composeSaga's freed-champion sentence shipped reading
+  `c.from` — correct for BotW ("Vah Ruta"), a dungeon LOCATION everywhere else ("Inside the Great Deku Tree has
+  been freed"). It survived because v28.2 was only ever verified on the zero-freed branch (MM, nothing checked).
+  Fixed with a `beastNames` flag (BotW: beast names + "freed"; others: trophy name + "claimed").
+- **Semantics of a match matter, not just the match:** "Calm Vah Ruta" title-matched the beasts map and jumped
+  the video INSIDE the beast (Enter time), skipping the exact fight the player needed — the most-specific-name
+  heuristic was right, the timestamp category was wrong. Pre-boarding sections now prefer the "Attack on X"
+  chapter (verifier proved the fix against the real timecode table before I applied it).
+- Smaller: reset/import now keep `doneAt` consistent with progress (no ghost Chronicle deeds); backup deps
+  included `mapPin`; Chronicle AI-error got a retry + honest copy; deeds name side quests; the 0%-with-deeds
+  saga contradiction ("blank page" + "1 side tale told") got an anyDeeds gate.
+- **Meta: this log had stalled at v18.6 while the roadmap marched to v28.3** — repaid below. The log is law.
+
+## 2026-07-01 — the v19–v28.3 arc, reconstructed (log-debt repaid during Fable-5 onboarding)
+
+- **Meta-lesson first: this log went stale.** Ten versions (v19→v28.3) shipped with their reasoning recorded only
+  in CLAUDE.md's roadmap — this file's own header says "read this first so reasoning accumulates," and it silently
+  stopped accumulating. Repaid here in one consolidated entry; the rule stands: **every version gets a log entry
+  when it ships, not later.** The lessons below are distilled from the roadmap (full detail lives there).
+- **v19–v20 (the Slate Map):** the map complaint was structural, not cosmetic — every coordinate was eyeballed.
+  Fix was DATA: datamined world coords (AceZephyr/botw-route-map + objmap dump) → one coherent frame. **Mine the
+  data; never ask an LLM to "research" coordinates — it will hallucinate numbers.** For the look: Canvas beats
+  SVG for terrain (biome fills + value-noise hillshade, offscreen-once + one drawImage); size labels in screen px.
+- **v21–v23 (bring-your-own):** every "use my own X" (map image, music, books) resolves to the SAME ADR-0009
+  shape — device-local IndexedDB + a module singleton/overlay; ship no copyrighted asset, never fetch it for them.
+  Fitting user imagery = least-squares affine from a few reference taps (v22), not a rigid 2-point fit.
+- **v24–v26 (walkthrough video):** the legitimate shape is store TIMESTAMPS (facts) + the official YouTube player
+  deep-linked at runtime (offline check stays green because no static src). Embeds can be refused inside an
+  installed iOS PWA (anti-bot, no session) — always ship a prominent native "Open in the YouTube app" hand-off.
+  **v25.1 burned us again on transforms: when a coordinate model changes, grep EVERY consumer** (draw() still used
+  the removed {a,b,c,d} while the hit-test used the new affine — taps worked, markers were invisible).
+- **v27 (the Jukebox):** port the preg player's ARCHITECTURE (root singleton + mini-bar + expand + auto-advance),
+  not its native API — the web equivalent is one detached `new Audio()`. **v27.1's data-loss race is a law now: a
+  persist effect must gate on ITS OWN subsystem's load-done flag** (the playlist was wiped by a persist gated on
+  the wrong `loaded`).
+- **v27.5 (the audit pattern):** a review Workflow fed the focused `git show` diff, with every finding
+  adversarially re-verified against live code, keeps false positives near zero — and dedupe findings by root
+  cause before fixing (4 of 6 pointed at one component).
+- **v28 (Chronicle/saga):** generative-feeling features stay honest by being DETERMINISTIC over real counts;
+  a sub-1B on-device model may only REPHRASE already-true text (v18.6's law), never source it — and even that
+  ships opt-in, clearly labeled, with the verified text always shown.
+
 ## 2026-06-27 — v18.6: Ask-the-Slate "truth-first" — the tiny model hallucinates even with good sources
 
 - **Owner sent real-device screenshots: the answers were wrong, some dangerously.** "warm clothes → buy at the

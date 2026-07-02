@@ -1024,6 +1024,31 @@ layout, `REGION_MAPS` = the per-region coords.
     held: rephrasing existing true text is far lower-risk than answering ([[v18.6]]), but a sub-1B model can still
     slip, so the verified saga is always shown. Verified in-browser (card renders/labeled, saga intact, 0 errors,
     offline-clean); the real download + output quality is owner-device-only (like read-aloud).
+- **v28.4 — Fable-5 onboarding: full bug + polish audit (DONE, 2026-07-01).** New model onboarded (read the whole
+  code region + all MDs), then assess→plan→intervene→reevaluate: static sweeps (hooks/undefined-setters/async-store/
+  meta-leaks/dup-names all CLEAN) + one batched Explore sweep of the older views/CSS + one solo adversarial review
+  **Workflow** (3 batched finder lenses over the v27.6–v28.3 diffs + fixes → dedupe → 1 skeptic per finding;
+  7 agents, ~0.9M tok, **7 raw → 4 deduped → 4/4 confirmed, 0 rejected**). **11 fixes shipped, browser-verified
+  same session** (fresh SW-cleared origin; BotW+TotK+OoT+MM; 0 console errors): (1) **Status side-quest meter dead
+  since v12.11** — `extraStats` counted positional `sq_<ri>_<qi>` keys while QuestsView writes slug keys → now
+  `sqKey()` (also feeds the saga's "side tales" line). (2) **Slate Map alignment lost on every reopen since v22** —
+  the `mapcal` loader still validated the v21 `{a,b,c,d}` shape so the saved v22 `{m:[6]}` affine NEVER restored;
+  loader now accepts `{m:[6]}`. (3) Chronicle saga's Korok line dead on BotW (`maxSeeds||0` at the ONE call site;
+  every other consumer falls back 441). (4) **composeSaga named freed champions by `c.from`** — the freed ENTITY
+  only in BotW, a LOCATION in the other 10 games ("Inside the Great Deku Tree has been freed") → `beastNames`
+  flag: BotW keeps Vah names/"freed", others use the trophy name/"claimed". (5) **Beast "Watch this part" jumped
+  INSIDE the beast** — "Calm/Ground Vah X" sections matched the "Enter X" boarding time, skipping the fight; pre-
+  boarding sections now resolve to the "Attack on X" chapter (Ground Vah Medoh → 4:49:26 verified; "Inside Vah X"
+  keeps Enter). (6) Chronicle AI-retell error state was a dead end → honest copy + ↻ Try again (reuses enableAI;
+  load() legitimately retries from "error"). (7) resetAll clears `doneAt` (no ghost Chronicle deeds). (8) importSave
+  prunes `doneAt` to the restored progress. (9) exportSave deps were missing `mapPin` (stale pin in backups).
+  (10) Hestu coach card caps at `KOROKS.maxSeeds||441` (TotK 421). (11) Polish: Chronicle deeds name side quests;
+  a 0%-main-quest save with deeds no longer reads "blank page" + "1 side tale told" (anyDeeds gate + an
+  untraveled-road line). Doc debt repaid: **the learning log had stalled at v18.6** (v19–v28.3 lived only in this
+  roadmap) — a consolidated arc entry + the session entry restore it; the log is law. Lessons: (a) bugs (1)+(2)
+  are the v25.1 class — **a key/shape migration must grep every consumer the same hour** (both were un-migrated
+  consumers, found by one-line greps); (b) the v27.5 audit shape again returned zero false positives; (c) verify
+  the DATA branch, not just the empty branch (the `c.from` bug survived because v28.2 only verified "zero freed").
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
