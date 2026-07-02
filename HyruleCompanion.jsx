@@ -591,6 +591,18 @@ const SlateAudio = (() => {
       const g = ctx.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.13, t + 0.01); g.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
       o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.25);
     },
+    // v29.0 boot chime — an ORIGINAL synthesized rising motif (G4·D5·G5 + soft tail), our own audio (ADR 0003).
+    // Routes to a dedicated gain (NOT the faded master) so it sounds even when the jukebox owns the background.
+    // Autoplay law: if the context is still gesture-locked (cold open), arm a one-shot on the next tap.
+    chime() {
+      if (!ensure()) return;
+      const play = () => {
+        const t = ctx.currentTime;
+        [392, 587.33, 783.99].forEach((f, i) => { const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = f; const g = ctx.createGain(); const s = t + i * 0.09; g.gain.setValueAtTime(0, s); g.gain.linearRampToValueAtTime(0.13, s + 0.02); g.gain.exponentialRampToValueAtTime(0.0008, s + 1.15); o.connect(g); g.connect(ctx.destination); o.start(s); o.stop(s + 1.25); });
+      };
+      if (ctx.state === "suspended") { try { document.addEventListener("pointerdown", () => { try { ctx.resume().then(play); } catch (e) {} }, { once: true }); } catch (e) {} }
+      else play();
+    },
   };
 })();
 
@@ -670,6 +682,38 @@ function SlateBackground() {
     return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", onR); };
   }, []);
   return <canvas ref={ref} className="slate-bg" aria-hidden="true" />;
+}
+
+/* ============================================================
+   v29.0 THE WAKING SLATE — boot sequence. The Slate's eye draws itself in the
+   active game's accent, an activation ring ripples, then the UI fades in —
+   exactly once per page load (game switches get a 0.6s micro variant via the
+   module flag). Original geometry (our own Glyph eye) + synthesized chime
+   (ADR 0003 — no Nintendo art or audio). Tap anywhere skips. Reduced motion
+   collapses it to a near-instant fade. Toggleable in Settings (atmos.boot). */
+let SLATE_BOOTED = false;
+function SlateBoot({ accent, micro, onDone }) {
+  const [leaving, setLeaving] = useState(false);
+  const doneRef = useRef(false);
+  const finish = () => { if (doneRef.current) return; doneRef.current = true; setLeaving(true); setTimeout(onDone, 380); };
+  useEffect(() => {
+    const reduce = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const t = setTimeout(finish, reduce ? 80 : micro ? 620 : 1450);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    <div className={"boot" + (leaving ? " boot-leave" : "") + (micro ? " boot-micro" : "")} style={{ "--ba": accent || "var(--cyan)" }} onPointerDown={finish} aria-hidden="true">
+      <div className="boot-stage">
+        <svg className="boot-eye" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path className="be-line" pathLength="1" d="M24 6c4 8 14 10 14 18 0 8-6 14-14 14S10 32 10 24c0-8 10-10 14-18Z" />
+          <circle className="be-iris" cx="24" cy="27" r="5" fill="currentColor" stroke="none" />
+          <path className="be-line be-tears" pathLength="1" d="M24 38l-2 5M24 38l2 5M19 36l-3 4M29 36l3 4" />
+        </svg>
+        <span className="boot-ring" /><span className="boot-ring boot-ring2" />
+      </div>
+      {!micro && <div className="boot-word">SHEIKAH SLATE</div>}
+    </div>
+  );
 }
 
 function Glyph({ name, size = 26 }) {
@@ -1072,12 +1116,17 @@ function HyruleGame({ game, setGame, games }) {
   const [gquery, setGquery] = useState("");          // global-search query
   const [noteOpen, setNoteOpen] = useState(null);    // which step/shrine's note editor is open
   const [spoiler, setSpoiler] = useState(false);     // hide shrine hints + future rewards until tapped (hyrule:prefs)
-  const [atmos, setAtmos] = useState({ motion: true, sound: false, haptics: true }); // The Living Slate (hyrule:prefs): circuit bg · ambient audio · check haptics
+  const [atmos, setAtmos] = useState({ motion: true, sound: false, haptics: true, boot: true }); // The Living Slate (hyrule:prefs): circuit bg · ambient audio · check haptics · v29 boot sequence
   const [tracks, setTracks] = useState([]);          // v23 jukebox: [{id,name}] — blobs in audioDB (device-local)
   const [curTrack, setCurTrack] = useState(null);    // id of the selected/playing track
   const tracksRef = useRef([]); tracksRef.current = tracks;
   const curRef = useRef(null); curRef.current = curTrack;
-  const atmosRef = useRef({ motion: true, sound: false, haptics: true });
+  const atmosRef = useRef({ motion: true, sound: false, haptics: true, boot: true });
+  // v29.0 boot — must start the instant the app paints, so the pref is read SYNC from localStorage (awaiting the
+  // async store would race the boot itself). In the artifact runtime (window.storage, no localStorage) this just
+  // boots — the phone build is what matters. Full boot once per page load; game switches remount → micro variant.
+  const [boot, setBoot] = useState(() => { try { const p = JSON.parse((typeof localStorage !== "undefined" && localStorage.getItem("hyrule:prefs")) || "{}"); if (p && p.atmos && p.atmos.boot === false) return null; } catch (e) {} return SLATE_BOOTED ? "micro" : "full"; });
+  const bootDone = useCallback(() => { const wasFull = boot === "full"; SLATE_BOOTED = true; setBoot(null); const a = atmosRef.current; if (a.sound && wasFull) SlateAudio.chime(); if (a.haptics && typeof navigator !== "undefined" && navigator.vibrate) { try { navigator.vibrate(18); } catch (e) {} } }, [boot]);
   const [playerOpen, setPlayerOpen] = useState(false); // v27: full-screen Sheikah Jukebox overlay
   const [shuffle, setShuffle] = useState(false);
   const [repeat, setRepeat] = useState("all");        // off | all | one — default loops the playlist (background music)
@@ -1517,6 +1566,7 @@ function HyruleGame({ game, setGame, games }) {
   return (
     <div className={"app" + (showMini ? " has-mini" : "")}>
       <StyleBlock />
+      {boot && <SlateBoot accent={G.meta?.accent} micro={boot === "micro"} onDone={bootDone} />}
       {atmos.motion && <SlateBackground />}
       <header className="topbar">
         <div className="brand">
@@ -3558,6 +3608,10 @@ function SettingsView({ spoiler, setSpoiler, atmos, setAtmos, tracks, curTrack, 
         <button className={"toggle" + (atmos.haptics ? " toggle-on" : "")} onClick={() => setA("haptics")} role="switch" aria-checked={atmos.haptics} aria-label="Haptic pulse"><span className="toggle-knob" /></button>
       </div>
       <div className="set-row">
+        <div className="set-txt"><div className="set-name">Boot sequence</div><div className="set-sub">The Slate wakes — eye, ripple, and chime — when you open the app. Tap anywhere during it to skip; game switches get a quick flicker instead.</div></div>
+        <button className={"toggle" + (atmos.boot !== false ? " toggle-on" : "")} onClick={() => setAtmos((a) => ({ ...a, boot: a.boot === false }))} role="switch" aria-checked={atmos.boot !== false} aria-label="Boot sequence"><span className="toggle-knob" /></button>
+      </div>
+      <div className="set-row">
         <div className="set-txt"><div className="set-name">Version & updates</div><div className="set-sub">You're on build <b style={{ color: "var(--cyan-dim)" }}>{ver}</b>. Updates arrive automatically when you reopen the app online; if a “new version” banner appears, tap Update.</div></div>
       </div>
       <BackupBox doExport={doExport} doImport={doImport} />
@@ -4636,6 +4690,26 @@ function StyleBlock() {
 .atmos-trigger.atmos-on{color:var(--cyan);border-color:rgba(95,214,226,0.55);box-shadow:0 0 11px rgba(95,214,226,0.38),inset 0 0 6px rgba(95,214,226,0.2);animation:atmos-breathe 3.2s ease-in-out infinite;}
 @keyframes atmos-breathe{0%,100%{box-shadow:0 0 8px rgba(95,214,226,0.26),inset 0 0 5px rgba(95,214,226,0.15);}50%{box-shadow:0 0 16px rgba(95,214,226,0.52),inset 0 0 9px rgba(95,214,226,0.3);}}
 .slate-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.9;}
+/* v29.0 the Waking Slate — boot sequence (z-70: above every overlay; tap anywhere skips) */
+.boot{position:fixed;inset:0;z-index:70;background:#04090d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;touch-action:none;cursor:pointer;}
+.boot-leave{opacity:0;transition:opacity .38s ease;}
+.boot-stage{position:relative;width:150px;height:150px;display:flex;align-items:center;justify-content:center;}
+.boot-eye{width:96px;height:96px;color:var(--ba);filter:drop-shadow(0 0 14px var(--ba));}
+.boot-eye .be-line{stroke-dasharray:1;stroke-dashoffset:1;animation:bootdraw .72s ease-out forwards;}
+.boot-eye .be-tears{animation-delay:.3s;animation-duration:.45s;}
+.boot-eye .be-iris{opacity:0;transform-origin:24px 27px;transform:scale(.4);animation:bootiris .34s ease-out .58s forwards;}
+.boot-ring{position:absolute;inset:0;border:1.5px solid var(--ba);border-radius:50%;opacity:0;animation:bootring 1s ease-out .5s;}
+.boot-ring2{animation-delay:.72s;}
+.boot-word{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:.5em;padding-left:.5em;color:var(--ba);opacity:0;animation:bootword .5s ease .78s forwards;}
+.boot-micro .boot-eye .be-line{animation-duration:.32s;}
+.boot-micro .boot-eye .be-tears{animation-delay:.12s;animation-duration:.25s;}
+.boot-micro .boot-eye .be-iris{animation-delay:.2s;animation-duration:.2s;}
+.boot-micro .boot-ring{animation-delay:.15s;animation-duration:.5s;}
+.boot-micro .boot-ring2{animation-delay:.25s;}
+@keyframes bootdraw{to{stroke-dashoffset:0;}}
+@keyframes bootiris{to{opacity:1;transform:scale(1);}}
+@keyframes bootring{0%{transform:scale(.42);opacity:.75;}100%{transform:scale(1.55);opacity:0;}}
+@keyframes bootword{to{opacity:.92;}}
 .set-group{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan-dim);margin:20px 2px 9px;border-top:1px solid rgba(95,214,226,0.12);padding-top:16px;}
 .set-music{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:2px 2px 10px;}
 .set-music-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:var(--cyan);background:rgba(95,214,226,0.08);border:1px solid rgba(95,214,226,0.3);border-radius:8px;padding:7px 12px;cursor:pointer;}

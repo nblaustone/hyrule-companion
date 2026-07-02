@@ -1049,6 +1049,54 @@ layout, `REGION_MAPS` = the per-region coords.
   are the v25.1 class — **a key/shape migration must grep every consumer the same hour** (both were un-migrated
   consumers, found by one-line greps); (b) the v27.5 audit shape again returned zero false positives; (c) verify
   the DATA branch, not just the empty branch (the `c.from` bug survived because v28.2 only verified "zero freed").
+- **THE v29+ ARC PLAN (owner greenlit the FULL brainstorm list, 2026-07-01 — resume from here).** Build order, one
+  shippable version at a time, each verified + pushed. Token law: everything below except v35 is hand-authored
+  serial work (agents would be waste); v35 is the ONE Workflow build (batched ~12/agent, SOLO). Sequence:
+  **v29 The Waking Slate** — ✅ v29.0 boot sequence · v29.1 scan-line tab transitions · v29.2 day/night ambience +
+  rare Blood-Moon nights · v29.3 Slate bezel mode (cosmetic frame, off by default). **v30 The Korok Map** — mine
+  ~900 datamined korok seed coords (AceZephyr/objmap dumps — MINE the data, never ask a model; v19 law) →
+  `knowledge/korok-coords.json` → map layer + Guide-me korok routing + solver-type on tap · v30.1 memories layer
+  (12 photo spots) · v30.2 personal pins (device-local) · v30.3 route planner (pick targets → ordered loop).
+  **v31 Play-along kit** — v31.0 hearts/stamina vessels (orb-spend prompt heart-or-stamina → real vessel counts on
+  Status; new `<game>:vessels`, backup blob v10→v11) · v31.1 cook-from-my-pouch (3rd Cook mode: multi-select owned
+  ingredients → best dishes) · v31.2 armor shopping list (pick target sets/★ → combined farm list + rupees) ·
+  v31.3 "tonight's quest" session goals on Status · v31.4 buff timer (while-open honest caveat) · v31.5 boss prep
+  checklists (DESIGN CALL FIRST: battle text is prose — either parse leads fragilely or author a tiny structured
+  `prep` field via a small workflow; decide then). **v32 Keepsakes** — v32.0 milestone cards (deterministic
+  original-SVG commemorative cards on beast-fall/region-complete + gallery + PNG export) · v32.1 "Previously in
+  Hyrule…" spoken recap after >7 days away (reuses saga+TTS) · v32.2 campaign keepsake export (Chronicle → one
+  self-contained page) · v32.3 two-adventurer mode LAST (storage-design risk — deed attribution, not full dual
+  profiles, unless owner wants more). **v33 Bridges** — v33.0 QR save-transfer (QR encodes a URL
+  `<pages-url>#restore=<blob>` so the OTHER phone's native camera opens the PWA with the blob — no in-app scanner;
+  needs an inline zero-dep QR encoder + blob-size check, maybe progress-only payload) · v33.1 hands-free oracle
+  preset (big mic + always-speak). **v34 TotK Slate Map** — datamined 152-shrine/tower coords →
+  `knowledge/totk/map-coords.json` (confirm a datamined source first; NO LLM coords). **v35 DLC content (LAST,
+  owner confirmed)** — Master Trials + Champions' Ballad: 16 EX shrines w/ solutions, Trial of the Sword floors
+  guide, EX side quests, DLC armor into COMPENDIUM, the 16 unmatched BeardBear timecodes → video-guide; ONE solo
+  author→adversarial-verify Workflow, batched. PARKED (evidence-gated): semantic-search embeddings for the oracle —
+  only if real missed queries accumulate. DECLINED long ago, do not re-propose: panic buttons, search-as-home,
+  recents chips (v12.12).
+- **v29.0 — The Waking Slate: boot sequence (DONE, 2026-07-01).** The owner's ask: the app opens like the Sheikah
+  Slate waking, with sound. `SlateBoot` overlay (z-70, above everything): the Glyph eye draws itself via
+  `pathLength="1"` stroke animation in the ACTIVE GAME's accent (MM boots purple, WW sea-blue…), iris blooms, two
+  activation rings ripple, "SHEIKAH SLATE" wordmark, then a .38s fade reveals the UI (~1.45s full). **Original
+  geometry + an ORIGINAL synthesized chime** (`SlateAudio.chime()`, rising G4·D5·G5 sines to a dedicated gain so it
+  sounds over the jukebox too — ADR 0003, no Nintendo audio). Autoplay law: on a cold open the chime arms on the
+  first tap (browsers gesture-lock audio); plays immediately when the context is already unlocked. **Full boot ONCE
+  per page load** (module flag `SLATE_BOOTED`); game switches remount → 0.62s `boot-micro` variant (no wordmark);
+  tap anywhere skips (`finish()` → fade); reduced-motion collapses to an 80ms fade; haptic tick on reveal. Settings
+  → "Boot sequence" toggle (default ON) rides `hyrule:prefs` `atmos.boot`; **the pref is read SYNC from
+  localStorage in the state initializer** — a boot can't await the async store (on the artifact runtime with only
+  window.storage it just boots; the phone is what matters). Verified in-browser: full-boot completion proven via
+  the SLATE_BOOTED gate (micro only arms after a completed full boot), micro caught live on a game switch (MM
+  accent #b07be0, eye + 2 rings, z-70, no wordmark), skip = `.boot-leave` within 80ms → gone <530ms, toggle-off
+  honored on cold load AND game switch then restored, screenshot of the composed awake frame (eye centered,
+  glowing), 0 console errors, offline check green. **Chime + haptics are owner-device checks** (headless has no
+  audio/vibration), like every atmosphere feature. **Preview lesson RE-confirmed (v18.0's quirk, now with the
+  workaround banked): the eval context can report innerWidth:1 and SUSPENDS CSS-animation clocks between frames —
+  geometry/animation state sampled there is garbage. To verify animated UI: prove lifecycle with state gates +
+  in-context polls, and for the screenshot freeze the moment (patch the auto-finish setTimeout, then
+  `getAnimations().forEach(a => a.finish())` to jump to the composed end frame) — the SCREENSHOT is ground truth.**
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —

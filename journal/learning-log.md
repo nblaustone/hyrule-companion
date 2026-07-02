@@ -5,6 +5,28 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-07-01 — v29.0: the boot sequence (the Waking Slate) + how to verify animated UI in this preview
+
+- **Owner greenlit the ENTIRE brainstorm** (his boot idea + all of mine + DLC last) — the full v29→v35 build order
+  is banked in CLAUDE.md ("THE v29+ ARC PLAN"); resume from there, one shipped version at a time. Token law for
+  the arc: it's almost all hand-authored serial work; the ONE Workflow build is v35 (DLC content, batched, solo).
+- **v29.0 shipped his #1: the Slate wakes.** Eye draws in (pathLength stroke trick) in the active game's accent,
+  rings ripple, wordmark, fade-in — 1.45s, tap-skips, once per page load (module flag `SLATE_BOOTED`), 0.62s micro
+  on game switches, reduced-motion collapses it, Settings toggle. Chime is OURS (synthesized G4·D5·G5 —
+  ADR 0003), routed to a dedicated gain so it plays over the jukebox, gesture-armed on cold opens (autoplay law).
+- **A pref that gates the very first paint cannot await the async store** — the boot toggle is read SYNC from
+  localStorage in the useState initializer (documented compromise: artifact runtime just boots; the phone is what
+  matters). Same class of reasoning as the v27.1 persist-gate law: know which storage timing your feature sits on.
+- **Verifying ANIMATED UI in the headless preview (the v18.0 quirk, now with a full recipe):** the eval context
+  can report `innerWidth:1` and SUSPENDS CSS-animation clocks between produced frames — so animation `currentTime`
+  sits at 0 and flex geometry sampled from eval is garbage (the eye "rendered at x:-48" — it didn't, the
+  screenshot renderer centers it). Recipe that worked: (1) prove LIFECYCLE with state gates (micro-boot can only
+  exist if a full boot completed → catching `boot-micro` proves the cold boot end-to-end) + in-context polls
+  (trigger and sample inside ONE eval — round-trips are slower than the animation); (2) for the VISUAL, freeze the
+  moment: patch `window.setTimeout` to swallow the component's auto-finish delay, then
+  `document.getAnimations().forEach(a => a.finish())` to jump to the composed end frame, screenshot, restore.
+  The screenshot is ground truth; eval geometry is not. (3) Audio/haptics remain owner-device checks, always.
+
 ## 2026-07-01 — v28.4: Fable-5 onboarding audit — 11 fixes, two of them silent since they shipped
 
 - **Dispatch (per AGENT_WORKFLOW.md):** serial main-loop deep-read of the ~5,400-line code region + cheap static
