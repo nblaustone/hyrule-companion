@@ -162,6 +162,9 @@ it runs fully offline once it's on the device. First load needs no network. The 
   **build (`node build/build.mjs`) and sanity-check before pushing** so we never deploy a white-screen — the
   sanity-check's mechanical half is `node build/guardrails.test.mjs` (ADR 0013, `docs/guardrails.md`): 26 red/green
   checks of the repo's own laws, widen-only (never weaken a matcher to make a violation pass).
+- **The household surface.** `ops/household.json` is a **static** zero-PII surface for the cross-app brain
+  (ADR 0014): one member, no accounts, and deliberately no activity pulse (progress never leaves the
+  device, so none is claimed). It only changes if the app's structure ever does.
 
 ## Tabs & features (v6–v14)
 **The 7 tabs:** **Status · Journey · Shrines · Items · Cook · Guide · Lore**, plus the topbar **global search**

@@ -1,0 +1,18 @@
+{
+  "app": "zelda",
+  "kind": "household",
+  "generatedAt": 1783362969101,
+  "owner": "Nathan",
+  "members": [
+    {
+      "name": "Nathan",
+      "role": "owner",
+      "status": "active"
+    }
+  ],
+  "invites": {
+    "waiting": 0
+  },
+  "invitePath": "none — single-player companion; no accounts or profiles exist (progress is device-local localStorage)",
+  "note": "Static by design: the repo cannot observe play activity (progress never leaves the device), so no lastActiveDay is claimed. A dash with a reason beats a fake pulse."
+}
