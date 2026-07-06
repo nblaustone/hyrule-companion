@@ -93,6 +93,7 @@ The pipeline has three reproducible steps (run in order only when the data chang
 | `node build/inline-data.mjs` | inlines `knowledge/*.json` (incl. `cooking-ingredients.json` → `COOK_INGREDIENTS`) into the `.jsx` GEN:DATA block (strips agent `notes` so verification meta never reaches the UI) |
 | `node build/pack-books.mjs [id…]` | **LOCAL only, never part of the build** (v12, ADR 0009). Turns the owner's own iCloud book files (CBR/PDF/EPUB) into downscaled, store-only `<id>.hbook.zip` packs in `iCloud/Zelda/_companion-packs/` for private on-device import. Books never enter the repo (gitignored). |
 | `node build/build.mjs` | compile `HyruleCompanion.jsx` → self-contained offline `index.html` (+ `manifest.webmanifest`, `icon-*.png`) |
+| `node build/guardrails.test.mjs` | the **guardrail sweep** (ADR 0013): mechanically re-checks the repo's own laws on the committed tree — offline/static-request zero, asset-clean, the ADR 0009 book belt, single-file, docs/-mirror + version coherence, the hooks law, source hygiene, the 120/15/4 + TotK-152 data gates, id uniqueness, meta-leaks. Zero deps; red names the offending file. Spec: `docs/guardrails.md`. Run with build before every push. |
 | open `index.html`      | works by double-click in any browser; on iPhone Safari → Share → **Add to Home Screen** |
 | (host) push `index.html` + `manifest.webmanifest` + `icon-512.png` to GitHub Pages | gives a tap-to-install URL |
 
@@ -158,7 +159,9 @@ it runs fully offline once it's on the device. First load needs no network. The 
 - **Always ship it (standing approval).** This is the owner's private personal app — there's nothing to fear in
   publishing. After any change, **commit and push to `main`** so GitHub Pages redeploys (the installed PWA then
   offers "Update"). No need to ask each time — the owner has granted standing permission. The one guardrail:
-  **build (`node build/build.mjs`) and sanity-check before pushing** so we never deploy a white-screen.
+  **build (`node build/build.mjs`) and sanity-check before pushing** so we never deploy a white-screen — the
+  sanity-check's mechanical half is `node build/guardrails.test.mjs` (ADR 0013, `docs/guardrails.md`): 26 red/green
+  checks of the repo's own laws, widen-only (never weaken a matcher to make a violation pass).
 
 ## Tabs & features (v6–v14)
 **The 7 tabs:** **Status · Journey · Shrines · Items · Cook · Guide · Lore**, plus the topbar **global search**

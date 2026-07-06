@@ -5,6 +5,31 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-07-06 — the guardrail sweep (ADR 0013): the laws we'd written became 26 red/green checks
+
+- **What shipped:** `build/guardrails.test.mjs` — a zero-dep `node:assert` sweep (nala's proven shape:
+  numbered invariants, each failure naming the offending file) over TEN invariants derived only from laws
+  this repo had already written: offline static-request zero (build.mjs's own regex, re-asserted on the
+  *committed* artifacts), asset-clean repo (4-icon allowlist), the ADR 0009 book belt (gitignore lines +
+  no tracked match), single-file, docs/-mirror + version coherence, the hooks law (head parsed live from
+  build.mjs), source hygiene (`<form>`/Tailwind/`<style>`/backticks/`store`), the 120/15/4 + 11-effect +
+  TotK-152 data gates re-asserted on committed JSON, id/slug uniqueness in every per-game bundle, and the
+  v13.2 meta-leak rule (`KOROKS.notes` stays allowed). Spec + not-mechanized list: `docs/guardrails.md`.
+- **The deep-read found ZERO live violations** — 26/26 green on the untouched tree (mirror byte-identical,
+  versions coherent, every count exact, no stray binaries). The red direction was proven by planting 14
+  violations (one+ per invariant) and watching each fail naming the planted file, then reverting.
+- **Two honesty calls while writing matchers:** (1) "balanced {}/()" from the ADR 0001 sanity list is NOT
+  greppable — a valid tree measures +1 `{` / −17 `(` from prose strings; a naive matcher would lie, so
+  esbuild keeps that job (refusing a dishonest matcher is the honesty law applied to tests). (2) The
+  offline matcher had to be build.mjs's exact static-request regex, NOT "no https:// anywhere" — the built
+  file legitimately carries inert runtime strings (esm.run per ADR 0012, YouTube per v24, lore source
+  URLs); a stricter matcher would have flagged designed behavior.
+- **The belt worked mid-test:** planting a tracked `.cbz` required `git add -f` because plain `git add`
+  was already refused by the ADR 0009 gitignore belt — the sweep is the suspenders for exactly that
+  force-add. **Widen-only adopted verbatim:** tightening is free; loosening a matcher or growing an
+  allowlist needs the owner + a new ADR. Toolchain call: no package.json was added (ADR 0004's grain) —
+  the invocation is plain `node build/guardrails.test.mjs`, now in CLAUDE.md's command table.
+
 ## 2026-07-01 — v29.0: the boot sequence (the Waking Slate) + how to verify animated UI in this preview
 
 - **Owner greenlit the ENTIRE brainstorm** (his boot idea + all of mine + DLC last) — the full v29→v35 build order
