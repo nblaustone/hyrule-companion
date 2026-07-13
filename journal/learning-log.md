@@ -5,6 +5,37 @@ re-make a rejected one. Newest at top.
 
 ---
 
+## 2026-07-12 — v27.7: the music mini-bar is now dismissible (owner-reported: "it's just there, no room left")
+
+- **The ask (focused, one thing):** the persistent Jukebox mini-bar (docked above the tab bar) was always present
+  and stealing screen space — "I need to click it away and click it back easily, or swipe it to the side."
+- **What shipped (Jukebox/v27 polish — NOT the planned v29.1 scan-line transitions; kept that slot free):**
+  three dismiss affordances + a restore path + persistence, all in `MiniPlayer` + the app shell:
+  1. **✕ dismiss button** on the bar (far right, divided off from the transport so it isn't mis-tapped).
+  2. **Swipe-to-hide** — horizontal drag on the whole bar (pointer events); the bar follows the finger and
+     dismisses past an 80px threshold, else snaps back. We only hijack the pointer after ~8px of *horizontal*
+     travel (`|dx|>8 && |dx|>|dy|` → `setPointerCapture`), so a short tap on prev/play/next stays a real click and
+     a vertical scroll passes through (`touch-action:pan-y` on `.mini-bar`). `openIfTap` guards the body-tap so the
+     end of a swipe never opens the player.
+  3. **Collapsed restore handle** — when hidden, a small floating pill (spinning `TrackArt` + an up-chevron, a
+     rotated `chevdown`) docks bottom-right; one tap brings the full bar back. Reclaims the width the bar took
+     (`.app.has-handle` pads only ~26px vs the bar's 78px).
+- **State/persistence:** new `miniHidden` React state + `hyrule:minihidden` (global, like the other music keys),
+  hydrated in the existing music-load IIFE and persisted gated on `musicLoaded` — reusing that gate is deliberate:
+  it's the v27.1 data-loss lesson (a persist effect must be gated on the SAME subsystem's load-done flag that
+  hydrates it, or the empty initial value races in and clobbers storage). `showMini` split into `hasMusic` →
+  `showMini`(full bar) / `showMiniHandle`(pill).
+- **Verified in-browser (mobile 375px, seeded synthetic WAV tracks):** ✕→handle, swipe→handle (bar tracks the
+  finger to translateX(144px) then dismisses), short drag(~40px)→snaps back, handle→bar restored, **play-button tap
+  toggles playback without dismissing or opening**, body-tap opens the full player, and the hidden choice **survives
+  a reload** (handle, not bar). 0 console errors; build offline-clean; 26/26 guardrails.
+- **Lessons:** (a) to make a control both *swipeable* and *tappable*, don't split the DOM — attach the drag to the
+  whole bar and only claim the pointer after a horizontal threshold; taps below it fall through to the child
+  buttons untouched. (b) reduced-motion is already globally enforced (`*{animation:none!important}` at the bottom of
+  the stylesheet), so new entrance animations need no per-rule guard. (c) verify the DRAG visually, not just the end
+  state — dispatching a real pointerdown→moves→pointerup sequence proved the follow-the-finger transform, which a
+  `.click()` never would.
+
 ## 2026-07-06 — the guardrail sweep (ADR 0013): the laws we'd written became 26 red/green checks
 
 - **What shipped:** `build/guardrails.test.mjs` — a zero-dep `node:assert` sweep (nala's proven shape:

@@ -982,16 +982,37 @@ function TrackArt({ name, size = 56, spinning }) {
 }
 
 /* The persistent "now playing" bar — docked just above the tab bar on every tab once a song is loaded. */
-function MiniPlayer({ track, playing, time, dur, canStep, onToggle, onPrev, onNext, onOpen }) {
+function MiniPlayer({ track, playing, time, dur, canStep, onToggle, onPrev, onNext, onOpen, onDismiss }) {
   const frac = dur > 0 ? Math.max(0, Math.min(1, time / dur)) : 0;
+  // v27.7: swipe the whole bar sideways to hide it (a tap on the transport buttons still works — we only
+  // hijack the pointer after ~8px of horizontal travel, so short taps never become a drag).
+  const [dx, setDx] = useState(0);
+  const st = useRef(null);      // pointer-down origin {x,y}
+  const moved = useRef(false);  // crossed the horizontal-drag threshold
+  const lastDx = useRef(0);
+  const onDown = (e) => { st.current = { x: e.clientX, y: e.clientY }; moved.current = false; lastDx.current = 0; };
+  const onMove = (e) => {
+    const s = st.current; if (!s) return;
+    const ddx = e.clientX - s.x, ddy = e.clientY - s.y;
+    if (!moved.current && Math.abs(ddx) > 8 && Math.abs(ddx) > Math.abs(ddy)) { moved.current = true; try { e.currentTarget.setPointerCapture(e.pointerId); } catch (er) {} }
+    if (moved.current) { lastDx.current = ddx; setDx(ddx); }
+  };
+  const onUp = () => {
+    const didMove = moved.current; st.current = null; moved.current = false;
+    if (didMove && Math.abs(lastDx.current) > 80) { onDismiss(); return; } // swiped far enough → hide
+    setDx(0); // snap back
+  };
+  const openIfTap = () => { if (Math.abs(lastDx.current) < 6) onOpen(); }; // a real tap, not the end of a swipe
+  const alpha = 1 - Math.min(0.85, Math.abs(dx) / 260);
   return (
     <div className="mini-dock">
-      <div className="mini-bar">
-        <button className="mini-open" onClick={onOpen} aria-label="Open the music player">
+      <div className="mini-bar" style={{ transform: dx ? "translateX(" + dx + "px)" : "", opacity: dx ? alpha : 1, transition: dx ? "none" : "transform .2s ease, opacity .2s ease" }}
+        onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
+        <button className="mini-open" onClick={openIfTap} aria-label="Open the music player">
           <TrackArt name={track.name} size={42} spinning={playing} />
           <span className="mini-mid">
             <span className="mini-name">{track.name}</span>
-            <span className="mini-sub">{playing ? "Now playing" : "Paused"} · tap to open</span>
+            <span className="mini-sub">{playing ? "Now playing" : "Paused"} · tap to open · swipe to hide</span>
           </span>
         </button>
         <div className="mini-btns">
@@ -999,6 +1020,7 @@ function MiniPlayer({ track, playing, time, dur, canStep, onToggle, onPrev, onNe
           <button className="mini-b mini-pp" onClick={onToggle} aria-label={playing ? "Pause" : "Play"}><Glyph name={playing ? "pause" : "play"} size={18} /></button>
           {canStep && <button className="mini-b" onClick={onNext} aria-label="Next song"><Glyph name="next" size={17} /></button>}
         </div>
+        <button className="mini-hide" onClick={onDismiss} aria-label="Hide the music bar">✕</button>
         <div className="mini-prog"><span style={{ width: (frac * 100).toFixed(2) + "%" }} /></div>
       </div>
     </div>
@@ -1128,6 +1150,7 @@ function HyruleGame({ game, setGame, games }) {
   const [boot, setBoot] = useState(() => { try { const p = JSON.parse((typeof localStorage !== "undefined" && localStorage.getItem("hyrule:prefs")) || "{}"); if (p && p.atmos && p.atmos.boot === false) return null; } catch (e) {} return SLATE_BOOTED ? "micro" : "full"; });
   const bootDone = useCallback(() => { const wasFull = boot === "full"; SLATE_BOOTED = true; setBoot(null); const a = atmosRef.current; if (a.sound && wasFull) SlateAudio.chime(); if (a.haptics && typeof navigator !== "undefined" && navigator.vibrate) { try { navigator.vibrate(18); } catch (e) {} } }, [boot]);
   const [playerOpen, setPlayerOpen] = useState(false); // v27: full-screen Sheikah Jukebox overlay
+  const [miniHidden, setMiniHidden] = useState(false); // v27.7: user swiped/✕'d the mini-bar away → collapse to a small restore handle
   const [shuffle, setShuffle] = useState(false);
   const [repeat, setRepeat] = useState("all");        // off | all | one — default loops the playlist (background music)
   const [mPlaying, setMPlaying] = useState(false);    // live transport state (from SlateMusic events)
@@ -1212,6 +1235,7 @@ function HyruleGame({ game, setGame, games }) {
       let list = []; const raw = await store.get("hyrule:music"); if (raw) { try { const a = JSON.parse(raw); if (Array.isArray(a)) list = a; } catch (e) {} }
       if (!list.length) { try { const old = await audioDB.get("track"); if (old) list = [{ id: "track", name: "My track" }]; } catch (e) {} } // migrate v22
       try { const mp2 = await store.get("hyrule:musicprefs"); if (mp2) { const o = JSON.parse(mp2); if (o && typeof o === "object" && !dead) { if (typeof o.shuffle === "boolean") setShuffle(o.shuffle); if (o.repeat === "off" || o.repeat === "all" || o.repeat === "one") setRepeat(o.repeat); if (typeof o.vol === "number") { setMVol(o.vol); SlateMusic.volume(o.vol); } } } } catch (e) {}
+      try { const mh = await store.get("hyrule:minihidden"); if (mh && !dead) setMiniHidden(true); } catch (e) {} // v27.7 restore the "bar hidden" choice
       const cur = (await store.get("hyrule:musiccur")) || (list[0] && list[0].id) || null;
       // only (re)load the blob if the singleton isn't already on this track — so music keeps playing across a game remount
       if (cur && SlateMusic.loadedId() !== cur) { try { const blob = await audioDB.get(cur); if (blob && !dead) { SlateMusic.setTrack(blob, cur); SlateMusic.setLoop(false); } } catch (e) {} } // looping handled in handleEnded, not native loop
@@ -1222,6 +1246,7 @@ function HyruleGame({ game, setGame, games }) {
   useEffect(() => { if (musicLoaded) store.set("hyrule:music", JSON.stringify(tracks)); }, [tracks, musicLoaded]);
   useEffect(() => { if (musicLoaded) store.set("hyrule:musiccur", curTrack || ""); }, [curTrack, musicLoaded]);
   useEffect(() => { if (musicLoaded) store.set("hyrule:musicprefs", JSON.stringify({ shuffle, repeat, vol: mVol })); }, [shuffle, repeat, mVol, musicLoaded]);
+  useEffect(() => { if (musicLoaded) store.set("hyrule:minihidden", miniHidden ? "1" : ""); }, [miniHidden, musicLoaded]); // v27.7 remember the hidden/shown choice
   // mirror the live audio element into React state so the mini-player + full player stay in sync
   useEffect(() => {
     const syncState = () => setMPlaying(SlateMusic.playing());
@@ -1562,9 +1587,11 @@ function HyruleGame({ game, setGame, games }) {
   // v9: this region sits ahead of where you are on the path → veil its rewards/bosses (spoiler mode, not while searching)
   const regionVeiled = useMemo(() => spoiler && !q && REGIONS.findIndex((r) => r.id === currentRegion.id) > resumeIdx, [spoiler, q, currentRegion, resumeIdx]);
 
-  const showMini = loaded && tracks.length > 0 && !playerOpen;
+  const hasMusic = loaded && tracks.length > 0 && !playerOpen;
+  const showMini = hasMusic && !miniHidden;          // the full bar
+  const showMiniHandle = hasMusic && miniHidden;      // the collapsed restore handle
   return (
-    <div className={"app" + (showMini ? " has-mini" : "")}>
+    <div className={"app" + (showMini ? " has-mini" : (showMiniHandle ? " has-handle" : ""))}>
       <StyleBlock />
       {boot && <SlateBoot accent={G.meta?.accent} micro={boot === "micro"} onDone={bootDone} />}
       {atmos.motion && <SlateBackground />}
@@ -1931,7 +1958,14 @@ function HyruleGame({ game, setGame, games }) {
 
       {showMini && curTrackObj && (
         <MiniPlayer track={curTrackObj} playing={mPlaying} time={mTime} dur={mDur} canStep={tracks.length > 1}
-          onToggle={togglePlay} onPrev={() => playNext(-1)} onNext={() => playNext(1)} onOpen={() => setPlayerOpen(true)} />
+          onToggle={togglePlay} onPrev={() => playNext(-1)} onNext={() => playNext(1)} onOpen={() => setPlayerOpen(true)}
+          onDismiss={() => setMiniHidden(true)} />
+      )}
+      {showMiniHandle && curTrackObj && (
+        <button className={"mini-handle" + (mPlaying ? " mini-handle-on" : "")} onClick={() => setMiniHidden(false)} aria-label="Show the music player">
+          <TrackArt name={curTrackObj.name} size={30} spinning={mPlaying} />
+          <span className="mini-handle-up"><Glyph name="chevdown" size={13} /></span>
+        </button>
       )}
 
       <nav className="tabbar" ref={tabbarRef}>
@@ -4729,12 +4763,13 @@ function StyleBlock() {
 .set-music-open{flex-basis:100%;justify-content:center;background:rgba(95,214,226,0.14);border-color:rgba(95,214,226,0.5);color:var(--cyan);}
 /* ===== v27 · the Sheikah Jukebox: generated cover art · persistent mini-player · full iPod-style player ===== */
 .app.has-mini{padding-bottom:calc(var(--tabbar-h,64px) + 78px);}
+.app.has-handle{padding-bottom:calc(var(--tabbar-h,64px) + 26px);}
 .track-art{position:relative;border-radius:50%;overflow:hidden;flex-shrink:0;box-shadow:0 2px 10px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(255,255,255,0.08);}
 .track-art svg{display:block;width:100%;height:100%;}
 .track-art-spin svg{animation:art-spin 11s linear infinite;}
 @keyframes art-spin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
 .mini-dock{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tabbar-h,64px) + 6px);width:100%;max-width:560px;z-index:26;padding:0 8px;pointer-events:none;}
-.mini-bar{pointer-events:auto;position:relative;display:flex;align-items:center;gap:10px;background:linear-gradient(180deg,rgba(16,30,37,0.97),rgba(11,21,26,0.98));border:1px solid rgba(95,214,226,0.28);border-radius:15px;padding:7px 9px;box-shadow:0 6px 22px rgba(0,0,0,0.5),0 0 14px rgba(95,214,226,0.08);overflow:hidden;backdrop-filter:blur(10px);}
+.mini-bar{pointer-events:auto;position:relative;display:flex;align-items:center;gap:10px;background:linear-gradient(180deg,rgba(16,30,37,0.97),rgba(11,21,26,0.98));border:1px solid rgba(95,214,226,0.28);border-radius:15px;padding:7px 9px;box-shadow:0 6px 22px rgba(0,0,0,0.5),0 0 14px rgba(95,214,226,0.08);overflow:hidden;backdrop-filter:blur(10px);touch-action:pan-y;user-select:none;-webkit-user-select:none;}
 .mini-open{flex:1;min-width:0;display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;text-align:left;padding:0;}
 .mini-mid{display:flex;flex-direction:column;gap:1px;min-width:0;}
 .mini-name{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;color:var(--parch);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -4745,6 +4780,14 @@ function StyleBlock() {
 .mini-pp{background:var(--cyan);color:var(--abyss);box-shadow:0 0 10px rgba(95,214,226,0.4);}
 .mini-prog{position:absolute;left:0;right:0;bottom:0;height:2.5px;background:rgba(255,255,255,0.08);}
 .mini-prog span{display:block;height:100%;background:var(--cyan);box-shadow:0 0 6px rgba(95,214,226,0.6);transition:width .25s linear;}
+/* v27.7 · dismiss the bar (✕) + the collapsed restore handle */
+.mini-hide{flex-shrink:0;width:26px;height:26px;margin-left:1px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:none;border:none;border-left:1px solid rgba(95,214,226,0.14);color:var(--parch-dim);font-size:13px;line-height:1;cursor:pointer;padding-left:9px;box-sizing:content-box;}
+.mini-hide:active{transform:scale(.86);color:var(--parch);}
+.mini-handle{position:fixed;right:10px;bottom:calc(var(--tabbar-h,64px) + 8px);z-index:26;display:flex;align-items:center;gap:5px;padding:4px 8px 4px 4px;border-radius:22px;background:linear-gradient(180deg,rgba(16,30,37,0.97),rgba(11,21,26,0.98));border:1px solid rgba(95,214,226,0.28);box-shadow:0 6px 20px rgba(0,0,0,0.5),0 0 12px rgba(95,214,226,0.1);cursor:pointer;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);animation:mini-handle-in .22s ease;}
+.mini-handle-on{border-color:rgba(95,214,226,0.45);box-shadow:0 6px 20px rgba(0,0,0,0.5),0 0 16px rgba(95,214,226,0.22);}
+.mini-handle:active{transform:scale(.93);}
+.mini-handle-up{display:flex;align-items:center;justify-content:center;color:var(--cyan-dim);transform:rotate(180deg);}
+@keyframes mini-handle-in{from{opacity:0;transform:translateY(6px) scale(.9);}to{opacity:1;transform:none;}}
 .slate-player{position:fixed;inset:0;z-index:56;background:radial-gradient(120% 80% at 50% -10%,rgba(95,214,226,0.1),transparent 55%),rgba(6,12,16,0.99);backdrop-filter:blur(10px);display:flex;flex-direction:column;max-width:560px;margin:0 auto;padding-top:env(safe-area-inset-top,0px);animation:fadeIn .2s ease;}
 .player-top{display:flex;align-items:center;gap:10px;padding:12px 14px 10px;}
 .player-x{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--parch);cursor:pointer;flex-shrink:0;}

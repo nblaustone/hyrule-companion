@@ -1103,6 +1103,18 @@ layout, `REGION_MAPS` = the per-region coords.
   geometry/animation state sampled there is garbage. To verify animated UI: prove lifecycle with state gates +
   in-context polls, and for the screenshot freeze the moment (patch the auto-finish setTimeout, then
   `getAnimations().forEach(a => a.finish())` to jump to the composed end frame) — the SCREENSHOT is ground truth.**
+- **v27.7 — the music mini-bar is dismissible (DONE, 2026-07-12).** Owner: the persistent Jukebox mini-bar (docked
+  above the tab bar) was always there and stealing space — "click it away and back easily, or swipe it aside." Added
+  to `MiniPlayer`: a **✕ dismiss** (divided off from the transport), **swipe-to-hide** (horizontal pointer-drag on
+  the whole bar — follows the finger, dismisses past 80px, snaps back under; we only capture the pointer after ~8px
+  of *horizontal* travel so a tap on prev/play/next stays a real click and vertical scroll passes through via
+  `touch-action:pan-y`), and a **collapsed restore handle** (spinning `TrackArt` + up-chevron pill, bottom-right; one
+  tap restores). New state `miniHidden` + persisted **`hyrule:minihidden`** (global; hydrated in the music-load IIFE,
+  persisted gated on `musicLoaded` — the v27.1 rule: gate a persist effect on the SAME subsystem's load-done flag).
+  `showMini` split into `hasMusic`→full-bar/handle; `.app.has-handle` reclaims the width (~26px vs 78px). Verified
+  in-browser (✕/swipe/snap-back/restore, play-tap not hijacked, body-tap opens player, survives reload, 0 console
+  errors, offline-clean, 26/26 guardrails). This is a Jukebox (v27) polish — deliberately NOT the planned v29.1
+  scan-line transitions (that slot stays open).
 - **Biggest remaining CONTENT build: NONE.** Every game is at its game-appropriate parity. Open-ended arcs:
   **(a)** the Living/Thinking Slate (v18 atmosphere shipped; AI oracle + 3D map/galaxy + generative Chronicle
   queued) and **(b) Lore** era-chapters for the newer games (needs the writers'-room workflow + the no-AI-slop bar —
